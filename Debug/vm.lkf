@@ -53,11 +53,13 @@ crtsi0.sm8
 Debug\stm8s_clk.o
 Debug\stm8s_gpio.o
 Debug\stm8s_tim4.o
+Debug\stm8s_uart1.o
 Debug\main.o
 Debug\stm8s_it.o
 Debug\user_buzzer.o
 Debug\user_led.o
 Debug\user_timer.o
+Debug\user_uart.o
 #<END OBJECT_FILES>
 
 

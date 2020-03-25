@@ -53,11 +53,13 @@ crtsi0.sm8
 Release\stm8s_clk.o
 Release\stm8s_gpio.o
 Release\stm8s_tim4.o
+Release\stm8s_uart1.o
 Release\main.o
 Release\stm8s_it.o
 Release\user_buzzer.o
 Release\user_led.o
 Release\user_timer.o
+Release\user_uart.o
 #<END OBJECT_FILES>
 
 
