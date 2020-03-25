@@ -16,5 +16,6 @@
 #endif /* _RAISONANCE_ */
 
 void init_uart(void);
+void send_uart(const uint8_t *p);
 
 #endif

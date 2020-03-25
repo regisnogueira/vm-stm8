@@ -10,6 +10,7 @@ ADC1_ALIGN_RIGHT	libraries\inc\stm8s_adc1.h	71;"	enumerator	enum:__anon16
 ADC1_AWCRH_RESET_VALUE	libraries\inc\stm8s.h	353;"	macro
 ADC1_AWCRL_RESET_VALUE	libraries\inc\stm8s.h	354;"	macro
 ADC1_AWDChannelConfig	libraries\inc\stm8s_adc1.h	320;"	prototype	signature:(ADC1_Channel_TypeDef Channel, FunctionalState NewState)
+ADC1_AWDChannelConfig	libraries\src\stm8s_adc1.c	405;"	function	signature:(ADC1_Channel_TypeDef Channel, FunctionalState NewState)
 ADC1_Align_TypeDef	libraries\inc\stm8s_adc1.h	72;"	typedef	typeref:enum:__anon16
 ADC1_BaseAddress	libraries\inc\stm8s.h	2586;"	macro
 ADC1_CHANNEL_0	libraries\inc\stm8s_adc1.h	157;"	enumerator	enum:__anon21
@@ -45,16 +46,23 @@ ADC1_CSR_EOCIE	libraries\inc\stm8s.h	364;"	macro
 ADC1_CSR_RESET_VALUE	libraries\inc\stm8s.h	343;"	macro
 ADC1_Channel_TypeDef	libraries\inc\stm8s_adc1.h	169;"	typedef	typeref:enum:__anon21
 ADC1_ClearFlag	libraries\inc\stm8s_adc1.h	328;"	prototype	signature:(ADC1_Flag_TypeDef Flag)
+ADC1_ClearFlag	libraries\src\stm8s_adc1.c	567;"	function	signature:(ADC1_Flag_TypeDef Flag)
 ADC1_ClearITPendingBit	libraries\inc\stm8s_adc1.h	330;"	prototype	signature:(ADC1_IT_TypeDef ITPendingBit)
+ADC1_ClearITPendingBit	libraries\src\stm8s_adc1.c	662;"	function	signature:(ADC1_IT_TypeDef ITPendingBit)
 ADC1_Cmd	libraries\inc\stm8s_adc1.h	309;"	prototype	signature:(FunctionalState NewState)
+ADC1_Cmd	libraries\src\stm8s_adc1.c	126;"	function	signature:(FunctionalState NewState)
 ADC1_ConvMode_TypeDef	libraries\inc\stm8s_adc1.h	149;"	typedef	typeref:enum:__anon20
 ADC1_ConversionConfig	libraries\inc\stm8s_adc1.h	316;"	prototype	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_Align_TypeDef ADC1_Align)
+ADC1_ConversionConfig	libraries\src\stm8s_adc1.c	286;"	function	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_Align_TypeDef ADC1_Align)
 ADC1_DataBufferCmd	libraries\inc\stm8s_adc1.h	311;"	prototype	signature:(FunctionalState NewState)
+ADC1_DataBufferCmd	libraries\src\stm8s_adc1.c	166;"	function	signature:(FunctionalState NewState)
 ADC1_DeInit	libraries\inc\stm8s_adc1.h	301;"	prototype	signature:(void)
+ADC1_DeInit	libraries\src\stm8s_adc1.c	52;"	function	signature:(void)
 ADC1_EXTTRIG_GPIO	libraries\inc\stm8s_adc1.h	62;"	enumerator	enum:__anon15
 ADC1_EXTTRIG_TIM	libraries\inc\stm8s_adc1.h	61;"	enumerator	enum:__anon15
 ADC1_ExtTrig_TypeDef	libraries\inc\stm8s_adc1.h	63;"	typedef	typeref:enum:__anon15
 ADC1_ExternalTriggerConfig	libraries\inc\stm8s_adc1.h	319;"	prototype	signature:(ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState NewState)
+ADC1_ExternalTriggerConfig	libraries\src\stm8s_adc1.c	325;"	function	signature:(ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState NewState)
 ADC1_FLAG_AWD	libraries\inc\stm8s_adc1.h	104;"	enumerator	enum:__anon18
 ADC1_FLAG_AWS0	libraries\inc\stm8s_adc1.h	105;"	enumerator	enum:__anon18
 ADC1_FLAG_AWS1	libraries\inc\stm8s_adc1.h	106;"	enumerator	enum:__anon18
@@ -71,14 +79,20 @@ ADC1_FLAG_EOC	libraries\inc\stm8s_adc1.h	117;"	enumerator	enum:__anon18
 ADC1_FLAG_OVR	libraries\inc\stm8s_adc1.h	103;"	enumerator	enum:__anon18
 ADC1_Flag_TypeDef	libraries\inc\stm8s_adc1.h	118;"	typedef	typeref:enum:__anon18
 ADC1_GetAWDChannelStatus	libraries\inc\stm8s_adc1.h	326;"	prototype	signature:(ADC1_Channel_TypeDef Channel)
+ADC1_GetAWDChannelStatus	libraries\src\stm8s_adc1.c	502;"	function	signature:(ADC1_Channel_TypeDef Channel)
 ADC1_GetBufferValue	libraries\inc\stm8s_adc1.h	325;"	prototype	signature:(uint8_t Buffer)
+ADC1_GetBufferValue	libraries\src\stm8s_adc1.c	466;"	function	signature:(uint8_t Buffer)
 ADC1_GetConversionValue	libraries\inc\stm8s_adc1.h	322;"	prototype	signature:(void)
+ADC1_GetConversionValue	libraries\src\stm8s_adc1.c	370;"	function	signature:(void)
 ADC1_GetFlagStatus	libraries\inc\stm8s_adc1.h	327;"	prototype	signature:(ADC1_Flag_TypeDef Flag)
+ADC1_GetFlagStatus	libraries\src\stm8s_adc1.c	527;"	function	signature:(ADC1_Flag_TypeDef Flag)
 ADC1_GetITStatus	libraries\inc\stm8s_adc1.h	329;"	prototype	signature:(ADC1_IT_TypeDef ITPendingBit)
+ADC1_GetITStatus	libraries\src\stm8s_adc1.c	616;"	function	signature:(ADC1_IT_TypeDef ITPendingBit)
 ADC1_HTRH_RESET_VALUE	libraries\inc\stm8s.h	350;"	macro
 ADC1_HTRL_RESET_VALUE	libraries\inc\stm8s.h	349;"	macro
 ADC1_IRQHandler	stm8s_it.h	108;"	prototype	signature:(void)
 ADC1_ITConfig	libraries\inc\stm8s_adc1.h	312;"	prototype	signature:(ADC1_IT_TypeDef ADC1_IT, FunctionalState NewState)
+ADC1_ITConfig	libraries\src\stm8s_adc1.c	190;"	function	signature:(ADC1_IT_TypeDef ADC1_IT, FunctionalState NewState)
 ADC1_IT_AWD	libraries\inc\stm8s_adc1.h	81;"	enumerator	enum:__anon17
 ADC1_IT_AWDIE	libraries\inc\stm8s_adc1.h	79;"	enumerator	enum:__anon17
 ADC1_IT_AWS0	libraries\inc\stm8s_adc1.h	82;"	enumerator	enum:__anon17
@@ -96,6 +110,7 @@ ADC1_IT_EOC	libraries\inc\stm8s_adc1.h	94;"	enumerator	enum:__anon17
 ADC1_IT_EOCIE	libraries\inc\stm8s_adc1.h	80;"	enumerator	enum:__anon17
 ADC1_IT_TypeDef	libraries\inc\stm8s_adc1.h	96;"	typedef	typeref:enum:__anon17
 ADC1_Init	libraries\inc\stm8s_adc1.h	302;"	prototype	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_PresSel_TypeDef ADC1_PrescalerSelection, ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState ADC1_ExtTriggerState, ADC1_Align_TypeDef ADC1_Align, ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState ADC1_SchmittTriggerState)
+ADC1_Init	libraries\src\stm8s_adc1.c	88;"	function	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_PresSel_TypeDef ADC1_PrescalerSelection, ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState ADC1_ExtTriggerState, ADC1_Align_TypeDef ADC1_Align, ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState ADC1_SchmittTriggerState)
 ADC1_LTRH_RESET_VALUE	libraries\inc\stm8s.h	351;"	macro
 ADC1_LTRL_RESET_VALUE	libraries\inc\stm8s.h	352;"	macro
 ADC1_PRESSEL_FCPU_D10	libraries\inc\stm8s_adc1.h	51;"	enumerator	enum:__anon14
@@ -108,6 +123,7 @@ ADC1_PRESSEL_FCPU_D6	libraries\inc\stm8s_adc1.h	49;"	enumerator	enum:__anon14
 ADC1_PRESSEL_FCPU_D8	libraries\inc\stm8s_adc1.h	50;"	enumerator	enum:__anon14
 ADC1_PresSel_TypeDef	libraries\inc\stm8s_adc1.h	54;"	typedef	typeref:enum:__anon14
 ADC1_PrescalerConfig	libraries\inc\stm8s_adc1.h	313;"	prototype	signature:(ADC1_PresSel_TypeDef ADC1_Prescaler)
+ADC1_PrescalerConfig	libraries\src\stm8s_adc1.c	214;"	function	signature:(ADC1_PresSel_TypeDef ADC1_Prescaler)
 ADC1_SCHMITTTRIG_ALL	libraries\inc\stm8s_adc1.h	138;"	enumerator	enum:__anon19
 ADC1_SCHMITTTRIG_CHANNEL0	libraries\inc\stm8s_adc1.h	126;"	enumerator	enum:__anon19
 ADC1_SCHMITTTRIG_CHANNEL1	libraries\inc\stm8s_adc1.h	127;"	enumerator	enum:__anon19
@@ -121,11 +137,16 @@ ADC1_SCHMITTTRIG_CHANNEL7	libraries\inc\stm8s_adc1.h	133;"	enumerator	enum:__ano
 ADC1_SCHMITTTRIG_CHANNEL8	libraries\inc\stm8s_adc1.h	134;"	enumerator	enum:__anon19
 ADC1_SCHMITTTRIG_CHANNEL9	libraries\inc\stm8s_adc1.h	135;"	enumerator	enum:__anon19
 ADC1_ScanModeCmd	libraries\inc\stm8s_adc1.h	310;"	prototype	signature:(FunctionalState NewState)
+ADC1_ScanModeCmd	libraries\src\stm8s_adc1.c	146;"	function	signature:(FunctionalState NewState)
 ADC1_SchmittTrigg_TypeDef	libraries\inc\stm8s_adc1.h	139;"	typedef	typeref:enum:__anon19
 ADC1_SchmittTriggerConfig	libraries\inc\stm8s_adc1.h	314;"	prototype	signature:(ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState NewState)
+ADC1_SchmittTriggerConfig	libraries\src\stm8s_adc1.c	233;"	function	signature:(ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState NewState)
 ADC1_SetHighThreshold	libraries\inc\stm8s_adc1.h	323;"	prototype	signature:(uint16_t Threshold)
+ADC1_SetHighThreshold	libraries\src\stm8s_adc1.c	441;"	function	signature:(uint16_t Threshold)
 ADC1_SetLowThreshold	libraries\inc\stm8s_adc1.h	324;"	prototype	signature:(uint16_t Threshold)
+ADC1_SetLowThreshold	libraries\src\stm8s_adc1.c	453;"	function	signature:(uint16_t Threshold)
 ADC1_StartConversion	libraries\inc\stm8s_adc1.h	321;"	prototype	signature:(void)
+ADC1_StartConversion	libraries\src\stm8s_adc1.c	358;"	function	signature:(void)
 ADC1_TDRH_RESET_VALUE	libraries\inc\stm8s.h	348;"	macro
 ADC1_TDRL_RESET_VALUE	libraries\inc\stm8s.h	347;"	macro
 ADC1_TypeDef	libraries\inc\stm8s.h	338;"	typedef	typeref:struct:ADC1_struct
@@ -234,7 +255,6 @@ BRR2	libraries\inc\stm8s.h	1977;"	member	struct:UART3_struct
 BRR2	libraries\inc\stm8s.h	2069;"	member	struct:UART4_struct
 BTR1	libraries\inc\stm8s.h	2297;"	member	struct:__anon5::__anon6::__anon12
 BTR2	libraries\inc\stm8s.h	2298;"	member	struct:__anon5::__anon6::__anon12
-BUFSIZ	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	26;"	macro
 BUZZER	..\corona\user\user_buzzer.h	33;"	typedef	typeref:struct:_BUZZER
 BUZ_PIN_NUM	..\corona\user\user_buzzer.h	14;"	macro
 BUZ_PORT_NUM	..\corona\user\user_buzzer.h	13;"	macro
@@ -751,7 +771,6 @@ EGR	libraries\inc\stm8s.h	958;"	member	struct:TIM3_struct
 EIER	libraries\inc\stm8s.h	2294;"	member	struct:__anon5::__anon6::__anon12
 ENABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon3
 ENABLE_BUZ	..\corona\user\user_buzzer.h	6;"	macro
-EOF	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	27;"	macro
 ERROR	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon4
 ESR	libraries\inc\stm8s.h	2293;"	member	struct:__anon5::__anon6::__anon12
 ETR	libraries\inc\stm8s.h	617;"	member	struct:TIM1_struct
@@ -853,6 +872,7 @@ FLASH_BLOCK_SIZE	libraries\inc\stm8s_flash.h	49;"	macro
 FLASH_BLOCK_SIZE	libraries\inc\stm8s_flash.h	58;"	macro
 FLASH_BLOCK_SIZE	libraries\inc\stm8s_flash.h	67;"	macro
 FLASH_BaseAddress	libraries\inc\stm8s.h	2566;"	macro
+FLASH_CLEAR_BYTE	libraries\src\stm8s_flash.c	69;"	macro	file:
 FLASH_CR1_AHALT	libraries\inc\stm8s.h	1550;"	macro
 FLASH_CR1_FIX	libraries\inc\stm8s.h	1552;"	macro
 FLASH_CR1_HALT	libraries\inc\stm8s.h	1549;"	macro
@@ -876,8 +896,11 @@ FLASH_DATA_START_PHYSICAL_ADDRESS	libraries\inc\stm8s_flash.h	64;"	macro
 FLASH_DUKR_DUK	libraries\inc\stm8s.h	1574;"	macro
 FLASH_DUKR_RESET_VALUE	libraries\inc\stm8s.h	1539;"	macro
 FLASH_DeInit	libraries\inc\stm8s_flash.h	258;"	prototype	signature:(void)
+FLASH_DeInit	libraries\src\stm8s_flash.c	126;"	function	signature:(void)
 FLASH_EraseByte	libraries\inc\stm8s_flash.h	260;"	prototype	signature:(uint32_t Address)
+FLASH_EraseByte	libraries\src\stm8s_flash.c	164;"	function	signature:(uint32_t Address)
 FLASH_EraseOptionByte	libraries\inc\stm8s_flash.h	266;"	prototype	signature:(uint16_t Address)
+FLASH_EraseOptionByte	libraries\src\stm8s_flash.c	270;"	function	signature:(uint16_t Address)
 FLASH_FLAG_DUL	libraries\inc\stm8s_flash.h	144;"	enumerator	enum:__anon43
 FLASH_FLAG_EOP	libraries\inc\stm8s_flash.h	145;"	enumerator	enum:__anon43
 FLASH_FLAG_HVOFF	libraries\inc\stm8s_flash.h	142;"	enumerator	enum:__anon43
@@ -885,9 +908,13 @@ FLASH_FLAG_PUL	libraries\inc\stm8s_flash.h	146;"	enumerator	enum:__anon43
 FLASH_FLAG_WR_PG_DIS	libraries\inc\stm8s_flash.h	147;"	enumerator	enum:__anon43
 FLASH_Flag_TypeDef	libraries\inc\stm8s_flash.h	148;"	typedef	typeref:enum:__anon43
 FLASH_GetBootSize	libraries\inc\stm8s_flash.h	271;"	prototype	signature:(void)
+FLASH_GetBootSize	libraries\src\stm8s_flash.c	392;"	function	signature:(void)
 FLASH_GetFlagStatus	libraries\inc\stm8s_flash.h	272;"	prototype	signature:(FLASH_Flag_TypeDef FLASH_FLAG)
+FLASH_GetFlagStatus	libraries\src\stm8s_flash.c	417;"	function	signature:(FLASH_Flag_TypeDef FLASH_FLAG)
 FLASH_GetLowPowerMode	libraries\inc\stm8s_flash.h	269;"	prototype	signature:(void)
+FLASH_GetLowPowerMode	libraries\src\stm8s_flash.c	372;"	function	signature:(void)
 FLASH_GetProgrammingTime	libraries\inc\stm8s_flash.h	270;"	prototype	signature:(void)
+FLASH_GetProgrammingTime	libraries\src\stm8s_flash.c	382;"	function	signature:(void)
 FLASH_IAPSR_DUL	libraries\inc\stm8s.h	1567;"	macro
 FLASH_IAPSR_EOP	libraries\inc\stm8s.h	1568;"	macro
 FLASH_IAPSR_HVOFF	libraries\inc\stm8s.h	1566;"	macro
@@ -895,12 +922,14 @@ FLASH_IAPSR_PUL	libraries\inc\stm8s.h	1569;"	macro
 FLASH_IAPSR_RESET_VALUE	libraries\inc\stm8s.h	1537;"	macro
 FLASH_IAPSR_WR_PG_DIS	libraries\inc\stm8s.h	1570;"	macro
 FLASH_ITConfig	libraries\inc\stm8s_flash.h	259;"	prototype	signature:(FunctionalState NewState)
+FLASH_ITConfig	libraries\src\stm8s_flash.c	142;"	function	signature:(FunctionalState NewState)
 FLASH_LPMODE_POWERDOWN	libraries\inc\stm8s_flash.h	115;"	enumerator	enum:__anon41
 FLASH_LPMODE_POWERDOWN_STANDBY	libraries\inc\stm8s_flash.h	117;"	enumerator	enum:__anon41
 FLASH_LPMODE_STANDBY	libraries\inc\stm8s_flash.h	116;"	enumerator	enum:__anon41
 FLASH_LPMODE_STANDBY_POWERDOWN	libraries\inc\stm8s_flash.h	118;"	enumerator	enum:__anon41
 FLASH_LPMode_TypeDef	libraries\inc\stm8s_flash.h	120;"	typedef	typeref:enum:__anon41
 FLASH_Lock	libraries\inc\stm8s_flash.h	257;"	prototype	signature:(FLASH_MemType_TypeDef FLASH_MemType)
+FLASH_Lock	libraries\src\stm8s_flash.c	112;"	function	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_MEMTYPE_DATA	libraries\inc\stm8s_flash.h	92;"	enumerator	enum:__anon38
 FLASH_MEMTYPE_PROG	libraries\inc\stm8s_flash.h	91;"	enumerator	enum:__anon38
 FLASH_MemType_TypeDef	libraries\inc\stm8s_flash.h	93;"	typedef	typeref:enum:__anon38
@@ -925,24 +954,34 @@ FLASH_PROG_START_PHYSICAL_ADDRESS	libraries\inc\stm8s_flash.h	41;"	macro
 FLASH_PUKR_PUK	libraries\inc\stm8s.h	1572;"	macro
 FLASH_PUKR_RESET_VALUE	libraries\inc\stm8s.h	1538;"	macro
 FLASH_ProgramByte	libraries\inc\stm8s_flash.h	261;"	prototype	signature:(uint32_t Address, uint8_t Data)
+FLASH_ProgramByte	libraries\src\stm8s_flash.c	181;"	function	signature:(uint32_t Address, uint8_t Data)
 FLASH_ProgramMode_TypeDef	libraries\inc\stm8s_flash.h	101;"	typedef	typeref:enum:__anon39
 FLASH_ProgramOptionByte	libraries\inc\stm8s_flash.h	265;"	prototype	signature:(uint16_t Address, uint8_t Data)
+FLASH_ProgramOptionByte	libraries\src\stm8s_flash.c	237;"	function	signature:(uint16_t Address, uint8_t Data)
 FLASH_ProgramTime_TypeDef	libraries\inc\stm8s_flash.h	109;"	typedef	typeref:enum:__anon40
 FLASH_ProgramWord	libraries\inc\stm8s_flash.h	263;"	prototype	signature:(uint32_t Address, uint32_t Data)
+FLASH_ProgramWord	libraries\src\stm8s_flash.c	212;"	function	signature:(uint32_t Address, uint32_t Data)
 FLASH_RASS_KEY1	libraries\inc\stm8s_flash.h	70;"	macro
 FLASH_RASS_KEY2	libraries\inc\stm8s_flash.h	71;"	macro
 FLASH_ReadByte	libraries\inc\stm8s_flash.h	262;"	prototype	signature:(uint32_t Address)
+FLASH_ReadByte	libraries\src\stm8s_flash.c	195;"	function	signature:(uint32_t Address)
 FLASH_ReadOptionByte	libraries\inc\stm8s_flash.h	264;"	prototype	signature:(uint16_t Address)
+FLASH_ReadOptionByte	libraries\src\stm8s_flash.c	303;"	function	signature:(uint16_t Address)
+FLASH_SET_BYTE	libraries\src\stm8s_flash.c	70;"	macro	file:
 FLASH_STATUS_END_HIGH_VOLTAGE	libraries\inc\stm8s_flash.h	128;"	enumerator	enum:__anon42
 FLASH_STATUS_SUCCESSFUL_OPERATION	libraries\inc\stm8s_flash.h	130;"	enumerator	enum:__anon42
 FLASH_STATUS_TIMEOUT	libraries\inc\stm8s_flash.h	131;"	enumerator	enum:__anon42
 FLASH_STATUS_WRITE_PROTECTION_ERROR	libraries\inc\stm8s_flash.h	132;"	enumerator	enum:__anon42
 FLASH_SetLowPowerMode	libraries\inc\stm8s_flash.h	267;"	prototype	signature:(FLASH_LPMode_TypeDef FLASH_LPMode)
+FLASH_SetLowPowerMode	libraries\src\stm8s_flash.c	340;"	function	signature:(FLASH_LPMode_TypeDef FLASH_LPMode)
 FLASH_SetProgrammingTime	libraries\inc\stm8s_flash.h	268;"	prototype	signature:(FLASH_ProgramTime_TypeDef FLASH_ProgTime)
+FLASH_SetProgrammingTime	libraries\src\stm8s_flash.c	358;"	function	signature:(FLASH_ProgramTime_TypeDef FLASH_ProgTime)
 FLASH_Status_TypeDef	libraries\inc\stm8s_flash.h	133;"	typedef	typeref:enum:__anon42
 FLASH_TypeDef	libraries\inc\stm8s.h	1528;"	typedef	typeref:struct:FLASH_struct
 FLASH_Unlock	libraries\inc\stm8s_flash.h	256;"	prototype	signature:(FLASH_MemType_TypeDef FLASH_MemType)
+FLASH_Unlock	libraries\src\stm8s_flash.c	87;"	function	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_WaitForLastOperation	libraries\inc\stm8s_flash.h	291;"	prototype	signature:(FLASH_MemType_TypeDef FLASH_MemType)
+FLASH_WaitForLastOperation	libraries\src\stm8s_flash.c	549;"	function	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_struct	libraries\inc\stm8s.h	1514;"	struct
 FMR1	libraries\inc\stm8s.h	2300;"	member	struct:__anon5::__anon6::__anon12
 FMR2	libraries\inc\stm8s.h	2301;"	member	struct:__anon5::__anon6::__anon12
@@ -1221,6 +1260,8 @@ IN_RAM	libraries\inc\stm8s.h	171;"	macro
 IN_RAM	libraries\inc\stm8s.h	173;"	macro
 IN_RAM	libraries\inc\stm8s.h	175;"	macro
 IN_RAM	libraries\inc\stm8s.h	178;"	macro
+IN_RAM	libraries\src\stm8s_flash.c	599;"	function	signature:(void FLASH_EraseBlock(uint16_t BlockNum, FLASH_MemType_TypeDef FLASH_MemType))
+IN_RAM	libraries\src\stm8s_flash.c	656;"	function	signature:(void FLASH_ProgramBlock(uint16_t BlockNum, FLASH_MemType_TypeDef FLASH_MemType, FLASH_ProgramMode_TypeDef FLASH_ProgMode, uint8_t *Buffer))
 ISPR1	libraries\inc\stm8s.h	1437;"	member	struct:ITC_struct
 ISPR2	libraries\inc\stm8s.h	1438;"	member	struct:ITC_struct
 ISPR3	libraries\inc\stm8s.h	1439;"	member	struct:ITC_struct
@@ -1534,13 +1575,13 @@ NOPT3	libraries\inc\stm8s.h	1592;"	member	struct:OPT_struct
 NOPT4	libraries\inc\stm8s.h	1594;"	member	struct:OPT_struct
 NOPT5	libraries\inc\stm8s.h	1596;"	member	struct:OPT_struct
 NOPT7	libraries\inc\stm8s.h	1600;"	member	struct:OPT_struct
-NULL	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	30;"	macro
 NonHandledInterrupt	stm8_interrupt_vector.c	12;"	function	signature:(void)
 NonHandledInterrupt	stm8s_it.h	41;"	prototype	signature:(void)
 OARH	libraries\inc\stm8s.h	1334;"	member	struct:I2C_struct
 OARL	libraries\inc\stm8s.h	1333;"	member	struct:I2C_struct
 ODR	libraries\inc\stm8s.h	267;"	member	struct:GPIO_struct
 OISR	libraries\inc\stm8s.h	645;"	member	struct:TIM1_struct
+OPERATION_TIMEOUT	libraries\src\stm8s_flash.c	71;"	macro	file:
 OPT	libraries\inc\stm8s.h	2625;"	macro
 OPT0	libraries\inc\stm8s.h	1586;"	member	struct:OPT_struct
 OPT1	libraries\inc\stm8s.h	1587;"	member	struct:OPT_struct
@@ -2955,8 +2996,6 @@ __I	libraries\inc\stm8s.h	206;"	macro
 __IO	libraries\inc\stm8s.h	208;"	macro
 __MODS0__	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h	11;"	macro
 __O	libraries\inc\stm8s.h	207;"	macro
-__SIZE_T__	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	9;"	macro
-__STDIO__	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	6;"	macro
 __STM8S_ADC1_H	libraries\inc\stm8s_adc1.h	29;"	macro
 __STM8S_AWU_H	libraries\inc\stm8s_awu.h	30;"	macro
 __STM8S_BEEP_H	libraries\inc\stm8s_beep.h	31;"	macro
@@ -2982,7 +3021,9 @@ __STM8S_TIM2_H	libraries\inc\stm8s_tim2.h	30;"	macro
 __STM8S_TIM4_H	libraries\inc\stm8s_tim4.h	30;"	macro
 __STM8S_UART1_H	libraries\inc\stm8s_uart1.h	30;"	macro
 __STM8S_WWDG_H	libraries\inc\stm8s_wwdg.h	30;"	macro
+__USER_ADC_H__	user\user_adc.h	2;"	macro
 __USER_BUZZER_H__	..\corona\user\user_buzzer.h	2;"	macro
+__USER_EEPROM_H__	user\user_eeprom.h	2;"	macro
 __USER_LED_H__	..\corona\user\user_led.h	2;"	macro
 __USER_TIMER_H__	..\corona\user\user_timer.h	2;"	macro
 __USER_UART_H__	user\user_uart.h	2;"	macro
@@ -3006,8 +3047,6 @@ disableInterrupts	libraries\inc\stm8s.h	2736;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2716;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2725;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2735;"	macro
-getchar	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	15;"	prototype	signature:(void)
-gets	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	16;"	prototype	signature:(char *s)
 gpio_clr	..\corona\user\user_buzzer.h	17;"	macro
 gpio_clr	..\corona\user\user_led.h	10;"	macro
 gpio_dir_out	..\corona\user\user_buzzer.h	18;"	macro
@@ -3017,8 +3056,12 @@ gpio_set	..\corona\user\user_led.h	9;"	macro
 halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
+init_adc	user\user_adc.c	3;"	function	signature:(void)
+init_adc	user\user_adc.h	6;"	prototype	signature:(void)
 init_buzzer	..\corona\user\user_buzzer.h	35;"	prototype	signature:(void)
 init_buzzer	user\user_buzzer.c	7;"	function	signature:(void)
+init_eeprom	user\user_eeprom.c	3;"	function	signature:(void)
+init_eeprom	user\user_eeprom.h	6;"	prototype	signature:()
 init_led	..\corona\user\user_led.h	37;"	prototype	signature:(void)
 init_led	user\user_led.c	7;"	function	signature:(void)
 init_timer	..\corona\user\user_timer.h	6;"	prototype	signature:(void)
@@ -3043,16 +3086,14 @@ nop	libraries\inc\stm8s.h	2729;"	macro
 nop	libraries\inc\stm8s.h	2739;"	macro
 pool_tick	..\corona\user\user_timer.h	7;"	prototype	signature:(void)
 pool_tick	user\user_timer.c	13;"	function	signature:(void)
-printf	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	17;"	prototype	signature:(char *format, ...)
-putchar	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	18;"	prototype	signature:(char c)
-puts	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	19;"	prototype	signature:(char *s)
 rim	libraries\inc\stm8s.h	2718;"	macro
 rim	libraries\inc\stm8s.h	2727;"	macro
 rim	libraries\inc\stm8s.h	2737;"	macro
 s16	libraries\inc\stm8s.h	223;"	typedef
 s32	libraries\inc\stm8s.h	222;"	typedef
 s8	libraries\inc\stm8s.h	224;"	typedef
-scanf	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	20;"	prototype	signature:(char *format, ...)
+send_uart	user\user_uart.c	20;"	function	signature:(const uint8_t *p)
+send_uart	user\user_uart.h	19;"	prototype	signature:(const uint8_t *p)
 set_buzzer	..\corona\user\user_buzzer.h	36;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.c	21;"	function	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_led	..\corona\user\user_led.h	39;"	prototype	signature:(uint8_t ledx, uint16_t speed)
@@ -3060,10 +3101,7 @@ set_led	user\user_led.c	25;"	function	signature:(uint8_t ledx, uint16_t speed)
 sim	libraries\inc\stm8s.h	2719;"	macro
 sim	libraries\inc\stm8s.h	2728;"	macro
 sim	libraries\inc\stm8s.h	2738;"	macro
-size_t	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	10;"	typedef
 speed	..\corona\user\user_led.h	34;"	member	struct:_LED_STATE
-sprintf	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	22;"	prototype	signature:(char *s, char *format, ...)
-sscanf	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\stdio.h	21;"	prototype	signature:(char *s, char *format, ...)
 task_buzzer	..\corona\user\user_buzzer.h	37;"	prototype	signature:(void)
 task_buzzer	user\user_buzzer.c	29;"	function	signature:(void)
 task_led	..\corona\user\user_led.h	38;"	prototype	signature:(void)

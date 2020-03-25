@@ -12,6 +12,6 @@ void main(void)
     init_uart();
 
     for (;;) {
-        delay(1000);
+
     }
 }

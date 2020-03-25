@@ -83,10 +83,10 @@ String.100.0=STM8S103F2P
 
 [Root.Config.0.Settings.3]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt-no -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,24,23,31,25
+String.6.0=2020,3,25,8,54,17
 
 [Root.Config.0.Settings.4]
 String.2.0=Assembling $(InputFile)...
@@ -105,8 +105,8 @@ String.2.0=Running Linker
 String.3.0=clnk $(ToolsetLibOpts) -o $(OutputPath)$(TargetSName).sm8 -fakeInteger -fakeOutFile$(ProjectSFile).elf -fakeRunConv -fakeStartupcrtsi0.sm8 -fakeSemiAutoGen -fakeVectFilestm8_interrupt_vector.c -fakeVectAddr0x8000 -customMapFile -customMapFile-m$(OutputPath)$(TargetSName).map -customMapAddress -customCfgFile$(OutputPath)$(TargetSName).lkf 
 String.3.1=cvdwarf $(OutputPath)$(TargetSName).sm8
 String.4.0=$(OutputPath)$(TargetFName)
-String.5.0=$(OutputPath)$(ProjectSFile).elf $(OutputPath)$(TargetSName).map
-String.6.0=2020,3,24,23,31,25
+String.5.0=
+String.6.0=2020,3,25,8,54,17
 String.100.0=
 String.101.0=crtsi.st7
 String.102.0=+seg .const -b 0x8080 -m 0xf80 -n .const -it
@@ -220,7 +220,7 @@ String.6.0=2020,3,24,13,4,26
 [Root.Libraries]
 ElemType=Folder
 PathName=Libraries
-Child=Root.Libraries.libraries\src\stm8s_clk.c
+Child=Root.Libraries.libraries\src\stm8s_adc1.c
 Next=Root.Source Files
 Config.0=Root.Libraries.Config.0
 Config.1=Root.Libraries.Config.1
@@ -245,10 +245,10 @@ Int.1=0
 
 [Root.Libraries.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt-no -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,24,23,31,25
+String.6.0=2020,3,25,8,54,17
 
 [Root.Libraries.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -291,9 +291,19 @@ String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
 
+[Root.Libraries.libraries\src\stm8s_adc1.c]
+ElemType=File
+PathName=libraries\src\stm8s_adc1.c
+Next=Root.Libraries.libraries\src\stm8s_clk.c
+
 [Root.Libraries.libraries\src\stm8s_clk.c]
 ElemType=File
 PathName=libraries\src\stm8s_clk.c
+Next=Root.Libraries.libraries\src\stm8s_flash.c
+
+[Root.Libraries.libraries\src\stm8s_flash.c]
+ElemType=File
+PathName=libraries\src\stm8s_flash.c
 Next=Root.Libraries.libraries\src\stm8s_gpio.c
 
 [Root.Libraries.libraries\src\stm8s_gpio.c]
@@ -304,6 +314,11 @@ Next=Root.Libraries.libraries\src\stm8s_tim4.c
 [Root.Libraries.libraries\src\stm8s_tim4.c]
 ElemType=File
 PathName=libraries\src\stm8s_tim4.c
+Next=Root.Libraries.libraries\src\stm8s_uart1.c
+
+[Root.Libraries.libraries\src\stm8s_uart1.c]
+ElemType=File
+PathName=libraries\src\stm8s_uart1.c
 
 [Root.Source Files]
 ElemType=Folder
@@ -333,10 +348,10 @@ Int.1=0
 
 [Root.Source Files.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt-no -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,24,23,31,25
+String.6.0=2020,3,25,8,54,17
 
 [Root.Source Files.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -420,10 +435,10 @@ Int.1=0
 
 [Root.Include Files.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt-no -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,24,23,31,25
+String.6.0=2020,3,25,8,54,17
 
 [Root.Include Files.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -469,7 +484,8 @@ String.6.0=2020,3,24,13,4,26
 [Root.User]
 ElemType=Folder
 PathName=User
-Child=Root.User.user\user_buzzer.c
+Child=Root.User.user\user_adc.c
+Next=Root.motor
 Config.0=Root.User.Config.0
 Config.1=Root.User.Config.1
 
@@ -493,10 +509,10 @@ Int.1=0
 
 [Root.User.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
-String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt-no -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,24,23,31,25
+String.6.0=2020,3,25,8,54,17
 
 [Root.User.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -539,9 +555,19 @@ String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
 
+[Root.User.user\user_adc.c]
+ElemType=File
+PathName=user\user_adc.c
+Next=Root.User.user\user_buzzer.c
+
 [Root.User.user\user_buzzer.c]
 ElemType=File
 PathName=user\user_buzzer.c
+Next=Root.User.user\user_eeprom.c
+
+[Root.User.user\user_eeprom.c]
+ElemType=File
+PathName=user\user_eeprom.c
 Next=Root.User.user\user_led.c
 
 [Root.User.user\user_led.c]
@@ -552,3 +578,80 @@ Next=Root.User.user\user_timer.c
 [Root.User.user\user_timer.c]
 ElemType=File
 PathName=user\user_timer.c
+Next=Root.User.user\user_uart.c
+
+[Root.User.user\user_uart.c]
+ElemType=File
+PathName=user\user_uart.c
+
+[Root.motor]
+ElemType=Folder
+PathName=motor
+Config.0=Root.motor.Config.0
+Config.1=Root.motor.Config.1
+
+[Root.motor.Config.0]
+Settings.0.0=Root.motor.Config.0.Settings.0
+Settings.0.1=Root.motor.Config.0.Settings.1
+Settings.0.2=Root.motor.Config.0.Settings.2
+Settings.0.3=Root.motor.Config.0.Settings.3
+
+[Root.motor.Config.1]
+Settings.1.0=Root.motor.Config.1.Settings.0
+Settings.1.1=Root.motor.Config.1.Settings.1
+Settings.1.2=Root.motor.Config.1.Settings.2
+Settings.1.3=Root.motor.Config.1.Settings.3
+
+[Root.motor.Config.0.Settings.0]
+String.6.0=2020,3,25,9,0,8
+String.8.0=Debug
+Int.0=0
+Int.1=0
+
+[Root.motor.Config.0.Settings.1]
+String.2.0=Compiling $(InputFile)...
+String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
+String.5.0=$(IntermPath)$(InputName).ls
+String.6.0=2020,3,25,8,54,17
+
+[Root.motor.Config.0.Settings.2]
+String.2.0=Assembling $(InputFile)...
+String.3.0=castm8 -xx -l $(ToolsetIncOpts) -o$(IntermPath)$(InputName).$(ObjectExt) $(InputFile)
+String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
+String.5.0=$(IntermPath)$(InputName).ls
+String.6.0=2020,3,24,13,4,26
+
+[Root.motor.Config.0.Settings.3]
+String.2.0=Performing Custom Build on $(InputFile)
+String.3.0=
+String.4.0=
+String.5.0=
+String.6.0=2020,3,24,13,4,26
+
+[Root.motor.Config.1.Settings.0]
+String.6.0=2020,3,25,9,0,8
+String.8.0=Release
+Int.0=0
+Int.1=0
+
+[Root.motor.Config.1.Settings.1]
+String.2.0=Compiling $(InputFile)...
+String.3.0=cxstm8 +mods0 -customC-pp -pp $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
+String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
+String.5.0=$(IntermPath)$(InputName).ls
+String.6.0=2020,3,24,13,28,21
+
+[Root.motor.Config.1.Settings.2]
+String.2.0=Assembling $(InputFile)...
+String.3.0=castm8 $(ToolsetIncOpts) -o$(IntermPath)$(InputName).$(ObjectExt) $(InputFile)
+String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
+String.5.0=$(IntermPath)$(InputName).ls
+String.6.0=2020,3,24,13,4,26
+
+[Root.motor.Config.1.Settings.3]
+String.2.0=Performing Custom Build on $(InputFile)
+String.3.0=
+String.4.0=
+String.5.0=
+String.6.0=2020,3,24,13,4,26
