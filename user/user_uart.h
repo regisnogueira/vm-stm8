@@ -1,6 +1,7 @@
 #ifndef __USER_UART_H__
 #define __USER_UART_H__
 
+//#include <stdio.h>
 #include "stm8s.h"
 
 #ifdef _RAISONANCE_
@@ -13,5 +14,7 @@
 #define PUTCHAR_PROTOTYPE int putchar (int c)
 #define GETCHAR_PROTOTYPE int getchar (void)
 #endif /* _RAISONANCE_ */
+
+void init_uart(void);
 
 #endif

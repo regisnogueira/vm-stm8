@@ -971,9 +971,9 @@ Filter45	libraries\inc\stm8s.h	2289;"	member	union:__anon5::__anon6	typeref:stru
 FlagStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon2
 FunctionalState	libraries\inc\stm8s.h	235;"	typedef	typeref:enum:__anon3
 GCR	libraries\inc\stm8s.h	2524;"	member	struct:CFG_struct
-GETCHAR_PROTOTYPE	user\user_uart.h	11;"	macro
-GETCHAR_PROTOTYPE	user\user_uart.h	14;"	macro
-GETCHAR_PROTOTYPE	user\user_uart.h	8;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	12;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	15;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	9;"	macro
 GPIOA	libraries\inc\stm8s.h	2627;"	macro
 GPIOA_BaseAddress	libraries\inc\stm8s.h	2557;"	macro
 GPIOB	libraries\inc\stm8s.h	2629;"	macro
@@ -1569,9 +1569,9 @@ PSCRH	libraries\inc\stm8s.h	630;"	member	struct:TIM1_struct
 PSCRL	libraries\inc\stm8s.h	631;"	member	struct:TIM1_struct
 PSR	libraries\inc\stm8s.h	2183;"	member	struct:__anon5
 PUKR	libraries\inc\stm8s.h	1524;"	member	struct:FLASH_struct
-PUTCHAR_PROTOTYPE	user\user_uart.h	10;"	macro
-PUTCHAR_PROTOTYPE	user\user_uart.h	13;"	macro
-PUTCHAR_PROTOTYPE	user\user_uart.h	7;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	11;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	14;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	8;"	macro
 Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon5	typeref:union:__anon5::__anon6
 PointerAttr	libraries\inc\stm8s.h	156;"	macro
 PointerAttr	libraries\inc\stm8s.h	160;"	macro
@@ -3023,7 +3023,8 @@ init_led	..\corona\user\user_led.h	37;"	prototype	signature:(void)
 init_led	user\user_led.c	7;"	function	signature:(void)
 init_timer	..\corona\user\user_timer.h	6;"	prototype	signature:(void)
 init_timer	user\user_timer.c	19;"	function	signature:(void)
-init_uart	user\user_uart.c	4;"	function	signature:(void)
+init_uart	user\user_uart.c	3;"	function	signature:(void)
+init_uart	user\user_uart.h	18;"	prototype	signature:(void)
 int16_t	libraries\inc\stm8s.h	212;"	typedef
 int32_t	libraries\inc\stm8s.h	213;"	typedef
 int8_t	libraries\inc\stm8s.h	211;"	typedef
@@ -3035,7 +3036,7 @@ led	user\user_led.c	5;"	variable
 led1_dir	..\corona\user\user_led.h	13;"	macro
 led1_off	..\corona\user\user_led.h	15;"	macro
 led1_on	..\corona\user\user_led.h	14;"	macro
-main	main.c	6;"	function	signature:(void)
+main	main.c	7;"	function	signature:(void)
 nbeep	..\corona\user\user_buzzer.h	30;"	member	struct:_BUZZER
 nop	libraries\inc\stm8s.h	2720;"	macro
 nop	libraries\inc\stm8s.h	2729;"	macro
