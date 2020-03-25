@@ -4,5 +4,6 @@
 #include "stm8s.h"
 
 void init_adc(void);
+uint16_t read_adc(void);
 
 #endif

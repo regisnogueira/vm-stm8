@@ -3,6 +3,7 @@
 #include "user_led.h"
 #include "user_buzzer.h"
 #include "user_uart.h"
+#include "user_adc.h"
 
 void main(void)
 {
@@ -10,8 +11,9 @@ void main(void)
     init_led();
     init_buzzer();
     init_uart();
+    init_adc();
 
-    for (;;) {
-
+    for (;;) {        
+        delay(1000);
     }
 }

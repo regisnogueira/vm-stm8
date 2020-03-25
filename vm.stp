@@ -86,7 +86,7 @@ String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,25,8,54,17
+String.6.0=2020,3,25,19,23,3
 
 [Root.Config.0.Settings.4]
 String.2.0=Assembling $(InputFile)...
@@ -248,7 +248,7 @@ String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,25,8,54,17
+String.6.0=2020,3,25,19,23,3
 
 [Root.Libraries.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -351,7 +351,7 @@ String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,25,8,54,17
+String.6.0=2020,3,25,19,23,3
 
 [Root.Source Files.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -438,7 +438,7 @@ String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,25,8,54,17
+String.6.0=2020,3,25,19,23,3
 
 [Root.Include Files.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -512,7 +512,7 @@ String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,25,8,54,17
+String.6.0=2020,3,25,19,23,3
 
 [Root.User.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
@@ -613,7 +613,7 @@ String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt+compact -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,25,8,54,17
+String.6.0=2020,3,25,19,23,3
 
 [Root.motor.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...

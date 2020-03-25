@@ -5,7 +5,7 @@
 #define TIM4_PERIOD       124
 /* Private macro -------------------------------------------------------------*/
 /* Private variables ---------------------------------------------------------*/
-__IO uint32_t TimingDelay = 0;
+__IO uint32_t tmr_delay = 0;
 
 int tick;
 int timer_tick=1;
@@ -42,8 +42,8 @@ void CLK_Config(void)
   */
 void delay(__IO uint32_t nTime)
 {
-    TimingDelay = nTime;    
-    while (TimingDelay != 0);
+    tmr_delay = nTime;    
+    while (tmr_delay != 0);
 }
 
 /**
@@ -78,6 +78,8 @@ void TIM4_Config(void)
 
 void task_timer(void)
 {
+    if (tmr_delay)
+        --tmr_delay;
     task_led();
     task_buzzer();
 }

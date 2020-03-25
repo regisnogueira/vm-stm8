@@ -28,13 +28,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm8s_it.h"
 
-/* Private typedef -----------------------------------------------------------*/
-/* Private define ------------------------------------------------------------*/
-/* Private macro -------------------------------------------------------------*/
-/* Private variables ---------------------------------------------------------*/
-/* Private function prototypes -----------------------------------------------*/
 extern void task_timer(void);
-/* Private functions ---------------------------------------------------------*/
+extern uint16_t read_adc(void);
 
 /* Public functions ----------------------------------------------------------*/
 
@@ -439,6 +434,7 @@ INTERRUPT_HANDLER(I2C_IRQHandler, 19)
      ADC1->CSR |= (uint8_t)(ADC1_CHANNEL_4);
      ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
      /* User code */
+     read_adc();
     return;
 
 }
