@@ -3,6 +3,8 @@
 
 #include "stm8s.h"
 
+#define EN_USER_LED
+
 #define LED1_PORT_NUM GPIOB
 #define LED1_PIN_NUM  GPIO_PIN_5
 

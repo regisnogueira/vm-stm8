@@ -6,7 +6,7 @@ extern uint16_t adc_val = 0;
 
 
 #ifdef EN_USER_PWM
-//uint16_t CCR1_Val = 500;
+uint16_t CCR1_Val = 500;
 uint16_t CCR2_Val = 100;
 //uint16_t CCR3_Val = 0;
 #endif
@@ -22,8 +22,8 @@ void init_pwm(void)
     //TIM2_OC1PreloadConfig(ENABLE);
     
     /* PWM1 Mode configuration: Channel2 */ 
-    TIM2_OC2Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,CCR2_Val, TIM2_OCPOLARITY_HIGH);
-    TIM2_OC2PreloadConfig(ENABLE);
+    //TIM2_OC2Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,CCR2_Val, TIM2_OCPOLARITY_HIGH);
+    //TIM2_OC2PreloadConfig(ENABLE);
     
     /* PWM1 Mode configuration: Channel3 */         
     //TIM2_OC3Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,CCR3_Val, TIM2_OCPOLARITY_HIGH);
@@ -36,11 +36,16 @@ void init_pwm(void)
 #endif    
 }
 
-void set_pwm(uint16_t val)
+void set_pwm(uint8_t channel, uint16_t ccrx_val)
 {
-    TIM2_TimeBaseInit(TIM2_PRESCALER_1, 999);
-    TIM2_OC2Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,val, TIM2_OCPOLARITY_HIGH);
-    TIM2_OC2PreloadConfig(ENABLE);
-    TIM2_ARRPreloadConfig(ENABLE);
-    TIM2_Cmd(ENABLE);
+    switch (channel) {
+    case PWM_CH1: /* PWM1 Mode configuration: Channel1 */ 
+        TIM2_OC1Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
+        TIM2_OC1PreloadConfig(ENABLE);
+        break;
+    case PWM_CH2: /* PWM1 Mode configuration: Channel2 */ 
+        TIM2_OC2Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
+        TIM2_OC2PreloadConfig(ENABLE);
+        break;
+    }
 }

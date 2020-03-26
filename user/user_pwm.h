@@ -5,7 +5,12 @@
 
 #define EN_USER_PWM
 
+enum {
+    PWM_CH1 = 0,
+    PWM_CH2
+};
+
 void init_pwm(void);
-void set_pwm(uint16_t val);
+void set_pwm(uint8_t channel, uint16_t val);
 
 #endif

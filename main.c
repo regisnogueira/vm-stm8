@@ -18,10 +18,11 @@ void main(void)
     init_pwm();
 
     for (;;) {
-        delay(10);
+        delay(5);
 #ifdef EN_USER_PWM
-        set_pwm(pwm);
-        if (++pwm >= 999)
+        set_pwm(PWM_CH1, pwm);
+        set_pwm(PWM_CH2, 1100-pwm);
+        if (++pwm >= 1100)
             pwm = 0;
 #endif
     }
