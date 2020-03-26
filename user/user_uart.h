@@ -1,8 +1,9 @@
 #ifndef __USER_UART_H__
 #define __USER_UART_H__
 
-//#include <stdio.h>
 #include "stm8s.h"
+
+//#define EN_USER_UART
 
 #ifdef _RAISONANCE_
 #define PUTCHAR_PROTOTYPE int putchar (char c)

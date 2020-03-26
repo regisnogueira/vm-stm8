@@ -54,6 +54,7 @@ Debug\stm8s_adc1.o
 Debug\stm8s_clk.o
 Debug\stm8s_flash.o
 Debug\stm8s_gpio.o
+Debug\stm8s_tim2.o
 Debug\stm8s_tim4.o
 Debug\stm8s_uart1.o
 Debug\main.o
@@ -62,6 +63,7 @@ Debug\user_adc.o
 Debug\user_buzzer.o
 Debug\user_eeprom.o
 Debug\user_led.o
+Debug\user_pwm.o
 Debug\user_timer.o
 Debug\user_uart.o
 #<END OBJECT_FILES>

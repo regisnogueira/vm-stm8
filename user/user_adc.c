@@ -1,9 +1,12 @@
 #include "user_adc.h"
 
+#ifdef EN_USER_ADC  
 uint16_t adc_val = 0;
+#endif
 
 void init_adc(void)
 {
+#ifdef EN_USER_ADC    
     GPIO_Init(GPIOD, GPIO_PIN_3, GPIO_MODE_IN_FL_NO_IT );
     ADC1_DeInit();
     ADC1_DeInit();
@@ -17,10 +20,15 @@ void init_adc(void)
     ADC1_Cmd(ENABLE);
     
     ADC1_StartConversion();
+#endif    
 }
 
 uint16_t read_adc(void)
 {
+#ifdef EN_USER_ADC     
     adc_val = ADC1_GetConversionValue();
     return adc_val;
+#else
+    return 0;
+#endif    
 }

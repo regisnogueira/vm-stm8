@@ -255,9 +255,9 @@ BRR2	libraries\inc\stm8s.h	1977;"	member	struct:UART3_struct
 BRR2	libraries\inc\stm8s.h	2069;"	member	struct:UART4_struct
 BTR1	libraries\inc\stm8s.h	2297;"	member	struct:__anon5::__anon6::__anon12
 BTR2	libraries\inc\stm8s.h	2298;"	member	struct:__anon5::__anon6::__anon12
-BUZZER	..\corona\user\user_buzzer.h	29;"	typedef	typeref:struct:_BUZZER
-BUZ_PIN_NUM	..\corona\user\user_buzzer.h	10;"	macro
-BUZ_PORT_NUM	..\corona\user\user_buzzer.h	9;"	macro
+BUZZER	..\corona\user\user_buzzer.h	24;"	typedef	typeref:struct:_BUZZER
+BUZ_PIN_NUM	..\corona\user\user_buzzer.h	9;"	macro
+BUZ_PORT_NUM	..\corona\user\user_buzzer.h	8;"	macro
 BYTE_0	libraries\inc\stm8s.h	2800;"	macro
 BYTE_1	libraries\inc\stm8s.h	2801;"	macro
 BYTE_2	libraries\inc\stm8s.h	2802;"	macro
@@ -434,6 +434,7 @@ CCR1L	libraries\inc\stm8s.h	1141;"	member	struct:TIM5_struct
 CCR1L	libraries\inc\stm8s.h	636;"	member	struct:TIM1_struct
 CCR1L	libraries\inc\stm8s.h	846;"	member	struct:TIM2_struct
 CCR1L	libraries\inc\stm8s.h	968;"	member	struct:TIM3_struct
+CCR1_Val	user\user_pwm.c	4;"	variable
 CCR2H	libraries\inc\stm8s.h	1142;"	member	struct:TIM5_struct
 CCR2H	libraries\inc\stm8s.h	637;"	member	struct:TIM1_struct
 CCR2H	libraries\inc\stm8s.h	847;"	member	struct:TIM2_struct
@@ -442,12 +443,14 @@ CCR2L	libraries\inc\stm8s.h	1143;"	member	struct:TIM5_struct
 CCR2L	libraries\inc\stm8s.h	638;"	member	struct:TIM1_struct
 CCR2L	libraries\inc\stm8s.h	848;"	member	struct:TIM2_struct
 CCR2L	libraries\inc\stm8s.h	970;"	member	struct:TIM3_struct
+CCR2_Val	user\user_pwm.c	5;"	variable
 CCR3H	libraries\inc\stm8s.h	1144;"	member	struct:TIM5_struct
 CCR3H	libraries\inc\stm8s.h	639;"	member	struct:TIM1_struct
 CCR3H	libraries\inc\stm8s.h	849;"	member	struct:TIM2_struct
 CCR3L	libraries\inc\stm8s.h	1145;"	member	struct:TIM5_struct
 CCR3L	libraries\inc\stm8s.h	640;"	member	struct:TIM1_struct
 CCR3L	libraries\inc\stm8s.h	850;"	member	struct:TIM2_struct
+CCR3_Val	user\user_pwm.c	6;"	variable
 CCR4H	libraries\inc\stm8s.h	641;"	member	struct:TIM1_struct
 CCR4L	libraries\inc\stm8s.h	642;"	member	struct:TIM1_struct
 CCRH	libraries\inc\stm8s.h	1342;"	member	struct:I2C_struct
@@ -770,6 +773,7 @@ EGR	libraries\inc\stm8s.h	834;"	member	struct:TIM2_struct
 EGR	libraries\inc\stm8s.h	958;"	member	struct:TIM3_struct
 EIER	libraries\inc\stm8s.h	2294;"	member	struct:__anon5::__anon6::__anon12
 ENABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon3
+EN_USER_PWM	user\user_pwm.h	6;"	macro
 ERROR	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon4
 ESR	libraries\inc\stm8s.h	2293;"	member	struct:__anon5::__anon6::__anon12
 ETR	libraries\inc\stm8s.h	617;"	member	struct:TIM1_struct
@@ -1009,9 +1013,9 @@ Filter45	libraries\inc\stm8s.h	2289;"	member	union:__anon5::__anon6	typeref:stru
 FlagStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon2
 FunctionalState	libraries\inc\stm8s.h	235;"	typedef	typeref:enum:__anon3
 GCR	libraries\inc\stm8s.h	2524;"	member	struct:CFG_struct
-GETCHAR_PROTOTYPE	user\user_uart.h	12;"	macro
-GETCHAR_PROTOTYPE	user\user_uart.h	15;"	macro
-GETCHAR_PROTOTYPE	user\user_uart.h	9;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	11;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	14;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	17;"	macro
 GPIOA	libraries\inc\stm8s.h	2627;"	macro
 GPIOA_BaseAddress	libraries\inc\stm8s.h	2557;"	macro
 GPIOB	libraries\inc\stm8s.h	2629;"	macro
@@ -1609,9 +1613,9 @@ PSCRH	libraries\inc\stm8s.h	630;"	member	struct:TIM1_struct
 PSCRL	libraries\inc\stm8s.h	631;"	member	struct:TIM1_struct
 PSR	libraries\inc\stm8s.h	2183;"	member	struct:__anon5
 PUKR	libraries\inc\stm8s.h	1524;"	member	struct:FLASH_struct
-PUTCHAR_PROTOTYPE	user\user_uart.h	11;"	macro
-PUTCHAR_PROTOTYPE	user\user_uart.h	14;"	macro
-PUTCHAR_PROTOTYPE	user\user_uart.h	8;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	10;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	13;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	16;"	macro
 Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon5	typeref:union:__anon5::__anon6
 PointerAttr	libraries\inc\stm8s.h	156;"	macro
 PointerAttr	libraries\inc\stm8s.h	160;"	macro
@@ -1805,6 +1809,12 @@ TDRH	libraries\inc\stm8s.h	398;"	member	struct:ADC2_struct
 TDRL	libraries\inc\stm8s.h	328;"	member	struct:ADC1_struct
 TDRL	libraries\inc\stm8s.h	399;"	member	struct:ADC2_struct
 TECR	libraries\inc\stm8s.h	2295;"	member	struct:__anon5::__anon6::__anon12
+TI1_Config	libraries\src\stm8s_tim2.c	1181;"	function	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
+TI1_Config	libraries\src\stm8s_tim2.c	39;"	prototype	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
+TI2_Config	libraries\src\stm8s_tim2.c	1221;"	function	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
+TI2_Config	libraries\src\stm8s_tim2.c	40;"	prototype	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
+TI3_Config	libraries\src\stm8s_tim2.c	1261;"	function	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
+TI3_Config	libraries\src\stm8s_tim2.c	41;"	prototype	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
 TIM1	libraries\inc\stm8s.h	2676;"	macro
 TIM1_ARRH_ARR	libraries\inc\stm8s.h	781;"	macro
 TIM1_ARRH_RESET_VALUE	libraries\inc\stm8s.h	671;"	macro
@@ -2163,6 +2173,7 @@ TIM2_ARRH_RESET_VALUE	libraries\inc\stm8s.h	871;"	macro
 TIM2_ARRL_ARR	libraries\inc\stm8s.h	933;"	macro
 TIM2_ARRL_RESET_VALUE	libraries\inc\stm8s.h	872;"	macro
 TIM2_ARRPreloadConfig	libraries\inc\stm8s_tim2.h	302;"	prototype	signature:(FunctionalState NewState)
+TIM2_ARRPreloadConfig	libraries\src\stm8s_tim2.c	561;"	function	signature:(FunctionalState NewState)
 TIM2_BaseAddress	libraries\inc\stm8s.h	2581;"	macro
 TIM2_CAP_COM_IRQHandler	stm8s_it.h	73;"	prototype	signature:(void)
 TIM2_CCER1_CC1E	libraries\inc\stm8s.h	922;"	macro
@@ -2195,6 +2206,7 @@ TIM2_CCR3H_RESET_VALUE	libraries\inc\stm8s.h	877;"	macro
 TIM2_CCR3L_CCR3	libraries\inc\stm8s.h	942;"	macro
 TIM2_CCR3L_RESET_VALUE	libraries\inc\stm8s.h	878;"	macro
 TIM2_CCxCmd	libraries\inc\stm8s_tim2.h	311;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, FunctionalState NewState)
+TIM2_CCxCmd	libraries\src\stm8s_tim2.c	745;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, FunctionalState NewState)
 TIM2_CHANNEL_1	libraries\inc\stm8s_tim2.h	130;"	enumerator	enum:__anon105
 TIM2_CHANNEL_2	libraries\inc\stm8s_tim2.h	131;"	enumerator	enum:__anon105
 TIM2_CHANNEL_3	libraries\inc\stm8s_tim2.h	132;"	enumerator	enum:__anon105
@@ -2210,9 +2222,13 @@ TIM2_CR1_UDIS	libraries\inc\stm8s.h	891;"	macro
 TIM2_CR1_URS	libraries\inc\stm8s.h	890;"	macro
 TIM2_Channel_TypeDef	libraries\inc\stm8s_tim2.h	133;"	typedef	typeref:enum:__anon105
 TIM2_ClearFlag	libraries\inc\stm8s_tim2.h	327;"	prototype	signature:(TIM2_FLAG_TypeDef TIM2_FLAG)
+TIM2_ClearFlag	libraries\src\stm8s_tim2.c	1103;"	function	signature:(TIM2_FLAG_TypeDef TIM2_FLAG)
 TIM2_ClearITPendingBit	libraries\inc\stm8s_tim2.h	329;"	prototype	signature:(TIM2_IT_TypeDef TIM2_IT)
+TIM2_ClearITPendingBit	libraries\src\stm8s_tim2.c	1156;"	function	signature:(TIM2_IT_TypeDef TIM2_IT)
 TIM2_Cmd	libraries\inc\stm8s_tim2.h	292;"	prototype	signature:(FunctionalState NewState)
+TIM2_Cmd	libraries\src\stm8s_tim2.c	339;"	function	signature:(FunctionalState NewState)
 TIM2_DeInit	libraries\inc\stm8s_tim2.h	285;"	prototype	signature:(void)
+TIM2_DeInit	libraries\src\stm8s_tim2.c	52;"	function	signature:(void)
 TIM2_EGR_CC1G	libraries\inc\stm8s.h	910;"	macro
 TIM2_EGR_CC2G	libraries\inc\stm8s.h	909;"	macro
 TIM2_EGR_CC3G	libraries\inc\stm8s.h	908;"	macro
@@ -2235,17 +2251,29 @@ TIM2_FORCEDACTION_ACTIVE	libraries\inc\stm8s_tim2.h	45;"	enumerator	enum:__anon1
 TIM2_FORCEDACTION_INACTIVE	libraries\inc\stm8s_tim2.h	46;"	enumerator	enum:__anon101
 TIM2_ForcedAction_TypeDef	libraries\inc\stm8s_tim2.h	47;"	typedef	typeref:enum:__anon101
 TIM2_ForcedOC1Config	libraries\inc\stm8s_tim2.h	299;"	prototype	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
+TIM2_ForcedOC1Config	libraries\src\stm8s_tim2.c	507;"	function	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
 TIM2_ForcedOC2Config	libraries\inc\stm8s_tim2.h	300;"	prototype	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
+TIM2_ForcedOC2Config	libraries\src\stm8s_tim2.c	526;"	function	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
 TIM2_ForcedOC3Config	libraries\inc\stm8s_tim2.h	301;"	prototype	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
+TIM2_ForcedOC3Config	libraries\src\stm8s_tim2.c	545;"	function	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
 TIM2_GenerateEvent	libraries\inc\stm8s_tim2.h	307;"	prototype	signature:(TIM2_EventSource_TypeDef TIM2_EventSource)
+TIM2_GenerateEvent	libraries\src\stm8s_tim2.c	653;"	function	signature:(TIM2_EventSource_TypeDef TIM2_EventSource)
 TIM2_GetCapture1	libraries\inc\stm8s_tim2.h	321;"	prototype	signature:(void)
+TIM2_GetCapture1	libraries\src\stm8s_tim2.c	975;"	function	signature:(void)
 TIM2_GetCapture2	libraries\inc\stm8s_tim2.h	322;"	prototype	signature:(void)
+TIM2_GetCapture2	libraries\src\stm8s_tim2.c	995;"	function	signature:(void)
 TIM2_GetCapture3	libraries\inc\stm8s_tim2.h	323;"	prototype	signature:(void)
+TIM2_GetCapture3	libraries\src\stm8s_tim2.c	1015;"	function	signature:(void)
 TIM2_GetCounter	libraries\inc\stm8s_tim2.h	324;"	prototype	signature:(void)
+TIM2_GetCounter	libraries\src\stm8s_tim2.c	1035;"	function	signature:(void)
 TIM2_GetFlagStatus	libraries\inc\stm8s_tim2.h	326;"	prototype	signature:(TIM2_FLAG_TypeDef TIM2_FLAG)
+TIM2_GetFlagStatus	libraries\src\stm8s_tim2.c	1068;"	function	signature:(TIM2_FLAG_TypeDef TIM2_FLAG)
 TIM2_GetITStatus	libraries\inc\stm8s_tim2.h	328;"	prototype	signature:(TIM2_IT_TypeDef TIM2_IT)
+TIM2_GetITStatus	libraries\src\stm8s_tim2.c	1123;"	function	signature:(TIM2_IT_TypeDef TIM2_IT)
 TIM2_GetPrescaler	libraries\inc\stm8s_tim2.h	325;"	prototype	signature:(void)
+TIM2_GetPrescaler	libraries\src\stm8s_tim2.c	1049;"	function	signature:(void)
 TIM2_ICInit	libraries\inc\stm8s_tim2.h	290;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
+TIM2_ICInit	libraries\src\stm8s_tim2.c	212;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
 TIM2_ICPOLARITY_FALLING	libraries\inc\stm8s_tim2.h	166;"	enumerator	enum:__anon108
 TIM2_ICPOLARITY_RISING	libraries\inc\stm8s_tim2.h	165;"	enumerator	enum:__anon108
 TIM2_ICPSC_DIV1	libraries\inc\stm8s_tim2.h	190;"	enumerator	enum:__anon110
@@ -2264,6 +2292,7 @@ TIM2_IER_CC3IE	libraries\inc\stm8s.h	894;"	macro
 TIM2_IER_RESET_VALUE	libraries\inc\stm8s.h	859;"	macro
 TIM2_IER_UIE	libraries\inc\stm8s.h	897;"	macro
 TIM2_ITConfig	libraries\inc\stm8s_tim2.h	293;"	prototype	signature:(TIM2_IT_TypeDef TIM2_IT, FunctionalState NewState)
+TIM2_ITConfig	libraries\src\stm8s_tim2.c	368;"	function	signature:(TIM2_IT_TypeDef TIM2_IT, FunctionalState NewState)
 TIM2_IT_CC1	libraries\inc\stm8s_tim2.h	208;"	enumerator	enum:__anon111
 TIM2_IT_CC2	libraries\inc\stm8s_tim2.h	209;"	enumerator	enum:__anon111
 TIM2_IT_CC3	libraries\inc\stm8s_tim2.h	210;"	enumerator	enum:__anon111
@@ -2271,14 +2300,23 @@ TIM2_IT_TypeDef	libraries\inc\stm8s_tim2.h	211;"	typedef	typeref:enum:__anon111
 TIM2_IT_UPDATE	libraries\inc\stm8s_tim2.h	207;"	enumerator	enum:__anon111
 TIM2_InternalClockConfig	libraries\inc\stm8s_tim2.h	294;"	prototype	signature:(void)
 TIM2_OC1Init	libraries\inc\stm8s_tim2.h	287;"	prototype	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
+TIM2_OC1Init	libraries\src\stm8s_tim2.c	108;"	function	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC1PolarityConfig	libraries\inc\stm8s_tim2.h	308;"	prototype	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
+TIM2_OC1PolarityConfig	libraries\src\stm8s_tim2.c	670;"	function	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC1PreloadConfig	libraries\inc\stm8s_tim2.h	304;"	prototype	signature:(FunctionalState NewState)
+TIM2_OC1PreloadConfig	libraries\src\stm8s_tim2.c	583;"	function	signature:(FunctionalState NewState)
 TIM2_OC2Init	libraries\inc\stm8s_tim2.h	288;"	prototype	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
+TIM2_OC2Init	libraries\src\stm8s_tim2.c	142;"	function	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC2PolarityConfig	libraries\inc\stm8s_tim2.h	309;"	prototype	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
+TIM2_OC2PolarityConfig	libraries\src\stm8s_tim2.c	694;"	function	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC2PreloadConfig	libraries\inc\stm8s_tim2.h	305;"	prototype	signature:(FunctionalState NewState)
+TIM2_OC2PreloadConfig	libraries\src\stm8s_tim2.c	605;"	function	signature:(FunctionalState NewState)
 TIM2_OC3Init	libraries\inc\stm8s_tim2.h	289;"	prototype	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
+TIM2_OC3Init	libraries\src\stm8s_tim2.c	179;"	function	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC3PolarityConfig	libraries\inc\stm8s_tim2.h	310;"	prototype	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
+TIM2_OC3PolarityConfig	libraries\src\stm8s_tim2.c	718;"	function	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC3PreloadConfig	libraries\inc\stm8s_tim2.h	306;"	prototype	signature:(FunctionalState NewState)
+TIM2_OC3PreloadConfig	libraries\src\stm8s_tim2.c	627;"	function	signature:(FunctionalState NewState)
 TIM2_OCMODE_ACTIVE	libraries\inc\stm8s_tim2.h	94;"	enumerator	enum:__anon103
 TIM2_OCMODE_INACTIVE	libraries\inc\stm8s_tim2.h	95;"	enumerator	enum:__anon103
 TIM2_OCMODE_PWM1	libraries\inc\stm8s_tim2.h	97;"	enumerator	enum:__anon103
@@ -2317,7 +2355,9 @@ TIM2_PSCR_PSC	libraries\inc\stm8s.h	930;"	macro
 TIM2_PSCR_RESET_VALUE	libraries\inc\stm8s.h	870;"	macro
 TIM2_PSCReloadMode_TypeDef	libraries\inc\stm8s_tim2.h	225;"	typedef	typeref:enum:__anon112
 TIM2_PWMIConfig	libraries\inc\stm8s_tim2.h	291;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
+TIM2_PWMIConfig	libraries\src\stm8s_tim2.c	266;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
 TIM2_PrescalerConfig	libraries\inc\stm8s_tim2.h	298;"	prototype	signature:(TIM2_Prescaler_TypeDef Prescaler, TIM2_PSCReloadMode_TypeDef TIM2_PSCReloadMode)
+TIM2_PrescalerConfig	libraries\src\stm8s_tim2.c	484;"	function	signature:(TIM2_Prescaler_TypeDef Prescaler, TIM2_PSCReloadMode_TypeDef TIM2_PSCReloadMode)
 TIM2_Prescaler_TypeDef	libraries\inc\stm8s_tim2.h	71;"	typedef	typeref:enum:__anon102
 TIM2_SR1_CC1IF	libraries\inc\stm8s.h	901;"	macro
 TIM2_SR1_CC2IF	libraries\inc\stm8s.h	900;"	macro
@@ -2329,22 +2369,35 @@ TIM2_SR2_CC2OF	libraries\inc\stm8s.h	905;"	macro
 TIM2_SR2_CC3OF	libraries\inc\stm8s.h	904;"	macro
 TIM2_SR2_RESET_VALUE	libraries\inc\stm8s.h	861;"	macro
 TIM2_SelectOCxM	libraries\inc\stm8s_tim2.h	312;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_OCMode_TypeDef TIM2_OCMode)
+TIM2_SelectOCxM	libraries\src\stm8s_tim2.c	810;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_OCMode_TypeDef TIM2_OCMode)
 TIM2_SelectOnePulseMode	libraries\inc\stm8s_tim2.h	297;"	prototype	signature:(TIM2_OPMode_TypeDef TIM2_OPMode)
+TIM2_SelectOnePulseMode	libraries\src\stm8s_tim2.c	440;"	function	signature:(TIM2_OPMode_TypeDef TIM2_OPMode)
 TIM2_SetAutoreload	libraries\inc\stm8s_tim2.h	314;"	prototype	signature:(uint16_t Autoreload)
+TIM2_SetAutoreload	libraries\src\stm8s_tim2.c	864;"	function	signature:(uint16_t Autoreload)
 TIM2_SetCompare1	libraries\inc\stm8s_tim2.h	315;"	prototype	signature:(uint16_t Compare1)
+TIM2_SetCompare1	libraries\src\stm8s_tim2.c	877;"	function	signature:(uint16_t Compare1)
 TIM2_SetCompare2	libraries\inc\stm8s_tim2.h	316;"	prototype	signature:(uint16_t Compare2)
+TIM2_SetCompare2	libraries\src\stm8s_tim2.c	890;"	function	signature:(uint16_t Compare2)
 TIM2_SetCompare3	libraries\inc\stm8s_tim2.h	317;"	prototype	signature:(uint16_t Compare3)
+TIM2_SetCompare3	libraries\src\stm8s_tim2.c	903;"	function	signature:(uint16_t Compare3)
 TIM2_SetCounter	libraries\inc\stm8s_tim2.h	313;"	prototype	signature:(uint16_t Counter)
+TIM2_SetCounter	libraries\src\stm8s_tim2.c	851;"	function	signature:(uint16_t Counter)
 TIM2_SetIC1Prescaler	libraries\inc\stm8s_tim2.h	318;"	prototype	signature:(TIM2_ICPSC_TypeDef TIM2_IC1Prescaler)
+TIM2_SetIC1Prescaler	libraries\src\stm8s_tim2.c	920;"	function	signature:(TIM2_ICPSC_TypeDef TIM2_IC1Prescaler)
 TIM2_SetIC2Prescaler	libraries\inc\stm8s_tim2.h	319;"	prototype	signature:(TIM2_ICPSC_TypeDef TIM2_IC2Prescaler)
+TIM2_SetIC2Prescaler	libraries\src\stm8s_tim2.c	940;"	function	signature:(TIM2_ICPSC_TypeDef TIM2_IC2Prescaler)
 TIM2_SetIC3Prescaler	libraries\inc\stm8s_tim2.h	320;"	prototype	signature:(TIM2_ICPSC_TypeDef TIM2_IC3Prescaler)
+TIM2_SetIC3Prescaler	libraries\src\stm8s_tim2.c	960;"	function	signature:(TIM2_ICPSC_TypeDef TIM2_IC3Prescaler)
 TIM2_TimeBaseInit	libraries\inc\stm8s_tim2.h	286;"	prototype	signature:(TIM2_Prescaler_TypeDef TIM2_Prescaler, uint16_t TIM2_Period)
+TIM2_TimeBaseInit	libraries\src\stm8s_tim2.c	89;"	function	signature:( TIM2_Prescaler_TypeDef TIM2_Prescaler, uint16_t TIM2_Period)
 TIM2_TypeDef	libraries\inc\stm8s.h	852;"	typedef	typeref:struct:TIM2_struct
 TIM2_UPDATESOURCE_GLOBAL	libraries\inc\stm8s_tim2.h	244;"	enumerator	enum:__anon114
 TIM2_UPDATESOURCE_REGULAR	libraries\inc\stm8s_tim2.h	245;"	enumerator	enum:__anon114
 TIM2_UPD_OVF_BRK_IRQHandler	stm8s_it.h	72;"	prototype	signature:(void)
 TIM2_UpdateDisableConfig	libraries\inc\stm8s_tim2.h	295;"	prototype	signature:(FunctionalState NewState)
+TIM2_UpdateDisableConfig	libraries\src\stm8s_tim2.c	392;"	function	signature:(FunctionalState NewState)
 TIM2_UpdateRequestConfig	libraries\inc\stm8s_tim2.h	296;"	prototype	signature:(TIM2_UpdateSource_TypeDef TIM2_UpdateSource)
+TIM2_UpdateRequestConfig	libraries\src\stm8s_tim2.c	416;"	function	signature:(TIM2_UpdateSource_TypeDef TIM2_UpdateSource)
 TIM2_UpdateSource_TypeDef	libraries\inc\stm8s_tim2.h	246;"	typedef	typeref:enum:__anon114
 TIM2_struct	libraries\inc\stm8s.h	824;"	struct
 TIM3	libraries\inc\stm8s.h	2686;"	macro
@@ -2985,7 +3038,7 @@ WWDG_WR_MSB	libraries\inc\stm8s.h	1659;"	macro
 WWDG_WR_RESET_VALUE	libraries\inc\stm8s.h	1645;"	macro
 WWDG_WR_W	libraries\inc\stm8s.h	1660;"	macro
 WWDG_struct	libraries\inc\stm8s.h	1633;"	struct
-_BUZZER	..\corona\user\user_buzzer.h	24;"	struct
+_BUZZER	..\corona\user\user_buzzer.h	19;"	struct
 _COSMIC_	libraries\inc\stm8s.h	83;"	macro
 _IAR_	libraries\inc\stm8s.h	87;"	macro
 _LED_STATE	..\corona\user\user_led.h	31;"	struct
@@ -2994,6 +3047,7 @@ __I	libraries\inc\stm8s.h	206;"	macro
 __IO	libraries\inc\stm8s.h	208;"	macro
 __MODS0__	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h	11;"	macro
 __O	libraries\inc\stm8s.h	207;"	macro
+__PWM_H__	user\user_pwm.h	2;"	macro
 __STM8S_ADC1_H	libraries\inc\stm8s_adc1.h	29;"	macro
 __STM8S_AWU_H	libraries\inc\stm8s_awu.h	30;"	macro
 __STM8S_BEEP_H	libraries\inc\stm8s_beep.h	31;"	macro
@@ -3028,15 +3082,14 @@ __USER_UART_H__	user\user_uart.h	2;"	macro
 _stext	stm8_interrupt_vector.c	20;"	prototype	file:
 _stext	stm8s_it.h	40;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	22;"	variable
-adc_val	main.c	8;"	variable
+adc_val	user\user_adc.c	4;"	variable
 assert_failed	stm8s_conf.h	108;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	stm8s_conf.h	106;"	macro
 assert_param	stm8s_conf.h	110;"	macro
 bool	libraries\inc\stm8s.h	231;"	typedef	typeref:enum:__anon1
-buz_dir	..\corona\user\user_buzzer.h	16;"	macro
-buz_off	..\corona\user\user_buzzer.h	22;"	macro
-buz_on	..\corona\user\user_buzzer.h	18;"	macro
-buz_on	..\corona\user\user_buzzer.h	20;"	macro
+buz_dir	..\corona\user\user_buzzer.h	15;"	macro
+buz_off	..\corona\user\user_buzzer.h	17;"	macro
+buz_on	..\corona\user\user_buzzer.h	16;"	macro
 buzzer	user\user_buzzer.c	5;"	variable
 delay	..\corona\user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 delay	user\user_timer.c	43;"	function	signature:(__IO uint32_t nTime)
@@ -3046,27 +3099,29 @@ disableInterrupts	libraries\inc\stm8s.h	2736;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2716;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2725;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2735;"	macro
-gpio_clr	..\corona\user\user_buzzer.h	13;"	macro
+gpio_clr	..\corona\user\user_buzzer.h	12;"	macro
 gpio_clr	..\corona\user\user_led.h	10;"	macro
-gpio_dir_out	..\corona\user\user_buzzer.h	14;"	macro
+gpio_dir_out	..\corona\user\user_buzzer.h	13;"	macro
 gpio_dir_out	..\corona\user\user_led.h	11;"	macro
-gpio_set	..\corona\user\user_buzzer.h	12;"	macro
+gpio_set	..\corona\user\user_buzzer.h	11;"	macro
 gpio_set	..\corona\user\user_led.h	9;"	macro
 halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
-init_adc	user\user_adc.c	3;"	function	signature:(void)
-init_adc	user\user_adc.h	6;"	prototype	signature:(void)
-init_buzzer	..\corona\user\user_buzzer.h	31;"	prototype	signature:(void)
+init_adc	user\user_adc.c	7;"	function	signature:(void)
+init_adc	user\user_adc.h	8;"	prototype	signature:(void)
+init_buzzer	..\corona\user\user_buzzer.h	26;"	prototype	signature:(void)
 init_buzzer	user\user_buzzer.c	7;"	function	signature:(void)
 init_eeprom	user\user_eeprom.c	3;"	function	signature:(void)
 init_eeprom	user\user_eeprom.h	6;"	prototype	signature:()
 init_led	..\corona\user\user_led.h	37;"	prototype	signature:(void)
 init_led	user\user_led.c	7;"	function	signature:(void)
+init_pwm	user\user_pwm.c	9;"	function	signature:(void)
+init_pwm	user\user_pwm.h	8;"	prototype	signature:(void)
 init_timer	..\corona\user\user_timer.h	6;"	prototype	signature:(void)
 init_timer	user\user_timer.c	19;"	function	signature:(void)
 init_uart	user\user_uart.c	3;"	function	signature:(void)
-init_uart	user\user_uart.h	18;"	prototype	signature:(void)
+init_uart	user\user_uart.h	20;"	prototype	signature:(void)
 int16_t	libraries\inc\stm8s.h	212;"	typedef
 int32_t	libraries\inc\stm8s.h	213;"	typedef
 int8_t	libraries\inc\stm8s.h	211;"	typedef
@@ -3078,25 +3133,25 @@ led	user\user_led.c	5;"	variable
 led1_dir	..\corona\user\user_led.h	13;"	macro
 led1_off	..\corona\user\user_led.h	15;"	macro
 led1_on	..\corona\user\user_led.h	14;"	macro
-main	main.c	10;"	function	signature:(void)
-nbeep	..\corona\user\user_buzzer.h	26;"	member	struct:_BUZZER
+main	main.c	9;"	function	signature:(void)
+nbeep	..\corona\user\user_buzzer.h	21;"	member	struct:_BUZZER
 nop	libraries\inc\stm8s.h	2720;"	macro
 nop	libraries\inc\stm8s.h	2729;"	macro
 nop	libraries\inc\stm8s.h	2739;"	macro
 pool_tick	..\corona\user\user_timer.h	7;"	prototype	signature:(void)
 pool_tick	user\user_timer.c	13;"	function	signature:(void)
 read_adc	stm8s_it.c	32;"	prototype	file:	signature:(void)
-read_adc	user\user_adc.c	20;"	function	signature:(void)
-read_adc	user\user_adc.h	7;"	prototype	signature:(void)
+read_adc	user\user_adc.c	26;"	function	signature:(void)
+read_adc	user\user_adc.h	9;"	prototype	signature:(void)
 rim	libraries\inc\stm8s.h	2718;"	macro
 rim	libraries\inc\stm8s.h	2727;"	macro
 rim	libraries\inc\stm8s.h	2737;"	macro
 s16	libraries\inc\stm8s.h	223;"	typedef
 s32	libraries\inc\stm8s.h	222;"	typedef
 s8	libraries\inc\stm8s.h	224;"	typedef
-send_uart	user\user_uart.c	20;"	function	signature:(const uint8_t *p)
-send_uart	user\user_uart.h	19;"	prototype	signature:(const uint8_t *p)
-set_buzzer	..\corona\user\user_buzzer.h	32;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
+send_uart	user\user_uart.c	22;"	function	signature:(const uint8_t *p)
+send_uart	user\user_uart.h	21;"	prototype	signature:(const uint8_t *p)
+set_buzzer	..\corona\user\user_buzzer.h	27;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.c	23;"	function	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_led	..\corona\user\user_led.h	39;"	prototype	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.c	25;"	function	signature:(uint8_t ledx, uint16_t speed)
@@ -3104,7 +3159,7 @@ sim	libraries\inc\stm8s.h	2719;"	macro
 sim	libraries\inc\stm8s.h	2728;"	macro
 sim	libraries\inc\stm8s.h	2738;"	macro
 speed	..\corona\user\user_led.h	34;"	member	struct:_LED_STATE
-task_buzzer	..\corona\user\user_buzzer.h	33;"	prototype	signature:(void)
+task_buzzer	..\corona\user\user_buzzer.h	28;"	prototype	signature:(void)
 task_buzzer	user\user_buzzer.c	33;"	function	signature:(void)
 task_led	..\corona\user\user_led.h	38;"	prototype	signature:(void)
 task_led	user\user_led.c	13;"	function	signature:(void)
@@ -3114,8 +3169,8 @@ tick	user\user_timer.c	10;"	variable
 time	..\corona\user\user_led.h	33;"	member	struct:_LED_STATE
 timer_tick	user\user_timer.c	11;"	variable
 tmr_delay	user\user_timer.c	8;"	variable
-toff	..\corona\user\user_buzzer.h	28;"	member	struct:_BUZZER
-ton	..\corona\user\user_buzzer.h	27;"	member	struct:_BUZZER
+toff	..\corona\user\user_buzzer.h	23;"	member	struct:_BUZZER
+ton	..\corona\user\user_buzzer.h	22;"	member	struct:_BUZZER
 trap	libraries\inc\stm8s.h	2721;"	macro
 trap	libraries\inc\stm8s.h	2730;"	macro
 trap	libraries\inc\stm8s.h	2740;"	macro

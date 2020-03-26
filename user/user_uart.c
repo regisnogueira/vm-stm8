@@ -2,6 +2,7 @@
 
 void init_uart(void)
 {
+#ifdef EN_USER_UART    
     UART1_DeInit();
     /* UART1 configuration ------------------------------------------------------*/
     /* UART1 configured as follow:
@@ -15,14 +16,17 @@ void init_uart(void)
     UART1_Init((uint32_t)115200, UART1_WORDLENGTH_8D, UART1_STOPBITS_1, UART1_PARITY_NO,
     UART1_SYNCMODE_CLOCK_DISABLE, UART1_MODE_TXRX_ENABLE);
     send_uart("\n\rvm-stm8");
+#endif    
 }
 
 void send_uart(const uint8_t *p)
 {
+#ifdef EN_USER_UART      
     while (*p) {
         UART1_SendData8(*p++);
         while (UART1_GetFlagStatus(UART1_FLAG_TXE) == RESET);
     }
+#endif    
 }
 
 /**
