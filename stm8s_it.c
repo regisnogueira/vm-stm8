@@ -422,21 +422,9 @@ INTERRUPT_HANDLER(I2C_IRQHandler, 19)
   * @retval None
   */
  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
-{
-
-    /* In order to detect unexpected events during development,
-       it is recommended to set a breakpoint on the following instruction.
-    */
-    /* Clear interrupt flag */
-     ADC1_ClearITPendingBit(ADC1_IT_EOC);
-     /* Workaround for ADC ScanMode issue (Reconfig ADC) */
-     ADC1->CSR &= (uint8_t)(~ADC1_CSR_CH);
-     ADC1->CSR |= (uint8_t)(ADC1_CHANNEL_4);
-     ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
-     /* User code */
-     read_adc();
+{    
+    read_adc();
     return;
-
 }
 #endif /*STM8S208 or STM8S207 or STM8AF52Ax or STM8AF62Ax */
 

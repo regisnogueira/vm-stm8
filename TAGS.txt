@@ -242,9 +242,9 @@ BEEP_LSICalibrationConfig	libraries\inc\stm8s_beep.h	109;"	prototype	signature:(
 BEEP_TypeDef	libraries\inc\stm8s.h	484;"	typedef	typeref:struct:BEEP_struct
 BEEP_struct	libraries\inc\stm8s.h	480;"	struct
 BKR	libraries\inc\stm8s.h	643;"	member	struct:TIM1_struct
-BLINK_FAST	..\corona\user\user_led.h	26;"	macro
-BLINK_MED	..\corona\user\user_led.h	27;"	macro
-BLINK_SLOW	..\corona\user\user_led.h	28;"	macro
+BLINK_FAST	user\user_led.h	26;"	macro
+BLINK_MED	user\user_led.h	27;"	macro
+BLINK_SLOW	user\user_led.h	28;"	macro
 BRR1	libraries\inc\stm8s.h	1771;"	member	struct:UART1_struct
 BRR1	libraries\inc\stm8s.h	1869;"	member	struct:UART2_struct
 BRR1	libraries\inc\stm8s.h	1976;"	member	struct:UART3_struct
@@ -255,9 +255,9 @@ BRR2	libraries\inc\stm8s.h	1977;"	member	struct:UART3_struct
 BRR2	libraries\inc\stm8s.h	2069;"	member	struct:UART4_struct
 BTR1	libraries\inc\stm8s.h	2297;"	member	struct:__anon5::__anon6::__anon12
 BTR2	libraries\inc\stm8s.h	2298;"	member	struct:__anon5::__anon6::__anon12
-BUZZER	..\corona\user\user_buzzer.h	24;"	typedef	typeref:struct:_BUZZER
-BUZ_PIN_NUM	..\corona\user\user_buzzer.h	9;"	macro
-BUZ_PORT_NUM	..\corona\user\user_buzzer.h	8;"	macro
+BUZZER	user\user_buzzer.h	33;"	typedef	typeref:struct:_BUZZER
+BUZ_PIN_NUM	user\user_buzzer.h	14;"	macro
+BUZ_PORT_NUM	user\user_buzzer.h	13;"	macro
 BYTE_0	libraries\inc\stm8s.h	2800;"	macro
 BYTE_1	libraries\inc\stm8s.h	2801;"	macro
 BYTE_2	libraries\inc\stm8s.h	2802;"	macro
@@ -434,7 +434,6 @@ CCR1L	libraries\inc\stm8s.h	1141;"	member	struct:TIM5_struct
 CCR1L	libraries\inc\stm8s.h	636;"	member	struct:TIM1_struct
 CCR1L	libraries\inc\stm8s.h	846;"	member	struct:TIM2_struct
 CCR1L	libraries\inc\stm8s.h	968;"	member	struct:TIM3_struct
-CCR1_Val	user\user_pwm.c	4;"	variable
 CCR2H	libraries\inc\stm8s.h	1142;"	member	struct:TIM5_struct
 CCR2H	libraries\inc\stm8s.h	637;"	member	struct:TIM1_struct
 CCR2H	libraries\inc\stm8s.h	847;"	member	struct:TIM2_struct
@@ -443,14 +442,13 @@ CCR2L	libraries\inc\stm8s.h	1143;"	member	struct:TIM5_struct
 CCR2L	libraries\inc\stm8s.h	638;"	member	struct:TIM1_struct
 CCR2L	libraries\inc\stm8s.h	848;"	member	struct:TIM2_struct
 CCR2L	libraries\inc\stm8s.h	970;"	member	struct:TIM3_struct
-CCR2_Val	user\user_pwm.c	5;"	variable
+CCR2_Val	user\user_pwm.c	10;"	variable
 CCR3H	libraries\inc\stm8s.h	1144;"	member	struct:TIM5_struct
 CCR3H	libraries\inc\stm8s.h	639;"	member	struct:TIM1_struct
 CCR3H	libraries\inc\stm8s.h	849;"	member	struct:TIM2_struct
 CCR3L	libraries\inc\stm8s.h	1145;"	member	struct:TIM5_struct
 CCR3L	libraries\inc\stm8s.h	640;"	member	struct:TIM1_struct
 CCR3L	libraries\inc\stm8s.h	850;"	member	struct:TIM2_struct
-CCR3_Val	user\user_pwm.c	6;"	variable
 CCR4H	libraries\inc\stm8s.h	641;"	member	struct:TIM1_struct
 CCR4L	libraries\inc\stm8s.h	642;"	member	struct:TIM1_struct
 CCRH	libraries\inc\stm8s.h	1342;"	member	struct:I2C_struct
@@ -501,8 +499,8 @@ CLK_ClockSwitchCmd	libraries\inc\stm8s_clk.h	357;"	prototype	signature:(Function
 CLK_ClockSwitchCmd	libraries\src\stm8s_clk.c	213;"	function	signature:(FunctionalState NewState)
 CLK_ClockSwitchConfig	libraries\inc\stm8s_clk.h	361;"	prototype	signature:(CLK_SwitchMode_TypeDef CLK_SwitchMode, CLK_Source_TypeDef CLK_NewClock, FunctionalState ITState, CLK_CurrentClockState_TypeDef CLK_CurrentClockState)
 CLK_ClockSwitchConfig	libraries\src\stm8s_clk.c	309;"	function	signature:(CLK_SwitchMode_TypeDef CLK_SwitchMode, CLK_Source_TypeDef CLK_NewClock, FunctionalState ITState, CLK_CurrentClockState_TypeDef CLK_CurrentClockState)
-CLK_Config	..\corona\user\user_timer.h	10;"	prototype	signature:(void)
 CLK_Config	user\user_timer.c	30;"	function	signature:(void)
+CLK_Config	user\user_timer.h	10;"	prototype	signature:(void)
 CLK_CurrentClockState_TypeDef	libraries\inc\stm8s_clk.h	56;"	typedef	typeref:enum:__anon25
 CLK_DeInit	libraries\inc\stm8s_clk.h	352;"	prototype	signature:(void)
 CLK_DeInit	libraries\src\stm8s_clk.c	72;"	function	signature:(void)
@@ -773,6 +771,7 @@ EGR	libraries\inc\stm8s.h	834;"	member	struct:TIM2_struct
 EGR	libraries\inc\stm8s.h	958;"	member	struct:TIM3_struct
 EIER	libraries\inc\stm8s.h	2294;"	member	struct:__anon5::__anon6::__anon12
 ENABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon3
+ENABLE_BUZ	user\user_buzzer.h	6;"	macro
 EN_USER_PWM	user\user_pwm.h	6;"	macro
 ERROR	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon4
 ESR	libraries\inc\stm8s.h	2293;"	member	struct:__anon5::__anon6::__anon12
@@ -1013,9 +1012,9 @@ Filter45	libraries\inc\stm8s.h	2289;"	member	union:__anon5::__anon6	typeref:stru
 FlagStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon2
 FunctionalState	libraries\inc\stm8s.h	235;"	typedef	typeref:enum:__anon3
 GCR	libraries\inc\stm8s.h	2524;"	member	struct:CFG_struct
-GETCHAR_PROTOTYPE	user\user_uart.h	11;"	macro
-GETCHAR_PROTOTYPE	user\user_uart.h	14;"	macro
-GETCHAR_PROTOTYPE	user\user_uart.h	17;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	10;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	13;"	macro
+GETCHAR_PROTOTYPE	user\user_uart.h	16;"	macro
 GPIOA	libraries\inc\stm8s.h	2627;"	macro
 GPIOA_BaseAddress	libraries\inc\stm8s.h	2557;"	macro
 GPIOB	libraries\inc\stm8s.h	2629;"	macro
@@ -1512,15 +1511,15 @@ IWDG_WriteAccess_Enable	libraries\inc\stm8s_iwdg.h	90;"	enumerator	enum:__anon56
 IWDG_WriteAccess_TypeDef	libraries\inc\stm8s_iwdg.h	92;"	typedef	typeref:enum:__anon56
 IWDG_struct	libraries\inc\stm8s.h	1609;"	struct
 KR	libraries\inc\stm8s.h	1611;"	member	struct:IWDG_struct
-LED1	..\corona\user\user_led.h	17;"	macro
-LED1_PIN_NUM	..\corona\user\user_led.h	7;"	macro
-LED1_PORT_NUM	..\corona\user\user_led.h	6;"	macro
-LED_ALL_OFF	..\corona\user\user_led.h	20;"	macro
-LED_NOTHING	..\corona\user\user_led.h	21;"	macro
-LED_OFF	..\corona\user\user_led.h	29;"	macro
-LED_ON	..\corona\user\user_led.h	25;"	macro
-LED_PULSE	..\corona\user\user_led.h	24;"	macro
-LED_STATE	..\corona\user\user_led.h	35;"	typedef	typeref:struct:_LED_STATE
+LED1	user\user_led.h	17;"	macro
+LED1_PIN_NUM	user\user_led.h	7;"	macro
+LED1_PORT_NUM	user\user_led.h	6;"	macro
+LED_ALL_OFF	user\user_led.h	20;"	macro
+LED_NOTHING	user\user_led.h	21;"	macro
+LED_OFF	user\user_led.h	29;"	macro
+LED_ON	user\user_led.h	25;"	macro
+LED_PULSE	user\user_led.h	24;"	macro
+LED_STATE	user\user_led.h	35;"	typedef	typeref:struct:_LED_STATE
 LSI_FREQUENCY_MAX	libraries\inc\stm8s_awu.h	77;"	macro
 LSI_FREQUENCY_MAX	libraries\inc\stm8s_beep.h	64;"	macro
 LSI_FREQUENCY_MIN	libraries\inc\stm8s_awu.h	76;"	macro
@@ -1613,13 +1612,13 @@ PSCRH	libraries\inc\stm8s.h	630;"	member	struct:TIM1_struct
 PSCRL	libraries\inc\stm8s.h	631;"	member	struct:TIM1_struct
 PSR	libraries\inc\stm8s.h	2183;"	member	struct:__anon5
 PUKR	libraries\inc\stm8s.h	1524;"	member	struct:FLASH_struct
-PUTCHAR_PROTOTYPE	user\user_uart.h	10;"	macro
-PUTCHAR_PROTOTYPE	user\user_uart.h	13;"	macro
-PUTCHAR_PROTOTYPE	user\user_uart.h	16;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	12;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	15;"	macro
+PUTCHAR_PROTOTYPE	user\user_uart.h	9;"	macro
 Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon5	typeref:union:__anon5::__anon6
 PointerAttr	libraries\inc\stm8s.h	156;"	macro
 PointerAttr	libraries\inc\stm8s.h	160;"	macro
-QTD_LED	..\corona\user\user_led.h	18;"	macro
+QTD_LED	user\user_led.h	18;"	macro
 RCR	libraries\inc\stm8s.h	634;"	member	struct:TIM1_struct
 RECR	libraries\inc\stm8s.h	2296;"	member	struct:__anon5::__anon6::__anon12
 RESERVED	libraries\inc\stm8s.h	1982;"	member	struct:UART3_struct
@@ -2477,8 +2476,8 @@ TIM4_ClearITPendingBit	libraries\inc\stm8s_tim4.h	155;"	prototype	signature:(TIM
 TIM4_ClearITPendingBit	libraries\src\stm8s_tim4.c	391;"	function	signature:(TIM4_IT_TypeDef TIM4_IT)
 TIM4_Cmd	libraries\inc\stm8s_tim4.h	140;"	prototype	signature:(FunctionalState NewState)
 TIM4_Cmd	libraries\src\stm8s_tim4.c	81;"	function	signature:(FunctionalState NewState)
-TIM4_Config	..\corona\user\user_timer.h	11;"	prototype	signature:(void)
 TIM4_Config	user\user_timer.c	54;"	function	signature:(void)
+TIM4_Config	user\user_timer.h	11;"	prototype	signature:(void)
 TIM4_DeInit	libraries\inc\stm8s_tim4.h	138;"	prototype	signature:(void)
 TIM4_DeInit	libraries\src\stm8s_tim4.c	49;"	function	signature:(void)
 TIM4_EGR_RESET_VALUE	libraries\inc\stm8s.h	1081;"	macro
@@ -2665,7 +2664,7 @@ TRISER	libraries\inc\stm8s.h	1343;"	member	struct:I2C_struct
 TRUE	libraries\inc\stm8s.h	231;"	enumerator	enum:__anon1
 TSR	libraries\inc\stm8s.h	2178;"	member	struct:__anon5
 TXCRCR	libraries\inc\stm8s.h	1705;"	member	struct:SPI_struct
-TimingDelay_Decrement	..\corona\user\user_timer.h	9;"	prototype	signature:(void)
+TimingDelay_Decrement	user\user_timer.h	9;"	prototype	signature:(void)
 TxMailbox	libraries\inc\stm8s.h	2205;"	member	union:__anon5::__anon6	typeref:struct:__anon5::__anon6::__anon7
 U16_MAX	libraries\inc\stm8s.h	243;"	macro
 U32_MAX	libraries\inc\stm8s.h	246;"	macro
@@ -3038,10 +3037,10 @@ WWDG_WR_MSB	libraries\inc\stm8s.h	1659;"	macro
 WWDG_WR_RESET_VALUE	libraries\inc\stm8s.h	1645;"	macro
 WWDG_WR_W	libraries\inc\stm8s.h	1660;"	macro
 WWDG_struct	libraries\inc\stm8s.h	1633;"	struct
-_BUZZER	..\corona\user\user_buzzer.h	19;"	struct
+_BUZZER	user\user_buzzer.h	28;"	struct
 _COSMIC_	libraries\inc\stm8s.h	83;"	macro
 _IAR_	libraries\inc\stm8s.h	87;"	macro
-_LED_STATE	..\corona\user\user_led.h	31;"	struct
+_LED_STATE	user\user_led.h	31;"	struct
 _RAISONANCE_	libraries\inc\stm8s.h	85;"	macro
 __I	libraries\inc\stm8s.h	206;"	macro
 __IO	libraries\inc\stm8s.h	208;"	macro
@@ -3074,54 +3073,57 @@ __STM8S_TIM4_H	libraries\inc\stm8s_tim4.h	30;"	macro
 __STM8S_UART1_H	libraries\inc\stm8s_uart1.h	30;"	macro
 __STM8S_WWDG_H	libraries\inc\stm8s_wwdg.h	30;"	macro
 __USER_ADC_H__	user\user_adc.h	2;"	macro
-__USER_BUZZER_H__	..\corona\user\user_buzzer.h	2;"	macro
+__USER_BUZZER_H__	user\user_buzzer.h	2;"	macro
 __USER_EEPROM_H__	user\user_eeprom.h	2;"	macro
-__USER_LED_H__	..\corona\user\user_led.h	2;"	macro
-__USER_TIMER_H__	..\corona\user\user_timer.h	2;"	macro
+__USER_LED_H__	user\user_led.h	2;"	macro
+__USER_TIMER_H__	user\user_timer.h	2;"	macro
 __USER_UART_H__	user\user_uart.h	2;"	macro
 _stext	stm8_interrupt_vector.c	20;"	prototype	file:
 _stext	stm8s_it.h	40;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	22;"	variable
+adc_val	main.c	10;"	variable
 adc_val	user\user_adc.c	4;"	variable
+adc_val	user\user_pwm.c	4;"	variable
 assert_failed	stm8s_conf.h	108;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	stm8s_conf.h	106;"	macro
 assert_param	stm8s_conf.h	110;"	macro
 bool	libraries\inc\stm8s.h	231;"	typedef	typeref:enum:__anon1
-buz_dir	..\corona\user\user_buzzer.h	15;"	macro
-buz_off	..\corona\user\user_buzzer.h	17;"	macro
-buz_on	..\corona\user\user_buzzer.h	16;"	macro
+buz_dir	user\user_buzzer.h	20;"	macro
+buz_off	user\user_buzzer.h	26;"	macro
+buz_on	user\user_buzzer.h	22;"	macro
+buz_on	user\user_buzzer.h	24;"	macro
 buzzer	user\user_buzzer.c	5;"	variable
-delay	..\corona\user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 delay	user\user_timer.c	43;"	function	signature:(__IO uint32_t nTime)
+delay	user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 disableInterrupts	libraries\inc\stm8s.h	2717;"	macro
 disableInterrupts	libraries\inc\stm8s.h	2726;"	macro
 disableInterrupts	libraries\inc\stm8s.h	2736;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2716;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2725;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2735;"	macro
-gpio_clr	..\corona\user\user_buzzer.h	12;"	macro
-gpio_clr	..\corona\user\user_led.h	10;"	macro
-gpio_dir_out	..\corona\user\user_buzzer.h	13;"	macro
-gpio_dir_out	..\corona\user\user_led.h	11;"	macro
-gpio_set	..\corona\user\user_buzzer.h	11;"	macro
-gpio_set	..\corona\user\user_led.h	9;"	macro
+gpio_clr	user\user_buzzer.h	17;"	macro
+gpio_clr	user\user_led.h	10;"	macro
+gpio_dir_out	user\user_buzzer.h	18;"	macro
+gpio_dir_out	user\user_led.h	11;"	macro
+gpio_set	user\user_buzzer.h	16;"	macro
+gpio_set	user\user_led.h	9;"	macro
 halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
 init_adc	user\user_adc.c	7;"	function	signature:(void)
 init_adc	user\user_adc.h	8;"	prototype	signature:(void)
-init_buzzer	..\corona\user\user_buzzer.h	26;"	prototype	signature:(void)
 init_buzzer	user\user_buzzer.c	7;"	function	signature:(void)
+init_buzzer	user\user_buzzer.h	35;"	prototype	signature:(void)
 init_eeprom	user\user_eeprom.c	3;"	function	signature:(void)
 init_eeprom	user\user_eeprom.h	6;"	prototype	signature:()
-init_led	..\corona\user\user_led.h	37;"	prototype	signature:(void)
-init_led	user\user_led.c	7;"	function	signature:(void)
-init_pwm	user\user_pwm.c	9;"	function	signature:(void)
+init_led	user\user_led.c	9;"	function	signature:(void)
+init_led	user\user_led.h	37;"	prototype	signature:(void)
+init_pwm	user\user_pwm.c	14;"	function	signature:(void)
 init_pwm	user\user_pwm.h	8;"	prototype	signature:(void)
-init_timer	..\corona\user\user_timer.h	6;"	prototype	signature:(void)
 init_timer	user\user_timer.c	19;"	function	signature:(void)
+init_timer	user\user_timer.h	6;"	prototype	signature:(void)
 init_uart	user\user_uart.c	3;"	function	signature:(void)
-init_uart	user\user_uart.h	20;"	prototype	signature:(void)
+init_uart	user\user_uart.h	19;"	prototype	signature:(void)
 int16_t	libraries\inc\stm8s.h	212;"	typedef
 int32_t	libraries\inc\stm8s.h	213;"	typedef
 int8_t	libraries\inc\stm8s.h	211;"	typedef
@@ -3129,17 +3131,17 @@ interrupt_handler	stm8_interrupt_vector.c	9;"	member	struct:interrupt_vector	fil
 interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	7;"	struct	file:
-led	user\user_led.c	5;"	variable
-led1_dir	..\corona\user\user_led.h	13;"	macro
-led1_off	..\corona\user\user_led.h	15;"	macro
-led1_on	..\corona\user\user_led.h	14;"	macro
-main	main.c	9;"	function	signature:(void)
-nbeep	..\corona\user\user_buzzer.h	21;"	member	struct:_BUZZER
+led	user\user_led.c	6;"	variable
+led1_dir	user\user_led.h	13;"	macro
+led1_off	user\user_led.h	15;"	macro
+led1_on	user\user_led.h	14;"	macro
+main	main.c	13;"	function	signature:(void)
+nbeep	user\user_buzzer.h	30;"	member	struct:_BUZZER
 nop	libraries\inc\stm8s.h	2720;"	macro
 nop	libraries\inc\stm8s.h	2729;"	macro
 nop	libraries\inc\stm8s.h	2739;"	macro
-pool_tick	..\corona\user\user_timer.h	7;"	prototype	signature:(void)
 pool_tick	user\user_timer.c	13;"	function	signature:(void)
+pool_tick	user\user_timer.h	7;"	prototype	signature:(void)
 read_adc	stm8s_it.c	32;"	prototype	file:	signature:(void)
 read_adc	user\user_adc.c	26;"	function	signature:(void)
 read_adc	user\user_adc.h	9;"	prototype	signature:(void)
@@ -3150,27 +3152,29 @@ s16	libraries\inc\stm8s.h	223;"	typedef
 s32	libraries\inc\stm8s.h	222;"	typedef
 s8	libraries\inc\stm8s.h	224;"	typedef
 send_uart	user\user_uart.c	22;"	function	signature:(const uint8_t *p)
-send_uart	user\user_uart.h	21;"	prototype	signature:(const uint8_t *p)
-set_buzzer	..\corona\user\user_buzzer.h	27;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
+send_uart	user\user_uart.h	20;"	prototype	signature:(const uint8_t *p)
 set_buzzer	user\user_buzzer.c	23;"	function	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
-set_led	..\corona\user\user_led.h	39;"	prototype	signature:(uint8_t ledx, uint16_t speed)
-set_led	user\user_led.c	25;"	function	signature:(uint8_t ledx, uint16_t speed)
+set_buzzer	user\user_buzzer.h	36;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
+set_led	user\user_led.c	31;"	function	signature:(uint8_t ledx, uint16_t speed)
+set_led	user\user_led.h	39;"	prototype	signature:(uint8_t ledx, uint16_t speed)
+set_pwm	user\user_pwm.c	39;"	function	signature:(uint16_t val)
+set_pwm	user\user_pwm.h	9;"	prototype	signature:(uint16_t val)
 sim	libraries\inc\stm8s.h	2719;"	macro
 sim	libraries\inc\stm8s.h	2728;"	macro
 sim	libraries\inc\stm8s.h	2738;"	macro
-speed	..\corona\user\user_led.h	34;"	member	struct:_LED_STATE
-task_buzzer	..\corona\user\user_buzzer.h	28;"	prototype	signature:(void)
+speed	user\user_led.h	34;"	member	struct:_LED_STATE
 task_buzzer	user\user_buzzer.c	33;"	function	signature:(void)
-task_led	..\corona\user\user_led.h	38;"	prototype	signature:(void)
-task_led	user\user_led.c	13;"	function	signature:(void)
+task_buzzer	user\user_buzzer.h	37;"	prototype	signature:(void)
+task_led	user\user_led.c	17;"	function	signature:(void)
+task_led	user\user_led.h	38;"	prototype	signature:(void)
 task_timer	stm8s_it.c	31;"	prototype	file:	signature:(void)
 task_timer	user\user_timer.c	79;"	function	signature:(void)
 tick	user\user_timer.c	10;"	variable
-time	..\corona\user\user_led.h	33;"	member	struct:_LED_STATE
+time	user\user_led.h	33;"	member	struct:_LED_STATE
 timer_tick	user\user_timer.c	11;"	variable
 tmr_delay	user\user_timer.c	8;"	variable
-toff	..\corona\user\user_buzzer.h	23;"	member	struct:_BUZZER
-ton	..\corona\user\user_buzzer.h	22;"	member	struct:_BUZZER
+toff	user\user_buzzer.h	32;"	member	struct:_BUZZER
+ton	user\user_buzzer.h	31;"	member	struct:_BUZZER
 trap	libraries\inc\stm8s.h	2721;"	macro
 trap	libraries\inc\stm8s.h	2730;"	macro
 trap	libraries\inc\stm8s.h	2740;"	macro

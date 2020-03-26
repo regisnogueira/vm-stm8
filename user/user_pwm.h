@@ -6,5 +6,6 @@
 #define EN_USER_PWM
 
 void init_pwm(void);
+void set_pwm(uint16_t val);
 
 #endif

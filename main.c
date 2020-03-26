@@ -8,13 +8,21 @@
 
 void main(void)
 {
+    uint16_t pwm;
+
     init_timer();
     init_led();
-    //init_buzzer();
-    //init_uart();
-    //init_adc();
+    init_buzzer();
+    init_uart();
+    init_adc();
     init_pwm();
 
     for (;;) {
+        delay(10);
+#ifdef EN_USER_PWM
+        set_pwm(pwm);
+        if (++pwm >= 999)
+            pwm = 0;
+#endif
     }
 }

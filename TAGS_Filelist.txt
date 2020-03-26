@@ -15,9 +15,6 @@ user\user_led.c
 user\user_pwm.c
 user\user_timer.c
 user\user_uart.c
-..\corona\user\user_buzzer.h
-..\corona\user\user_led.h
-..\corona\user\user_timer.h
 c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h
 libraries\inc\stm8s.h
 libraries\inc\stm8s_adc1.h
@@ -40,6 +37,9 @@ libraries\inc\stm8s_wwdg.h
 stm8s_conf.h
 stm8s_it.h
 user\user_adc.h
+user\user_buzzer.h
 user\user_eeprom.h
+user\user_led.h
 user\user_pwm.h
+user\user_timer.h
 user\user_uart.h

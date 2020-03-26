@@ -1,883 +1,959 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.11.14 - 18 Nov 2019
    3                     ; Generator (Limited) V4.4.11 - 19 Nov 2019
-   4                     ; Optimizer V4.4.11 - 19 Nov 2019
-  47                     ; 52 void ADC1_DeInit(void)
-  47                     ; 53 {
-  49                     	switch	.text
-  50  0000               _ADC1_DeInit:
-  54                     ; 54   ADC1->CSR  = ADC1_CSR_RESET_VALUE;
-  56  0000 725f5400      	clr	21504
-  57                     ; 55   ADC1->CR1  = ADC1_CR1_RESET_VALUE;
-  59  0004 725f5401      	clr	21505
-  60                     ; 56   ADC1->CR2  = ADC1_CR2_RESET_VALUE;
-  62  0008 725f5402      	clr	21506
-  63                     ; 57   ADC1->CR3  = ADC1_CR3_RESET_VALUE;
-  65  000c 725f5403      	clr	21507
-  66                     ; 58   ADC1->TDRH = ADC1_TDRH_RESET_VALUE;
-  68  0010 725f5406      	clr	21510
-  69                     ; 59   ADC1->TDRL = ADC1_TDRL_RESET_VALUE;
-  71  0014 725f5407      	clr	21511
-  72                     ; 60   ADC1->HTRH = ADC1_HTRH_RESET_VALUE;
-  74  0018 35ff5408      	mov	21512,#255
-  75                     ; 61   ADC1->HTRL = ADC1_HTRL_RESET_VALUE;
-  77  001c 35035409      	mov	21513,#3
-  78                     ; 62   ADC1->LTRH = ADC1_LTRH_RESET_VALUE;
-  80  0020 725f540a      	clr	21514
-  81                     ; 63   ADC1->LTRL = ADC1_LTRL_RESET_VALUE;
-  83  0024 725f540b      	clr	21515
-  84                     ; 64   ADC1->AWCRH = ADC1_AWCRH_RESET_VALUE;
-  86  0028 725f540e      	clr	21518
-  87                     ; 65   ADC1->AWCRL = ADC1_AWCRL_RESET_VALUE;
-  89  002c 725f540f      	clr	21519
-  90                     ; 66 }
-  93  0030 81            	ret	
- 544                     ; 88 void ADC1_Init(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_PresSel_TypeDef ADC1_PrescalerSelection, ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState ADC1_ExtTriggerState, ADC1_Align_TypeDef ADC1_Align, ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState ADC1_SchmittTriggerState)
- 544                     ; 89 {
- 545                     	switch	.text
- 546  0031               _ADC1_Init:
- 548  0031 89            	pushw	x
- 549       00000000      OFST:	set	0
- 552                     ; 91   assert_param(IS_ADC1_CONVERSIONMODE_OK(ADC1_ConversionMode));
- 554                     ; 92   assert_param(IS_ADC1_CHANNEL_OK(ADC1_Channel));
- 556                     ; 93   assert_param(IS_ADC1_PRESSEL_OK(ADC1_PrescalerSelection));
- 558                     ; 94   assert_param(IS_ADC1_EXTTRIG_OK(ADC1_ExtTrigger));
- 560                     ; 95   assert_param(IS_FUNCTIONALSTATE_OK(((ADC1_ExtTriggerState))));
- 562                     ; 96   assert_param(IS_ADC1_ALIGN_OK(ADC1_Align));
- 564                     ; 97   assert_param(IS_ADC1_SCHMITTTRIG_OK(ADC1_SchmittTriggerChannel));
- 566                     ; 98   assert_param(IS_FUNCTIONALSTATE_OK(ADC1_SchmittTriggerState));
- 568                     ; 103   ADC1_ConversionConfig(ADC1_ConversionMode, ADC1_Channel, ADC1_Align);
- 570  0032 7b08          	ld	a,(OFST+8,sp)
- 571  0034 88            	push	a
- 572  0035 7b02          	ld	a,(OFST+2,sp)
- 573  0037 95            	ld	xh,a
- 574  0038 cd011b        	call	_ADC1_ConversionConfig
- 576  003b 84            	pop	a
- 577                     ; 105   ADC1_PrescalerConfig(ADC1_PrescalerSelection);
- 579  003c 7b05          	ld	a,(OFST+5,sp)
- 580  003e ad54          	call	_ADC1_PrescalerConfig
- 582                     ; 110   ADC1_ExternalTriggerConfig(ADC1_ExtTrigger, ADC1_ExtTriggerState);
- 584  0040 7b07          	ld	a,(OFST+7,sp)
- 585  0042 97            	ld	xl,a
- 586  0043 7b06          	ld	a,(OFST+6,sp)
- 587  0045 95            	ld	xh,a
- 588  0046 cd0148        	call	_ADC1_ExternalTriggerConfig
- 590                     ; 115   ADC1_SchmittTriggerConfig(ADC1_SchmittTriggerChannel, ADC1_SchmittTriggerState);
- 592  0049 7b0a          	ld	a,(OFST+10,sp)
- 593  004b 97            	ld	xl,a
- 594  004c 7b09          	ld	a,(OFST+9,sp)
- 595  004e 95            	ld	xh,a
- 596  004f ad56          	call	_ADC1_SchmittTriggerConfig
- 598                     ; 118   ADC1->CR1 |= ADC1_CR1_ADON;
- 600  0051 72105401      	bset	21505,#0
- 601                     ; 119 }
- 604  0055 85            	popw	x
- 605  0056 81            	ret	
- 640                     ; 126 void ADC1_Cmd(FunctionalState NewState)
- 640                     ; 127 {
- 641                     	switch	.text
- 642  0057               _ADC1_Cmd:
- 646                     ; 129   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
- 648                     ; 131   if (NewState != DISABLE)
- 650  0057 4d            	tnz	a
- 651  0058 2705          	jreq	L362
- 652                     ; 133     ADC1->CR1 |= ADC1_CR1_ADON;
- 654  005a 72105401      	bset	21505,#0
- 657  005e 81            	ret	
- 658  005f               L362:
- 659                     ; 137     ADC1->CR1 &= (uint8_t)(~ADC1_CR1_ADON);
- 661  005f 72115401      	bres	21505,#0
- 662                     ; 139 }
- 665  0063 81            	ret	
- 700                     ; 146 void ADC1_ScanModeCmd(FunctionalState NewState)
- 700                     ; 147 {
- 701                     	switch	.text
- 702  0064               _ADC1_ScanModeCmd:
- 706                     ; 149   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
- 708                     ; 151   if (NewState != DISABLE)
- 710  0064 4d            	tnz	a
- 711  0065 2705          	jreq	L503
- 712                     ; 153     ADC1->CR2 |= ADC1_CR2_SCAN;
- 714  0067 72125402      	bset	21506,#1
- 717  006b 81            	ret	
- 718  006c               L503:
- 719                     ; 157     ADC1->CR2 &= (uint8_t)(~ADC1_CR2_SCAN);
- 721  006c 72135402      	bres	21506,#1
- 722                     ; 159 }
- 725  0070 81            	ret	
- 760                     ; 166 void ADC1_DataBufferCmd(FunctionalState NewState)
- 760                     ; 167 {
- 761                     	switch	.text
- 762  0071               _ADC1_DataBufferCmd:
- 766                     ; 169   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
- 768                     ; 171   if (NewState != DISABLE)
- 770  0071 4d            	tnz	a
- 771  0072 2705          	jreq	L723
- 772                     ; 173     ADC1->CR3 |= ADC1_CR3_DBUF;
- 774  0074 721e5403      	bset	21507,#7
- 777  0078 81            	ret	
- 778  0079               L723:
- 779                     ; 177     ADC1->CR3 &= (uint8_t)(~ADC1_CR3_DBUF);
- 781  0079 721f5403      	bres	21507,#7
- 782                     ; 179 }
- 785  007d 81            	ret	
- 941                     ; 190 void ADC1_ITConfig(ADC1_IT_TypeDef ADC1_IT, FunctionalState NewState)
- 941                     ; 191 {
- 942                     	switch	.text
- 943  007e               _ADC1_ITConfig:
- 945  007e 89            	pushw	x
- 946       00000000      OFST:	set	0
- 949                     ; 193   assert_param(IS_ADC1_IT_OK(ADC1_IT));
- 951                     ; 194   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
- 953                     ; 196   if (NewState != DISABLE)
- 955  007f 7b05          	ld	a,(OFST+5,sp)
- 956  0081 2706          	jreq	L714
- 957                     ; 199     ADC1->CSR |= (uint8_t)ADC1_IT;
- 959  0083 9f            	ld	a,xl
- 960  0084 ca5400        	or	a,21504
- 962  0087 2006          	jra	L124
- 963  0089               L714:
- 964                     ; 204     ADC1->CSR &= (uint8_t)((uint16_t)~(uint16_t)ADC1_IT);
- 966  0089 7b02          	ld	a,(OFST+2,sp)
- 967  008b 43            	cpl	a
- 968  008c c45400        	and	a,21504
- 969  008f               L124:
- 970  008f c75400        	ld	21504,a
- 971                     ; 206 }
- 974  0092 85            	popw	x
- 975  0093 81            	ret	
-1011                     ; 214 void ADC1_PrescalerConfig(ADC1_PresSel_TypeDef ADC1_Prescaler)
-1011                     ; 215 {
-1012                     	switch	.text
-1013  0094               _ADC1_PrescalerConfig:
-1015  0094 88            	push	a
-1016       00000000      OFST:	set	0
-1019                     ; 217   assert_param(IS_ADC1_PRESSEL_OK(ADC1_Prescaler));
-1021                     ; 220   ADC1->CR1 &= (uint8_t)(~ADC1_CR1_SPSEL);
-1023  0095 c65401        	ld	a,21505
-1024  0098 a48f          	and	a,#143
-1025  009a c75401        	ld	21505,a
-1026                     ; 222   ADC1->CR1 |= (uint8_t)(ADC1_Prescaler);
-1028  009d c65401        	ld	a,21505
-1029  00a0 1a01          	or	a,(OFST+1,sp)
-1030  00a2 c75401        	ld	21505,a
-1031                     ; 223 }
-1034  00a5 84            	pop	a
-1035  00a6 81            	ret	
-1082                     ; 233 void ADC1_SchmittTriggerConfig(ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState NewState)
-1082                     ; 234 {
-1083                     	switch	.text
-1084  00a7               _ADC1_SchmittTriggerConfig:
-1086  00a7 89            	pushw	x
-1087       00000000      OFST:	set	0
-1090                     ; 236   assert_param(IS_ADC1_SCHMITTTRIG_OK(ADC1_SchmittTriggerChannel));
-1092                     ; 237   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-1094                     ; 239   if (ADC1_SchmittTriggerChannel == ADC1_SCHMITTTRIG_ALL)
-1096  00a8 9e            	ld	a,xh
-1097  00a9 4c            	inc	a
-1098  00aa 261d          	jrne	L364
-1099                     ; 241     if (NewState != DISABLE)
-1101  00ac 9f            	ld	a,xl
-1102  00ad 4d            	tnz	a
-1103  00ae 270a          	jreq	L564
-1104                     ; 243       ADC1->TDRL &= (uint8_t)0x0;
-1106  00b0 725f5407      	clr	21511
-1107                     ; 244       ADC1->TDRH &= (uint8_t)0x0;
-1109  00b4 725f5406      	clr	21510
-1111  00b8 2059          	jra	L174
-1112  00ba               L564:
-1113                     ; 248       ADC1->TDRL |= (uint8_t)0xFF;
-1115  00ba c65407        	ld	a,21511
-1116  00bd aaff          	or	a,#255
-1117  00bf c75407        	ld	21511,a
-1118                     ; 249       ADC1->TDRH |= (uint8_t)0xFF;
-1120  00c2 c65406        	ld	a,21510
-1121  00c5 aaff          	or	a,#255
-1122  00c7 2047          	jp	LC001
-1123  00c9               L364:
-1124                     ; 252   else if (ADC1_SchmittTriggerChannel < ADC1_SCHMITTTRIG_CHANNEL8)
-1126  00c9 7b01          	ld	a,(OFST+1,sp)
-1127  00cb a108          	cp	a,#8
-1128  00cd 0d02          	tnz	(OFST+2,sp)
-1129  00cf 2420          	jruge	L374
-1130                     ; 254     if (NewState != DISABLE)
-1132  00d1 2711          	jreq	L574
-1133                     ; 256       ADC1->TDRL &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << (uint8_t)ADC1_SchmittTriggerChannel));
-1135  00d3 ad40          	call	LC003
-1136  00d5 2704          	jreq	L43
-1137  00d7               L63:
-1138  00d7 48            	sll	a
-1139  00d8 5a            	decw	x
-1140  00d9 26fc          	jrne	L63
-1141  00db               L43:
-1142  00db 43            	cpl	a
-1143  00dc c45407        	and	a,21511
-1144  00df               LC002:
-1145  00df c75407        	ld	21511,a
-1147  00e2 202f          	jra	L174
-1148  00e4               L574:
-1149                     ; 260       ADC1->TDRL |= (uint8_t)((uint8_t)0x01 << (uint8_t)ADC1_SchmittTriggerChannel);
-1151  00e4 ad2f          	call	LC003
-1152  00e6 2704          	jreq	L04
-1153  00e8               L24:
-1154  00e8 48            	sll	a
-1155  00e9 5a            	decw	x
-1156  00ea 26fc          	jrne	L24
-1157  00ec               L04:
-1158  00ec ca5407        	or	a,21511
-1159  00ef 20ee          	jp	LC002
-1160  00f1               L374:
-1161                     ; 265     if (NewState != DISABLE)
-1163  00f1 2710          	jreq	L305
-1164                     ; 267       ADC1->TDRH &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << ((uint8_t)ADC1_SchmittTriggerChannel - (uint8_t)8)));
-1166  00f3 a008          	sub	a,#8
-1167  00f5 ad1e          	call	LC003
-1168  00f7 2704          	jreq	L44
-1169  00f9               L64:
-1170  00f9 48            	sll	a
-1171  00fa 5a            	decw	x
-1172  00fb 26fc          	jrne	L64
-1173  00fd               L44:
-1174  00fd 43            	cpl	a
-1175  00fe c45406        	and	a,21510
-1177  0101 200d          	jp	LC001
-1178  0103               L305:
-1179                     ; 271       ADC1->TDRH |= (uint8_t)((uint8_t)0x01 << ((uint8_t)ADC1_SchmittTriggerChannel - (uint8_t)8));
-1181  0103 a008          	sub	a,#8
-1182  0105 ad0e          	call	LC003
-1183  0107 2704          	jreq	L05
-1184  0109               L25:
-1185  0109 48            	sll	a
-1186  010a 5a            	decw	x
-1187  010b 26fc          	jrne	L25
-1188  010d               L05:
-1189  010d ca5406        	or	a,21510
-1190  0110               LC001:
-1191  0110 c75406        	ld	21510,a
-1192  0113               L174:
-1193                     ; 274 }
-1196  0113 85            	popw	x
-1197  0114 81            	ret	
-1198  0115               LC003:
-1199  0115 5f            	clrw	x
-1200  0116 97            	ld	xl,a
-1201  0117 a601          	ld	a,#1
-1202  0119 5d            	tnzw	x
-1203  011a 81            	ret	
-1260                     ; 286 void ADC1_ConversionConfig(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_Align_TypeDef ADC1_Align)
-1260                     ; 287 {
-1261                     	switch	.text
-1262  011b               _ADC1_ConversionConfig:
-1264  011b 89            	pushw	x
-1265       00000000      OFST:	set	0
-1268                     ; 289   assert_param(IS_ADC1_CONVERSIONMODE_OK(ADC1_ConversionMode));
-1270                     ; 290   assert_param(IS_ADC1_CHANNEL_OK(ADC1_Channel));
-1272                     ; 291   assert_param(IS_ADC1_ALIGN_OK(ADC1_Align));
-1274                     ; 294   ADC1->CR2 &= (uint8_t)(~ADC1_CR2_ALIGN);
-1276  011c 72175402      	bres	21506,#3
-1277                     ; 296   ADC1->CR2 |= (uint8_t)(ADC1_Align);
-1279  0120 c65402        	ld	a,21506
-1280  0123 1a05          	or	a,(OFST+5,sp)
-1281  0125 c75402        	ld	21506,a
-1282                     ; 298   if (ADC1_ConversionMode == ADC1_CONVERSIONMODE_CONTINUOUS)
-1284  0128 9e            	ld	a,xh
-1285  0129 4a            	dec	a
-1286  012a 2606          	jrne	L535
-1287                     ; 301     ADC1->CR1 |= ADC1_CR1_CONT;
-1289  012c 72125401      	bset	21505,#1
-1291  0130 2004          	jra	L735
-1292  0132               L535:
-1293                     ; 306     ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
-1295  0132 72135401      	bres	21505,#1
-1296  0136               L735:
-1297                     ; 310   ADC1->CSR &= (uint8_t)(~ADC1_CSR_CH);
-1299  0136 c65400        	ld	a,21504
-1300  0139 a4f0          	and	a,#240
-1301  013b c75400        	ld	21504,a
-1302                     ; 312   ADC1->CSR |= (uint8_t)(ADC1_Channel);
-1304  013e c65400        	ld	a,21504
-1305  0141 1a02          	or	a,(OFST+2,sp)
-1306  0143 c75400        	ld	21504,a
-1307                     ; 313 }
-1310  0146 85            	popw	x
-1311  0147 81            	ret	
-1357                     ; 325 void ADC1_ExternalTriggerConfig(ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState NewState)
-1357                     ; 326 {
-1358                     	switch	.text
-1359  0148               _ADC1_ExternalTriggerConfig:
-1361  0148 89            	pushw	x
-1362       00000000      OFST:	set	0
-1365                     ; 328   assert_param(IS_ADC1_EXTTRIG_OK(ADC1_ExtTrigger));
-1367                     ; 329   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-1369                     ; 332   ADC1->CR2 &= (uint8_t)(~ADC1_CR2_EXTSEL);
-1371  0149 c65402        	ld	a,21506
-1372  014c a4cf          	and	a,#207
-1373  014e c75402        	ld	21506,a
-1374                     ; 334   if (NewState != DISABLE)
-1376  0151 9f            	ld	a,xl
-1377  0152 4d            	tnz	a
-1378  0153 2706          	jreq	L365
-1379                     ; 337     ADC1->CR2 |= (uint8_t)(ADC1_CR2_EXTTRIG);
-1381  0155 721c5402      	bset	21506,#6
-1383  0159 2004          	jra	L565
-1384  015b               L365:
-1385                     ; 342     ADC1->CR2 &= (uint8_t)(~ADC1_CR2_EXTTRIG);
-1387  015b 721d5402      	bres	21506,#6
-1388  015f               L565:
-1389                     ; 346   ADC1->CR2 |= (uint8_t)(ADC1_ExtTrigger);
-1391  015f c65402        	ld	a,21506
-1392  0162 1a01          	or	a,(OFST+1,sp)
-1393  0164 c75402        	ld	21506,a
-1394                     ; 347 }
-1397  0167 85            	popw	x
-1398  0168 81            	ret	
-1422                     ; 358 void ADC1_StartConversion(void)
-1422                     ; 359 {
-1423                     	switch	.text
-1424  0169               _ADC1_StartConversion:
-1428                     ; 360   ADC1->CR1 |= ADC1_CR1_ADON;
-1430  0169 72105401      	bset	21505,#0
-1431                     ; 361 }
-1434  016d 81            	ret	
-1478                     ; 370 uint16_t ADC1_GetConversionValue(void)
-1478                     ; 371 {
-1479                     	switch	.text
-1480  016e               _ADC1_GetConversionValue:
-1482  016e 5205          	subw	sp,#5
-1483       00000005      OFST:	set	5
-1486                     ; 372   uint16_t temph = 0;
-1488                     ; 373   uint8_t templ = 0;
-1490                     ; 375   if ((ADC1->CR2 & ADC1_CR2_ALIGN) != 0) /* Right alignment */
-1492  0170 720754020e    	btjf	21506,#3,L126
-1493                     ; 378     templ = ADC1->DRL;
-1495  0175 c65405        	ld	a,21509
-1496  0178 6b03          	ld	(OFST-2,sp),a
-1498                     ; 380     temph = ADC1->DRH;
-1500  017a c65404        	ld	a,21508
-1501  017d 97            	ld	xl,a
-1503                     ; 382     temph = (uint16_t)(templ | (uint16_t)(temph << (uint8_t)8));
-1505  017e 7b03          	ld	a,(OFST-2,sp)
-1506  0180 02            	rlwa	x,a
-1509  0181 201a          	jra	L326
-1510  0183               L126:
-1511                     ; 387     temph = ADC1->DRH;
-1513  0183 c65404        	ld	a,21508
-1514  0186 97            	ld	xl,a
-1516                     ; 389     templ = ADC1->DRL;
-1518  0187 c65405        	ld	a,21509
-1519  018a 6b03          	ld	(OFST-2,sp),a
-1521                     ; 391     temph = (uint16_t)((uint16_t)((uint16_t)templ << 6) | (uint16_t)((uint16_t)temph << 8));
-1523  018c 4f            	clr	a
-1524  018d 02            	rlwa	x,a
-1525  018e 1f01          	ldw	(OFST-4,sp),x
-1527  0190 7b03          	ld	a,(OFST-2,sp)
-1528  0192 97            	ld	xl,a
-1529  0193 a640          	ld	a,#64
-1530  0195 42            	mul	x,a
-1531  0196 01            	rrwa	x,a
-1532  0197 1a02          	or	a,(OFST-3,sp)
-1533  0199 01            	rrwa	x,a
-1534  019a 1a01          	or	a,(OFST-4,sp)
-1535  019c 01            	rrwa	x,a
-1537  019d               L326:
-1538                     ; 394   return ((uint16_t)temph);
-1542  019d 5b05          	addw	sp,#5
-1543  019f 81            	ret	
-1589                     ; 405 void ADC1_AWDChannelConfig(ADC1_Channel_TypeDef Channel, FunctionalState NewState)
-1589                     ; 406 {
-1590                     	switch	.text
-1591  01a0               _ADC1_AWDChannelConfig:
-1593  01a0 89            	pushw	x
-1594       00000000      OFST:	set	0
-1597                     ; 408   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
-1599                     ; 409   assert_param(IS_ADC1_CHANNEL_OK(Channel));
-1601                     ; 411   if (Channel < (uint8_t)8)
-1603  01a1 9e            	ld	a,xh
-1604  01a2 a108          	cp	a,#8
-1605  01a4 2425          	jruge	L746
-1606                     ; 413     if (NewState != DISABLE)
-1608  01a6 9f            	ld	a,xl
-1609  01a7 4d            	tnz	a
-1610  01a8 270e          	jreq	L156
-1611                     ; 415       ADC1->AWCRL |= (uint8_t)((uint8_t)1 << Channel);
-1613  01aa 9e            	ld	a,xh
-1614  01ab ad48          	call	LC006
-1615  01ad 2704          	jreq	L66
-1616  01af               L07:
-1617  01af 48            	sll	a
-1618  01b0 5a            	decw	x
-1619  01b1 26fc          	jrne	L07
-1620  01b3               L66:
-1621  01b3 ca540f        	or	a,21519
-1623  01b6 200e          	jp	LC005
-1624  01b8               L156:
-1625                     ; 419       ADC1->AWCRL &= (uint8_t)~(uint8_t)((uint8_t)1 << Channel);
-1627  01b8 7b01          	ld	a,(OFST+1,sp)
-1628  01ba ad39          	call	LC006
-1629  01bc 2704          	jreq	L27
-1630  01be               L47:
-1631  01be 48            	sll	a
-1632  01bf 5a            	decw	x
-1633  01c0 26fc          	jrne	L47
-1634  01c2               L27:
-1635  01c2 43            	cpl	a
-1636  01c3 c4540f        	and	a,21519
-1637  01c6               LC005:
-1638  01c6 c7540f        	ld	21519,a
-1639  01c9 2028          	jra	L556
-1640  01cb               L746:
-1641                     ; 424     if (NewState != DISABLE)
-1643  01cb 7b02          	ld	a,(OFST+2,sp)
-1644  01cd 2711          	jreq	L756
-1645                     ; 426       ADC1->AWCRH |= (uint8_t)((uint8_t)1 << (Channel - (uint8_t)8));
-1647  01cf 7b01          	ld	a,(OFST+1,sp)
-1648  01d1 a008          	sub	a,#8
-1649  01d3 ad20          	call	LC006
-1650  01d5 2704          	jreq	L67
-1651  01d7               L001:
-1652  01d7 48            	sll	a
-1653  01d8 5a            	decw	x
-1654  01d9 26fc          	jrne	L001
-1655  01db               L67:
-1656  01db ca540e        	or	a,21518
-1658  01de 2010          	jp	LC004
-1659  01e0               L756:
-1660                     ; 430       ADC1->AWCRH &= (uint8_t)~(uint8_t)((uint8_t)1 << (uint8_t)(Channel - (uint8_t)8));
-1662  01e0 7b01          	ld	a,(OFST+1,sp)
-1663  01e2 a008          	sub	a,#8
-1664  01e4 ad0f          	call	LC006
-1665  01e6 2704          	jreq	L201
-1666  01e8               L401:
-1667  01e8 48            	sll	a
-1668  01e9 5a            	decw	x
-1669  01ea 26fc          	jrne	L401
-1670  01ec               L201:
-1671  01ec 43            	cpl	a
-1672  01ed c4540e        	and	a,21518
-1673  01f0               LC004:
-1674  01f0 c7540e        	ld	21518,a
-1675  01f3               L556:
-1676                     ; 433 }
-1679  01f3 85            	popw	x
-1680  01f4 81            	ret	
-1681  01f5               LC006:
-1682  01f5 5f            	clrw	x
-1683  01f6 97            	ld	xl,a
-1684  01f7 a601          	ld	a,#1
-1685  01f9 5d            	tnzw	x
-1686  01fa 81            	ret	
-1721                     ; 441 void ADC1_SetHighThreshold(uint16_t Threshold)
-1721                     ; 442 {
-1722                     	switch	.text
-1723  01fb               _ADC1_SetHighThreshold:
-1725  01fb 89            	pushw	x
-1726       00000000      OFST:	set	0
-1729                     ; 443   ADC1->HTRH = (uint8_t)(Threshold >> (uint8_t)2);
-1731  01fc 54            	srlw	x
-1732  01fd 54            	srlw	x
-1733  01fe 9f            	ld	a,xl
-1734  01ff c75408        	ld	21512,a
-1735                     ; 444   ADC1->HTRL = (uint8_t)Threshold;
-1737  0202 7b02          	ld	a,(OFST+2,sp)
-1738  0204 c75409        	ld	21513,a
-1739                     ; 445 }
-1742  0207 85            	popw	x
-1743  0208 81            	ret	
-1778                     ; 453 void ADC1_SetLowThreshold(uint16_t Threshold)
-1778                     ; 454 {
-1779                     	switch	.text
-1780  0209               _ADC1_SetLowThreshold:
-1784                     ; 455   ADC1->LTRL = (uint8_t)Threshold;
-1786  0209 9f            	ld	a,xl
-1787  020a c7540b        	ld	21515,a
-1788                     ; 456   ADC1->LTRH = (uint8_t)(Threshold >> (uint8_t)2);
-1790  020d 54            	srlw	x
-1791  020e 54            	srlw	x
-1792  020f 9f            	ld	a,xl
-1793  0210 c7540a        	ld	21514,a
-1794                     ; 457 }
-1797  0213 81            	ret	
-1850                     ; 466 uint16_t ADC1_GetBufferValue(uint8_t Buffer)
-1850                     ; 467 {
-1851                     	switch	.text
-1852  0214               _ADC1_GetBufferValue:
-1854  0214 88            	push	a
-1855  0215 5205          	subw	sp,#5
-1856       00000005      OFST:	set	5
-1859                     ; 468   uint16_t temph = 0;
-1861                     ; 469   uint8_t templ = 0;
-1863                     ; 472   assert_param(IS_ADC1_BUFFER_OK(Buffer));
-1865                     ; 474   if ((ADC1->CR2 & ADC1_CR2_ALIGN) != 0) /* Right alignment */
-1867  0217 48            	sll	a
-1868  0218 5f            	clrw	x
-1869  0219 97            	ld	xl,a
-1870  021a 7207540213    	btjf	21506,#3,L547
-1871                     ; 477     templ = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1) + 1);
-1873  021f d653e1        	ld	a,(21473,x)
-1874  0222 6b03          	ld	(OFST-2,sp),a
-1876                     ; 479     temph = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1));
-1878  0224 7b06          	ld	a,(OFST+1,sp)
-1879  0226 48            	sll	a
-1880  0227 5f            	clrw	x
-1881  0228 97            	ld	xl,a
-1882  0229 d653e0        	ld	a,(21472,x)
-1883  022c 97            	ld	xl,a
-1885                     ; 481     temph = (uint16_t)(templ | (uint16_t)(temph << (uint8_t)8));
-1887  022d 7b03          	ld	a,(OFST-2,sp)
-1888  022f 02            	rlwa	x,a
-1891  0230 2024          	jra	L747
-1892  0232               L547:
-1893                     ; 486     temph = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1));
-1895  0232 d653e0        	ld	a,(21472,x)
-1896  0235 5f            	clrw	x
-1897  0236 97            	ld	xl,a
-1898  0237 1f04          	ldw	(OFST-1,sp),x
-1900                     ; 488     templ = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1) + 1);
-1902  0239 7b06          	ld	a,(OFST+1,sp)
-1903  023b 48            	sll	a
-1904  023c 5f            	clrw	x
-1905  023d 97            	ld	xl,a
-1906  023e d653e1        	ld	a,(21473,x)
-1907  0241 6b03          	ld	(OFST-2,sp),a
-1909                     ; 490     temph = (uint16_t)((uint16_t)((uint16_t)templ << 6) | (uint16_t)(temph << 8));
-1911  0243 4f            	clr	a
-1912  0244 1e04          	ldw	x,(OFST-1,sp)
-1913  0246 02            	rlwa	x,a
-1914  0247 1f01          	ldw	(OFST-4,sp),x
-1916  0249 7b03          	ld	a,(OFST-2,sp)
-1917  024b 97            	ld	xl,a
-1918  024c a640          	ld	a,#64
-1919  024e 42            	mul	x,a
-1920  024f 01            	rrwa	x,a
-1921  0250 1a02          	or	a,(OFST-3,sp)
-1922  0252 01            	rrwa	x,a
-1923  0253 1a01          	or	a,(OFST-4,sp)
-1924  0255 01            	rrwa	x,a
-1926  0256               L747:
-1927                     ; 493   return ((uint16_t)temph);
-1931  0256 5b06          	addw	sp,#6
-1932  0258 81            	ret	
-1998                     ; 502 FlagStatus ADC1_GetAWDChannelStatus(ADC1_Channel_TypeDef Channel)
-1998                     ; 503 {
-1999                     	switch	.text
-2000  0259               _ADC1_GetAWDChannelStatus:
-2002       00000001      OFST:	set	1
-2005                     ; 504   uint8_t status = 0;
-2007                     ; 507   assert_param(IS_ADC1_CHANNEL_OK(Channel));
-2009                     ; 509   if (Channel < (uint8_t)8)
-2011  0259 a108          	cp	a,#8
-2012  025b 240f          	jruge	L3001
-2013                     ; 511     status = (uint8_t)(ADC1->AWSRL & (uint8_t)((uint8_t)1 << Channel));
-2015  025d 5f            	clrw	x
-2016  025e 97            	ld	xl,a
-2017  025f a601          	ld	a,#1
-2018  0261 5d            	tnzw	x
-2019  0262 2704          	jreq	L611
-2020  0264               L021:
-2021  0264 48            	sll	a
-2022  0265 5a            	decw	x
-2023  0266 26fc          	jrne	L021
-2024  0268               L611:
-2025  0268 c4540d        	and	a,21517
-2029  026b 81            	ret	
-2030  026c               L3001:
-2031                     ; 515     status = (uint8_t)(ADC1->AWSRH & (uint8_t)((uint8_t)1 << (Channel - (uint8_t)8)));
-2033  026c a008          	sub	a,#8
-2034  026e 5f            	clrw	x
-2035  026f 97            	ld	xl,a
-2036  0270 a601          	ld	a,#1
-2037  0272 5d            	tnzw	x
-2038  0273 2704          	jreq	L221
-2039  0275               L421:
-2040  0275 48            	sll	a
-2041  0276 5a            	decw	x
-2042  0277 26fc          	jrne	L421
-2043  0279               L221:
-2044  0279 c4540c        	and	a,21516
-2046                     ; 518   return ((FlagStatus)status);
-2050  027c 81            	ret	
-2208                     ; 527 FlagStatus ADC1_GetFlagStatus(ADC1_Flag_TypeDef Flag)
-2208                     ; 528 {
-2209                     	switch	.text
-2210  027d               _ADC1_GetFlagStatus:
-2212  027d 88            	push	a
-2213  027e 88            	push	a
-2214       00000001      OFST:	set	1
-2217                     ; 529   uint8_t flagstatus = 0;
-2219                     ; 530   uint8_t temp = 0;
-2221                     ; 533   assert_param(IS_ADC1_FLAG_OK(Flag));
-2223                     ; 535   if ((Flag & 0x0F) == 0x01)
-2225  027f a40f          	and	a,#15
-2226  0281 4a            	dec	a
-2227  0282 2607          	jrne	L5701
-2228                     ; 538     flagstatus = (uint8_t)(ADC1->CR3 & ADC1_CR3_OVR);
-2230  0284 c65403        	ld	a,21507
-2231  0287 a440          	and	a,#64
-2234  0289 2039          	jra	L7701
-2235  028b               L5701:
-2236                     ; 540   else if ((Flag & 0xF0) == 0x10)
-2238  028b 7b02          	ld	a,(OFST+1,sp)
-2239  028d a4f0          	and	a,#240
-2240  028f a110          	cp	a,#16
-2241  0291 262c          	jrne	L1011
-2242                     ; 543     temp = (uint8_t)(Flag & (uint8_t)0x0F);
-2244  0293 7b02          	ld	a,(OFST+1,sp)
-2245  0295 a40f          	and	a,#15
-2246  0297 6b01          	ld	(OFST+0,sp),a
-2248                     ; 544     if (temp < 8)
-2250  0299 a108          	cp	a,#8
-2251  029b 2410          	jruge	L3011
-2252                     ; 546       flagstatus = (uint8_t)(ADC1->AWSRL & (uint8_t)((uint8_t)1 << temp));
-2254  029d 5f            	clrw	x
-2255  029e 97            	ld	xl,a
-2256  029f a601          	ld	a,#1
-2257  02a1 5d            	tnzw	x
-2258  02a2 2704          	jreq	L031
-2259  02a4               L231:
-2260  02a4 48            	sll	a
-2261  02a5 5a            	decw	x
-2262  02a6 26fc          	jrne	L231
-2263  02a8               L031:
-2264  02a8 c4540d        	and	a,21517
-2267  02ab 2017          	jra	L7701
-2268  02ad               L3011:
-2269                     ; 550       flagstatus = (uint8_t)(ADC1->AWSRH & (uint8_t)((uint8_t)1 << (temp - 8)));
-2271  02ad a008          	sub	a,#8
-2272  02af 5f            	clrw	x
-2273  02b0 97            	ld	xl,a
-2274  02b1 a601          	ld	a,#1
-2275  02b3 5d            	tnzw	x
-2276  02b4 2704          	jreq	L431
-2277  02b6               L631:
-2278  02b6 48            	sll	a
-2279  02b7 5a            	decw	x
-2280  02b8 26fc          	jrne	L631
-2281  02ba               L431:
-2282  02ba c4540c        	and	a,21516
-2284  02bd 2005          	jra	L7701
-2285  02bf               L1011:
-2286                     ; 555     flagstatus = (uint8_t)(ADC1->CSR & Flag);
-2288  02bf c65400        	ld	a,21504
-2289  02c2 1402          	and	a,(OFST+1,sp)
-2291  02c4               L7701:
-2292                     ; 557   return ((FlagStatus)flagstatus);
-2296  02c4 85            	popw	x
-2297  02c5 81            	ret	
-2341                     ; 567 void ADC1_ClearFlag(ADC1_Flag_TypeDef Flag)
-2341                     ; 568 {
-2342                     	switch	.text
-2343  02c6               _ADC1_ClearFlag:
-2345  02c6 88            	push	a
-2346  02c7 88            	push	a
-2347       00000001      OFST:	set	1
-2350                     ; 569   uint8_t temp = 0;
-2352                     ; 572   assert_param(IS_ADC1_FLAG_OK(Flag));
-2354                     ; 574   if ((Flag & 0x0F) == 0x01)
-2356  02c8 a40f          	and	a,#15
-2357  02ca 4a            	dec	a
-2358  02cb 2606          	jrne	L3311
-2359                     ; 577     ADC1->CR3 &= (uint8_t)(~ADC1_CR3_OVR);
-2361  02cd 721d5403      	bres	21507,#6
-2363  02d1 2045          	jra	L5311
-2364  02d3               L3311:
-2365                     ; 579   else if ((Flag & 0xF0) == 0x10)
-2367  02d3 7b02          	ld	a,(OFST+1,sp)
-2368  02d5 a4f0          	and	a,#240
-2369  02d7 a110          	cp	a,#16
-2370  02d9 2634          	jrne	L7311
-2371                     ; 582     temp = (uint8_t)(Flag & (uint8_t)0x0F);
-2373  02db 7b02          	ld	a,(OFST+1,sp)
-2374  02dd a40f          	and	a,#15
-2375  02df 6b01          	ld	(OFST+0,sp),a
-2377                     ; 583     if (temp < 8)
-2379  02e1 a108          	cp	a,#8
-2380  02e3 2414          	jruge	L1411
-2381                     ; 585       ADC1->AWSRL &= (uint8_t)~(uint8_t)((uint8_t)1 << temp);
-2383  02e5 5f            	clrw	x
-2384  02e6 97            	ld	xl,a
-2385  02e7 a601          	ld	a,#1
-2386  02e9 5d            	tnzw	x
-2387  02ea 2704          	jreq	L241
-2388  02ec               L441:
-2389  02ec 48            	sll	a
-2390  02ed 5a            	decw	x
-2391  02ee 26fc          	jrne	L441
-2392  02f0               L241:
-2393  02f0 43            	cpl	a
-2394  02f1 c4540d        	and	a,21517
-2395  02f4 c7540d        	ld	21517,a
-2397  02f7 201f          	jra	L5311
-2398  02f9               L1411:
-2399                     ; 589       ADC1->AWSRH &= (uint8_t)~(uint8_t)((uint8_t)1 << (temp - 8));
-2401  02f9 a008          	sub	a,#8
-2402  02fb 5f            	clrw	x
-2403  02fc 97            	ld	xl,a
-2404  02fd a601          	ld	a,#1
-2405  02ff 5d            	tnzw	x
-2406  0300 2704          	jreq	L641
-2407  0302               L051:
-2408  0302 48            	sll	a
-2409  0303 5a            	decw	x
-2410  0304 26fc          	jrne	L051
-2411  0306               L641:
-2412  0306 43            	cpl	a
-2413  0307 c4540c        	and	a,21516
-2414  030a c7540c        	ld	21516,a
-2415  030d 2009          	jra	L5311
-2416  030f               L7311:
-2417                     ; 594     ADC1->CSR &= (uint8_t) (~Flag);
-2419  030f 7b02          	ld	a,(OFST+1,sp)
-2420  0311 43            	cpl	a
-2421  0312 c45400        	and	a,21504
-2422  0315 c75400        	ld	21504,a
-2423  0318               L5311:
-2424                     ; 596 }
-2427  0318 85            	popw	x
-2428  0319 81            	ret	
-2483                     ; 616 ITStatus ADC1_GetITStatus(ADC1_IT_TypeDef ITPendingBit)
-2483                     ; 617 {
-2484                     	switch	.text
-2485  031a               _ADC1_GetITStatus:
-2487  031a 89            	pushw	x
-2488  031b 88            	push	a
-2489       00000001      OFST:	set	1
-2492                     ; 618   ITStatus itstatus = RESET;
-2494                     ; 619   uint8_t temp = 0;
-2496                     ; 622   assert_param(IS_ADC1_ITPENDINGBIT_OK(ITPendingBit));
-2498                     ; 624   if (((uint16_t)ITPendingBit & 0xF0) == 0x10)
-2500  031c 01            	rrwa	x,a
-2501  031d a4f0          	and	a,#240
-2502  031f 5f            	clrw	x
-2503  0320 02            	rlwa	x,a
-2504  0321 a30010        	cpw	x,#16
-2505  0324 262c          	jrne	L5711
-2506                     ; 627     temp = (uint8_t)((uint16_t)ITPendingBit & 0x0F);
-2508  0326 7b03          	ld	a,(OFST+2,sp)
-2509  0328 a40f          	and	a,#15
-2510  032a 6b01          	ld	(OFST+0,sp),a
-2512                     ; 628     if (temp < 8)
-2514  032c a108          	cp	a,#8
-2515  032e 2410          	jruge	L7711
-2516                     ; 630       itstatus = (ITStatus)(ADC1->AWSRL & (uint8_t)((uint8_t)1 << temp));
-2518  0330 5f            	clrw	x
-2519  0331 97            	ld	xl,a
-2520  0332 a601          	ld	a,#1
-2521  0334 5d            	tnzw	x
-2522  0335 2704          	jreq	L451
-2523  0337               L651:
-2524  0337 48            	sll	a
-2525  0338 5a            	decw	x
-2526  0339 26fc          	jrne	L651
-2527  033b               L451:
-2528  033b c4540d        	and	a,21517
-2531  033e 2017          	jra	L3021
-2532  0340               L7711:
-2533                     ; 634       itstatus = (ITStatus)(ADC1->AWSRH & (uint8_t)((uint8_t)1 << (temp - 8)));
-2535  0340 a008          	sub	a,#8
-2536  0342 5f            	clrw	x
-2537  0343 97            	ld	xl,a
-2538  0344 a601          	ld	a,#1
-2539  0346 5d            	tnzw	x
-2540  0347 2704          	jreq	L061
-2541  0349               L261:
-2542  0349 48            	sll	a
-2543  034a 5a            	decw	x
-2544  034b 26fc          	jrne	L261
-2545  034d               L061:
-2546  034d c4540c        	and	a,21516
-2548  0350 2005          	jra	L3021
-2549  0352               L5711:
-2550                     ; 639     itstatus = (ITStatus)(ADC1->CSR & (uint8_t)ITPendingBit);
-2552  0352 c65400        	ld	a,21504
-2553  0355 1403          	and	a,(OFST+2,sp)
-2555  0357               L3021:
-2556                     ; 641   return ((ITStatus)itstatus);
-2560  0357 5b03          	addw	sp,#3
-2561  0359 81            	ret	
-2606                     ; 662 void ADC1_ClearITPendingBit(ADC1_IT_TypeDef ITPendingBit)
-2606                     ; 663 {
-2607                     	switch	.text
-2608  035a               _ADC1_ClearITPendingBit:
-2610  035a 89            	pushw	x
-2611  035b 88            	push	a
-2612       00000001      OFST:	set	1
-2615                     ; 664   uint8_t temp = 0;
-2617                     ; 667   assert_param(IS_ADC1_ITPENDINGBIT_OK(ITPendingBit));
-2619                     ; 669   if (((uint16_t)ITPendingBit & 0xF0) == 0x10)
-2621  035c 01            	rrwa	x,a
-2622  035d a4f0          	and	a,#240
-2623  035f 5f            	clrw	x
-2624  0360 02            	rlwa	x,a
-2625  0361 a30010        	cpw	x,#16
-2626  0364 2634          	jrne	L7221
-2627                     ; 672     temp = (uint8_t)((uint16_t)ITPendingBit & 0x0F);
-2629  0366 7b03          	ld	a,(OFST+2,sp)
-2630  0368 a40f          	and	a,#15
-2631  036a 6b01          	ld	(OFST+0,sp),a
-2633                     ; 673     if (temp < 8)
-2635  036c a108          	cp	a,#8
-2636  036e 2414          	jruge	L1321
-2637                     ; 675       ADC1->AWSRL &= (uint8_t)~(uint8_t)((uint8_t)1 << temp);
-2639  0370 5f            	clrw	x
-2640  0371 97            	ld	xl,a
-2641  0372 a601          	ld	a,#1
-2642  0374 5d            	tnzw	x
-2643  0375 2704          	jreq	L661
-2644  0377               L071:
-2645  0377 48            	sll	a
-2646  0378 5a            	decw	x
-2647  0379 26fc          	jrne	L071
-2648  037b               L661:
-2649  037b 43            	cpl	a
-2650  037c c4540d        	and	a,21517
-2651  037f c7540d        	ld	21517,a
-2653  0382 201f          	jra	L5321
-2654  0384               L1321:
-2655                     ; 679       ADC1->AWSRH &= (uint8_t)~(uint8_t)((uint8_t)1 << (temp - 8));
-2657  0384 a008          	sub	a,#8
-2658  0386 5f            	clrw	x
-2659  0387 97            	ld	xl,a
-2660  0388 a601          	ld	a,#1
-2661  038a 5d            	tnzw	x
-2662  038b 2704          	jreq	L271
-2663  038d               L471:
-2664  038d 48            	sll	a
-2665  038e 5a            	decw	x
-2666  038f 26fc          	jrne	L471
-2667  0391               L271:
-2668  0391 43            	cpl	a
-2669  0392 c4540c        	and	a,21516
-2670  0395 c7540c        	ld	21516,a
-2671  0398 2009          	jra	L5321
-2672  039a               L7221:
-2673                     ; 684     ADC1->CSR &= (uint8_t)((uint16_t)~(uint16_t)ITPendingBit);
-2675  039a 7b03          	ld	a,(OFST+2,sp)
-2676  039c 43            	cpl	a
-2677  039d c45400        	and	a,21504
-2678  03a0 c75400        	ld	21504,a
-2679  03a3               L5321:
-2680                     ; 686 }
-2683  03a3 5b03          	addw	sp,#3
-2684  03a5 81            	ret	
-2697                     	xdef	_ADC1_ClearITPendingBit
-2698                     	xdef	_ADC1_GetITStatus
-2699                     	xdef	_ADC1_ClearFlag
-2700                     	xdef	_ADC1_GetFlagStatus
-2701                     	xdef	_ADC1_GetAWDChannelStatus
-2702                     	xdef	_ADC1_GetBufferValue
-2703                     	xdef	_ADC1_SetLowThreshold
-2704                     	xdef	_ADC1_SetHighThreshold
-2705                     	xdef	_ADC1_GetConversionValue
-2706                     	xdef	_ADC1_StartConversion
-2707                     	xdef	_ADC1_AWDChannelConfig
-2708                     	xdef	_ADC1_ExternalTriggerConfig
-2709                     	xdef	_ADC1_ConversionConfig
-2710                     	xdef	_ADC1_SchmittTriggerConfig
-2711                     	xdef	_ADC1_PrescalerConfig
-2712                     	xdef	_ADC1_ITConfig
-2713                     	xdef	_ADC1_DataBufferCmd
-2714                     	xdef	_ADC1_ScanModeCmd
-2715                     	xdef	_ADC1_Cmd
-2716                     	xdef	_ADC1_Init
-2717                     	xdef	_ADC1_DeInit
-2736                     	end
+  42                     ; 52 void ADC1_DeInit(void)
+  42                     ; 53 {
+  44                     	switch	.text
+  45  0000               _ADC1_DeInit:
+  49                     ; 54   ADC1->CSR  = ADC1_CSR_RESET_VALUE;
+  51  0000 725f5400      	clr	21504
+  52                     ; 55   ADC1->CR1  = ADC1_CR1_RESET_VALUE;
+  54  0004 725f5401      	clr	21505
+  55                     ; 56   ADC1->CR2  = ADC1_CR2_RESET_VALUE;
+  57  0008 725f5402      	clr	21506
+  58                     ; 57   ADC1->CR3  = ADC1_CR3_RESET_VALUE;
+  60  000c 725f5403      	clr	21507
+  61                     ; 58   ADC1->TDRH = ADC1_TDRH_RESET_VALUE;
+  63  0010 725f5406      	clr	21510
+  64                     ; 59   ADC1->TDRL = ADC1_TDRL_RESET_VALUE;
+  66  0014 725f5407      	clr	21511
+  67                     ; 60   ADC1->HTRH = ADC1_HTRH_RESET_VALUE;
+  69  0018 35ff5408      	mov	21512,#255
+  70                     ; 61   ADC1->HTRL = ADC1_HTRL_RESET_VALUE;
+  72  001c 35035409      	mov	21513,#3
+  73                     ; 62   ADC1->LTRH = ADC1_LTRH_RESET_VALUE;
+  75  0020 725f540a      	clr	21514
+  76                     ; 63   ADC1->LTRL = ADC1_LTRL_RESET_VALUE;
+  78  0024 725f540b      	clr	21515
+  79                     ; 64   ADC1->AWCRH = ADC1_AWCRH_RESET_VALUE;
+  81  0028 725f540e      	clr	21518
+  82                     ; 65   ADC1->AWCRL = ADC1_AWCRL_RESET_VALUE;
+  84  002c 725f540f      	clr	21519
+  85                     ; 66 }
+  88  0030 81            	ret
+ 539                     ; 88 void ADC1_Init(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_PresSel_TypeDef ADC1_PrescalerSelection, ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState ADC1_ExtTriggerState, ADC1_Align_TypeDef ADC1_Align, ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState ADC1_SchmittTriggerState)
+ 539                     ; 89 {
+ 540                     	switch	.text
+ 541  0031               _ADC1_Init:
+ 543  0031 89            	pushw	x
+ 544       00000000      OFST:	set	0
+ 547                     ; 91   assert_param(IS_ADC1_CONVERSIONMODE_OK(ADC1_ConversionMode));
+ 549                     ; 92   assert_param(IS_ADC1_CHANNEL_OK(ADC1_Channel));
+ 551                     ; 93   assert_param(IS_ADC1_PRESSEL_OK(ADC1_PrescalerSelection));
+ 553                     ; 94   assert_param(IS_ADC1_EXTTRIG_OK(ADC1_ExtTrigger));
+ 555                     ; 95   assert_param(IS_FUNCTIONALSTATE_OK(((ADC1_ExtTriggerState))));
+ 557                     ; 96   assert_param(IS_ADC1_ALIGN_OK(ADC1_Align));
+ 559                     ; 97   assert_param(IS_ADC1_SCHMITTTRIG_OK(ADC1_SchmittTriggerChannel));
+ 561                     ; 98   assert_param(IS_FUNCTIONALSTATE_OK(ADC1_SchmittTriggerState));
+ 563                     ; 103   ADC1_ConversionConfig(ADC1_ConversionMode, ADC1_Channel, ADC1_Align);
+ 565  0032 7b08          	ld	a,(OFST+8,sp)
+ 566  0034 88            	push	a
+ 567  0035 9f            	ld	a,xl
+ 568  0036 97            	ld	xl,a
+ 569  0037 7b02          	ld	a,(OFST+2,sp)
+ 570  0039 95            	ld	xh,a
+ 571  003a cd013d        	call	_ADC1_ConversionConfig
+ 573  003d 84            	pop	a
+ 574                     ; 105   ADC1_PrescalerConfig(ADC1_PrescalerSelection);
+ 576  003e 7b05          	ld	a,(OFST+5,sp)
+ 577  0040 ad5a          	call	_ADC1_PrescalerConfig
+ 579                     ; 110   ADC1_ExternalTriggerConfig(ADC1_ExtTrigger, ADC1_ExtTriggerState);
+ 581  0042 7b07          	ld	a,(OFST+7,sp)
+ 582  0044 97            	ld	xl,a
+ 583  0045 7b06          	ld	a,(OFST+6,sp)
+ 584  0047 95            	ld	xh,a
+ 585  0048 cd016b        	call	_ADC1_ExternalTriggerConfig
+ 587                     ; 115   ADC1_SchmittTriggerConfig(ADC1_SchmittTriggerChannel, ADC1_SchmittTriggerState);
+ 589  004b 7b0a          	ld	a,(OFST+10,sp)
+ 590  004d 97            	ld	xl,a
+ 591  004e 7b09          	ld	a,(OFST+9,sp)
+ 592  0050 95            	ld	xh,a
+ 593  0051 ad5c          	call	_ADC1_SchmittTriggerConfig
+ 595                     ; 118   ADC1->CR1 |= ADC1_CR1_ADON;
+ 597  0053 72105401      	bset	21505,#0
+ 598                     ; 119 }
+ 601  0057 85            	popw	x
+ 602  0058 81            	ret
+ 637                     ; 126 void ADC1_Cmd(FunctionalState NewState)
+ 637                     ; 127 {
+ 638                     	switch	.text
+ 639  0059               _ADC1_Cmd:
+ 643                     ; 129   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+ 645                     ; 131   if (NewState != DISABLE)
+ 647  0059 4d            	tnz	a
+ 648  005a 2706          	jreq	L362
+ 649                     ; 133     ADC1->CR1 |= ADC1_CR1_ADON;
+ 651  005c 72105401      	bset	21505,#0
+ 653  0060 2004          	jra	L562
+ 654  0062               L362:
+ 655                     ; 137     ADC1->CR1 &= (uint8_t)(~ADC1_CR1_ADON);
+ 657  0062 72115401      	bres	21505,#0
+ 658  0066               L562:
+ 659                     ; 139 }
+ 662  0066 81            	ret
+ 697                     ; 146 void ADC1_ScanModeCmd(FunctionalState NewState)
+ 697                     ; 147 {
+ 698                     	switch	.text
+ 699  0067               _ADC1_ScanModeCmd:
+ 703                     ; 149   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+ 705                     ; 151   if (NewState != DISABLE)
+ 707  0067 4d            	tnz	a
+ 708  0068 2706          	jreq	L503
+ 709                     ; 153     ADC1->CR2 |= ADC1_CR2_SCAN;
+ 711  006a 72125402      	bset	21506,#1
+ 713  006e 2004          	jra	L703
+ 714  0070               L503:
+ 715                     ; 157     ADC1->CR2 &= (uint8_t)(~ADC1_CR2_SCAN);
+ 717  0070 72135402      	bres	21506,#1
+ 718  0074               L703:
+ 719                     ; 159 }
+ 722  0074 81            	ret
+ 757                     ; 166 void ADC1_DataBufferCmd(FunctionalState NewState)
+ 757                     ; 167 {
+ 758                     	switch	.text
+ 759  0075               _ADC1_DataBufferCmd:
+ 763                     ; 169   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+ 765                     ; 171   if (NewState != DISABLE)
+ 767  0075 4d            	tnz	a
+ 768  0076 2706          	jreq	L723
+ 769                     ; 173     ADC1->CR3 |= ADC1_CR3_DBUF;
+ 771  0078 721e5403      	bset	21507,#7
+ 773  007c 2004          	jra	L133
+ 774  007e               L723:
+ 775                     ; 177     ADC1->CR3 &= (uint8_t)(~ADC1_CR3_DBUF);
+ 777  007e 721f5403      	bres	21507,#7
+ 778  0082               L133:
+ 779                     ; 179 }
+ 782  0082 81            	ret
+ 938                     ; 190 void ADC1_ITConfig(ADC1_IT_TypeDef ADC1_IT, FunctionalState NewState)
+ 938                     ; 191 {
+ 939                     	switch	.text
+ 940  0083               _ADC1_ITConfig:
+ 942  0083 89            	pushw	x
+ 943       00000000      OFST:	set	0
+ 946                     ; 193   assert_param(IS_ADC1_IT_OK(ADC1_IT));
+ 948                     ; 194   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+ 950                     ; 196   if (NewState != DISABLE)
+ 952  0084 0d05          	tnz	(OFST+5,sp)
+ 953  0086 2709          	jreq	L714
+ 954                     ; 199     ADC1->CSR |= (uint8_t)ADC1_IT;
+ 956  0088 9f            	ld	a,xl
+ 957  0089 ca5400        	or	a,21504
+ 958  008c c75400        	ld	21504,a
+ 960  008f 2009          	jra	L124
+ 961  0091               L714:
+ 962                     ; 204     ADC1->CSR &= (uint8_t)((uint16_t)~(uint16_t)ADC1_IT);
+ 964  0091 7b02          	ld	a,(OFST+2,sp)
+ 965  0093 43            	cpl	a
+ 966  0094 c45400        	and	a,21504
+ 967  0097 c75400        	ld	21504,a
+ 968  009a               L124:
+ 969                     ; 206 }
+ 972  009a 85            	popw	x
+ 973  009b 81            	ret
+1009                     ; 214 void ADC1_PrescalerConfig(ADC1_PresSel_TypeDef ADC1_Prescaler)
+1009                     ; 215 {
+1010                     	switch	.text
+1011  009c               _ADC1_PrescalerConfig:
+1013  009c 88            	push	a
+1014       00000000      OFST:	set	0
+1017                     ; 217   assert_param(IS_ADC1_PRESSEL_OK(ADC1_Prescaler));
+1019                     ; 220   ADC1->CR1 &= (uint8_t)(~ADC1_CR1_SPSEL);
+1021  009d c65401        	ld	a,21505
+1022  00a0 a48f          	and	a,#143
+1023  00a2 c75401        	ld	21505,a
+1024                     ; 222   ADC1->CR1 |= (uint8_t)(ADC1_Prescaler);
+1026  00a5 c65401        	ld	a,21505
+1027  00a8 1a01          	or	a,(OFST+1,sp)
+1028  00aa c75401        	ld	21505,a
+1029                     ; 223 }
+1032  00ad 84            	pop	a
+1033  00ae 81            	ret
+1080                     ; 233 void ADC1_SchmittTriggerConfig(ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState NewState)
+1080                     ; 234 {
+1081                     	switch	.text
+1082  00af               _ADC1_SchmittTriggerConfig:
+1084  00af 89            	pushw	x
+1085       00000000      OFST:	set	0
+1088                     ; 236   assert_param(IS_ADC1_SCHMITTTRIG_OK(ADC1_SchmittTriggerChannel));
+1090                     ; 237   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+1092                     ; 239   if (ADC1_SchmittTriggerChannel == ADC1_SCHMITTTRIG_ALL)
+1094  00b0 9e            	ld	a,xh
+1095  00b1 a1ff          	cp	a,#255
+1096  00b3 2620          	jrne	L364
+1097                     ; 241     if (NewState != DISABLE)
+1099  00b5 9f            	ld	a,xl
+1100  00b6 4d            	tnz	a
+1101  00b7 270a          	jreq	L564
+1102                     ; 243       ADC1->TDRL &= (uint8_t)0x0;
+1104  00b9 725f5407      	clr	21511
+1105                     ; 244       ADC1->TDRH &= (uint8_t)0x0;
+1107  00bd 725f5406      	clr	21510
+1109  00c1 2078          	jra	L174
+1110  00c3               L564:
+1111                     ; 248       ADC1->TDRL |= (uint8_t)0xFF;
+1113  00c3 c65407        	ld	a,21511
+1114  00c6 aaff          	or	a,#255
+1115  00c8 c75407        	ld	21511,a
+1116                     ; 249       ADC1->TDRH |= (uint8_t)0xFF;
+1118  00cb c65406        	ld	a,21510
+1119  00ce aaff          	or	a,#255
+1120  00d0 c75406        	ld	21510,a
+1121  00d3 2066          	jra	L174
+1122  00d5               L364:
+1123                     ; 252   else if (ADC1_SchmittTriggerChannel < ADC1_SCHMITTTRIG_CHANNEL8)
+1125  00d5 7b01          	ld	a,(OFST+1,sp)
+1126  00d7 a108          	cp	a,#8
+1127  00d9 242f          	jruge	L374
+1128                     ; 254     if (NewState != DISABLE)
+1130  00db 0d02          	tnz	(OFST+2,sp)
+1131  00dd 2716          	jreq	L574
+1132                     ; 256       ADC1->TDRL &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << (uint8_t)ADC1_SchmittTriggerChannel));
+1134  00df 7b01          	ld	a,(OFST+1,sp)
+1135  00e1 5f            	clrw	x
+1136  00e2 97            	ld	xl,a
+1137  00e3 a601          	ld	a,#1
+1138  00e5 5d            	tnzw	x
+1139  00e6 2704          	jreq	L42
+1140  00e8               L62:
+1141  00e8 48            	sll	a
+1142  00e9 5a            	decw	x
+1143  00ea 26fc          	jrne	L62
+1144  00ec               L42:
+1145  00ec 43            	cpl	a
+1146  00ed c45407        	and	a,21511
+1147  00f0 c75407        	ld	21511,a
+1149  00f3 2046          	jra	L174
+1150  00f5               L574:
+1151                     ; 260       ADC1->TDRL |= (uint8_t)((uint8_t)0x01 << (uint8_t)ADC1_SchmittTriggerChannel);
+1153  00f5 7b01          	ld	a,(OFST+1,sp)
+1154  00f7 5f            	clrw	x
+1155  00f8 97            	ld	xl,a
+1156  00f9 a601          	ld	a,#1
+1157  00fb 5d            	tnzw	x
+1158  00fc 2704          	jreq	L03
+1159  00fe               L23:
+1160  00fe 48            	sll	a
+1161  00ff 5a            	decw	x
+1162  0100 26fc          	jrne	L23
+1163  0102               L03:
+1164  0102 ca5407        	or	a,21511
+1165  0105 c75407        	ld	21511,a
+1166  0108 2031          	jra	L174
+1167  010a               L374:
+1168                     ; 265     if (NewState != DISABLE)
+1170  010a 0d02          	tnz	(OFST+2,sp)
+1171  010c 2718          	jreq	L305
+1172                     ; 267       ADC1->TDRH &= (uint8_t)(~(uint8_t)((uint8_t)0x01 << ((uint8_t)ADC1_SchmittTriggerChannel - (uint8_t)8)));
+1174  010e 7b01          	ld	a,(OFST+1,sp)
+1175  0110 a008          	sub	a,#8
+1176  0112 5f            	clrw	x
+1177  0113 97            	ld	xl,a
+1178  0114 a601          	ld	a,#1
+1179  0116 5d            	tnzw	x
+1180  0117 2704          	jreq	L43
+1181  0119               L63:
+1182  0119 48            	sll	a
+1183  011a 5a            	decw	x
+1184  011b 26fc          	jrne	L63
+1185  011d               L43:
+1186  011d 43            	cpl	a
+1187  011e c45406        	and	a,21510
+1188  0121 c75406        	ld	21510,a
+1190  0124 2015          	jra	L174
+1191  0126               L305:
+1192                     ; 271       ADC1->TDRH |= (uint8_t)((uint8_t)0x01 << ((uint8_t)ADC1_SchmittTriggerChannel - (uint8_t)8));
+1194  0126 7b01          	ld	a,(OFST+1,sp)
+1195  0128 a008          	sub	a,#8
+1196  012a 5f            	clrw	x
+1197  012b 97            	ld	xl,a
+1198  012c a601          	ld	a,#1
+1199  012e 5d            	tnzw	x
+1200  012f 2704          	jreq	L04
+1201  0131               L24:
+1202  0131 48            	sll	a
+1203  0132 5a            	decw	x
+1204  0133 26fc          	jrne	L24
+1205  0135               L04:
+1206  0135 ca5406        	or	a,21510
+1207  0138 c75406        	ld	21510,a
+1208  013b               L174:
+1209                     ; 274 }
+1212  013b 85            	popw	x
+1213  013c 81            	ret
+1270                     ; 286 void ADC1_ConversionConfig(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_Align_TypeDef ADC1_Align)
+1270                     ; 287 {
+1271                     	switch	.text
+1272  013d               _ADC1_ConversionConfig:
+1274  013d 89            	pushw	x
+1275       00000000      OFST:	set	0
+1278                     ; 289   assert_param(IS_ADC1_CONVERSIONMODE_OK(ADC1_ConversionMode));
+1280                     ; 290   assert_param(IS_ADC1_CHANNEL_OK(ADC1_Channel));
+1282                     ; 291   assert_param(IS_ADC1_ALIGN_OK(ADC1_Align));
+1284                     ; 294   ADC1->CR2 &= (uint8_t)(~ADC1_CR2_ALIGN);
+1286  013e 72175402      	bres	21506,#3
+1287                     ; 296   ADC1->CR2 |= (uint8_t)(ADC1_Align);
+1289  0142 c65402        	ld	a,21506
+1290  0145 1a05          	or	a,(OFST+5,sp)
+1291  0147 c75402        	ld	21506,a
+1292                     ; 298   if (ADC1_ConversionMode == ADC1_CONVERSIONMODE_CONTINUOUS)
+1294  014a 9e            	ld	a,xh
+1295  014b a101          	cp	a,#1
+1296  014d 2606          	jrne	L535
+1297                     ; 301     ADC1->CR1 |= ADC1_CR1_CONT;
+1299  014f 72125401      	bset	21505,#1
+1301  0153 2004          	jra	L735
+1302  0155               L535:
+1303                     ; 306     ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
+1305  0155 72135401      	bres	21505,#1
+1306  0159               L735:
+1307                     ; 310   ADC1->CSR &= (uint8_t)(~ADC1_CSR_CH);
+1309  0159 c65400        	ld	a,21504
+1310  015c a4f0          	and	a,#240
+1311  015e c75400        	ld	21504,a
+1312                     ; 312   ADC1->CSR |= (uint8_t)(ADC1_Channel);
+1314  0161 c65400        	ld	a,21504
+1315  0164 1a02          	or	a,(OFST+2,sp)
+1316  0166 c75400        	ld	21504,a
+1317                     ; 313 }
+1320  0169 85            	popw	x
+1321  016a 81            	ret
+1367                     ; 325 void ADC1_ExternalTriggerConfig(ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState NewState)
+1367                     ; 326 {
+1368                     	switch	.text
+1369  016b               _ADC1_ExternalTriggerConfig:
+1371  016b 89            	pushw	x
+1372       00000000      OFST:	set	0
+1375                     ; 328   assert_param(IS_ADC1_EXTTRIG_OK(ADC1_ExtTrigger));
+1377                     ; 329   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+1379                     ; 332   ADC1->CR2 &= (uint8_t)(~ADC1_CR2_EXTSEL);
+1381  016c c65402        	ld	a,21506
+1382  016f a4cf          	and	a,#207
+1383  0171 c75402        	ld	21506,a
+1384                     ; 334   if (NewState != DISABLE)
+1386  0174 9f            	ld	a,xl
+1387  0175 4d            	tnz	a
+1388  0176 2706          	jreq	L365
+1389                     ; 337     ADC1->CR2 |= (uint8_t)(ADC1_CR2_EXTTRIG);
+1391  0178 721c5402      	bset	21506,#6
+1393  017c 2004          	jra	L565
+1394  017e               L365:
+1395                     ; 342     ADC1->CR2 &= (uint8_t)(~ADC1_CR2_EXTTRIG);
+1397  017e 721d5402      	bres	21506,#6
+1398  0182               L565:
+1399                     ; 346   ADC1->CR2 |= (uint8_t)(ADC1_ExtTrigger);
+1401  0182 c65402        	ld	a,21506
+1402  0185 1a01          	or	a,(OFST+1,sp)
+1403  0187 c75402        	ld	21506,a
+1404                     ; 347 }
+1407  018a 85            	popw	x
+1408  018b 81            	ret
+1432                     ; 358 void ADC1_StartConversion(void)
+1432                     ; 359 {
+1433                     	switch	.text
+1434  018c               _ADC1_StartConversion:
+1438                     ; 360   ADC1->CR1 |= ADC1_CR1_ADON;
+1440  018c 72105401      	bset	21505,#0
+1441                     ; 361 }
+1444  0190 81            	ret
+1488                     ; 370 uint16_t ADC1_GetConversionValue(void)
+1488                     ; 371 {
+1489                     	switch	.text
+1490  0191               _ADC1_GetConversionValue:
+1492  0191 5205          	subw	sp,#5
+1493       00000005      OFST:	set	5
+1496                     ; 372   uint16_t temph = 0;
+1498                     ; 373   uint8_t templ = 0;
+1500                     ; 375   if ((ADC1->CR2 & ADC1_CR2_ALIGN) != 0) /* Right alignment */
+1502  0193 c65402        	ld	a,21506
+1503  0196 a508          	bcp	a,#8
+1504  0198 2715          	jreq	L126
+1505                     ; 378     templ = ADC1->DRL;
+1507  019a c65405        	ld	a,21509
+1508  019d 6b03          	ld	(OFST-2,sp),a
+1510                     ; 380     temph = ADC1->DRH;
+1512  019f c65404        	ld	a,21508
+1513  01a2 5f            	clrw	x
+1514  01a3 97            	ld	xl,a
+1515  01a4 1f04          	ldw	(OFST-1,sp),x
+1517                     ; 382     temph = (uint16_t)(templ | (uint16_t)(temph << (uint8_t)8));
+1519  01a6 1e04          	ldw	x,(OFST-1,sp)
+1520  01a8 7b03          	ld	a,(OFST-2,sp)
+1521  01aa 02            	rlwa	x,a
+1522  01ab 1f04          	ldw	(OFST-1,sp),x
+1525  01ad 2021          	jra	L326
+1526  01af               L126:
+1527                     ; 387     temph = ADC1->DRH;
+1529  01af c65404        	ld	a,21508
+1530  01b2 5f            	clrw	x
+1531  01b3 97            	ld	xl,a
+1532  01b4 1f04          	ldw	(OFST-1,sp),x
+1534                     ; 389     templ = ADC1->DRL;
+1536  01b6 c65405        	ld	a,21509
+1537  01b9 6b03          	ld	(OFST-2,sp),a
+1539                     ; 391     temph = (uint16_t)((uint16_t)((uint16_t)templ << 6) | (uint16_t)((uint16_t)temph << 8));
+1541  01bb 1e04          	ldw	x,(OFST-1,sp)
+1542  01bd 4f            	clr	a
+1543  01be 02            	rlwa	x,a
+1544  01bf 1f01          	ldw	(OFST-4,sp),x
+1546  01c1 7b03          	ld	a,(OFST-2,sp)
+1547  01c3 97            	ld	xl,a
+1548  01c4 a640          	ld	a,#64
+1549  01c6 42            	mul	x,a
+1550  01c7 01            	rrwa	x,a
+1551  01c8 1a02          	or	a,(OFST-3,sp)
+1552  01ca 01            	rrwa	x,a
+1553  01cb 1a01          	or	a,(OFST-4,sp)
+1554  01cd 01            	rrwa	x,a
+1555  01ce 1f04          	ldw	(OFST-1,sp),x
+1557  01d0               L326:
+1558                     ; 394   return ((uint16_t)temph);
+1560  01d0 1e04          	ldw	x,(OFST-1,sp)
+1563  01d2 5b05          	addw	sp,#5
+1564  01d4 81            	ret
+1610                     ; 405 void ADC1_AWDChannelConfig(ADC1_Channel_TypeDef Channel, FunctionalState NewState)
+1610                     ; 406 {
+1611                     	switch	.text
+1612  01d5               _ADC1_AWDChannelConfig:
+1614  01d5 89            	pushw	x
+1615       00000000      OFST:	set	0
+1618                     ; 408   assert_param(IS_FUNCTIONALSTATE_OK(NewState));
+1620                     ; 409   assert_param(IS_ADC1_CHANNEL_OK(Channel));
+1622                     ; 411   if (Channel < (uint8_t)8)
+1624  01d6 9e            	ld	a,xh
+1625  01d7 a108          	cp	a,#8
+1626  01d9 242e          	jruge	L746
+1627                     ; 413     if (NewState != DISABLE)
+1629  01db 9f            	ld	a,xl
+1630  01dc 4d            	tnz	a
+1631  01dd 2714          	jreq	L156
+1632                     ; 415       ADC1->AWCRL |= (uint8_t)((uint8_t)1 << Channel);
+1634  01df 9e            	ld	a,xh
+1635  01e0 5f            	clrw	x
+1636  01e1 97            	ld	xl,a
+1637  01e2 a601          	ld	a,#1
+1638  01e4 5d            	tnzw	x
+1639  01e5 2704          	jreq	L65
+1640  01e7               L06:
+1641  01e7 48            	sll	a
+1642  01e8 5a            	decw	x
+1643  01e9 26fc          	jrne	L06
+1644  01eb               L65:
+1645  01eb ca540f        	or	a,21519
+1646  01ee c7540f        	ld	21519,a
+1648  01f1 2047          	jra	L556
+1649  01f3               L156:
+1650                     ; 419       ADC1->AWCRL &= (uint8_t)~(uint8_t)((uint8_t)1 << Channel);
+1652  01f3 7b01          	ld	a,(OFST+1,sp)
+1653  01f5 5f            	clrw	x
+1654  01f6 97            	ld	xl,a
+1655  01f7 a601          	ld	a,#1
+1656  01f9 5d            	tnzw	x
+1657  01fa 2704          	jreq	L26
+1658  01fc               L46:
+1659  01fc 48            	sll	a
+1660  01fd 5a            	decw	x
+1661  01fe 26fc          	jrne	L46
+1662  0200               L26:
+1663  0200 43            	cpl	a
+1664  0201 c4540f        	and	a,21519
+1665  0204 c7540f        	ld	21519,a
+1666  0207 2031          	jra	L556
+1667  0209               L746:
+1668                     ; 424     if (NewState != DISABLE)
+1670  0209 0d02          	tnz	(OFST+2,sp)
+1671  020b 2717          	jreq	L756
+1672                     ; 426       ADC1->AWCRH |= (uint8_t)((uint8_t)1 << (Channel - (uint8_t)8));
+1674  020d 7b01          	ld	a,(OFST+1,sp)
+1675  020f a008          	sub	a,#8
+1676  0211 5f            	clrw	x
+1677  0212 97            	ld	xl,a
+1678  0213 a601          	ld	a,#1
+1679  0215 5d            	tnzw	x
+1680  0216 2704          	jreq	L66
+1681  0218               L07:
+1682  0218 48            	sll	a
+1683  0219 5a            	decw	x
+1684  021a 26fc          	jrne	L07
+1685  021c               L66:
+1686  021c ca540e        	or	a,21518
+1687  021f c7540e        	ld	21518,a
+1689  0222 2016          	jra	L556
+1690  0224               L756:
+1691                     ; 430       ADC1->AWCRH &= (uint8_t)~(uint8_t)((uint8_t)1 << (uint8_t)(Channel - (uint8_t)8));
+1693  0224 7b01          	ld	a,(OFST+1,sp)
+1694  0226 a008          	sub	a,#8
+1695  0228 5f            	clrw	x
+1696  0229 97            	ld	xl,a
+1697  022a a601          	ld	a,#1
+1698  022c 5d            	tnzw	x
+1699  022d 2704          	jreq	L27
+1700  022f               L47:
+1701  022f 48            	sll	a
+1702  0230 5a            	decw	x
+1703  0231 26fc          	jrne	L47
+1704  0233               L27:
+1705  0233 43            	cpl	a
+1706  0234 c4540e        	and	a,21518
+1707  0237 c7540e        	ld	21518,a
+1708  023a               L556:
+1709                     ; 433 }
+1712  023a 85            	popw	x
+1713  023b 81            	ret
+1748                     ; 441 void ADC1_SetHighThreshold(uint16_t Threshold)
+1748                     ; 442 {
+1749                     	switch	.text
+1750  023c               _ADC1_SetHighThreshold:
+1752  023c 89            	pushw	x
+1753       00000000      OFST:	set	0
+1756                     ; 443   ADC1->HTRH = (uint8_t)(Threshold >> (uint8_t)2);
+1758  023d 54            	srlw	x
+1759  023e 54            	srlw	x
+1760  023f 9f            	ld	a,xl
+1761  0240 c75408        	ld	21512,a
+1762                     ; 444   ADC1->HTRL = (uint8_t)Threshold;
+1764  0243 7b02          	ld	a,(OFST+2,sp)
+1765  0245 c75409        	ld	21513,a
+1766                     ; 445 }
+1769  0248 85            	popw	x
+1770  0249 81            	ret
+1805                     ; 453 void ADC1_SetLowThreshold(uint16_t Threshold)
+1805                     ; 454 {
+1806                     	switch	.text
+1807  024a               _ADC1_SetLowThreshold:
+1811                     ; 455   ADC1->LTRL = (uint8_t)Threshold;
+1813  024a 9f            	ld	a,xl
+1814  024b c7540b        	ld	21515,a
+1815                     ; 456   ADC1->LTRH = (uint8_t)(Threshold >> (uint8_t)2);
+1817  024e 54            	srlw	x
+1818  024f 54            	srlw	x
+1819  0250 9f            	ld	a,xl
+1820  0251 c7540a        	ld	21514,a
+1821                     ; 457 }
+1824  0254 81            	ret
+1877                     ; 466 uint16_t ADC1_GetBufferValue(uint8_t Buffer)
+1877                     ; 467 {
+1878                     	switch	.text
+1879  0255               _ADC1_GetBufferValue:
+1881  0255 88            	push	a
+1882  0256 5205          	subw	sp,#5
+1883       00000005      OFST:	set	5
+1886                     ; 468   uint16_t temph = 0;
+1888                     ; 469   uint8_t templ = 0;
+1890                     ; 472   assert_param(IS_ADC1_BUFFER_OK(Buffer));
+1892                     ; 474   if ((ADC1->CR2 & ADC1_CR2_ALIGN) != 0) /* Right alignment */
+1894  0258 c65402        	ld	a,21506
+1895  025b a508          	bcp	a,#8
+1896  025d 271f          	jreq	L547
+1897                     ; 477     templ = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1) + 1);
+1899  025f 7b06          	ld	a,(OFST+1,sp)
+1900  0261 48            	sll	a
+1901  0262 5f            	clrw	x
+1902  0263 97            	ld	xl,a
+1903  0264 d653e1        	ld	a,(21473,x)
+1904  0267 6b03          	ld	(OFST-2,sp),a
+1906                     ; 479     temph = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1));
+1908  0269 7b06          	ld	a,(OFST+1,sp)
+1909  026b 48            	sll	a
+1910  026c 5f            	clrw	x
+1911  026d 97            	ld	xl,a
+1912  026e d653e0        	ld	a,(21472,x)
+1913  0271 5f            	clrw	x
+1914  0272 97            	ld	xl,a
+1915  0273 1f04          	ldw	(OFST-1,sp),x
+1917                     ; 481     temph = (uint16_t)(templ | (uint16_t)(temph << (uint8_t)8));
+1919  0275 1e04          	ldw	x,(OFST-1,sp)
+1920  0277 7b03          	ld	a,(OFST-2,sp)
+1921  0279 02            	rlwa	x,a
+1922  027a 1f04          	ldw	(OFST-1,sp),x
+1925  027c 202b          	jra	L747
+1926  027e               L547:
+1927                     ; 486     temph = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1));
+1929  027e 7b06          	ld	a,(OFST+1,sp)
+1930  0280 48            	sll	a
+1931  0281 5f            	clrw	x
+1932  0282 97            	ld	xl,a
+1933  0283 d653e0        	ld	a,(21472,x)
+1934  0286 5f            	clrw	x
+1935  0287 97            	ld	xl,a
+1936  0288 1f04          	ldw	(OFST-1,sp),x
+1938                     ; 488     templ = *(uint8_t*)(uint16_t)((uint16_t)ADC1_BaseAddress + (uint8_t)(Buffer << 1) + 1);
+1940  028a 7b06          	ld	a,(OFST+1,sp)
+1941  028c 48            	sll	a
+1942  028d 5f            	clrw	x
+1943  028e 97            	ld	xl,a
+1944  028f d653e1        	ld	a,(21473,x)
+1945  0292 6b03          	ld	(OFST-2,sp),a
+1947                     ; 490     temph = (uint16_t)((uint16_t)((uint16_t)templ << 6) | (uint16_t)(temph << 8));
+1949  0294 1e04          	ldw	x,(OFST-1,sp)
+1950  0296 4f            	clr	a
+1951  0297 02            	rlwa	x,a
+1952  0298 1f01          	ldw	(OFST-4,sp),x
+1954  029a 7b03          	ld	a,(OFST-2,sp)
+1955  029c 97            	ld	xl,a
+1956  029d a640          	ld	a,#64
+1957  029f 42            	mul	x,a
+1958  02a0 01            	rrwa	x,a
+1959  02a1 1a02          	or	a,(OFST-3,sp)
+1960  02a3 01            	rrwa	x,a
+1961  02a4 1a01          	or	a,(OFST-4,sp)
+1962  02a6 01            	rrwa	x,a
+1963  02a7 1f04          	ldw	(OFST-1,sp),x
+1965  02a9               L747:
+1966                     ; 493   return ((uint16_t)temph);
+1968  02a9 1e04          	ldw	x,(OFST-1,sp)
+1971  02ab 5b06          	addw	sp,#6
+1972  02ad 81            	ret
+2038                     ; 502 FlagStatus ADC1_GetAWDChannelStatus(ADC1_Channel_TypeDef Channel)
+2038                     ; 503 {
+2039                     	switch	.text
+2040  02ae               _ADC1_GetAWDChannelStatus:
+2042  02ae 88            	push	a
+2043  02af 88            	push	a
+2044       00000001      OFST:	set	1
+2047                     ; 504   uint8_t status = 0;
+2049                     ; 507   assert_param(IS_ADC1_CHANNEL_OK(Channel));
+2051                     ; 509   if (Channel < (uint8_t)8)
+2053  02b0 a108          	cp	a,#8
+2054  02b2 2412          	jruge	L3001
+2055                     ; 511     status = (uint8_t)(ADC1->AWSRL & (uint8_t)((uint8_t)1 << Channel));
+2057  02b4 5f            	clrw	x
+2058  02b5 97            	ld	xl,a
+2059  02b6 a601          	ld	a,#1
+2060  02b8 5d            	tnzw	x
+2061  02b9 2704          	jreq	L601
+2062  02bb               L011:
+2063  02bb 48            	sll	a
+2064  02bc 5a            	decw	x
+2065  02bd 26fc          	jrne	L011
+2066  02bf               L601:
+2067  02bf c4540d        	and	a,21517
+2068  02c2 6b01          	ld	(OFST+0,sp),a
+2071  02c4 2014          	jra	L5001
+2072  02c6               L3001:
+2073                     ; 515     status = (uint8_t)(ADC1->AWSRH & (uint8_t)((uint8_t)1 << (Channel - (uint8_t)8)));
+2075  02c6 7b02          	ld	a,(OFST+1,sp)
+2076  02c8 a008          	sub	a,#8
+2077  02ca 5f            	clrw	x
+2078  02cb 97            	ld	xl,a
+2079  02cc a601          	ld	a,#1
+2080  02ce 5d            	tnzw	x
+2081  02cf 2704          	jreq	L211
+2082  02d1               L411:
+2083  02d1 48            	sll	a
+2084  02d2 5a            	decw	x
+2085  02d3 26fc          	jrne	L411
+2086  02d5               L211:
+2087  02d5 c4540c        	and	a,21516
+2088  02d8 6b01          	ld	(OFST+0,sp),a
+2090  02da               L5001:
+2091                     ; 518   return ((FlagStatus)status);
+2093  02da 7b01          	ld	a,(OFST+0,sp)
+2096  02dc 85            	popw	x
+2097  02dd 81            	ret
+2255                     ; 527 FlagStatus ADC1_GetFlagStatus(ADC1_Flag_TypeDef Flag)
+2255                     ; 528 {
+2256                     	switch	.text
+2257  02de               _ADC1_GetFlagStatus:
+2259  02de 88            	push	a
+2260  02df 88            	push	a
+2261       00000001      OFST:	set	1
+2264                     ; 529   uint8_t flagstatus = 0;
+2266                     ; 530   uint8_t temp = 0;
+2268                     ; 533   assert_param(IS_ADC1_FLAG_OK(Flag));
+2270                     ; 535   if ((Flag & 0x0F) == 0x01)
+2272  02e0 a40f          	and	a,#15
+2273  02e2 a101          	cp	a,#1
+2274  02e4 2609          	jrne	L5701
+2275                     ; 538     flagstatus = (uint8_t)(ADC1->CR3 & ADC1_CR3_OVR);
+2277  02e6 c65403        	ld	a,21507
+2278  02e9 a440          	and	a,#64
+2279  02eb 6b01          	ld	(OFST+0,sp),a
+2282  02ed 2045          	jra	L7701
+2283  02ef               L5701:
+2284                     ; 540   else if ((Flag & 0xF0) == 0x10)
+2286  02ef 7b02          	ld	a,(OFST+1,sp)
+2287  02f1 a4f0          	and	a,#240
+2288  02f3 a110          	cp	a,#16
+2289  02f5 2636          	jrne	L1011
+2290                     ; 543     temp = (uint8_t)(Flag & (uint8_t)0x0F);
+2292  02f7 7b02          	ld	a,(OFST+1,sp)
+2293  02f9 a40f          	and	a,#15
+2294  02fb 6b01          	ld	(OFST+0,sp),a
+2296                     ; 544     if (temp < 8)
+2298  02fd 7b01          	ld	a,(OFST+0,sp)
+2299  02ff a108          	cp	a,#8
+2300  0301 2414          	jruge	L3011
+2301                     ; 546       flagstatus = (uint8_t)(ADC1->AWSRL & (uint8_t)((uint8_t)1 << temp));
+2303  0303 7b01          	ld	a,(OFST+0,sp)
+2304  0305 5f            	clrw	x
+2305  0306 97            	ld	xl,a
+2306  0307 a601          	ld	a,#1
+2307  0309 5d            	tnzw	x
+2308  030a 2704          	jreq	L021
+2309  030c               L221:
+2310  030c 48            	sll	a
+2311  030d 5a            	decw	x
+2312  030e 26fc          	jrne	L221
+2313  0310               L021:
+2314  0310 c4540d        	and	a,21517
+2315  0313 6b01          	ld	(OFST+0,sp),a
+2318  0315 201d          	jra	L7701
+2319  0317               L3011:
+2320                     ; 550       flagstatus = (uint8_t)(ADC1->AWSRH & (uint8_t)((uint8_t)1 << (temp - 8)));
+2322  0317 7b01          	ld	a,(OFST+0,sp)
+2323  0319 a008          	sub	a,#8
+2324  031b 5f            	clrw	x
+2325  031c 97            	ld	xl,a
+2326  031d a601          	ld	a,#1
+2327  031f 5d            	tnzw	x
+2328  0320 2704          	jreq	L421
+2329  0322               L621:
+2330  0322 48            	sll	a
+2331  0323 5a            	decw	x
+2332  0324 26fc          	jrne	L621
+2333  0326               L421:
+2334  0326 c4540c        	and	a,21516
+2335  0329 6b01          	ld	(OFST+0,sp),a
+2337  032b 2007          	jra	L7701
+2338  032d               L1011:
+2339                     ; 555     flagstatus = (uint8_t)(ADC1->CSR & Flag);
+2341  032d c65400        	ld	a,21504
+2342  0330 1402          	and	a,(OFST+1,sp)
+2343  0332 6b01          	ld	(OFST+0,sp),a
+2345  0334               L7701:
+2346                     ; 557   return ((FlagStatus)flagstatus);
+2348  0334 7b01          	ld	a,(OFST+0,sp)
+2351  0336 85            	popw	x
+2352  0337 81            	ret
+2396                     ; 567 void ADC1_ClearFlag(ADC1_Flag_TypeDef Flag)
+2396                     ; 568 {
+2397                     	switch	.text
+2398  0338               _ADC1_ClearFlag:
+2400  0338 88            	push	a
+2401  0339 88            	push	a
+2402       00000001      OFST:	set	1
+2405                     ; 569   uint8_t temp = 0;
+2407                     ; 572   assert_param(IS_ADC1_FLAG_OK(Flag));
+2409                     ; 574   if ((Flag & 0x0F) == 0x01)
+2411  033a a40f          	and	a,#15
+2412  033c a101          	cp	a,#1
+2413  033e 2606          	jrne	L3311
+2414                     ; 577     ADC1->CR3 &= (uint8_t)(~ADC1_CR3_OVR);
+2416  0340 721d5403      	bres	21507,#6
+2418  0344 204b          	jra	L5311
+2419  0346               L3311:
+2420                     ; 579   else if ((Flag & 0xF0) == 0x10)
+2422  0346 7b02          	ld	a,(OFST+1,sp)
+2423  0348 a4f0          	and	a,#240
+2424  034a a110          	cp	a,#16
+2425  034c 263a          	jrne	L7311
+2426                     ; 582     temp = (uint8_t)(Flag & (uint8_t)0x0F);
+2428  034e 7b02          	ld	a,(OFST+1,sp)
+2429  0350 a40f          	and	a,#15
+2430  0352 6b01          	ld	(OFST+0,sp),a
+2432                     ; 583     if (temp < 8)
+2434  0354 7b01          	ld	a,(OFST+0,sp)
+2435  0356 a108          	cp	a,#8
+2436  0358 2416          	jruge	L1411
+2437                     ; 585       ADC1->AWSRL &= (uint8_t)~(uint8_t)((uint8_t)1 << temp);
+2439  035a 7b01          	ld	a,(OFST+0,sp)
+2440  035c 5f            	clrw	x
+2441  035d 97            	ld	xl,a
+2442  035e a601          	ld	a,#1
+2443  0360 5d            	tnzw	x
+2444  0361 2704          	jreq	L231
+2445  0363               L431:
+2446  0363 48            	sll	a
+2447  0364 5a            	decw	x
+2448  0365 26fc          	jrne	L431
+2449  0367               L231:
+2450  0367 43            	cpl	a
+2451  0368 c4540d        	and	a,21517
+2452  036b c7540d        	ld	21517,a
+2454  036e 2021          	jra	L5311
+2455  0370               L1411:
+2456                     ; 589       ADC1->AWSRH &= (uint8_t)~(uint8_t)((uint8_t)1 << (temp - 8));
+2458  0370 7b01          	ld	a,(OFST+0,sp)
+2459  0372 a008          	sub	a,#8
+2460  0374 5f            	clrw	x
+2461  0375 97            	ld	xl,a
+2462  0376 a601          	ld	a,#1
+2463  0378 5d            	tnzw	x
+2464  0379 2704          	jreq	L631
+2465  037b               L041:
+2466  037b 48            	sll	a
+2467  037c 5a            	decw	x
+2468  037d 26fc          	jrne	L041
+2469  037f               L631:
+2470  037f 43            	cpl	a
+2471  0380 c4540c        	and	a,21516
+2472  0383 c7540c        	ld	21516,a
+2473  0386 2009          	jra	L5311
+2474  0388               L7311:
+2475                     ; 594     ADC1->CSR &= (uint8_t) (~Flag);
+2477  0388 7b02          	ld	a,(OFST+1,sp)
+2478  038a 43            	cpl	a
+2479  038b c45400        	and	a,21504
+2480  038e c75400        	ld	21504,a
+2481  0391               L5311:
+2482                     ; 596 }
+2485  0391 85            	popw	x
+2486  0392 81            	ret
+2541                     ; 616 ITStatus ADC1_GetITStatus(ADC1_IT_TypeDef ITPendingBit)
+2541                     ; 617 {
+2542                     	switch	.text
+2543  0393               _ADC1_GetITStatus:
+2545  0393 89            	pushw	x
+2546  0394 88            	push	a
+2547       00000001      OFST:	set	1
+2550                     ; 618   ITStatus itstatus = RESET;
+2552                     ; 619   uint8_t temp = 0;
+2554                     ; 622   assert_param(IS_ADC1_ITPENDINGBIT_OK(ITPendingBit));
+2556                     ; 624   if (((uint16_t)ITPendingBit & 0xF0) == 0x10)
+2558  0395 01            	rrwa	x,a
+2559  0396 a4f0          	and	a,#240
+2560  0398 5f            	clrw	x
+2561  0399 02            	rlwa	x,a
+2562  039a a30010        	cpw	x,#16
+2563  039d 2636          	jrne	L5711
+2564                     ; 627     temp = (uint8_t)((uint16_t)ITPendingBit & 0x0F);
+2566  039f 7b03          	ld	a,(OFST+2,sp)
+2567  03a1 a40f          	and	a,#15
+2568  03a3 6b01          	ld	(OFST+0,sp),a
+2570                     ; 628     if (temp < 8)
+2572  03a5 7b01          	ld	a,(OFST+0,sp)
+2573  03a7 a108          	cp	a,#8
+2574  03a9 2414          	jruge	L7711
+2575                     ; 630       itstatus = (ITStatus)(ADC1->AWSRL & (uint8_t)((uint8_t)1 << temp));
+2577  03ab 7b01          	ld	a,(OFST+0,sp)
+2578  03ad 5f            	clrw	x
+2579  03ae 97            	ld	xl,a
+2580  03af a601          	ld	a,#1
+2581  03b1 5d            	tnzw	x
+2582  03b2 2704          	jreq	L441
+2583  03b4               L641:
+2584  03b4 48            	sll	a
+2585  03b5 5a            	decw	x
+2586  03b6 26fc          	jrne	L641
+2587  03b8               L441:
+2588  03b8 c4540d        	and	a,21517
+2589  03bb 6b01          	ld	(OFST+0,sp),a
+2592  03bd 201d          	jra	L3021
+2593  03bf               L7711:
+2594                     ; 634       itstatus = (ITStatus)(ADC1->AWSRH & (uint8_t)((uint8_t)1 << (temp - 8)));
+2596  03bf 7b01          	ld	a,(OFST+0,sp)
+2597  03c1 a008          	sub	a,#8
+2598  03c3 5f            	clrw	x
+2599  03c4 97            	ld	xl,a
+2600  03c5 a601          	ld	a,#1
+2601  03c7 5d            	tnzw	x
+2602  03c8 2704          	jreq	L051
+2603  03ca               L251:
+2604  03ca 48            	sll	a
+2605  03cb 5a            	decw	x
+2606  03cc 26fc          	jrne	L251
+2607  03ce               L051:
+2608  03ce c4540c        	and	a,21516
+2609  03d1 6b01          	ld	(OFST+0,sp),a
+2611  03d3 2007          	jra	L3021
+2612  03d5               L5711:
+2613                     ; 639     itstatus = (ITStatus)(ADC1->CSR & (uint8_t)ITPendingBit);
+2615  03d5 c65400        	ld	a,21504
+2616  03d8 1403          	and	a,(OFST+2,sp)
+2617  03da 6b01          	ld	(OFST+0,sp),a
+2619  03dc               L3021:
+2620                     ; 641   return ((ITStatus)itstatus);
+2622  03dc 7b01          	ld	a,(OFST+0,sp)
+2625  03de 5b03          	addw	sp,#3
+2626  03e0 81            	ret
+2671                     ; 662 void ADC1_ClearITPendingBit(ADC1_IT_TypeDef ITPendingBit)
+2671                     ; 663 {
+2672                     	switch	.text
+2673  03e1               _ADC1_ClearITPendingBit:
+2675  03e1 89            	pushw	x
+2676  03e2 88            	push	a
+2677       00000001      OFST:	set	1
+2680                     ; 664   uint8_t temp = 0;
+2682                     ; 667   assert_param(IS_ADC1_ITPENDINGBIT_OK(ITPendingBit));
+2684                     ; 669   if (((uint16_t)ITPendingBit & 0xF0) == 0x10)
+2686  03e3 01            	rrwa	x,a
+2687  03e4 a4f0          	and	a,#240
+2688  03e6 5f            	clrw	x
+2689  03e7 02            	rlwa	x,a
+2690  03e8 a30010        	cpw	x,#16
+2691  03eb 263a          	jrne	L7221
+2692                     ; 672     temp = (uint8_t)((uint16_t)ITPendingBit & 0x0F);
+2694  03ed 7b03          	ld	a,(OFST+2,sp)
+2695  03ef a40f          	and	a,#15
+2696  03f1 6b01          	ld	(OFST+0,sp),a
+2698                     ; 673     if (temp < 8)
+2700  03f3 7b01          	ld	a,(OFST+0,sp)
+2701  03f5 a108          	cp	a,#8
+2702  03f7 2416          	jruge	L1321
+2703                     ; 675       ADC1->AWSRL &= (uint8_t)~(uint8_t)((uint8_t)1 << temp);
+2705  03f9 7b01          	ld	a,(OFST+0,sp)
+2706  03fb 5f            	clrw	x
+2707  03fc 97            	ld	xl,a
+2708  03fd a601          	ld	a,#1
+2709  03ff 5d            	tnzw	x
+2710  0400 2704          	jreq	L651
+2711  0402               L061:
+2712  0402 48            	sll	a
+2713  0403 5a            	decw	x
+2714  0404 26fc          	jrne	L061
+2715  0406               L651:
+2716  0406 43            	cpl	a
+2717  0407 c4540d        	and	a,21517
+2718  040a c7540d        	ld	21517,a
+2720  040d 2021          	jra	L5321
+2721  040f               L1321:
+2722                     ; 679       ADC1->AWSRH &= (uint8_t)~(uint8_t)((uint8_t)1 << (temp - 8));
+2724  040f 7b01          	ld	a,(OFST+0,sp)
+2725  0411 a008          	sub	a,#8
+2726  0413 5f            	clrw	x
+2727  0414 97            	ld	xl,a
+2728  0415 a601          	ld	a,#1
+2729  0417 5d            	tnzw	x
+2730  0418 2704          	jreq	L261
+2731  041a               L461:
+2732  041a 48            	sll	a
+2733  041b 5a            	decw	x
+2734  041c 26fc          	jrne	L461
+2735  041e               L261:
+2736  041e 43            	cpl	a
+2737  041f c4540c        	and	a,21516
+2738  0422 c7540c        	ld	21516,a
+2739  0425 2009          	jra	L5321
+2740  0427               L7221:
+2741                     ; 684     ADC1->CSR &= (uint8_t)((uint16_t)~(uint16_t)ITPendingBit);
+2743  0427 7b03          	ld	a,(OFST+2,sp)
+2744  0429 43            	cpl	a
+2745  042a c45400        	and	a,21504
+2746  042d c75400        	ld	21504,a
+2747  0430               L5321:
+2748                     ; 686 }
+2751  0430 5b03          	addw	sp,#3
+2752  0432 81            	ret
+2765                     	xdef	_ADC1_ClearITPendingBit
+2766                     	xdef	_ADC1_GetITStatus
+2767                     	xdef	_ADC1_ClearFlag
+2768                     	xdef	_ADC1_GetFlagStatus
+2769                     	xdef	_ADC1_GetAWDChannelStatus
+2770                     	xdef	_ADC1_GetBufferValue
+2771                     	xdef	_ADC1_SetLowThreshold
+2772                     	xdef	_ADC1_SetHighThreshold
+2773                     	xdef	_ADC1_GetConversionValue
+2774                     	xdef	_ADC1_StartConversion
+2775                     	xdef	_ADC1_AWDChannelConfig
+2776                     	xdef	_ADC1_ExternalTriggerConfig
+2777                     	xdef	_ADC1_ConversionConfig
+2778                     	xdef	_ADC1_SchmittTriggerConfig
+2779                     	xdef	_ADC1_PrescalerConfig
+2780                     	xdef	_ADC1_ITConfig
+2781                     	xdef	_ADC1_DataBufferCmd
+2782                     	xdef	_ADC1_ScanModeCmd
+2783                     	xdef	_ADC1_Cmd
+2784                     	xdef	_ADC1_Init
+2785                     	xdef	_ADC1_DeInit
+2804                     	end
