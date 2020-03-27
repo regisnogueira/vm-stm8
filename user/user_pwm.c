@@ -1,10 +1,5 @@
 #include "user_pwm.h"
 
-#ifdef EN_USER_ADC  
-extern uint16_t adc_val = 0;
-#endif
-
-
 #ifdef EN_USER_PWM
 uint16_t CCR1_Val = 500;
 uint16_t CCR2_Val = 100;
@@ -15,7 +10,7 @@ void init_pwm(void)
 {
 #ifdef EN_USER_PWM
     /* Time base configuration */
-    TIM2_TimeBaseInit(TIM2_PRESCALER_1, 999);
+    TIM2_TimeBaseInit(TIM2_PRESCALER_1, 500);
     
     /* PWM1 Mode configuration: Channel1 */ 
     //TIM2_OC1Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,CCR1_Val, TIM2_OCPOLARITY_HIGH);

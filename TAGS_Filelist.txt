@@ -8,6 +8,13 @@ libraries\src\stm8s_uart1.c
 main.c
 stm8_interrupt_vector.c
 stm8s_it.c
+user\user_adc.h
+user\user_buzzer.h
+user\user_eeprom.h
+user\user_led.h
+user\user_pwm.h
+user\user_timer.h
+user\user_uart.h
 user\user_adc.c
 user\user_buzzer.c
 user\user_eeprom.c
@@ -27,10 +34,3 @@ libraries\inc\stm8s_uart1.h
 libraries\inc\stm8s_wwdg.h
 stm8s_conf.h
 stm8s_it.h
-user\user_adc.h
-user\user_buzzer.h
-user\user_eeprom.h
-user\user_led.h
-user\user_pwm.h
-user\user_timer.h
-user\user_uart.h

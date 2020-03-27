@@ -8,7 +8,7 @@
 
 void main(void)
 {
-    uint16_t pwm;
+    uint16_t pwm = 250;
 
     init_timer();
     init_led();
@@ -21,9 +21,9 @@ void main(void)
         delay(5);
 #ifdef EN_USER_PWM
         set_pwm(PWM_CH1, pwm);
-        set_pwm(PWM_CH2, 1100-pwm);
-        if (++pwm >= 1100)
-            pwm = 0;
+        set_pwm(PWM_CH2, pwm);
+        //if (++pwm >= 550)
+          //  pwm = 0;
 #endif
     }
 }
