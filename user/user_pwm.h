@@ -3,7 +3,7 @@
 
 #include "stm8s.h"
 
-#define EN_USER_PWM
+//#define EN_USER_PWM
 
 enum {
     PWM_CH1 = 0,

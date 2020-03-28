@@ -3,13 +3,8 @@
 
 #include "stm8s.h"
 
-#define ENABLE_BUZ 1
+//#define EN_USER_BUZZER
 
-#if ENABLE_BUZ == 0
-#warning "buzzer desabilitado!!!"
-#endif
-
-/* definições de hardware */
 #define BUZ_PORT_NUM (GPIOA)
 #define BUZ_PIN_NUM  (GPIO_PIN_3)
 
@@ -18,11 +13,8 @@
 #define gpio_dir_out(a,b) GPIO_Init(a, (GPIO_Pin_TypeDef)b, GPIO_MODE_OUT_PP_LOW_FAST);
 
 #define buz_dir() gpio_dir_out(BUZ_PORT_NUM,BUZ_PIN_NUM)
-#if ENABLE_BUZ == 1
+
 #define buz_on()  gpio_clr(BUZ_PORT_NUM,BUZ_PIN_NUM)
-#else
-#define buz_on()  gpio_clr(BUZ_PORT_NUM,BUZ_PIN_NUM)
-#endif
 #define buz_off() gpio_set(BUZ_PORT_NUM,BUZ_PIN_NUM)
 
 typedef struct _BUZZER

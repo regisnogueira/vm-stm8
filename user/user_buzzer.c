@@ -6,7 +6,7 @@ BUZZER buzzer;
 
 void init_buzzer(void)
 {
-#ifdef ENABLE_BUZZER
+#ifdef EN_USER_BUZZER
     buz_dir();
     buz_off();
     buz_on();
@@ -22,7 +22,7 @@ void init_buzzer(void)
  */
 void set_buzzer(uint8_t nbeep, uint16_t ton, uint16_t toff)
 {
-#ifdef ENABLE_BUZZER    
+#ifdef EN_USER_BUZZER    
     buzzer.nbeep = nbeep;
     buzzer.ton   = ton;
     buzzer.toff  = toff;
@@ -32,7 +32,7 @@ void set_buzzer(uint8_t nbeep, uint16_t ton, uint16_t toff)
 
 void task_buzzer(void)
 {
-#ifdef ENABLE_BUZZER    
+#ifdef EN_USER_BUZZER    
     static uint8_t state=0;
     static uint16_t ton=0, toff=0;
 

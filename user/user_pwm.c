@@ -33,6 +33,7 @@ void init_pwm(void)
 
 void set_pwm(uint8_t channel, uint16_t ccrx_val)
 {
+#ifdef EN_USER_PWM
     switch (channel) {
     case PWM_CH1: /* PWM1 Mode configuration: Channel1 */ 
         TIM2_OC1Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
@@ -43,4 +44,5 @@ void set_pwm(uint8_t channel, uint16_t ccrx_val)
         TIM2_OC2PreloadConfig(ENABLE);
         break;
     }
+#endif
 }
