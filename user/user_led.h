@@ -22,11 +22,9 @@
 #define LED_NOTHING 2
 
 /* tempo utilizado na função led_task() */
-#define LED_PULSE  50
+#define LED_PULSE  100
 #define LED_ON     0
-#define BLINK_FAST 200
-#define BLINK_MED  1000
-#define BLINK_SLOW 2500
+#define BLINK_SLOW 1000-LED_PULSE
 #define LED_OFF    0xFFFF-LED_PULSE
 
 typedef struct _LED_STATE

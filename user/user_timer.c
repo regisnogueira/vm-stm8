@@ -1,6 +1,7 @@
 #include "user_timer.h"
 #include "user_led.h"
 #include "user_buzzer.h"
+#include "user_display.h"
 
 #define TIM4_PERIOD       124
 /* Private macro -------------------------------------------------------------*/
@@ -82,4 +83,5 @@ void task_timer(void)
         --tmr_delay;
     task_led();
     task_buzzer();
+    task_display();
 }

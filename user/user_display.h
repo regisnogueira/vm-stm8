@@ -83,7 +83,17 @@
                         seg_d_off(); \
                         seg_e_off(); \
                         seg_f_off(); \
-                        seg_g_off()
+                        seg_g_off(); \
+                        dp_off();
+
+#define display_all()   seg_a_on(); \
+                        seg_b_on(); \
+                        seg_c_on(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on(); \
+                        dp_on();
 
 #define display_zero()  seg_a_on(); \
                         seg_b_on(); \
@@ -177,6 +187,14 @@
 #define dig3_on()   gpio_clr    (DIG3_PORT_NUM,DIG3_PIN_NUM)
 #define dig3_off()  gpio_set    (DIG3_PORT_NUM,DIG3_PIN_NUM)
 
+#define MAX_DIG_POS 3
+enum {
+    DIG1_POS = 0,
+    DIG2_POS = 1,
+    DIG3_POS = 2
+};
+
 void init_display(void);
+void task_display(void);
 
 #endif

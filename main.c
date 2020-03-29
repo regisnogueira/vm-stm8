@@ -11,13 +11,13 @@ void main(void)
 {
     uint16_t pwm = 250;
 
-    init_timer();
-    //init_led();
-    //init_buzzer();
-    //init_uart();
-    //init_adc();
-    //init_pwm();
+    init_timer();    
+    init_buzzer();
+    init_uart();
+    init_adc();
+    init_pwm();
     init_display();
+    init_led();
 
     for (;;) {
         //delay(5);
