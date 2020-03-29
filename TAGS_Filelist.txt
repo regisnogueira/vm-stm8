@@ -10,6 +10,7 @@ stm8_interrupt_vector.c
 stm8s_it.c
 user\user_adc.h
 user\user_buzzer.h
+user\user_display.h
 user\user_eeprom.h
 user\user_led.h
 user\user_pwm.h
@@ -17,6 +18,7 @@ user\user_timer.h
 user\user_uart.h
 user\user_adc.c
 user\user_buzzer.c
+user\user_display.c
 user\user_eeprom.c
 user\user_led.c
 user\user_pwm.c

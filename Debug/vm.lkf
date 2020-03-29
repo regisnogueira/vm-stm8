@@ -61,6 +61,7 @@ Debug\main.o
 Debug\stm8s_it.o
 Debug\user_adc.o
 Debug\user_buzzer.o
+Debug\user_display.o
 Debug\user_eeprom.o
 Debug\user_led.o
 Debug\user_pwm.o

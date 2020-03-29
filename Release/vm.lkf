@@ -61,6 +61,7 @@ Release\main.o
 Release\stm8s_it.o
 Release\user_adc.o
 Release\user_buzzer.o
+Release\user_display.o
 Release\user_eeprom.o
 Release\user_led.o
 Release\user_pwm.o

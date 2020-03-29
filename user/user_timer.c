@@ -43,7 +43,7 @@ void CLK_Config(void)
 void delay(__IO uint32_t nTime)
 {
     tmr_delay = nTime;    
-    while (tmr_delay != 0);
+    while (tmr_delay);
 }
 
 /**
