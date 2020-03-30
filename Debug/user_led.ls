@@ -7,12 +7,12 @@
   48  0000               _init_led:
   52                     ; 12     led1_dir();
   54  0000 4be0          	push	#224
-  55  0002 4b20          	push	#32
-  56  0004 ae5005        	ldw	x,#20485
+  55  0002 4b08          	push	#8
+  56  0004 ae5000        	ldw	x,#20480
   57  0007 cd0000        	call	_GPIO_Init
   59  000a 85            	popw	x
   60                     ; 13     set_led(LED1, BLINK_SLOW);
-  63  000b ae09c4        	ldw	x,#2500
+  63  000b ae0384        	ldw	x,#900
   64  000e 89            	pushw	x
   65  000f 4f            	clr	a
   66  0010 ad2e          	call	_set_led
@@ -30,20 +30,20 @@
  109  001b b302          	cpw	x,_led+2
  110  001d 240b          	jruge	L13
  111                     ; 21         led1_off();
- 113  001f 4b20          	push	#32
- 114  0021 ae5005        	ldw	x,#20485
- 115  0024 cd0000        	call	_GPIO_WriteHigh
+ 113  001f 4b08          	push	#8
+ 114  0021 ae5000        	ldw	x,#20480
+ 115  0024 cd0000        	call	_GPIO_WriteLow
  117  0027 84            	pop	a
  119  0028 2015          	jra	L33
  120  002a               L13:
  121                     ; 23         led1_on();
- 123  002a 4b20          	push	#32
- 124  002c ae5005        	ldw	x,#20485
- 125  002f cd0000        	call	_GPIO_WriteLow
+ 123  002a 4b08          	push	#8
+ 124  002c ae5000        	ldw	x,#20480
+ 125  002f cd0000        	call	_GPIO_WriteHigh
  127  0032 84            	pop	a
  128                     ; 24         if (led[LED1].time > led[LED1].speed + LED_PULSE) {
  130  0033 be02          	ldw	x,_led+2
- 131  0035 1c0032        	addw	x,#50
+ 131  0035 1c0064        	addw	x,#100
  132  0038 b300          	cpw	x,_led
  133  003a 2403          	jruge	L33
  134                     ; 25             led[LED1].time = 0;

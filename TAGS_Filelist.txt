@@ -8,6 +8,7 @@ libraries\src\stm8s_uart1.c
 main.c
 stm8_interrupt_vector.c
 stm8s_it.c
+user\motor.h
 user\user_adc.h
 user\user_buzzer.h
 user\user_display.h
@@ -24,6 +25,7 @@ user\user_led.c
 user\user_pwm.c
 user\user_timer.c
 user\user_uart.c
+user\motor.c
 c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h
 libraries\inc\stm8s.h
 libraries\inc\stm8s_adc1.h

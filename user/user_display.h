@@ -188,6 +188,9 @@
 #define dig3_off()  gpio_set    (DIG3_PORT_NUM,DIG3_PIN_NUM)
 
 #define MAX_DIG_POS 3
+#define MAX_DISPLAY_OPTION 9
+#define MAX_DISPLAY_VALUE 99
+
 enum {
     DIG1_POS = 0,
     DIG2_POS = 1,
@@ -196,5 +199,6 @@ enum {
 
 void init_display(void);
 void task_display(void);
+void set_display(uint8_t option, uint8_t value, uint8_t decimal);
 
 #endif

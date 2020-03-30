@@ -8,15 +8,15 @@
   53                     ; 8 {
   55                     	switch	.text
   56  0000               _init_adc:
-  60                     ; 10     GPIO_Init(GPIOD, GPIO_PIN_2, GPIO_MODE_IN_FL_NO_IT );
+  60                     ; 10     GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT );
   62  0000 4b00          	push	#0
-  63  0002 4b04          	push	#4
+  63  0002 4b40          	push	#64
   64  0004 ae500f        	ldw	x,#20495
   65  0007 cd0000        	call	_GPIO_Init
   67  000a 85            	popw	x
   68                     ; 11     ADC1_DeInit();
   70  000b cd0000        	call	_ADC1_DeInit
-  72                     ; 12     ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS, ADC1_CHANNEL_3, 
+  72                     ; 12     ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS, ADC1_CHANNEL_6, 
   72                     ; 13               ADC1_PRESSEL_FCPU_D2, ADC1_EXTTRIG_TIM,DISABLE, 
   72                     ; 14               ADC1_ALIGN_RIGHT, ADC1_SCHMITTTRIG_CHANNEL0, DISABLE );
   74  000e 4b00          	push	#0
@@ -25,7 +25,7 @@
   77  0014 4b00          	push	#0
   78  0016 4b00          	push	#0
   79  0018 4b00          	push	#0
-  80  001a ae0103        	ldw	x,#259
+  80  001a ae0106        	ldw	x,#262
   81  001d cd0000        	call	_ADC1_Init
   83  0020 5b06          	addw	sp,#6
   84                     ; 16     ADC1_ScanModeCmd(ENABLE);

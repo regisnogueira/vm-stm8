@@ -2,6 +2,7 @@
 #include "user_led.h"
 #include "user_buzzer.h"
 #include "user_display.h"
+#include "motor.h"
 
 #define TIM4_PERIOD       124
 /* Private macro -------------------------------------------------------------*/
@@ -84,4 +85,5 @@ void task_timer(void)
     task_led();
     task_buzzer();
     task_display();
+    task_motor();
 }
