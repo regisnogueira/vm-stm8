@@ -5,11 +5,28 @@ extern uint16_t adc_val;
 #define MAX_ADC 1010
 #define MIN_ADC 10
 
+MOTOR motor;
+
 void init_motor(void)
 {
     motor_relay_dir();
     init_pwm();
-    set_pwm(55000);    
+    set_pwm(PWM_FREQ);
+}
+
+void stop_motor(void)
+{
+
+}   
+
+void rotate_motor(void)
+{
+
+}
+
+uint16_t get_position(void) 
+{
+    motor.position = adc_val;
 }
 
 void task_motor(void)

@@ -81,9 +81,10 @@ void TIM4_Config(void)
 void task_timer(void)
 {
     if (tmr_delay)
-        --tmr_delay;
+        tmr_delay--;
     task_led();
     task_buzzer();
     task_display();
     
 }
+

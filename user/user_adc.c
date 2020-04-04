@@ -7,7 +7,7 @@ uint16_t adc_val = 0;
 void init_adc(void)
 {
 #ifdef EN_USER_ADC
-    GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT );
+    GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT);
     ADC1_DeInit();
     ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS, ADC1_CHANNEL_6,
               ADC1_PRESSEL_FCPU_D2, ADC1_EXTTRIG_TIM,DISABLE,
@@ -41,3 +41,4 @@ uint16_t read_adc(void)
     return 0;
 #endif
 }
+
