@@ -18,6 +18,11 @@ void main(void)
     init_motor();
 
     for (;;) {
-        
+        set_pwm(55000);
+        delay(1000);
+        set_pwm(0);
+        delay(100);
+        motor_invert();
+        delay(100);
     }
 }

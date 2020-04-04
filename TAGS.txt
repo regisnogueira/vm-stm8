@@ -1252,9 +1252,11 @@ LED_STATE	user\user_led.h	34;"	typedef	typeref:struct:_LED_STATE
 LSI_VALUE	libraries\inc\stm8s.h	119;"	macro
 LTRH	libraries\inc\stm8s.h	331;"	member	struct:ADC1_struct
 LTRL	libraries\inc\stm8s.h	332;"	member	struct:ADC1_struct
+MAX_ADC	user\motor.c	5;"	macro	file:
 MAX_DIG_POS	user\user_display.h	190;"	macro
 MAX_DISPLAY_OPTION	user\user_display.h	191;"	macro
 MAX_DISPLAY_VALUE	user\user_display.h	192;"	macro
+MAX_PWM	user\user_pwm.h	8;"	macro
 MCR	libraries\inc\stm8s.h	2176;"	member	struct:__anon7
 MCSR	libraries\inc\stm8s.h	2189;"	member	struct:__anon7::__anon8::__anon9
 MDAR1	libraries\inc\stm8s.h	2195;"	member	struct:__anon7::__anon8::__anon9
@@ -1286,6 +1288,7 @@ MIDR3	libraries\inc\stm8s.h	2193;"	member	struct:__anon7::__anon8::__anon9
 MIDR3	libraries\inc\stm8s.h	2314;"	member	struct:__anon7::__anon8::__anon15
 MIDR4	libraries\inc\stm8s.h	2194;"	member	struct:__anon7::__anon8::__anon9
 MIDR4	libraries\inc\stm8s.h	2315;"	member	struct:__anon7::__anon8::__anon15
+MIN_ADC	user\motor.c	6;"	macro	file:
 MSR	libraries\inc\stm8s.h	2177;"	member	struct:__anon7
 MTSRH	libraries\inc\stm8s.h	2204;"	member	struct:__anon7::__anon8::__anon9
 MTSRH	libraries\inc\stm8s.h	2325;"	member	struct:__anon7::__anon8::__anon15
@@ -1343,8 +1346,8 @@ PUKR	libraries\inc\stm8s.h	1524;"	member	struct:FLASH_struct
 PUTCHAR_PROTOTYPE	user\user_uart.h	12;"	macro
 PUTCHAR_PROTOTYPE	user\user_uart.h	15;"	macro
 PUTCHAR_PROTOTYPE	user\user_uart.h	9;"	macro
-PWM_CH1	user\user_pwm.h	9;"	enumerator	enum:__anon2
-PWM_CH2	user\user_pwm.h	10;"	enumerator	enum:__anon2
+PWM_CH1	user\user_pwm.h	11;"	enumerator	enum:__anon2
+PWM_CH2	user\user_pwm.h	12;"	enumerator	enum:__anon2
 Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon7	typeref:union:__anon7::__anon8
 PointerAttr	libraries\inc\stm8s.h	156;"	macro
 PointerAttr	libraries\inc\stm8s.h	160;"	macro
@@ -2593,10 +2596,10 @@ init_eeprom	user\user_eeprom.c	3;"	function	signature:(void)
 init_eeprom	user\user_eeprom.h	6;"	prototype	signature:()
 init_led	user\user_led.c	9;"	function	signature:(void)
 init_led	user\user_led.h	36;"	prototype	signature:(void)
-init_motor	user\motor.c	5;"	function	signature:(void)
+init_motor	user\motor.c	8;"	function	signature:(void)
 init_motor	user\motor.h	7;"	prototype	signature:(void)
 init_pwm	user\user_pwm.c	3;"	function	signature:(void)
-init_pwm	user\user_pwm.h	13;"	prototype	signature:(void)
+init_pwm	user\user_pwm.h	15;"	prototype	signature:(void)
 init_timer	user\user_timer.c	21;"	function	signature:(void)
 init_timer	user\user_timer.h	6;"	prototype	signature:(void)
 init_uart	user\user_uart.c	3;"	function	signature:(void)
@@ -2657,8 +2660,8 @@ set_display	user\user_display.c	18;"	function	signature:(uint8_t option, uint8_t
 set_display	user\user_display.h	202;"	prototype	signature:(uint8_t option, uint8_t value, uint8_t decimal)
 set_led	user\user_led.c	31;"	function	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.h	38;"	prototype	signature:(uint8_t ledx, uint16_t speed)
-set_pwm	user\user_pwm.c	15;"	function	signature:(uint8_t channel, uint16_t ccrx_val)
-set_pwm	user\user_pwm.h	14;"	prototype	signature:(uint8_t channel, uint16_t val)
+set_pwm	user\user_pwm.c	16;"	function	signature:(uint8_t channel, uint16_t ccrx_val)
+set_pwm	user\user_pwm.h	16;"	prototype	signature:(uint8_t channel, uint16_t val)
 sim	libraries\inc\stm8s.h	2719;"	macro
 sim	libraries\inc\stm8s.h	2728;"	macro
 sim	libraries\inc\stm8s.h	2738;"	macro
@@ -2669,7 +2672,7 @@ task_display	user\user_display.c	70;"	function	signature:(void)
 task_display	user\user_display.h	201;"	prototype	signature:(void)
 task_led	user\user_led.c	17;"	function	signature:(void)
 task_led	user\user_led.h	37;"	prototype	signature:(void)
-task_motor	user\motor.c	10;"	function	signature:(void)
+task_motor	user\motor.c	13;"	function	signature:(void)
 task_motor	user\motor.h	8;"	prototype	signature:(void)
 task_timer	stm8s_it.c	31;"	prototype	file:	signature:(void)
 task_timer	user\user_timer.c	81;"	function	signature:(void)
