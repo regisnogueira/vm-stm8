@@ -4,6 +4,12 @@
 #define DELAY_DISPLAY_TEST 500
 #define EN_DISPLAY_TEST
 
+/* user_timer.c */
+extern int tick;
+
+/* user_adc.h */
+extern uint16_t adc_val;
+
 #ifdef EN_DISPLAY_TEST
 uint8_t display_test = 1;
 #endif
@@ -65,6 +71,13 @@ void wr_digit(uint8_t dig_pos)
         display_nine();
         break;
     }
+}
+
+void task_display(void)
+{
+    if (!tick)
+        return;
+    set_display(0, (uint8_t)((float)adc_val*3/100), 0);
 }
 
 void tmr_display(void)

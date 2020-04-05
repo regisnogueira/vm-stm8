@@ -5,7 +5,9 @@
 
 #define EN_USER_ADC
 
+#define LEN_ADC_CHANNEL 2
+
 void init_adc(void);
-uint16_t read_adc(void);
+void read_adc(void);
 
 #endif

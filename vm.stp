@@ -417,7 +417,7 @@ PathName=stm8s_it.c
 [Root.Include Files]
 ElemType=Folder
 PathName=Include Files
-Child=Root.Include Files.user\menu.h
+Child=Root.Include Files.user\pressure_sensor.h
 Next=Root.User
 Config.0=Root.Include Files.Config.0
 Config.1=Root.Include Files.Config.1
@@ -488,6 +488,16 @@ String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
 
+[Root.Include Files.user\pressure_sensor.h]
+ElemType=File
+PathName=user\pressure_sensor.h
+Next=Root.Include Files.user\application.h
+
+[Root.Include Files.user\application.h]
+ElemType=File
+PathName=user\application.h
+Next=Root.Include Files.user\menu.h
+
 [Root.Include Files.user\menu.h]
 ElemType=File
 PathName=user\menu.h
@@ -540,7 +550,7 @@ PathName=user\user_uart.h
 [Root.User]
 ElemType=Folder
 PathName=User
-Child=Root.User.user\menu.c
+Child=Root.User.user\pressure_sensor.c
 Next=Root.doc
 Config.0=Root.User.Config.0
 Config.1=Root.User.Config.1
@@ -610,6 +620,16 @@ String.3.0=
 String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
+
+[Root.User.user\pressure_sensor.c]
+ElemType=File
+PathName=user\pressure_sensor.c
+Next=Root.User.user\application.c
+
+[Root.User.user\application.c]
+ElemType=File
+PathName=user\application.c
+Next=Root.User.user\menu.c
 
 [Root.User.user\menu.c]
 ElemType=File

@@ -7,23 +7,21 @@
 #include "user_display.h"
 #include "motor.h"
 
+extern uint16_t adc_val;
+
 void main(void)
 {
     init_timer();    
     init_buzzer();
     init_uart();
     init_adc();
-    
+
     init_display();
-    init_motor();
+    init_pwm();
 
     for (;;) {
-        set_pwm(55000);
-        delay(1000);
-        set_pwm(0);
-        delay(100);
-        motor_invert();
-        delay(100);
+        pool_tick();
+        set_pwm(adc_val);
+        task_display();
     }
 }
-

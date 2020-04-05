@@ -8,6 +8,9 @@ libraries\src\stm8s_uart1.c
 main.c
 stm8_interrupt_vector.c
 stm8s_it.c
+user\pressure_sensor.h
+user\application.h
+user\menu.h
 user\motor.h
 user\user_adc.h
 user\user_buzzer.h
@@ -17,6 +20,10 @@ user\user_led.h
 user\user_pwm.h
 user\user_timer.h
 user\user_uart.h
+user\pressure_sensor.c
+user\application.c
+user\menu.c
+user\motor.c
 user\user_adc.c
 user\user_buzzer.c
 user\user_display.c
@@ -25,7 +32,10 @@ user\user_led.c
 user\user_pwm.c
 user\user_timer.c
 user\user_uart.c
-user\motor.c
+readme.md
+..\corona\user\user_buzzer.h
+..\corona\user\user_led.h
+..\corona\user\user_timer.h
 c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h
 libraries\inc\stm8s.h
 libraries\inc\stm8s_adc1.h

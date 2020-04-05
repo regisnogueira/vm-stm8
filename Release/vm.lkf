@@ -59,6 +59,8 @@ Release\stm8s_tim4.o
 Release\stm8s_uart1.o
 Release\main.o
 Release\stm8s_it.o
+Release\pressure_sensor.o
+Release\application.o
 Release\menu.o
 Release\motor.o
 Release\user_adc.o

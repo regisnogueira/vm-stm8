@@ -59,6 +59,8 @@ Debug\stm8s_tim4.o
 Debug\stm8s_uart1.o
 Debug\main.o
 Debug\stm8s_it.o
+Debug\pressure_sensor.o
+Debug\application.o
 Debug\menu.o
 Debug\motor.o
 Debug\user_adc.o

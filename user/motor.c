@@ -17,7 +17,17 @@ void init_motor(void)
 void stop_motor(void)
 {
 
-}   
+}
+
+void inc_speed(void)
+{
+    
+}
+
+void dec_speed(void)
+{
+    
+}
 
 void rotate_motor(void)
 {
@@ -27,7 +37,6 @@ void rotate_motor(void)
 void set_position(void) 
 {
     motor.position = adc_val;
-    
 }
 
 void task_motor(void)

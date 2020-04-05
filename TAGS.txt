@@ -5,27 +5,27 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 ADC1	libraries\inc\stm8s.h	2603;"	macro
-ADC1_ALIGN_LEFT	libraries\inc\stm8s_adc1.h	70;"	enumerator	enum:__anon18
-ADC1_ALIGN_RIGHT	libraries\inc\stm8s_adc1.h	71;"	enumerator	enum:__anon18
+ADC1_ALIGN_LEFT	libraries\inc\stm8s_adc1.h	70;"	enumerator	enum:__anon25
+ADC1_ALIGN_RIGHT	libraries\inc\stm8s_adc1.h	71;"	enumerator	enum:__anon25
 ADC1_AWCRH_RESET_VALUE	libraries\inc\stm8s.h	353;"	macro
 ADC1_AWCRL_RESET_VALUE	libraries\inc\stm8s.h	354;"	macro
 ADC1_AWDChannelConfig	libraries\inc\stm8s_adc1.h	320;"	prototype	signature:(ADC1_Channel_TypeDef Channel, FunctionalState NewState)
 ADC1_AWDChannelConfig	libraries\src\stm8s_adc1.c	405;"	function	signature:(ADC1_Channel_TypeDef Channel, FunctionalState NewState)
-ADC1_Align_TypeDef	libraries\inc\stm8s_adc1.h	72;"	typedef	typeref:enum:__anon18
+ADC1_Align_TypeDef	libraries\inc\stm8s_adc1.h	72;"	typedef	typeref:enum:__anon25
 ADC1_BaseAddress	libraries\inc\stm8s.h	2586;"	macro
-ADC1_CHANNEL_0	libraries\inc\stm8s_adc1.h	157;"	enumerator	enum:__anon23
-ADC1_CHANNEL_1	libraries\inc\stm8s_adc1.h	158;"	enumerator	enum:__anon23
-ADC1_CHANNEL_12	libraries\inc\stm8s_adc1.h	167;"	enumerator	enum:__anon23
-ADC1_CHANNEL_2	libraries\inc\stm8s_adc1.h	159;"	enumerator	enum:__anon23
-ADC1_CHANNEL_3	libraries\inc\stm8s_adc1.h	160;"	enumerator	enum:__anon23
-ADC1_CHANNEL_4	libraries\inc\stm8s_adc1.h	161;"	enumerator	enum:__anon23
-ADC1_CHANNEL_5	libraries\inc\stm8s_adc1.h	162;"	enumerator	enum:__anon23
-ADC1_CHANNEL_6	libraries\inc\stm8s_adc1.h	163;"	enumerator	enum:__anon23
-ADC1_CHANNEL_7	libraries\inc\stm8s_adc1.h	164;"	enumerator	enum:__anon23
-ADC1_CHANNEL_8	libraries\inc\stm8s_adc1.h	165;"	enumerator	enum:__anon23
-ADC1_CHANNEL_9	libraries\inc\stm8s_adc1.h	166;"	enumerator	enum:__anon23
-ADC1_CONVERSIONMODE_CONTINUOUS	libraries\inc\stm8s_adc1.h	148;"	enumerator	enum:__anon22
-ADC1_CONVERSIONMODE_SINGLE	libraries\inc\stm8s_adc1.h	147;"	enumerator	enum:__anon22
+ADC1_CHANNEL_0	libraries\inc\stm8s_adc1.h	157;"	enumerator	enum:__anon30
+ADC1_CHANNEL_1	libraries\inc\stm8s_adc1.h	158;"	enumerator	enum:__anon30
+ADC1_CHANNEL_12	libraries\inc\stm8s_adc1.h	167;"	enumerator	enum:__anon30
+ADC1_CHANNEL_2	libraries\inc\stm8s_adc1.h	159;"	enumerator	enum:__anon30
+ADC1_CHANNEL_3	libraries\inc\stm8s_adc1.h	160;"	enumerator	enum:__anon30
+ADC1_CHANNEL_4	libraries\inc\stm8s_adc1.h	161;"	enumerator	enum:__anon30
+ADC1_CHANNEL_5	libraries\inc\stm8s_adc1.h	162;"	enumerator	enum:__anon30
+ADC1_CHANNEL_6	libraries\inc\stm8s_adc1.h	163;"	enumerator	enum:__anon30
+ADC1_CHANNEL_7	libraries\inc\stm8s_adc1.h	164;"	enumerator	enum:__anon30
+ADC1_CHANNEL_8	libraries\inc\stm8s_adc1.h	165;"	enumerator	enum:__anon30
+ADC1_CHANNEL_9	libraries\inc\stm8s_adc1.h	166;"	enumerator	enum:__anon30
+ADC1_CONVERSIONMODE_CONTINUOUS	libraries\inc\stm8s_adc1.h	148;"	enumerator	enum:__anon29
+ADC1_CONVERSIONMODE_SINGLE	libraries\inc\stm8s_adc1.h	147;"	enumerator	enum:__anon29
 ADC1_CR1_ADON	libraries\inc\stm8s.h	370;"	macro
 ADC1_CR1_CONT	libraries\inc\stm8s.h	369;"	macro
 ADC1_CR1_RESET_VALUE	libraries\inc\stm8s.h	344;"	macro
@@ -44,40 +44,40 @@ ADC1_CSR_CH	libraries\inc\stm8s.h	366;"	macro
 ADC1_CSR_EOC	libraries\inc\stm8s.h	362;"	macro
 ADC1_CSR_EOCIE	libraries\inc\stm8s.h	364;"	macro
 ADC1_CSR_RESET_VALUE	libraries\inc\stm8s.h	343;"	macro
-ADC1_Channel_TypeDef	libraries\inc\stm8s_adc1.h	169;"	typedef	typeref:enum:__anon23
+ADC1_Channel_TypeDef	libraries\inc\stm8s_adc1.h	169;"	typedef	typeref:enum:__anon30
 ADC1_ClearFlag	libraries\inc\stm8s_adc1.h	328;"	prototype	signature:(ADC1_Flag_TypeDef Flag)
 ADC1_ClearFlag	libraries\src\stm8s_adc1.c	567;"	function	signature:(ADC1_Flag_TypeDef Flag)
 ADC1_ClearITPendingBit	libraries\inc\stm8s_adc1.h	330;"	prototype	signature:(ADC1_IT_TypeDef ITPendingBit)
 ADC1_ClearITPendingBit	libraries\src\stm8s_adc1.c	662;"	function	signature:(ADC1_IT_TypeDef ITPendingBit)
 ADC1_Cmd	libraries\inc\stm8s_adc1.h	309;"	prototype	signature:(FunctionalState NewState)
 ADC1_Cmd	libraries\src\stm8s_adc1.c	126;"	function	signature:(FunctionalState NewState)
-ADC1_ConvMode_TypeDef	libraries\inc\stm8s_adc1.h	149;"	typedef	typeref:enum:__anon22
+ADC1_ConvMode_TypeDef	libraries\inc\stm8s_adc1.h	149;"	typedef	typeref:enum:__anon29
 ADC1_ConversionConfig	libraries\inc\stm8s_adc1.h	316;"	prototype	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_Align_TypeDef ADC1_Align)
 ADC1_ConversionConfig	libraries\src\stm8s_adc1.c	286;"	function	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_Align_TypeDef ADC1_Align)
 ADC1_DataBufferCmd	libraries\inc\stm8s_adc1.h	311;"	prototype	signature:(FunctionalState NewState)
 ADC1_DataBufferCmd	libraries\src\stm8s_adc1.c	166;"	function	signature:(FunctionalState NewState)
 ADC1_DeInit	libraries\inc\stm8s_adc1.h	301;"	prototype	signature:(void)
 ADC1_DeInit	libraries\src\stm8s_adc1.c	52;"	function	signature:(void)
-ADC1_EXTTRIG_GPIO	libraries\inc\stm8s_adc1.h	62;"	enumerator	enum:__anon17
-ADC1_EXTTRIG_TIM	libraries\inc\stm8s_adc1.h	61;"	enumerator	enum:__anon17
-ADC1_ExtTrig_TypeDef	libraries\inc\stm8s_adc1.h	63;"	typedef	typeref:enum:__anon17
+ADC1_EXTTRIG_GPIO	libraries\inc\stm8s_adc1.h	62;"	enumerator	enum:__anon24
+ADC1_EXTTRIG_TIM	libraries\inc\stm8s_adc1.h	61;"	enumerator	enum:__anon24
+ADC1_ExtTrig_TypeDef	libraries\inc\stm8s_adc1.h	63;"	typedef	typeref:enum:__anon24
 ADC1_ExternalTriggerConfig	libraries\inc\stm8s_adc1.h	319;"	prototype	signature:(ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState NewState)
 ADC1_ExternalTriggerConfig	libraries\src\stm8s_adc1.c	325;"	function	signature:(ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState NewState)
-ADC1_FLAG_AWD	libraries\inc\stm8s_adc1.h	104;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS0	libraries\inc\stm8s_adc1.h	105;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS1	libraries\inc\stm8s_adc1.h	106;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS12	libraries\inc\stm8s_adc1.h	115;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS2	libraries\inc\stm8s_adc1.h	107;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS3	libraries\inc\stm8s_adc1.h	108;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS4	libraries\inc\stm8s_adc1.h	109;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS5	libraries\inc\stm8s_adc1.h	110;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS6	libraries\inc\stm8s_adc1.h	111;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS7	libraries\inc\stm8s_adc1.h	112;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS8	libraries\inc\stm8s_adc1.h	113;"	enumerator	enum:__anon20
-ADC1_FLAG_AWS9	libraries\inc\stm8s_adc1.h	114;"	enumerator	enum:__anon20
-ADC1_FLAG_EOC	libraries\inc\stm8s_adc1.h	117;"	enumerator	enum:__anon20
-ADC1_FLAG_OVR	libraries\inc\stm8s_adc1.h	103;"	enumerator	enum:__anon20
-ADC1_Flag_TypeDef	libraries\inc\stm8s_adc1.h	118;"	typedef	typeref:enum:__anon20
+ADC1_FLAG_AWD	libraries\inc\stm8s_adc1.h	104;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS0	libraries\inc\stm8s_adc1.h	105;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS1	libraries\inc\stm8s_adc1.h	106;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS12	libraries\inc\stm8s_adc1.h	115;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS2	libraries\inc\stm8s_adc1.h	107;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS3	libraries\inc\stm8s_adc1.h	108;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS4	libraries\inc\stm8s_adc1.h	109;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS5	libraries\inc\stm8s_adc1.h	110;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS6	libraries\inc\stm8s_adc1.h	111;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS7	libraries\inc\stm8s_adc1.h	112;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS8	libraries\inc\stm8s_adc1.h	113;"	enumerator	enum:__anon27
+ADC1_FLAG_AWS9	libraries\inc\stm8s_adc1.h	114;"	enumerator	enum:__anon27
+ADC1_FLAG_EOC	libraries\inc\stm8s_adc1.h	117;"	enumerator	enum:__anon27
+ADC1_FLAG_OVR	libraries\inc\stm8s_adc1.h	103;"	enumerator	enum:__anon27
+ADC1_Flag_TypeDef	libraries\inc\stm8s_adc1.h	118;"	typedef	typeref:enum:__anon27
 ADC1_GetAWDChannelStatus	libraries\inc\stm8s_adc1.h	326;"	prototype	signature:(ADC1_Channel_TypeDef Channel)
 ADC1_GetAWDChannelStatus	libraries\src\stm8s_adc1.c	502;"	function	signature:(ADC1_Channel_TypeDef Channel)
 ADC1_GetBufferValue	libraries\inc\stm8s_adc1.h	325;"	prototype	signature:(uint8_t Buffer)
@@ -93,52 +93,52 @@ ADC1_HTRL_RESET_VALUE	libraries\inc\stm8s.h	349;"	macro
 ADC1_IRQHandler	stm8s_it.h	108;"	prototype	signature:(void)
 ADC1_ITConfig	libraries\inc\stm8s_adc1.h	312;"	prototype	signature:(ADC1_IT_TypeDef ADC1_IT, FunctionalState NewState)
 ADC1_ITConfig	libraries\src\stm8s_adc1.c	190;"	function	signature:(ADC1_IT_TypeDef ADC1_IT, FunctionalState NewState)
-ADC1_IT_AWD	libraries\inc\stm8s_adc1.h	81;"	enumerator	enum:__anon19
-ADC1_IT_AWDIE	libraries\inc\stm8s_adc1.h	79;"	enumerator	enum:__anon19
-ADC1_IT_AWS0	libraries\inc\stm8s_adc1.h	82;"	enumerator	enum:__anon19
-ADC1_IT_AWS1	libraries\inc\stm8s_adc1.h	83;"	enumerator	enum:__anon19
-ADC1_IT_AWS12	libraries\inc\stm8s_adc1.h	92;"	enumerator	enum:__anon19
-ADC1_IT_AWS2	libraries\inc\stm8s_adc1.h	84;"	enumerator	enum:__anon19
-ADC1_IT_AWS3	libraries\inc\stm8s_adc1.h	85;"	enumerator	enum:__anon19
-ADC1_IT_AWS4	libraries\inc\stm8s_adc1.h	86;"	enumerator	enum:__anon19
-ADC1_IT_AWS5	libraries\inc\stm8s_adc1.h	87;"	enumerator	enum:__anon19
-ADC1_IT_AWS6	libraries\inc\stm8s_adc1.h	88;"	enumerator	enum:__anon19
-ADC1_IT_AWS7	libraries\inc\stm8s_adc1.h	89;"	enumerator	enum:__anon19
-ADC1_IT_AWS8	libraries\inc\stm8s_adc1.h	90;"	enumerator	enum:__anon19
-ADC1_IT_AWS9	libraries\inc\stm8s_adc1.h	91;"	enumerator	enum:__anon19
-ADC1_IT_EOC	libraries\inc\stm8s_adc1.h	94;"	enumerator	enum:__anon19
-ADC1_IT_EOCIE	libraries\inc\stm8s_adc1.h	80;"	enumerator	enum:__anon19
-ADC1_IT_TypeDef	libraries\inc\stm8s_adc1.h	96;"	typedef	typeref:enum:__anon19
+ADC1_IT_AWD	libraries\inc\stm8s_adc1.h	81;"	enumerator	enum:__anon26
+ADC1_IT_AWDIE	libraries\inc\stm8s_adc1.h	79;"	enumerator	enum:__anon26
+ADC1_IT_AWS0	libraries\inc\stm8s_adc1.h	82;"	enumerator	enum:__anon26
+ADC1_IT_AWS1	libraries\inc\stm8s_adc1.h	83;"	enumerator	enum:__anon26
+ADC1_IT_AWS12	libraries\inc\stm8s_adc1.h	92;"	enumerator	enum:__anon26
+ADC1_IT_AWS2	libraries\inc\stm8s_adc1.h	84;"	enumerator	enum:__anon26
+ADC1_IT_AWS3	libraries\inc\stm8s_adc1.h	85;"	enumerator	enum:__anon26
+ADC1_IT_AWS4	libraries\inc\stm8s_adc1.h	86;"	enumerator	enum:__anon26
+ADC1_IT_AWS5	libraries\inc\stm8s_adc1.h	87;"	enumerator	enum:__anon26
+ADC1_IT_AWS6	libraries\inc\stm8s_adc1.h	88;"	enumerator	enum:__anon26
+ADC1_IT_AWS7	libraries\inc\stm8s_adc1.h	89;"	enumerator	enum:__anon26
+ADC1_IT_AWS8	libraries\inc\stm8s_adc1.h	90;"	enumerator	enum:__anon26
+ADC1_IT_AWS9	libraries\inc\stm8s_adc1.h	91;"	enumerator	enum:__anon26
+ADC1_IT_EOC	libraries\inc\stm8s_adc1.h	94;"	enumerator	enum:__anon26
+ADC1_IT_EOCIE	libraries\inc\stm8s_adc1.h	80;"	enumerator	enum:__anon26
+ADC1_IT_TypeDef	libraries\inc\stm8s_adc1.h	96;"	typedef	typeref:enum:__anon26
 ADC1_Init	libraries\inc\stm8s_adc1.h	302;"	prototype	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_PresSel_TypeDef ADC1_PrescalerSelection, ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState ADC1_ExtTriggerState, ADC1_Align_TypeDef ADC1_Align, ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState ADC1_SchmittTriggerState)
 ADC1_Init	libraries\src\stm8s_adc1.c	88;"	function	signature:(ADC1_ConvMode_TypeDef ADC1_ConversionMode, ADC1_Channel_TypeDef ADC1_Channel, ADC1_PresSel_TypeDef ADC1_PrescalerSelection, ADC1_ExtTrig_TypeDef ADC1_ExtTrigger, FunctionalState ADC1_ExtTriggerState, ADC1_Align_TypeDef ADC1_Align, ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState ADC1_SchmittTriggerState)
 ADC1_LTRH_RESET_VALUE	libraries\inc\stm8s.h	351;"	macro
 ADC1_LTRL_RESET_VALUE	libraries\inc\stm8s.h	352;"	macro
-ADC1_PRESSEL_FCPU_D10	libraries\inc\stm8s_adc1.h	51;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D12	libraries\inc\stm8s_adc1.h	52;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D18	libraries\inc\stm8s_adc1.h	53;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D2	libraries\inc\stm8s_adc1.h	46;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D3	libraries\inc\stm8s_adc1.h	47;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D4	libraries\inc\stm8s_adc1.h	48;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D6	libraries\inc\stm8s_adc1.h	49;"	enumerator	enum:__anon16
-ADC1_PRESSEL_FCPU_D8	libraries\inc\stm8s_adc1.h	50;"	enumerator	enum:__anon16
-ADC1_PresSel_TypeDef	libraries\inc\stm8s_adc1.h	54;"	typedef	typeref:enum:__anon16
+ADC1_PRESSEL_FCPU_D10	libraries\inc\stm8s_adc1.h	51;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D12	libraries\inc\stm8s_adc1.h	52;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D18	libraries\inc\stm8s_adc1.h	53;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D2	libraries\inc\stm8s_adc1.h	46;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D3	libraries\inc\stm8s_adc1.h	47;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D4	libraries\inc\stm8s_adc1.h	48;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D6	libraries\inc\stm8s_adc1.h	49;"	enumerator	enum:__anon23
+ADC1_PRESSEL_FCPU_D8	libraries\inc\stm8s_adc1.h	50;"	enumerator	enum:__anon23
+ADC1_PresSel_TypeDef	libraries\inc\stm8s_adc1.h	54;"	typedef	typeref:enum:__anon23
 ADC1_PrescalerConfig	libraries\inc\stm8s_adc1.h	313;"	prototype	signature:(ADC1_PresSel_TypeDef ADC1_Prescaler)
 ADC1_PrescalerConfig	libraries\src\stm8s_adc1.c	214;"	function	signature:(ADC1_PresSel_TypeDef ADC1_Prescaler)
-ADC1_SCHMITTTRIG_ALL	libraries\inc\stm8s_adc1.h	138;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL0	libraries\inc\stm8s_adc1.h	126;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL1	libraries\inc\stm8s_adc1.h	127;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL12	libraries\inc\stm8s_adc1.h	136;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL2	libraries\inc\stm8s_adc1.h	128;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL3	libraries\inc\stm8s_adc1.h	129;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL4	libraries\inc\stm8s_adc1.h	130;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL5	libraries\inc\stm8s_adc1.h	131;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL6	libraries\inc\stm8s_adc1.h	132;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL7	libraries\inc\stm8s_adc1.h	133;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL8	libraries\inc\stm8s_adc1.h	134;"	enumerator	enum:__anon21
-ADC1_SCHMITTTRIG_CHANNEL9	libraries\inc\stm8s_adc1.h	135;"	enumerator	enum:__anon21
+ADC1_SCHMITTTRIG_ALL	libraries\inc\stm8s_adc1.h	138;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL0	libraries\inc\stm8s_adc1.h	126;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL1	libraries\inc\stm8s_adc1.h	127;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL12	libraries\inc\stm8s_adc1.h	136;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL2	libraries\inc\stm8s_adc1.h	128;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL3	libraries\inc\stm8s_adc1.h	129;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL4	libraries\inc\stm8s_adc1.h	130;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL5	libraries\inc\stm8s_adc1.h	131;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL6	libraries\inc\stm8s_adc1.h	132;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL7	libraries\inc\stm8s_adc1.h	133;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL8	libraries\inc\stm8s_adc1.h	134;"	enumerator	enum:__anon28
+ADC1_SCHMITTTRIG_CHANNEL9	libraries\inc\stm8s_adc1.h	135;"	enumerator	enum:__anon28
 ADC1_ScanModeCmd	libraries\inc\stm8s_adc1.h	310;"	prototype	signature:(FunctionalState NewState)
 ADC1_ScanModeCmd	libraries\src\stm8s_adc1.c	146;"	function	signature:(FunctionalState NewState)
-ADC1_SchmittTrigg_TypeDef	libraries\inc\stm8s_adc1.h	139;"	typedef	typeref:enum:__anon21
+ADC1_SchmittTrigg_TypeDef	libraries\inc\stm8s_adc1.h	139;"	typedef	typeref:enum:__anon28
 ADC1_SchmittTriggerConfig	libraries\inc\stm8s_adc1.h	314;"	prototype	signature:(ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState NewState)
 ADC1_SchmittTriggerConfig	libraries\src\stm8s_adc1.c	233;"	function	signature:(ADC1_SchmittTrigg_TypeDef ADC1_SchmittTriggerChannel, FunctionalState NewState)
 ADC1_SetHighThreshold	libraries\inc\stm8s_adc1.h	323;"	prototype	signature:(uint16_t Threshold)
@@ -170,6 +170,7 @@ ADC2_TDRH_RESET_VALUE	libraries\inc\stm8s.h	410;"	macro
 ADC2_TDRL_RESET_VALUE	libraries\inc\stm8s.h	409;"	macro
 ADC2_TypeDef	libraries\inc\stm8s.h	401;"	typedef	typeref:struct:ADC2_struct
 ADC2_struct	libraries\inc\stm8s.h	390;"	struct
+APPLICATION	user\application.h	25;"	typedef	typeref:struct:__anon4
 APR	libraries\inc\stm8s.h	443;"	member	struct:AWU_struct
 AREA	libraries\inc\stm8s.h	2820;"	macro
 ARR	libraries\inc\stm8s.h	1070;"	member	struct:TIM4_struct
@@ -209,6 +210,9 @@ BEEP_CSR_RESET_VALUE	libraries\inc\stm8s.h	489;"	macro
 BEEP_TypeDef	libraries\inc\stm8s.h	484;"	typedef	typeref:struct:BEEP_struct
 BEEP_struct	libraries\inc\stm8s.h	480;"	struct
 BKR	libraries\inc\stm8s.h	643;"	member	struct:TIM1_struct
+BLINK_FAST	..\corona\user\user_led.h	28;"	macro
+BLINK_MED	..\corona\user\user_led.h	29;"	macro
+BLINK_SLOW	..\corona\user\user_led.h	30;"	macro
 BLINK_SLOW	user\user_led.h	27;"	macro
 BRR1	libraries\inc\stm8s.h	1771;"	member	struct:UART1_struct
 BRR1	libraries\inc\stm8s.h	1869;"	member	struct:UART2_struct
@@ -218,19 +222,22 @@ BRR2	libraries\inc\stm8s.h	1772;"	member	struct:UART1_struct
 BRR2	libraries\inc\stm8s.h	1870;"	member	struct:UART2_struct
 BRR2	libraries\inc\stm8s.h	1977;"	member	struct:UART3_struct
 BRR2	libraries\inc\stm8s.h	2069;"	member	struct:UART4_struct
-BTR1	libraries\inc\stm8s.h	2297;"	member	struct:__anon7::__anon8::__anon14
-BTR2	libraries\inc\stm8s.h	2298;"	member	struct:__anon7::__anon8::__anon14
+BTR1	libraries\inc\stm8s.h	2297;"	member	struct:__anon14::__anon15::__anon21
+BTR2	libraries\inc\stm8s.h	2298;"	member	struct:__anon14::__anon15::__anon21
+BUZZER	..\corona\user\user_buzzer.h	24;"	typedef	typeref:struct:_BUZZER
 BUZZER	user\user_buzzer.h	25;"	typedef	typeref:struct:_BUZZER
+BUZ_PIN_NUM	..\corona\user\user_buzzer.h	9;"	macro
 BUZ_PIN_NUM	user\user_buzzer.h	9;"	macro
+BUZ_PORT_NUM	..\corona\user\user_buzzer.h	8;"	macro
 BUZ_PORT_NUM	user\user_buzzer.h	8;"	macro
 BYTE_0	libraries\inc\stm8s.h	2800;"	macro
 BYTE_1	libraries\inc\stm8s.h	2801;"	macro
 BYTE_2	libraries\inc\stm8s.h	2802;"	macro
 BYTE_3	libraries\inc\stm8s.h	2803;"	macro
-BitAction	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon4
+BitAction	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon11
 BitClr	libraries\inc\stm8s.h	2822;"	macro
 BitSet	libraries\inc\stm8s.h	2823;"	macro
-BitStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon4
+BitStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon11
 BitVal	libraries\inc\stm8s.h	2824;"	macro
 CAN	libraries\inc\stm8s.h	2616;"	macro
 CAN_BTR1_RESET_VALUE	libraries\inc\stm8s.h	2504;"	macro
@@ -369,7 +376,7 @@ CAN_TSR_TXOK0	libraries\inc\stm8s.h	2357;"	macro
 CAN_TSR_TXOK1	libraries\inc\stm8s.h	2358;"	macro
 CAN_TSR_TXOK2	libraries\inc\stm8s.h	2359;"	macro
 CAN_TX_IRQHandler	stm8s_it.h	61;"	prototype	signature:(void)
-CAN_TypeDef	libraries\inc\stm8s.h	2328;"	typedef	typeref:struct:__anon7
+CAN_TypeDef	libraries\inc\stm8s.h	2328;"	typedef	typeref:struct:__anon14
 CCER1	libraries\inc\stm8s.h	1133;"	member	struct:TIM5_struct
 CCER1	libraries\inc\stm8s.h	626;"	member	struct:TIM1_struct
 CCER1	libraries\inc\stm8s.h	838;"	member	struct:TIM2_struct
@@ -444,17 +451,17 @@ CLK_CKDIVR_HSIDIV	libraries\inc\stm8s.h	570;"	macro
 CLK_CKDIVR_RESET_VALUE	libraries\inc\stm8s.h	536;"	macro
 CLK_CMSR_CKM	libraries\inc\stm8s.h	561;"	macro
 CLK_CMSR_RESET_VALUE	libraries\inc\stm8s.h	533;"	macro
-CLK_CSSCONFIG_DISABLE	libraries\inc\stm8s_clk.h	64;"	enumerator	enum:__anon26
-CLK_CSSCONFIG_ENABLE	libraries\inc\stm8s_clk.h	63;"	enumerator	enum:__anon26
-CLK_CSSCONFIG_ENABLEWITHIT	libraries\inc\stm8s_clk.h	62;"	enumerator	enum:__anon26
-CLK_CSSConfig_TypeDef	libraries\inc\stm8s_clk.h	65;"	typedef	typeref:enum:__anon26
+CLK_CSSCONFIG_DISABLE	libraries\inc\stm8s_clk.h	64;"	enumerator	enum:__anon33
+CLK_CSSCONFIG_ENABLE	libraries\inc\stm8s_clk.h	63;"	enumerator	enum:__anon33
+CLK_CSSCONFIG_ENABLEWITHIT	libraries\inc\stm8s_clk.h	62;"	enumerator	enum:__anon33
+CLK_CSSConfig_TypeDef	libraries\inc\stm8s_clk.h	65;"	typedef	typeref:enum:__anon33
 CLK_CSSR_AUX	libraries\inc\stm8s.h	591;"	macro
 CLK_CSSR_CSSD	libraries\inc\stm8s.h	589;"	macro
 CLK_CSSR_CSSDIE	libraries\inc\stm8s.h	590;"	macro
 CLK_CSSR_CSSEN	libraries\inc\stm8s.h	592;"	macro
 CLK_CSSR_RESET_VALUE	libraries\inc\stm8s.h	539;"	macro
-CLK_CURRENTCLOCKSTATE_DISABLE	libraries\inc\stm8s_clk.h	54;"	enumerator	enum:__anon25
-CLK_CURRENTCLOCKSTATE_ENABLE	libraries\inc\stm8s_clk.h	55;"	enumerator	enum:__anon25
+CLK_CURRENTCLOCKSTATE_DISABLE	libraries\inc\stm8s_clk.h	54;"	enumerator	enum:__anon32
+CLK_CURRENTCLOCKSTATE_ENABLE	libraries\inc\stm8s_clk.h	55;"	enumerator	enum:__anon32
 CLK_ClearITPendingBit	libraries\inc\stm8s_clk.h	374;"	prototype	signature:(CLK_IT_TypeDef CLK_IT)
 CLK_ClearITPendingBit	libraries\src\stm8s_clk.c	729;"	function	signature:(CLK_IT_TypeDef CLK_IT)
 CLK_ClockSecuritySystemEnable	libraries\inc\stm8s_clk.h	367;"	prototype	signature:(void)
@@ -463,26 +470,27 @@ CLK_ClockSwitchCmd	libraries\inc\stm8s_clk.h	357;"	prototype	signature:(Function
 CLK_ClockSwitchCmd	libraries\src\stm8s_clk.c	213;"	function	signature:(FunctionalState NewState)
 CLK_ClockSwitchConfig	libraries\inc\stm8s_clk.h	361;"	prototype	signature:(CLK_SwitchMode_TypeDef CLK_SwitchMode, CLK_Source_TypeDef CLK_NewClock, FunctionalState ITState, CLK_CurrentClockState_TypeDef CLK_CurrentClockState)
 CLK_ClockSwitchConfig	libraries\src\stm8s_clk.c	309;"	function	signature:(CLK_SwitchMode_TypeDef CLK_SwitchMode, CLK_Source_TypeDef CLK_NewClock, FunctionalState ITState, CLK_CurrentClockState_TypeDef CLK_CurrentClockState)
-CLK_Config	user\user_timer.c	32;"	function	signature:(void)
+CLK_Config	..\corona\user\user_timer.h	10;"	prototype	signature:(void)
+CLK_Config	user\user_timer.c	35;"	function	signature:(void)
 CLK_Config	user\user_timer.h	10;"	prototype	signature:(void)
-CLK_CurrentClockState_TypeDef	libraries\inc\stm8s_clk.h	56;"	typedef	typeref:enum:__anon25
+CLK_CurrentClockState_TypeDef	libraries\inc\stm8s_clk.h	56;"	typedef	typeref:enum:__anon32
 CLK_DeInit	libraries\inc\stm8s_clk.h	352;"	prototype	signature:(void)
 CLK_DeInit	libraries\src\stm8s_clk.c	72;"	function	signature:(void)
 CLK_ECKR_HSEEN	libraries\inc\stm8s.h	559;"	macro
 CLK_ECKR_HSERDY	libraries\inc\stm8s.h	558;"	macro
 CLK_ECKR_RESET_VALUE	libraries\inc\stm8s.h	532;"	macro
-CLK_FLAG_AUX	libraries\inc\stm8s_clk.h	158;"	enumerator	enum:__anon31
-CLK_FLAG_CCOBSY	libraries\inc\stm8s_clk.h	159;"	enumerator	enum:__anon31
-CLK_FLAG_CCORDY	libraries\inc\stm8s_clk.h	160;"	enumerator	enum:__anon31
-CLK_FLAG_CSSD	libraries\inc\stm8s_clk.h	157;"	enumerator	enum:__anon31
-CLK_FLAG_HSERDY	libraries\inc\stm8s_clk.h	154;"	enumerator	enum:__anon31
-CLK_FLAG_HSIRDY	libraries\inc\stm8s_clk.h	153;"	enumerator	enum:__anon31
-CLK_FLAG_LSIRDY	libraries\inc\stm8s_clk.h	152;"	enumerator	enum:__anon31
-CLK_FLAG_SWBSY	libraries\inc\stm8s_clk.h	156;"	enumerator	enum:__anon31
-CLK_FLAG_SWIF	libraries\inc\stm8s_clk.h	155;"	enumerator	enum:__anon31
+CLK_FLAG_AUX	libraries\inc\stm8s_clk.h	158;"	enumerator	enum:__anon38
+CLK_FLAG_CCOBSY	libraries\inc\stm8s_clk.h	159;"	enumerator	enum:__anon38
+CLK_FLAG_CCORDY	libraries\inc\stm8s_clk.h	160;"	enumerator	enum:__anon38
+CLK_FLAG_CSSD	libraries\inc\stm8s_clk.h	157;"	enumerator	enum:__anon38
+CLK_FLAG_HSERDY	libraries\inc\stm8s_clk.h	154;"	enumerator	enum:__anon38
+CLK_FLAG_HSIRDY	libraries\inc\stm8s_clk.h	153;"	enumerator	enum:__anon38
+CLK_FLAG_LSIRDY	libraries\inc\stm8s_clk.h	152;"	enumerator	enum:__anon38
+CLK_FLAG_SWBSY	libraries\inc\stm8s_clk.h	156;"	enumerator	enum:__anon38
+CLK_FLAG_SWIF	libraries\inc\stm8s_clk.h	155;"	enumerator	enum:__anon38
 CLK_FastHaltWakeUpCmd	libraries\inc\stm8s_clk.h	358;"	prototype	signature:(FunctionalState NewState)
 CLK_FastHaltWakeUpCmd	libraries\src\stm8s_clk.c	99;"	function	signature:(FunctionalState NewState)
-CLK_Flag_TypeDef	libraries\inc\stm8s_clk.h	161;"	typedef	typeref:enum:__anon31
+CLK_Flag_TypeDef	libraries\inc\stm8s_clk.h	161;"	typedef	typeref:enum:__anon38
 CLK_GetClockFreq	libraries\inc\stm8s_clk.h	370;"	prototype	signature:(void)
 CLK_GetClockFreq	libraries\src\stm8s_clk.c	569;"	function	signature:(void)
 CLK_GetFlagStatus	libraries\inc\stm8s_clk.h	372;"	prototype	signature:(CLK_Flag_TypeDef CLK_FLAG)
@@ -499,15 +507,15 @@ CLK_HSIPrescalerConfig	libraries\inc\stm8s_clk.h	362;"	prototype	signature:(CLK_
 CLK_HSIPrescalerConfig	libraries\src\stm8s_clk.c	415;"	function	signature:(CLK_Prescaler_TypeDef HSIPrescaler)
 CLK_HSITRIMR_HSITRIM	libraries\inc\stm8s.h	599;"	macro
 CLK_HSITRIMR_RESET_VALUE	libraries\inc\stm8s.h	541;"	macro
-CLK_HSITRIMVALUE_0	libraries\inc\stm8s_clk.h	80;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_1	libraries\inc\stm8s_clk.h	81;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_2	libraries\inc\stm8s_clk.h	82;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_3	libraries\inc\stm8s_clk.h	83;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_4	libraries\inc\stm8s_clk.h	84;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_5	libraries\inc\stm8s_clk.h	85;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_6	libraries\inc\stm8s_clk.h	86;"	enumerator	enum:__anon28
-CLK_HSITRIMVALUE_7	libraries\inc\stm8s_clk.h	87;"	enumerator	enum:__anon28
-CLK_HSITrimValue_TypeDef	libraries\inc\stm8s_clk.h	88;"	typedef	typeref:enum:__anon28
+CLK_HSITRIMVALUE_0	libraries\inc\stm8s_clk.h	80;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_1	libraries\inc\stm8s_clk.h	81;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_2	libraries\inc\stm8s_clk.h	82;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_3	libraries\inc\stm8s_clk.h	83;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_4	libraries\inc\stm8s_clk.h	84;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_5	libraries\inc\stm8s_clk.h	85;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_6	libraries\inc\stm8s_clk.h	86;"	enumerator	enum:__anon35
+CLK_HSITRIMVALUE_7	libraries\inc\stm8s_clk.h	87;"	enumerator	enum:__anon35
+CLK_HSITrimValue_TypeDef	libraries\inc\stm8s_clk.h	88;"	typedef	typeref:enum:__anon35
 CLK_ICKR_FHWU	libraries\inc\stm8s.h	554;"	macro
 CLK_ICKR_HSIEN	libraries\inc\stm8s.h	556;"	macro
 CLK_ICKR_HSIRDY	libraries\inc\stm8s.h	555;"	macro
@@ -518,25 +526,25 @@ CLK_ICKR_SWUAH	libraries\inc\stm8s.h	551;"	macro
 CLK_IRQHandler	stm8s_it.h	48;"	prototype	signature:(void)
 CLK_ITConfig	libraries\inc\stm8s_clk.h	364;"	prototype	signature:(CLK_IT_TypeDef CLK_IT, FunctionalState NewState)
 CLK_ITConfig	libraries\src\stm8s_clk.c	459;"	function	signature:(CLK_IT_TypeDef CLK_IT, FunctionalState NewState)
-CLK_IT_CSSD	libraries\inc\stm8s_clk.h	167;"	enumerator	enum:__anon32
-CLK_IT_SWIF	libraries\inc\stm8s_clk.h	168;"	enumerator	enum:__anon32
-CLK_IT_TypeDef	libraries\inc\stm8s_clk.h	169;"	typedef	typeref:enum:__anon32
+CLK_IT_CSSD	libraries\inc\stm8s_clk.h	167;"	enumerator	enum:__anon39
+CLK_IT_SWIF	libraries\inc\stm8s_clk.h	168;"	enumerator	enum:__anon39
+CLK_IT_TypeDef	libraries\inc\stm8s_clk.h	169;"	typedef	typeref:enum:__anon39
 CLK_LSICmd	libraries\inc\stm8s_clk.h	355;"	prototype	signature:(FunctionalState NewState)
 CLK_LSICmd	libraries\src\stm8s_clk.c	166;"	function	signature:(FunctionalState NewState)
-CLK_OUTPUT_CPU	libraries\inc\stm8s_clk.h	97;"	enumerator	enum:__anon29
-CLK_OUTPUT_CPUDIV16	libraries\inc\stm8s_clk.h	101;"	enumerator	enum:__anon29
-CLK_OUTPUT_CPUDIV2	libraries\inc\stm8s_clk.h	98;"	enumerator	enum:__anon29
-CLK_OUTPUT_CPUDIV32	libraries\inc\stm8s_clk.h	102;"	enumerator	enum:__anon29
-CLK_OUTPUT_CPUDIV4	libraries\inc\stm8s_clk.h	99;"	enumerator	enum:__anon29
-CLK_OUTPUT_CPUDIV64	libraries\inc\stm8s_clk.h	103;"	enumerator	enum:__anon29
-CLK_OUTPUT_CPUDIV8	libraries\inc\stm8s_clk.h	100;"	enumerator	enum:__anon29
-CLK_OUTPUT_HSE	libraries\inc\stm8s_clk.h	96;"	enumerator	enum:__anon29
-CLK_OUTPUT_HSI	libraries\inc\stm8s_clk.h	94;"	enumerator	enum:__anon29
-CLK_OUTPUT_HSIRC	libraries\inc\stm8s_clk.h	104;"	enumerator	enum:__anon29
-CLK_OUTPUT_LSI	libraries\inc\stm8s_clk.h	95;"	enumerator	enum:__anon29
-CLK_OUTPUT_MASTER	libraries\inc\stm8s_clk.h	105;"	enumerator	enum:__anon29
-CLK_OUTPUT_OTHERS	libraries\inc\stm8s_clk.h	106;"	enumerator	enum:__anon29
-CLK_Output_TypeDef	libraries\inc\stm8s_clk.h	107;"	typedef	typeref:enum:__anon29
+CLK_OUTPUT_CPU	libraries\inc\stm8s_clk.h	97;"	enumerator	enum:__anon36
+CLK_OUTPUT_CPUDIV16	libraries\inc\stm8s_clk.h	101;"	enumerator	enum:__anon36
+CLK_OUTPUT_CPUDIV2	libraries\inc\stm8s_clk.h	98;"	enumerator	enum:__anon36
+CLK_OUTPUT_CPUDIV32	libraries\inc\stm8s_clk.h	102;"	enumerator	enum:__anon36
+CLK_OUTPUT_CPUDIV4	libraries\inc\stm8s_clk.h	99;"	enumerator	enum:__anon36
+CLK_OUTPUT_CPUDIV64	libraries\inc\stm8s_clk.h	103;"	enumerator	enum:__anon36
+CLK_OUTPUT_CPUDIV8	libraries\inc\stm8s_clk.h	100;"	enumerator	enum:__anon36
+CLK_OUTPUT_HSE	libraries\inc\stm8s_clk.h	96;"	enumerator	enum:__anon36
+CLK_OUTPUT_HSI	libraries\inc\stm8s_clk.h	94;"	enumerator	enum:__anon36
+CLK_OUTPUT_HSIRC	libraries\inc\stm8s_clk.h	104;"	enumerator	enum:__anon36
+CLK_OUTPUT_LSI	libraries\inc\stm8s_clk.h	95;"	enumerator	enum:__anon36
+CLK_OUTPUT_MASTER	libraries\inc\stm8s_clk.h	105;"	enumerator	enum:__anon36
+CLK_OUTPUT_OTHERS	libraries\inc\stm8s_clk.h	106;"	enumerator	enum:__anon36
+CLK_Output_TypeDef	libraries\inc\stm8s_clk.h	107;"	typedef	typeref:enum:__anon36
 CLK_PCKENR1_I2C	libraries\inc\stm8s.h	583;"	macro
 CLK_PCKENR1_RESET_VALUE	libraries\inc\stm8s.h	537;"	macro
 CLK_PCKENR1_SPI	libraries\inc\stm8s.h	582;"	macro
@@ -553,39 +561,39 @@ CLK_PCKENR2_ADC	libraries\inc\stm8s.h	586;"	macro
 CLK_PCKENR2_AWU	libraries\inc\stm8s.h	587;"	macro
 CLK_PCKENR2_CAN	libraries\inc\stm8s.h	585;"	macro
 CLK_PCKENR2_RESET_VALUE	libraries\inc\stm8s.h	538;"	macro
-CLK_PERIPHERAL_ADC	libraries\inc\stm8s_clk.h	135;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_AWU	libraries\inc\stm8s_clk.h	134;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_CAN	libraries\inc\stm8s_clk.h	136;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_I2C	libraries\inc\stm8s_clk.h	119;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_SPI	libraries\inc\stm8s_clk.h	120;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_TIMER1	libraries\inc\stm8s_clk.h	133;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_TIMER2	libraries\inc\stm8s_clk.h	131;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_TIMER3	libraries\inc\stm8s_clk.h	132;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_TIMER4	libraries\inc\stm8s_clk.h	129;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_TIMER5	libraries\inc\stm8s_clk.h	130;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_TIMER6	libraries\inc\stm8s_clk.h	128;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_UART1	libraries\inc\stm8s_clk.h	122;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_UART2	libraries\inc\stm8s_clk.h	126;"	enumerator	enum:__anon30
-CLK_PERIPHERAL_UART3	libraries\inc\stm8s_clk.h	127;"	enumerator	enum:__anon30
-CLK_PRESCALER_CPUDIV1	libraries\inc\stm8s_clk.h	185;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV128	libraries\inc\stm8s_clk.h	192;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV16	libraries\inc\stm8s_clk.h	189;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV2	libraries\inc\stm8s_clk.h	186;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV32	libraries\inc\stm8s_clk.h	190;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV4	libraries\inc\stm8s_clk.h	187;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV64	libraries\inc\stm8s_clk.h	191;"	enumerator	enum:__anon33
-CLK_PRESCALER_CPUDIV8	libraries\inc\stm8s_clk.h	188;"	enumerator	enum:__anon33
-CLK_PRESCALER_HSIDIV1	libraries\inc\stm8s_clk.h	181;"	enumerator	enum:__anon33
-CLK_PRESCALER_HSIDIV2	libraries\inc\stm8s_clk.h	182;"	enumerator	enum:__anon33
-CLK_PRESCALER_HSIDIV4	libraries\inc\stm8s_clk.h	183;"	enumerator	enum:__anon33
-CLK_PRESCALER_HSIDIV8	libraries\inc\stm8s_clk.h	184;"	enumerator	enum:__anon33
+CLK_PERIPHERAL_ADC	libraries\inc\stm8s_clk.h	135;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_AWU	libraries\inc\stm8s_clk.h	134;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_CAN	libraries\inc\stm8s_clk.h	136;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_I2C	libraries\inc\stm8s_clk.h	119;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_SPI	libraries\inc\stm8s_clk.h	120;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_TIMER1	libraries\inc\stm8s_clk.h	133;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_TIMER2	libraries\inc\stm8s_clk.h	131;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_TIMER3	libraries\inc\stm8s_clk.h	132;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_TIMER4	libraries\inc\stm8s_clk.h	129;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_TIMER5	libraries\inc\stm8s_clk.h	130;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_TIMER6	libraries\inc\stm8s_clk.h	128;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_UART1	libraries\inc\stm8s_clk.h	122;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_UART2	libraries\inc\stm8s_clk.h	126;"	enumerator	enum:__anon37
+CLK_PERIPHERAL_UART3	libraries\inc\stm8s_clk.h	127;"	enumerator	enum:__anon37
+CLK_PRESCALER_CPUDIV1	libraries\inc\stm8s_clk.h	185;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV128	libraries\inc\stm8s_clk.h	192;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV16	libraries\inc\stm8s_clk.h	189;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV2	libraries\inc\stm8s_clk.h	186;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV32	libraries\inc\stm8s_clk.h	190;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV4	libraries\inc\stm8s_clk.h	187;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV64	libraries\inc\stm8s_clk.h	191;"	enumerator	enum:__anon40
+CLK_PRESCALER_CPUDIV8	libraries\inc\stm8s_clk.h	188;"	enumerator	enum:__anon40
+CLK_PRESCALER_HSIDIV1	libraries\inc\stm8s_clk.h	181;"	enumerator	enum:__anon40
+CLK_PRESCALER_HSIDIV2	libraries\inc\stm8s_clk.h	182;"	enumerator	enum:__anon40
+CLK_PRESCALER_HSIDIV4	libraries\inc\stm8s_clk.h	183;"	enumerator	enum:__anon40
+CLK_PRESCALER_HSIDIV8	libraries\inc\stm8s_clk.h	184;"	enumerator	enum:__anon40
 CLK_PeripheralClockConfig	libraries\inc\stm8s_clk.h	360;"	prototype	signature:(CLK_Peripheral_TypeDef CLK_Peripheral, FunctionalState NewState)
 CLK_PeripheralClockConfig	libraries\src\stm8s_clk.c	263;"	function	signature:(CLK_Peripheral_TypeDef CLK_Peripheral, FunctionalState NewState)
-CLK_Peripheral_TypeDef	libraries\inc\stm8s_clk.h	137;"	typedef	typeref:enum:__anon30
-CLK_Prescaler_TypeDef	libraries\inc\stm8s_clk.h	193;"	typedef	typeref:enum:__anon33
-CLK_SOURCE_HSE	libraries\inc\stm8s_clk.h	73;"	enumerator	enum:__anon27
-CLK_SOURCE_HSI	libraries\inc\stm8s_clk.h	71;"	enumerator	enum:__anon27
-CLK_SOURCE_LSI	libraries\inc\stm8s_clk.h	72;"	enumerator	enum:__anon27
+CLK_Peripheral_TypeDef	libraries\inc\stm8s_clk.h	137;"	typedef	typeref:enum:__anon37
+CLK_Prescaler_TypeDef	libraries\inc\stm8s_clk.h	193;"	typedef	typeref:enum:__anon40
+CLK_SOURCE_HSE	libraries\inc\stm8s_clk.h	73;"	enumerator	enum:__anon34
+CLK_SOURCE_HSI	libraries\inc\stm8s_clk.h	71;"	enumerator	enum:__anon34
+CLK_SOURCE_LSI	libraries\inc\stm8s_clk.h	72;"	enumerator	enum:__anon34
 CLK_SWCR_RESET_VALUE	libraries\inc\stm8s.h	535;"	macro
 CLK_SWCR_SWBSY	libraries\inc\stm8s.h	568;"	macro
 CLK_SWCR_SWEN	libraries\inc\stm8s.h	567;"	macro
@@ -595,11 +603,11 @@ CLK_SWIMCCR_RESET_VALUE	libraries\inc\stm8s.h	542;"	macro
 CLK_SWIMCCR_SWIMDIV	libraries\inc\stm8s.h	601;"	macro
 CLK_SWIMConfig	libraries\inc\stm8s_clk.h	366;"	prototype	signature:(CLK_SWIMDivider_TypeDef CLK_SWIMDivider)
 CLK_SWIMConfig	libraries\src\stm8s_clk.c	523;"	function	signature:(CLK_SWIMDivider_TypeDef CLK_SWIMDivider)
-CLK_SWIMDIVIDER_2	libraries\inc\stm8s_clk.h	199;"	enumerator	enum:__anon34
-CLK_SWIMDIVIDER_OTHER	libraries\inc\stm8s_clk.h	200;"	enumerator	enum:__anon34
-CLK_SWIMDivider_TypeDef	libraries\inc\stm8s_clk.h	201;"	typedef	typeref:enum:__anon34
-CLK_SWITCHMODE_AUTO	libraries\inc\stm8s_clk.h	47;"	enumerator	enum:__anon24
-CLK_SWITCHMODE_MANUAL	libraries\inc\stm8s_clk.h	46;"	enumerator	enum:__anon24
+CLK_SWIMDIVIDER_2	libraries\inc\stm8s_clk.h	199;"	enumerator	enum:__anon41
+CLK_SWIMDIVIDER_OTHER	libraries\inc\stm8s_clk.h	200;"	enumerator	enum:__anon41
+CLK_SWIMDivider_TypeDef	libraries\inc\stm8s_clk.h	201;"	typedef	typeref:enum:__anon41
+CLK_SWITCHMODE_AUTO	libraries\inc\stm8s_clk.h	47;"	enumerator	enum:__anon31
+CLK_SWITCHMODE_MANUAL	libraries\inc\stm8s_clk.h	46;"	enumerator	enum:__anon31
 CLK_SWR_RESET_VALUE	libraries\inc\stm8s.h	534;"	macro
 CLK_SWR_SWI	libraries\inc\stm8s.h	563;"	macro
 CLK_SYSCLKConfig	libraries\inc\stm8s_clk.h	365;"	prototype	signature:(CLK_Prescaler_TypeDef CLK_Prescaler)
@@ -608,8 +616,8 @@ CLK_SYSCLKEmergencyClear	libraries\inc\stm8s_clk.h	368;"	prototype	signature:(vo
 CLK_SYSCLKEmergencyClear	libraries\src\stm8s_clk.c	622;"	function	signature:(void)
 CLK_SlowActiveHaltWakeUpCmd	libraries\inc\stm8s_clk.h	359;"	prototype	signature:(FunctionalState NewState)
 CLK_SlowActiveHaltWakeUpCmd	libraries\src\stm8s_clk.c	238;"	function	signature:(FunctionalState NewState)
-CLK_Source_TypeDef	libraries\inc\stm8s_clk.h	74;"	typedef	typeref:enum:__anon27
-CLK_SwitchMode_TypeDef	libraries\inc\stm8s_clk.h	48;"	typedef	typeref:enum:__anon24
+CLK_Source_TypeDef	libraries\inc\stm8s_clk.h	74;"	typedef	typeref:enum:__anon34
+CLK_SwitchMode_TypeDef	libraries\inc\stm8s_clk.h	48;"	typedef	typeref:enum:__anon31
 CLK_TIMEOUT	libraries\inc\stm8s_clk.h	212;"	macro
 CLK_TypeDef	libraries\inc\stm8s.h	525;"	typedef	typeref:struct:CLK_struct
 CLK_struct	libraries\inc\stm8s.h	508;"	struct
@@ -683,7 +691,7 @@ CSR	libraries\inc\stm8s.h	482;"	member	struct:BEEP_struct
 CSSR	libraries\inc\stm8s.h	518;"	member	struct:CLK_struct
 ChgBit	libraries\inc\stm8s.h	2792;"	macro
 ClrBit	libraries\inc\stm8s.h	2790;"	macro
-Config	libraries\inc\stm8s.h	2306;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon14
+Config	libraries\inc\stm8s.h	2306;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon21
 DB0RH	libraries\inc\stm8s.h	300;"	member	struct:ADC1_struct
 DB0RL	libraries\inc\stm8s.h	301;"	member	struct:ADC1_struct
 DB1RH	libraries\inc\stm8s.h	302;"	member	struct:ADC1_struct
@@ -706,17 +714,17 @@ DB9RH	libraries\inc\stm8s.h	318;"	member	struct:ADC1_struct
 DB9RL	libraries\inc\stm8s.h	319;"	member	struct:ADC1_struct
 DDR	libraries\inc\stm8s.h	269;"	member	struct:GPIO_struct
 DELAY_DISPLAY_TEST	user\user_display.c	4;"	macro	file:
-DGR	libraries\inc\stm8s.h	2182;"	member	struct:__anon7
+DGR	libraries\inc\stm8s.h	2182;"	member	struct:__anon14
 DIG1_PIN_NUM	user\user_display.h	32;"	macro
 DIG1_PORT_NUM	user\user_display.h	31;"	macro
-DIG1_POS	user\user_display.h	195;"	enumerator	enum:__anon1
+DIG1_POS	user\user_display.h	195;"	enumerator	enum:__anon7
 DIG2_PIN_NUM	user\user_display.h	35;"	macro
 DIG2_PORT_NUM	user\user_display.h	34;"	macro
-DIG2_POS	user\user_display.h	196;"	enumerator	enum:__anon1
+DIG2_POS	user\user_display.h	196;"	enumerator	enum:__anon7
 DIG3_PIN_NUM	user\user_display.h	38;"	macro
 DIG3_PORT_NUM	user\user_display.h	37;"	macro
-DIG3_POS	user\user_display.h	197;"	enumerator	enum:__anon1
-DISABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon5
+DIG3_POS	user\user_display.h	197;"	enumerator	enum:__anon7
+DISABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon12
 DM	libraries\inc\stm8s.h	2704;"	macro
 DM_BaseAddress	libraries\inc\stm8s.h	2591;"	macro
 DP_PIN_NUM	user\user_display.h	29;"	macro
@@ -737,6 +745,7 @@ ECKR	libraries\inc\stm8s.h	511;"	member	struct:CLK_struct
 EEPROM	libraries\inc\stm8s.h	125;"	macro
 EEPROM	libraries\inc\stm8s.h	131;"	macro
 EEPROM	libraries\inc\stm8s.h	145;"	macro
+EEPROM_DATA	user\user_eeprom.h	15;"	typedef	typeref:struct:__anon8
 EEPROM_EEC_IRQHandler	stm8s_it.h	116;"	prototype	signature:(void)
 EGR	libraries\inc\stm8s.h	1067;"	member	struct:TIM4_struct
 EGR	libraries\inc\stm8s.h	1129;"	member	struct:TIM5_struct
@@ -744,14 +753,14 @@ EGR	libraries\inc\stm8s.h	1267;"	member	struct:TIM6_struct
 EGR	libraries\inc\stm8s.h	621;"	member	struct:TIM1_struct
 EGR	libraries\inc\stm8s.h	834;"	member	struct:TIM2_struct
 EGR	libraries\inc\stm8s.h	958;"	member	struct:TIM3_struct
-EIER	libraries\inc\stm8s.h	2294;"	member	struct:__anon7::__anon8::__anon14
-ENABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon5
+EIER	libraries\inc\stm8s.h	2294;"	member	struct:__anon14::__anon15::__anon21
+ENABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon12
 EN_DISPLAY_TEST	user\user_display.c	5;"	macro	file:
 EN_USER_ADC	user\user_adc.h	6;"	macro
 EN_USER_DISPLAY	user\user_display.h	5;"	macro
 EN_USER_PWM	user\user_pwm.h	6;"	macro
-ERROR	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon6
-ESR	libraries\inc\stm8s.h	2293;"	member	struct:__anon7::__anon8::__anon14
+ERROR	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon13
+ESR	libraries\inc\stm8s.h	2293;"	member	struct:__anon14::__anon15::__anon21
 ETR	libraries\inc\stm8s.h	617;"	member	struct:TIM1_struct
 EXTI	libraries\inc\stm8s.h	2621;"	macro
 EXTI_BaseAddress	libraries\inc\stm8s.h	2567;"	macro
@@ -771,62 +780,62 @@ EXTI_PORTE_IRQHandler	stm8s_it.h	53;"	prototype	signature:(void)
 EXTI_PORTF_IRQHandler	stm8s_it.h	56;"	prototype	signature:(void)
 EXTI_TypeDef	libraries\inc\stm8s.h	1478;"	typedef	typeref:struct:EXTI_struct
 EXTI_struct	libraries\inc\stm8s.h	1473;"	struct
-ErrorStatus	libraries\inc\stm8s.h	238;"	typedef	typeref:enum:__anon6
-F0R1	libraries\inc\stm8s.h	2230;"	member	struct:__anon7::__anon8::__anon11
-F0R2	libraries\inc\stm8s.h	2231;"	member	struct:__anon7::__anon8::__anon11
-F0R3	libraries\inc\stm8s.h	2232;"	member	struct:__anon7::__anon8::__anon11
-F0R4	libraries\inc\stm8s.h	2233;"	member	struct:__anon7::__anon8::__anon11
-F0R5	libraries\inc\stm8s.h	2234;"	member	struct:__anon7::__anon8::__anon11
-F0R6	libraries\inc\stm8s.h	2235;"	member	struct:__anon7::__anon8::__anon11
-F0R7	libraries\inc\stm8s.h	2236;"	member	struct:__anon7::__anon8::__anon11
-F0R8	libraries\inc\stm8s.h	2237;"	member	struct:__anon7::__anon8::__anon11
-F1R1	libraries\inc\stm8s.h	2239;"	member	struct:__anon7::__anon8::__anon11
-F1R2	libraries\inc\stm8s.h	2240;"	member	struct:__anon7::__anon8::__anon11
-F1R3	libraries\inc\stm8s.h	2241;"	member	struct:__anon7::__anon8::__anon11
-F1R4	libraries\inc\stm8s.h	2242;"	member	struct:__anon7::__anon8::__anon11
-F1R5	libraries\inc\stm8s.h	2243;"	member	struct:__anon7::__anon8::__anon11
-F1R6	libraries\inc\stm8s.h	2244;"	member	struct:__anon7::__anon8::__anon11
-F1R7	libraries\inc\stm8s.h	2245;"	member	struct:__anon7::__anon8::__anon11
-F1R8	libraries\inc\stm8s.h	2246;"	member	struct:__anon7::__anon8::__anon11
-F2R1	libraries\inc\stm8s.h	2251;"	member	struct:__anon7::__anon8::__anon12
-F2R2	libraries\inc\stm8s.h	2252;"	member	struct:__anon7::__anon8::__anon12
-F2R3	libraries\inc\stm8s.h	2253;"	member	struct:__anon7::__anon8::__anon12
-F2R4	libraries\inc\stm8s.h	2254;"	member	struct:__anon7::__anon8::__anon12
-F2R5	libraries\inc\stm8s.h	2255;"	member	struct:__anon7::__anon8::__anon12
-F2R6	libraries\inc\stm8s.h	2256;"	member	struct:__anon7::__anon8::__anon12
-F2R7	libraries\inc\stm8s.h	2257;"	member	struct:__anon7::__anon8::__anon12
-F2R8	libraries\inc\stm8s.h	2258;"	member	struct:__anon7::__anon8::__anon12
-F3R1	libraries\inc\stm8s.h	2260;"	member	struct:__anon7::__anon8::__anon12
-F3R2	libraries\inc\stm8s.h	2261;"	member	struct:__anon7::__anon8::__anon12
-F3R3	libraries\inc\stm8s.h	2262;"	member	struct:__anon7::__anon8::__anon12
-F3R4	libraries\inc\stm8s.h	2263;"	member	struct:__anon7::__anon8::__anon12
-F3R5	libraries\inc\stm8s.h	2264;"	member	struct:__anon7::__anon8::__anon12
-F3R6	libraries\inc\stm8s.h	2265;"	member	struct:__anon7::__anon8::__anon12
-F3R7	libraries\inc\stm8s.h	2266;"	member	struct:__anon7::__anon8::__anon12
-F3R8	libraries\inc\stm8s.h	2267;"	member	struct:__anon7::__anon8::__anon12
-F4R1	libraries\inc\stm8s.h	2272;"	member	struct:__anon7::__anon8::__anon13
-F4R2	libraries\inc\stm8s.h	2273;"	member	struct:__anon7::__anon8::__anon13
-F4R3	libraries\inc\stm8s.h	2274;"	member	struct:__anon7::__anon8::__anon13
-F4R4	libraries\inc\stm8s.h	2275;"	member	struct:__anon7::__anon8::__anon13
-F4R5	libraries\inc\stm8s.h	2276;"	member	struct:__anon7::__anon8::__anon13
-F4R6	libraries\inc\stm8s.h	2277;"	member	struct:__anon7::__anon8::__anon13
-F4R7	libraries\inc\stm8s.h	2278;"	member	struct:__anon7::__anon8::__anon13
-F4R8	libraries\inc\stm8s.h	2279;"	member	struct:__anon7::__anon8::__anon13
-F5R1	libraries\inc\stm8s.h	2281;"	member	struct:__anon7::__anon8::__anon13
-F5R2	libraries\inc\stm8s.h	2282;"	member	struct:__anon7::__anon8::__anon13
-F5R3	libraries\inc\stm8s.h	2283;"	member	struct:__anon7::__anon8::__anon13
-F5R4	libraries\inc\stm8s.h	2284;"	member	struct:__anon7::__anon8::__anon13
-F5R5	libraries\inc\stm8s.h	2285;"	member	struct:__anon7::__anon8::__anon13
-F5R6	libraries\inc\stm8s.h	2286;"	member	struct:__anon7::__anon8::__anon13
-F5R7	libraries\inc\stm8s.h	2287;"	member	struct:__anon7::__anon8::__anon13
-F5R8	libraries\inc\stm8s.h	2288;"	member	struct:__anon7::__anon8::__anon13
-FALSE	libraries\inc\stm8s.h	231;"	enumerator	enum:__anon3
+ErrorStatus	libraries\inc\stm8s.h	238;"	typedef	typeref:enum:__anon13
+F0R1	libraries\inc\stm8s.h	2230;"	member	struct:__anon14::__anon15::__anon18
+F0R2	libraries\inc\stm8s.h	2231;"	member	struct:__anon14::__anon15::__anon18
+F0R3	libraries\inc\stm8s.h	2232;"	member	struct:__anon14::__anon15::__anon18
+F0R4	libraries\inc\stm8s.h	2233;"	member	struct:__anon14::__anon15::__anon18
+F0R5	libraries\inc\stm8s.h	2234;"	member	struct:__anon14::__anon15::__anon18
+F0R6	libraries\inc\stm8s.h	2235;"	member	struct:__anon14::__anon15::__anon18
+F0R7	libraries\inc\stm8s.h	2236;"	member	struct:__anon14::__anon15::__anon18
+F0R8	libraries\inc\stm8s.h	2237;"	member	struct:__anon14::__anon15::__anon18
+F1R1	libraries\inc\stm8s.h	2239;"	member	struct:__anon14::__anon15::__anon18
+F1R2	libraries\inc\stm8s.h	2240;"	member	struct:__anon14::__anon15::__anon18
+F1R3	libraries\inc\stm8s.h	2241;"	member	struct:__anon14::__anon15::__anon18
+F1R4	libraries\inc\stm8s.h	2242;"	member	struct:__anon14::__anon15::__anon18
+F1R5	libraries\inc\stm8s.h	2243;"	member	struct:__anon14::__anon15::__anon18
+F1R6	libraries\inc\stm8s.h	2244;"	member	struct:__anon14::__anon15::__anon18
+F1R7	libraries\inc\stm8s.h	2245;"	member	struct:__anon14::__anon15::__anon18
+F1R8	libraries\inc\stm8s.h	2246;"	member	struct:__anon14::__anon15::__anon18
+F2R1	libraries\inc\stm8s.h	2251;"	member	struct:__anon14::__anon15::__anon19
+F2R2	libraries\inc\stm8s.h	2252;"	member	struct:__anon14::__anon15::__anon19
+F2R3	libraries\inc\stm8s.h	2253;"	member	struct:__anon14::__anon15::__anon19
+F2R4	libraries\inc\stm8s.h	2254;"	member	struct:__anon14::__anon15::__anon19
+F2R5	libraries\inc\stm8s.h	2255;"	member	struct:__anon14::__anon15::__anon19
+F2R6	libraries\inc\stm8s.h	2256;"	member	struct:__anon14::__anon15::__anon19
+F2R7	libraries\inc\stm8s.h	2257;"	member	struct:__anon14::__anon15::__anon19
+F2R8	libraries\inc\stm8s.h	2258;"	member	struct:__anon14::__anon15::__anon19
+F3R1	libraries\inc\stm8s.h	2260;"	member	struct:__anon14::__anon15::__anon19
+F3R2	libraries\inc\stm8s.h	2261;"	member	struct:__anon14::__anon15::__anon19
+F3R3	libraries\inc\stm8s.h	2262;"	member	struct:__anon14::__anon15::__anon19
+F3R4	libraries\inc\stm8s.h	2263;"	member	struct:__anon14::__anon15::__anon19
+F3R5	libraries\inc\stm8s.h	2264;"	member	struct:__anon14::__anon15::__anon19
+F3R6	libraries\inc\stm8s.h	2265;"	member	struct:__anon14::__anon15::__anon19
+F3R7	libraries\inc\stm8s.h	2266;"	member	struct:__anon14::__anon15::__anon19
+F3R8	libraries\inc\stm8s.h	2267;"	member	struct:__anon14::__anon15::__anon19
+F4R1	libraries\inc\stm8s.h	2272;"	member	struct:__anon14::__anon15::__anon20
+F4R2	libraries\inc\stm8s.h	2273;"	member	struct:__anon14::__anon15::__anon20
+F4R3	libraries\inc\stm8s.h	2274;"	member	struct:__anon14::__anon15::__anon20
+F4R4	libraries\inc\stm8s.h	2275;"	member	struct:__anon14::__anon15::__anon20
+F4R5	libraries\inc\stm8s.h	2276;"	member	struct:__anon14::__anon15::__anon20
+F4R6	libraries\inc\stm8s.h	2277;"	member	struct:__anon14::__anon15::__anon20
+F4R7	libraries\inc\stm8s.h	2278;"	member	struct:__anon14::__anon15::__anon20
+F4R8	libraries\inc\stm8s.h	2279;"	member	struct:__anon14::__anon15::__anon20
+F5R1	libraries\inc\stm8s.h	2281;"	member	struct:__anon14::__anon15::__anon20
+F5R2	libraries\inc\stm8s.h	2282;"	member	struct:__anon14::__anon15::__anon20
+F5R3	libraries\inc\stm8s.h	2283;"	member	struct:__anon14::__anon15::__anon20
+F5R4	libraries\inc\stm8s.h	2284;"	member	struct:__anon14::__anon15::__anon20
+F5R5	libraries\inc\stm8s.h	2285;"	member	struct:__anon14::__anon15::__anon20
+F5R6	libraries\inc\stm8s.h	2286;"	member	struct:__anon14::__anon15::__anon20
+F5R7	libraries\inc\stm8s.h	2287;"	member	struct:__anon14::__anon15::__anon20
+F5R8	libraries\inc\stm8s.h	2288;"	member	struct:__anon14::__anon15::__anon20
+FALSE	libraries\inc\stm8s.h	231;"	enumerator	enum:__anon10
 FAR	libraries\inc\stm8s.h	122;"	macro
 FAR	libraries\inc\stm8s.h	128;"	macro
 FAR	libraries\inc\stm8s.h	142;"	macro
-FCR1	libraries\inc\stm8s.h	2302;"	member	struct:__anon7::__anon8::__anon14
-FCR2	libraries\inc\stm8s.h	2303;"	member	struct:__anon7::__anon8::__anon14
-FCR3	libraries\inc\stm8s.h	2304;"	member	struct:__anon7::__anon8::__anon14
+FCR1	libraries\inc\stm8s.h	2302;"	member	struct:__anon14::__anon15::__anon21
+FCR2	libraries\inc\stm8s.h	2303;"	member	struct:__anon14::__anon15::__anon21
+FCR3	libraries\inc\stm8s.h	2304;"	member	struct:__anon14::__anon15::__anon21
 FLASH	libraries\inc\stm8s.h	2623;"	macro
 FLASH_BLOCK_SIZE	libraries\inc\stm8s_flash.h	49;"	macro
 FLASH_BLOCK_SIZE	libraries\inc\stm8s_flash.h	58;"	macro
@@ -861,12 +870,12 @@ FLASH_EraseByte	libraries\inc\stm8s_flash.h	260;"	prototype	signature:(uint32_t 
 FLASH_EraseByte	libraries\src\stm8s_flash.c	164;"	function	signature:(uint32_t Address)
 FLASH_EraseOptionByte	libraries\inc\stm8s_flash.h	266;"	prototype	signature:(uint16_t Address)
 FLASH_EraseOptionByte	libraries\src\stm8s_flash.c	270;"	function	signature:(uint16_t Address)
-FLASH_FLAG_DUL	libraries\inc\stm8s_flash.h	144;"	enumerator	enum:__anon40
-FLASH_FLAG_EOP	libraries\inc\stm8s_flash.h	145;"	enumerator	enum:__anon40
-FLASH_FLAG_HVOFF	libraries\inc\stm8s_flash.h	142;"	enumerator	enum:__anon40
-FLASH_FLAG_PUL	libraries\inc\stm8s_flash.h	146;"	enumerator	enum:__anon40
-FLASH_FLAG_WR_PG_DIS	libraries\inc\stm8s_flash.h	147;"	enumerator	enum:__anon40
-FLASH_Flag_TypeDef	libraries\inc\stm8s_flash.h	148;"	typedef	typeref:enum:__anon40
+FLASH_FLAG_DUL	libraries\inc\stm8s_flash.h	144;"	enumerator	enum:__anon47
+FLASH_FLAG_EOP	libraries\inc\stm8s_flash.h	145;"	enumerator	enum:__anon47
+FLASH_FLAG_HVOFF	libraries\inc\stm8s_flash.h	142;"	enumerator	enum:__anon47
+FLASH_FLAG_PUL	libraries\inc\stm8s_flash.h	146;"	enumerator	enum:__anon47
+FLASH_FLAG_WR_PG_DIS	libraries\inc\stm8s_flash.h	147;"	enumerator	enum:__anon47
+FLASH_Flag_TypeDef	libraries\inc\stm8s_flash.h	148;"	typedef	typeref:enum:__anon47
 FLASH_GetBootSize	libraries\inc\stm8s_flash.h	271;"	prototype	signature:(void)
 FLASH_GetBootSize	libraries\src\stm8s_flash.c	392;"	function	signature:(void)
 FLASH_GetFlagStatus	libraries\inc\stm8s_flash.h	272;"	prototype	signature:(FLASH_Flag_TypeDef FLASH_FLAG)
@@ -883,16 +892,16 @@ FLASH_IAPSR_RESET_VALUE	libraries\inc\stm8s.h	1537;"	macro
 FLASH_IAPSR_WR_PG_DIS	libraries\inc\stm8s.h	1570;"	macro
 FLASH_ITConfig	libraries\inc\stm8s_flash.h	259;"	prototype	signature:(FunctionalState NewState)
 FLASH_ITConfig	libraries\src\stm8s_flash.c	142;"	function	signature:(FunctionalState NewState)
-FLASH_LPMODE_POWERDOWN	libraries\inc\stm8s_flash.h	115;"	enumerator	enum:__anon38
-FLASH_LPMODE_POWERDOWN_STANDBY	libraries\inc\stm8s_flash.h	117;"	enumerator	enum:__anon38
-FLASH_LPMODE_STANDBY	libraries\inc\stm8s_flash.h	116;"	enumerator	enum:__anon38
-FLASH_LPMODE_STANDBY_POWERDOWN	libraries\inc\stm8s_flash.h	118;"	enumerator	enum:__anon38
-FLASH_LPMode_TypeDef	libraries\inc\stm8s_flash.h	120;"	typedef	typeref:enum:__anon38
+FLASH_LPMODE_POWERDOWN	libraries\inc\stm8s_flash.h	115;"	enumerator	enum:__anon45
+FLASH_LPMODE_POWERDOWN_STANDBY	libraries\inc\stm8s_flash.h	117;"	enumerator	enum:__anon45
+FLASH_LPMODE_STANDBY	libraries\inc\stm8s_flash.h	116;"	enumerator	enum:__anon45
+FLASH_LPMODE_STANDBY_POWERDOWN	libraries\inc\stm8s_flash.h	118;"	enumerator	enum:__anon45
+FLASH_LPMode_TypeDef	libraries\inc\stm8s_flash.h	120;"	typedef	typeref:enum:__anon45
 FLASH_Lock	libraries\inc\stm8s_flash.h	257;"	prototype	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_Lock	libraries\src\stm8s_flash.c	112;"	function	signature:(FLASH_MemType_TypeDef FLASH_MemType)
-FLASH_MEMTYPE_DATA	libraries\inc\stm8s_flash.h	92;"	enumerator	enum:__anon35
-FLASH_MEMTYPE_PROG	libraries\inc\stm8s_flash.h	91;"	enumerator	enum:__anon35
-FLASH_MemType_TypeDef	libraries\inc\stm8s_flash.h	93;"	typedef	typeref:enum:__anon35
+FLASH_MEMTYPE_DATA	libraries\inc\stm8s_flash.h	92;"	enumerator	enum:__anon42
+FLASH_MEMTYPE_PROG	libraries\inc\stm8s_flash.h	91;"	enumerator	enum:__anon42
+FLASH_MemType_TypeDef	libraries\inc\stm8s_flash.h	93;"	typedef	typeref:enum:__anon42
 FLASH_NCR2_NERASE	libraries\inc\stm8s.h	1562;"	macro
 FLASH_NCR2_NFPRG	libraries\inc\stm8s.h	1563;"	macro
 FLASH_NCR2_NOPT	libraries\inc\stm8s.h	1560;"	macro
@@ -900,10 +909,10 @@ FLASH_NCR2_NPRG	libraries\inc\stm8s.h	1564;"	macro
 FLASH_NCR2_NWPRG	libraries\inc\stm8s.h	1561;"	macro
 FLASH_NCR2_RESET_VALUE	libraries\inc\stm8s.h	1536;"	macro
 FLASH_OPTIONBYTE_ERROR	libraries\inc\stm8s_flash.h	75;"	macro
-FLASH_PROGRAMMODE_FAST	libraries\inc\stm8s_flash.h	100;"	enumerator	enum:__anon36
-FLASH_PROGRAMMODE_STANDARD	libraries\inc\stm8s_flash.h	99;"	enumerator	enum:__anon36
-FLASH_PROGRAMTIME_STANDARD	libraries\inc\stm8s_flash.h	107;"	enumerator	enum:__anon37
-FLASH_PROGRAMTIME_TPROG	libraries\inc\stm8s_flash.h	108;"	enumerator	enum:__anon37
+FLASH_PROGRAMMODE_FAST	libraries\inc\stm8s_flash.h	100;"	enumerator	enum:__anon43
+FLASH_PROGRAMMODE_STANDARD	libraries\inc\stm8s_flash.h	99;"	enumerator	enum:__anon43
+FLASH_PROGRAMTIME_STANDARD	libraries\inc\stm8s_flash.h	107;"	enumerator	enum:__anon44
+FLASH_PROGRAMTIME_TPROG	libraries\inc\stm8s_flash.h	108;"	enumerator	enum:__anon44
 FLASH_PROG_BLOCKS_NUMBER	libraries\inc\stm8s_flash.h	45;"	macro
 FLASH_PROG_BLOCKS_NUMBER	libraries\inc\stm8s_flash.h	54;"	macro
 FLASH_PROG_BLOCKS_NUMBER	libraries\inc\stm8s_flash.h	63;"	macro
@@ -915,10 +924,10 @@ FLASH_PUKR_PUK	libraries\inc\stm8s.h	1572;"	macro
 FLASH_PUKR_RESET_VALUE	libraries\inc\stm8s.h	1538;"	macro
 FLASH_ProgramByte	libraries\inc\stm8s_flash.h	261;"	prototype	signature:(uint32_t Address, uint8_t Data)
 FLASH_ProgramByte	libraries\src\stm8s_flash.c	181;"	function	signature:(uint32_t Address, uint8_t Data)
-FLASH_ProgramMode_TypeDef	libraries\inc\stm8s_flash.h	101;"	typedef	typeref:enum:__anon36
+FLASH_ProgramMode_TypeDef	libraries\inc\stm8s_flash.h	101;"	typedef	typeref:enum:__anon43
 FLASH_ProgramOptionByte	libraries\inc\stm8s_flash.h	265;"	prototype	signature:(uint16_t Address, uint8_t Data)
 FLASH_ProgramOptionByte	libraries\src\stm8s_flash.c	237;"	function	signature:(uint16_t Address, uint8_t Data)
-FLASH_ProgramTime_TypeDef	libraries\inc\stm8s_flash.h	109;"	typedef	typeref:enum:__anon37
+FLASH_ProgramTime_TypeDef	libraries\inc\stm8s_flash.h	109;"	typedef	typeref:enum:__anon44
 FLASH_ProgramWord	libraries\inc\stm8s_flash.h	263;"	prototype	signature:(uint32_t Address, uint32_t Data)
 FLASH_ProgramWord	libraries\src\stm8s_flash.c	212;"	function	signature:(uint32_t Address, uint32_t Data)
 FLASH_RASS_KEY1	libraries\inc\stm8s_flash.h	70;"	macro
@@ -928,47 +937,47 @@ FLASH_ReadByte	libraries\src\stm8s_flash.c	195;"	function	signature:(uint32_t Ad
 FLASH_ReadOptionByte	libraries\inc\stm8s_flash.h	264;"	prototype	signature:(uint16_t Address)
 FLASH_ReadOptionByte	libraries\src\stm8s_flash.c	303;"	function	signature:(uint16_t Address)
 FLASH_SET_BYTE	libraries\src\stm8s_flash.c	70;"	macro	file:
-FLASH_STATUS_END_HIGH_VOLTAGE	libraries\inc\stm8s_flash.h	128;"	enumerator	enum:__anon39
-FLASH_STATUS_SUCCESSFUL_OPERATION	libraries\inc\stm8s_flash.h	130;"	enumerator	enum:__anon39
-FLASH_STATUS_TIMEOUT	libraries\inc\stm8s_flash.h	131;"	enumerator	enum:__anon39
-FLASH_STATUS_WRITE_PROTECTION_ERROR	libraries\inc\stm8s_flash.h	132;"	enumerator	enum:__anon39
+FLASH_STATUS_END_HIGH_VOLTAGE	libraries\inc\stm8s_flash.h	128;"	enumerator	enum:__anon46
+FLASH_STATUS_SUCCESSFUL_OPERATION	libraries\inc\stm8s_flash.h	130;"	enumerator	enum:__anon46
+FLASH_STATUS_TIMEOUT	libraries\inc\stm8s_flash.h	131;"	enumerator	enum:__anon46
+FLASH_STATUS_WRITE_PROTECTION_ERROR	libraries\inc\stm8s_flash.h	132;"	enumerator	enum:__anon46
 FLASH_SetLowPowerMode	libraries\inc\stm8s_flash.h	267;"	prototype	signature:(FLASH_LPMode_TypeDef FLASH_LPMode)
 FLASH_SetLowPowerMode	libraries\src\stm8s_flash.c	340;"	function	signature:(FLASH_LPMode_TypeDef FLASH_LPMode)
 FLASH_SetProgrammingTime	libraries\inc\stm8s_flash.h	268;"	prototype	signature:(FLASH_ProgramTime_TypeDef FLASH_ProgTime)
 FLASH_SetProgrammingTime	libraries\src\stm8s_flash.c	358;"	function	signature:(FLASH_ProgramTime_TypeDef FLASH_ProgTime)
-FLASH_Status_TypeDef	libraries\inc\stm8s_flash.h	133;"	typedef	typeref:enum:__anon39
+FLASH_Status_TypeDef	libraries\inc\stm8s_flash.h	133;"	typedef	typeref:enum:__anon46
 FLASH_TypeDef	libraries\inc\stm8s.h	1528;"	typedef	typeref:struct:FLASH_struct
 FLASH_Unlock	libraries\inc\stm8s_flash.h	256;"	prototype	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_Unlock	libraries\src\stm8s_flash.c	87;"	function	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_WaitForLastOperation	libraries\inc\stm8s_flash.h	291;"	prototype	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_WaitForLastOperation	libraries\src\stm8s_flash.c	549;"	function	signature:(FLASH_MemType_TypeDef FLASH_MemType)
 FLASH_struct	libraries\inc\stm8s.h	1514;"	struct
-FMR1	libraries\inc\stm8s.h	2300;"	member	struct:__anon7::__anon8::__anon14
-FMR2	libraries\inc\stm8s.h	2301;"	member	struct:__anon7::__anon8::__anon14
+FMR1	libraries\inc\stm8s.h	2300;"	member	struct:__anon14::__anon15::__anon21
+FMR2	libraries\inc\stm8s.h	2301;"	member	struct:__anon14::__anon15::__anon21
 FPR	libraries\inc\stm8s.h	1519;"	member	struct:FLASH_struct
-FR01	libraries\inc\stm8s.h	2209;"	member	struct:__anon7::__anon8::__anon10
-FR02	libraries\inc\stm8s.h	2210;"	member	struct:__anon7::__anon8::__anon10
-FR03	libraries\inc\stm8s.h	2211;"	member	struct:__anon7::__anon8::__anon10
-FR04	libraries\inc\stm8s.h	2212;"	member	struct:__anon7::__anon8::__anon10
-FR05	libraries\inc\stm8s.h	2213;"	member	struct:__anon7::__anon8::__anon10
-FR06	libraries\inc\stm8s.h	2214;"	member	struct:__anon7::__anon8::__anon10
-FR07	libraries\inc\stm8s.h	2215;"	member	struct:__anon7::__anon8::__anon10
-FR08	libraries\inc\stm8s.h	2216;"	member	struct:__anon7::__anon8::__anon10
-FR09	libraries\inc\stm8s.h	2218;"	member	struct:__anon7::__anon8::__anon10
-FR10	libraries\inc\stm8s.h	2219;"	member	struct:__anon7::__anon8::__anon10
-FR11	libraries\inc\stm8s.h	2220;"	member	struct:__anon7::__anon8::__anon10
-FR12	libraries\inc\stm8s.h	2221;"	member	struct:__anon7::__anon8::__anon10
-FR13	libraries\inc\stm8s.h	2222;"	member	struct:__anon7::__anon8::__anon10
-FR14	libraries\inc\stm8s.h	2223;"	member	struct:__anon7::__anon8::__anon10
-FR15	libraries\inc\stm8s.h	2224;"	member	struct:__anon7::__anon8::__anon10
-FR16	libraries\inc\stm8s.h	2225;"	member	struct:__anon7::__anon8::__anon10
+FR01	libraries\inc\stm8s.h	2209;"	member	struct:__anon14::__anon15::__anon17
+FR02	libraries\inc\stm8s.h	2210;"	member	struct:__anon14::__anon15::__anon17
+FR03	libraries\inc\stm8s.h	2211;"	member	struct:__anon14::__anon15::__anon17
+FR04	libraries\inc\stm8s.h	2212;"	member	struct:__anon14::__anon15::__anon17
+FR05	libraries\inc\stm8s.h	2213;"	member	struct:__anon14::__anon15::__anon17
+FR06	libraries\inc\stm8s.h	2214;"	member	struct:__anon14::__anon15::__anon17
+FR07	libraries\inc\stm8s.h	2215;"	member	struct:__anon14::__anon15::__anon17
+FR08	libraries\inc\stm8s.h	2216;"	member	struct:__anon14::__anon15::__anon17
+FR09	libraries\inc\stm8s.h	2218;"	member	struct:__anon14::__anon15::__anon17
+FR10	libraries\inc\stm8s.h	2219;"	member	struct:__anon14::__anon15::__anon17
+FR11	libraries\inc\stm8s.h	2220;"	member	struct:__anon14::__anon15::__anon17
+FR12	libraries\inc\stm8s.h	2221;"	member	struct:__anon14::__anon15::__anon17
+FR13	libraries\inc\stm8s.h	2222;"	member	struct:__anon14::__anon15::__anon17
+FR14	libraries\inc\stm8s.h	2223;"	member	struct:__anon14::__anon15::__anon17
+FR15	libraries\inc\stm8s.h	2224;"	member	struct:__anon14::__anon15::__anon17
+FR16	libraries\inc\stm8s.h	2225;"	member	struct:__anon14::__anon15::__anon17
 FREQR	libraries\inc\stm8s.h	1332;"	member	struct:I2C_struct
-Filter	libraries\inc\stm8s.h	2226;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon10
-Filter01	libraries\inc\stm8s.h	2247;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon11
-Filter23	libraries\inc\stm8s.h	2268;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon12
-Filter45	libraries\inc\stm8s.h	2289;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon13
-FlagStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon4
-FunctionalState	libraries\inc\stm8s.h	235;"	typedef	typeref:enum:__anon5
+Filter	libraries\inc\stm8s.h	2226;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon17
+Filter01	libraries\inc\stm8s.h	2247;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon18
+Filter23	libraries\inc\stm8s.h	2268;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon19
+Filter45	libraries\inc\stm8s.h	2289;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon20
+FlagStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon11
+FunctionalState	libraries\inc\stm8s.h	235;"	typedef	typeref:enum:__anon12
 GCR	libraries\inc\stm8s.h	2524;"	member	struct:CFG_struct
 GETCHAR_PROTOTYPE	user\user_uart.h	10;"	macro
 GETCHAR_PROTOTYPE	user\user_uart.h	13;"	macro
@@ -1000,32 +1009,32 @@ GPIO_ExternalPullUpConfig	libraries\inc\stm8s_gpio.h	148;"	prototype	signature:(
 GPIO_ExternalPullUpConfig	libraries\src\stm8s_gpio.c	225;"	function	signature:(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, FunctionalState NewState)
 GPIO_Init	libraries\inc\stm8s_gpio.h	140;"	prototype	signature:(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, GPIO_Mode_TypeDef GPIO_Mode)
 GPIO_Init	libraries\src\stm8s_gpio.c	71;"	function	signature:(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, GPIO_Mode_TypeDef GPIO_Mode)
-GPIO_MODE_IN_FL_IT	libraries\inc\stm8s_gpio.h	58;"	enumerator	enum:__anon41
-GPIO_MODE_IN_FL_NO_IT	libraries\inc\stm8s_gpio.h	56;"	enumerator	enum:__anon41
-GPIO_MODE_IN_PU_IT	libraries\inc\stm8s_gpio.h	59;"	enumerator	enum:__anon41
-GPIO_MODE_IN_PU_NO_IT	libraries\inc\stm8s_gpio.h	57;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_OD_HIZ_FAST	libraries\inc\stm8s_gpio.h	64;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_OD_HIZ_SLOW	libraries\inc\stm8s_gpio.h	66;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_OD_LOW_FAST	libraries\inc\stm8s_gpio.h	60;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_OD_LOW_SLOW	libraries\inc\stm8s_gpio.h	62;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_PP_HIGH_FAST	libraries\inc\stm8s_gpio.h	65;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_PP_HIGH_SLOW	libraries\inc\stm8s_gpio.h	67;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_PP_LOW_FAST	libraries\inc\stm8s_gpio.h	61;"	enumerator	enum:__anon41
-GPIO_MODE_OUT_PP_LOW_SLOW	libraries\inc\stm8s_gpio.h	63;"	enumerator	enum:__anon41
-GPIO_Mode_TypeDef	libraries\inc\stm8s_gpio.h	68;"	typedef	typeref:enum:__anon41
+GPIO_MODE_IN_FL_IT	libraries\inc\stm8s_gpio.h	58;"	enumerator	enum:__anon48
+GPIO_MODE_IN_FL_NO_IT	libraries\inc\stm8s_gpio.h	56;"	enumerator	enum:__anon48
+GPIO_MODE_IN_PU_IT	libraries\inc\stm8s_gpio.h	59;"	enumerator	enum:__anon48
+GPIO_MODE_IN_PU_NO_IT	libraries\inc\stm8s_gpio.h	57;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_OD_HIZ_FAST	libraries\inc\stm8s_gpio.h	64;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_OD_HIZ_SLOW	libraries\inc\stm8s_gpio.h	66;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_OD_LOW_FAST	libraries\inc\stm8s_gpio.h	60;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_OD_LOW_SLOW	libraries\inc\stm8s_gpio.h	62;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_PP_HIGH_FAST	libraries\inc\stm8s_gpio.h	65;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_PP_HIGH_SLOW	libraries\inc\stm8s_gpio.h	67;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_PP_LOW_FAST	libraries\inc\stm8s_gpio.h	61;"	enumerator	enum:__anon48
+GPIO_MODE_OUT_PP_LOW_SLOW	libraries\inc\stm8s_gpio.h	63;"	enumerator	enum:__anon48
+GPIO_Mode_TypeDef	libraries\inc\stm8s_gpio.h	68;"	typedef	typeref:enum:__anon48
 GPIO_ODR_RESET_VALUE	libraries\inc\stm8s.h	283;"	macro
-GPIO_PIN_0	libraries\inc\stm8s_gpio.h	77;"	enumerator	enum:__anon42
-GPIO_PIN_1	libraries\inc\stm8s_gpio.h	78;"	enumerator	enum:__anon42
-GPIO_PIN_2	libraries\inc\stm8s_gpio.h	79;"	enumerator	enum:__anon42
-GPIO_PIN_3	libraries\inc\stm8s_gpio.h	80;"	enumerator	enum:__anon42
-GPIO_PIN_4	libraries\inc\stm8s_gpio.h	81;"	enumerator	enum:__anon42
-GPIO_PIN_5	libraries\inc\stm8s_gpio.h	82;"	enumerator	enum:__anon42
-GPIO_PIN_6	libraries\inc\stm8s_gpio.h	83;"	enumerator	enum:__anon42
-GPIO_PIN_7	libraries\inc\stm8s_gpio.h	84;"	enumerator	enum:__anon42
-GPIO_PIN_ALL	libraries\inc\stm8s_gpio.h	87;"	enumerator	enum:__anon42
-GPIO_PIN_HNIB	libraries\inc\stm8s_gpio.h	86;"	enumerator	enum:__anon42
-GPIO_PIN_LNIB	libraries\inc\stm8s_gpio.h	85;"	enumerator	enum:__anon42
-GPIO_Pin_TypeDef	libraries\inc\stm8s_gpio.h	88;"	typedef	typeref:enum:__anon42
+GPIO_PIN_0	libraries\inc\stm8s_gpio.h	77;"	enumerator	enum:__anon49
+GPIO_PIN_1	libraries\inc\stm8s_gpio.h	78;"	enumerator	enum:__anon49
+GPIO_PIN_2	libraries\inc\stm8s_gpio.h	79;"	enumerator	enum:__anon49
+GPIO_PIN_3	libraries\inc\stm8s_gpio.h	80;"	enumerator	enum:__anon49
+GPIO_PIN_4	libraries\inc\stm8s_gpio.h	81;"	enumerator	enum:__anon49
+GPIO_PIN_5	libraries\inc\stm8s_gpio.h	82;"	enumerator	enum:__anon49
+GPIO_PIN_6	libraries\inc\stm8s_gpio.h	83;"	enumerator	enum:__anon49
+GPIO_PIN_7	libraries\inc\stm8s_gpio.h	84;"	enumerator	enum:__anon49
+GPIO_PIN_ALL	libraries\inc\stm8s_gpio.h	87;"	enumerator	enum:__anon49
+GPIO_PIN_HNIB	libraries\inc\stm8s_gpio.h	86;"	enumerator	enum:__anon49
+GPIO_PIN_LNIB	libraries\inc\stm8s_gpio.h	85;"	enumerator	enum:__anon49
+GPIO_Pin_TypeDef	libraries\inc\stm8s_gpio.h	88;"	typedef	typeref:enum:__anon49
 GPIO_ReadInputData	libraries\inc\stm8s_gpio.h	145;"	prototype	signature:(GPIO_TypeDef* GPIOx)
 GPIO_ReadInputData	libraries\src\stm8s_gpio.c	202;"	function	signature:(GPIO_TypeDef* GPIOx)
 GPIO_ReadInputPin	libraries\inc\stm8s_gpio.h	147;"	prototype	signature:(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin)
@@ -1116,7 +1125,7 @@ IDR	libraries\inc\stm8s.h	268;"	member	struct:GPIO_struct
 IER	libraries\inc\stm8s.h	1065;"	member	struct:TIM4_struct
 IER	libraries\inc\stm8s.h	1126;"	member	struct:TIM5_struct
 IER	libraries\inc\stm8s.h	1265;"	member	struct:TIM6_struct
-IER	libraries\inc\stm8s.h	2181;"	member	struct:__anon7
+IER	libraries\inc\stm8s.h	2181;"	member	struct:__anon14
 IER	libraries\inc\stm8s.h	618;"	member	struct:TIM1_struct
 IER	libraries\inc\stm8s.h	831;"	member	struct:TIM2_struct
 IER	libraries\inc\stm8s.h	955;"	member	struct:TIM3_struct
@@ -1232,7 +1241,7 @@ ITC_SPRX_RESET_VALUE	libraries\inc\stm8s.h	1452;"	macro
 ITC_TypeDef	libraries\inc\stm8s.h	1446;"	typedef	typeref:struct:ITC_struct
 ITC_struct	libraries\inc\stm8s.h	1435;"	struct
 ITR	libraries\inc\stm8s.h	1340;"	member	struct:I2C_struct
-ITStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon4
+ITStatus	libraries\inc\stm8s.h	233;"	typedef	typeref:enum:__anon11
 IWDG	libraries\inc\stm8s.h	2653;"	macro
 IWDG_BaseAddress	libraries\inc\stm8s.h	2571;"	macro
 IWDG_PR_RESET_VALUE	libraries\inc\stm8s.h	1621;"	macro
@@ -1240,15 +1249,25 @@ IWDG_RLR_RESET_VALUE	libraries\inc\stm8s.h	1622;"	macro
 IWDG_TypeDef	libraries\inc\stm8s.h	1615;"	typedef	typeref:struct:IWDG_struct
 IWDG_struct	libraries\inc\stm8s.h	1609;"	struct
 KR	libraries\inc\stm8s.h	1611;"	member	struct:IWDG_struct
+LED1	..\corona\user\user_led.h	19;"	macro
 LED1	user\user_led.h	18;"	macro
+LED1_PIN_NUM	..\corona\user\user_led.h	9;"	macro
 LED1_PIN_NUM	user\user_led.h	9;"	macro
+LED1_PORT_NUM	..\corona\user\user_led.h	8;"	macro
 LED1_PORT_NUM	user\user_led.h	8;"	macro
+LED_ALL_OFF	..\corona\user\user_led.h	22;"	macro
 LED_ALL_OFF	user\user_led.h	21;"	macro
+LED_NOTHING	..\corona\user\user_led.h	23;"	macro
 LED_NOTHING	user\user_led.h	22;"	macro
+LED_OFF	..\corona\user\user_led.h	31;"	macro
 LED_OFF	user\user_led.h	28;"	macro
+LED_ON	..\corona\user\user_led.h	27;"	macro
 LED_ON	user\user_led.h	26;"	macro
+LED_PULSE	..\corona\user\user_led.h	26;"	macro
 LED_PULSE	user\user_led.h	25;"	macro
+LED_STATE	..\corona\user\user_led.h	37;"	typedef	typeref:struct:_LED_STATE
 LED_STATE	user\user_led.h	34;"	typedef	typeref:struct:_LED_STATE
+LEN_ADC_CHANNEL	user\user_adc.h	8;"	macro
 LSI_VALUE	libraries\inc\stm8s.h	119;"	macro
 LTRH	libraries\inc\stm8s.h	331;"	member	struct:ADC1_struct
 LTRL	libraries\inc\stm8s.h	332;"	member	struct:ADC1_struct
@@ -1256,44 +1275,49 @@ MAX_ADC	user\motor.c	5;"	macro	file:
 MAX_DIG_POS	user\user_display.h	190;"	macro
 MAX_DISPLAY_OPTION	user\user_display.h	191;"	macro
 MAX_DISPLAY_VALUE	user\user_display.h	192;"	macro
+MAX_OPTION	user\menu.h	6;"	macro
 MAX_PWM	user\user_pwm.h	8;"	macro
-MCR	libraries\inc\stm8s.h	2176;"	member	struct:__anon7
-MCSR	libraries\inc\stm8s.h	2189;"	member	struct:__anon7::__anon8::__anon9
-MDAR1	libraries\inc\stm8s.h	2195;"	member	struct:__anon7::__anon8::__anon9
-MDAR1	libraries\inc\stm8s.h	2316;"	member	struct:__anon7::__anon8::__anon15
-MDAR2	libraries\inc\stm8s.h	2196;"	member	struct:__anon7::__anon8::__anon9
-MDAR2	libraries\inc\stm8s.h	2317;"	member	struct:__anon7::__anon8::__anon15
-MDAR3	libraries\inc\stm8s.h	2197;"	member	struct:__anon7::__anon8::__anon9
-MDAR3	libraries\inc\stm8s.h	2318;"	member	struct:__anon7::__anon8::__anon15
-MDAR4	libraries\inc\stm8s.h	2198;"	member	struct:__anon7::__anon8::__anon9
-MDAR4	libraries\inc\stm8s.h	2319;"	member	struct:__anon7::__anon8::__anon15
-MDAR5	libraries\inc\stm8s.h	2199;"	member	struct:__anon7::__anon8::__anon9
-MDAR5	libraries\inc\stm8s.h	2320;"	member	struct:__anon7::__anon8::__anon15
-MDAR6	libraries\inc\stm8s.h	2200;"	member	struct:__anon7::__anon8::__anon9
-MDAR6	libraries\inc\stm8s.h	2321;"	member	struct:__anon7::__anon8::__anon15
-MDAR7	libraries\inc\stm8s.h	2201;"	member	struct:__anon7::__anon8::__anon9
-MDAR7	libraries\inc\stm8s.h	2322;"	member	struct:__anon7::__anon8::__anon15
-MDAR8	libraries\inc\stm8s.h	2202;"	member	struct:__anon7::__anon8::__anon9
-MDAR8	libraries\inc\stm8s.h	2323;"	member	struct:__anon7::__anon8::__anon15
-MDLCR	libraries\inc\stm8s.h	2190;"	member	struct:__anon7::__anon8::__anon9
-MDLCR	libraries\inc\stm8s.h	2311;"	member	struct:__anon7::__anon8::__anon15
+MCR	libraries\inc\stm8s.h	2176;"	member	struct:__anon14
+MCSR	libraries\inc\stm8s.h	2189;"	member	struct:__anon14::__anon15::__anon16
+MDAR1	libraries\inc\stm8s.h	2195;"	member	struct:__anon14::__anon15::__anon16
+MDAR1	libraries\inc\stm8s.h	2316;"	member	struct:__anon14::__anon15::__anon22
+MDAR2	libraries\inc\stm8s.h	2196;"	member	struct:__anon14::__anon15::__anon16
+MDAR2	libraries\inc\stm8s.h	2317;"	member	struct:__anon14::__anon15::__anon22
+MDAR3	libraries\inc\stm8s.h	2197;"	member	struct:__anon14::__anon15::__anon16
+MDAR3	libraries\inc\stm8s.h	2318;"	member	struct:__anon14::__anon15::__anon22
+MDAR4	libraries\inc\stm8s.h	2198;"	member	struct:__anon14::__anon15::__anon16
+MDAR4	libraries\inc\stm8s.h	2319;"	member	struct:__anon14::__anon15::__anon22
+MDAR5	libraries\inc\stm8s.h	2199;"	member	struct:__anon14::__anon15::__anon16
+MDAR5	libraries\inc\stm8s.h	2320;"	member	struct:__anon14::__anon15::__anon22
+MDAR6	libraries\inc\stm8s.h	2200;"	member	struct:__anon14::__anon15::__anon16
+MDAR6	libraries\inc\stm8s.h	2321;"	member	struct:__anon14::__anon15::__anon22
+MDAR7	libraries\inc\stm8s.h	2201;"	member	struct:__anon14::__anon15::__anon16
+MDAR7	libraries\inc\stm8s.h	2322;"	member	struct:__anon14::__anon15::__anon22
+MDAR8	libraries\inc\stm8s.h	2202;"	member	struct:__anon14::__anon15::__anon16
+MDAR8	libraries\inc\stm8s.h	2323;"	member	struct:__anon14::__anon15::__anon22
+MDLCR	libraries\inc\stm8s.h	2190;"	member	struct:__anon14::__anon15::__anon16
+MDLCR	libraries\inc\stm8s.h	2311;"	member	struct:__anon14::__anon15::__anon22
 MEMCPY	libraries\inc\stm8s.h	136;"	macro
 MEMCPY	libraries\inc\stm8s.h	139;"	macro
-MFMI	libraries\inc\stm8s.h	2310;"	member	struct:__anon7::__anon8::__anon15
-MIDR1	libraries\inc\stm8s.h	2191;"	member	struct:__anon7::__anon8::__anon9
-MIDR1	libraries\inc\stm8s.h	2312;"	member	struct:__anon7::__anon8::__anon15
-MIDR2	libraries\inc\stm8s.h	2192;"	member	struct:__anon7::__anon8::__anon9
-MIDR2	libraries\inc\stm8s.h	2313;"	member	struct:__anon7::__anon8::__anon15
-MIDR3	libraries\inc\stm8s.h	2193;"	member	struct:__anon7::__anon8::__anon9
-MIDR3	libraries\inc\stm8s.h	2314;"	member	struct:__anon7::__anon8::__anon15
-MIDR4	libraries\inc\stm8s.h	2194;"	member	struct:__anon7::__anon8::__anon9
-MIDR4	libraries\inc\stm8s.h	2315;"	member	struct:__anon7::__anon8::__anon15
+MENU	user\menu.h	18;"	typedef	typeref:struct:__anon5
+MFMI	libraries\inc\stm8s.h	2310;"	member	struct:__anon14::__anon15::__anon22
+MIDR1	libraries\inc\stm8s.h	2191;"	member	struct:__anon14::__anon15::__anon16
+MIDR1	libraries\inc\stm8s.h	2312;"	member	struct:__anon14::__anon15::__anon22
+MIDR2	libraries\inc\stm8s.h	2192;"	member	struct:__anon14::__anon15::__anon16
+MIDR2	libraries\inc\stm8s.h	2313;"	member	struct:__anon14::__anon15::__anon22
+MIDR3	libraries\inc\stm8s.h	2193;"	member	struct:__anon14::__anon15::__anon16
+MIDR3	libraries\inc\stm8s.h	2314;"	member	struct:__anon14::__anon15::__anon22
+MIDR4	libraries\inc\stm8s.h	2194;"	member	struct:__anon14::__anon15::__anon16
+MIDR4	libraries\inc\stm8s.h	2315;"	member	struct:__anon14::__anon15::__anon22
 MIN_ADC	user\motor.c	6;"	macro	file:
-MSR	libraries\inc\stm8s.h	2177;"	member	struct:__anon7
-MTSRH	libraries\inc\stm8s.h	2204;"	member	struct:__anon7::__anon8::__anon9
-MTSRH	libraries\inc\stm8s.h	2325;"	member	struct:__anon7::__anon8::__anon15
-MTSRL	libraries\inc\stm8s.h	2203;"	member	struct:__anon7::__anon8::__anon9
-MTSRL	libraries\inc\stm8s.h	2324;"	member	struct:__anon7::__anon8::__anon15
+MOTOR	user\motor.h	35;"	typedef	typeref:struct:__anon6
+MOTOR_RELAY_PIN_NUM	user\motor.h	8;"	macro
+MOTOR_RELAY_PORT_NUM	user\motor.h	7;"	macro
+MSR	libraries\inc\stm8s.h	2177;"	member	struct:__anon14
+MTSRH	libraries\inc\stm8s.h	2204;"	member	struct:__anon14::__anon15::__anon16
+MTSRH	libraries\inc\stm8s.h	2325;"	member	struct:__anon14::__anon15::__anon22
+MTSRL	libraries\inc\stm8s.h	2203;"	member	struct:__anon14::__anon15::__anon16
+MTSRL	libraries\inc\stm8s.h	2324;"	member	struct:__anon14::__anon15::__anon22
 MemoryAddressCast	libraries\inc\stm8s.h	157;"	macro
 MemoryAddressCast	libraries\inc\stm8s.h	161;"	macro
 MskBit	libraries\inc\stm8s.h	2796;"	macro
@@ -1331,6 +1355,7 @@ OPT_struct	libraries\inc\stm8s.h	1584;"	struct
 PCKENR1	libraries\inc\stm8s.h	517;"	member	struct:CLK_struct
 PCKENR2	libraries\inc\stm8s.h	520;"	member	struct:CLK_struct
 PR	libraries\inc\stm8s.h	1612;"	member	struct:IWDG_struct
+PRESSURE	user\pressure_sensor.h	14;"	typedef	typeref:struct:__anon1
 PSCR	libraries\inc\stm8s.h	1069;"	member	struct:TIM4_struct
 PSCR	libraries\inc\stm8s.h	1137;"	member	struct:TIM5_struct
 PSCR	libraries\inc\stm8s.h	1269;"	member	struct:TIM6_struct
@@ -1341,19 +1366,21 @@ PSCR	libraries\inc\stm8s.h	842;"	member	struct:TIM2_struct
 PSCR	libraries\inc\stm8s.h	964;"	member	struct:TIM3_struct
 PSCRH	libraries\inc\stm8s.h	630;"	member	struct:TIM1_struct
 PSCRL	libraries\inc\stm8s.h	631;"	member	struct:TIM1_struct
-PSR	libraries\inc\stm8s.h	2183;"	member	struct:__anon7
+PSR	libraries\inc\stm8s.h	2183;"	member	struct:__anon14
 PUKR	libraries\inc\stm8s.h	1524;"	member	struct:FLASH_struct
 PUTCHAR_PROTOTYPE	user\user_uart.h	12;"	macro
 PUTCHAR_PROTOTYPE	user\user_uart.h	15;"	macro
 PUTCHAR_PROTOTYPE	user\user_uart.h	9;"	macro
-PWM_CH1	user\user_pwm.h	11;"	enumerator	enum:__anon2
-PWM_CH2	user\user_pwm.h	12;"	enumerator	enum:__anon2
-Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon7	typeref:union:__anon7::__anon8
+PWM_CH1	user\user_pwm.h	11;"	enumerator	enum:__anon9
+PWM_CH2	user\user_pwm.h	12;"	enumerator	enum:__anon9
+PWM_FREQ	user\motor.h	25;"	macro
+Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon14	typeref:union:__anon14::__anon15
 PointerAttr	libraries\inc\stm8s.h	156;"	macro
 PointerAttr	libraries\inc\stm8s.h	160;"	macro
+QTD_LED	..\corona\user\user_led.h	20;"	macro
 QTD_LED	user\user_led.h	19;"	macro
 RCR	libraries\inc\stm8s.h	634;"	member	struct:TIM1_struct
-RECR	libraries\inc\stm8s.h	2296;"	member	struct:__anon7::__anon8::__anon14
+RECR	libraries\inc\stm8s.h	2296;"	member	struct:__anon14::__anon15::__anon21
 RESERVED	libraries\inc\stm8s.h	1982;"	member	struct:UART3_struct
 RESERVED	libraries\inc\stm8s.h	320;"	member	struct:ADC1_struct
 RESERVED	libraries\inc\stm8s.h	395;"	member	struct:ADC2_struct
@@ -1370,8 +1397,8 @@ RESERVED2	libraries\inc\stm8s.h	1523;"	member	struct:FLASH_struct
 RESERVED2	libraries\inc\stm8s.h	1598;"	member	struct:OPT_struct
 RESERVED2	libraries\inc\stm8s.h	829;"	member	struct:TIM2_struct
 RESERVED3	libraries\inc\stm8s.h	1525;"	member	struct:FLASH_struct
-RESET	libraries\inc\stm8s.h	233;"	enumerator	enum:__anon4
-RFR	libraries\inc\stm8s.h	2180;"	member	struct:__anon7
+RESET	libraries\inc\stm8s.h	233;"	enumerator	enum:__anon11
+RFR	libraries\inc\stm8s.h	2180;"	member	struct:__anon14
 RLR	libraries\inc\stm8s.h	1613;"	member	struct:IWDG_struct
 RST	libraries\inc\stm8s.h	2650;"	macro
 RST_BaseAddress	libraries\inc\stm8s.h	2568;"	macro
@@ -1382,10 +1409,11 @@ RST_SR_SWIMF	libraries\inc\stm8s.h	1682;"	macro
 RST_SR_WWDGF	libraries\inc\stm8s.h	1685;"	macro
 RST_TypeDef	libraries\inc\stm8s.h	1675;"	typedef	typeref:struct:RST_struct
 RST_struct	libraries\inc\stm8s.h	1671;"	struct
+RUNNING	user\application.h	10;"	enumerator	enum:__anon2
 RXCRCR	libraries\inc\stm8s.h	1704;"	member	struct:SPI_struct
-Reserved1	libraries\inc\stm8s.h	2299;"	member	struct:__anon7::__anon8::__anon14
-Reserved2	libraries\inc\stm8s.h	2305;"	member	struct:__anon7::__anon8::__anon14
-RxFIFO	libraries\inc\stm8s.h	2326;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon15
+Reserved1	libraries\inc\stm8s.h	2299;"	member	struct:__anon14::__anon15::__anon21
+Reserved2	libraries\inc\stm8s.h	2305;"	member	struct:__anon14::__anon15::__anon21
+RxFIFO	libraries\inc\stm8s.h	2326;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon22
 S16_MAX	libraries\inc\stm8s.h	244;"	macro
 S16_MIN	libraries\inc\stm8s.h	245;"	macro
 S32_MAX	libraries\inc\stm8s.h	247;"	macro
@@ -1406,7 +1434,8 @@ SEG_F_PIN_NUM	user\user_display.h	23;"	macro
 SEG_F_PORT_NUM	user\user_display.h	22;"	macro
 SEG_G_PIN_NUM	user\user_display.h	26;"	macro
 SEG_G_PORT_NUM	user\user_display.h	25;"	macro
-SET	libraries\inc\stm8s.h	233;"	enumerator	enum:__anon4
+SELF_TEST	user\application.h	16;"	enumerator	enum:__anon3
+SET	libraries\inc\stm8s.h	233;"	enumerator	enum:__anon11
 SMCR	libraries\inc\stm8s.h	1125;"	member	struct:TIM5_struct
 SMCR	libraries\inc\stm8s.h	1264;"	member	struct:TIM6_struct
 SMCR	libraries\inc\stm8s.h	616;"	member	struct:TIM1_struct
@@ -1466,9 +1495,12 @@ SR2	libraries\inc\stm8s.h	620;"	member	struct:TIM1_struct
 SR2	libraries\inc\stm8s.h	833;"	member	struct:TIM2_struct
 SR2	libraries\inc\stm8s.h	957;"	member	struct:TIM3_struct
 SR3	libraries\inc\stm8s.h	1339;"	member	struct:I2C_struct
+STAND_BY	user\application.h	8;"	enumerator	enum:__anon2
+START_ON_POWER	user\application.h	17;"	enumerator	enum:__anon3
+STAT_ERROR	user\application.h	11;"	enumerator	enum:__anon2
 STM8S103	libraries\inc\stm8s.h	48;"	macro
 STRINGVECTOR	libraries\inc\stm8s.h	2758;"	macro
-SUCCESS	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon6
+SUCCESS	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon13
 SWCR	libraries\inc\stm8s.h	515;"	member	struct:CLK_struct
 SWIMCCR	libraries\inc\stm8s.h	523;"	member	struct:CLK_struct
 SWR	libraries\inc\stm8s.h	514;"	member	struct:CLK_struct
@@ -1478,7 +1510,8 @@ TDRH	libraries\inc\stm8s.h	327;"	member	struct:ADC1_struct
 TDRH	libraries\inc\stm8s.h	398;"	member	struct:ADC2_struct
 TDRL	libraries\inc\stm8s.h	328;"	member	struct:ADC1_struct
 TDRL	libraries\inc\stm8s.h	399;"	member	struct:ADC2_struct
-TECR	libraries\inc\stm8s.h	2295;"	member	struct:__anon7::__anon8::__anon14
+TECR	libraries\inc\stm8s.h	2295;"	member	struct:__anon14::__anon15::__anon21
+TESTING	user\application.h	9;"	enumerator	enum:__anon2
 TI1_Config	libraries\src\stm8s_tim2.c	1181;"	function	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
 TI1_Config	libraries\src\stm8s_tim2.c	39;"	prototype	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
 TI2_Config	libraries\src\stm8s_tim2.c	1221;"	function	file:	signature:(uint8_t TIM2_ICPolarity, uint8_t TIM2_ICSelection, uint8_t TIM2_ICFilter)
@@ -1659,9 +1692,9 @@ TIM2_CCR3L_CCR3	libraries\inc\stm8s.h	942;"	macro
 TIM2_CCR3L_RESET_VALUE	libraries\inc\stm8s.h	878;"	macro
 TIM2_CCxCmd	libraries\inc\stm8s_tim2.h	311;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, FunctionalState NewState)
 TIM2_CCxCmd	libraries\src\stm8s_tim2.c	745;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, FunctionalState NewState)
-TIM2_CHANNEL_1	libraries\inc\stm8s_tim2.h	130;"	enumerator	enum:__anon47
-TIM2_CHANNEL_2	libraries\inc\stm8s_tim2.h	131;"	enumerator	enum:__anon47
-TIM2_CHANNEL_3	libraries\inc\stm8s_tim2.h	132;"	enumerator	enum:__anon47
+TIM2_CHANNEL_1	libraries\inc\stm8s_tim2.h	130;"	enumerator	enum:__anon54
+TIM2_CHANNEL_2	libraries\inc\stm8s_tim2.h	131;"	enumerator	enum:__anon54
+TIM2_CHANNEL_3	libraries\inc\stm8s_tim2.h	132;"	enumerator	enum:__anon54
 TIM2_CNTRH_CNT	libraries\inc\stm8s.h	927;"	macro
 TIM2_CNTRH_RESET_VALUE	libraries\inc\stm8s.h	868;"	macro
 TIM2_CNTRL_CNT	libraries\inc\stm8s.h	928;"	macro
@@ -1672,7 +1705,7 @@ TIM2_CR1_OPM	libraries\inc\stm8s.h	889;"	macro
 TIM2_CR1_RESET_VALUE	libraries\inc\stm8s.h	858;"	macro
 TIM2_CR1_UDIS	libraries\inc\stm8s.h	891;"	macro
 TIM2_CR1_URS	libraries\inc\stm8s.h	890;"	macro
-TIM2_Channel_TypeDef	libraries\inc\stm8s_tim2.h	133;"	typedef	typeref:enum:__anon47
+TIM2_Channel_TypeDef	libraries\inc\stm8s_tim2.h	133;"	typedef	typeref:enum:__anon54
 TIM2_ClearFlag	libraries\inc\stm8s_tim2.h	327;"	prototype	signature:(TIM2_FLAG_TypeDef TIM2_FLAG)
 TIM2_ClearFlag	libraries\src\stm8s_tim2.c	1103;"	function	signature:(TIM2_FLAG_TypeDef TIM2_FLAG)
 TIM2_ClearITPendingBit	libraries\inc\stm8s_tim2.h	329;"	prototype	signature:(TIM2_IT_TypeDef TIM2_IT)
@@ -1686,22 +1719,22 @@ TIM2_EGR_CC2G	libraries\inc\stm8s.h	909;"	macro
 TIM2_EGR_CC3G	libraries\inc\stm8s.h	908;"	macro
 TIM2_EGR_RESET_VALUE	libraries\inc\stm8s.h	862;"	macro
 TIM2_EGR_UG	libraries\inc\stm8s.h	911;"	macro
-TIM2_EVENTSOURCE_CC1	libraries\inc\stm8s_tim2.h	234;"	enumerator	enum:__anon55
-TIM2_EVENTSOURCE_CC2	libraries\inc\stm8s_tim2.h	235;"	enumerator	enum:__anon55
-TIM2_EVENTSOURCE_CC3	libraries\inc\stm8s_tim2.h	236;"	enumerator	enum:__anon55
-TIM2_EVENTSOURCE_UPDATE	libraries\inc\stm8s_tim2.h	233;"	enumerator	enum:__anon55
-TIM2_EventSource_TypeDef	libraries\inc\stm8s_tim2.h	237;"	typedef	typeref:enum:__anon55
-TIM2_FLAG_CC1	libraries\inc\stm8s_tim2.h	255;"	enumerator	enum:__anon57
-TIM2_FLAG_CC1OF	libraries\inc\stm8s_tim2.h	258;"	enumerator	enum:__anon57
-TIM2_FLAG_CC2	libraries\inc\stm8s_tim2.h	256;"	enumerator	enum:__anon57
-TIM2_FLAG_CC2OF	libraries\inc\stm8s_tim2.h	259;"	enumerator	enum:__anon57
-TIM2_FLAG_CC3	libraries\inc\stm8s_tim2.h	257;"	enumerator	enum:__anon57
-TIM2_FLAG_CC3OF	libraries\inc\stm8s_tim2.h	260;"	enumerator	enum:__anon57
-TIM2_FLAG_TypeDef	libraries\inc\stm8s_tim2.h	261;"	typedef	typeref:enum:__anon57
-TIM2_FLAG_UPDATE	libraries\inc\stm8s_tim2.h	254;"	enumerator	enum:__anon57
-TIM2_FORCEDACTION_ACTIVE	libraries\inc\stm8s_tim2.h	45;"	enumerator	enum:__anon43
-TIM2_FORCEDACTION_INACTIVE	libraries\inc\stm8s_tim2.h	46;"	enumerator	enum:__anon43
-TIM2_ForcedAction_TypeDef	libraries\inc\stm8s_tim2.h	47;"	typedef	typeref:enum:__anon43
+TIM2_EVENTSOURCE_CC1	libraries\inc\stm8s_tim2.h	234;"	enumerator	enum:__anon62
+TIM2_EVENTSOURCE_CC2	libraries\inc\stm8s_tim2.h	235;"	enumerator	enum:__anon62
+TIM2_EVENTSOURCE_CC3	libraries\inc\stm8s_tim2.h	236;"	enumerator	enum:__anon62
+TIM2_EVENTSOURCE_UPDATE	libraries\inc\stm8s_tim2.h	233;"	enumerator	enum:__anon62
+TIM2_EventSource_TypeDef	libraries\inc\stm8s_tim2.h	237;"	typedef	typeref:enum:__anon62
+TIM2_FLAG_CC1	libraries\inc\stm8s_tim2.h	255;"	enumerator	enum:__anon64
+TIM2_FLAG_CC1OF	libraries\inc\stm8s_tim2.h	258;"	enumerator	enum:__anon64
+TIM2_FLAG_CC2	libraries\inc\stm8s_tim2.h	256;"	enumerator	enum:__anon64
+TIM2_FLAG_CC2OF	libraries\inc\stm8s_tim2.h	259;"	enumerator	enum:__anon64
+TIM2_FLAG_CC3	libraries\inc\stm8s_tim2.h	257;"	enumerator	enum:__anon64
+TIM2_FLAG_CC3OF	libraries\inc\stm8s_tim2.h	260;"	enumerator	enum:__anon64
+TIM2_FLAG_TypeDef	libraries\inc\stm8s_tim2.h	261;"	typedef	typeref:enum:__anon64
+TIM2_FLAG_UPDATE	libraries\inc\stm8s_tim2.h	254;"	enumerator	enum:__anon64
+TIM2_FORCEDACTION_ACTIVE	libraries\inc\stm8s_tim2.h	45;"	enumerator	enum:__anon50
+TIM2_FORCEDACTION_INACTIVE	libraries\inc\stm8s_tim2.h	46;"	enumerator	enum:__anon50
+TIM2_ForcedAction_TypeDef	libraries\inc\stm8s_tim2.h	47;"	typedef	typeref:enum:__anon50
 TIM2_ForcedOC1Config	libraries\inc\stm8s_tim2.h	299;"	prototype	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
 TIM2_ForcedOC1Config	libraries\src\stm8s_tim2.c	507;"	function	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
 TIM2_ForcedOC2Config	libraries\inc\stm8s_tim2.h	300;"	prototype	signature:(TIM2_ForcedAction_TypeDef TIM2_ForcedAction)
@@ -1726,18 +1759,18 @@ TIM2_GetPrescaler	libraries\inc\stm8s_tim2.h	325;"	prototype	signature:(void)
 TIM2_GetPrescaler	libraries\src\stm8s_tim2.c	1049;"	function	signature:(void)
 TIM2_ICInit	libraries\inc\stm8s_tim2.h	290;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
 TIM2_ICInit	libraries\src\stm8s_tim2.c	212;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
-TIM2_ICPOLARITY_FALLING	libraries\inc\stm8s_tim2.h	166;"	enumerator	enum:__anon50
-TIM2_ICPOLARITY_RISING	libraries\inc\stm8s_tim2.h	165;"	enumerator	enum:__anon50
-TIM2_ICPSC_DIV1	libraries\inc\stm8s_tim2.h	190;"	enumerator	enum:__anon52
-TIM2_ICPSC_DIV2	libraries\inc\stm8s_tim2.h	191;"	enumerator	enum:__anon52
-TIM2_ICPSC_DIV4	libraries\inc\stm8s_tim2.h	192;"	enumerator	enum:__anon52
-TIM2_ICPSC_DIV8	libraries\inc\stm8s_tim2.h	193;"	enumerator	enum:__anon52
-TIM2_ICPSC_TypeDef	libraries\inc\stm8s_tim2.h	194;"	typedef	typeref:enum:__anon52
-TIM2_ICPolarity_TypeDef	libraries\inc\stm8s_tim2.h	167;"	typedef	typeref:enum:__anon50
-TIM2_ICSELECTION_DIRECTTI	libraries\inc\stm8s_tim2.h	175;"	enumerator	enum:__anon51
-TIM2_ICSELECTION_INDIRECTTI	libraries\inc\stm8s_tim2.h	176;"	enumerator	enum:__anon51
-TIM2_ICSELECTION_TRGI	libraries\inc\stm8s_tim2.h	177;"	enumerator	enum:__anon51
-TIM2_ICSelection_TypeDef	libraries\inc\stm8s_tim2.h	178;"	typedef	typeref:enum:__anon51
+TIM2_ICPOLARITY_FALLING	libraries\inc\stm8s_tim2.h	166;"	enumerator	enum:__anon57
+TIM2_ICPOLARITY_RISING	libraries\inc\stm8s_tim2.h	165;"	enumerator	enum:__anon57
+TIM2_ICPSC_DIV1	libraries\inc\stm8s_tim2.h	190;"	enumerator	enum:__anon59
+TIM2_ICPSC_DIV2	libraries\inc\stm8s_tim2.h	191;"	enumerator	enum:__anon59
+TIM2_ICPSC_DIV4	libraries\inc\stm8s_tim2.h	192;"	enumerator	enum:__anon59
+TIM2_ICPSC_DIV8	libraries\inc\stm8s_tim2.h	193;"	enumerator	enum:__anon59
+TIM2_ICPSC_TypeDef	libraries\inc\stm8s_tim2.h	194;"	typedef	typeref:enum:__anon59
+TIM2_ICPolarity_TypeDef	libraries\inc\stm8s_tim2.h	167;"	typedef	typeref:enum:__anon57
+TIM2_ICSELECTION_DIRECTTI	libraries\inc\stm8s_tim2.h	175;"	enumerator	enum:__anon58
+TIM2_ICSELECTION_INDIRECTTI	libraries\inc\stm8s_tim2.h	176;"	enumerator	enum:__anon58
+TIM2_ICSELECTION_TRGI	libraries\inc\stm8s_tim2.h	177;"	enumerator	enum:__anon58
+TIM2_ICSelection_TypeDef	libraries\inc\stm8s_tim2.h	178;"	typedef	typeref:enum:__anon58
 TIM2_IER_CC1IE	libraries\inc\stm8s.h	896;"	macro
 TIM2_IER_CC2IE	libraries\inc\stm8s.h	895;"	macro
 TIM2_IER_CC3IE	libraries\inc\stm8s.h	894;"	macro
@@ -1745,11 +1778,11 @@ TIM2_IER_RESET_VALUE	libraries\inc\stm8s.h	859;"	macro
 TIM2_IER_UIE	libraries\inc\stm8s.h	897;"	macro
 TIM2_ITConfig	libraries\inc\stm8s_tim2.h	293;"	prototype	signature:(TIM2_IT_TypeDef TIM2_IT, FunctionalState NewState)
 TIM2_ITConfig	libraries\src\stm8s_tim2.c	368;"	function	signature:(TIM2_IT_TypeDef TIM2_IT, FunctionalState NewState)
-TIM2_IT_CC1	libraries\inc\stm8s_tim2.h	208;"	enumerator	enum:__anon53
-TIM2_IT_CC2	libraries\inc\stm8s_tim2.h	209;"	enumerator	enum:__anon53
-TIM2_IT_CC3	libraries\inc\stm8s_tim2.h	210;"	enumerator	enum:__anon53
-TIM2_IT_TypeDef	libraries\inc\stm8s_tim2.h	211;"	typedef	typeref:enum:__anon53
-TIM2_IT_UPDATE	libraries\inc\stm8s_tim2.h	207;"	enumerator	enum:__anon53
+TIM2_IT_CC1	libraries\inc\stm8s_tim2.h	208;"	enumerator	enum:__anon60
+TIM2_IT_CC2	libraries\inc\stm8s_tim2.h	209;"	enumerator	enum:__anon60
+TIM2_IT_CC3	libraries\inc\stm8s_tim2.h	210;"	enumerator	enum:__anon60
+TIM2_IT_TypeDef	libraries\inc\stm8s_tim2.h	211;"	typedef	typeref:enum:__anon60
+TIM2_IT_UPDATE	libraries\inc\stm8s_tim2.h	207;"	enumerator	enum:__anon60
 TIM2_InternalClockConfig	libraries\inc\stm8s_tim2.h	294;"	prototype	signature:(void)
 TIM2_OC1Init	libraries\inc\stm8s_tim2.h	287;"	prototype	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC1Init	libraries\src\stm8s_tim2.c	108;"	function	signature:(TIM2_OCMode_TypeDef TIM2_OCMode, TIM2_OutputState_TypeDef TIM2_OutputState, uint16_t TIM2_Pulse, TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
@@ -1769,48 +1802,48 @@ TIM2_OC3PolarityConfig	libraries\inc\stm8s_tim2.h	310;"	prototype	signature:(TIM
 TIM2_OC3PolarityConfig	libraries\src\stm8s_tim2.c	718;"	function	signature:(TIM2_OCPolarity_TypeDef TIM2_OCPolarity)
 TIM2_OC3PreloadConfig	libraries\inc\stm8s_tim2.h	306;"	prototype	signature:(FunctionalState NewState)
 TIM2_OC3PreloadConfig	libraries\src\stm8s_tim2.c	627;"	function	signature:(FunctionalState NewState)
-TIM2_OCMODE_ACTIVE	libraries\inc\stm8s_tim2.h	94;"	enumerator	enum:__anon45
-TIM2_OCMODE_INACTIVE	libraries\inc\stm8s_tim2.h	95;"	enumerator	enum:__anon45
-TIM2_OCMODE_PWM1	libraries\inc\stm8s_tim2.h	97;"	enumerator	enum:__anon45
-TIM2_OCMODE_PWM2	libraries\inc\stm8s_tim2.h	98;"	enumerator	enum:__anon45
-TIM2_OCMODE_TIMING	libraries\inc\stm8s_tim2.h	93;"	enumerator	enum:__anon45
-TIM2_OCMODE_TOGGLE	libraries\inc\stm8s_tim2.h	96;"	enumerator	enum:__anon45
-TIM2_OCMode_TypeDef	libraries\inc\stm8s_tim2.h	99;"	typedef	typeref:enum:__anon45
-TIM2_OCPOLARITY_HIGH	libraries\inc\stm8s_tim2.h	145;"	enumerator	enum:__anon48
-TIM2_OCPOLARITY_LOW	libraries\inc\stm8s_tim2.h	146;"	enumerator	enum:__anon48
-TIM2_OCPolarity_TypeDef	libraries\inc\stm8s_tim2.h	147;"	typedef	typeref:enum:__anon48
-TIM2_OPMODE_REPETITIVE	libraries\inc\stm8s_tim2.h	121;"	enumerator	enum:__anon46
-TIM2_OPMODE_SINGLE	libraries\inc\stm8s_tim2.h	120;"	enumerator	enum:__anon46
-TIM2_OPMode_TypeDef	libraries\inc\stm8s_tim2.h	122;"	typedef	typeref:enum:__anon46
-TIM2_OUTPUTSTATE_DISABLE	libraries\inc\stm8s_tim2.h	155;"	enumerator	enum:__anon49
-TIM2_OUTPUTSTATE_ENABLE	libraries\inc\stm8s_tim2.h	156;"	enumerator	enum:__anon49
-TIM2_OutputState_TypeDef	libraries\inc\stm8s_tim2.h	157;"	typedef	typeref:enum:__anon49
-TIM2_PRESCALER_1	libraries\inc\stm8s_tim2.h	55;"	enumerator	enum:__anon44
-TIM2_PRESCALER_1024	libraries\inc\stm8s_tim2.h	65;"	enumerator	enum:__anon44
-TIM2_PRESCALER_128	libraries\inc\stm8s_tim2.h	62;"	enumerator	enum:__anon44
-TIM2_PRESCALER_16	libraries\inc\stm8s_tim2.h	59;"	enumerator	enum:__anon44
-TIM2_PRESCALER_16384	libraries\inc\stm8s_tim2.h	69;"	enumerator	enum:__anon44
-TIM2_PRESCALER_2	libraries\inc\stm8s_tim2.h	56;"	enumerator	enum:__anon44
-TIM2_PRESCALER_2048	libraries\inc\stm8s_tim2.h	66;"	enumerator	enum:__anon44
-TIM2_PRESCALER_256	libraries\inc\stm8s_tim2.h	63;"	enumerator	enum:__anon44
-TIM2_PRESCALER_32	libraries\inc\stm8s_tim2.h	60;"	enumerator	enum:__anon44
-TIM2_PRESCALER_32768	libraries\inc\stm8s_tim2.h	70;"	enumerator	enum:__anon44
-TIM2_PRESCALER_4	libraries\inc\stm8s_tim2.h	57;"	enumerator	enum:__anon44
-TIM2_PRESCALER_4096	libraries\inc\stm8s_tim2.h	67;"	enumerator	enum:__anon44
-TIM2_PRESCALER_512	libraries\inc\stm8s_tim2.h	64;"	enumerator	enum:__anon44
-TIM2_PRESCALER_64	libraries\inc\stm8s_tim2.h	61;"	enumerator	enum:__anon44
-TIM2_PRESCALER_8	libraries\inc\stm8s_tim2.h	58;"	enumerator	enum:__anon44
-TIM2_PRESCALER_8192	libraries\inc\stm8s_tim2.h	68;"	enumerator	enum:__anon44
-TIM2_PSCRELOADMODE_IMMEDIATE	libraries\inc\stm8s_tim2.h	224;"	enumerator	enum:__anon54
-TIM2_PSCRELOADMODE_UPDATE	libraries\inc\stm8s_tim2.h	223;"	enumerator	enum:__anon54
+TIM2_OCMODE_ACTIVE	libraries\inc\stm8s_tim2.h	94;"	enumerator	enum:__anon52
+TIM2_OCMODE_INACTIVE	libraries\inc\stm8s_tim2.h	95;"	enumerator	enum:__anon52
+TIM2_OCMODE_PWM1	libraries\inc\stm8s_tim2.h	97;"	enumerator	enum:__anon52
+TIM2_OCMODE_PWM2	libraries\inc\stm8s_tim2.h	98;"	enumerator	enum:__anon52
+TIM2_OCMODE_TIMING	libraries\inc\stm8s_tim2.h	93;"	enumerator	enum:__anon52
+TIM2_OCMODE_TOGGLE	libraries\inc\stm8s_tim2.h	96;"	enumerator	enum:__anon52
+TIM2_OCMode_TypeDef	libraries\inc\stm8s_tim2.h	99;"	typedef	typeref:enum:__anon52
+TIM2_OCPOLARITY_HIGH	libraries\inc\stm8s_tim2.h	145;"	enumerator	enum:__anon55
+TIM2_OCPOLARITY_LOW	libraries\inc\stm8s_tim2.h	146;"	enumerator	enum:__anon55
+TIM2_OCPolarity_TypeDef	libraries\inc\stm8s_tim2.h	147;"	typedef	typeref:enum:__anon55
+TIM2_OPMODE_REPETITIVE	libraries\inc\stm8s_tim2.h	121;"	enumerator	enum:__anon53
+TIM2_OPMODE_SINGLE	libraries\inc\stm8s_tim2.h	120;"	enumerator	enum:__anon53
+TIM2_OPMode_TypeDef	libraries\inc\stm8s_tim2.h	122;"	typedef	typeref:enum:__anon53
+TIM2_OUTPUTSTATE_DISABLE	libraries\inc\stm8s_tim2.h	155;"	enumerator	enum:__anon56
+TIM2_OUTPUTSTATE_ENABLE	libraries\inc\stm8s_tim2.h	156;"	enumerator	enum:__anon56
+TIM2_OutputState_TypeDef	libraries\inc\stm8s_tim2.h	157;"	typedef	typeref:enum:__anon56
+TIM2_PRESCALER_1	libraries\inc\stm8s_tim2.h	55;"	enumerator	enum:__anon51
+TIM2_PRESCALER_1024	libraries\inc\stm8s_tim2.h	65;"	enumerator	enum:__anon51
+TIM2_PRESCALER_128	libraries\inc\stm8s_tim2.h	62;"	enumerator	enum:__anon51
+TIM2_PRESCALER_16	libraries\inc\stm8s_tim2.h	59;"	enumerator	enum:__anon51
+TIM2_PRESCALER_16384	libraries\inc\stm8s_tim2.h	69;"	enumerator	enum:__anon51
+TIM2_PRESCALER_2	libraries\inc\stm8s_tim2.h	56;"	enumerator	enum:__anon51
+TIM2_PRESCALER_2048	libraries\inc\stm8s_tim2.h	66;"	enumerator	enum:__anon51
+TIM2_PRESCALER_256	libraries\inc\stm8s_tim2.h	63;"	enumerator	enum:__anon51
+TIM2_PRESCALER_32	libraries\inc\stm8s_tim2.h	60;"	enumerator	enum:__anon51
+TIM2_PRESCALER_32768	libraries\inc\stm8s_tim2.h	70;"	enumerator	enum:__anon51
+TIM2_PRESCALER_4	libraries\inc\stm8s_tim2.h	57;"	enumerator	enum:__anon51
+TIM2_PRESCALER_4096	libraries\inc\stm8s_tim2.h	67;"	enumerator	enum:__anon51
+TIM2_PRESCALER_512	libraries\inc\stm8s_tim2.h	64;"	enumerator	enum:__anon51
+TIM2_PRESCALER_64	libraries\inc\stm8s_tim2.h	61;"	enumerator	enum:__anon51
+TIM2_PRESCALER_8	libraries\inc\stm8s_tim2.h	58;"	enumerator	enum:__anon51
+TIM2_PRESCALER_8192	libraries\inc\stm8s_tim2.h	68;"	enumerator	enum:__anon51
+TIM2_PSCRELOADMODE_IMMEDIATE	libraries\inc\stm8s_tim2.h	224;"	enumerator	enum:__anon61
+TIM2_PSCRELOADMODE_UPDATE	libraries\inc\stm8s_tim2.h	223;"	enumerator	enum:__anon61
 TIM2_PSCR_PSC	libraries\inc\stm8s.h	930;"	macro
 TIM2_PSCR_RESET_VALUE	libraries\inc\stm8s.h	870;"	macro
-TIM2_PSCReloadMode_TypeDef	libraries\inc\stm8s_tim2.h	225;"	typedef	typeref:enum:__anon54
+TIM2_PSCReloadMode_TypeDef	libraries\inc\stm8s_tim2.h	225;"	typedef	typeref:enum:__anon61
 TIM2_PWMIConfig	libraries\inc\stm8s_tim2.h	291;"	prototype	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
 TIM2_PWMIConfig	libraries\src\stm8s_tim2.c	266;"	function	signature:(TIM2_Channel_TypeDef TIM2_Channel, TIM2_ICPolarity_TypeDef TIM2_ICPolarity, TIM2_ICSelection_TypeDef TIM2_ICSelection, TIM2_ICPSC_TypeDef TIM2_ICPrescaler, uint8_t TIM2_ICFilter)
 TIM2_PrescalerConfig	libraries\inc\stm8s_tim2.h	298;"	prototype	signature:(TIM2_Prescaler_TypeDef Prescaler, TIM2_PSCReloadMode_TypeDef TIM2_PSCReloadMode)
 TIM2_PrescalerConfig	libraries\src\stm8s_tim2.c	484;"	function	signature:(TIM2_Prescaler_TypeDef Prescaler, TIM2_PSCReloadMode_TypeDef TIM2_PSCReloadMode)
-TIM2_Prescaler_TypeDef	libraries\inc\stm8s_tim2.h	71;"	typedef	typeref:enum:__anon44
+TIM2_Prescaler_TypeDef	libraries\inc\stm8s_tim2.h	71;"	typedef	typeref:enum:__anon51
 TIM2_SR1_CC1IF	libraries\inc\stm8s.h	901;"	macro
 TIM2_SR1_CC2IF	libraries\inc\stm8s.h	900;"	macro
 TIM2_SR1_CC3IF	libraries\inc\stm8s.h	899;"	macro
@@ -1843,14 +1876,14 @@ TIM2_SetIC3Prescaler	libraries\src\stm8s_tim2.c	960;"	function	signature:(TIM2_I
 TIM2_TimeBaseInit	libraries\inc\stm8s_tim2.h	286;"	prototype	signature:(TIM2_Prescaler_TypeDef TIM2_Prescaler, uint16_t TIM2_Period)
 TIM2_TimeBaseInit	libraries\src\stm8s_tim2.c	89;"	function	signature:( TIM2_Prescaler_TypeDef TIM2_Prescaler, uint16_t TIM2_Period)
 TIM2_TypeDef	libraries\inc\stm8s.h	852;"	typedef	typeref:struct:TIM2_struct
-TIM2_UPDATESOURCE_GLOBAL	libraries\inc\stm8s_tim2.h	244;"	enumerator	enum:__anon56
-TIM2_UPDATESOURCE_REGULAR	libraries\inc\stm8s_tim2.h	245;"	enumerator	enum:__anon56
+TIM2_UPDATESOURCE_GLOBAL	libraries\inc\stm8s_tim2.h	244;"	enumerator	enum:__anon63
+TIM2_UPDATESOURCE_REGULAR	libraries\inc\stm8s_tim2.h	245;"	enumerator	enum:__anon63
 TIM2_UPD_OVF_BRK_IRQHandler	stm8s_it.h	72;"	prototype	signature:(void)
 TIM2_UpdateDisableConfig	libraries\inc\stm8s_tim2.h	295;"	prototype	signature:(FunctionalState NewState)
 TIM2_UpdateDisableConfig	libraries\src\stm8s_tim2.c	392;"	function	signature:(FunctionalState NewState)
 TIM2_UpdateRequestConfig	libraries\inc\stm8s_tim2.h	296;"	prototype	signature:(TIM2_UpdateSource_TypeDef TIM2_UpdateSource)
 TIM2_UpdateRequestConfig	libraries\src\stm8s_tim2.c	416;"	function	signature:(TIM2_UpdateSource_TypeDef TIM2_UpdateSource)
-TIM2_UpdateSource_TypeDef	libraries\inc\stm8s_tim2.h	246;"	typedef	typeref:enum:__anon56
+TIM2_UpdateSource_TypeDef	libraries\inc\stm8s_tim2.h	246;"	typedef	typeref:enum:__anon63
 TIM2_struct	libraries\inc\stm8s.h	824;"	struct
 TIM3	libraries\inc\stm8s.h	2686;"	macro
 TIM3_ARRH_ARR	libraries\inc\stm8s.h	1041;"	macro
@@ -1929,16 +1962,17 @@ TIM4_ClearITPendingBit	libraries\inc\stm8s_tim4.h	155;"	prototype	signature:(TIM
 TIM4_ClearITPendingBit	libraries\src\stm8s_tim4.c	391;"	function	signature:(TIM4_IT_TypeDef TIM4_IT)
 TIM4_Cmd	libraries\inc\stm8s_tim4.h	140;"	prototype	signature:(FunctionalState NewState)
 TIM4_Cmd	libraries\src\stm8s_tim4.c	81;"	function	signature:(FunctionalState NewState)
-TIM4_Config	user\user_timer.c	56;"	function	signature:(void)
+TIM4_Config	..\corona\user\user_timer.h	11;"	prototype	signature:(void)
+TIM4_Config	user\user_timer.c	59;"	function	signature:(void)
 TIM4_Config	user\user_timer.h	11;"	prototype	signature:(void)
 TIM4_DeInit	libraries\inc\stm8s_tim4.h	138;"	prototype	signature:(void)
 TIM4_DeInit	libraries\src\stm8s_tim4.c	49;"	function	signature:(void)
 TIM4_EGR_RESET_VALUE	libraries\inc\stm8s.h	1081;"	macro
 TIM4_EGR_UG	libraries\inc\stm8s.h	1104;"	macro
-TIM4_EVENTSOURCE_UPDATE	libraries\inc\stm8s_tim4.h	102;"	enumerator	enum:__anon62
-TIM4_EventSource_TypeDef	libraries\inc\stm8s_tim4.h	103;"	typedef	typeref:enum:__anon62
-TIM4_FLAG_TypeDef	libraries\inc\stm8s_tim4.h	111;"	typedef	typeref:enum:__anon63
-TIM4_FLAG_UPDATE	libraries\inc\stm8s_tim4.h	110;"	enumerator	enum:__anon63
+TIM4_EVENTSOURCE_UPDATE	libraries\inc\stm8s_tim4.h	102;"	enumerator	enum:__anon69
+TIM4_EventSource_TypeDef	libraries\inc\stm8s_tim4.h	103;"	typedef	typeref:enum:__anon69
+TIM4_FLAG_TypeDef	libraries\inc\stm8s_tim4.h	111;"	typedef	typeref:enum:__anon70
+TIM4_FLAG_UPDATE	libraries\inc\stm8s_tim4.h	110;"	enumerator	enum:__anon70
 TIM4_GenerateEvent	libraries\inc\stm8s_tim4.h	147;"	prototype	signature:(TIM4_EventSource_TypeDef TIM4_EventSource)
 TIM4_GenerateEvent	libraries\src\stm8s_tim4.c	257;"	function	signature:(TIM4_EventSource_TypeDef TIM4_EventSource)
 TIM4_GetCounter	libraries\inc\stm8s_tim4.h	150;"	prototype	signature:(void)
@@ -1953,28 +1987,28 @@ TIM4_IER_RESET_VALUE	libraries\inc\stm8s.h	1079;"	macro
 TIM4_IER_UIE	libraries\inc\stm8s.h	1100;"	macro
 TIM4_ITConfig	libraries\inc\stm8s_tim4.h	141;"	prototype	signature:(TIM4_IT_TypeDef TIM4_IT, FunctionalState NewState)
 TIM4_ITConfig	libraries\src\stm8s_tim4.c	107;"	function	signature:(TIM4_IT_TypeDef TIM4_IT, FunctionalState NewState)
-TIM4_IT_TypeDef	libraries\inc\stm8s_tim4.h	121;"	typedef	typeref:enum:__anon64
-TIM4_IT_UPDATE	libraries\inc\stm8s_tim4.h	120;"	enumerator	enum:__anon64
-TIM4_OPMODE_REPETITIVE	libraries\inc\stm8s_tim4.h	73;"	enumerator	enum:__anon59
-TIM4_OPMODE_SINGLE	libraries\inc\stm8s_tim4.h	72;"	enumerator	enum:__anon59
-TIM4_OPMode_TypeDef	libraries\inc\stm8s_tim4.h	74;"	typedef	typeref:enum:__anon59
-TIM4_PERIOD	user\user_timer.c	7;"	macro	file:
-TIM4_PRESCALER_1	libraries\inc\stm8s_tim4.h	50;"	enumerator	enum:__anon58
-TIM4_PRESCALER_128	libraries\inc\stm8s_tim4.h	57;"	enumerator	enum:__anon58
-TIM4_PRESCALER_16	libraries\inc\stm8s_tim4.h	54;"	enumerator	enum:__anon58
-TIM4_PRESCALER_2	libraries\inc\stm8s_tim4.h	51;"	enumerator	enum:__anon58
-TIM4_PRESCALER_32	libraries\inc\stm8s_tim4.h	55;"	enumerator	enum:__anon58
-TIM4_PRESCALER_4	libraries\inc\stm8s_tim4.h	52;"	enumerator	enum:__anon58
-TIM4_PRESCALER_64	libraries\inc\stm8s_tim4.h	56;"	enumerator	enum:__anon58
-TIM4_PRESCALER_8	libraries\inc\stm8s_tim4.h	53;"	enumerator	enum:__anon58
-TIM4_PSCRELOADMODE_IMMEDIATE	libraries\inc\stm8s_tim4.h	83;"	enumerator	enum:__anon60
-TIM4_PSCRELOADMODE_UPDATE	libraries\inc\stm8s_tim4.h	82;"	enumerator	enum:__anon60
+TIM4_IT_TypeDef	libraries\inc\stm8s_tim4.h	121;"	typedef	typeref:enum:__anon71
+TIM4_IT_UPDATE	libraries\inc\stm8s_tim4.h	120;"	enumerator	enum:__anon71
+TIM4_OPMODE_REPETITIVE	libraries\inc\stm8s_tim4.h	73;"	enumerator	enum:__anon66
+TIM4_OPMODE_SINGLE	libraries\inc\stm8s_tim4.h	72;"	enumerator	enum:__anon66
+TIM4_OPMode_TypeDef	libraries\inc\stm8s_tim4.h	74;"	typedef	typeref:enum:__anon66
+TIM4_PERIOD	user\user_timer.c	3;"	macro	file:
+TIM4_PRESCALER_1	libraries\inc\stm8s_tim4.h	50;"	enumerator	enum:__anon65
+TIM4_PRESCALER_128	libraries\inc\stm8s_tim4.h	57;"	enumerator	enum:__anon65
+TIM4_PRESCALER_16	libraries\inc\stm8s_tim4.h	54;"	enumerator	enum:__anon65
+TIM4_PRESCALER_2	libraries\inc\stm8s_tim4.h	51;"	enumerator	enum:__anon65
+TIM4_PRESCALER_32	libraries\inc\stm8s_tim4.h	55;"	enumerator	enum:__anon65
+TIM4_PRESCALER_4	libraries\inc\stm8s_tim4.h	52;"	enumerator	enum:__anon65
+TIM4_PRESCALER_64	libraries\inc\stm8s_tim4.h	56;"	enumerator	enum:__anon65
+TIM4_PRESCALER_8	libraries\inc\stm8s_tim4.h	53;"	enumerator	enum:__anon65
+TIM4_PSCRELOADMODE_IMMEDIATE	libraries\inc\stm8s_tim4.h	83;"	enumerator	enum:__anon67
+TIM4_PSCRELOADMODE_UPDATE	libraries\inc\stm8s_tim4.h	82;"	enumerator	enum:__anon67
 TIM4_PSCR_PSC	libraries\inc\stm8s.h	1108;"	macro
 TIM4_PSCR_RESET_VALUE	libraries\inc\stm8s.h	1083;"	macro
-TIM4_PSCReloadMode_TypeDef	libraries\inc\stm8s_tim4.h	84;"	typedef	typeref:enum:__anon60
+TIM4_PSCReloadMode_TypeDef	libraries\inc\stm8s_tim4.h	84;"	typedef	typeref:enum:__anon67
 TIM4_PrescalerConfig	libraries\inc\stm8s_tim4.h	145;"	prototype	signature:(TIM4_Prescaler_TypeDef Prescaler, TIM4_PSCReloadMode_TypeDef TIM4_PSCReloadMode)
 TIM4_PrescalerConfig	libraries\src\stm8s_tim4.c	215;"	function	signature:(TIM4_Prescaler_TypeDef Prescaler, TIM4_PSCReloadMode_TypeDef TIM4_PSCReloadMode)
-TIM4_Prescaler_TypeDef	libraries\inc\stm8s_tim4.h	58;"	typedef	typeref:enum:__anon58
+TIM4_Prescaler_TypeDef	libraries\inc\stm8s_tim4.h	58;"	typedef	typeref:enum:__anon65
 TIM4_SR1_RESET_VALUE	libraries\inc\stm8s.h	1080;"	macro
 TIM4_SR1_UIF	libraries\inc\stm8s.h	1102;"	macro
 TIM4_SelectOnePulseMode	libraries\inc\stm8s_tim4.h	144;"	prototype	signature:(TIM4_OPMode_TypeDef TIM4_OPMode)
@@ -1986,14 +2020,14 @@ TIM4_SetCounter	libraries\src\stm8s_tim4.c	272;"	function	signature:(uint8_t Cou
 TIM4_TimeBaseInit	libraries\inc\stm8s_tim4.h	139;"	prototype	signature:(TIM4_Prescaler_TypeDef TIM4_Prescaler, uint8_t TIM4_Period)
 TIM4_TimeBaseInit	libraries\src\stm8s_tim4.c	65;"	function	signature:(TIM4_Prescaler_TypeDef TIM4_Prescaler, uint8_t TIM4_Period)
 TIM4_TypeDef	libraries\inc\stm8s.h	1072;"	typedef	typeref:struct:TIM4_struct
-TIM4_UPDATESOURCE_GLOBAL	libraries\inc\stm8s_tim4.h	92;"	enumerator	enum:__anon61
-TIM4_UPDATESOURCE_REGULAR	libraries\inc\stm8s_tim4.h	93;"	enumerator	enum:__anon61
+TIM4_UPDATESOURCE_GLOBAL	libraries\inc\stm8s_tim4.h	92;"	enumerator	enum:__anon68
+TIM4_UPDATESOURCE_REGULAR	libraries\inc\stm8s_tim4.h	93;"	enumerator	enum:__anon68
 TIM4_UPD_OVF_IRQHandler	stm8s_it.h	114;"	prototype	signature:(void)
 TIM4_UpdateDisableConfig	libraries\inc\stm8s_tim4.h	142;"	prototype	signature:(FunctionalState NewState)
 TIM4_UpdateDisableConfig	libraries\src\stm8s_tim4.c	131;"	function	signature:(FunctionalState NewState)
 TIM4_UpdateRequestConfig	libraries\inc\stm8s_tim4.h	143;"	prototype	signature:(TIM4_UpdateSource_TypeDef TIM4_UpdateSource)
 TIM4_UpdateRequestConfig	libraries\src\stm8s_tim4.c	155;"	function	signature:(TIM4_UpdateSource_TypeDef TIM4_UpdateSource)
-TIM4_UpdateSource_TypeDef	libraries\inc\stm8s_tim4.h	94;"	typedef	typeref:enum:__anon61
+TIM4_UpdateSource_TypeDef	libraries\inc\stm8s_tim4.h	94;"	typedef	typeref:enum:__anon68
 TIM4_struct	libraries\inc\stm8s.h	1058;"	struct
 TIM5	libraries\inc\stm8s.h	2696;"	macro
 TIM5_ARRH_ARR	libraries\inc\stm8s.h	1238;"	macro
@@ -2111,14 +2145,15 @@ TINY	libraries\inc\stm8s.h	124;"	macro
 TINY	libraries\inc\stm8s.h	130;"	macro
 TINY	libraries\inc\stm8s.h	144;"	macro
 TLI_IRQHandler	stm8s_it.h	46;"	prototype	signature:(void)
-TPR	libraries\inc\stm8s.h	2179;"	member	struct:__anon7
+TPR	libraries\inc\stm8s.h	2179;"	member	struct:__anon14
 TRAP_IRQHandler	stm8s_it.h	45;"	prototype	signature:(void)
 TRISER	libraries\inc\stm8s.h	1343;"	member	struct:I2C_struct
-TRUE	libraries\inc\stm8s.h	231;"	enumerator	enum:__anon3
-TSR	libraries\inc\stm8s.h	2178;"	member	struct:__anon7
+TRUE	libraries\inc\stm8s.h	231;"	enumerator	enum:__anon10
+TSR	libraries\inc\stm8s.h	2178;"	member	struct:__anon14
 TXCRCR	libraries\inc\stm8s.h	1705;"	member	struct:SPI_struct
+TimingDelay_Decrement	..\corona\user\user_timer.h	9;"	prototype	signature:(void)
 TimingDelay_Decrement	user\user_timer.h	9;"	prototype	signature:(void)
-TxMailbox	libraries\inc\stm8s.h	2205;"	member	union:__anon7::__anon8	typeref:struct:__anon7::__anon8::__anon9
+TxMailbox	libraries\inc\stm8s.h	2205;"	member	union:__anon14::__anon15	typeref:struct:__anon14::__anon15::__anon16
 U16_MAX	libraries\inc\stm8s.h	243;"	macro
 U32_MAX	libraries\inc\stm8s.h	246;"	macro
 U8_MAX	libraries\inc\stm8s.h	240;"	macro
@@ -2174,17 +2209,17 @@ UART1_Cmd	libraries\inc\stm8s_uart1.h	349;"	prototype	signature:(FunctionalState
 UART1_Cmd	libraries\src\stm8s_uart1.c	184;"	function	signature:(FunctionalState NewState)
 UART1_DeInit	libraries\inc\stm8s_uart1.h	345;"	prototype	signature:(void)
 UART1_DeInit	libraries\src\stm8s_uart1.c	53;"	function	signature:(void)
-UART1_FLAG_FE	libraries\inc\stm8s_uart1.h	125;"	enumerator	enum:__anon73
-UART1_FLAG_IDLE	libraries\inc\stm8s_uart1.h	122;"	enumerator	enum:__anon73
-UART1_FLAG_LBDF	libraries\inc\stm8s_uart1.h	127;"	enumerator	enum:__anon73
-UART1_FLAG_NF	libraries\inc\stm8s_uart1.h	124;"	enumerator	enum:__anon73
-UART1_FLAG_OR	libraries\inc\stm8s_uart1.h	123;"	enumerator	enum:__anon73
-UART1_FLAG_PE	libraries\inc\stm8s_uart1.h	126;"	enumerator	enum:__anon73
-UART1_FLAG_RXNE	libraries\inc\stm8s_uart1.h	121;"	enumerator	enum:__anon73
-UART1_FLAG_SBK	libraries\inc\stm8s_uart1.h	128;"	enumerator	enum:__anon73
-UART1_FLAG_TC	libraries\inc\stm8s_uart1.h	120;"	enumerator	enum:__anon73
-UART1_FLAG_TXE	libraries\inc\stm8s_uart1.h	119;"	enumerator	enum:__anon73
-UART1_Flag_TypeDef	libraries\inc\stm8s_uart1.h	129;"	typedef	typeref:enum:__anon73
+UART1_FLAG_FE	libraries\inc\stm8s_uart1.h	125;"	enumerator	enum:__anon80
+UART1_FLAG_IDLE	libraries\inc\stm8s_uart1.h	122;"	enumerator	enum:__anon80
+UART1_FLAG_LBDF	libraries\inc\stm8s_uart1.h	127;"	enumerator	enum:__anon80
+UART1_FLAG_NF	libraries\inc\stm8s_uart1.h	124;"	enumerator	enum:__anon80
+UART1_FLAG_OR	libraries\inc\stm8s_uart1.h	123;"	enumerator	enum:__anon80
+UART1_FLAG_PE	libraries\inc\stm8s_uart1.h	126;"	enumerator	enum:__anon80
+UART1_FLAG_RXNE	libraries\inc\stm8s_uart1.h	121;"	enumerator	enum:__anon80
+UART1_FLAG_SBK	libraries\inc\stm8s_uart1.h	128;"	enumerator	enum:__anon80
+UART1_FLAG_TC	libraries\inc\stm8s_uart1.h	120;"	enumerator	enum:__anon80
+UART1_FLAG_TXE	libraries\inc\stm8s_uart1.h	119;"	enumerator	enum:__anon80
+UART1_Flag_TypeDef	libraries\inc\stm8s_uart1.h	129;"	typedef	typeref:enum:__anon80
 UART1_GTR_RESET_VALUE	libraries\inc\stm8s.h	1795;"	macro
 UART1_GetFlagStatus	libraries\inc\stm8s_uart1.h	368;"	prototype	signature:(UART1_Flag_TypeDef UART1_FLAG)
 UART1_GetFlagStatus	libraries\src\stm8s_uart1.c	568;"	function	signature:(UART1_Flag_TypeDef UART1_FLAG)
@@ -2192,44 +2227,44 @@ UART1_GetITStatus	libraries\inc\stm8s_uart1.h	370;"	prototype	signature:(UART1_I
 UART1_GetITStatus	libraries\src\stm8s_uart1.c	675;"	function	signature:(UART1_IT_TypeDef UART1_IT)
 UART1_HalfDuplexCmd	libraries\inc\stm8s_uart1.h	351;"	prototype	signature:(FunctionalState NewState)
 UART1_HalfDuplexCmd	libraries\src\stm8s_uart1.c	265;"	function	signature:(FunctionalState NewState)
-UART1_IRDAMODE_LOWPOWER	libraries\inc\stm8s_uart1.h	51;"	enumerator	enum:__anon65
-UART1_IRDAMODE_NORMAL	libraries\inc\stm8s_uart1.h	50;"	enumerator	enum:__anon65
+UART1_IRDAMODE_LOWPOWER	libraries\inc\stm8s_uart1.h	51;"	enumerator	enum:__anon72
+UART1_IRDAMODE_NORMAL	libraries\inc\stm8s_uart1.h	50;"	enumerator	enum:__anon72
 UART1_ITConfig	libraries\inc\stm8s_uart1.h	350;"	prototype	signature:(UART1_IT_TypeDef UART1_IT, FunctionalState NewState)
 UART1_ITConfig	libraries\src\stm8s_uart1.c	211;"	function	signature:(UART1_IT_TypeDef UART1_IT, FunctionalState NewState)
-UART1_IT_IDLE	libraries\inc\stm8s_uart1.h	161;"	enumerator	enum:__anon74
-UART1_IT_LBDF	libraries\inc\stm8s_uart1.h	164;"	enumerator	enum:__anon74
-UART1_IT_OR	libraries\inc\stm8s_uart1.h	162;"	enumerator	enum:__anon74
-UART1_IT_PE	libraries\inc\stm8s_uart1.h	163;"	enumerator	enum:__anon74
-UART1_IT_RXNE	libraries\inc\stm8s_uart1.h	160;"	enumerator	enum:__anon74
-UART1_IT_RXNE_OR	libraries\inc\stm8s_uart1.h	165;"	enumerator	enum:__anon74
-UART1_IT_TC	libraries\inc\stm8s_uart1.h	159;"	enumerator	enum:__anon74
-UART1_IT_TXE	libraries\inc\stm8s_uart1.h	158;"	enumerator	enum:__anon74
-UART1_IT_TypeDef	libraries\inc\stm8s_uart1.h	166;"	typedef	typeref:enum:__anon74
+UART1_IT_IDLE	libraries\inc\stm8s_uart1.h	161;"	enumerator	enum:__anon81
+UART1_IT_LBDF	libraries\inc\stm8s_uart1.h	164;"	enumerator	enum:__anon81
+UART1_IT_OR	libraries\inc\stm8s_uart1.h	162;"	enumerator	enum:__anon81
+UART1_IT_PE	libraries\inc\stm8s_uart1.h	163;"	enumerator	enum:__anon81
+UART1_IT_RXNE	libraries\inc\stm8s_uart1.h	160;"	enumerator	enum:__anon81
+UART1_IT_RXNE_OR	libraries\inc\stm8s_uart1.h	165;"	enumerator	enum:__anon81
+UART1_IT_TC	libraries\inc\stm8s_uart1.h	159;"	enumerator	enum:__anon81
+UART1_IT_TXE	libraries\inc\stm8s_uart1.h	158;"	enumerator	enum:__anon81
+UART1_IT_TypeDef	libraries\inc\stm8s_uart1.h	166;"	typedef	typeref:enum:__anon81
 UART1_Init	libraries\inc\stm8s_uart1.h	346;"	prototype	signature:(uint32_t BaudRate, UART1_WordLength_TypeDef WordLength, UART1_StopBits_TypeDef StopBits, UART1_Parity_TypeDef Parity, UART1_SyncMode_TypeDef SyncMode, UART1_Mode_TypeDef Mode)
 UART1_Init	libraries\src\stm8s_uart1.c	90;"	function	signature:(uint32_t BaudRate, UART1_WordLength_TypeDef WordLength, UART1_StopBits_TypeDef StopBits, UART1_Parity_TypeDef Parity, UART1_SyncMode_TypeDef SyncMode, UART1_Mode_TypeDef Mode)
 UART1_IrDACmd	libraries\inc\stm8s_uart1.h	353;"	prototype	signature:(FunctionalState NewState)
 UART1_IrDACmd	libraries\src\stm8s_uart1.c	305;"	function	signature:(FunctionalState NewState)
 UART1_IrDAConfig	libraries\inc\stm8s_uart1.h	352;"	prototype	signature:(UART1_IrDAMode_TypeDef UART1_IrDAMode)
 UART1_IrDAConfig	libraries\src\stm8s_uart1.c	285;"	function	signature:(UART1_IrDAMode_TypeDef UART1_IrDAMode)
-UART1_IrDAMode_TypeDef	libraries\inc\stm8s_uart1.h	52;"	typedef	typeref:enum:__anon65
-UART1_LINBREAKDETECTIONLENGTH_10BITS	libraries\inc\stm8s_uart1.h	64;"	enumerator	enum:__anon67
-UART1_LINBREAKDETECTIONLENGTH_11BITS	libraries\inc\stm8s_uart1.h	65;"	enumerator	enum:__anon67
+UART1_IrDAMode_TypeDef	libraries\inc\stm8s_uart1.h	52;"	typedef	typeref:enum:__anon72
+UART1_LINBREAKDETECTIONLENGTH_10BITS	libraries\inc\stm8s_uart1.h	64;"	enumerator	enum:__anon74
+UART1_LINBREAKDETECTIONLENGTH_11BITS	libraries\inc\stm8s_uart1.h	65;"	enumerator	enum:__anon74
 UART1_LINBreakDetectionConfig	libraries\inc\stm8s_uart1.h	354;"	prototype	signature:(UART1_LINBreakDetectionLength_TypeDef UART1_LINBreakDetectionLength)
 UART1_LINBreakDetectionConfig	libraries\src\stm8s_uart1.c	329;"	function	signature:(UART1_LINBreakDetectionLength_TypeDef UART1_LINBreakDetectionLength)
-UART1_LINBreakDetectionLength_TypeDef	libraries\inc\stm8s_uart1.h	66;"	typedef	typeref:enum:__anon67
+UART1_LINBreakDetectionLength_TypeDef	libraries\inc\stm8s_uart1.h	66;"	typedef	typeref:enum:__anon74
 UART1_LINCmd	libraries\inc\stm8s_uart1.h	355;"	prototype	signature:(FunctionalState NewState)
 UART1_LINCmd	libraries\src\stm8s_uart1.c	349;"	function	signature:(FunctionalState NewState)
-UART1_MODE_RX_DISABLE	libraries\inc\stm8s_uart1.h	112;"	enumerator	enum:__anon72
-UART1_MODE_RX_ENABLE	libraries\inc\stm8s_uart1.h	109;"	enumerator	enum:__anon72
-UART1_MODE_TXRX_ENABLE	libraries\inc\stm8s_uart1.h	113;"	enumerator	enum:__anon72
-UART1_MODE_TX_DISABLE	libraries\inc\stm8s_uart1.h	111;"	enumerator	enum:__anon72
-UART1_MODE_TX_ENABLE	libraries\inc\stm8s_uart1.h	110;"	enumerator	enum:__anon72
-UART1_Mode_TypeDef	libraries\inc\stm8s_uart1.h	114;"	typedef	typeref:enum:__anon72
-UART1_PARITY_EVEN	libraries\inc\stm8s_uart1.h	82;"	enumerator	enum:__anon69
-UART1_PARITY_NO	libraries\inc\stm8s_uart1.h	81;"	enumerator	enum:__anon69
-UART1_PARITY_ODD	libraries\inc\stm8s_uart1.h	83;"	enumerator	enum:__anon69
+UART1_MODE_RX_DISABLE	libraries\inc\stm8s_uart1.h	112;"	enumerator	enum:__anon79
+UART1_MODE_RX_ENABLE	libraries\inc\stm8s_uart1.h	109;"	enumerator	enum:__anon79
+UART1_MODE_TXRX_ENABLE	libraries\inc\stm8s_uart1.h	113;"	enumerator	enum:__anon79
+UART1_MODE_TX_DISABLE	libraries\inc\stm8s_uart1.h	111;"	enumerator	enum:__anon79
+UART1_MODE_TX_ENABLE	libraries\inc\stm8s_uart1.h	110;"	enumerator	enum:__anon79
+UART1_Mode_TypeDef	libraries\inc\stm8s_uart1.h	114;"	typedef	typeref:enum:__anon79
+UART1_PARITY_EVEN	libraries\inc\stm8s_uart1.h	82;"	enumerator	enum:__anon76
+UART1_PARITY_NO	libraries\inc\stm8s_uart1.h	81;"	enumerator	enum:__anon76
+UART1_PARITY_ODD	libraries\inc\stm8s_uart1.h	83;"	enumerator	enum:__anon76
 UART1_PSCR_RESET_VALUE	libraries\inc\stm8s.h	1796;"	macro
-UART1_Parity_TypeDef	libraries\inc\stm8s_uart1.h	84;"	typedef	typeref:enum:__anon69
+UART1_Parity_TypeDef	libraries\inc\stm8s_uart1.h	84;"	typedef	typeref:enum:__anon76
 UART1_RX_IRQHandler	stm8s_it.h	85;"	prototype	signature:(void)
 UART1_ReceiveData8	libraries\inc\stm8s_uart1.h	360;"	prototype	signature:(void)
 UART1_ReceiveData8	libraries\src\stm8s_uart1.c	451;"	function	signature:(void)
@@ -2246,18 +2281,18 @@ UART1_SR_RESET_VALUE	libraries\inc\stm8s.h	1787;"	macro
 UART1_SR_RXNE	libraries\inc\stm8s.h	1808;"	macro
 UART1_SR_TC	libraries\inc\stm8s.h	1807;"	macro
 UART1_SR_TXE	libraries\inc\stm8s.h	1806;"	macro
-UART1_STOPBITS_0_5	libraries\inc\stm8s_uart1.h	73;"	enumerator	enum:__anon68
-UART1_STOPBITS_1	libraries\inc\stm8s_uart1.h	72;"	enumerator	enum:__anon68
-UART1_STOPBITS_1_5	libraries\inc\stm8s_uart1.h	75;"	enumerator	enum:__anon68
-UART1_STOPBITS_2	libraries\inc\stm8s_uart1.h	74;"	enumerator	enum:__anon68
-UART1_SYNCMODE_CLOCK_DISABLE	libraries\inc\stm8s_uart1.h	89;"	enumerator	enum:__anon70
-UART1_SYNCMODE_CLOCK_ENABLE	libraries\inc\stm8s_uart1.h	90;"	enumerator	enum:__anon70
-UART1_SYNCMODE_CPHA_BEGINING	libraries\inc\stm8s_uart1.h	94;"	enumerator	enum:__anon70
-UART1_SYNCMODE_CPHA_MIDDLE	libraries\inc\stm8s_uart1.h	93;"	enumerator	enum:__anon70
-UART1_SYNCMODE_CPOL_HIGH	libraries\inc\stm8s_uart1.h	92;"	enumerator	enum:__anon70
-UART1_SYNCMODE_CPOL_LOW	libraries\inc\stm8s_uart1.h	91;"	enumerator	enum:__anon70
-UART1_SYNCMODE_LASTBIT_DISABLE	libraries\inc\stm8s_uart1.h	95;"	enumerator	enum:__anon70
-UART1_SYNCMODE_LASTBIT_ENABLE	libraries\inc\stm8s_uart1.h	96;"	enumerator	enum:__anon70
+UART1_STOPBITS_0_5	libraries\inc\stm8s_uart1.h	73;"	enumerator	enum:__anon75
+UART1_STOPBITS_1	libraries\inc\stm8s_uart1.h	72;"	enumerator	enum:__anon75
+UART1_STOPBITS_1_5	libraries\inc\stm8s_uart1.h	75;"	enumerator	enum:__anon75
+UART1_STOPBITS_2	libraries\inc\stm8s_uart1.h	74;"	enumerator	enum:__anon75
+UART1_SYNCMODE_CLOCK_DISABLE	libraries\inc\stm8s_uart1.h	89;"	enumerator	enum:__anon77
+UART1_SYNCMODE_CLOCK_ENABLE	libraries\inc\stm8s_uart1.h	90;"	enumerator	enum:__anon77
+UART1_SYNCMODE_CPHA_BEGINING	libraries\inc\stm8s_uart1.h	94;"	enumerator	enum:__anon77
+UART1_SYNCMODE_CPHA_MIDDLE	libraries\inc\stm8s_uart1.h	93;"	enumerator	enum:__anon77
+UART1_SYNCMODE_CPOL_HIGH	libraries\inc\stm8s_uart1.h	92;"	enumerator	enum:__anon77
+UART1_SYNCMODE_CPOL_LOW	libraries\inc\stm8s_uart1.h	91;"	enumerator	enum:__anon77
+UART1_SYNCMODE_LASTBIT_DISABLE	libraries\inc\stm8s_uart1.h	95;"	enumerator	enum:__anon77
+UART1_SYNCMODE_LASTBIT_ENABLE	libraries\inc\stm8s_uart1.h	96;"	enumerator	enum:__anon77
 UART1_SendBreak	libraries\inc\stm8s_uart1.h	364;"	prototype	signature:(void)
 UART1_SendBreak	libraries\src\stm8s_uart1.c	501;"	function	signature:(void)
 UART1_SendData8	libraries\inc\stm8s_uart1.h	362;"	prototype	signature:(uint8_t Data)
@@ -2274,18 +2309,18 @@ UART1_SmartCardCmd	libraries\inc\stm8s_uart1.h	356;"	prototype	signature:(Functi
 UART1_SmartCardCmd	libraries\src\stm8s_uart1.c	371;"	function	signature:(FunctionalState NewState)
 UART1_SmartCardNACKCmd	libraries\inc\stm8s_uart1.h	357;"	prototype	signature:(FunctionalState NewState)
 UART1_SmartCardNACKCmd	libraries\src\stm8s_uart1.c	394;"	function	signature:(FunctionalState NewState)
-UART1_StopBits_TypeDef	libraries\inc\stm8s_uart1.h	76;"	typedef	typeref:enum:__anon68
-UART1_SyncMode_TypeDef	libraries\inc\stm8s_uart1.h	97;"	typedef	typeref:enum:__anon70
+UART1_StopBits_TypeDef	libraries\inc\stm8s_uart1.h	76;"	typedef	typeref:enum:__anon75
+UART1_SyncMode_TypeDef	libraries\inc\stm8s_uart1.h	97;"	typedef	typeref:enum:__anon77
 UART1_TX_IRQHandler	stm8s_it.h	84;"	prototype	signature:(void)
 UART1_TypeDef	libraries\inc\stm8s.h	1781;"	typedef	typeref:struct:UART1_struct
-UART1_WAKEUP_ADDRESSMARK	libraries\inc\stm8s_uart1.h	58;"	enumerator	enum:__anon66
-UART1_WAKEUP_IDLELINE	libraries\inc\stm8s_uart1.h	57;"	enumerator	enum:__anon66
-UART1_WORDLENGTH_8D	libraries\inc\stm8s_uart1.h	102;"	enumerator	enum:__anon71
-UART1_WORDLENGTH_9D	libraries\inc\stm8s_uart1.h	103;"	enumerator	enum:__anon71
+UART1_WAKEUP_ADDRESSMARK	libraries\inc\stm8s_uart1.h	58;"	enumerator	enum:__anon73
+UART1_WAKEUP_IDLELINE	libraries\inc\stm8s_uart1.h	57;"	enumerator	enum:__anon73
+UART1_WORDLENGTH_8D	libraries\inc\stm8s_uart1.h	102;"	enumerator	enum:__anon78
+UART1_WORDLENGTH_9D	libraries\inc\stm8s_uart1.h	103;"	enumerator	enum:__anon78
 UART1_WakeUpConfig	libraries\inc\stm8s_uart1.h	358;"	prototype	signature:(UART1_WakeUp_TypeDef UART1_WakeUp)
 UART1_WakeUpConfig	libraries\src\stm8s_uart1.c	416;"	function	signature:(UART1_WakeUp_TypeDef UART1_WakeUp)
-UART1_WakeUp_TypeDef	libraries\inc\stm8s_uart1.h	59;"	typedef	typeref:enum:__anon66
-UART1_WordLength_TypeDef	libraries\inc\stm8s_uart1.h	104;"	typedef	typeref:enum:__anon71
+UART1_WakeUp_TypeDef	libraries\inc\stm8s_uart1.h	59;"	typedef	typeref:enum:__anon73
+UART1_WordLength_TypeDef	libraries\inc\stm8s_uart1.h	104;"	typedef	typeref:enum:__anon78
 UART1_struct	libraries\inc\stm8s.h	1767;"	struct
 UART2	libraries\inc\stm8s.h	2664;"	macro
 UART2_BRR1_DIVM	libraries\inc\stm8s.h	1915;"	macro
@@ -2473,6 +2508,7 @@ UNUSED	libraries\inc\stm8s.h	2805;"	macro
 USE_STDPERIPH_DRIVER	libraries\inc\stm8s.h	96;"	macro
 VECTOR_ID	libraries\inc\stm8s.h	2759;"	macro
 ValBit	libraries\inc\stm8s.h	2798;"	macro
+WAIT_ON_POWER	user\application.h	18;"	enumerator	enum:__anon3
 WR	libraries\inc\stm8s.h	1636;"	member	struct:WWDG_struct
 WWDG	libraries\inc\stm8s.h	2652;"	macro
 WWDG_BaseAddress	libraries\inc\stm8s.h	2570;"	macro
@@ -2490,17 +2526,22 @@ WWDG_WR_MSB	libraries\inc\stm8s.h	1659;"	macro
 WWDG_WR_RESET_VALUE	libraries\inc\stm8s.h	1645;"	macro
 WWDG_WR_W	libraries\inc\stm8s.h	1660;"	macro
 WWDG_struct	libraries\inc\stm8s.h	1633;"	struct
+_BUZZER	..\corona\user\user_buzzer.h	19;"	struct
 _BUZZER	user\user_buzzer.h	20;"	struct
 _COSMIC_	libraries\inc\stm8s.h	83;"	macro
 _IAR_	libraries\inc\stm8s.h	87;"	macro
+_LED_STATE	..\corona\user\user_led.h	33;"	struct
 _LED_STATE	user\user_led.h	30;"	struct
 _RAISONANCE_	libraries\inc\stm8s.h	85;"	macro
+__APPLICATION_H__	user\application.h	2;"	macro
 __I	libraries\inc\stm8s.h	206;"	macro
 __IO	libraries\inc\stm8s.h	208;"	macro
+__MENU_H__	user\menu.h	2;"	macro
 __MODS0__	c:\program files (x86)\cosmic\fse_compilers\cxstm8\hstm8\mods0.h	11;"	macro
 __MOTOR_H__	user\motor.h	2;"	macro
 __O	libraries\inc\stm8s.h	207;"	macro
 __PWM_H__	user\user_pwm.h	2;"	macro
+__SENSOR_PRESSURE_H__	user\pressure_sensor.h	2;"	macro
 __STM8S_ADC1_H	libraries\inc\stm8s_adc1.h	29;"	macro
 __STM8S_CLK_H	libraries\inc\stm8s_clk.h	31;"	macro
 __STM8S_CONF_H	stm8s_conf.h	30;"	macro
@@ -2518,10 +2559,13 @@ __STM8S_TIM4_H	libraries\inc\stm8s_tim4.h	30;"	macro
 __STM8S_UART1_H	libraries\inc\stm8s_uart1.h	30;"	macro
 __STM8S_WWDG_H	libraries\inc\stm8s_wwdg.h	30;"	macro
 __USER_ADC_H__	user\user_adc.h	2;"	macro
+__USER_BUZZER_H__	..\corona\user\user_buzzer.h	2;"	macro
 __USER_BUZZER_H__	user\user_buzzer.h	2;"	macro
 __USER_DISPLAY_H__	user\user_display.h	2;"	macro
 __USER_EEPROM_H__	user\user_eeprom.h	2;"	macro
+__USER_LED_H__	..\corona\user\user_led.h	2;"	macro
 __USER_LED_H__	user\user_led.h	2;"	macro
+__USER_TIMER_H__	..\corona\user\user_timer.h	2;"	macro
 __USER_TIMER_H__	user\user_timer.h	2;"	macro
 __USER_UART_H__	user\user_uart.h	2;"	macro
 _stext	stm8_interrupt_vector.c	20;"	prototype	file:
@@ -2531,13 +2575,18 @@ adc_val	user\user_adc.c	4;"	variable
 assert_failed	stm8s_conf.h	108;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	stm8s_conf.h	106;"	macro
 assert_param	stm8s_conf.h	110;"	macro
-bool	libraries\inc\stm8s.h	231;"	typedef	typeref:enum:__anon3
+bool	libraries\inc\stm8s.h	231;"	typedef	typeref:enum:__anon10
+buz_dir	..\corona\user\user_buzzer.h	15;"	macro
 buz_dir	user\user_buzzer.h	15;"	macro
+buz_off	..\corona\user\user_buzzer.h	17;"	macro
 buz_off	user\user_buzzer.h	18;"	macro
+buz_on	..\corona\user\user_buzzer.h	16;"	macro
 buz_on	user\user_buzzer.h	17;"	macro
 buzzer	user\user_buzzer.c	5;"	variable
 dec2bcd	user\user_display.c	13;"	function	signature:(uint8_t val)
-delay	user\user_timer.c	45;"	function	signature:(__IO uint32_t nTime)
+dec_speed	user\motor.c	27;"	function	signature:(void)
+delay	..\corona\user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
+delay	user\user_timer.c	48;"	function	signature:(__IO uint32_t nTime)
 delay	user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 dig1_dir	user\user_display.h	178;"	macro
 dig1_off	user\user_display.h	180;"	macro
@@ -2571,39 +2620,65 @@ dp_on	user\user_display.h	77;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2716;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2725;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2735;"	macro
+expiration_time	user\user_eeprom.h	9;"	member	struct:__anon8
+flag	user\menu.h	16;"	member	struct:__anon5
+flags	user\motor.h	34;"	member	struct:__anon6
+get_register	user\menu.h	22;"	prototype	signature:(uint8_t position)
+gpio_clr	..\corona\user\user_buzzer.h	12;"	macro
+gpio_clr	..\corona\user\user_led.h	12;"	macro
+gpio_clr	user\motor.h	11;"	macro
+gpio_clr	user\motor.h	14;"	macro
 gpio_clr	user\user_buzzer.h	12;"	macro
 gpio_clr	user\user_display.h	41;"	macro
 gpio_clr	user\user_display.h	45;"	macro
 gpio_clr	user\user_led.h	11;"	macro
+gpio_dir_out	..\corona\user\user_buzzer.h	13;"	macro
+gpio_dir_out	..\corona\user\user_led.h	13;"	macro
+gpio_dir_out	user\motor.h	17;"	macro
 gpio_dir_out	user\user_buzzer.h	13;"	macro
 gpio_dir_out	user\user_display.h	42;"	macro
 gpio_dir_out	user\user_display.h	46;"	macro
 gpio_dir_out	user\user_led.h	12;"	macro
+gpio_set	..\corona\user\user_buzzer.h	11;"	macro
+gpio_set	..\corona\user\user_led.h	11;"	macro
+gpio_set	user\motor.h	10;"	macro
+gpio_set	user\motor.h	13;"	macro
 gpio_set	user\user_buzzer.h	11;"	macro
 gpio_set	user\user_display.h	40;"	macro
 gpio_set	user\user_display.h	44;"	macro
 gpio_set	user\user_led.h	10;"	macro
+gpio_toggle	user\motor.h	15;"	macro
 halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
+inc_speed	user\motor.c	22;"	function	signature:(void)
 init_adc	user\user_adc.c	7;"	function	signature:(void)
-init_adc	user\user_adc.h	8;"	prototype	signature:(void)
+init_adc	user\user_adc.h	10;"	prototype	signature:(void)
+init_application	user\application.c	3;"	function	signature:(void)
+init_buzzer	..\corona\user\user_buzzer.h	26;"	prototype	signature:(void)
 init_buzzer	user\user_buzzer.c	7;"	function	signature:(void)
 init_buzzer	user\user_buzzer.h	27;"	prototype	signature:(void)
 init_display	user\user_display.c	133;"	function	signature:(void)
 init_display	user\user_display.h	200;"	prototype	signature:(void)
 init_eeprom	user\user_eeprom.c	3;"	function	signature:(void)
-init_eeprom	user\user_eeprom.h	6;"	prototype	signature:()
+init_eeprom	user\user_eeprom.h	17;"	prototype	signature:()
+init_led	..\corona\user\user_led.h	39;"	prototype	signature:(void)
 init_led	user\user_led.c	9;"	function	signature:(void)
 init_led	user\user_led.h	36;"	prototype	signature:(void)
-init_motor	user\motor.c	8;"	function	signature:(void)
-init_motor	user\motor.h	7;"	prototype	signature:(void)
+init_menu	user\menu.c	3;"	function	signature:(void)
+init_menu	user\menu.h	20;"	prototype	signature:(void)
+init_motor	user\motor.c	10;"	function	signature:(void)
+init_motor	user\motor.h	37;"	prototype	signature:(void)
+init_pressure_sensor	user\pressure_sensor.c	3;"	function	signature:(void)
+init_pressure_sensor	user\pressure_sensor.h	16;"	prototype	signature:(void)
 init_pwm	user\user_pwm.c	3;"	function	signature:(void)
 init_pwm	user\user_pwm.h	15;"	prototype	signature:(void)
-init_timer	user\user_timer.c	21;"	function	signature:(void)
+init_timer	..\corona\user\user_timer.h	6;"	prototype	signature:(void)
+init_timer	user\user_timer.c	24;"	function	signature:(void)
 init_timer	user\user_timer.h	6;"	prototype	signature:(void)
 init_uart	user\user_uart.c	3;"	function	signature:(void)
 init_uart	user\user_uart.h	19;"	prototype	signature:(void)
+inspiration_time	user\user_eeprom.h	8;"	member	struct:__anon8
 int16_t	libraries\inc\stm8s.h	212;"	typedef
 int32_t	libraries\inc\stm8s.h	213;"	typedef
 int8_t	libraries\inc\stm8s.h	211;"	typedef
@@ -2612,22 +2687,51 @@ interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
 interrupt_vector	stm8_interrupt_vector.c	7;"	struct	file:
 led	user\user_led.c	6;"	variable
+led1_dir	..\corona\user\user_led.h	15;"	macro
 led1_dir	user\user_led.h	14;"	macro
+led1_off	..\corona\user\user_led.h	17;"	macro
 led1_off	user\user_led.h	16;"	macro
+led1_on	..\corona\user\user_led.h	16;"	macro
 led1_on	user\user_led.h	15;"	macro
 main	main.c	10;"	function	signature:(void)
+max	user\menu.h	15;"	member	struct:__anon5
+max	user\pressure_sensor.h	11;"	member	struct:__anon1
+max_pos	user\motor.h	30;"	member	struct:__anon6
+max_position	user\user_eeprom.h	12;"	member	struct:__anon8
+max_volume	user\user_eeprom.h	11;"	member	struct:__anon8
+min	user\pressure_sensor.h	12;"	member	struct:__anon1
+min_pos	user\motor.h	31;"	member	struct:__anon6
+min_position	user\user_eeprom.h	13;"	member	struct:__anon8
+motor	user\motor.c	8;"	variable
+motor_invert	user\motor.h	23;"	macro
+motor_relay_dir	user\motor.h	20;"	macro
+motor_relay_off	user\motor.h	22;"	macro
+motor_relay_on	user\motor.h	21;"	macro
+nbeep	..\corona\user\user_buzzer.h	21;"	member	struct:_BUZZER
 nbeep	user\user_buzzer.h	22;"	member	struct:_BUZZER
 nop	libraries\inc\stm8s.h	2720;"	macro
 nop	libraries\inc\stm8s.h	2729;"	macro
 nop	libraries\inc\stm8s.h	2739;"	macro
-pool_tick	user\user_timer.c	15;"	function	signature:(void)
+operation_mode	user\application.h	24;"	member	struct:__anon4
+operation_mode	user\user_eeprom.h	14;"	member	struct:__anon8
+peak	user\pressure_sensor.h	13;"	member	struct:__anon1
+peak_pressure	user\user_eeprom.h	10;"	member	struct:__anon8
+pool_tick	..\corona\user\user_timer.h	7;"	prototype	signature:(void)
+pool_tick	user\user_timer.c	18;"	function	signature:(void)
 pool_tick	user\user_timer.h	7;"	prototype	signature:(void)
+pos	user\menu.h	14;"	member	struct:__anon5
+position	user\motor.h	29;"	member	struct:__anon6
+raw	user\pressure_sensor.h	10;"	member	struct:__anon1
 read_adc	stm8s_it.c	32;"	prototype	file:	signature:(void)
-read_adc	user\user_adc.c	25;"	function	signature:(void)
-read_adc	user\user_adc.h	9;"	prototype	signature:(void)
+read_adc	user\user_adc.c	27;"	function	signature:(void)
+read_adc	user\user_adc.h	11;"	prototype	signature:(void)
+reg	user\menu.h	17;"	member	struct:__anon5
 rim	libraries\inc\stm8s.h	2718;"	macro
 rim	libraries\inc\stm8s.h	2727;"	macro
 rim	libraries\inc\stm8s.h	2737;"	macro
+rotate	user\motor.h	32;"	member	struct:__anon6
+rotate_motor	user\motor.c	32;"	function	signature:(void)
+rotate_motor	user\motor.h	40;"	prototype	signature:(void)
 s16	libraries\inc\stm8s.h	223;"	typedef
 s32	libraries\inc\stm8s.h	222;"	typedef
 s8	libraries\inc\stm8s.h	224;"	typedef
@@ -2652,36 +2756,63 @@ seg_f_on	user\user_display.h	69;"	macro
 seg_g_dir	user\user_display.h	72;"	macro
 seg_g_off	user\user_display.h	74;"	macro
 seg_g_on	user\user_display.h	73;"	macro
+self_test	user\application.c	8;"	function	signature:(void)
 send_uart	user\user_uart.c	22;"	function	signature:(const uint8_t *p)
 send_uart	user\user_uart.h	20;"	prototype	signature:(const uint8_t *p)
+set_buzzer	..\corona\user\user_buzzer.h	27;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.c	23;"	function	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.h	28;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_display	user\user_display.c	18;"	function	signature:(uint8_t option, uint8_t value, uint8_t decimal)
 set_display	user\user_display.h	202;"	prototype	signature:(uint8_t option, uint8_t value, uint8_t decimal)
+set_led	..\corona\user\user_led.h	41;"	prototype	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.c	31;"	function	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.h	38;"	prototype	signature:(uint8_t ledx, uint16_t speed)
-set_pwm	user\user_pwm.c	16;"	function	signature:(uint8_t channel, uint16_t ccrx_val)
-set_pwm	user\user_pwm.h	16;"	prototype	signature:(uint8_t channel, uint16_t val)
+set_position	user\motor.c	37;"	function	signature:(void)
+set_position	user\motor.h	41;"	prototype	signature:(void)
+set_pwm	user\user_pwm.c	16;"	function	signature:(uint16_t ccrx_val)
+set_pwm	user\user_pwm.h	16;"	prototype	signature:(uint16_t val)
+set_register	user\menu.h	23;"	prototype	signature:(uint8_t position)
 sim	libraries\inc\stm8s.h	2719;"	macro
 sim	libraries\inc\stm8s.h	2728;"	macro
 sim	libraries\inc\stm8s.h	2738;"	macro
+speed	..\corona\user\user_led.h	36;"	member	struct:_LED_STATE
+speed	user\motor.h	33;"	member	struct:__anon6
 speed	user\user_led.h	33;"	member	struct:_LED_STATE
-task_buzzer	user\user_buzzer.c	33;"	function	signature:(void)
+status	user\application.h	23;"	member	struct:__anon4
+stop_motor	user\motor.c	17;"	function	signature:(void)
+stop_motor	user\motor.h	39;"	prototype	signature:(void)
+task_buzzer	..\corona\user\user_buzzer.h	28;"	prototype	signature:(void)
 task_buzzer	user\user_buzzer.h	29;"	prototype	signature:(void)
-task_display	user\user_display.c	70;"	function	signature:(void)
-task_display	user\user_display.h	201;"	prototype	signature:(void)
-task_led	user\user_led.c	17;"	function	signature:(void)
-task_led	user\user_led.h	37;"	prototype	signature:(void)
-task_motor	user\motor.c	13;"	function	signature:(void)
-task_motor	user\motor.h	8;"	prototype	signature:(void)
+task_led	..\corona\user\user_led.h	40;"	prototype	signature:(void)
+task_motor	user\motor.c	42;"	function	signature:(void)
+task_motor	user\motor.h	38;"	prototype	signature:(void)
 task_timer	stm8s_it.c	31;"	prototype	file:	signature:(void)
-task_timer	user\user_timer.c	81;"	function	signature:(void)
+task_timer	user\user_timer.c	84;"	function	signature:(void)
 test_display	user\user_display.c	103;"	function	signature:(void)
-tick	user\user_timer.c	12;"	variable
+test_pressure_sensor	user\pressure_sensor.c	8;"	function	signature:(void)
+test_pressure_sensor	user\pressure_sensor.h	17;"	prototype	signature:(void)
+tick	user\user_timer.c	15;"	variable
+time	..\corona\user\user_led.h	35;"	member	struct:_LED_STATE
 time	user\user_led.h	32;"	member	struct:_LED_STATE
-timer_tick	user\user_timer.c	13;"	variable
-tmr_delay	user\user_timer.c	10;"	variable
+timer_tick	user\user_timer.c	16;"	variable
+tmr_buzzer	user\user_buzzer.c	33;"	function	signature:(void)
+tmr_buzzer	user\user_timer.c	6;"	prototype	file:	signature:(void)
+tmr_delay	user\user_timer.c	13;"	variable
+tmr_display	user\user_display.c	70;"	function	signature:(void)
+tmr_display	user\user_display.h	201;"	prototype	signature:(void)
+tmr_display	user\user_timer.c	7;"	prototype	file:	signature:(void)
+tmr_led	user\user_led.c	17;"	function	signature:(void)
+tmr_led	user\user_led.h	37;"	prototype	signature:(void)
+tmr_led	user\user_timer.c	5;"	prototype	file:	signature:(void)
+tmr_menu	user\menu.c	8;"	function	signature:(void)
+tmr_menu	user\menu.h	21;"	prototype	signature:(void)
+tmr_menu	user\user_timer.c	8;"	prototype	file:	signature:(void)
+tmr_pressure_sensor	user\pressure_sensor.c	13;"	function	signature:(void)
+tmr_pressure_sensor	user\pressure_sensor.h	18;"	prototype	signature:(void)
+tmr_pressure_sensor	user\user_timer.c	9;"	prototype	file:	signature:(void)
+toff	..\corona\user\user_buzzer.h	23;"	member	struct:_BUZZER
 toff	user\user_buzzer.h	24;"	member	struct:_BUZZER
+ton	..\corona\user\user_buzzer.h	22;"	member	struct:_BUZZER
 ton	user\user_buzzer.h	23;"	member	struct:_BUZZER
 trap	libraries\inc\stm8s.h	2721;"	macro
 trap	libraries\inc\stm8s.h	2730;"	macro
