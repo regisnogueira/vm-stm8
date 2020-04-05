@@ -417,7 +417,7 @@ PathName=stm8s_it.c
 [Root.Include Files]
 ElemType=Folder
 PathName=Include Files
-Child=Root.Include Files.user\user_adc.h
+Child=Root.Include Files.user\menu.h
 Next=Root.User
 Config.0=Root.Include Files.Config.0
 Config.1=Root.Include Files.Config.1
@@ -488,6 +488,16 @@ String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
 
+[Root.Include Files.user\menu.h]
+ElemType=File
+PathName=user\menu.h
+Next=Root.Include Files.user\motor.h
+
+[Root.Include Files.user\motor.h]
+ElemType=File
+PathName=user\motor.h
+Next=Root.Include Files.user\user_adc.h
+
 [Root.Include Files.user\user_adc.h]
 ElemType=File
 PathName=user\user_adc.h
@@ -530,8 +540,8 @@ PathName=user\user_uart.h
 [Root.User]
 ElemType=Folder
 PathName=User
-Child=Root.User.user\user_adc.c
-Next=Root.motor
+Child=Root.User.user\menu.c
+Next=Root.doc
 Config.0=Root.User.Config.0
 Config.1=Root.User.Config.1
 
@@ -601,6 +611,16 @@ String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
 
+[Root.User.user\menu.c]
+ElemType=File
+PathName=user\menu.c
+Next=Root.User.user\motor.c
+
+[Root.User.user\motor.c]
+ElemType=File
+PathName=user\motor.c
+Next=Root.User.user\user_adc.c
+
 [Root.User.user\user_adc.c]
 ElemType=File
 PathName=user\user_adc.c
@@ -640,74 +660,79 @@ Next=Root.User.user\user_uart.c
 ElemType=File
 PathName=user\user_uart.c
 
-[Root.motor]
+[Root.doc]
 ElemType=Folder
-PathName=motor
-Config.0=Root.motor.Config.0
-Config.1=Root.motor.Config.1
+PathName=doc
+Child=Root.doc.readme.md
+Config.0=Root.doc.Config.0
+Config.1=Root.doc.Config.1
 
-[Root.motor.Config.0]
-Settings.0.0=Root.motor.Config.0.Settings.0
-Settings.0.1=Root.motor.Config.0.Settings.1
-Settings.0.2=Root.motor.Config.0.Settings.2
-Settings.0.3=Root.motor.Config.0.Settings.3
+[Root.doc.Config.0]
+Settings.0.0=Root.doc.Config.0.Settings.0
+Settings.0.1=Root.doc.Config.0.Settings.1
+Settings.0.2=Root.doc.Config.0.Settings.2
+Settings.0.3=Root.doc.Config.0.Settings.3
 
-[Root.motor.Config.1]
-Settings.1.0=Root.motor.Config.1.Settings.0
-Settings.1.1=Root.motor.Config.1.Settings.1
-Settings.1.2=Root.motor.Config.1.Settings.2
-Settings.1.3=Root.motor.Config.1.Settings.3
+[Root.doc.Config.1]
+Settings.1.0=Root.doc.Config.1.Settings.0
+Settings.1.1=Root.doc.Config.1.Settings.1
+Settings.1.2=Root.doc.Config.1.Settings.2
+Settings.1.3=Root.doc.Config.1.Settings.3
 
-[Root.motor.Config.0.Settings.0]
-String.6.0=2020,3,25,9,0,8
+[Root.doc.Config.0.Settings.0]
+String.6.0=2020,4,5,10,57,39
 String.8.0=Debug
 Int.0=0
 Int.1=0
 
-[Root.motor.Config.0.Settings.1]
+[Root.doc.Config.0.Settings.1]
 String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +warn +mods0 -customDebCompat -customOpt -no +compact -oc -customC-pp -customLst -l -ilibraries\inc -i..\corona -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
-String.6.0=2020,3,30,10,12,38
+String.6.0=2020,3,26,18,5,51
 
-[Root.motor.Config.0.Settings.2]
+[Root.doc.Config.0.Settings.2]
 String.2.0=Assembling $(InputFile)...
 String.3.0=castm8 -xx -l $(ToolsetIncOpts) -o$(IntermPath)$(InputName).$(ObjectExt) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2020,3,24,13,4,26
 
-[Root.motor.Config.0.Settings.3]
+[Root.doc.Config.0.Settings.3]
 String.2.0=Performing Custom Build on $(InputFile)
 String.3.0=
 String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
 
-[Root.motor.Config.1.Settings.0]
-String.6.0=2020,3,25,9,0,8
+[Root.doc.Config.1.Settings.0]
+String.6.0=2020,4,5,10,57,39
 String.8.0=Release
 Int.0=0
 Int.1=0
 
-[Root.motor.Config.1.Settings.1]
+[Root.doc.Config.1.Settings.1]
 String.2.0=Compiling $(InputFile)...
 String.3.0=cxstm8 +mods0 -customOpt+compact -customC-pp -ilibraries\inc -i..\vm-stm8 -iuser $(ToolsetIncOpts) -cl$(IntermPath) -co$(IntermPath) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2020,3,26,18,14,24
 
-[Root.motor.Config.1.Settings.2]
+[Root.doc.Config.1.Settings.2]
 String.2.0=Assembling $(InputFile)...
 String.3.0=castm8 $(ToolsetIncOpts) -o$(IntermPath)$(InputName).$(ObjectExt) $(InputFile)
 String.4.0=$(IntermPath)$(InputName).$(ObjectExt)
 String.5.0=$(IntermPath)$(InputName).ls
 String.6.0=2020,3,24,13,4,26
 
-[Root.motor.Config.1.Settings.3]
+[Root.doc.Config.1.Settings.3]
 String.2.0=Performing Custom Build on $(InputFile)
 String.3.0=
 String.4.0=
 String.5.0=
 String.6.0=2020,3,24,13,4,26
+
+[Root.doc.readme.md]
+ElemType=File
+PathName=readme.md

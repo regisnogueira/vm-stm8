@@ -14,7 +14,7 @@ void init_led(void)
 #endif    
 }
 
-void task_led(void)
+void tmr_led(void)
 {
 #ifdef EN_USER_LED
     if (++led[LED1].time < led[LED1].speed) {

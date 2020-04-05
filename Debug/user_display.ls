@@ -460,10 +460,10 @@
  828                     	bsct
  829  0004               L721_dig_pos:
  830  0004 00            	dc.b	0
- 866                     ; 70 void task_display(void)
+ 866                     ; 70 void tmr_display(void)
  866                     ; 71 {
  867                     	switch	.text
- 868  0322               _task_display:
+ 868  0322               _tmr_display:
  872                     ; 75     if (display_test)
  874  0322 3d00          	tnz	_display_test
  875  0324 2701          	jreq	L551
@@ -1303,7 +1303,7 @@
 2277                     	xdef	_display_test
 2278                     	xref	_delay
 2279                     	xdef	_set_display
-2280                     	xdef	_task_display
+2280                     	xdef	_tmr_display
 2281                     	xdef	_init_display
 2282                     	xref	_GPIO_WriteLow
 2283                     	xref	_GPIO_WriteHigh

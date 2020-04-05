@@ -24,9 +24,10 @@ void rotate_motor(void)
 
 }
 
-uint16_t get_position(void) 
+void set_position(void) 
 {
     motor.position = adc_val;
+    
 }
 
 void task_motor(void)

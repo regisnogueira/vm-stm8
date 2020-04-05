@@ -34,7 +34,7 @@ typedef struct _LED_STATE
 } LED_STATE;
 
 void init_led(void);
-void task_led(void);
+void tmr_led(void);
 void set_led(uint8_t ledx, uint16_t speed);
 
 #endif

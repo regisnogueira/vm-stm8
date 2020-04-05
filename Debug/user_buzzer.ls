@@ -13,17 +13,17 @@
   89  0001               _set_buzzer:
   93                     ; 31 }
   96  0001 81            	ret
- 119                     ; 33 void task_buzzer(void)
+ 119                     ; 33 void tmr_buzzer(void)
  119                     ; 34 {
  120                     	switch	.text
- 121  0002               _task_buzzer:
+ 121  0002               _tmr_buzzer:
  125                     ; 69 }
  128  0002 81            	ret
- 181                     	switch	.ubsct
- 182  0000               _buzzer:
- 183  0000 0000000000    	ds.b	5
- 184                     	xdef	_buzzer
- 185                     	xdef	_task_buzzer
+ 181                     	xdef	_tmr_buzzer
+ 182                     	switch	.ubsct
+ 183  0000               _buzzer:
+ 184  0000 0000000000    	ds.b	5
+ 185                     	xdef	_buzzer
  186                     	xdef	_set_buzzer
  187                     	xdef	_init_buzzer
  207                     	end

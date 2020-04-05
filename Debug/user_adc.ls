@@ -8,7 +8,7 @@
   53                     ; 8 {
   55                     	switch	.text
   56  0000               _init_adc:
-  60                     ; 10     GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT );
+  60                     ; 10     GPIO_Init(GPIOD, GPIO_PIN_6, GPIO_MODE_IN_FL_NO_IT);
   62  0000 4b00          	push	#0
   63  0002 4b40          	push	#64
   64  0004 ae500f        	ldw	x,#20495
@@ -16,8 +16,8 @@
   67  000a 85            	popw	x
   68                     ; 11     ADC1_DeInit();
   70  000b cd0000        	call	_ADC1_DeInit
-  72                     ; 12     ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS, ADC1_CHANNEL_6, 
-  72                     ; 13               ADC1_PRESSEL_FCPU_D2, ADC1_EXTTRIG_TIM,DISABLE, 
+  72                     ; 12     ADC1_Init(ADC1_CONVERSIONMODE_CONTINUOUS, ADC1_CHANNEL_6,
+  72                     ; 13               ADC1_PRESSEL_FCPU_D2, ADC1_EXTTRIG_TIM,DISABLE,
   72                     ; 14               ADC1_ALIGN_RIGHT, ADC1_SCHMITTTRIG_CHANNEL0, DISABLE );
   74  000e 4b00          	push	#0
   75  0010 4b00          	push	#0
@@ -54,9 +54,9 @@
  147  003f c65400        	ld	a,21504
  148  0042 a4f0          	and	a,#240
  149  0044 c75400        	ld	21504,a
- 150                     ; 35     ADC1->CSR |= (uint8_t)(ADC1_CHANNEL_3);
+ 150                     ; 35     ADC1->CSR |= (uint8_t)(ADC1_CHANNEL_6);
  152  0047 c65400        	ld	a,21504
- 153  004a aa03          	or	a,#3
+ 153  004a aa06          	or	a,#6
  154  004c c75400        	ld	21504,a
  155                     ; 36     ADC1->CR1 &= (uint8_t)(~ADC1_CR1_CONT);
  157  004f 72135401      	bres	21505,#1

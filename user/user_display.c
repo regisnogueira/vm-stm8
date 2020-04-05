@@ -67,7 +67,7 @@ void wr_digit(uint8_t dig_pos)
     }
 }
 
-void task_display(void)
+void tmr_display(void)
 {
     static uint8_t dig_pos = DIG1_POS;
 

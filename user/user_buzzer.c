@@ -30,7 +30,7 @@ void set_buzzer(uint8_t nbeep, uint16_t ton, uint16_t toff)
 #endif    
 }
 
-void task_buzzer(void)
+void tmr_buzzer(void)
 {
 #ifdef EN_USER_BUZZER    
     static uint8_t state=0;
