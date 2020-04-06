@@ -40,9 +40,9 @@ typedef struct
 
 void init_motor(void);
 void task_motor(void);
-void stop_motor(void);
-void rotate_motor(void);
 void set_position(void);
+void speed_up(uint8_t value);
+void speed_down(uint8_t value);
 
 #endif
 
