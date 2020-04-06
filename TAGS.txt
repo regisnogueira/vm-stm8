@@ -2571,7 +2571,7 @@ __USER_UART_H__	user\user_uart.h	2;"	macro
 _stext	stm8_interrupt_vector.c	20;"	prototype	file:
 _stext	stm8s_it.h	40;"	prototype	signature:(void)
 _vectab	stm8_interrupt_vector.c	22;"	variable
-adc_val	user\user_adc.c	4;"	variable
+adc_val	user\user_adc.c	6;"	variable
 assert_failed	stm8s_conf.h	108;"	prototype	signature:(uint8_t* file, uint32_t line)
 assert_param	stm8s_conf.h	106;"	macro
 assert_param	stm8s_conf.h	110;"	macro
@@ -2583,7 +2583,7 @@ buz_off	user\user_buzzer.h	18;"	macro
 buz_on	..\corona\user\user_buzzer.h	16;"	macro
 buz_on	user\user_buzzer.h	17;"	macro
 buzzer	user\user_buzzer.c	5;"	variable
-dec2bcd	user\user_display.c	13;"	function	signature:(uint8_t val)
+dec2bcd	user\user_display.c	19;"	function	signature:(uint8_t val)
 dec_speed	user\motor.c	27;"	function	signature:(void)
 delay	..\corona\user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 delay	user\user_timer.c	48;"	function	signature:(__IO uint32_t nTime)
@@ -2605,12 +2605,12 @@ display_eight	user\user_display.h	162;"	macro
 display_five	user\user_display.h	138;"	macro
 display_four	user\user_display.h	130;"	macro
 display_nine	user\user_display.h	170;"	macro
-display_num	user\user_display.c	11;"	variable
+display_num	user\user_display.c	17;"	variable
 display_off	user\user_display.h	80;"	macro
 display_one	user\user_display.h	106;"	macro
 display_seven	user\user_display.h	154;"	macro
 display_six	user\user_display.h	146;"	macro
-display_test	user\user_display.c	8;"	variable
+display_test	user\user_display.c	14;"	variable
 display_three	user\user_display.h	122;"	macro
 display_two	user\user_display.h	114;"	macro
 display_zero	user\user_display.h	98;"	macro
@@ -2652,13 +2652,13 @@ halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
 inc_speed	user\motor.c	22;"	function	signature:(void)
-init_adc	user\user_adc.c	7;"	function	signature:(void)
+init_adc	user\user_adc.c	9;"	function	signature:(void)
 init_adc	user\user_adc.h	10;"	prototype	signature:(void)
 init_application	user\application.c	3;"	function	signature:(void)
 init_buzzer	..\corona\user\user_buzzer.h	26;"	prototype	signature:(void)
 init_buzzer	user\user_buzzer.c	7;"	function	signature:(void)
 init_buzzer	user\user_buzzer.h	27;"	prototype	signature:(void)
-init_display	user\user_display.c	133;"	function	signature:(void)
+init_display	user\user_display.c	146;"	function	signature:(void)
 init_display	user\user_display.h	200;"	prototype	signature:(void)
 init_eeprom	user\user_eeprom.c	3;"	function	signature:(void)
 init_eeprom	user\user_eeprom.h	17;"	prototype	signature:()
@@ -2693,7 +2693,7 @@ led1_off	..\corona\user\user_led.h	17;"	macro
 led1_off	user\user_led.h	16;"	macro
 led1_on	..\corona\user\user_led.h	16;"	macro
 led1_on	user\user_led.h	15;"	macro
-main	main.c	10;"	function	signature:(void)
+main	main.c	12;"	function	signature:(void)
 max	user\menu.h	15;"	member	struct:__anon5
 max	user\pressure_sensor.h	11;"	member	struct:__anon1
 max_pos	user\motor.h	30;"	member	struct:__anon6
@@ -2723,7 +2723,7 @@ pos	user\menu.h	14;"	member	struct:__anon5
 position	user\motor.h	29;"	member	struct:__anon6
 raw	user\pressure_sensor.h	10;"	member	struct:__anon1
 read_adc	stm8s_it.c	32;"	prototype	file:	signature:(void)
-read_adc	user\user_adc.c	27;"	function	signature:(void)
+read_adc	user\user_adc.c	29;"	function	signature:(void)
 read_adc	user\user_adc.h	11;"	prototype	signature:(void)
 reg	user\menu.h	17;"	member	struct:__anon5
 rim	libraries\inc\stm8s.h	2718;"	macro
@@ -2762,13 +2762,14 @@ send_uart	user\user_uart.h	20;"	prototype	signature:(const uint8_t *p)
 set_buzzer	..\corona\user\user_buzzer.h	27;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.c	23;"	function	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.h	28;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
-set_display	user\user_display.c	18;"	function	signature:(uint8_t option, uint8_t value, uint8_t decimal)
-set_display	user\user_display.h	202;"	prototype	signature:(uint8_t option, uint8_t value, uint8_t decimal)
+set_display	user\user_display.c	24;"	function	signature:(uint8_t option, uint8_t value, uint8_t decimal)
+set_display	user\user_display.h	203;"	prototype	signature:(uint8_t option, uint8_t value, uint8_t decimal)
 set_led	..\corona\user\user_led.h	41;"	prototype	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.c	31;"	function	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.h	38;"	prototype	signature:(uint8_t ledx, uint16_t speed)
 set_position	user\motor.c	37;"	function	signature:(void)
 set_position	user\motor.h	41;"	prototype	signature:(void)
+set_pwm	user\user_adc.c	3;"	prototype	file:	signature:(uint16_t ccrx_val)
 set_pwm	user\user_pwm.c	16;"	function	signature:(uint16_t ccrx_val)
 set_pwm	user\user_pwm.h	16;"	prototype	signature:(uint16_t val)
 set_register	user\menu.h	23;"	prototype	signature:(uint8_t position)
@@ -2783,12 +2784,14 @@ stop_motor	user\motor.c	17;"	function	signature:(void)
 stop_motor	user\motor.h	39;"	prototype	signature:(void)
 task_buzzer	..\corona\user\user_buzzer.h	28;"	prototype	signature:(void)
 task_buzzer	user\user_buzzer.h	29;"	prototype	signature:(void)
+task_display	user\user_display.c	76;"	function	signature:(void)
+task_display	user\user_display.h	201;"	prototype	signature:(void)
 task_led	..\corona\user\user_led.h	40;"	prototype	signature:(void)
 task_motor	user\motor.c	42;"	function	signature:(void)
 task_motor	user\motor.h	38;"	prototype	signature:(void)
 task_timer	stm8s_it.c	31;"	prototype	file:	signature:(void)
 task_timer	user\user_timer.c	84;"	function	signature:(void)
-test_display	user\user_display.c	103;"	function	signature:(void)
+test_display	user\user_display.c	116;"	function	signature:(void)
 test_pressure_sensor	user\pressure_sensor.c	8;"	function	signature:(void)
 test_pressure_sensor	user\pressure_sensor.h	17;"	prototype	signature:(void)
 tick	user\user_timer.c	15;"	variable
@@ -2798,8 +2801,8 @@ timer_tick	user\user_timer.c	16;"	variable
 tmr_buzzer	user\user_buzzer.c	33;"	function	signature:(void)
 tmr_buzzer	user\user_timer.c	6;"	prototype	file:	signature:(void)
 tmr_delay	user\user_timer.c	13;"	variable
-tmr_display	user\user_display.c	70;"	function	signature:(void)
-tmr_display	user\user_display.h	201;"	prototype	signature:(void)
+tmr_display	user\user_display.c	83;"	function	signature:(void)
+tmr_display	user\user_display.h	202;"	prototype	signature:(void)
 tmr_display	user\user_timer.c	7;"	prototype	file:	signature:(void)
 tmr_led	user\user_led.c	17;"	function	signature:(void)
 tmr_led	user\user_led.h	37;"	prototype	signature:(void)
@@ -2826,4 +2829,4 @@ uint8_t	libraries\inc\stm8s.h	216;"	typedef
 wfi	libraries\inc\stm8s.h	2722;"	macro
 wfi	libraries\inc\stm8s.h	2731;"	macro
 wfi	libraries\inc\stm8s.h	2741;"	macro
-wr_digit	user\user_display.c	34;"	function	signature:(uint8_t dig_pos)
+wr_digit	user\user_display.c	40;"	function	signature:(uint8_t dig_pos)

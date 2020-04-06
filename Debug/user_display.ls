@@ -462,7 +462,7 @@
  852                     	switch	.text
  853  0322               _task_display:
  857                     ; 78     if (!tick)
- 859  0322 be00          	ldw	x,_tick
+ 859  0322 3d00          	tnz	_tick
  860  0324 2601          	jrne	L731
  861                     ; 79         return;
  864  0326 81            	ret

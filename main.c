@@ -7,8 +7,6 @@
 #include "user_display.h"
 #include "motor.h"
 
-extern uint16_t adc_val;
-
 void main(void)
 {
     init_timer();    
@@ -17,11 +15,10 @@ void main(void)
     init_adc();
 
     init_display();
-    init_pwm();
 
     for (;;) {
         pool_tick();
-        set_pwm(adc_val);
         task_display();
+        task_motor();
     }
 }

@@ -5,7 +5,7 @@
 #define EN_DISPLAY_TEST
 
 /* user_timer.c */
-extern int tick;
+extern uint8_t tick;
 
 /* user_adc.h */
 extern uint16_t adc_val;

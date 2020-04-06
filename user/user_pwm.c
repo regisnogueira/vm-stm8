@@ -1,11 +1,11 @@
 #include "user_pwm.h"
 
-void init_pwm(void)
+void init_pwm(uint16_t period)
 {
 #ifdef EN_USER_PWM
     /* Time base configuration */
-    TIM2_TimeBaseInit(TIM2_PRESCALER_1, 1023);
-    //TIM2_TimeBaseInit(TIM2_PRESCALER_1, 500);
+    TIM2_TimeBaseInit(TIM2_PRESCALER_1, period);
+
     TIM2_ARRPreloadConfig(ENABLE);
     
     /* TIM2 enable counter */

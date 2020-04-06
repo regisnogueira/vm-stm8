@@ -12,7 +12,7 @@ enum {
     PWM_CH2
 };
 
-void init_pwm(void);
+void init_pwm(uint16_t period);
 void set_pwm(uint16_t val);
 
 #endif

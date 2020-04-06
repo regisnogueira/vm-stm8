@@ -6,14 +6,17 @@ extern void tmr_led(void);
 extern void tmr_buzzer(void);
 extern void tmr_display(void);
 extern void tmr_menu(void);
+extern void tmr_motor(void);
 extern void tmr_pressure_sensor(void);
 
 /* Private macro -------------------------------------------------------------*/
+#define TIMER_POOL 100
+
 /* Private variables ---------------------------------------------------------*/
 __IO uint32_t tmr_delay = 0;
 
-int tick;
-int timer_tick=1;
+uint8_t tick;
+uint8_t timer_tick = 1;
 
 void pool_tick(void)
 {
@@ -84,15 +87,18 @@ void TIM4_Config(void)
 void task_timer(void)
 {
     static uint8_t tpool;
-3
-5    if (tmr_delay)
+
+    if (tmr_delay)
         tmr_delay--;
+
     tmr_led();
     tmr_buzzer();
     tmr_display();
     tmr_menu();
     tmr_pressure_sensor();
-    if (++tpool >= 100) {
+    tmr_motor();
+
+    if (++tpool >= TIMER_POOL) {
         tpool = 0;
         timer_tick = 1;
     }
