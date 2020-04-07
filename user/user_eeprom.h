@@ -3,6 +3,9 @@
 
 #include "stm8s.h"
 
+#define _MSB(a) (a >> 8)
+#define _LSB(a) (a & 0xFF)
+
 typedef struct
 {
     uint16_t inspiration_time; /* 0-65535 ms */
@@ -15,5 +18,7 @@ typedef struct
 } EEPROM_DATA;
 
 void init_eeprom(void);
+void flash_config(void);
+void read_all(void);
 
 #endif
