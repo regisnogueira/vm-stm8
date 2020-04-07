@@ -5,27 +5,60 @@ EEPROM_DATA eeprom;
 void init_eeprom(void)
 {
     flash_config();
-
-    /* Read a byte at a specified address */
-    //add = 0x4000;
-    //FLASH_ProgramByte(add, val_comp);
-    //val = FLASH_ReadByte(add);
-
-    /* Program complement value (of previous read byte) at previous address + 1 */
-    //val_comp = (uint8_t)(~val);
-    //FLASH_ProgramByte((add + 1), val_comp);
-    read_all();
+    read_eeprom();
+    
+    if (eeprom.checksum != calc_checksum()) {
+        set_default();
+        save_eeprom();
+    }
 }
 
-void read_all(void)
+void set_default(void)
 {
-    uint8_t i;
+    eeprom.inspiratory_time = DEFAULT_INSPIRATORY_TIME;
+    eeprom.inspiratory_pause = DEFAULT_INSPIRATORY_PAUSE;
+    eeprom.expiratory_time = DEFAULT_EXPIRATORY_TIME;
+    eeprom.expiratory_pause = DEFAULT_EXPIRATORY_PAUSE;
+    eeprom.peak_pressure = DEFAULT_PEAK_PRESSURE;
+    eeprom.max_volume = DEFAULT_MAX_VOLUME;
+    eeprom.max_position = DEFAULT_MAX_POSITION;
+    eeprom.min_position = DEFAULT_MIN_POSITION;
+    eeprom.operation_mode = DEFAULT_OPERATION_MODE;
+}
+
+void read_eeprom(void)
+{
+    uint8_t i = 0;
     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
     uint8_t *p = (uint8_t *)&eeprom;
 
-    for (i=0; i < sizeof(eeprom); i++, p++) {
+    for (; i < sizeof(eeprom); i++, p++) {
         *p = FLASH_ReadByte(addr++);
     }
+}
+
+void save_eeprom(void)
+{
+    uint8_t i = 0;
+    uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
+    uint8_t *p = (uint8_t *)&eeprom;
+
+    eeprom.checksum = calc_checksum();
+    for (; i < sizeof(eeprom); i++, p++) {
+        FLASH_ProgramByte((addr + i), *p);
+    }
+}
+
+uint8_t calc_checksum(void)
+{
+    uint8_t i = 0;
+    uint8_t *p = (uint8_t *)&eeprom;
+    uint8_t checksum = 0;
+
+    for (; i < sizeof(eeprom); i++, p++) {
+        checksum ^= *p;
+    }
+    return checksum;
 }
 
 void flash_config(void)

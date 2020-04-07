@@ -12,10 +12,10 @@
   60  0007 cd0000        	call	_GPIO_Init
   62  000a 85            	popw	x
   63                     ; 17     motor.max_pos = eeprom.max_position;
-  66  000b be08          	ldw	x,_eeprom+8
+  66  000b be0c          	ldw	x,_eeprom+12
   67  000d bf02          	ldw	_motor+2,x
   68                     ; 18     motor.max_pos = eeprom.min_position;
-  70  000f be0a          	ldw	x,_eeprom+10
+  70  000f be0e          	ldw	x,_eeprom+14
   71  0011 bf02          	ldw	_motor+2,x
   72                     ; 19     motor.speed = 0;
   74  0013 5f            	clrw	x
