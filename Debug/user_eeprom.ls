@@ -59,19 +59,19 @@
  208  003b               _read_eeprom:
  210  003b 5207          	subw	sp,#7
  211       00000007      OFST:	set	7
- 214                     ; 31     uint8_t i = 0;
+ 214                     ; 32     uint8_t i = 0;
  216  003d 0f05          	clr	(OFST-2,sp)
- 218                     ; 32     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
+ 218                     ; 33     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
  220  003f ae4000        	ldw	x,#16384
  221  0042 1f03          	ldw	(OFST-4,sp),x
  222  0044 ae0000        	ldw	x,#0
  223  0047 1f01          	ldw	(OFST-6,sp),x
- 225                     ; 33     uint8_t *p = (uint8_t *)&eeprom;
+ 225                     ; 34     uint8_t *p = (uint8_t *)&eeprom;
  227  0049 ae0000        	ldw	x,#_eeprom
  228  004c 1f06          	ldw	(OFST-1,sp),x
  231  004e 2027          	jra	L56
  232  0050               L16:
- 233                     ; 36         *p = FLASH_ReadByte(addr++);
+ 233                     ; 37         *p = FLASH_ReadByte(addr++);
  235  0050 96            	ldw	x,sp
  236  0051 1c0001        	addw	x,#OFST-6
  237  0054 cd0000        	call	c_ltor
@@ -87,7 +87,7 @@
  251  0069 5b04          	addw	sp,#4
  252  006b 1e06          	ldw	x,(OFST-1,sp)
  253  006d f7            	ld	(x),a
- 254                     ; 35     for (; i < sizeof(eeprom); i++, p++) {
+ 254                     ; 36     for (; i < sizeof(eeprom); i++, p++) {
  256  006e 0c05          	inc	(OFST-2,sp)
  258  0070 1e06          	ldw	x,(OFST-1,sp)
  259  0072 1c0001        	addw	x,#1
@@ -96,31 +96,31 @@
  265  0077 7b05          	ld	a,(OFST-2,sp)
  266  0079 a113          	cp	a,#19
  267  007b 25d3          	jrult	L16
- 268                     ; 38 }
+ 268                     ; 40 }
  271  007d 5b07          	addw	sp,#7
  272  007f 81            	ret
- 328                     ; 40 void save_eeprom(void)
- 328                     ; 41 {
+ 328                     ; 42 void save_eeprom(void)
+ 328                     ; 43 {
  329                     	switch	.text
  330  0080               _save_eeprom:
  332  0080 5207          	subw	sp,#7
  333       00000007      OFST:	set	7
- 336                     ; 42     uint8_t i = 0;
+ 336                     ; 45     uint8_t i = 0;
  338  0082 0f07          	clr	(OFST+0,sp)
- 340                     ; 43     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
+ 340                     ; 46     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
  342  0084 ae4000        	ldw	x,#16384
  343  0087 1f03          	ldw	(OFST-4,sp),x
  344  0089 ae0000        	ldw	x,#0
  345  008c 1f01          	ldw	(OFST-6,sp),x
- 347                     ; 44     uint8_t *p = (uint8_t *)&eeprom;
+ 347                     ; 47     uint8_t *p = (uint8_t *)&eeprom;
  349  008e ae0000        	ldw	x,#_eeprom
  350  0091 1f05          	ldw	(OFST-2,sp),x
- 352                     ; 46     eeprom.checksum = calc_checksum();
+ 352                     ; 49     eeprom.checksum = calc_checksum();
  354  0093 ad31          	call	_calc_checksum
  356  0095 b712          	ld	_eeprom+18,a
  358  0097 2024          	jra	L321
  359  0099               L711:
- 360                     ; 48         FLASH_ProgramByte((addr + i), *p);
+ 360                     ; 51         FLASH_ProgramByte((addr + i), *p);
  362  0099 1e05          	ldw	x,(OFST-2,sp)
  363  009b f6            	ld	a,(x)
  364  009c 88            	push	a
@@ -135,7 +135,7 @@
  375  00ae 89            	pushw	x
  376  00af cd0000        	call	_FLASH_ProgramByte
  378  00b2 5b05          	addw	sp,#5
- 379                     ; 47     for (; i < sizeof(eeprom); i++, p++) {
+ 379                     ; 50     for (; i < sizeof(eeprom); i++, p++) {
  381  00b4 0c07          	inc	(OFST+0,sp)
  383  00b6 1e05          	ldw	x,(OFST-2,sp)
  384  00b8 1c0001        	addw	x,#1
@@ -144,30 +144,30 @@
  390  00bd 7b07          	ld	a,(OFST+0,sp)
  391  00bf a113          	cp	a,#19
  392  00c1 25d6          	jrult	L711
- 393                     ; 50 }
+ 393                     ; 54 }
  396  00c3 5b07          	addw	sp,#7
  397  00c5 81            	ret
- 451                     ; 52 uint8_t calc_checksum(void)
- 451                     ; 53 {
+ 451                     ; 56 uint8_t calc_checksum(void)
+ 451                     ; 57 {
  452                     	switch	.text
  453  00c6               _calc_checksum:
  455  00c6 5204          	subw	sp,#4
  456       00000004      OFST:	set	4
- 459                     ; 54     uint8_t i = 0;
+ 459                     ; 58     uint8_t i = 0;
  461  00c8 0f02          	clr	(OFST-2,sp)
- 463                     ; 55     uint8_t *p = (uint8_t *)&eeprom;
+ 463                     ; 59     uint8_t *p = (uint8_t *)&eeprom;
  465  00ca ae0000        	ldw	x,#_eeprom
  466  00cd 1f03          	ldw	(OFST-1,sp),x
- 468                     ; 56     uint8_t checksum = 0;
+ 468                     ; 60     uint8_t checksum = 0;
  470  00cf 0f01          	clr	(OFST-3,sp)
  473  00d1 2010          	jra	L161
  474  00d3               L551:
- 475                     ; 59         checksum ^= *p;
+ 475                     ; 63         checksum ^= *p;
  477  00d3 1e03          	ldw	x,(OFST-1,sp)
  478  00d5 7b01          	ld	a,(OFST-3,sp)
  479  00d7 f8            	xor	a,(x)
  480  00d8 6b01          	ld	(OFST-3,sp),a
- 482                     ; 58     for (; i < sizeof(eeprom); i++, p++) {
+ 482                     ; 62     for (; i < sizeof(eeprom); i++, p++) {
  484  00da 0c02          	inc	(OFST-2,sp)
  486  00dc 1e03          	ldw	x,(OFST-1,sp)
  487  00de 1c0001        	addw	x,#1
@@ -176,27 +176,27 @@
  493  00e3 7b02          	ld	a,(OFST-2,sp)
  494  00e5 a113          	cp	a,#19
  495  00e7 25ea          	jrult	L551
- 496                     ; 61     return checksum;
+ 496                     ; 65     return checksum;
  498  00e9 7b01          	ld	a,(OFST-3,sp)
  501  00eb 5b04          	addw	sp,#4
  502  00ed 81            	ret
- 528                     ; 64 void flash_config(void)
- 528                     ; 65 {
+ 528                     ; 68 void flash_config(void)
+ 528                     ; 69 {
  529                     	switch	.text
  530  00ee               _flash_config:
- 534                     ; 66     FLASH_SetProgrammingTime(FLASH_PROGRAMTIME_STANDARD);
+ 534                     ; 70     FLASH_SetProgrammingTime(FLASH_PROGRAMTIME_STANDARD);
  536  00ee 4f            	clr	a
  537  00ef cd0000        	call	_FLASH_SetProgrammingTime
- 539                     ; 67     FLASH_Unlock(FLASH_MEMTYPE_DATA);
+ 539                     ; 71     FLASH_Unlock(FLASH_MEMTYPE_DATA);
  541  00f2 a6f7          	ld	a,#247
  542  00f4 cd0000        	call	_FLASH_Unlock
  545  00f7               L771:
- 546                     ; 69     while (FLASH_GetFlagStatus(FLASH_FLAG_DUL) == RESET);
+ 546                     ; 73     while (FLASH_GetFlagStatus(FLASH_FLAG_DUL) == RESET);
  548  00f7 a608          	ld	a,#8
  549  00f9 cd0000        	call	_FLASH_GetFlagStatus
  551  00fc 4d            	tnz	a
  552  00fd 27f8          	jreq	L771
- 553                     ; 70 }
+ 553                     ; 74 }
  556  00ff 81            	ret
  658                     	switch	.ubsct
  659  0000               _eeprom:

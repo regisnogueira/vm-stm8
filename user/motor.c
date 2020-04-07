@@ -12,6 +12,7 @@ MOTOR motor;
 
 void init_motor(void)
 {
+#ifdef EN_MOTOR
     motor_relay_dir();
 
     motor.max_pos = eeprom.max_position;
@@ -20,30 +21,38 @@ void init_motor(void)
 
     init_pwm(PWM_PERIOD);
     set_pwm(motor.speed);
+#endif
 }
 
 void speed_up(uint8_t value)
 {
+#ifdef EN_MOTOR
     motor.speed += value;
     if (motor.speed > PWM_PERIOD)
         motor.speed = PWM_PERIOD;
+#endif
 }
 
 void speed_down(uint8_t value)
 {
+#ifdef EN_MOTOR
     if (motor.speed >= value)
         motor.speed -= value;
     else
         motor.speed = 0;
+#endif
 }
 
 void set_position(void) 
 {
+#ifdef EN_MOTOR
     motor.position = adc_val;
+#endif
 }
 
 void tmr_motor(void) 
 {
+#ifdef EN_MOTOR
     /* damos um delay antes de inverter a rotacao do motor */
     if (motor.flags & INVERT_ROTATION) {
         motor.timer--;
@@ -52,10 +61,12 @@ void tmr_motor(void)
             motor.flags &= ~INVERT_ROTATION;
         }
     }
+#endif
 }
 
 void task_motor(void)
 {
+#ifdef EN_MOTOR
     motor.position = adc_val;
 
     /* checamos os limites de posicao do motor para inverter a rotacao 
@@ -73,4 +84,5 @@ void task_motor(void)
         return;
 
     set_pwm(motor.speed);
+#endif
 }

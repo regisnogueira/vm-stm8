@@ -28,6 +28,7 @@ void set_default(void)
 
 void read_eeprom(void)
 {
+#ifdef EN_USER_EEPROM
     uint8_t i = 0;
     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
     uint8_t *p = (uint8_t *)&eeprom;
@@ -35,10 +36,12 @@ void read_eeprom(void)
     for (; i < sizeof(eeprom); i++, p++) {
         *p = FLASH_ReadByte(addr++);
     }
+#endif
 }
 
 void save_eeprom(void)
 {
+#ifdef EN_USER_EEPROM
     uint8_t i = 0;
     uint32_t addr = FLASH_DATA_START_PHYSICAL_ADDRESS;
     uint8_t *p = (uint8_t *)&eeprom;
@@ -47,6 +50,7 @@ void save_eeprom(void)
     for (; i < sizeof(eeprom); i++, p++) {
         FLASH_ProgramByte((addr + i), *p);
     }
+#endif
 }
 
 uint8_t calc_checksum(void)

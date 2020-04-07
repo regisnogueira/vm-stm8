@@ -7,6 +7,7 @@
 #include "user_display.h"
 #include "user_eeprom.h"
 #include "motor.h"
+#include "menu.h"
 
 void main(void)
 {
@@ -22,5 +23,6 @@ void main(void)
         pool_tick();
         task_display();
         task_motor();
+        task_menu();
     }
 }

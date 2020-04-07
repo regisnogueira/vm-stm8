@@ -19,6 +19,7 @@ typedef struct
 
 void init_menu(void);
 void tmr_menu(void);
+void task_menu(void);
 uint16_t get_register(uint8_t position);
 int8_t set_register(uint8_t position);
 

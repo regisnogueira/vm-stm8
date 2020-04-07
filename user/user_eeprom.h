@@ -3,6 +3,8 @@
 
 #include "stm8s.h"
 
+#define EN_USER_EEPROM
+
 #define _MSB(a) (a >> 8)
 #define _LSB(a) (a & 0xFF)
 

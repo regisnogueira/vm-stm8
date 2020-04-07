@@ -713,17 +713,26 @@ DB8RL	libraries\inc\stm8s.h	317;"	member	struct:ADC1_struct
 DB9RH	libraries\inc\stm8s.h	318;"	member	struct:ADC1_struct
 DB9RL	libraries\inc\stm8s.h	319;"	member	struct:ADC1_struct
 DDR	libraries\inc\stm8s.h	269;"	member	struct:GPIO_struct
+DEFAULT_EXPIRATORY_PAUSE	user\user_eeprom.h	14;"	macro
+DEFAULT_EXPIRATORY_TIME	user\user_eeprom.h	13;"	macro
+DEFAULT_INSPIRATORY_PAUSE	user\user_eeprom.h	12;"	macro
+DEFAULT_INSPIRATORY_TIME	user\user_eeprom.h	11;"	macro
+DEFAULT_MAX_POSITION	user\user_eeprom.h	17;"	macro
+DEFAULT_MAX_VOLUME	user\user_eeprom.h	16;"	macro
+DEFAULT_MIN_POSITION	user\user_eeprom.h	18;"	macro
+DEFAULT_OPERATION_MODE	user\user_eeprom.h	19;"	macro
+DEFAULT_PEAK_PRESSURE	user\user_eeprom.h	15;"	macro
 DELAY_DISPLAY_TEST	user\user_display.c	4;"	macro	file:
 DGR	libraries\inc\stm8s.h	2182;"	member	struct:__anon14
 DIG1_PIN_NUM	user\user_display.h	32;"	macro
 DIG1_PORT_NUM	user\user_display.h	31;"	macro
-DIG1_POS	user\user_display.h	195;"	enumerator	enum:__anon7
+DIG1_POS	user\user_display.h	275;"	enumerator	enum:__anon7
 DIG2_PIN_NUM	user\user_display.h	35;"	macro
 DIG2_PORT_NUM	user\user_display.h	34;"	macro
-DIG2_POS	user\user_display.h	196;"	enumerator	enum:__anon7
+DIG2_POS	user\user_display.h	276;"	enumerator	enum:__anon7
 DIG3_PIN_NUM	user\user_display.h	38;"	macro
 DIG3_PORT_NUM	user\user_display.h	37;"	macro
-DIG3_POS	user\user_display.h	197;"	enumerator	enum:__anon7
+DIG3_POS	user\user_display.h	277;"	enumerator	enum:__anon7
 DISABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon12
 DM	libraries\inc\stm8s.h	2704;"	macro
 DM_BaseAddress	libraries\inc\stm8s.h	2591;"	macro
@@ -745,7 +754,7 @@ ECKR	libraries\inc\stm8s.h	511;"	member	struct:CLK_struct
 EEPROM	libraries\inc\stm8s.h	125;"	macro
 EEPROM	libraries\inc\stm8s.h	131;"	macro
 EEPROM	libraries\inc\stm8s.h	145;"	macro
-EEPROM_DATA	user\user_eeprom.h	18;"	typedef	typeref:struct:__anon8
+EEPROM_DATA	user\user_eeprom.h	33;"	typedef	typeref:struct:__anon8
 EEPROM_EEC_IRQHandler	stm8s_it.h	116;"	prototype	signature:(void)
 EGR	libraries\inc\stm8s.h	1067;"	member	struct:TIM4_struct
 EGR	libraries\inc\stm8s.h	1129;"	member	struct:TIM5_struct
@@ -757,6 +766,8 @@ EIER	libraries\inc\stm8s.h	2294;"	member	struct:__anon14::__anon15::__anon21
 ENABLE	libraries\inc\stm8s.h	235;"	enumerator	enum:__anon12
 EN_DISPLAY_TEST	user\user_display.c	5;"	macro	file:
 EN_USER_ADC	user\user_adc.h	6;"	macro
+EN_USER_DISPLAY	user\user_display.h	5;"	macro
+EN_USER_EEPROM	user\user_eeprom.h	6;"	macro
 EN_USER_PWM	user\user_pwm.h	6;"	macro
 ERROR	libraries\inc\stm8s.h	238;"	enumerator	enum:__anon13
 ESR	libraries\inc\stm8s.h	2293;"	member	struct:__anon14::__anon15::__anon21
@@ -1137,8 +1148,8 @@ INTERRUPT_HANDLER_TRAP	libraries\inc\stm8s.h	2749;"	macro
 INTERRUPT_HANDLER_TRAP	libraries\inc\stm8s.h	2754;"	macro
 INTERRUPT_HANDLER_TRAP	libraries\inc\stm8s.h	2763;"	macro
 INTERRUPT_HANDLER_TRAP	stm8s_it.c	58;"	function
-INVERT_MOTOR_TIME	user\motor.h	26;"	macro
-INVERT_ROTATION	user\motor.h	31;"	macro
+INVERT_MOTOR_TIME	user\motor.h	28;"	macro
+INVERT_ROTATION	user\motor.h	33;"	macro
 IN_RAM	libraries\inc\stm8s.h	171;"	macro
 IN_RAM	libraries\inc\stm8s.h	173;"	macro
 IN_RAM	libraries\inc\stm8s.h	175;"	macro
@@ -1272,11 +1283,11 @@ LEN_ADC_CHANNEL	user\user_adc.h	8;"	macro
 LSI_VALUE	libraries\inc\stm8s.h	119;"	macro
 LTRH	libraries\inc\stm8s.h	331;"	member	struct:ADC1_struct
 LTRL	libraries\inc\stm8s.h	332;"	member	struct:ADC1_struct
-MAX_DIG_POS	user\user_display.h	190;"	macro
-MAX_DISPLAY_OPTION	user\user_display.h	191;"	macro
-MAX_DISPLAY_VALUE	user\user_display.h	192;"	macro
+MAX_DIG_POS	user\user_display.h	270;"	macro
+MAX_DISPLAY_OPTION	user\user_display.h	271;"	macro
+MAX_DISPLAY_VALUE	user\user_display.h	272;"	macro
 MAX_OPTION	user\menu.h	6;"	macro
-MAX_POSITION	user\motor.h	28;"	macro
+MAX_POSITION	user\motor.h	30;"	macro
 MAX_PWM	user\user_pwm.h	8;"	macro
 MCR	libraries\inc\stm8s.h	2176;"	member	struct:__anon14
 MCSR	libraries\inc\stm8s.h	2189;"	member	struct:__anon14::__anon15::__anon16
@@ -1310,10 +1321,10 @@ MIDR3	libraries\inc\stm8s.h	2193;"	member	struct:__anon14::__anon15::__anon16
 MIDR3	libraries\inc\stm8s.h	2314;"	member	struct:__anon14::__anon15::__anon22
 MIDR4	libraries\inc\stm8s.h	2194;"	member	struct:__anon14::__anon15::__anon16
 MIDR4	libraries\inc\stm8s.h	2315;"	member	struct:__anon14::__anon15::__anon22
-MIN_POSITION	user\motor.h	29;"	macro
-MOTOR	user\motor.h	42;"	typedef	typeref:struct:__anon6
-MOTOR_RELAY_PIN_NUM	user\motor.h	8;"	macro
-MOTOR_RELAY_PORT_NUM	user\motor.h	7;"	macro
+MIN_POSITION	user\motor.h	31;"	macro
+MOTOR	user\motor.h	44;"	typedef	typeref:struct:__anon6
+MOTOR_RELAY_PIN_NUM	user\motor.h	10;"	macro
+MOTOR_RELAY_PORT_NUM	user\motor.h	9;"	macro
 MSR	libraries\inc\stm8s.h	2177;"	member	struct:__anon14
 MTSRH	libraries\inc\stm8s.h	2204;"	member	struct:__anon14::__anon15::__anon16
 MTSRH	libraries\inc\stm8s.h	2325;"	member	struct:__anon14::__anon15::__anon22
@@ -1374,7 +1385,7 @@ PUTCHAR_PROTOTYPE	user\user_uart.h	15;"	macro
 PUTCHAR_PROTOTYPE	user\user_uart.h	9;"	macro
 PWM_CH1	user\user_pwm.h	11;"	enumerator	enum:__anon9
 PWM_CH2	user\user_pwm.h	12;"	enumerator	enum:__anon9
-PWM_PERIOD	user\motor.h	25;"	macro
+PWM_PERIOD	user\motor.h	27;"	macro
 Page	libraries\inc\stm8s.h	2327;"	member	struct:__anon14	typeref:union:__anon14::__anon15
 PointerAttr	libraries\inc\stm8s.h	156;"	macro
 PointerAttr	libraries\inc\stm8s.h	160;"	macro
@@ -2534,8 +2545,8 @@ _COSMIC_	libraries\inc\stm8s.h	83;"	macro
 _IAR_	libraries\inc\stm8s.h	87;"	macro
 _LED_STATE	..\corona\user\user_led.h	33;"	struct
 _LED_STATE	user\user_led.h	30;"	struct
-_LSB	user\user_eeprom.h	7;"	macro
-_MSB	user\user_eeprom.h	6;"	macro
+_LSB	user\user_eeprom.h	9;"	macro
+_MSB	user\user_eeprom.h	8;"	macro
 _RAISONANCE_	libraries\inc\stm8s.h	85;"	macro
 __APPLICATION_H__	user\application.h	2;"	macro
 __I	libraries\inc\stm8s.h	206;"	macro
@@ -2587,73 +2598,87 @@ buz_off	user\user_buzzer.h	18;"	macro
 buz_on	..\corona\user\user_buzzer.h	16;"	macro
 buz_on	user\user_buzzer.h	17;"	macro
 buzzer	user\user_buzzer.c	5;"	variable
-dec2bcd	user\user_display.c	19;"	function	signature:(uint8_t val)
+calc_checksum	user\user_eeprom.c	56;"	function	signature:(void)
+calc_checksum	user\user_eeprom.h	40;"	prototype	signature:(void)
+checksum	user\user_eeprom.h	32;"	member	struct:__anon8
+dec2bcd	user\user_display.c	20;"	function	signature:(uint8_t val)
 delay	..\corona\user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 delay	user\user_timer.c	50;"	function	signature:(__IO uint32_t nTime)
 delay	user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
-dig1_dir	user\user_display.h	178;"	macro
-dig1_off	user\user_display.h	180;"	macro
-dig1_on	user\user_display.h	179;"	macro
-dig2_dir	user\user_display.h	182;"	macro
-dig2_off	user\user_display.h	184;"	macro
-dig2_on	user\user_display.h	183;"	macro
-dig3_dir	user\user_display.h	186;"	macro
-dig3_off	user\user_display.h	188;"	macro
-dig3_on	user\user_display.h	187;"	macro
+dig1_dir	user\user_display.h	258;"	macro
+dig1_off	user\user_display.h	260;"	macro
+dig1_on	user\user_display.h	259;"	macro
+dig2_dir	user\user_display.h	262;"	macro
+dig2_off	user\user_display.h	264;"	macro
+dig2_on	user\user_display.h	263;"	macro
+dig3_dir	user\user_display.h	266;"	macro
+dig3_off	user\user_display.h	268;"	macro
+dig3_on	user\user_display.h	267;"	macro
 disableInterrupts	libraries\inc\stm8s.h	2717;"	macro
 disableInterrupts	libraries\inc\stm8s.h	2726;"	macro
 disableInterrupts	libraries\inc\stm8s.h	2736;"	macro
+display_a	user\user_display.h	178;"	macro
 display_all	user\user_display.h	89;"	macro
+display_b	user\user_display.h	186;"	macro
+display_c	user\user_display.h	194;"	macro
+display_d	user\user_display.h	202;"	macro
+display_e	user\user_display.h	210;"	macro
 display_eight	user\user_display.h	162;"	macro
+display_f	user\user_display.h	218;"	macro
 display_five	user\user_display.h	138;"	macro
 display_four	user\user_display.h	130;"	macro
+display_h	user\user_display.h	226;"	macro
+display_l	user\user_display.h	234;"	macro
 display_nine	user\user_display.h	170;"	macro
-display_num	user\user_display.c	17;"	variable
+display_num	user\user_display.c	18;"	variable
 display_off	user\user_display.h	80;"	macro
 display_one	user\user_display.h	106;"	macro
+display_p	user\user_display.h	242;"	macro
 display_seven	user\user_display.h	154;"	macro
 display_six	user\user_display.h	146;"	macro
 display_test	user\user_display.c	14;"	variable
 display_three	user\user_display.h	122;"	macro
 display_two	user\user_display.h	114;"	macro
+display_u	user\user_display.h	250;"	macro
 display_zero	user\user_display.h	98;"	macro
 dp_dir	user\user_display.h	76;"	macro
 dp_off	user\user_display.h	78;"	macro
 dp_on	user\user_display.h	77;"	macro
-eeprom	user\user_eeprom.c	5;"	variable
+eeprom	user\user_eeprom.c	3;"	variable
 enableInterrupts	libraries\inc\stm8s.h	2716;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2725;"	macro
 enableInterrupts	libraries\inc\stm8s.h	2735;"	macro
-expiration_time	user\user_eeprom.h	12;"	member	struct:__anon8
+expiratory_pause	user\user_eeprom.h	26;"	member	struct:__anon8
+expiratory_time	user\user_eeprom.h	25;"	member	struct:__anon8
 flag	user\menu.h	16;"	member	struct:__anon5
-flags	user\motor.h	41;"	member	struct:__anon6
-flash_config	user\user_eeprom.c	38;"	function	signature:(void)
-flash_config	user\user_eeprom.h	21;"	prototype	signature:(void)
-get_register	user\menu.h	22;"	prototype	signature:(uint8_t position)
+flags	user\motor.h	43;"	member	struct:__anon6
+flash_config	user\user_eeprom.c	68;"	function	signature:(void)
+flash_config	user\user_eeprom.h	37;"	prototype	signature:(void)
+get_register	user\menu.h	23;"	prototype	signature:(uint8_t position)
 gpio_clr	..\corona\user\user_buzzer.h	12;"	macro
 gpio_clr	..\corona\user\user_led.h	12;"	macro
-gpio_clr	user\motor.h	11;"	macro
-gpio_clr	user\motor.h	14;"	macro
+gpio_clr	user\motor.h	13;"	macro
+gpio_clr	user\motor.h	16;"	macro
 gpio_clr	user\user_buzzer.h	12;"	macro
 gpio_clr	user\user_display.h	41;"	macro
 gpio_clr	user\user_display.h	45;"	macro
 gpio_clr	user\user_led.h	11;"	macro
 gpio_dir_out	..\corona\user\user_buzzer.h	13;"	macro
 gpio_dir_out	..\corona\user\user_led.h	13;"	macro
-gpio_dir_out	user\motor.h	17;"	macro
+gpio_dir_out	user\motor.h	19;"	macro
 gpio_dir_out	user\user_buzzer.h	13;"	macro
 gpio_dir_out	user\user_display.h	42;"	macro
 gpio_dir_out	user\user_display.h	46;"	macro
 gpio_dir_out	user\user_led.h	12;"	macro
 gpio_set	..\corona\user\user_buzzer.h	11;"	macro
 gpio_set	..\corona\user\user_led.h	11;"	macro
-gpio_set	user\motor.h	10;"	macro
-gpio_set	user\motor.h	13;"	macro
+gpio_set	user\motor.h	12;"	macro
+gpio_set	user\motor.h	15;"	macro
 gpio_set	user\user_buzzer.h	11;"	macro
 gpio_set	user\user_display.h	40;"	macro
 gpio_set	user\user_display.h	44;"	macro
 gpio_set	user\user_led.h	10;"	macro
-gpio_toggle	user\motor.h	15;"	macro
+gpio_toggle	user\motor.h	17;"	macro
 halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
@@ -2663,17 +2688,17 @@ init_application	user\application.c	3;"	function	signature:(void)
 init_buzzer	..\corona\user\user_buzzer.h	26;"	prototype	signature:(void)
 init_buzzer	user\user_buzzer.c	7;"	function	signature:(void)
 init_buzzer	user\user_buzzer.h	27;"	prototype	signature:(void)
-init_display	user\user_display.c	154;"	function	signature:(void)
-init_display	user\user_display.h	200;"	prototype	signature:(void)
-init_eeprom	user\user_eeprom.c	7;"	function	signature:(void)
-init_eeprom	user\user_eeprom.h	20;"	prototype	signature:(void)
+init_display	user\user_display.c	185;"	function	signature:(void)
+init_display	user\user_display.h	280;"	prototype	signature:(void)
+init_eeprom	user\user_eeprom.c	5;"	function	signature:(void)
+init_eeprom	user\user_eeprom.h	35;"	prototype	signature:(void)
 init_led	..\corona\user\user_led.h	39;"	prototype	signature:(void)
 init_led	user\user_led.c	9;"	function	signature:(void)
 init_led	user\user_led.h	36;"	prototype	signature:(void)
-init_menu	user\menu.c	3;"	function	signature:(void)
+init_menu	user\menu.c	10;"	function	signature:(void)
 init_menu	user\menu.h	20;"	prototype	signature:(void)
 init_motor	user\motor.c	13;"	function	signature:(void)
-init_motor	user\motor.h	44;"	prototype	signature:(void)
+init_motor	user\motor.h	46;"	prototype	signature:(void)
 init_pressure_sensor	user\pressure_sensor.c	3;"	function	signature:(void)
 init_pressure_sensor	user\pressure_sensor.h	16;"	prototype	signature:(void)
 init_pwm	user\user_pwm.c	3;"	function	signature:(uint16_t period)
@@ -2683,7 +2708,8 @@ init_timer	user\user_timer.c	27;"	function	signature:(void)
 init_timer	user\user_timer.h	6;"	prototype	signature:(void)
 init_uart	user\user_uart.c	3;"	function	signature:(void)
 init_uart	user\user_uart.h	19;"	prototype	signature:(void)
-inspiration_time	user\user_eeprom.h	11;"	member	struct:__anon8
+inspiratory_pause	user\user_eeprom.h	24;"	member	struct:__anon8
+inspiratory_time	user\user_eeprom.h	23;"	member	struct:__anon8
 int16_t	libraries\inc\stm8s.h	212;"	typedef
 int32_t	libraries\inc\stm8s.h	213;"	typedef
 int8_t	libraries\inc\stm8s.h	211;"	typedef
@@ -2698,48 +2724,53 @@ led1_off	..\corona\user\user_led.h	17;"	macro
 led1_off	user\user_led.h	16;"	macro
 led1_on	..\corona\user\user_led.h	16;"	macro
 led1_on	user\user_led.h	15;"	macro
-main	main.c	11;"	function	signature:(void)
+main	main.c	12;"	function	signature:(void)
 max	user\menu.h	15;"	member	struct:__anon5
 max	user\pressure_sensor.h	11;"	member	struct:__anon1
-max_pos	user\motor.h	36;"	member	struct:__anon6
-max_position	user\user_eeprom.h	15;"	member	struct:__anon8
-max_volume	user\user_eeprom.h	14;"	member	struct:__anon8
+max_pos	user\motor.h	38;"	member	struct:__anon6
+max_position	user\user_eeprom.h	29;"	member	struct:__anon8
+max_volume	user\user_eeprom.h	28;"	member	struct:__anon8
+menu_options	user\menu.c	6;"	variable
+menu_timer	user\menu.c	8;"	variable
 min	user\pressure_sensor.h	12;"	member	struct:__anon1
-min_pos	user\motor.h	37;"	member	struct:__anon6
-min_position	user\user_eeprom.h	16;"	member	struct:__anon8
+min_pos	user\motor.h	39;"	member	struct:__anon6
+min_position	user\user_eeprom.h	30;"	member	struct:__anon8
 motor	user\motor.c	11;"	variable
-motor_invert	user\motor.h	23;"	macro
-motor_relay_dir	user\motor.h	20;"	macro
-motor_relay_off	user\motor.h	22;"	macro
-motor_relay_on	user\motor.h	21;"	macro
+motor_invert	user\motor.h	25;"	macro
+motor_relay_dir	user\motor.h	22;"	macro
+motor_relay_off	user\motor.h	24;"	macro
+motor_relay_on	user\motor.h	23;"	macro
 nbeep	..\corona\user\user_buzzer.h	21;"	member	struct:_BUZZER
 nbeep	user\user_buzzer.h	22;"	member	struct:_BUZZER
 nop	libraries\inc\stm8s.h	2720;"	macro
 nop	libraries\inc\stm8s.h	2729;"	macro
 nop	libraries\inc\stm8s.h	2739;"	macro
+num_option	user\menu.c	7;"	variable
 operation_mode	user\application.h	24;"	member	struct:__anon4
-operation_mode	user\user_eeprom.h	17;"	member	struct:__anon8
+operation_mode	user\user_eeprom.h	31;"	member	struct:__anon8
 peak	user\pressure_sensor.h	13;"	member	struct:__anon1
-peak_pressure	user\user_eeprom.h	13;"	member	struct:__anon8
+peak_pressure	user\user_eeprom.h	27;"	member	struct:__anon8
 pool_tick	..\corona\user\user_timer.h	7;"	prototype	signature:(void)
 pool_tick	user\user_timer.c	21;"	function	signature:(void)
 pool_tick	user\user_timer.h	7;"	prototype	signature:(void)
 pos	user\menu.h	14;"	member	struct:__anon5
-position	user\motor.h	35;"	member	struct:__anon6
+position	user\motor.h	37;"	member	struct:__anon6
 raw	user\pressure_sensor.h	10;"	member	struct:__anon1
 read_adc	stm8s_it.c	32;"	prototype	file:	signature:(void)
 read_adc	user\user_adc.c	29;"	function	signature:(void)
 read_adc	user\user_adc.h	11;"	prototype	signature:(void)
-read_all	user\user_eeprom.c	25;"	function	signature:(void)
-read_all	user\user_eeprom.h	22;"	prototype	signature:(void)
+read_eeprom	user\user_eeprom.c	29;"	function	signature:(void)
+read_eeprom	user\user_eeprom.h	38;"	prototype	signature:(void)
 reg	user\menu.h	17;"	member	struct:__anon5
 rim	libraries\inc\stm8s.h	2718;"	macro
 rim	libraries\inc\stm8s.h	2727;"	macro
 rim	libraries\inc\stm8s.h	2737;"	macro
-rotate	user\motor.h	38;"	member	struct:__anon6
+rotate	user\motor.h	40;"	member	struct:__anon6
 s16	libraries\inc\stm8s.h	223;"	typedef
 s32	libraries\inc\stm8s.h	222;"	typedef
 s8	libraries\inc\stm8s.h	224;"	typedef
+save_eeprom	user\user_eeprom.c	42;"	function	signature:(void)
+save_eeprom	user\user_eeprom.h	39;"	prototype	signature:(void)
 seg_a_dir	user\user_display.h	48;"	macro
 seg_a_off	user\user_display.h	50;"	macro
 seg_a_on	user\user_display.h	49;"	macro
@@ -2767,58 +2798,62 @@ send_uart	user\user_uart.h	20;"	prototype	signature:(const uint8_t *p)
 set_buzzer	..\corona\user\user_buzzer.h	27;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.c	23;"	function	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
 set_buzzer	user\user_buzzer.h	28;"	prototype	signature:(uint8_t nbeep, uint16_t ton, uint16_t toff)
-set_display	user\user_display.c	24;"	function	signature:(uint8_t option, uint8_t value, uint8_t decimal)
-set_display	user\user_display.h	203;"	prototype	signature:(uint8_t option, uint8_t value, uint8_t decimal)
+set_default	user\user_eeprom.c	16;"	function	signature:(void)
+set_default	user\user_eeprom.h	36;"	prototype	signature:(void)
+set_display	user\user_display.c	25;"	function	signature:(uint8_t option, uint8_t value, uint8_t decimal)
+set_display	user\user_display.h	283;"	prototype	signature:(uint8_t option, uint8_t value, uint8_t decimal)
 set_led	..\corona\user\user_led.h	41;"	prototype	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.c	31;"	function	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.h	38;"	prototype	signature:(uint8_t ledx, uint16_t speed)
-set_position	user\motor.c	40;"	function	signature:(void)
-set_position	user\motor.h	46;"	prototype	signature:(void)
+set_position	user\motor.c	46;"	function	signature:(void)
+set_position	user\motor.h	48;"	prototype	signature:(void)
 set_pwm	user\user_adc.c	3;"	prototype	file:	signature:(uint16_t ccrx_val)
 set_pwm	user\user_pwm.c	16;"	function	signature:(uint16_t ccrx_val)
 set_pwm	user\user_pwm.h	16;"	prototype	signature:(uint16_t val)
-set_register	user\menu.h	23;"	prototype	signature:(uint8_t position)
+set_register	user\menu.h	24;"	prototype	signature:(uint8_t position)
 sim	libraries\inc\stm8s.h	2719;"	macro
 sim	libraries\inc\stm8s.h	2728;"	macro
 sim	libraries\inc\stm8s.h	2738;"	macro
 speed	..\corona\user\user_led.h	36;"	member	struct:_LED_STATE
-speed	user\motor.h	39;"	member	struct:__anon6
+speed	user\motor.h	41;"	member	struct:__anon6
 speed	user\user_led.h	33;"	member	struct:_LED_STATE
-speed_down	user\motor.c	32;"	function	signature:(uint8_t value)
-speed_down	user\motor.h	48;"	prototype	signature:(uint8_t value)
-speed_up	user\motor.c	25;"	function	signature:(uint8_t value)
-speed_up	user\motor.h	47;"	prototype	signature:(uint8_t value)
+speed_down	user\motor.c	36;"	function	signature:(uint8_t value)
+speed_down	user\motor.h	50;"	prototype	signature:(uint8_t value)
+speed_up	user\motor.c	27;"	function	signature:(uint8_t value)
+speed_up	user\motor.h	49;"	prototype	signature:(uint8_t value)
 status	user\application.h	23;"	member	struct:__anon4
 task_buzzer	..\corona\user\user_buzzer.h	28;"	prototype	signature:(void)
 task_buzzer	user\user_buzzer.h	29;"	prototype	signature:(void)
-task_display	user\user_display.c	80;"	function	signature:(void)
-task_display	user\user_display.h	201;"	prototype	signature:(void)
+task_display	user\user_display.c	111;"	function	signature:(void)
+task_display	user\user_display.h	281;"	prototype	signature:(void)
 task_led	..\corona\user\user_led.h	40;"	prototype	signature:(void)
-task_motor	user\motor.c	57;"	function	signature:(void)
-task_motor	user\motor.h	45;"	prototype	signature:(void)
+task_menu	user\menu.c	21;"	function	signature:(void)
+task_menu	user\menu.h	22;"	prototype	signature:(void)
+task_motor	user\motor.c	67;"	function	signature:(void)
+task_motor	user\motor.h	47;"	prototype	signature:(void)
 task_timer	stm8s_it.c	31;"	prototype	file:	signature:(void)
 task_timer	user\user_timer.c	86;"	function	signature:(void)
-test_display	user\user_display.c	124;"	function	signature:(void)
+test_display	user\user_display.c	155;"	function	signature:(void)
 test_pressure_sensor	user\pressure_sensor.c	8;"	function	signature:(void)
 test_pressure_sensor	user\pressure_sensor.h	17;"	prototype	signature:(void)
 tick	user\user_timer.c	18;"	variable
 time	..\corona\user\user_led.h	35;"	member	struct:_LED_STATE
 time	user\user_led.h	32;"	member	struct:_LED_STATE
-timer	user\motor.h	40;"	member	struct:__anon6
+timer	user\motor.h	42;"	member	struct:__anon6
 timer_tick	user\user_timer.c	19;"	variable
 tmr_buzzer	user\user_buzzer.c	33;"	function	signature:(void)
 tmr_buzzer	user\user_timer.c	6;"	prototype	file:	signature:(void)
 tmr_delay	user\user_timer.c	16;"	variable
-tmr_display	user\user_display.c	89;"	function	signature:(void)
-tmr_display	user\user_display.h	202;"	prototype	signature:(void)
+tmr_display	user\user_display.c	120;"	function	signature:(void)
+tmr_display	user\user_display.h	282;"	prototype	signature:(void)
 tmr_display	user\user_timer.c	7;"	prototype	file:	signature:(void)
 tmr_led	user\user_led.c	17;"	function	signature:(void)
 tmr_led	user\user_led.h	37;"	prototype	signature:(void)
 tmr_led	user\user_timer.c	5;"	prototype	file:	signature:(void)
-tmr_menu	user\menu.c	8;"	function	signature:(void)
+tmr_menu	user\menu.c	15;"	function	signature:(void)
 tmr_menu	user\menu.h	21;"	prototype	signature:(void)
 tmr_menu	user\user_timer.c	8;"	prototype	file:	signature:(void)
-tmr_motor	user\motor.c	45;"	function	signature:(void)
+tmr_motor	user\motor.c	53;"	function	signature:(void)
 tmr_motor	user\user_timer.c	9;"	prototype	file:	signature:(void)
 tmr_pressure_sensor	user\pressure_sensor.c	13;"	function	signature:(void)
 tmr_pressure_sensor	user\pressure_sensor.h	18;"	prototype	signature:(void)
@@ -2839,4 +2874,4 @@ uint8_t	libraries\inc\stm8s.h	216;"	typedef
 wfi	libraries\inc\stm8s.h	2722;"	macro
 wfi	libraries\inc\stm8s.h	2731;"	macro
 wfi	libraries\inc\stm8s.h	2741;"	macro
-wr_digit	user\user_display.c	42;"	function	signature:(uint8_t dig_pos)
+wr_digit	user\user_display.c	43;"	function	signature:(uint8_t dig_pos)

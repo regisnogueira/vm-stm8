@@ -2,7 +2,7 @@
 #define __USER_DISPLAY_H__
 #include "stm8s.h"
 
-//#define EN_USER_DISPLAY
+#define EN_USER_DISPLAY
 
 #define SEG_A_PORT_NUM GPIOD
 #define SEG_A_PIN_NUM  GPIO_PIN_5
@@ -174,7 +174,87 @@
                         seg_e_off(); \
                         seg_f_on(); \
                         seg_g_on()
+
+#define display_a()     seg_a_on(); \
+                        seg_b_on(); \
+                        seg_c_on(); \
+                        seg_d_off(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on()
                         
+#define display_b()     seg_a_off(); \
+                        seg_b_off(); \
+                        seg_c_on(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on()
+
+#define display_c()     seg_a_on(); \
+                        seg_b_off(); \
+                        seg_c_off(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_off()
+
+#define display_d()     seg_a_off(); \
+                        seg_b_on(); \
+                        seg_c_on(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_off(); \
+                        seg_g_on()
+
+#define display_e()     seg_a_on(); \
+                        seg_b_off(); \
+                        seg_c_off(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on()
+
+#define display_f()     seg_a_on(); \
+                        seg_b_off(); \
+                        seg_c_off(); \
+                        seg_d_off(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on()
+
+#define display_h()     seg_a_off(); \
+                        seg_b_on(); \
+                        seg_c_on(); \
+                        seg_d_off(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on()
+
+#define display_l()     seg_a_off(); \
+                        seg_b_off(); \
+                        seg_c_off(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_off()
+
+#define display_p()     seg_a_on(); \
+                        seg_b_on(); \
+                        seg_c_off(); \
+                        seg_d_off(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_on()
+
+#define display_u()     seg_a_off(); \
+                        seg_b_on(); \
+                        seg_c_on(); \
+                        seg_d_on(); \
+                        seg_e_on(); \
+                        seg_f_on(); \
+                        seg_g_off()
+
 #define dig1_dir()  gpio_dir_out(DIG1_PORT_NUM,DIG1_PIN_NUM)
 #define dig1_on()   gpio_clr    (DIG1_PORT_NUM,DIG1_PIN_NUM)
 #define dig1_off()  gpio_set    (DIG1_PORT_NUM,DIG1_PIN_NUM)

@@ -14,11 +14,12 @@ extern uint16_t adc_val;
 uint8_t display_test = 1;
 #endif
 
-uint8_t display_num[MAX_DIG_POS] = {0, 0, 0};
+/* A b C d E F H L P U */
+uint8_t display_num[MAX_DIG_POS] = {'A', 0, 0};
 
 uint8_t dec2bcd(uint8_t val)
 {
-  return (uint8_t)((val/10*16) + (val%10));
+    return (uint8_t)((val/10*16) + (val%10));
 }
 
 void set_display(uint8_t option, uint8_t value, uint8_t decimal)
@@ -28,8 +29,8 @@ void set_display(uint8_t option, uint8_t value, uint8_t decimal)
 
     bcd = (uint8_t)dec2bcd(value);
 
-    if (option > MAX_DISPLAY_OPTION)
-        option = MAX_DISPLAY_OPTION;
+    //if (option > MAX_DISPLAY_OPTION)
+    //    option = MAX_DISPLAY_OPTION;
     if (value > MAX_DISPLAY_VALUE)
         value = MAX_DISPLAY_VALUE;
 
@@ -73,6 +74,36 @@ void wr_digit(uint8_t dig_pos)
     case 0x09:
         display_nine();
         break;
+    case 'A':
+        display_a();
+        break;
+    case 'b':
+        display_b();
+        break;
+    case 'C':
+        display_c();
+        break;
+    case 'd':
+        display_d();
+        break;
+    case 'E':
+        display_e();
+        break;
+    case 'F':
+        display_f();
+        break;
+    case 'H':
+        display_h();
+        break;
+    case 'L':
+        display_l();
+        break;
+    case 'P':
+        display_p();
+        break;
+    case 'U':
+        display_u();
+        break;
     }
 #endif
 }
@@ -82,7 +113,7 @@ void task_display(void)
 #ifdef EN_USER_DISPLAY
     if (!tick)
         return;
-    set_display(0, (uint8_t)((float)adc_val*3/100), 0);
+    //set_display(0, (uint8_t)((float)adc_val*3/100), 0);
 #endif
 }
 
