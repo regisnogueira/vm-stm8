@@ -42,7 +42,6 @@ void CLK_Config(void)
     CLK_HSIPrescalerConfig(CLK_PRESCALER_HSIDIV1);
 }
 
-
 /**
   * @brief  Inserts a delay time.
   * @param  nTime: specifies the delay time length, in milliseconds.

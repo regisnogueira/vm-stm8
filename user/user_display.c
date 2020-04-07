@@ -23,6 +23,7 @@ uint8_t dec2bcd(uint8_t val)
 
 void set_display(uint8_t option, uint8_t value, uint8_t decimal)
 {
+#ifdef EN_USER_DISPLAY
     uint8_t bcd;
 
     bcd = (uint8_t)dec2bcd(value);
@@ -35,10 +36,12 @@ void set_display(uint8_t option, uint8_t value, uint8_t decimal)
     display_num[DIG1_POS] = option;
     display_num[DIG2_POS] = (uint8_t)(bcd >> 4);
     display_num[DIG3_POS] = (uint8_t)(bcd & 0x0F);
+#endif
 }
 
 void wr_digit(uint8_t dig_pos)
 {
+#ifdef EN_USER_DISPLAY
     switch (display_num[dig_pos]) {
     case 0x00:
         display_zero();
@@ -71,17 +74,21 @@ void wr_digit(uint8_t dig_pos)
         display_nine();
         break;
     }
+#endif
 }
 
 void task_display(void)
 {
+#ifdef EN_USER_DISPLAY
     if (!tick)
         return;
     set_display(0, (uint8_t)((float)adc_val*3/100), 0);
+#endif
 }
 
 void tmr_display(void)
 {
+#ifdef EN_USER_DISPLAY
     static uint8_t dig_pos = DIG1_POS;
 
 #ifdef EN_DISPLAY_TEST
@@ -110,6 +117,7 @@ void tmr_display(void)
 
     wr_digit(dig_pos);
     dig_pos++;
+#endif
 }
 
 #ifdef EN_DISPLAY_TEST

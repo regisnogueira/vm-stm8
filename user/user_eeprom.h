@@ -14,6 +14,6 @@ typedef struct
     uint16_t operation_mode;   /* see application.h */
 } EEPROM_DATA;
 
-void init_eeprom();
+void init_eeprom(void);
 
 #endif

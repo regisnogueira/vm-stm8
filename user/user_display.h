@@ -2,7 +2,7 @@
 #define __USER_DISPLAY_H__
 #include "stm8s.h"
 
-#define EN_USER_DISPLAY
+//#define EN_USER_DISPLAY
 
 #define SEG_A_PORT_NUM GPIOD
 #define SEG_A_PIN_NUM  GPIO_PIN_5

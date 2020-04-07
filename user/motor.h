@@ -22,8 +22,11 @@
 #define motor_relay_off() gpio_clr    (MOTOR_RELAY_PORT_NUM,MOTOR_RELAY_PIN_NUM)
 #define motor_invert()    gpio_toggle (MOTOR_RELAY_PORT_NUM,MOTOR_RELAY_PIN_NUM)
 
-#define PWM_PERIOD 60000
-#define INVERT_MOTOR_TIME 100
+#define PWM_PERIOD 60000 /* ? */
+#define INVERT_MOTOR_TIME 100 /* ms */
+
+#define MAX_POSITION 1010 /* adc */
+#define MIN_POSITION 10 /* adc */
 
 #define INVERT_ROTATION (uint16_t)(1 << 0)
 
