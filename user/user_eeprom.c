@@ -1,14 +1,9 @@
 #include "user_eeprom.h"
 
-/* Private typedef -----------------------------------------------------------*/
-
 EEPROM_DATA eeprom;
 
 void init_eeprom(void)
 {
-    uint32_t add = 0;
-    uint8_t val = 0x00, val_comp = 0xAA;
-
     flash_config();
 
     /* Read a byte at a specified address */
