@@ -16,6 +16,7 @@ uint8_t display_test = 1;
 
 /* A b C d E F H L P U */
 uint8_t display_num[MAX_DIG_POS] = {'A', 0, 0};
+uint8_t dp[MAX_DIG_POS];
 
 uint8_t dec2bcd(uint8_t val)
 {
@@ -40,9 +41,25 @@ void set_display(uint8_t option, uint8_t value, uint8_t decimal)
 #endif
 }
 
+void set_option_display(uint8_t option, uint8_t en_dp)
+{
+#ifdef EN_USER_DISPLAY
+    display_num[DIG1_POS] = option;
+    dp[DIG1_POS] = en_dp;
+#endif
+}
+
+
 void wr_digit(uint8_t dig_pos)
 {
 #ifdef EN_USER_DISPLAY
+
+    if (dp[dig_pos]) {
+        dp_on();
+    } else {
+        dp_off();
+    }
+        
     switch (display_num[dig_pos]) {
     case 0x00:
         display_zero();

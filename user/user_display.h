@@ -281,5 +281,6 @@ void init_display(void);
 void task_display(void);
 void tmr_display(void);
 void set_display(uint8_t option, uint8_t value, uint8_t decimal);
+void set_option_display(uint8_t option, uint8_t dp);
 
 #endif

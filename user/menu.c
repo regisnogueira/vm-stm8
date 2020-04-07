@@ -20,13 +20,15 @@ void tmr_menu(void)
 
 void task_menu(void)
 {
+    static uint8_t dp=0;
     if (!tick)
         return;
 
+    set_option_display(menu_options[num_option], dp);
+    dp = (uint8_t)!dp;
+
     if (menu_timer)
         return;
-
-    set_display(menu_options[num_option], 0, 0);
     
     num_option++;
     if (num_option > sizeof(menu_options)-1)

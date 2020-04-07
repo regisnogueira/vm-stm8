@@ -8,14 +8,14 @@
   19  0001 41            	dc.b	65
   20  0002 00            	dc.b	0
   21  0003 00            	dc.b	0
-  61                     ; 20 uint8_t dec2bcd(uint8_t val)
-  61                     ; 21 {
+  61                     ; 21 uint8_t dec2bcd(uint8_t val)
+  61                     ; 22 {
   63                     	switch	.text
   64  0000               _dec2bcd:
   66  0000 88            	push	a
   67  0001 88            	push	a
   68       00000001      OFST:	set	1
-  71                     ; 22     return (uint8_t)((val/10*16) + (val%10));
+  71                     ; 23     return (uint8_t)((val/10*16) + (val%10));
   73  0002 5f            	clrw	x
   74  0003 97            	ld	xl,a
   75  0004 a60a          	ld	a,#10
@@ -37,1635 +37,1674 @@
   92  0019 1b01          	add	a,(OFST+0,sp)
   95  001b 85            	popw	x
   96  001c 81            	ret
- 150                     ; 25 void set_display(uint8_t option, uint8_t value, uint8_t decimal)
- 150                     ; 26 {
+ 150                     ; 26 void set_display(uint8_t option, uint8_t value, uint8_t decimal)
+ 150                     ; 27 {
  151                     	switch	.text
  152  001d               _set_display:
  154  001d 89            	pushw	x
  155  001e 88            	push	a
  156       00000001      OFST:	set	1
- 159                     ; 30     bcd = (uint8_t)dec2bcd(value);
+ 159                     ; 31     bcd = (uint8_t)dec2bcd(value);
  161  001f 9f            	ld	a,xl
  162  0020 adde          	call	_dec2bcd
  164  0022 6b01          	ld	(OFST+0,sp),a
- 166                     ; 34     if (value > MAX_DISPLAY_VALUE)
+ 166                     ; 35     if (value > MAX_DISPLAY_VALUE)
  168  0024 7b03          	ld	a,(OFST+2,sp)
  169  0026 a164          	cp	a,#100
  170  0028 2504          	jrult	L55
- 171                     ; 35         value = MAX_DISPLAY_VALUE;
+ 171                     ; 36         value = MAX_DISPLAY_VALUE;
  173  002a a663          	ld	a,#99
  174  002c 6b03          	ld	(OFST+2,sp),a
  175  002e               L55:
- 176                     ; 37     display_num[DIG1_POS] = option;
+ 176                     ; 38     display_num[DIG1_POS] = option;
  178  002e 7b02          	ld	a,(OFST+1,sp)
  179  0030 b701          	ld	_display_num,a
- 180                     ; 38     display_num[DIG2_POS] = (uint8_t)(bcd >> 4);
+ 180                     ; 39     display_num[DIG2_POS] = (uint8_t)(bcd >> 4);
  182  0032 7b01          	ld	a,(OFST+0,sp)
  183  0034 4e            	swap	a
  184  0035 a40f          	and	a,#15
  185  0037 b702          	ld	_display_num+1,a
- 186                     ; 39     display_num[DIG3_POS] = (uint8_t)(bcd & 0x0F);
+ 186                     ; 40     display_num[DIG3_POS] = (uint8_t)(bcd & 0x0F);
  188  0039 7b01          	ld	a,(OFST+0,sp)
  189  003b a40f          	and	a,#15
  190  003d b703          	ld	_display_num+2,a
- 191                     ; 41 }
+ 191                     ; 42 }
  194  003f 5b03          	addw	sp,#3
  195  0041 81            	ret
- 232                     .const:	section	.text
- 233  0000               L41:
- 234  0000 009a          	dc.w	L75
- 235  0002 00dd          	dc.w	L16
- 236  0004 0120          	dc.w	L36
- 237  0006 0163          	dc.w	L56
- 238  0008 01a6          	dc.w	L76
- 239  000a 01e9          	dc.w	L17
- 240  000c 022c          	dc.w	L37
- 241  000e 026f          	dc.w	L57
- 242  0010 02b2          	dc.w	L77
- 243  0012 02f5          	dc.w	L101
- 244                     ; 43 void wr_digit(uint8_t dig_pos)
- 244                     ; 44 {
- 245                     	switch	.text
- 246  0042               _wr_digit:
- 250                     ; 46     switch (display_num[dig_pos]) {
- 252  0042 5f            	clrw	x
- 253  0043 97            	ld	xl,a
- 254  0044 e601          	ld	a,(_display_num,x)
- 256                     ; 106         break;
- 257  0046 a10a          	cp	a,#10
- 258  0048 2407          	jruge	L21
- 259  004a 5f            	clrw	x
- 260  004b 97            	ld	xl,a
- 261  004c 58            	sllw	x
- 262  004d de0000        	ldw	x,(L41,x)
- 263  0050 fc            	jp	(x)
- 264  0051               L21:
- 265  0051 a041          	sub	a,#65
- 266  0053 2603          	jrne	L61
- 267  0055 cc0338        	jp	L301
- 268  0058               L61:
- 269  0058 a002          	sub	a,#2
- 270  005a 2603          	jrne	L02
- 271  005c cc03be        	jp	L701
- 272  005f               L02:
- 273  005f a002          	sub	a,#2
- 274  0061 2603          	jrne	L22
- 275  0063 cc0444        	jp	L311
- 276  0066               L22:
- 277  0066 4a            	dec	a
- 278  0067 2603          	jrne	L42
- 279  0069 cc0487        	jp	L511
- 280  006c               L42:
- 281  006c a002          	sub	a,#2
- 282  006e 2603          	jrne	L62
- 283  0070 cc04ca        	jp	L711
- 284  0073               L62:
- 285  0073 a004          	sub	a,#4
- 286  0075 2603          	jrne	L03
- 287  0077 cc050d        	jp	L121
- 288  007a               L03:
- 289  007a a004          	sub	a,#4
- 290  007c 2603          	jrne	L23
- 291  007e cc054f        	jp	L321
- 292  0081               L23:
- 293  0081 a005          	sub	a,#5
- 294  0083 2603          	jrne	L43
- 295  0085 cc0590        	jp	L521
- 296  0088               L43:
- 297  0088 a00d          	sub	a,#13
- 298  008a 2603          	jrne	L63
- 299  008c cc037b        	jp	L501
- 300  008f               L63:
- 301  008f a002          	sub	a,#2
- 302  0091 2603          	jrne	L04
- 303  0093 cc0401        	jp	L111
- 304  0096               L04:
- 305  0096 accf05cf      	jpf	L741
- 306  009a               L75:
- 307                     ; 47     case 0x00:
- 307                     ; 48         display_zero();
- 309  009a 4b20          	push	#32
- 310  009c ae500f        	ldw	x,#20495
- 311  009f cd0000        	call	_GPIO_WriteHigh
- 313  00a2 84            	pop	a
- 316  00a3 4b04          	push	#4
- 317  00a5 ae5000        	ldw	x,#20480
- 318  00a8 cd0000        	call	_GPIO_WriteHigh
- 320  00ab 84            	pop	a
- 323  00ac 4b80          	push	#128
- 324  00ae ae500a        	ldw	x,#20490
- 325  00b1 cd0000        	call	_GPIO_WriteHigh
- 327  00b4 84            	pop	a
- 330  00b5 4b08          	push	#8
- 331  00b7 ae500f        	ldw	x,#20495
- 332  00ba cd0000        	call	_GPIO_WriteHigh
- 334  00bd 84            	pop	a
- 337  00be 4b02          	push	#2
- 338  00c0 ae500f        	ldw	x,#20495
- 339  00c3 cd0000        	call	_GPIO_WriteHigh
- 341  00c6 84            	pop	a
- 344  00c7 4b02          	push	#2
- 345  00c9 ae5000        	ldw	x,#20480
- 346  00cc cd0000        	call	_GPIO_WriteHigh
- 348  00cf 84            	pop	a
- 351  00d0 4b40          	push	#64
- 352  00d2 ae500a        	ldw	x,#20490
- 353  00d5 cd0000        	call	_GPIO_WriteLow
- 355  00d8 84            	pop	a
- 356                     ; 49         break;
- 358  00d9 accf05cf      	jpf	L741
- 359  00dd               L16:
- 360                     ; 50     case 0x01:
- 360                     ; 51         display_one();
- 362  00dd 4b20          	push	#32
- 363  00df ae500f        	ldw	x,#20495
- 364  00e2 cd0000        	call	_GPIO_WriteLow
- 366  00e5 84            	pop	a
- 369  00e6 4b04          	push	#4
- 370  00e8 ae5000        	ldw	x,#20480
- 371  00eb cd0000        	call	_GPIO_WriteHigh
- 373  00ee 84            	pop	a
- 376  00ef 4b80          	push	#128
- 377  00f1 ae500a        	ldw	x,#20490
- 378  00f4 cd0000        	call	_GPIO_WriteHigh
- 380  00f7 84            	pop	a
- 383  00f8 4b08          	push	#8
- 384  00fa ae500f        	ldw	x,#20495
- 385  00fd cd0000        	call	_GPIO_WriteLow
- 387  0100 84            	pop	a
- 390  0101 4b02          	push	#2
- 391  0103 ae500f        	ldw	x,#20495
- 392  0106 cd0000        	call	_GPIO_WriteLow
- 394  0109 84            	pop	a
- 397  010a 4b02          	push	#2
- 398  010c ae5000        	ldw	x,#20480
- 399  010f cd0000        	call	_GPIO_WriteLow
- 401  0112 84            	pop	a
- 404  0113 4b40          	push	#64
- 405  0115 ae500a        	ldw	x,#20490
- 406  0118 cd0000        	call	_GPIO_WriteLow
- 408  011b 84            	pop	a
- 409                     ; 52         break;
- 411  011c accf05cf      	jpf	L741
- 412  0120               L36:
- 413                     ; 53     case 0x02:
- 413                     ; 54         display_two();
- 415  0120 4b20          	push	#32
- 416  0122 ae500f        	ldw	x,#20495
- 417  0125 cd0000        	call	_GPIO_WriteHigh
- 419  0128 84            	pop	a
- 422  0129 4b04          	push	#4
- 423  012b ae5000        	ldw	x,#20480
- 424  012e cd0000        	call	_GPIO_WriteHigh
- 426  0131 84            	pop	a
- 429  0132 4b80          	push	#128
- 430  0134 ae500a        	ldw	x,#20490
- 431  0137 cd0000        	call	_GPIO_WriteLow
- 433  013a 84            	pop	a
- 436  013b 4b08          	push	#8
- 437  013d ae500f        	ldw	x,#20495
- 438  0140 cd0000        	call	_GPIO_WriteHigh
- 440  0143 84            	pop	a
- 443  0144 4b02          	push	#2
- 444  0146 ae500f        	ldw	x,#20495
- 445  0149 cd0000        	call	_GPIO_WriteHigh
- 447  014c 84            	pop	a
- 450  014d 4b02          	push	#2
- 451  014f ae5000        	ldw	x,#20480
- 452  0152 cd0000        	call	_GPIO_WriteLow
- 454  0155 84            	pop	a
- 457  0156 4b40          	push	#64
- 458  0158 ae500a        	ldw	x,#20490
- 459  015b cd0000        	call	_GPIO_WriteHigh
- 461  015e 84            	pop	a
- 462                     ; 55         break;
- 464  015f accf05cf      	jpf	L741
- 465  0163               L56:
- 466                     ; 56     case 0x03:
- 466                     ; 57         display_three();
- 468  0163 4b20          	push	#32
- 469  0165 ae500f        	ldw	x,#20495
- 470  0168 cd0000        	call	_GPIO_WriteHigh
- 472  016b 84            	pop	a
- 475  016c 4b04          	push	#4
- 476  016e ae5000        	ldw	x,#20480
- 477  0171 cd0000        	call	_GPIO_WriteHigh
- 479  0174 84            	pop	a
- 482  0175 4b80          	push	#128
- 483  0177 ae500a        	ldw	x,#20490
- 484  017a cd0000        	call	_GPIO_WriteHigh
- 486  017d 84            	pop	a
- 489  017e 4b08          	push	#8
- 490  0180 ae500f        	ldw	x,#20495
- 491  0183 cd0000        	call	_GPIO_WriteHigh
- 493  0186 84            	pop	a
- 496  0187 4b02          	push	#2
- 497  0189 ae500f        	ldw	x,#20495
- 498  018c cd0000        	call	_GPIO_WriteLow
- 500  018f 84            	pop	a
- 503  0190 4b02          	push	#2
- 504  0192 ae5000        	ldw	x,#20480
- 505  0195 cd0000        	call	_GPIO_WriteLow
- 507  0198 84            	pop	a
- 510  0199 4b40          	push	#64
- 511  019b ae500a        	ldw	x,#20490
- 512  019e cd0000        	call	_GPIO_WriteHigh
- 514  01a1 84            	pop	a
- 515                     ; 58         break;
- 517  01a2 accf05cf      	jpf	L741
- 518  01a6               L76:
- 519                     ; 59     case 0x04:
- 519                     ; 60         display_four();
- 521  01a6 4b20          	push	#32
- 522  01a8 ae500f        	ldw	x,#20495
- 523  01ab cd0000        	call	_GPIO_WriteLow
- 525  01ae 84            	pop	a
- 528  01af 4b04          	push	#4
- 529  01b1 ae5000        	ldw	x,#20480
- 530  01b4 cd0000        	call	_GPIO_WriteHigh
- 532  01b7 84            	pop	a
- 535  01b8 4b80          	push	#128
- 536  01ba ae500a        	ldw	x,#20490
- 537  01bd cd0000        	call	_GPIO_WriteHigh
- 539  01c0 84            	pop	a
- 542  01c1 4b08          	push	#8
- 543  01c3 ae500f        	ldw	x,#20495
- 544  01c6 cd0000        	call	_GPIO_WriteLow
- 546  01c9 84            	pop	a
- 549  01ca 4b02          	push	#2
- 550  01cc ae500f        	ldw	x,#20495
- 551  01cf cd0000        	call	_GPIO_WriteLow
- 553  01d2 84            	pop	a
- 556  01d3 4b02          	push	#2
- 557  01d5 ae5000        	ldw	x,#20480
- 558  01d8 cd0000        	call	_GPIO_WriteHigh
- 560  01db 84            	pop	a
- 563  01dc 4b40          	push	#64
- 564  01de ae500a        	ldw	x,#20490
- 565  01e1 cd0000        	call	_GPIO_WriteHigh
- 567  01e4 84            	pop	a
- 568                     ; 61         break;
- 570  01e5 accf05cf      	jpf	L741
- 571  01e9               L17:
- 572                     ; 62     case 0x05:
- 572                     ; 63         display_five();
- 574  01e9 4b20          	push	#32
- 575  01eb ae500f        	ldw	x,#20495
- 576  01ee cd0000        	call	_GPIO_WriteHigh
- 578  01f1 84            	pop	a
- 581  01f2 4b04          	push	#4
- 582  01f4 ae5000        	ldw	x,#20480
- 583  01f7 cd0000        	call	_GPIO_WriteLow
- 585  01fa 84            	pop	a
- 588  01fb 4b80          	push	#128
- 589  01fd ae500a        	ldw	x,#20490
- 590  0200 cd0000        	call	_GPIO_WriteHigh
- 592  0203 84            	pop	a
- 595  0204 4b08          	push	#8
- 596  0206 ae500f        	ldw	x,#20495
- 597  0209 cd0000        	call	_GPIO_WriteHigh
- 599  020c 84            	pop	a
- 602  020d 4b02          	push	#2
- 603  020f ae500f        	ldw	x,#20495
- 604  0212 cd0000        	call	_GPIO_WriteLow
- 606  0215 84            	pop	a
- 609  0216 4b02          	push	#2
- 610  0218 ae5000        	ldw	x,#20480
- 611  021b cd0000        	call	_GPIO_WriteHigh
- 613  021e 84            	pop	a
- 616  021f 4b40          	push	#64
- 617  0221 ae500a        	ldw	x,#20490
- 618  0224 cd0000        	call	_GPIO_WriteHigh
- 620  0227 84            	pop	a
- 621                     ; 64         break;
- 623  0228 accf05cf      	jpf	L741
- 624  022c               L37:
- 625                     ; 65     case 0x06:
- 625                     ; 66         display_six();
- 627  022c 4b20          	push	#32
- 628  022e ae500f        	ldw	x,#20495
- 629  0231 cd0000        	call	_GPIO_WriteHigh
- 631  0234 84            	pop	a
- 634  0235 4b04          	push	#4
- 635  0237 ae5000        	ldw	x,#20480
- 636  023a cd0000        	call	_GPIO_WriteLow
- 638  023d 84            	pop	a
- 641  023e 4b80          	push	#128
- 642  0240 ae500a        	ldw	x,#20490
- 643  0243 cd0000        	call	_GPIO_WriteHigh
- 645  0246 84            	pop	a
- 648  0247 4b08          	push	#8
- 649  0249 ae500f        	ldw	x,#20495
- 650  024c cd0000        	call	_GPIO_WriteHigh
- 652  024f 84            	pop	a
- 655  0250 4b02          	push	#2
- 656  0252 ae500f        	ldw	x,#20495
- 657  0255 cd0000        	call	_GPIO_WriteHigh
- 659  0258 84            	pop	a
- 662  0259 4b02          	push	#2
- 663  025b ae5000        	ldw	x,#20480
- 664  025e cd0000        	call	_GPIO_WriteHigh
- 666  0261 84            	pop	a
- 669  0262 4b40          	push	#64
- 670  0264 ae500a        	ldw	x,#20490
- 671  0267 cd0000        	call	_GPIO_WriteHigh
- 673  026a 84            	pop	a
- 674                     ; 67         break;
- 676  026b accf05cf      	jpf	L741
- 677  026f               L57:
- 678                     ; 68     case 0x07:
- 678                     ; 69         display_seven();
- 680  026f 4b20          	push	#32
- 681  0271 ae500f        	ldw	x,#20495
- 682  0274 cd0000        	call	_GPIO_WriteHigh
- 684  0277 84            	pop	a
- 687  0278 4b04          	push	#4
- 688  027a ae5000        	ldw	x,#20480
- 689  027d cd0000        	call	_GPIO_WriteHigh
- 691  0280 84            	pop	a
- 694  0281 4b80          	push	#128
- 695  0283 ae500a        	ldw	x,#20490
- 696  0286 cd0000        	call	_GPIO_WriteHigh
- 698  0289 84            	pop	a
- 701  028a 4b08          	push	#8
- 702  028c ae500f        	ldw	x,#20495
- 703  028f cd0000        	call	_GPIO_WriteLow
- 705  0292 84            	pop	a
- 708  0293 4b02          	push	#2
- 709  0295 ae500f        	ldw	x,#20495
- 710  0298 cd0000        	call	_GPIO_WriteLow
- 712  029b 84            	pop	a
- 715  029c 4b02          	push	#2
- 716  029e ae5000        	ldw	x,#20480
- 717  02a1 cd0000        	call	_GPIO_WriteLow
- 719  02a4 84            	pop	a
- 722  02a5 4b40          	push	#64
- 723  02a7 ae500a        	ldw	x,#20490
- 724  02aa cd0000        	call	_GPIO_WriteLow
- 726  02ad 84            	pop	a
- 727                     ; 70         break;
- 729  02ae accf05cf      	jpf	L741
- 730  02b2               L77:
- 731                     ; 71     case 0x08:
- 731                     ; 72         display_eight();
- 733  02b2 4b20          	push	#32
- 734  02b4 ae500f        	ldw	x,#20495
- 735  02b7 cd0000        	call	_GPIO_WriteHigh
- 737  02ba 84            	pop	a
- 740  02bb 4b04          	push	#4
- 741  02bd ae5000        	ldw	x,#20480
- 742  02c0 cd0000        	call	_GPIO_WriteHigh
- 744  02c3 84            	pop	a
- 747  02c4 4b80          	push	#128
- 748  02c6 ae500a        	ldw	x,#20490
- 749  02c9 cd0000        	call	_GPIO_WriteHigh
- 751  02cc 84            	pop	a
- 754  02cd 4b08          	push	#8
- 755  02cf ae500f        	ldw	x,#20495
- 756  02d2 cd0000        	call	_GPIO_WriteHigh
- 758  02d5 84            	pop	a
- 761  02d6 4b02          	push	#2
- 762  02d8 ae500f        	ldw	x,#20495
- 763  02db cd0000        	call	_GPIO_WriteHigh
- 765  02de 84            	pop	a
- 768  02df 4b02          	push	#2
- 769  02e1 ae5000        	ldw	x,#20480
- 770  02e4 cd0000        	call	_GPIO_WriteHigh
- 772  02e7 84            	pop	a
- 775  02e8 4b40          	push	#64
- 776  02ea ae500a        	ldw	x,#20490
- 777  02ed cd0000        	call	_GPIO_WriteHigh
- 779  02f0 84            	pop	a
- 780                     ; 73         break;
- 782  02f1 accf05cf      	jpf	L741
- 783  02f5               L101:
- 784                     ; 74     case 0x09:
- 784                     ; 75         display_nine();
- 786  02f5 4b20          	push	#32
- 787  02f7 ae500f        	ldw	x,#20495
- 788  02fa cd0000        	call	_GPIO_WriteHigh
- 790  02fd 84            	pop	a
- 793  02fe 4b04          	push	#4
- 794  0300 ae5000        	ldw	x,#20480
- 795  0303 cd0000        	call	_GPIO_WriteHigh
- 797  0306 84            	pop	a
- 800  0307 4b80          	push	#128
- 801  0309 ae500a        	ldw	x,#20490
- 802  030c cd0000        	call	_GPIO_WriteHigh
- 804  030f 84            	pop	a
- 807  0310 4b08          	push	#8
- 808  0312 ae500f        	ldw	x,#20495
- 809  0315 cd0000        	call	_GPIO_WriteHigh
- 811  0318 84            	pop	a
- 814  0319 4b02          	push	#2
- 815  031b ae500f        	ldw	x,#20495
- 816  031e cd0000        	call	_GPIO_WriteLow
- 818  0321 84            	pop	a
- 821  0322 4b02          	push	#2
- 822  0324 ae5000        	ldw	x,#20480
- 823  0327 cd0000        	call	_GPIO_WriteHigh
- 825  032a 84            	pop	a
- 828  032b 4b40          	push	#64
- 829  032d ae500a        	ldw	x,#20490
- 830  0330 cd0000        	call	_GPIO_WriteHigh
- 832  0333 84            	pop	a
- 833                     ; 76         break;
- 835  0334 accf05cf      	jpf	L741
- 836  0338               L301:
- 837                     ; 77     case 'A':
- 837                     ; 78         display_a();
- 839  0338 4b20          	push	#32
- 840  033a ae500f        	ldw	x,#20495
- 841  033d cd0000        	call	_GPIO_WriteHigh
- 843  0340 84            	pop	a
- 846  0341 4b04          	push	#4
- 847  0343 ae5000        	ldw	x,#20480
- 848  0346 cd0000        	call	_GPIO_WriteHigh
- 850  0349 84            	pop	a
- 853  034a 4b80          	push	#128
- 854  034c ae500a        	ldw	x,#20490
- 855  034f cd0000        	call	_GPIO_WriteHigh
- 857  0352 84            	pop	a
- 860  0353 4b08          	push	#8
- 861  0355 ae500f        	ldw	x,#20495
- 862  0358 cd0000        	call	_GPIO_WriteLow
- 864  035b 84            	pop	a
- 867  035c 4b02          	push	#2
- 868  035e ae500f        	ldw	x,#20495
- 869  0361 cd0000        	call	_GPIO_WriteHigh
- 871  0364 84            	pop	a
- 874  0365 4b02          	push	#2
- 875  0367 ae5000        	ldw	x,#20480
- 876  036a cd0000        	call	_GPIO_WriteHigh
- 878  036d 84            	pop	a
- 881  036e 4b40          	push	#64
- 882  0370 ae500a        	ldw	x,#20490
- 883  0373 cd0000        	call	_GPIO_WriteHigh
- 885  0376 84            	pop	a
- 886                     ; 79         break;
- 888  0377 accf05cf      	jpf	L741
- 889  037b               L501:
- 890                     ; 80     case 'b':
- 890                     ; 81         display_b();
- 892  037b 4b20          	push	#32
- 893  037d ae500f        	ldw	x,#20495
- 894  0380 cd0000        	call	_GPIO_WriteLow
- 896  0383 84            	pop	a
- 899  0384 4b04          	push	#4
- 900  0386 ae5000        	ldw	x,#20480
- 901  0389 cd0000        	call	_GPIO_WriteLow
- 903  038c 84            	pop	a
- 906  038d 4b80          	push	#128
- 907  038f ae500a        	ldw	x,#20490
- 908  0392 cd0000        	call	_GPIO_WriteHigh
- 910  0395 84            	pop	a
- 913  0396 4b08          	push	#8
- 914  0398 ae500f        	ldw	x,#20495
- 915  039b cd0000        	call	_GPIO_WriteHigh
- 917  039e 84            	pop	a
- 920  039f 4b02          	push	#2
- 921  03a1 ae500f        	ldw	x,#20495
- 922  03a4 cd0000        	call	_GPIO_WriteHigh
- 924  03a7 84            	pop	a
- 927  03a8 4b02          	push	#2
- 928  03aa ae5000        	ldw	x,#20480
- 929  03ad cd0000        	call	_GPIO_WriteHigh
- 931  03b0 84            	pop	a
- 934  03b1 4b40          	push	#64
- 935  03b3 ae500a        	ldw	x,#20490
- 936  03b6 cd0000        	call	_GPIO_WriteHigh
- 938  03b9 84            	pop	a
- 939                     ; 82         break;
- 941  03ba accf05cf      	jpf	L741
- 942  03be               L701:
- 943                     ; 83     case 'C':
- 943                     ; 84         display_c();
- 945  03be 4b20          	push	#32
- 946  03c0 ae500f        	ldw	x,#20495
- 947  03c3 cd0000        	call	_GPIO_WriteHigh
- 949  03c6 84            	pop	a
- 952  03c7 4b04          	push	#4
- 953  03c9 ae5000        	ldw	x,#20480
- 954  03cc cd0000        	call	_GPIO_WriteLow
- 956  03cf 84            	pop	a
- 959  03d0 4b80          	push	#128
- 960  03d2 ae500a        	ldw	x,#20490
- 961  03d5 cd0000        	call	_GPIO_WriteLow
- 963  03d8 84            	pop	a
- 966  03d9 4b08          	push	#8
- 967  03db ae500f        	ldw	x,#20495
- 968  03de cd0000        	call	_GPIO_WriteHigh
- 970  03e1 84            	pop	a
- 973  03e2 4b02          	push	#2
- 974  03e4 ae500f        	ldw	x,#20495
- 975  03e7 cd0000        	call	_GPIO_WriteHigh
- 977  03ea 84            	pop	a
- 980  03eb 4b02          	push	#2
- 981  03ed ae5000        	ldw	x,#20480
- 982  03f0 cd0000        	call	_GPIO_WriteHigh
- 984  03f3 84            	pop	a
- 987  03f4 4b40          	push	#64
- 988  03f6 ae500a        	ldw	x,#20490
- 989  03f9 cd0000        	call	_GPIO_WriteLow
- 991  03fc 84            	pop	a
- 992                     ; 85         break;
- 994  03fd accf05cf      	jpf	L741
- 995  0401               L111:
- 996                     ; 86     case 'd':
- 996                     ; 87         display_d();
- 998  0401 4b20          	push	#32
- 999  0403 ae500f        	ldw	x,#20495
-1000  0406 cd0000        	call	_GPIO_WriteLow
-1002  0409 84            	pop	a
-1005  040a 4b04          	push	#4
-1006  040c ae5000        	ldw	x,#20480
-1007  040f cd0000        	call	_GPIO_WriteHigh
-1009  0412 84            	pop	a
-1012  0413 4b80          	push	#128
-1013  0415 ae500a        	ldw	x,#20490
-1014  0418 cd0000        	call	_GPIO_WriteHigh
-1016  041b 84            	pop	a
-1019  041c 4b08          	push	#8
-1020  041e ae500f        	ldw	x,#20495
-1021  0421 cd0000        	call	_GPIO_WriteHigh
-1023  0424 84            	pop	a
-1026  0425 4b02          	push	#2
-1027  0427 ae500f        	ldw	x,#20495
-1028  042a cd0000        	call	_GPIO_WriteHigh
-1030  042d 84            	pop	a
-1033  042e 4b02          	push	#2
-1034  0430 ae5000        	ldw	x,#20480
-1035  0433 cd0000        	call	_GPIO_WriteLow
-1037  0436 84            	pop	a
-1040  0437 4b40          	push	#64
-1041  0439 ae500a        	ldw	x,#20490
-1042  043c cd0000        	call	_GPIO_WriteHigh
-1044  043f 84            	pop	a
-1045                     ; 88         break;
-1047  0440 accf05cf      	jpf	L741
-1048  0444               L311:
-1049                     ; 89     case 'E':
-1049                     ; 90         display_e();
-1051  0444 4b20          	push	#32
-1052  0446 ae500f        	ldw	x,#20495
-1053  0449 cd0000        	call	_GPIO_WriteHigh
-1055  044c 84            	pop	a
-1058  044d 4b04          	push	#4
-1059  044f ae5000        	ldw	x,#20480
-1060  0452 cd0000        	call	_GPIO_WriteLow
-1062  0455 84            	pop	a
-1065  0456 4b80          	push	#128
-1066  0458 ae500a        	ldw	x,#20490
-1067  045b cd0000        	call	_GPIO_WriteLow
-1069  045e 84            	pop	a
-1072  045f 4b08          	push	#8
-1073  0461 ae500f        	ldw	x,#20495
-1074  0464 cd0000        	call	_GPIO_WriteHigh
-1076  0467 84            	pop	a
-1079  0468 4b02          	push	#2
-1080  046a ae500f        	ldw	x,#20495
-1081  046d cd0000        	call	_GPIO_WriteHigh
-1083  0470 84            	pop	a
-1086  0471 4b02          	push	#2
-1087  0473 ae5000        	ldw	x,#20480
-1088  0476 cd0000        	call	_GPIO_WriteHigh
-1090  0479 84            	pop	a
-1093  047a 4b40          	push	#64
-1094  047c ae500a        	ldw	x,#20490
-1095  047f cd0000        	call	_GPIO_WriteHigh
-1097  0482 84            	pop	a
-1098                     ; 91         break;
-1100  0483 accf05cf      	jpf	L741
-1101  0487               L511:
-1102                     ; 92     case 'F':
-1102                     ; 93         display_f();
-1104  0487 4b20          	push	#32
-1105  0489 ae500f        	ldw	x,#20495
-1106  048c cd0000        	call	_GPIO_WriteHigh
-1108  048f 84            	pop	a
-1111  0490 4b04          	push	#4
-1112  0492 ae5000        	ldw	x,#20480
-1113  0495 cd0000        	call	_GPIO_WriteLow
-1115  0498 84            	pop	a
-1118  0499 4b80          	push	#128
-1119  049b ae500a        	ldw	x,#20490
-1120  049e cd0000        	call	_GPIO_WriteLow
-1122  04a1 84            	pop	a
-1125  04a2 4b08          	push	#8
-1126  04a4 ae500f        	ldw	x,#20495
-1127  04a7 cd0000        	call	_GPIO_WriteLow
-1129  04aa 84            	pop	a
-1132  04ab 4b02          	push	#2
-1133  04ad ae500f        	ldw	x,#20495
-1134  04b0 cd0000        	call	_GPIO_WriteHigh
-1136  04b3 84            	pop	a
-1139  04b4 4b02          	push	#2
-1140  04b6 ae5000        	ldw	x,#20480
-1141  04b9 cd0000        	call	_GPIO_WriteHigh
-1143  04bc 84            	pop	a
-1146  04bd 4b40          	push	#64
-1147  04bf ae500a        	ldw	x,#20490
-1148  04c2 cd0000        	call	_GPIO_WriteHigh
-1150  04c5 84            	pop	a
-1151                     ; 94         break;
-1153  04c6 accf05cf      	jpf	L741
-1154  04ca               L711:
-1155                     ; 95     case 'H':
-1155                     ; 96         display_h();
-1157  04ca 4b20          	push	#32
-1158  04cc ae500f        	ldw	x,#20495
-1159  04cf cd0000        	call	_GPIO_WriteLow
-1161  04d2 84            	pop	a
-1164  04d3 4b04          	push	#4
-1165  04d5 ae5000        	ldw	x,#20480
-1166  04d8 cd0000        	call	_GPIO_WriteHigh
-1168  04db 84            	pop	a
-1171  04dc 4b80          	push	#128
-1172  04de ae500a        	ldw	x,#20490
-1173  04e1 cd0000        	call	_GPIO_WriteHigh
-1175  04e4 84            	pop	a
-1178  04e5 4b08          	push	#8
-1179  04e7 ae500f        	ldw	x,#20495
-1180  04ea cd0000        	call	_GPIO_WriteLow
-1182  04ed 84            	pop	a
-1185  04ee 4b02          	push	#2
-1186  04f0 ae500f        	ldw	x,#20495
-1187  04f3 cd0000        	call	_GPIO_WriteHigh
-1189  04f6 84            	pop	a
-1192  04f7 4b02          	push	#2
-1193  04f9 ae5000        	ldw	x,#20480
-1194  04fc cd0000        	call	_GPIO_WriteHigh
-1196  04ff 84            	pop	a
-1199  0500 4b40          	push	#64
-1200  0502 ae500a        	ldw	x,#20490
-1201  0505 cd0000        	call	_GPIO_WriteHigh
-1203  0508 84            	pop	a
-1204                     ; 97         break;
-1206  0509 accf05cf      	jpf	L741
-1207  050d               L121:
-1208                     ; 98     case 'L':
-1208                     ; 99         display_l();
-1210  050d 4b20          	push	#32
-1211  050f ae500f        	ldw	x,#20495
-1212  0512 cd0000        	call	_GPIO_WriteLow
-1214  0515 84            	pop	a
-1217  0516 4b04          	push	#4
-1218  0518 ae5000        	ldw	x,#20480
-1219  051b cd0000        	call	_GPIO_WriteLow
-1221  051e 84            	pop	a
-1224  051f 4b80          	push	#128
-1225  0521 ae500a        	ldw	x,#20490
-1226  0524 cd0000        	call	_GPIO_WriteLow
-1228  0527 84            	pop	a
-1231  0528 4b08          	push	#8
-1232  052a ae500f        	ldw	x,#20495
-1233  052d cd0000        	call	_GPIO_WriteHigh
-1235  0530 84            	pop	a
-1238  0531 4b02          	push	#2
-1239  0533 ae500f        	ldw	x,#20495
-1240  0536 cd0000        	call	_GPIO_WriteHigh
-1242  0539 84            	pop	a
-1245  053a 4b02          	push	#2
-1246  053c ae5000        	ldw	x,#20480
-1247  053f cd0000        	call	_GPIO_WriteHigh
-1249  0542 84            	pop	a
-1252  0543 4b40          	push	#64
-1253  0545 ae500a        	ldw	x,#20490
-1254  0548 cd0000        	call	_GPIO_WriteLow
-1256  054b 84            	pop	a
-1257                     ; 100         break;
-1259  054c cc05cf        	jra	L741
-1260  054f               L321:
-1261                     ; 101     case 'P':
-1261                     ; 102         display_p();
-1263  054f 4b20          	push	#32
-1264  0551 ae500f        	ldw	x,#20495
-1265  0554 cd0000        	call	_GPIO_WriteHigh
-1267  0557 84            	pop	a
-1270  0558 4b04          	push	#4
-1271  055a ae5000        	ldw	x,#20480
-1272  055d cd0000        	call	_GPIO_WriteHigh
-1274  0560 84            	pop	a
-1277  0561 4b80          	push	#128
-1278  0563 ae500a        	ldw	x,#20490
-1279  0566 cd0000        	call	_GPIO_WriteLow
-1281  0569 84            	pop	a
-1284  056a 4b08          	push	#8
-1285  056c ae500f        	ldw	x,#20495
-1286  056f cd0000        	call	_GPIO_WriteLow
-1288  0572 84            	pop	a
-1291  0573 4b02          	push	#2
-1292  0575 ae500f        	ldw	x,#20495
-1293  0578 cd0000        	call	_GPIO_WriteHigh
-1295  057b 84            	pop	a
-1298  057c 4b02          	push	#2
-1299  057e ae5000        	ldw	x,#20480
-1300  0581 cd0000        	call	_GPIO_WriteHigh
-1302  0584 84            	pop	a
-1305  0585 4b40          	push	#64
-1306  0587 ae500a        	ldw	x,#20490
-1307  058a cd0000        	call	_GPIO_WriteHigh
-1309  058d 84            	pop	a
-1310                     ; 103         break;
-1312  058e 203f          	jra	L741
-1313  0590               L521:
-1314                     ; 104     case 'U':
-1314                     ; 105         display_u();
-1316  0590 4b20          	push	#32
-1317  0592 ae500f        	ldw	x,#20495
-1318  0595 cd0000        	call	_GPIO_WriteLow
-1320  0598 84            	pop	a
-1323  0599 4b04          	push	#4
-1324  059b ae5000        	ldw	x,#20480
-1325  059e cd0000        	call	_GPIO_WriteHigh
-1327  05a1 84            	pop	a
-1330  05a2 4b80          	push	#128
-1331  05a4 ae500a        	ldw	x,#20490
-1332  05a7 cd0000        	call	_GPIO_WriteHigh
-1334  05aa 84            	pop	a
-1337  05ab 4b08          	push	#8
-1338  05ad ae500f        	ldw	x,#20495
-1339  05b0 cd0000        	call	_GPIO_WriteHigh
-1341  05b3 84            	pop	a
-1344  05b4 4b02          	push	#2
-1345  05b6 ae500f        	ldw	x,#20495
-1346  05b9 cd0000        	call	_GPIO_WriteHigh
-1348  05bc 84            	pop	a
-1351  05bd 4b02          	push	#2
-1352  05bf ae5000        	ldw	x,#20480
-1353  05c2 cd0000        	call	_GPIO_WriteHigh
-1355  05c5 84            	pop	a
-1358  05c6 4b40          	push	#64
-1359  05c8 ae500a        	ldw	x,#20490
-1360  05cb cd0000        	call	_GPIO_WriteLow
-1362  05ce 84            	pop	a
-1363                     ; 106         break;
-1365  05cf               L741:
-1366                     ; 109 }
-1369  05cf 81            	ret
-1393                     ; 111 void task_display(void)
-1393                     ; 112 {
-1394                     	switch	.text
-1395  05d0               _task_display:
-1399                     ; 114     if (!tick)
-1401  05d0 3d00          	tnz	_tick
-1402  05d2 2601          	jrne	L161
-1403                     ; 115         return;
-1406  05d4 81            	ret
-1407  05d5               L161:
-1408                     ; 118 }
-1411  05d5 81            	ret
-1414                     	bsct
-1415  0004               L361_dig_pos:
-1416  0004 00            	dc.b	0
-1452                     ; 120 void tmr_display(void)
-1452                     ; 121 {
-1453                     	switch	.text
-1454  05d6               _tmr_display:
-1458                     ; 126     if (display_test)
-1460  05d6 3d00          	tnz	_display_test
-1461  05d8 2701          	jreq	L112
-1462                     ; 127         return;
-1465  05da 81            	ret
-1466  05db               L112:
-1467                     ; 130     if (dig_pos > MAX_DIG_POS)
-1469  05db b604          	ld	a,L361_dig_pos
-1470  05dd a104          	cp	a,#4
-1471  05df 2502          	jrult	L312
-1472                     ; 131         dig_pos = DIG1_POS;
-1474  05e1 3f04          	clr	L361_dig_pos
-1475  05e3               L312:
-1476                     ; 133     dig1_off();
-1478  05e3 4b10          	push	#16
-1479  05e5 ae500f        	ldw	x,#20495
-1480  05e8 cd0000        	call	_GPIO_WriteHigh
-1482  05eb 84            	pop	a
-1483                     ; 134     dig2_off();
-1485  05ec 4b20          	push	#32
-1486  05ee ae5005        	ldw	x,#20485
-1487  05f1 cd0000        	call	_GPIO_WriteHigh
-1489  05f4 84            	pop	a
-1490                     ; 135     dig3_off();
-1492  05f5 4b10          	push	#16
-1493  05f7 ae5005        	ldw	x,#20485
-1494  05fa cd0000        	call	_GPIO_WriteHigh
-1496  05fd 84            	pop	a
-1497                     ; 137     switch (dig_pos) {
-1499  05fe b604          	ld	a,L361_dig_pos
-1501                     ; 146         break;
-1502  0600 4d            	tnz	a
-1503  0601 2708          	jreq	L561
-1504  0603 4a            	dec	a
-1505  0604 2710          	jreq	L761
-1506  0606 4a            	dec	a
-1507  0607 2718          	jreq	L171
-1508  0609 201f          	jra	L712
-1509  060b               L561:
-1510                     ; 138     case DIG1_POS:
-1510                     ; 139         dig1_on();
-1512  060b 4b10          	push	#16
-1513  060d ae500f        	ldw	x,#20495
-1514  0610 cd0000        	call	_GPIO_WriteLow
-1516  0613 84            	pop	a
-1517                     ; 140         break;
-1519  0614 2014          	jra	L712
-1520  0616               L761:
-1521                     ; 141     case DIG2_POS:
-1521                     ; 142         dig2_on();
-1523  0616 4b20          	push	#32
-1524  0618 ae5005        	ldw	x,#20485
-1525  061b cd0000        	call	_GPIO_WriteLow
-1527  061e 84            	pop	a
-1528                     ; 143         break;
-1530  061f 2009          	jra	L712
-1531  0621               L171:
-1532                     ; 144     case DIG3_POS:
-1532                     ; 145         dig3_on();
-1534  0621 4b10          	push	#16
-1535  0623 ae5005        	ldw	x,#20485
-1536  0626 cd0000        	call	_GPIO_WriteLow
-1538  0629 84            	pop	a
-1539                     ; 146         break;
-1541  062a               L712:
-1542                     ; 149     wr_digit(dig_pos);
-1544  062a b604          	ld	a,L361_dig_pos
-1545  062c cd0042        	call	_wr_digit
-1547                     ; 150     dig_pos++;
-1549  062f 3c04          	inc	L361_dig_pos
-1550                     ; 152 }
-1553  0631 81            	ret
-1579                     ; 155 void test_display(void)
-1579                     ; 156 {
-1580                     	switch	.text
-1581  0632               _test_display:
-1585                     ; 157     delay(DELAY_DISPLAY_TEST);
-1587  0632 ae01f4        	ldw	x,#500
-1588  0635 89            	pushw	x
-1589  0636 ae0000        	ldw	x,#0
-1590  0639 89            	pushw	x
-1591  063a cd0000        	call	_delay
-1593  063d 5b04          	addw	sp,#4
-1594                     ; 158     display_zero();
-1596  063f 4b20          	push	#32
-1597  0641 ae500f        	ldw	x,#20495
-1598  0644 cd0000        	call	_GPIO_WriteHigh
-1600  0647 84            	pop	a
-1603  0648 4b04          	push	#4
-1604  064a ae5000        	ldw	x,#20480
-1605  064d cd0000        	call	_GPIO_WriteHigh
-1607  0650 84            	pop	a
-1610  0651 4b80          	push	#128
-1611  0653 ae500a        	ldw	x,#20490
-1612  0656 cd0000        	call	_GPIO_WriteHigh
-1614  0659 84            	pop	a
-1617  065a 4b08          	push	#8
-1618  065c ae500f        	ldw	x,#20495
-1619  065f cd0000        	call	_GPIO_WriteHigh
-1621  0662 84            	pop	a
-1624  0663 4b02          	push	#2
-1625  0665 ae500f        	ldw	x,#20495
-1626  0668 cd0000        	call	_GPIO_WriteHigh
-1628  066b 84            	pop	a
-1631  066c 4b02          	push	#2
-1632  066e ae5000        	ldw	x,#20480
-1633  0671 cd0000        	call	_GPIO_WriteHigh
-1635  0674 84            	pop	a
-1638  0675 4b40          	push	#64
-1639  0677 ae500a        	ldw	x,#20490
-1640  067a cd0000        	call	_GPIO_WriteLow
-1642  067d 84            	pop	a
-1643                     ; 159     delay(DELAY_DISPLAY_TEST);
-1645  067e ae01f4        	ldw	x,#500
-1646  0681 89            	pushw	x
-1647  0682 ae0000        	ldw	x,#0
-1648  0685 89            	pushw	x
-1649  0686 cd0000        	call	_delay
-1651  0689 5b04          	addw	sp,#4
-1652                     ; 160     display_one();
-1654  068b 4b20          	push	#32
-1655  068d ae500f        	ldw	x,#20495
-1656  0690 cd0000        	call	_GPIO_WriteLow
-1658  0693 84            	pop	a
-1661  0694 4b04          	push	#4
-1662  0696 ae5000        	ldw	x,#20480
-1663  0699 cd0000        	call	_GPIO_WriteHigh
-1665  069c 84            	pop	a
-1668  069d 4b80          	push	#128
-1669  069f ae500a        	ldw	x,#20490
-1670  06a2 cd0000        	call	_GPIO_WriteHigh
-1672  06a5 84            	pop	a
-1675  06a6 4b08          	push	#8
-1676  06a8 ae500f        	ldw	x,#20495
-1677  06ab cd0000        	call	_GPIO_WriteLow
-1679  06ae 84            	pop	a
-1682  06af 4b02          	push	#2
-1683  06b1 ae500f        	ldw	x,#20495
-1684  06b4 cd0000        	call	_GPIO_WriteLow
-1686  06b7 84            	pop	a
-1689  06b8 4b02          	push	#2
-1690  06ba ae5000        	ldw	x,#20480
-1691  06bd cd0000        	call	_GPIO_WriteLow
-1693  06c0 84            	pop	a
-1696  06c1 4b40          	push	#64
-1697  06c3 ae500a        	ldw	x,#20490
-1698  06c6 cd0000        	call	_GPIO_WriteLow
-1700  06c9 84            	pop	a
-1701                     ; 161     delay(DELAY_DISPLAY_TEST);
-1703  06ca ae01f4        	ldw	x,#500
-1704  06cd 89            	pushw	x
-1705  06ce ae0000        	ldw	x,#0
-1706  06d1 89            	pushw	x
-1707  06d2 cd0000        	call	_delay
-1709  06d5 5b04          	addw	sp,#4
-1710                     ; 162     display_two();
-1712  06d7 4b20          	push	#32
-1713  06d9 ae500f        	ldw	x,#20495
-1714  06dc cd0000        	call	_GPIO_WriteHigh
-1716  06df 84            	pop	a
-1719  06e0 4b04          	push	#4
-1720  06e2 ae5000        	ldw	x,#20480
-1721  06e5 cd0000        	call	_GPIO_WriteHigh
-1723  06e8 84            	pop	a
-1726  06e9 4b80          	push	#128
-1727  06eb ae500a        	ldw	x,#20490
-1728  06ee cd0000        	call	_GPIO_WriteLow
-1730  06f1 84            	pop	a
-1733  06f2 4b08          	push	#8
-1734  06f4 ae500f        	ldw	x,#20495
-1735  06f7 cd0000        	call	_GPIO_WriteHigh
-1737  06fa 84            	pop	a
-1740  06fb 4b02          	push	#2
-1741  06fd ae500f        	ldw	x,#20495
-1742  0700 cd0000        	call	_GPIO_WriteHigh
-1744  0703 84            	pop	a
-1747  0704 4b02          	push	#2
-1748  0706 ae5000        	ldw	x,#20480
-1749  0709 cd0000        	call	_GPIO_WriteLow
-1751  070c 84            	pop	a
-1754  070d 4b40          	push	#64
-1755  070f ae500a        	ldw	x,#20490
-1756  0712 cd0000        	call	_GPIO_WriteHigh
-1758  0715 84            	pop	a
-1759                     ; 163     delay(DELAY_DISPLAY_TEST);
-1761  0716 ae01f4        	ldw	x,#500
-1762  0719 89            	pushw	x
-1763  071a ae0000        	ldw	x,#0
-1764  071d 89            	pushw	x
-1765  071e cd0000        	call	_delay
-1767  0721 5b04          	addw	sp,#4
-1768                     ; 164     display_three();
-1770  0723 4b20          	push	#32
-1771  0725 ae500f        	ldw	x,#20495
-1772  0728 cd0000        	call	_GPIO_WriteHigh
-1774  072b 84            	pop	a
-1777  072c 4b04          	push	#4
-1778  072e ae5000        	ldw	x,#20480
-1779  0731 cd0000        	call	_GPIO_WriteHigh
-1781  0734 84            	pop	a
-1784  0735 4b80          	push	#128
-1785  0737 ae500a        	ldw	x,#20490
-1786  073a cd0000        	call	_GPIO_WriteHigh
-1788  073d 84            	pop	a
-1791  073e 4b08          	push	#8
-1792  0740 ae500f        	ldw	x,#20495
-1793  0743 cd0000        	call	_GPIO_WriteHigh
-1795  0746 84            	pop	a
-1798  0747 4b02          	push	#2
-1799  0749 ae500f        	ldw	x,#20495
-1800  074c cd0000        	call	_GPIO_WriteLow
-1802  074f 84            	pop	a
-1805  0750 4b02          	push	#2
-1806  0752 ae5000        	ldw	x,#20480
-1807  0755 cd0000        	call	_GPIO_WriteLow
-1809  0758 84            	pop	a
-1812  0759 4b40          	push	#64
-1813  075b ae500a        	ldw	x,#20490
-1814  075e cd0000        	call	_GPIO_WriteHigh
-1816  0761 84            	pop	a
-1817                     ; 165     delay(DELAY_DISPLAY_TEST);
-1819  0762 ae01f4        	ldw	x,#500
-1820  0765 89            	pushw	x
-1821  0766 ae0000        	ldw	x,#0
-1822  0769 89            	pushw	x
-1823  076a cd0000        	call	_delay
-1825  076d 5b04          	addw	sp,#4
-1826                     ; 166     display_four();
-1828  076f 4b20          	push	#32
-1829  0771 ae500f        	ldw	x,#20495
-1830  0774 cd0000        	call	_GPIO_WriteLow
-1832  0777 84            	pop	a
-1835  0778 4b04          	push	#4
-1836  077a ae5000        	ldw	x,#20480
-1837  077d cd0000        	call	_GPIO_WriteHigh
-1839  0780 84            	pop	a
-1842  0781 4b80          	push	#128
-1843  0783 ae500a        	ldw	x,#20490
-1844  0786 cd0000        	call	_GPIO_WriteHigh
-1846  0789 84            	pop	a
-1849  078a 4b08          	push	#8
-1850  078c ae500f        	ldw	x,#20495
-1851  078f cd0000        	call	_GPIO_WriteLow
-1853  0792 84            	pop	a
-1856  0793 4b02          	push	#2
-1857  0795 ae500f        	ldw	x,#20495
-1858  0798 cd0000        	call	_GPIO_WriteLow
-1860  079b 84            	pop	a
-1863  079c 4b02          	push	#2
-1864  079e ae5000        	ldw	x,#20480
-1865  07a1 cd0000        	call	_GPIO_WriteHigh
-1867  07a4 84            	pop	a
-1870  07a5 4b40          	push	#64
-1871  07a7 ae500a        	ldw	x,#20490
-1872  07aa cd0000        	call	_GPIO_WriteHigh
-1874  07ad 84            	pop	a
-1875                     ; 167     delay(DELAY_DISPLAY_TEST);
-1877  07ae ae01f4        	ldw	x,#500
-1878  07b1 89            	pushw	x
-1879  07b2 ae0000        	ldw	x,#0
-1880  07b5 89            	pushw	x
-1881  07b6 cd0000        	call	_delay
-1883  07b9 5b04          	addw	sp,#4
-1884                     ; 168     display_five();
-1886  07bb 4b20          	push	#32
-1887  07bd ae500f        	ldw	x,#20495
-1888  07c0 cd0000        	call	_GPIO_WriteHigh
-1890  07c3 84            	pop	a
-1893  07c4 4b04          	push	#4
-1894  07c6 ae5000        	ldw	x,#20480
-1895  07c9 cd0000        	call	_GPIO_WriteLow
-1897  07cc 84            	pop	a
-1900  07cd 4b80          	push	#128
-1901  07cf ae500a        	ldw	x,#20490
-1902  07d2 cd0000        	call	_GPIO_WriteHigh
-1904  07d5 84            	pop	a
-1907  07d6 4b08          	push	#8
-1908  07d8 ae500f        	ldw	x,#20495
-1909  07db cd0000        	call	_GPIO_WriteHigh
-1911  07de 84            	pop	a
-1914  07df 4b02          	push	#2
-1915  07e1 ae500f        	ldw	x,#20495
-1916  07e4 cd0000        	call	_GPIO_WriteLow
-1918  07e7 84            	pop	a
-1921  07e8 4b02          	push	#2
-1922  07ea ae5000        	ldw	x,#20480
-1923  07ed cd0000        	call	_GPIO_WriteHigh
-1925  07f0 84            	pop	a
-1928  07f1 4b40          	push	#64
-1929  07f3 ae500a        	ldw	x,#20490
-1930  07f6 cd0000        	call	_GPIO_WriteHigh
-1932  07f9 84            	pop	a
-1933                     ; 169     delay(DELAY_DISPLAY_TEST);
-1935  07fa ae01f4        	ldw	x,#500
-1936  07fd 89            	pushw	x
-1937  07fe ae0000        	ldw	x,#0
-1938  0801 89            	pushw	x
-1939  0802 cd0000        	call	_delay
-1941  0805 5b04          	addw	sp,#4
-1942                     ; 170     display_six();
-1944  0807 4b20          	push	#32
-1945  0809 ae500f        	ldw	x,#20495
-1946  080c cd0000        	call	_GPIO_WriteHigh
-1948  080f 84            	pop	a
-1951  0810 4b04          	push	#4
-1952  0812 ae5000        	ldw	x,#20480
-1953  0815 cd0000        	call	_GPIO_WriteLow
-1955  0818 84            	pop	a
-1958  0819 4b80          	push	#128
-1959  081b ae500a        	ldw	x,#20490
-1960  081e cd0000        	call	_GPIO_WriteHigh
-1962  0821 84            	pop	a
-1965  0822 4b08          	push	#8
-1966  0824 ae500f        	ldw	x,#20495
-1967  0827 cd0000        	call	_GPIO_WriteHigh
-1969  082a 84            	pop	a
-1972  082b 4b02          	push	#2
-1973  082d ae500f        	ldw	x,#20495
-1974  0830 cd0000        	call	_GPIO_WriteHigh
-1976  0833 84            	pop	a
-1979  0834 4b02          	push	#2
-1980  0836 ae5000        	ldw	x,#20480
-1981  0839 cd0000        	call	_GPIO_WriteHigh
-1983  083c 84            	pop	a
-1986  083d 4b40          	push	#64
-1987  083f ae500a        	ldw	x,#20490
-1988  0842 cd0000        	call	_GPIO_WriteHigh
-1990  0845 84            	pop	a
-1991                     ; 171     delay(DELAY_DISPLAY_TEST);
-1993  0846 ae01f4        	ldw	x,#500
-1994  0849 89            	pushw	x
-1995  084a ae0000        	ldw	x,#0
-1996  084d 89            	pushw	x
-1997  084e cd0000        	call	_delay
-1999  0851 5b04          	addw	sp,#4
-2000                     ; 172     display_seven();
-2002  0853 4b20          	push	#32
-2003  0855 ae500f        	ldw	x,#20495
-2004  0858 cd0000        	call	_GPIO_WriteHigh
-2006  085b 84            	pop	a
-2009  085c 4b04          	push	#4
-2010  085e ae5000        	ldw	x,#20480
-2011  0861 cd0000        	call	_GPIO_WriteHigh
-2013  0864 84            	pop	a
-2016  0865 4b80          	push	#128
-2017  0867 ae500a        	ldw	x,#20490
-2018  086a cd0000        	call	_GPIO_WriteHigh
-2020  086d 84            	pop	a
-2023  086e 4b08          	push	#8
-2024  0870 ae500f        	ldw	x,#20495
-2025  0873 cd0000        	call	_GPIO_WriteLow
-2027  0876 84            	pop	a
-2030  0877 4b02          	push	#2
-2031  0879 ae500f        	ldw	x,#20495
-2032  087c cd0000        	call	_GPIO_WriteLow
-2034  087f 84            	pop	a
-2037  0880 4b02          	push	#2
-2038  0882 ae5000        	ldw	x,#20480
-2039  0885 cd0000        	call	_GPIO_WriteLow
-2041  0888 84            	pop	a
-2044  0889 4b40          	push	#64
-2045  088b ae500a        	ldw	x,#20490
-2046  088e cd0000        	call	_GPIO_WriteLow
-2048  0891 84            	pop	a
-2049                     ; 173     delay(DELAY_DISPLAY_TEST);
-2051  0892 ae01f4        	ldw	x,#500
-2052  0895 89            	pushw	x
-2053  0896 ae0000        	ldw	x,#0
-2054  0899 89            	pushw	x
-2055  089a cd0000        	call	_delay
-2057  089d 5b04          	addw	sp,#4
-2058                     ; 174     display_eight();
-2060  089f 4b20          	push	#32
-2061  08a1 ae500f        	ldw	x,#20495
-2062  08a4 cd0000        	call	_GPIO_WriteHigh
-2064  08a7 84            	pop	a
-2067  08a8 4b04          	push	#4
-2068  08aa ae5000        	ldw	x,#20480
-2069  08ad cd0000        	call	_GPIO_WriteHigh
-2071  08b0 84            	pop	a
-2074  08b1 4b80          	push	#128
-2075  08b3 ae500a        	ldw	x,#20490
-2076  08b6 cd0000        	call	_GPIO_WriteHigh
-2078  08b9 84            	pop	a
-2081  08ba 4b08          	push	#8
-2082  08bc ae500f        	ldw	x,#20495
-2083  08bf cd0000        	call	_GPIO_WriteHigh
-2085  08c2 84            	pop	a
-2088  08c3 4b02          	push	#2
-2089  08c5 ae500f        	ldw	x,#20495
-2090  08c8 cd0000        	call	_GPIO_WriteHigh
-2092  08cb 84            	pop	a
-2095  08cc 4b02          	push	#2
-2096  08ce ae5000        	ldw	x,#20480
-2097  08d1 cd0000        	call	_GPIO_WriteHigh
-2099  08d4 84            	pop	a
-2102  08d5 4b40          	push	#64
-2103  08d7 ae500a        	ldw	x,#20490
-2104  08da cd0000        	call	_GPIO_WriteHigh
-2106  08dd 84            	pop	a
-2107                     ; 175     delay(DELAY_DISPLAY_TEST);
-2109  08de ae01f4        	ldw	x,#500
-2110  08e1 89            	pushw	x
-2111  08e2 ae0000        	ldw	x,#0
-2112  08e5 89            	pushw	x
-2113  08e6 cd0000        	call	_delay
-2115  08e9 5b04          	addw	sp,#4
-2116                     ; 176     display_nine();    
-2118  08eb 4b20          	push	#32
-2119  08ed ae500f        	ldw	x,#20495
-2120  08f0 cd0000        	call	_GPIO_WriteHigh
-2122  08f3 84            	pop	a
-2125  08f4 4b04          	push	#4
-2126  08f6 ae5000        	ldw	x,#20480
-2127  08f9 cd0000        	call	_GPIO_WriteHigh
-2129  08fc 84            	pop	a
-2132  08fd 4b80          	push	#128
-2133  08ff ae500a        	ldw	x,#20490
-2134  0902 cd0000        	call	_GPIO_WriteHigh
-2136  0905 84            	pop	a
-2139  0906 4b08          	push	#8
-2140  0908 ae500f        	ldw	x,#20495
-2141  090b cd0000        	call	_GPIO_WriteHigh
-2143  090e 84            	pop	a
-2146  090f 4b02          	push	#2
-2147  0911 ae500f        	ldw	x,#20495
-2148  0914 cd0000        	call	_GPIO_WriteLow
-2150  0917 84            	pop	a
-2153  0918 4b02          	push	#2
-2154  091a ae5000        	ldw	x,#20480
-2155  091d cd0000        	call	_GPIO_WriteHigh
-2157  0920 84            	pop	a
-2160  0921 4b40          	push	#64
-2161  0923 ae500a        	ldw	x,#20490
-2162  0926 cd0000        	call	_GPIO_WriteHigh
-2164  0929 84            	pop	a
-2165                     ; 177     delay(DELAY_DISPLAY_TEST);
-2167  092a ae01f4        	ldw	x,#500
-2168  092d 89            	pushw	x
-2169  092e ae0000        	ldw	x,#0
-2170  0931 89            	pushw	x
-2171  0932 cd0000        	call	_delay
-2173  0935 5b04          	addw	sp,#4
-2174                     ; 178     display_off();
-2176  0937 4b20          	push	#32
-2177  0939 ae500f        	ldw	x,#20495
-2178  093c cd0000        	call	_GPIO_WriteLow
-2180  093f 84            	pop	a
-2183  0940 4b04          	push	#4
-2184  0942 ae5000        	ldw	x,#20480
-2185  0945 cd0000        	call	_GPIO_WriteLow
-2187  0948 84            	pop	a
-2190  0949 4b80          	push	#128
-2191  094b ae500a        	ldw	x,#20490
-2192  094e cd0000        	call	_GPIO_WriteLow
-2194  0951 84            	pop	a
-2197  0952 4b08          	push	#8
-2198  0954 ae500f        	ldw	x,#20495
-2199  0957 cd0000        	call	_GPIO_WriteLow
-2201  095a 84            	pop	a
-2204  095b 4b02          	push	#2
-2205  095d ae500f        	ldw	x,#20495
-2206  0960 cd0000        	call	_GPIO_WriteLow
-2208  0963 84            	pop	a
-2211  0964 4b02          	push	#2
-2212  0966 ae5000        	ldw	x,#20480
-2213  0969 cd0000        	call	_GPIO_WriteLow
-2215  096c 84            	pop	a
-2218  096d 4b40          	push	#64
-2219  096f ae500a        	ldw	x,#20490
-2220  0972 cd0000        	call	_GPIO_WriteLow
-2222  0975 84            	pop	a
-2225  0976 4b04          	push	#4
-2226  0978 ae500f        	ldw	x,#20495
-2227  097b cd0000        	call	_GPIO_WriteLow
-2229  097e 84            	pop	a
-2230                     ; 179     dp_on();
-2233  097f 4b04          	push	#4
-2234  0981 ae500f        	ldw	x,#20495
-2235  0984 cd0000        	call	_GPIO_WriteHigh
-2237  0987 84            	pop	a
-2238                     ; 180     delay(DELAY_DISPLAY_TEST);
-2240  0988 ae01f4        	ldw	x,#500
-2241  098b 89            	pushw	x
-2242  098c ae0000        	ldw	x,#0
-2243  098f 89            	pushw	x
-2244  0990 cd0000        	call	_delay
-2246  0993 5b04          	addw	sp,#4
-2247                     ; 181     dp_off();
-2249  0995 4b04          	push	#4
-2250  0997 ae500f        	ldw	x,#20495
-2251  099a cd0000        	call	_GPIO_WriteLow
-2253  099d 84            	pop	a
-2254                     ; 182 }
-2257  099e 81            	ret
-2285                     ; 185 void init_display(void)
-2285                     ; 186 {
-2286                     	switch	.text
-2287  099f               _init_display:
-2291                     ; 190     seg_a_dir();
-2293  099f 4be0          	push	#224
-2294  09a1 4b20          	push	#32
-2295  09a3 ae500f        	ldw	x,#20495
-2296  09a6 cd0000        	call	_GPIO_Init
-2298  09a9 85            	popw	x
-2299                     ; 191     seg_b_dir();
-2302  09aa 4be0          	push	#224
-2303  09ac 4b04          	push	#4
-2304  09ae ae5000        	ldw	x,#20480
-2305  09b1 cd0000        	call	_GPIO_Init
-2307  09b4 85            	popw	x
-2308                     ; 192     seg_c_dir();
-2311  09b5 4be0          	push	#224
-2312  09b7 4b80          	push	#128
-2313  09b9 ae500a        	ldw	x,#20490
-2314  09bc cd0000        	call	_GPIO_Init
-2316  09bf 85            	popw	x
-2317                     ; 193     seg_d_dir();
-2320  09c0 4be0          	push	#224
-2321  09c2 4b08          	push	#8
-2322  09c4 ae500f        	ldw	x,#20495
-2323  09c7 cd0000        	call	_GPIO_Init
-2325  09ca 85            	popw	x
-2326                     ; 194     seg_e_dir();
-2329  09cb 4be0          	push	#224
-2330  09cd 4b02          	push	#2
-2331  09cf ae500f        	ldw	x,#20495
-2332  09d2 cd0000        	call	_GPIO_Init
-2334  09d5 85            	popw	x
-2335                     ; 195     seg_f_dir();
-2338  09d6 4be0          	push	#224
-2339  09d8 4b02          	push	#2
-2340  09da ae5000        	ldw	x,#20480
-2341  09dd cd0000        	call	_GPIO_Init
-2343  09e0 85            	popw	x
-2344                     ; 196     seg_g_dir();
-2347  09e1 4be0          	push	#224
-2348  09e3 4b40          	push	#64
-2349  09e5 ae500a        	ldw	x,#20490
-2350  09e8 cd0000        	call	_GPIO_Init
-2352  09eb 85            	popw	x
-2353                     ; 197     dp_dir();
-2356  09ec 4be0          	push	#224
-2357  09ee 4b04          	push	#4
-2358  09f0 ae500f        	ldw	x,#20495
-2359  09f3 cd0000        	call	_GPIO_Init
-2361  09f6 85            	popw	x
-2362                     ; 198     dig1_dir();
-2365  09f7 4be0          	push	#224
-2366  09f9 4b10          	push	#16
-2367  09fb ae500f        	ldw	x,#20495
-2368  09fe cd0000        	call	_GPIO_Init
-2370  0a01 85            	popw	x
-2371                     ; 199     dig2_dir();
-2374  0a02 4be0          	push	#224
-2375  0a04 4b20          	push	#32
-2376  0a06 ae5005        	ldw	x,#20485
-2377  0a09 cd0000        	call	_GPIO_Init
-2379  0a0c 85            	popw	x
-2380                     ; 200     dig3_dir();
-2383  0a0d 4be0          	push	#224
-2384  0a0f 4b10          	push	#16
-2385  0a11 ae5005        	ldw	x,#20485
-2386  0a14 cd0000        	call	_GPIO_Init
-2388  0a17 85            	popw	x
-2389                     ; 203     dig1_on();
-2392  0a18 4b10          	push	#16
-2393  0a1a ae500f        	ldw	x,#20495
-2394  0a1d cd0000        	call	_GPIO_WriteLow
-2396  0a20 84            	pop	a
-2397                     ; 204     dig2_on();
-2399  0a21 4b20          	push	#32
-2400  0a23 ae5005        	ldw	x,#20485
-2401  0a26 cd0000        	call	_GPIO_WriteLow
-2403  0a29 84            	pop	a
-2404                     ; 205     dig3_on();
-2406  0a2a 4b10          	push	#16
-2407  0a2c ae5005        	ldw	x,#20485
-2408  0a2f cd0000        	call	_GPIO_WriteLow
-2410  0a32 84            	pop	a
-2411                     ; 207     display_all();
-2413  0a33 4b20          	push	#32
-2414  0a35 ae500f        	ldw	x,#20495
-2415  0a38 cd0000        	call	_GPIO_WriteHigh
-2417  0a3b 84            	pop	a
-2420  0a3c 4b04          	push	#4
-2421  0a3e ae5000        	ldw	x,#20480
-2422  0a41 cd0000        	call	_GPIO_WriteHigh
-2424  0a44 84            	pop	a
-2427  0a45 4b80          	push	#128
-2428  0a47 ae500a        	ldw	x,#20490
-2429  0a4a cd0000        	call	_GPIO_WriteHigh
-2431  0a4d 84            	pop	a
-2434  0a4e 4b08          	push	#8
-2435  0a50 ae500f        	ldw	x,#20495
-2436  0a53 cd0000        	call	_GPIO_WriteHigh
-2438  0a56 84            	pop	a
-2441  0a57 4b02          	push	#2
-2442  0a59 ae500f        	ldw	x,#20495
-2443  0a5c cd0000        	call	_GPIO_WriteHigh
-2445  0a5f 84            	pop	a
-2448  0a60 4b02          	push	#2
-2449  0a62 ae5000        	ldw	x,#20480
-2450  0a65 cd0000        	call	_GPIO_WriteHigh
-2452  0a68 84            	pop	a
-2455  0a69 4b40          	push	#64
-2456  0a6b ae500a        	ldw	x,#20490
-2457  0a6e cd0000        	call	_GPIO_WriteHigh
-2459  0a71 84            	pop	a
-2462  0a72 4b04          	push	#4
-2463  0a74 ae500f        	ldw	x,#20495
-2464  0a77 cd0000        	call	_GPIO_WriteHigh
-2466  0a7a 84            	pop	a
-2467                     ; 208     delay(2*DELAY_DISPLAY_TEST);
-2470  0a7b ae03e8        	ldw	x,#1000
-2471  0a7e 89            	pushw	x
-2472  0a7f ae0000        	ldw	x,#0
-2473  0a82 89            	pushw	x
-2474  0a83 cd0000        	call	_delay
-2476  0a86 5b04          	addw	sp,#4
-2477                     ; 209     display_off();
-2479  0a88 4b20          	push	#32
-2480  0a8a ae500f        	ldw	x,#20495
-2481  0a8d cd0000        	call	_GPIO_WriteLow
-2483  0a90 84            	pop	a
-2486  0a91 4b04          	push	#4
-2487  0a93 ae5000        	ldw	x,#20480
-2488  0a96 cd0000        	call	_GPIO_WriteLow
-2490  0a99 84            	pop	a
-2493  0a9a 4b80          	push	#128
-2494  0a9c ae500a        	ldw	x,#20490
-2495  0a9f cd0000        	call	_GPIO_WriteLow
-2497  0aa2 84            	pop	a
-2500  0aa3 4b08          	push	#8
-2501  0aa5 ae500f        	ldw	x,#20495
-2502  0aa8 cd0000        	call	_GPIO_WriteLow
-2504  0aab 84            	pop	a
-2507  0aac 4b02          	push	#2
-2508  0aae ae500f        	ldw	x,#20495
-2509  0ab1 cd0000        	call	_GPIO_WriteLow
-2511  0ab4 84            	pop	a
-2514  0ab5 4b02          	push	#2
-2515  0ab7 ae5000        	ldw	x,#20480
-2516  0aba cd0000        	call	_GPIO_WriteLow
-2518  0abd 84            	pop	a
-2521  0abe 4b40          	push	#64
-2522  0ac0 ae500a        	ldw	x,#20490
-2523  0ac3 cd0000        	call	_GPIO_WriteLow
-2525  0ac6 84            	pop	a
-2528  0ac7 4b04          	push	#4
-2529  0ac9 ae500f        	ldw	x,#20495
-2530  0acc cd0000        	call	_GPIO_WriteLow
-2532  0acf 84            	pop	a
-2533                     ; 210     delay(DELAY_DISPLAY_TEST);
-2536  0ad0 ae01f4        	ldw	x,#500
-2537  0ad3 89            	pushw	x
-2538  0ad4 ae0000        	ldw	x,#0
-2539  0ad7 89            	pushw	x
-2540  0ad8 cd0000        	call	_delay
-2542  0adb 5b04          	addw	sp,#4
-2543                     ; 211     display_all();
-2545  0add 4b20          	push	#32
-2546  0adf ae500f        	ldw	x,#20495
-2547  0ae2 cd0000        	call	_GPIO_WriteHigh
-2549  0ae5 84            	pop	a
-2552  0ae6 4b04          	push	#4
-2553  0ae8 ae5000        	ldw	x,#20480
-2554  0aeb cd0000        	call	_GPIO_WriteHigh
-2556  0aee 84            	pop	a
-2559  0aef 4b80          	push	#128
-2560  0af1 ae500a        	ldw	x,#20490
-2561  0af4 cd0000        	call	_GPIO_WriteHigh
-2563  0af7 84            	pop	a
-2566  0af8 4b08          	push	#8
-2567  0afa ae500f        	ldw	x,#20495
-2568  0afd cd0000        	call	_GPIO_WriteHigh
-2570  0b00 84            	pop	a
-2573  0b01 4b02          	push	#2
-2574  0b03 ae500f        	ldw	x,#20495
-2575  0b06 cd0000        	call	_GPIO_WriteHigh
-2577  0b09 84            	pop	a
-2580  0b0a 4b02          	push	#2
-2581  0b0c ae5000        	ldw	x,#20480
-2582  0b0f cd0000        	call	_GPIO_WriteHigh
-2584  0b12 84            	pop	a
-2587  0b13 4b40          	push	#64
-2588  0b15 ae500a        	ldw	x,#20490
-2589  0b18 cd0000        	call	_GPIO_WriteHigh
-2591  0b1b 84            	pop	a
-2594  0b1c 4b04          	push	#4
-2595  0b1e ae500f        	ldw	x,#20495
-2596  0b21 cd0000        	call	_GPIO_WriteHigh
-2598  0b24 84            	pop	a
-2599                     ; 212     delay(2*DELAY_DISPLAY_TEST);
-2602  0b25 ae03e8        	ldw	x,#1000
-2603  0b28 89            	pushw	x
-2604  0b29 ae0000        	ldw	x,#0
-2605  0b2c 89            	pushw	x
-2606  0b2d cd0000        	call	_delay
-2608  0b30 5b04          	addw	sp,#4
-2609                     ; 213     display_off();
-2611  0b32 4b20          	push	#32
-2612  0b34 ae500f        	ldw	x,#20495
-2613  0b37 cd0000        	call	_GPIO_WriteLow
-2615  0b3a 84            	pop	a
-2618  0b3b 4b04          	push	#4
-2619  0b3d ae5000        	ldw	x,#20480
-2620  0b40 cd0000        	call	_GPIO_WriteLow
-2622  0b43 84            	pop	a
-2625  0b44 4b80          	push	#128
-2626  0b46 ae500a        	ldw	x,#20490
-2627  0b49 cd0000        	call	_GPIO_WriteLow
-2629  0b4c 84            	pop	a
-2632  0b4d 4b08          	push	#8
-2633  0b4f ae500f        	ldw	x,#20495
-2634  0b52 cd0000        	call	_GPIO_WriteLow
-2636  0b55 84            	pop	a
-2639  0b56 4b02          	push	#2
-2640  0b58 ae500f        	ldw	x,#20495
-2641  0b5b cd0000        	call	_GPIO_WriteLow
-2643  0b5e 84            	pop	a
-2646  0b5f 4b02          	push	#2
-2647  0b61 ae5000        	ldw	x,#20480
-2648  0b64 cd0000        	call	_GPIO_WriteLow
-2650  0b67 84            	pop	a
-2653  0b68 4b40          	push	#64
-2654  0b6a ae500a        	ldw	x,#20490
-2655  0b6d cd0000        	call	_GPIO_WriteLow
-2657  0b70 84            	pop	a
-2660  0b71 4b04          	push	#4
-2661  0b73 ae500f        	ldw	x,#20495
-2662  0b76 cd0000        	call	_GPIO_WriteLow
-2664  0b79 84            	pop	a
-2665                     ; 214     delay(DELAY_DISPLAY_TEST);
-2668  0b7a ae01f4        	ldw	x,#500
-2669  0b7d 89            	pushw	x
-2670  0b7e ae0000        	ldw	x,#0
-2671  0b81 89            	pushw	x
-2672  0b82 cd0000        	call	_delay
-2674  0b85 5b04          	addw	sp,#4
-2675                     ; 215     display_all();
-2677  0b87 4b20          	push	#32
-2678  0b89 ae500f        	ldw	x,#20495
-2679  0b8c cd0000        	call	_GPIO_WriteHigh
-2681  0b8f 84            	pop	a
-2684  0b90 4b04          	push	#4
-2685  0b92 ae5000        	ldw	x,#20480
-2686  0b95 cd0000        	call	_GPIO_WriteHigh
-2688  0b98 84            	pop	a
-2691  0b99 4b80          	push	#128
-2692  0b9b ae500a        	ldw	x,#20490
-2693  0b9e cd0000        	call	_GPIO_WriteHigh
-2695  0ba1 84            	pop	a
-2698  0ba2 4b08          	push	#8
-2699  0ba4 ae500f        	ldw	x,#20495
-2700  0ba7 cd0000        	call	_GPIO_WriteHigh
-2702  0baa 84            	pop	a
-2705  0bab 4b02          	push	#2
-2706  0bad ae500f        	ldw	x,#20495
-2707  0bb0 cd0000        	call	_GPIO_WriteHigh
-2709  0bb3 84            	pop	a
-2712  0bb4 4b02          	push	#2
-2713  0bb6 ae5000        	ldw	x,#20480
-2714  0bb9 cd0000        	call	_GPIO_WriteHigh
-2716  0bbc 84            	pop	a
-2719  0bbd 4b40          	push	#64
-2720  0bbf ae500a        	ldw	x,#20490
-2721  0bc2 cd0000        	call	_GPIO_WriteHigh
-2723  0bc5 84            	pop	a
-2726  0bc6 4b04          	push	#4
-2727  0bc8 ae500f        	ldw	x,#20495
-2728  0bcb cd0000        	call	_GPIO_WriteHigh
-2730  0bce 84            	pop	a
-2731                     ; 216     delay(2*DELAY_DISPLAY_TEST);
-2734  0bcf ae03e8        	ldw	x,#1000
-2735  0bd2 89            	pushw	x
-2736  0bd3 ae0000        	ldw	x,#0
-2737  0bd6 89            	pushw	x
-2738  0bd7 cd0000        	call	_delay
-2740  0bda 5b04          	addw	sp,#4
-2741                     ; 217     display_off();
-2743  0bdc 4b20          	push	#32
-2744  0bde ae500f        	ldw	x,#20495
-2745  0be1 cd0000        	call	_GPIO_WriteLow
-2747  0be4 84            	pop	a
-2750  0be5 4b04          	push	#4
-2751  0be7 ae5000        	ldw	x,#20480
-2752  0bea cd0000        	call	_GPIO_WriteLow
-2754  0bed 84            	pop	a
-2757  0bee 4b80          	push	#128
-2758  0bf0 ae500a        	ldw	x,#20490
-2759  0bf3 cd0000        	call	_GPIO_WriteLow
-2761  0bf6 84            	pop	a
-2764  0bf7 4b08          	push	#8
-2765  0bf9 ae500f        	ldw	x,#20495
-2766  0bfc cd0000        	call	_GPIO_WriteLow
-2768  0bff 84            	pop	a
-2771  0c00 4b02          	push	#2
-2772  0c02 ae500f        	ldw	x,#20495
-2773  0c05 cd0000        	call	_GPIO_WriteLow
-2775  0c08 84            	pop	a
-2778  0c09 4b02          	push	#2
-2779  0c0b ae5000        	ldw	x,#20480
-2780  0c0e cd0000        	call	_GPIO_WriteLow
-2782  0c11 84            	pop	a
-2785  0c12 4b40          	push	#64
-2786  0c14 ae500a        	ldw	x,#20490
-2787  0c17 cd0000        	call	_GPIO_WriteLow
-2789  0c1a 84            	pop	a
-2792  0c1b 4b04          	push	#4
-2793  0c1d ae500f        	ldw	x,#20495
-2794  0c20 cd0000        	call	_GPIO_WriteLow
-2796  0c23 84            	pop	a
-2797                     ; 219     display_test = 0;
-2800  0c24 3f00          	clr	_display_test
-2801                     ; 222     dig1_off();
-2803  0c26 4b10          	push	#16
-2804  0c28 ae500f        	ldw	x,#20495
-2805  0c2b cd0000        	call	_GPIO_WriteHigh
-2807  0c2e 84            	pop	a
-2808                     ; 223     dig2_off();
-2810  0c2f 4b20          	push	#32
-2811  0c31 ae5005        	ldw	x,#20485
-2812  0c34 cd0000        	call	_GPIO_WriteHigh
-2814  0c37 84            	pop	a
-2815                     ; 224     dig3_off();
-2817  0c38 4b10          	push	#16
-2818  0c3a ae5005        	ldw	x,#20485
-2819  0c3d cd0000        	call	_GPIO_WriteHigh
-2821  0c40 84            	pop	a
-2822                     ; 227 }
-2825  0c41 81            	ret
-2859                     	xdef	_test_display
-2860                     	xdef	_wr_digit
-2861                     	xdef	_dec2bcd
-2862                     	xdef	_display_num
-2863                     	xdef	_display_test
-2864                     	xref.b	_tick
-2865                     	xref	_delay
-2866                     	xdef	_set_display
-2867                     	xdef	_tmr_display
-2868                     	xdef	_task_display
-2869                     	xdef	_init_display
-2870                     	xref	_GPIO_WriteLow
-2871                     	xref	_GPIO_WriteHigh
-2872                     	xref	_GPIO_Init
-2891                     	end
+ 240                     ; 44 void set_option_display(uint8_t option, uint8_t en_dp)
+ 240                     ; 45 {
+ 241                     	switch	.text
+ 242  0042               _set_option_display:
+ 246                     ; 47     display_num[DIG1_POS] = option;
+ 248  0042 9e            	ld	a,xh
+ 249  0043 b701          	ld	_display_num,a
+ 250                     ; 48     dp[DIG1_POS] = en_dp;
+ 252  0045 9f            	ld	a,xl
+ 253  0046 b700          	ld	_dp,a
+ 254                     ; 50 }
+ 257  0048 81            	ret
+ 295                     .const:	section	.text
+ 296  0000               L61:
+ 297  0000 00be          	dc.w	L101
+ 298  0002 0101          	dc.w	L301
+ 299  0004 0144          	dc.w	L501
+ 300  0006 0187          	dc.w	L701
+ 301  0008 01ca          	dc.w	L111
+ 302  000a 020d          	dc.w	L311
+ 303  000c 0250          	dc.w	L511
+ 304  000e 0293          	dc.w	L711
+ 305  0010 02d6          	dc.w	L121
+ 306  0012 0319          	dc.w	L321
+ 307                     ; 53 void wr_digit(uint8_t dig_pos)
+ 307                     ; 54 {
+ 308                     	switch	.text
+ 309  0049               _wr_digit:
+ 311  0049 88            	push	a
+ 312       00000000      OFST:	set	0
+ 315                     ; 57     if (dp[dig_pos]) {
+ 317  004a 5f            	clrw	x
+ 318  004b 97            	ld	xl,a
+ 319  004c 6d00          	tnz	(_dp,x)
+ 320  004e 270b          	jreq	L761
+ 321                     ; 58         dp_on();
+ 323  0050 4b04          	push	#4
+ 324  0052 ae500f        	ldw	x,#20495
+ 325  0055 cd0000        	call	_GPIO_WriteHigh
+ 327  0058 84            	pop	a
+ 329  0059 2009          	jra	L171
+ 330  005b               L761:
+ 331                     ; 60         dp_off();
+ 333  005b 4b04          	push	#4
+ 334  005d ae500f        	ldw	x,#20495
+ 335  0060 cd0000        	call	_GPIO_WriteLow
+ 337  0063 84            	pop	a
+ 338  0064               L171:
+ 339                     ; 63     switch (display_num[dig_pos]) {
+ 341  0064 7b01          	ld	a,(OFST+1,sp)
+ 342  0066 5f            	clrw	x
+ 343  0067 97            	ld	xl,a
+ 344  0068 e601          	ld	a,(_display_num,x)
+ 346                     ; 123         break;
+ 347  006a a10a          	cp	a,#10
+ 348  006c 2407          	jruge	L41
+ 349  006e 5f            	clrw	x
+ 350  006f 97            	ld	xl,a
+ 351  0070 58            	sllw	x
+ 352  0071 de0000        	ldw	x,(L61,x)
+ 353  0074 fc            	jp	(x)
+ 354  0075               L41:
+ 355  0075 a041          	sub	a,#65
+ 356  0077 2603          	jrne	L02
+ 357  0079 cc035c        	jp	L521
+ 358  007c               L02:
+ 359  007c a002          	sub	a,#2
+ 360  007e 2603          	jrne	L22
+ 361  0080 cc03e2        	jp	L131
+ 362  0083               L22:
+ 363  0083 a002          	sub	a,#2
+ 364  0085 2603          	jrne	L42
+ 365  0087 cc0468        	jp	L531
+ 366  008a               L42:
+ 367  008a 4a            	dec	a
+ 368  008b 2603          	jrne	L62
+ 369  008d cc04ab        	jp	L731
+ 370  0090               L62:
+ 371  0090 a002          	sub	a,#2
+ 372  0092 2603          	jrne	L03
+ 373  0094 cc04ee        	jp	L141
+ 374  0097               L03:
+ 375  0097 a004          	sub	a,#4
+ 376  0099 2603          	jrne	L23
+ 377  009b cc0531        	jp	L341
+ 378  009e               L23:
+ 379  009e a004          	sub	a,#4
+ 380  00a0 2603          	jrne	L43
+ 381  00a2 cc0573        	jp	L541
+ 382  00a5               L43:
+ 383  00a5 a005          	sub	a,#5
+ 384  00a7 2603          	jrne	L63
+ 385  00a9 cc05b4        	jp	L741
+ 386  00ac               L63:
+ 387  00ac a00d          	sub	a,#13
+ 388  00ae 2603          	jrne	L04
+ 389  00b0 cc039f        	jp	L721
+ 390  00b3               L04:
+ 391  00b3 a002          	sub	a,#2
+ 392  00b5 2603          	jrne	L24
+ 393  00b7 cc0425        	jp	L331
+ 394  00ba               L24:
+ 395  00ba acf305f3      	jpf	L571
+ 396  00be               L101:
+ 397                     ; 64     case 0x00:
+ 397                     ; 65         display_zero();
+ 399  00be 4b20          	push	#32
+ 400  00c0 ae500f        	ldw	x,#20495
+ 401  00c3 cd0000        	call	_GPIO_WriteHigh
+ 403  00c6 84            	pop	a
+ 406  00c7 4b04          	push	#4
+ 407  00c9 ae5000        	ldw	x,#20480
+ 408  00cc cd0000        	call	_GPIO_WriteHigh
+ 410  00cf 84            	pop	a
+ 413  00d0 4b80          	push	#128
+ 414  00d2 ae500a        	ldw	x,#20490
+ 415  00d5 cd0000        	call	_GPIO_WriteHigh
+ 417  00d8 84            	pop	a
+ 420  00d9 4b08          	push	#8
+ 421  00db ae500f        	ldw	x,#20495
+ 422  00de cd0000        	call	_GPIO_WriteHigh
+ 424  00e1 84            	pop	a
+ 427  00e2 4b02          	push	#2
+ 428  00e4 ae500f        	ldw	x,#20495
+ 429  00e7 cd0000        	call	_GPIO_WriteHigh
+ 431  00ea 84            	pop	a
+ 434  00eb 4b02          	push	#2
+ 435  00ed ae5000        	ldw	x,#20480
+ 436  00f0 cd0000        	call	_GPIO_WriteHigh
+ 438  00f3 84            	pop	a
+ 441  00f4 4b40          	push	#64
+ 442  00f6 ae500a        	ldw	x,#20490
+ 443  00f9 cd0000        	call	_GPIO_WriteLow
+ 445  00fc 84            	pop	a
+ 446                     ; 66         break;
+ 448  00fd acf305f3      	jpf	L571
+ 449  0101               L301:
+ 450                     ; 67     case 0x01:
+ 450                     ; 68         display_one();
+ 452  0101 4b20          	push	#32
+ 453  0103 ae500f        	ldw	x,#20495
+ 454  0106 cd0000        	call	_GPIO_WriteLow
+ 456  0109 84            	pop	a
+ 459  010a 4b04          	push	#4
+ 460  010c ae5000        	ldw	x,#20480
+ 461  010f cd0000        	call	_GPIO_WriteHigh
+ 463  0112 84            	pop	a
+ 466  0113 4b80          	push	#128
+ 467  0115 ae500a        	ldw	x,#20490
+ 468  0118 cd0000        	call	_GPIO_WriteHigh
+ 470  011b 84            	pop	a
+ 473  011c 4b08          	push	#8
+ 474  011e ae500f        	ldw	x,#20495
+ 475  0121 cd0000        	call	_GPIO_WriteLow
+ 477  0124 84            	pop	a
+ 480  0125 4b02          	push	#2
+ 481  0127 ae500f        	ldw	x,#20495
+ 482  012a cd0000        	call	_GPIO_WriteLow
+ 484  012d 84            	pop	a
+ 487  012e 4b02          	push	#2
+ 488  0130 ae5000        	ldw	x,#20480
+ 489  0133 cd0000        	call	_GPIO_WriteLow
+ 491  0136 84            	pop	a
+ 494  0137 4b40          	push	#64
+ 495  0139 ae500a        	ldw	x,#20490
+ 496  013c cd0000        	call	_GPIO_WriteLow
+ 498  013f 84            	pop	a
+ 499                     ; 69         break;
+ 501  0140 acf305f3      	jpf	L571
+ 502  0144               L501:
+ 503                     ; 70     case 0x02:
+ 503                     ; 71         display_two();
+ 505  0144 4b20          	push	#32
+ 506  0146 ae500f        	ldw	x,#20495
+ 507  0149 cd0000        	call	_GPIO_WriteHigh
+ 509  014c 84            	pop	a
+ 512  014d 4b04          	push	#4
+ 513  014f ae5000        	ldw	x,#20480
+ 514  0152 cd0000        	call	_GPIO_WriteHigh
+ 516  0155 84            	pop	a
+ 519  0156 4b80          	push	#128
+ 520  0158 ae500a        	ldw	x,#20490
+ 521  015b cd0000        	call	_GPIO_WriteLow
+ 523  015e 84            	pop	a
+ 526  015f 4b08          	push	#8
+ 527  0161 ae500f        	ldw	x,#20495
+ 528  0164 cd0000        	call	_GPIO_WriteHigh
+ 530  0167 84            	pop	a
+ 533  0168 4b02          	push	#2
+ 534  016a ae500f        	ldw	x,#20495
+ 535  016d cd0000        	call	_GPIO_WriteHigh
+ 537  0170 84            	pop	a
+ 540  0171 4b02          	push	#2
+ 541  0173 ae5000        	ldw	x,#20480
+ 542  0176 cd0000        	call	_GPIO_WriteLow
+ 544  0179 84            	pop	a
+ 547  017a 4b40          	push	#64
+ 548  017c ae500a        	ldw	x,#20490
+ 549  017f cd0000        	call	_GPIO_WriteHigh
+ 551  0182 84            	pop	a
+ 552                     ; 72         break;
+ 554  0183 acf305f3      	jpf	L571
+ 555  0187               L701:
+ 556                     ; 73     case 0x03:
+ 556                     ; 74         display_three();
+ 558  0187 4b20          	push	#32
+ 559  0189 ae500f        	ldw	x,#20495
+ 560  018c cd0000        	call	_GPIO_WriteHigh
+ 562  018f 84            	pop	a
+ 565  0190 4b04          	push	#4
+ 566  0192 ae5000        	ldw	x,#20480
+ 567  0195 cd0000        	call	_GPIO_WriteHigh
+ 569  0198 84            	pop	a
+ 572  0199 4b80          	push	#128
+ 573  019b ae500a        	ldw	x,#20490
+ 574  019e cd0000        	call	_GPIO_WriteHigh
+ 576  01a1 84            	pop	a
+ 579  01a2 4b08          	push	#8
+ 580  01a4 ae500f        	ldw	x,#20495
+ 581  01a7 cd0000        	call	_GPIO_WriteHigh
+ 583  01aa 84            	pop	a
+ 586  01ab 4b02          	push	#2
+ 587  01ad ae500f        	ldw	x,#20495
+ 588  01b0 cd0000        	call	_GPIO_WriteLow
+ 590  01b3 84            	pop	a
+ 593  01b4 4b02          	push	#2
+ 594  01b6 ae5000        	ldw	x,#20480
+ 595  01b9 cd0000        	call	_GPIO_WriteLow
+ 597  01bc 84            	pop	a
+ 600  01bd 4b40          	push	#64
+ 601  01bf ae500a        	ldw	x,#20490
+ 602  01c2 cd0000        	call	_GPIO_WriteHigh
+ 604  01c5 84            	pop	a
+ 605                     ; 75         break;
+ 607  01c6 acf305f3      	jpf	L571
+ 608  01ca               L111:
+ 609                     ; 76     case 0x04:
+ 609                     ; 77         display_four();
+ 611  01ca 4b20          	push	#32
+ 612  01cc ae500f        	ldw	x,#20495
+ 613  01cf cd0000        	call	_GPIO_WriteLow
+ 615  01d2 84            	pop	a
+ 618  01d3 4b04          	push	#4
+ 619  01d5 ae5000        	ldw	x,#20480
+ 620  01d8 cd0000        	call	_GPIO_WriteHigh
+ 622  01db 84            	pop	a
+ 625  01dc 4b80          	push	#128
+ 626  01de ae500a        	ldw	x,#20490
+ 627  01e1 cd0000        	call	_GPIO_WriteHigh
+ 629  01e4 84            	pop	a
+ 632  01e5 4b08          	push	#8
+ 633  01e7 ae500f        	ldw	x,#20495
+ 634  01ea cd0000        	call	_GPIO_WriteLow
+ 636  01ed 84            	pop	a
+ 639  01ee 4b02          	push	#2
+ 640  01f0 ae500f        	ldw	x,#20495
+ 641  01f3 cd0000        	call	_GPIO_WriteLow
+ 643  01f6 84            	pop	a
+ 646  01f7 4b02          	push	#2
+ 647  01f9 ae5000        	ldw	x,#20480
+ 648  01fc cd0000        	call	_GPIO_WriteHigh
+ 650  01ff 84            	pop	a
+ 653  0200 4b40          	push	#64
+ 654  0202 ae500a        	ldw	x,#20490
+ 655  0205 cd0000        	call	_GPIO_WriteHigh
+ 657  0208 84            	pop	a
+ 658                     ; 78         break;
+ 660  0209 acf305f3      	jpf	L571
+ 661  020d               L311:
+ 662                     ; 79     case 0x05:
+ 662                     ; 80         display_five();
+ 664  020d 4b20          	push	#32
+ 665  020f ae500f        	ldw	x,#20495
+ 666  0212 cd0000        	call	_GPIO_WriteHigh
+ 668  0215 84            	pop	a
+ 671  0216 4b04          	push	#4
+ 672  0218 ae5000        	ldw	x,#20480
+ 673  021b cd0000        	call	_GPIO_WriteLow
+ 675  021e 84            	pop	a
+ 678  021f 4b80          	push	#128
+ 679  0221 ae500a        	ldw	x,#20490
+ 680  0224 cd0000        	call	_GPIO_WriteHigh
+ 682  0227 84            	pop	a
+ 685  0228 4b08          	push	#8
+ 686  022a ae500f        	ldw	x,#20495
+ 687  022d cd0000        	call	_GPIO_WriteHigh
+ 689  0230 84            	pop	a
+ 692  0231 4b02          	push	#2
+ 693  0233 ae500f        	ldw	x,#20495
+ 694  0236 cd0000        	call	_GPIO_WriteLow
+ 696  0239 84            	pop	a
+ 699  023a 4b02          	push	#2
+ 700  023c ae5000        	ldw	x,#20480
+ 701  023f cd0000        	call	_GPIO_WriteHigh
+ 703  0242 84            	pop	a
+ 706  0243 4b40          	push	#64
+ 707  0245 ae500a        	ldw	x,#20490
+ 708  0248 cd0000        	call	_GPIO_WriteHigh
+ 710  024b 84            	pop	a
+ 711                     ; 81         break;
+ 713  024c acf305f3      	jpf	L571
+ 714  0250               L511:
+ 715                     ; 82     case 0x06:
+ 715                     ; 83         display_six();
+ 717  0250 4b20          	push	#32
+ 718  0252 ae500f        	ldw	x,#20495
+ 719  0255 cd0000        	call	_GPIO_WriteHigh
+ 721  0258 84            	pop	a
+ 724  0259 4b04          	push	#4
+ 725  025b ae5000        	ldw	x,#20480
+ 726  025e cd0000        	call	_GPIO_WriteLow
+ 728  0261 84            	pop	a
+ 731  0262 4b80          	push	#128
+ 732  0264 ae500a        	ldw	x,#20490
+ 733  0267 cd0000        	call	_GPIO_WriteHigh
+ 735  026a 84            	pop	a
+ 738  026b 4b08          	push	#8
+ 739  026d ae500f        	ldw	x,#20495
+ 740  0270 cd0000        	call	_GPIO_WriteHigh
+ 742  0273 84            	pop	a
+ 745  0274 4b02          	push	#2
+ 746  0276 ae500f        	ldw	x,#20495
+ 747  0279 cd0000        	call	_GPIO_WriteHigh
+ 749  027c 84            	pop	a
+ 752  027d 4b02          	push	#2
+ 753  027f ae5000        	ldw	x,#20480
+ 754  0282 cd0000        	call	_GPIO_WriteHigh
+ 756  0285 84            	pop	a
+ 759  0286 4b40          	push	#64
+ 760  0288 ae500a        	ldw	x,#20490
+ 761  028b cd0000        	call	_GPIO_WriteHigh
+ 763  028e 84            	pop	a
+ 764                     ; 84         break;
+ 766  028f acf305f3      	jpf	L571
+ 767  0293               L711:
+ 768                     ; 85     case 0x07:
+ 768                     ; 86         display_seven();
+ 770  0293 4b20          	push	#32
+ 771  0295 ae500f        	ldw	x,#20495
+ 772  0298 cd0000        	call	_GPIO_WriteHigh
+ 774  029b 84            	pop	a
+ 777  029c 4b04          	push	#4
+ 778  029e ae5000        	ldw	x,#20480
+ 779  02a1 cd0000        	call	_GPIO_WriteHigh
+ 781  02a4 84            	pop	a
+ 784  02a5 4b80          	push	#128
+ 785  02a7 ae500a        	ldw	x,#20490
+ 786  02aa cd0000        	call	_GPIO_WriteHigh
+ 788  02ad 84            	pop	a
+ 791  02ae 4b08          	push	#8
+ 792  02b0 ae500f        	ldw	x,#20495
+ 793  02b3 cd0000        	call	_GPIO_WriteLow
+ 795  02b6 84            	pop	a
+ 798  02b7 4b02          	push	#2
+ 799  02b9 ae500f        	ldw	x,#20495
+ 800  02bc cd0000        	call	_GPIO_WriteLow
+ 802  02bf 84            	pop	a
+ 805  02c0 4b02          	push	#2
+ 806  02c2 ae5000        	ldw	x,#20480
+ 807  02c5 cd0000        	call	_GPIO_WriteLow
+ 809  02c8 84            	pop	a
+ 812  02c9 4b40          	push	#64
+ 813  02cb ae500a        	ldw	x,#20490
+ 814  02ce cd0000        	call	_GPIO_WriteLow
+ 816  02d1 84            	pop	a
+ 817                     ; 87         break;
+ 819  02d2 acf305f3      	jpf	L571
+ 820  02d6               L121:
+ 821                     ; 88     case 0x08:
+ 821                     ; 89         display_eight();
+ 823  02d6 4b20          	push	#32
+ 824  02d8 ae500f        	ldw	x,#20495
+ 825  02db cd0000        	call	_GPIO_WriteHigh
+ 827  02de 84            	pop	a
+ 830  02df 4b04          	push	#4
+ 831  02e1 ae5000        	ldw	x,#20480
+ 832  02e4 cd0000        	call	_GPIO_WriteHigh
+ 834  02e7 84            	pop	a
+ 837  02e8 4b80          	push	#128
+ 838  02ea ae500a        	ldw	x,#20490
+ 839  02ed cd0000        	call	_GPIO_WriteHigh
+ 841  02f0 84            	pop	a
+ 844  02f1 4b08          	push	#8
+ 845  02f3 ae500f        	ldw	x,#20495
+ 846  02f6 cd0000        	call	_GPIO_WriteHigh
+ 848  02f9 84            	pop	a
+ 851  02fa 4b02          	push	#2
+ 852  02fc ae500f        	ldw	x,#20495
+ 853  02ff cd0000        	call	_GPIO_WriteHigh
+ 855  0302 84            	pop	a
+ 858  0303 4b02          	push	#2
+ 859  0305 ae5000        	ldw	x,#20480
+ 860  0308 cd0000        	call	_GPIO_WriteHigh
+ 862  030b 84            	pop	a
+ 865  030c 4b40          	push	#64
+ 866  030e ae500a        	ldw	x,#20490
+ 867  0311 cd0000        	call	_GPIO_WriteHigh
+ 869  0314 84            	pop	a
+ 870                     ; 90         break;
+ 872  0315 acf305f3      	jpf	L571
+ 873  0319               L321:
+ 874                     ; 91     case 0x09:
+ 874                     ; 92         display_nine();
+ 876  0319 4b20          	push	#32
+ 877  031b ae500f        	ldw	x,#20495
+ 878  031e cd0000        	call	_GPIO_WriteHigh
+ 880  0321 84            	pop	a
+ 883  0322 4b04          	push	#4
+ 884  0324 ae5000        	ldw	x,#20480
+ 885  0327 cd0000        	call	_GPIO_WriteHigh
+ 887  032a 84            	pop	a
+ 890  032b 4b80          	push	#128
+ 891  032d ae500a        	ldw	x,#20490
+ 892  0330 cd0000        	call	_GPIO_WriteHigh
+ 894  0333 84            	pop	a
+ 897  0334 4b08          	push	#8
+ 898  0336 ae500f        	ldw	x,#20495
+ 899  0339 cd0000        	call	_GPIO_WriteHigh
+ 901  033c 84            	pop	a
+ 904  033d 4b02          	push	#2
+ 905  033f ae500f        	ldw	x,#20495
+ 906  0342 cd0000        	call	_GPIO_WriteLow
+ 908  0345 84            	pop	a
+ 911  0346 4b02          	push	#2
+ 912  0348 ae5000        	ldw	x,#20480
+ 913  034b cd0000        	call	_GPIO_WriteHigh
+ 915  034e 84            	pop	a
+ 918  034f 4b40          	push	#64
+ 919  0351 ae500a        	ldw	x,#20490
+ 920  0354 cd0000        	call	_GPIO_WriteHigh
+ 922  0357 84            	pop	a
+ 923                     ; 93         break;
+ 925  0358 acf305f3      	jpf	L571
+ 926  035c               L521:
+ 927                     ; 94     case 'A':
+ 927                     ; 95         display_a();
+ 929  035c 4b20          	push	#32
+ 930  035e ae500f        	ldw	x,#20495
+ 931  0361 cd0000        	call	_GPIO_WriteHigh
+ 933  0364 84            	pop	a
+ 936  0365 4b04          	push	#4
+ 937  0367 ae5000        	ldw	x,#20480
+ 938  036a cd0000        	call	_GPIO_WriteHigh
+ 940  036d 84            	pop	a
+ 943  036e 4b80          	push	#128
+ 944  0370 ae500a        	ldw	x,#20490
+ 945  0373 cd0000        	call	_GPIO_WriteHigh
+ 947  0376 84            	pop	a
+ 950  0377 4b08          	push	#8
+ 951  0379 ae500f        	ldw	x,#20495
+ 952  037c cd0000        	call	_GPIO_WriteLow
+ 954  037f 84            	pop	a
+ 957  0380 4b02          	push	#2
+ 958  0382 ae500f        	ldw	x,#20495
+ 959  0385 cd0000        	call	_GPIO_WriteHigh
+ 961  0388 84            	pop	a
+ 964  0389 4b02          	push	#2
+ 965  038b ae5000        	ldw	x,#20480
+ 966  038e cd0000        	call	_GPIO_WriteHigh
+ 968  0391 84            	pop	a
+ 971  0392 4b40          	push	#64
+ 972  0394 ae500a        	ldw	x,#20490
+ 973  0397 cd0000        	call	_GPIO_WriteHigh
+ 975  039a 84            	pop	a
+ 976                     ; 96         break;
+ 978  039b acf305f3      	jpf	L571
+ 979  039f               L721:
+ 980                     ; 97     case 'b':
+ 980                     ; 98         display_b();
+ 982  039f 4b20          	push	#32
+ 983  03a1 ae500f        	ldw	x,#20495
+ 984  03a4 cd0000        	call	_GPIO_WriteLow
+ 986  03a7 84            	pop	a
+ 989  03a8 4b04          	push	#4
+ 990  03aa ae5000        	ldw	x,#20480
+ 991  03ad cd0000        	call	_GPIO_WriteLow
+ 993  03b0 84            	pop	a
+ 996  03b1 4b80          	push	#128
+ 997  03b3 ae500a        	ldw	x,#20490
+ 998  03b6 cd0000        	call	_GPIO_WriteHigh
+1000  03b9 84            	pop	a
+1003  03ba 4b08          	push	#8
+1004  03bc ae500f        	ldw	x,#20495
+1005  03bf cd0000        	call	_GPIO_WriteHigh
+1007  03c2 84            	pop	a
+1010  03c3 4b02          	push	#2
+1011  03c5 ae500f        	ldw	x,#20495
+1012  03c8 cd0000        	call	_GPIO_WriteHigh
+1014  03cb 84            	pop	a
+1017  03cc 4b02          	push	#2
+1018  03ce ae5000        	ldw	x,#20480
+1019  03d1 cd0000        	call	_GPIO_WriteHigh
+1021  03d4 84            	pop	a
+1024  03d5 4b40          	push	#64
+1025  03d7 ae500a        	ldw	x,#20490
+1026  03da cd0000        	call	_GPIO_WriteHigh
+1028  03dd 84            	pop	a
+1029                     ; 99         break;
+1031  03de acf305f3      	jpf	L571
+1032  03e2               L131:
+1033                     ; 100     case 'C':
+1033                     ; 101         display_c();
+1035  03e2 4b20          	push	#32
+1036  03e4 ae500f        	ldw	x,#20495
+1037  03e7 cd0000        	call	_GPIO_WriteHigh
+1039  03ea 84            	pop	a
+1042  03eb 4b04          	push	#4
+1043  03ed ae5000        	ldw	x,#20480
+1044  03f0 cd0000        	call	_GPIO_WriteLow
+1046  03f3 84            	pop	a
+1049  03f4 4b80          	push	#128
+1050  03f6 ae500a        	ldw	x,#20490
+1051  03f9 cd0000        	call	_GPIO_WriteLow
+1053  03fc 84            	pop	a
+1056  03fd 4b08          	push	#8
+1057  03ff ae500f        	ldw	x,#20495
+1058  0402 cd0000        	call	_GPIO_WriteHigh
+1060  0405 84            	pop	a
+1063  0406 4b02          	push	#2
+1064  0408 ae500f        	ldw	x,#20495
+1065  040b cd0000        	call	_GPIO_WriteHigh
+1067  040e 84            	pop	a
+1070  040f 4b02          	push	#2
+1071  0411 ae5000        	ldw	x,#20480
+1072  0414 cd0000        	call	_GPIO_WriteHigh
+1074  0417 84            	pop	a
+1077  0418 4b40          	push	#64
+1078  041a ae500a        	ldw	x,#20490
+1079  041d cd0000        	call	_GPIO_WriteLow
+1081  0420 84            	pop	a
+1082                     ; 102         break;
+1084  0421 acf305f3      	jpf	L571
+1085  0425               L331:
+1086                     ; 103     case 'd':
+1086                     ; 104         display_d();
+1088  0425 4b20          	push	#32
+1089  0427 ae500f        	ldw	x,#20495
+1090  042a cd0000        	call	_GPIO_WriteLow
+1092  042d 84            	pop	a
+1095  042e 4b04          	push	#4
+1096  0430 ae5000        	ldw	x,#20480
+1097  0433 cd0000        	call	_GPIO_WriteHigh
+1099  0436 84            	pop	a
+1102  0437 4b80          	push	#128
+1103  0439 ae500a        	ldw	x,#20490
+1104  043c cd0000        	call	_GPIO_WriteHigh
+1106  043f 84            	pop	a
+1109  0440 4b08          	push	#8
+1110  0442 ae500f        	ldw	x,#20495
+1111  0445 cd0000        	call	_GPIO_WriteHigh
+1113  0448 84            	pop	a
+1116  0449 4b02          	push	#2
+1117  044b ae500f        	ldw	x,#20495
+1118  044e cd0000        	call	_GPIO_WriteHigh
+1120  0451 84            	pop	a
+1123  0452 4b02          	push	#2
+1124  0454 ae5000        	ldw	x,#20480
+1125  0457 cd0000        	call	_GPIO_WriteLow
+1127  045a 84            	pop	a
+1130  045b 4b40          	push	#64
+1131  045d ae500a        	ldw	x,#20490
+1132  0460 cd0000        	call	_GPIO_WriteHigh
+1134  0463 84            	pop	a
+1135                     ; 105         break;
+1137  0464 acf305f3      	jpf	L571
+1138  0468               L531:
+1139                     ; 106     case 'E':
+1139                     ; 107         display_e();
+1141  0468 4b20          	push	#32
+1142  046a ae500f        	ldw	x,#20495
+1143  046d cd0000        	call	_GPIO_WriteHigh
+1145  0470 84            	pop	a
+1148  0471 4b04          	push	#4
+1149  0473 ae5000        	ldw	x,#20480
+1150  0476 cd0000        	call	_GPIO_WriteLow
+1152  0479 84            	pop	a
+1155  047a 4b80          	push	#128
+1156  047c ae500a        	ldw	x,#20490
+1157  047f cd0000        	call	_GPIO_WriteLow
+1159  0482 84            	pop	a
+1162  0483 4b08          	push	#8
+1163  0485 ae500f        	ldw	x,#20495
+1164  0488 cd0000        	call	_GPIO_WriteHigh
+1166  048b 84            	pop	a
+1169  048c 4b02          	push	#2
+1170  048e ae500f        	ldw	x,#20495
+1171  0491 cd0000        	call	_GPIO_WriteHigh
+1173  0494 84            	pop	a
+1176  0495 4b02          	push	#2
+1177  0497 ae5000        	ldw	x,#20480
+1178  049a cd0000        	call	_GPIO_WriteHigh
+1180  049d 84            	pop	a
+1183  049e 4b40          	push	#64
+1184  04a0 ae500a        	ldw	x,#20490
+1185  04a3 cd0000        	call	_GPIO_WriteHigh
+1187  04a6 84            	pop	a
+1188                     ; 108         break;
+1190  04a7 acf305f3      	jpf	L571
+1191  04ab               L731:
+1192                     ; 109     case 'F':
+1192                     ; 110         display_f();
+1194  04ab 4b20          	push	#32
+1195  04ad ae500f        	ldw	x,#20495
+1196  04b0 cd0000        	call	_GPIO_WriteHigh
+1198  04b3 84            	pop	a
+1201  04b4 4b04          	push	#4
+1202  04b6 ae5000        	ldw	x,#20480
+1203  04b9 cd0000        	call	_GPIO_WriteLow
+1205  04bc 84            	pop	a
+1208  04bd 4b80          	push	#128
+1209  04bf ae500a        	ldw	x,#20490
+1210  04c2 cd0000        	call	_GPIO_WriteLow
+1212  04c5 84            	pop	a
+1215  04c6 4b08          	push	#8
+1216  04c8 ae500f        	ldw	x,#20495
+1217  04cb cd0000        	call	_GPIO_WriteLow
+1219  04ce 84            	pop	a
+1222  04cf 4b02          	push	#2
+1223  04d1 ae500f        	ldw	x,#20495
+1224  04d4 cd0000        	call	_GPIO_WriteHigh
+1226  04d7 84            	pop	a
+1229  04d8 4b02          	push	#2
+1230  04da ae5000        	ldw	x,#20480
+1231  04dd cd0000        	call	_GPIO_WriteHigh
+1233  04e0 84            	pop	a
+1236  04e1 4b40          	push	#64
+1237  04e3 ae500a        	ldw	x,#20490
+1238  04e6 cd0000        	call	_GPIO_WriteHigh
+1240  04e9 84            	pop	a
+1241                     ; 111         break;
+1243  04ea acf305f3      	jpf	L571
+1244  04ee               L141:
+1245                     ; 112     case 'H':
+1245                     ; 113         display_h();
+1247  04ee 4b20          	push	#32
+1248  04f0 ae500f        	ldw	x,#20495
+1249  04f3 cd0000        	call	_GPIO_WriteLow
+1251  04f6 84            	pop	a
+1254  04f7 4b04          	push	#4
+1255  04f9 ae5000        	ldw	x,#20480
+1256  04fc cd0000        	call	_GPIO_WriteHigh
+1258  04ff 84            	pop	a
+1261  0500 4b80          	push	#128
+1262  0502 ae500a        	ldw	x,#20490
+1263  0505 cd0000        	call	_GPIO_WriteHigh
+1265  0508 84            	pop	a
+1268  0509 4b08          	push	#8
+1269  050b ae500f        	ldw	x,#20495
+1270  050e cd0000        	call	_GPIO_WriteLow
+1272  0511 84            	pop	a
+1275  0512 4b02          	push	#2
+1276  0514 ae500f        	ldw	x,#20495
+1277  0517 cd0000        	call	_GPIO_WriteHigh
+1279  051a 84            	pop	a
+1282  051b 4b02          	push	#2
+1283  051d ae5000        	ldw	x,#20480
+1284  0520 cd0000        	call	_GPIO_WriteHigh
+1286  0523 84            	pop	a
+1289  0524 4b40          	push	#64
+1290  0526 ae500a        	ldw	x,#20490
+1291  0529 cd0000        	call	_GPIO_WriteHigh
+1293  052c 84            	pop	a
+1294                     ; 114         break;
+1296  052d acf305f3      	jpf	L571
+1297  0531               L341:
+1298                     ; 115     case 'L':
+1298                     ; 116         display_l();
+1300  0531 4b20          	push	#32
+1301  0533 ae500f        	ldw	x,#20495
+1302  0536 cd0000        	call	_GPIO_WriteLow
+1304  0539 84            	pop	a
+1307  053a 4b04          	push	#4
+1308  053c ae5000        	ldw	x,#20480
+1309  053f cd0000        	call	_GPIO_WriteLow
+1311  0542 84            	pop	a
+1314  0543 4b80          	push	#128
+1315  0545 ae500a        	ldw	x,#20490
+1316  0548 cd0000        	call	_GPIO_WriteLow
+1318  054b 84            	pop	a
+1321  054c 4b08          	push	#8
+1322  054e ae500f        	ldw	x,#20495
+1323  0551 cd0000        	call	_GPIO_WriteHigh
+1325  0554 84            	pop	a
+1328  0555 4b02          	push	#2
+1329  0557 ae500f        	ldw	x,#20495
+1330  055a cd0000        	call	_GPIO_WriteHigh
+1332  055d 84            	pop	a
+1335  055e 4b02          	push	#2
+1336  0560 ae5000        	ldw	x,#20480
+1337  0563 cd0000        	call	_GPIO_WriteHigh
+1339  0566 84            	pop	a
+1342  0567 4b40          	push	#64
+1343  0569 ae500a        	ldw	x,#20490
+1344  056c cd0000        	call	_GPIO_WriteLow
+1346  056f 84            	pop	a
+1347                     ; 117         break;
+1349  0570 cc05f3        	jra	L571
+1350  0573               L541:
+1351                     ; 118     case 'P':
+1351                     ; 119         display_p();
+1353  0573 4b20          	push	#32
+1354  0575 ae500f        	ldw	x,#20495
+1355  0578 cd0000        	call	_GPIO_WriteHigh
+1357  057b 84            	pop	a
+1360  057c 4b04          	push	#4
+1361  057e ae5000        	ldw	x,#20480
+1362  0581 cd0000        	call	_GPIO_WriteHigh
+1364  0584 84            	pop	a
+1367  0585 4b80          	push	#128
+1368  0587 ae500a        	ldw	x,#20490
+1369  058a cd0000        	call	_GPIO_WriteLow
+1371  058d 84            	pop	a
+1374  058e 4b08          	push	#8
+1375  0590 ae500f        	ldw	x,#20495
+1376  0593 cd0000        	call	_GPIO_WriteLow
+1378  0596 84            	pop	a
+1381  0597 4b02          	push	#2
+1382  0599 ae500f        	ldw	x,#20495
+1383  059c cd0000        	call	_GPIO_WriteHigh
+1385  059f 84            	pop	a
+1388  05a0 4b02          	push	#2
+1389  05a2 ae5000        	ldw	x,#20480
+1390  05a5 cd0000        	call	_GPIO_WriteHigh
+1392  05a8 84            	pop	a
+1395  05a9 4b40          	push	#64
+1396  05ab ae500a        	ldw	x,#20490
+1397  05ae cd0000        	call	_GPIO_WriteHigh
+1399  05b1 84            	pop	a
+1400                     ; 120         break;
+1402  05b2 203f          	jra	L571
+1403  05b4               L741:
+1404                     ; 121     case 'U':
+1404                     ; 122         display_u();
+1406  05b4 4b20          	push	#32
+1407  05b6 ae500f        	ldw	x,#20495
+1408  05b9 cd0000        	call	_GPIO_WriteLow
+1410  05bc 84            	pop	a
+1413  05bd 4b04          	push	#4
+1414  05bf ae5000        	ldw	x,#20480
+1415  05c2 cd0000        	call	_GPIO_WriteHigh
+1417  05c5 84            	pop	a
+1420  05c6 4b80          	push	#128
+1421  05c8 ae500a        	ldw	x,#20490
+1422  05cb cd0000        	call	_GPIO_WriteHigh
+1424  05ce 84            	pop	a
+1427  05cf 4b08          	push	#8
+1428  05d1 ae500f        	ldw	x,#20495
+1429  05d4 cd0000        	call	_GPIO_WriteHigh
+1431  05d7 84            	pop	a
+1434  05d8 4b02          	push	#2
+1435  05da ae500f        	ldw	x,#20495
+1436  05dd cd0000        	call	_GPIO_WriteHigh
+1438  05e0 84            	pop	a
+1441  05e1 4b02          	push	#2
+1442  05e3 ae5000        	ldw	x,#20480
+1443  05e6 cd0000        	call	_GPIO_WriteHigh
+1445  05e9 84            	pop	a
+1448  05ea 4b40          	push	#64
+1449  05ec ae500a        	ldw	x,#20490
+1450  05ef cd0000        	call	_GPIO_WriteLow
+1452  05f2 84            	pop	a
+1453                     ; 123         break;
+1455  05f3               L571:
+1456                     ; 126 }
+1459  05f3 84            	pop	a
+1460  05f4 81            	ret
+1484                     ; 128 void task_display(void)
+1484                     ; 129 {
+1485                     	switch	.text
+1486  05f5               _task_display:
+1490                     ; 131     if (!tick)
+1492  05f5 3d00          	tnz	_tick
+1493  05f7 2601          	jrne	L702
+1494                     ; 132         return;
+1497  05f9 81            	ret
+1498  05fa               L702:
+1499                     ; 135 }
+1502  05fa 81            	ret
+1505                     	bsct
+1506  0004               L112_dig_pos:
+1507  0004 00            	dc.b	0
+1543                     ; 137 void tmr_display(void)
+1543                     ; 138 {
+1544                     	switch	.text
+1545  05fb               _tmr_display:
+1549                     ; 143     if (display_test)
+1551  05fb 3d00          	tnz	_display_test
+1552  05fd 2701          	jreq	L732
+1553                     ; 144         return;
+1556  05ff 81            	ret
+1557  0600               L732:
+1558                     ; 147     if (dig_pos > MAX_DIG_POS)
+1560  0600 b604          	ld	a,L112_dig_pos
+1561  0602 a104          	cp	a,#4
+1562  0604 2502          	jrult	L142
+1563                     ; 148         dig_pos = DIG1_POS;
+1565  0606 3f04          	clr	L112_dig_pos
+1566  0608               L142:
+1567                     ; 150     dig1_off();
+1569  0608 4b10          	push	#16
+1570  060a ae500f        	ldw	x,#20495
+1571  060d cd0000        	call	_GPIO_WriteHigh
+1573  0610 84            	pop	a
+1574                     ; 151     dig2_off();
+1576  0611 4b20          	push	#32
+1577  0613 ae5005        	ldw	x,#20485
+1578  0616 cd0000        	call	_GPIO_WriteHigh
+1580  0619 84            	pop	a
+1581                     ; 152     dig3_off();
+1583  061a 4b10          	push	#16
+1584  061c ae5005        	ldw	x,#20485
+1585  061f cd0000        	call	_GPIO_WriteHigh
+1587  0622 84            	pop	a
+1588                     ; 154     switch (dig_pos) {
+1590  0623 b604          	ld	a,L112_dig_pos
+1592                     ; 163         break;
+1593  0625 4d            	tnz	a
+1594  0626 2708          	jreq	L312
+1595  0628 4a            	dec	a
+1596  0629 2710          	jreq	L512
+1597  062b 4a            	dec	a
+1598  062c 2718          	jreq	L712
+1599  062e 201f          	jra	L542
+1600  0630               L312:
+1601                     ; 155     case DIG1_POS:
+1601                     ; 156         dig1_on();
+1603  0630 4b10          	push	#16
+1604  0632 ae500f        	ldw	x,#20495
+1605  0635 cd0000        	call	_GPIO_WriteLow
+1607  0638 84            	pop	a
+1608                     ; 157         break;
+1610  0639 2014          	jra	L542
+1611  063b               L512:
+1612                     ; 158     case DIG2_POS:
+1612                     ; 159         dig2_on();
+1614  063b 4b20          	push	#32
+1615  063d ae5005        	ldw	x,#20485
+1616  0640 cd0000        	call	_GPIO_WriteLow
+1618  0643 84            	pop	a
+1619                     ; 160         break;
+1621  0644 2009          	jra	L542
+1622  0646               L712:
+1623                     ; 161     case DIG3_POS:
+1623                     ; 162         dig3_on();
+1625  0646 4b10          	push	#16
+1626  0648 ae5005        	ldw	x,#20485
+1627  064b cd0000        	call	_GPIO_WriteLow
+1629  064e 84            	pop	a
+1630                     ; 163         break;
+1632  064f               L542:
+1633                     ; 166     wr_digit(dig_pos);
+1635  064f b604          	ld	a,L112_dig_pos
+1636  0651 cd0049        	call	_wr_digit
+1638                     ; 167     dig_pos++;
+1640  0654 3c04          	inc	L112_dig_pos
+1641                     ; 169 }
+1644  0656 81            	ret
+1670                     ; 172 void test_display(void)
+1670                     ; 173 {
+1671                     	switch	.text
+1672  0657               _test_display:
+1676                     ; 174     delay(DELAY_DISPLAY_TEST);
+1678  0657 ae01f4        	ldw	x,#500
+1679  065a 89            	pushw	x
+1680  065b ae0000        	ldw	x,#0
+1681  065e 89            	pushw	x
+1682  065f cd0000        	call	_delay
+1684  0662 5b04          	addw	sp,#4
+1685                     ; 175     display_zero();
+1687  0664 4b20          	push	#32
+1688  0666 ae500f        	ldw	x,#20495
+1689  0669 cd0000        	call	_GPIO_WriteHigh
+1691  066c 84            	pop	a
+1694  066d 4b04          	push	#4
+1695  066f ae5000        	ldw	x,#20480
+1696  0672 cd0000        	call	_GPIO_WriteHigh
+1698  0675 84            	pop	a
+1701  0676 4b80          	push	#128
+1702  0678 ae500a        	ldw	x,#20490
+1703  067b cd0000        	call	_GPIO_WriteHigh
+1705  067e 84            	pop	a
+1708  067f 4b08          	push	#8
+1709  0681 ae500f        	ldw	x,#20495
+1710  0684 cd0000        	call	_GPIO_WriteHigh
+1712  0687 84            	pop	a
+1715  0688 4b02          	push	#2
+1716  068a ae500f        	ldw	x,#20495
+1717  068d cd0000        	call	_GPIO_WriteHigh
+1719  0690 84            	pop	a
+1722  0691 4b02          	push	#2
+1723  0693 ae5000        	ldw	x,#20480
+1724  0696 cd0000        	call	_GPIO_WriteHigh
+1726  0699 84            	pop	a
+1729  069a 4b40          	push	#64
+1730  069c ae500a        	ldw	x,#20490
+1731  069f cd0000        	call	_GPIO_WriteLow
+1733  06a2 84            	pop	a
+1734                     ; 176     delay(DELAY_DISPLAY_TEST);
+1736  06a3 ae01f4        	ldw	x,#500
+1737  06a6 89            	pushw	x
+1738  06a7 ae0000        	ldw	x,#0
+1739  06aa 89            	pushw	x
+1740  06ab cd0000        	call	_delay
+1742  06ae 5b04          	addw	sp,#4
+1743                     ; 177     display_one();
+1745  06b0 4b20          	push	#32
+1746  06b2 ae500f        	ldw	x,#20495
+1747  06b5 cd0000        	call	_GPIO_WriteLow
+1749  06b8 84            	pop	a
+1752  06b9 4b04          	push	#4
+1753  06bb ae5000        	ldw	x,#20480
+1754  06be cd0000        	call	_GPIO_WriteHigh
+1756  06c1 84            	pop	a
+1759  06c2 4b80          	push	#128
+1760  06c4 ae500a        	ldw	x,#20490
+1761  06c7 cd0000        	call	_GPIO_WriteHigh
+1763  06ca 84            	pop	a
+1766  06cb 4b08          	push	#8
+1767  06cd ae500f        	ldw	x,#20495
+1768  06d0 cd0000        	call	_GPIO_WriteLow
+1770  06d3 84            	pop	a
+1773  06d4 4b02          	push	#2
+1774  06d6 ae500f        	ldw	x,#20495
+1775  06d9 cd0000        	call	_GPIO_WriteLow
+1777  06dc 84            	pop	a
+1780  06dd 4b02          	push	#2
+1781  06df ae5000        	ldw	x,#20480
+1782  06e2 cd0000        	call	_GPIO_WriteLow
+1784  06e5 84            	pop	a
+1787  06e6 4b40          	push	#64
+1788  06e8 ae500a        	ldw	x,#20490
+1789  06eb cd0000        	call	_GPIO_WriteLow
+1791  06ee 84            	pop	a
+1792                     ; 178     delay(DELAY_DISPLAY_TEST);
+1794  06ef ae01f4        	ldw	x,#500
+1795  06f2 89            	pushw	x
+1796  06f3 ae0000        	ldw	x,#0
+1797  06f6 89            	pushw	x
+1798  06f7 cd0000        	call	_delay
+1800  06fa 5b04          	addw	sp,#4
+1801                     ; 179     display_two();
+1803  06fc 4b20          	push	#32
+1804  06fe ae500f        	ldw	x,#20495
+1805  0701 cd0000        	call	_GPIO_WriteHigh
+1807  0704 84            	pop	a
+1810  0705 4b04          	push	#4
+1811  0707 ae5000        	ldw	x,#20480
+1812  070a cd0000        	call	_GPIO_WriteHigh
+1814  070d 84            	pop	a
+1817  070e 4b80          	push	#128
+1818  0710 ae500a        	ldw	x,#20490
+1819  0713 cd0000        	call	_GPIO_WriteLow
+1821  0716 84            	pop	a
+1824  0717 4b08          	push	#8
+1825  0719 ae500f        	ldw	x,#20495
+1826  071c cd0000        	call	_GPIO_WriteHigh
+1828  071f 84            	pop	a
+1831  0720 4b02          	push	#2
+1832  0722 ae500f        	ldw	x,#20495
+1833  0725 cd0000        	call	_GPIO_WriteHigh
+1835  0728 84            	pop	a
+1838  0729 4b02          	push	#2
+1839  072b ae5000        	ldw	x,#20480
+1840  072e cd0000        	call	_GPIO_WriteLow
+1842  0731 84            	pop	a
+1845  0732 4b40          	push	#64
+1846  0734 ae500a        	ldw	x,#20490
+1847  0737 cd0000        	call	_GPIO_WriteHigh
+1849  073a 84            	pop	a
+1850                     ; 180     delay(DELAY_DISPLAY_TEST);
+1852  073b ae01f4        	ldw	x,#500
+1853  073e 89            	pushw	x
+1854  073f ae0000        	ldw	x,#0
+1855  0742 89            	pushw	x
+1856  0743 cd0000        	call	_delay
+1858  0746 5b04          	addw	sp,#4
+1859                     ; 181     display_three();
+1861  0748 4b20          	push	#32
+1862  074a ae500f        	ldw	x,#20495
+1863  074d cd0000        	call	_GPIO_WriteHigh
+1865  0750 84            	pop	a
+1868  0751 4b04          	push	#4
+1869  0753 ae5000        	ldw	x,#20480
+1870  0756 cd0000        	call	_GPIO_WriteHigh
+1872  0759 84            	pop	a
+1875  075a 4b80          	push	#128
+1876  075c ae500a        	ldw	x,#20490
+1877  075f cd0000        	call	_GPIO_WriteHigh
+1879  0762 84            	pop	a
+1882  0763 4b08          	push	#8
+1883  0765 ae500f        	ldw	x,#20495
+1884  0768 cd0000        	call	_GPIO_WriteHigh
+1886  076b 84            	pop	a
+1889  076c 4b02          	push	#2
+1890  076e ae500f        	ldw	x,#20495
+1891  0771 cd0000        	call	_GPIO_WriteLow
+1893  0774 84            	pop	a
+1896  0775 4b02          	push	#2
+1897  0777 ae5000        	ldw	x,#20480
+1898  077a cd0000        	call	_GPIO_WriteLow
+1900  077d 84            	pop	a
+1903  077e 4b40          	push	#64
+1904  0780 ae500a        	ldw	x,#20490
+1905  0783 cd0000        	call	_GPIO_WriteHigh
+1907  0786 84            	pop	a
+1908                     ; 182     delay(DELAY_DISPLAY_TEST);
+1910  0787 ae01f4        	ldw	x,#500
+1911  078a 89            	pushw	x
+1912  078b ae0000        	ldw	x,#0
+1913  078e 89            	pushw	x
+1914  078f cd0000        	call	_delay
+1916  0792 5b04          	addw	sp,#4
+1917                     ; 183     display_four();
+1919  0794 4b20          	push	#32
+1920  0796 ae500f        	ldw	x,#20495
+1921  0799 cd0000        	call	_GPIO_WriteLow
+1923  079c 84            	pop	a
+1926  079d 4b04          	push	#4
+1927  079f ae5000        	ldw	x,#20480
+1928  07a2 cd0000        	call	_GPIO_WriteHigh
+1930  07a5 84            	pop	a
+1933  07a6 4b80          	push	#128
+1934  07a8 ae500a        	ldw	x,#20490
+1935  07ab cd0000        	call	_GPIO_WriteHigh
+1937  07ae 84            	pop	a
+1940  07af 4b08          	push	#8
+1941  07b1 ae500f        	ldw	x,#20495
+1942  07b4 cd0000        	call	_GPIO_WriteLow
+1944  07b7 84            	pop	a
+1947  07b8 4b02          	push	#2
+1948  07ba ae500f        	ldw	x,#20495
+1949  07bd cd0000        	call	_GPIO_WriteLow
+1951  07c0 84            	pop	a
+1954  07c1 4b02          	push	#2
+1955  07c3 ae5000        	ldw	x,#20480
+1956  07c6 cd0000        	call	_GPIO_WriteHigh
+1958  07c9 84            	pop	a
+1961  07ca 4b40          	push	#64
+1962  07cc ae500a        	ldw	x,#20490
+1963  07cf cd0000        	call	_GPIO_WriteHigh
+1965  07d2 84            	pop	a
+1966                     ; 184     delay(DELAY_DISPLAY_TEST);
+1968  07d3 ae01f4        	ldw	x,#500
+1969  07d6 89            	pushw	x
+1970  07d7 ae0000        	ldw	x,#0
+1971  07da 89            	pushw	x
+1972  07db cd0000        	call	_delay
+1974  07de 5b04          	addw	sp,#4
+1975                     ; 185     display_five();
+1977  07e0 4b20          	push	#32
+1978  07e2 ae500f        	ldw	x,#20495
+1979  07e5 cd0000        	call	_GPIO_WriteHigh
+1981  07e8 84            	pop	a
+1984  07e9 4b04          	push	#4
+1985  07eb ae5000        	ldw	x,#20480
+1986  07ee cd0000        	call	_GPIO_WriteLow
+1988  07f1 84            	pop	a
+1991  07f2 4b80          	push	#128
+1992  07f4 ae500a        	ldw	x,#20490
+1993  07f7 cd0000        	call	_GPIO_WriteHigh
+1995  07fa 84            	pop	a
+1998  07fb 4b08          	push	#8
+1999  07fd ae500f        	ldw	x,#20495
+2000  0800 cd0000        	call	_GPIO_WriteHigh
+2002  0803 84            	pop	a
+2005  0804 4b02          	push	#2
+2006  0806 ae500f        	ldw	x,#20495
+2007  0809 cd0000        	call	_GPIO_WriteLow
+2009  080c 84            	pop	a
+2012  080d 4b02          	push	#2
+2013  080f ae5000        	ldw	x,#20480
+2014  0812 cd0000        	call	_GPIO_WriteHigh
+2016  0815 84            	pop	a
+2019  0816 4b40          	push	#64
+2020  0818 ae500a        	ldw	x,#20490
+2021  081b cd0000        	call	_GPIO_WriteHigh
+2023  081e 84            	pop	a
+2024                     ; 186     delay(DELAY_DISPLAY_TEST);
+2026  081f ae01f4        	ldw	x,#500
+2027  0822 89            	pushw	x
+2028  0823 ae0000        	ldw	x,#0
+2029  0826 89            	pushw	x
+2030  0827 cd0000        	call	_delay
+2032  082a 5b04          	addw	sp,#4
+2033                     ; 187     display_six();
+2035  082c 4b20          	push	#32
+2036  082e ae500f        	ldw	x,#20495
+2037  0831 cd0000        	call	_GPIO_WriteHigh
+2039  0834 84            	pop	a
+2042  0835 4b04          	push	#4
+2043  0837 ae5000        	ldw	x,#20480
+2044  083a cd0000        	call	_GPIO_WriteLow
+2046  083d 84            	pop	a
+2049  083e 4b80          	push	#128
+2050  0840 ae500a        	ldw	x,#20490
+2051  0843 cd0000        	call	_GPIO_WriteHigh
+2053  0846 84            	pop	a
+2056  0847 4b08          	push	#8
+2057  0849 ae500f        	ldw	x,#20495
+2058  084c cd0000        	call	_GPIO_WriteHigh
+2060  084f 84            	pop	a
+2063  0850 4b02          	push	#2
+2064  0852 ae500f        	ldw	x,#20495
+2065  0855 cd0000        	call	_GPIO_WriteHigh
+2067  0858 84            	pop	a
+2070  0859 4b02          	push	#2
+2071  085b ae5000        	ldw	x,#20480
+2072  085e cd0000        	call	_GPIO_WriteHigh
+2074  0861 84            	pop	a
+2077  0862 4b40          	push	#64
+2078  0864 ae500a        	ldw	x,#20490
+2079  0867 cd0000        	call	_GPIO_WriteHigh
+2081  086a 84            	pop	a
+2082                     ; 188     delay(DELAY_DISPLAY_TEST);
+2084  086b ae01f4        	ldw	x,#500
+2085  086e 89            	pushw	x
+2086  086f ae0000        	ldw	x,#0
+2087  0872 89            	pushw	x
+2088  0873 cd0000        	call	_delay
+2090  0876 5b04          	addw	sp,#4
+2091                     ; 189     display_seven();
+2093  0878 4b20          	push	#32
+2094  087a ae500f        	ldw	x,#20495
+2095  087d cd0000        	call	_GPIO_WriteHigh
+2097  0880 84            	pop	a
+2100  0881 4b04          	push	#4
+2101  0883 ae5000        	ldw	x,#20480
+2102  0886 cd0000        	call	_GPIO_WriteHigh
+2104  0889 84            	pop	a
+2107  088a 4b80          	push	#128
+2108  088c ae500a        	ldw	x,#20490
+2109  088f cd0000        	call	_GPIO_WriteHigh
+2111  0892 84            	pop	a
+2114  0893 4b08          	push	#8
+2115  0895 ae500f        	ldw	x,#20495
+2116  0898 cd0000        	call	_GPIO_WriteLow
+2118  089b 84            	pop	a
+2121  089c 4b02          	push	#2
+2122  089e ae500f        	ldw	x,#20495
+2123  08a1 cd0000        	call	_GPIO_WriteLow
+2125  08a4 84            	pop	a
+2128  08a5 4b02          	push	#2
+2129  08a7 ae5000        	ldw	x,#20480
+2130  08aa cd0000        	call	_GPIO_WriteLow
+2132  08ad 84            	pop	a
+2135  08ae 4b40          	push	#64
+2136  08b0 ae500a        	ldw	x,#20490
+2137  08b3 cd0000        	call	_GPIO_WriteLow
+2139  08b6 84            	pop	a
+2140                     ; 190     delay(DELAY_DISPLAY_TEST);
+2142  08b7 ae01f4        	ldw	x,#500
+2143  08ba 89            	pushw	x
+2144  08bb ae0000        	ldw	x,#0
+2145  08be 89            	pushw	x
+2146  08bf cd0000        	call	_delay
+2148  08c2 5b04          	addw	sp,#4
+2149                     ; 191     display_eight();
+2151  08c4 4b20          	push	#32
+2152  08c6 ae500f        	ldw	x,#20495
+2153  08c9 cd0000        	call	_GPIO_WriteHigh
+2155  08cc 84            	pop	a
+2158  08cd 4b04          	push	#4
+2159  08cf ae5000        	ldw	x,#20480
+2160  08d2 cd0000        	call	_GPIO_WriteHigh
+2162  08d5 84            	pop	a
+2165  08d6 4b80          	push	#128
+2166  08d8 ae500a        	ldw	x,#20490
+2167  08db cd0000        	call	_GPIO_WriteHigh
+2169  08de 84            	pop	a
+2172  08df 4b08          	push	#8
+2173  08e1 ae500f        	ldw	x,#20495
+2174  08e4 cd0000        	call	_GPIO_WriteHigh
+2176  08e7 84            	pop	a
+2179  08e8 4b02          	push	#2
+2180  08ea ae500f        	ldw	x,#20495
+2181  08ed cd0000        	call	_GPIO_WriteHigh
+2183  08f0 84            	pop	a
+2186  08f1 4b02          	push	#2
+2187  08f3 ae5000        	ldw	x,#20480
+2188  08f6 cd0000        	call	_GPIO_WriteHigh
+2190  08f9 84            	pop	a
+2193  08fa 4b40          	push	#64
+2194  08fc ae500a        	ldw	x,#20490
+2195  08ff cd0000        	call	_GPIO_WriteHigh
+2197  0902 84            	pop	a
+2198                     ; 192     delay(DELAY_DISPLAY_TEST);
+2200  0903 ae01f4        	ldw	x,#500
+2201  0906 89            	pushw	x
+2202  0907 ae0000        	ldw	x,#0
+2203  090a 89            	pushw	x
+2204  090b cd0000        	call	_delay
+2206  090e 5b04          	addw	sp,#4
+2207                     ; 193     display_nine();    
+2209  0910 4b20          	push	#32
+2210  0912 ae500f        	ldw	x,#20495
+2211  0915 cd0000        	call	_GPIO_WriteHigh
+2213  0918 84            	pop	a
+2216  0919 4b04          	push	#4
+2217  091b ae5000        	ldw	x,#20480
+2218  091e cd0000        	call	_GPIO_WriteHigh
+2220  0921 84            	pop	a
+2223  0922 4b80          	push	#128
+2224  0924 ae500a        	ldw	x,#20490
+2225  0927 cd0000        	call	_GPIO_WriteHigh
+2227  092a 84            	pop	a
+2230  092b 4b08          	push	#8
+2231  092d ae500f        	ldw	x,#20495
+2232  0930 cd0000        	call	_GPIO_WriteHigh
+2234  0933 84            	pop	a
+2237  0934 4b02          	push	#2
+2238  0936 ae500f        	ldw	x,#20495
+2239  0939 cd0000        	call	_GPIO_WriteLow
+2241  093c 84            	pop	a
+2244  093d 4b02          	push	#2
+2245  093f ae5000        	ldw	x,#20480
+2246  0942 cd0000        	call	_GPIO_WriteHigh
+2248  0945 84            	pop	a
+2251  0946 4b40          	push	#64
+2252  0948 ae500a        	ldw	x,#20490
+2253  094b cd0000        	call	_GPIO_WriteHigh
+2255  094e 84            	pop	a
+2256                     ; 194     delay(DELAY_DISPLAY_TEST);
+2258  094f ae01f4        	ldw	x,#500
+2259  0952 89            	pushw	x
+2260  0953 ae0000        	ldw	x,#0
+2261  0956 89            	pushw	x
+2262  0957 cd0000        	call	_delay
+2264  095a 5b04          	addw	sp,#4
+2265                     ; 195     display_off();
+2267  095c 4b20          	push	#32
+2268  095e ae500f        	ldw	x,#20495
+2269  0961 cd0000        	call	_GPIO_WriteLow
+2271  0964 84            	pop	a
+2274  0965 4b04          	push	#4
+2275  0967 ae5000        	ldw	x,#20480
+2276  096a cd0000        	call	_GPIO_WriteLow
+2278  096d 84            	pop	a
+2281  096e 4b80          	push	#128
+2282  0970 ae500a        	ldw	x,#20490
+2283  0973 cd0000        	call	_GPIO_WriteLow
+2285  0976 84            	pop	a
+2288  0977 4b08          	push	#8
+2289  0979 ae500f        	ldw	x,#20495
+2290  097c cd0000        	call	_GPIO_WriteLow
+2292  097f 84            	pop	a
+2295  0980 4b02          	push	#2
+2296  0982 ae500f        	ldw	x,#20495
+2297  0985 cd0000        	call	_GPIO_WriteLow
+2299  0988 84            	pop	a
+2302  0989 4b02          	push	#2
+2303  098b ae5000        	ldw	x,#20480
+2304  098e cd0000        	call	_GPIO_WriteLow
+2306  0991 84            	pop	a
+2309  0992 4b40          	push	#64
+2310  0994 ae500a        	ldw	x,#20490
+2311  0997 cd0000        	call	_GPIO_WriteLow
+2313  099a 84            	pop	a
+2316  099b 4b04          	push	#4
+2317  099d ae500f        	ldw	x,#20495
+2318  09a0 cd0000        	call	_GPIO_WriteLow
+2320  09a3 84            	pop	a
+2321                     ; 196     dp_on();
+2324  09a4 4b04          	push	#4
+2325  09a6 ae500f        	ldw	x,#20495
+2326  09a9 cd0000        	call	_GPIO_WriteHigh
+2328  09ac 84            	pop	a
+2329                     ; 197     delay(DELAY_DISPLAY_TEST);
+2331  09ad ae01f4        	ldw	x,#500
+2332  09b0 89            	pushw	x
+2333  09b1 ae0000        	ldw	x,#0
+2334  09b4 89            	pushw	x
+2335  09b5 cd0000        	call	_delay
+2337  09b8 5b04          	addw	sp,#4
+2338                     ; 198     dp_off();
+2340  09ba 4b04          	push	#4
+2341  09bc ae500f        	ldw	x,#20495
+2342  09bf cd0000        	call	_GPIO_WriteLow
+2344  09c2 84            	pop	a
+2345                     ; 199 }
+2348  09c3 81            	ret
+2376                     ; 202 void init_display(void)
+2376                     ; 203 {
+2377                     	switch	.text
+2378  09c4               _init_display:
+2382                     ; 207     seg_a_dir();
+2384  09c4 4be0          	push	#224
+2385  09c6 4b20          	push	#32
+2386  09c8 ae500f        	ldw	x,#20495
+2387  09cb cd0000        	call	_GPIO_Init
+2389  09ce 85            	popw	x
+2390                     ; 208     seg_b_dir();
+2393  09cf 4be0          	push	#224
+2394  09d1 4b04          	push	#4
+2395  09d3 ae5000        	ldw	x,#20480
+2396  09d6 cd0000        	call	_GPIO_Init
+2398  09d9 85            	popw	x
+2399                     ; 209     seg_c_dir();
+2402  09da 4be0          	push	#224
+2403  09dc 4b80          	push	#128
+2404  09de ae500a        	ldw	x,#20490
+2405  09e1 cd0000        	call	_GPIO_Init
+2407  09e4 85            	popw	x
+2408                     ; 210     seg_d_dir();
+2411  09e5 4be0          	push	#224
+2412  09e7 4b08          	push	#8
+2413  09e9 ae500f        	ldw	x,#20495
+2414  09ec cd0000        	call	_GPIO_Init
+2416  09ef 85            	popw	x
+2417                     ; 211     seg_e_dir();
+2420  09f0 4be0          	push	#224
+2421  09f2 4b02          	push	#2
+2422  09f4 ae500f        	ldw	x,#20495
+2423  09f7 cd0000        	call	_GPIO_Init
+2425  09fa 85            	popw	x
+2426                     ; 212     seg_f_dir();
+2429  09fb 4be0          	push	#224
+2430  09fd 4b02          	push	#2
+2431  09ff ae5000        	ldw	x,#20480
+2432  0a02 cd0000        	call	_GPIO_Init
+2434  0a05 85            	popw	x
+2435                     ; 213     seg_g_dir();
+2438  0a06 4be0          	push	#224
+2439  0a08 4b40          	push	#64
+2440  0a0a ae500a        	ldw	x,#20490
+2441  0a0d cd0000        	call	_GPIO_Init
+2443  0a10 85            	popw	x
+2444                     ; 214     dp_dir();
+2447  0a11 4be0          	push	#224
+2448  0a13 4b04          	push	#4
+2449  0a15 ae500f        	ldw	x,#20495
+2450  0a18 cd0000        	call	_GPIO_Init
+2452  0a1b 85            	popw	x
+2453                     ; 215     dig1_dir();
+2456  0a1c 4be0          	push	#224
+2457  0a1e 4b10          	push	#16
+2458  0a20 ae500f        	ldw	x,#20495
+2459  0a23 cd0000        	call	_GPIO_Init
+2461  0a26 85            	popw	x
+2462                     ; 216     dig2_dir();
+2465  0a27 4be0          	push	#224
+2466  0a29 4b20          	push	#32
+2467  0a2b ae5005        	ldw	x,#20485
+2468  0a2e cd0000        	call	_GPIO_Init
+2470  0a31 85            	popw	x
+2471                     ; 217     dig3_dir();
+2474  0a32 4be0          	push	#224
+2475  0a34 4b10          	push	#16
+2476  0a36 ae5005        	ldw	x,#20485
+2477  0a39 cd0000        	call	_GPIO_Init
+2479  0a3c 85            	popw	x
+2480                     ; 220     dig1_on();
+2483  0a3d 4b10          	push	#16
+2484  0a3f ae500f        	ldw	x,#20495
+2485  0a42 cd0000        	call	_GPIO_WriteLow
+2487  0a45 84            	pop	a
+2488                     ; 221     dig2_on();
+2490  0a46 4b20          	push	#32
+2491  0a48 ae5005        	ldw	x,#20485
+2492  0a4b cd0000        	call	_GPIO_WriteLow
+2494  0a4e 84            	pop	a
+2495                     ; 222     dig3_on();
+2497  0a4f 4b10          	push	#16
+2498  0a51 ae5005        	ldw	x,#20485
+2499  0a54 cd0000        	call	_GPIO_WriteLow
+2501  0a57 84            	pop	a
+2502                     ; 224     display_all();
+2504  0a58 4b20          	push	#32
+2505  0a5a ae500f        	ldw	x,#20495
+2506  0a5d cd0000        	call	_GPIO_WriteHigh
+2508  0a60 84            	pop	a
+2511  0a61 4b04          	push	#4
+2512  0a63 ae5000        	ldw	x,#20480
+2513  0a66 cd0000        	call	_GPIO_WriteHigh
+2515  0a69 84            	pop	a
+2518  0a6a 4b80          	push	#128
+2519  0a6c ae500a        	ldw	x,#20490
+2520  0a6f cd0000        	call	_GPIO_WriteHigh
+2522  0a72 84            	pop	a
+2525  0a73 4b08          	push	#8
+2526  0a75 ae500f        	ldw	x,#20495
+2527  0a78 cd0000        	call	_GPIO_WriteHigh
+2529  0a7b 84            	pop	a
+2532  0a7c 4b02          	push	#2
+2533  0a7e ae500f        	ldw	x,#20495
+2534  0a81 cd0000        	call	_GPIO_WriteHigh
+2536  0a84 84            	pop	a
+2539  0a85 4b02          	push	#2
+2540  0a87 ae5000        	ldw	x,#20480
+2541  0a8a cd0000        	call	_GPIO_WriteHigh
+2543  0a8d 84            	pop	a
+2546  0a8e 4b40          	push	#64
+2547  0a90 ae500a        	ldw	x,#20490
+2548  0a93 cd0000        	call	_GPIO_WriteHigh
+2550  0a96 84            	pop	a
+2553  0a97 4b04          	push	#4
+2554  0a99 ae500f        	ldw	x,#20495
+2555  0a9c cd0000        	call	_GPIO_WriteHigh
+2557  0a9f 84            	pop	a
+2558                     ; 225     delay(2*DELAY_DISPLAY_TEST);
+2561  0aa0 ae03e8        	ldw	x,#1000
+2562  0aa3 89            	pushw	x
+2563  0aa4 ae0000        	ldw	x,#0
+2564  0aa7 89            	pushw	x
+2565  0aa8 cd0000        	call	_delay
+2567  0aab 5b04          	addw	sp,#4
+2568                     ; 226     display_off();
+2570  0aad 4b20          	push	#32
+2571  0aaf ae500f        	ldw	x,#20495
+2572  0ab2 cd0000        	call	_GPIO_WriteLow
+2574  0ab5 84            	pop	a
+2577  0ab6 4b04          	push	#4
+2578  0ab8 ae5000        	ldw	x,#20480
+2579  0abb cd0000        	call	_GPIO_WriteLow
+2581  0abe 84            	pop	a
+2584  0abf 4b80          	push	#128
+2585  0ac1 ae500a        	ldw	x,#20490
+2586  0ac4 cd0000        	call	_GPIO_WriteLow
+2588  0ac7 84            	pop	a
+2591  0ac8 4b08          	push	#8
+2592  0aca ae500f        	ldw	x,#20495
+2593  0acd cd0000        	call	_GPIO_WriteLow
+2595  0ad0 84            	pop	a
+2598  0ad1 4b02          	push	#2
+2599  0ad3 ae500f        	ldw	x,#20495
+2600  0ad6 cd0000        	call	_GPIO_WriteLow
+2602  0ad9 84            	pop	a
+2605  0ada 4b02          	push	#2
+2606  0adc ae5000        	ldw	x,#20480
+2607  0adf cd0000        	call	_GPIO_WriteLow
+2609  0ae2 84            	pop	a
+2612  0ae3 4b40          	push	#64
+2613  0ae5 ae500a        	ldw	x,#20490
+2614  0ae8 cd0000        	call	_GPIO_WriteLow
+2616  0aeb 84            	pop	a
+2619  0aec 4b04          	push	#4
+2620  0aee ae500f        	ldw	x,#20495
+2621  0af1 cd0000        	call	_GPIO_WriteLow
+2623  0af4 84            	pop	a
+2624                     ; 227     delay(DELAY_DISPLAY_TEST);
+2627  0af5 ae01f4        	ldw	x,#500
+2628  0af8 89            	pushw	x
+2629  0af9 ae0000        	ldw	x,#0
+2630  0afc 89            	pushw	x
+2631  0afd cd0000        	call	_delay
+2633  0b00 5b04          	addw	sp,#4
+2634                     ; 228     display_all();
+2636  0b02 4b20          	push	#32
+2637  0b04 ae500f        	ldw	x,#20495
+2638  0b07 cd0000        	call	_GPIO_WriteHigh
+2640  0b0a 84            	pop	a
+2643  0b0b 4b04          	push	#4
+2644  0b0d ae5000        	ldw	x,#20480
+2645  0b10 cd0000        	call	_GPIO_WriteHigh
+2647  0b13 84            	pop	a
+2650  0b14 4b80          	push	#128
+2651  0b16 ae500a        	ldw	x,#20490
+2652  0b19 cd0000        	call	_GPIO_WriteHigh
+2654  0b1c 84            	pop	a
+2657  0b1d 4b08          	push	#8
+2658  0b1f ae500f        	ldw	x,#20495
+2659  0b22 cd0000        	call	_GPIO_WriteHigh
+2661  0b25 84            	pop	a
+2664  0b26 4b02          	push	#2
+2665  0b28 ae500f        	ldw	x,#20495
+2666  0b2b cd0000        	call	_GPIO_WriteHigh
+2668  0b2e 84            	pop	a
+2671  0b2f 4b02          	push	#2
+2672  0b31 ae5000        	ldw	x,#20480
+2673  0b34 cd0000        	call	_GPIO_WriteHigh
+2675  0b37 84            	pop	a
+2678  0b38 4b40          	push	#64
+2679  0b3a ae500a        	ldw	x,#20490
+2680  0b3d cd0000        	call	_GPIO_WriteHigh
+2682  0b40 84            	pop	a
+2685  0b41 4b04          	push	#4
+2686  0b43 ae500f        	ldw	x,#20495
+2687  0b46 cd0000        	call	_GPIO_WriteHigh
+2689  0b49 84            	pop	a
+2690                     ; 229     delay(2*DELAY_DISPLAY_TEST);
+2693  0b4a ae03e8        	ldw	x,#1000
+2694  0b4d 89            	pushw	x
+2695  0b4e ae0000        	ldw	x,#0
+2696  0b51 89            	pushw	x
+2697  0b52 cd0000        	call	_delay
+2699  0b55 5b04          	addw	sp,#4
+2700                     ; 230     display_off();
+2702  0b57 4b20          	push	#32
+2703  0b59 ae500f        	ldw	x,#20495
+2704  0b5c cd0000        	call	_GPIO_WriteLow
+2706  0b5f 84            	pop	a
+2709  0b60 4b04          	push	#4
+2710  0b62 ae5000        	ldw	x,#20480
+2711  0b65 cd0000        	call	_GPIO_WriteLow
+2713  0b68 84            	pop	a
+2716  0b69 4b80          	push	#128
+2717  0b6b ae500a        	ldw	x,#20490
+2718  0b6e cd0000        	call	_GPIO_WriteLow
+2720  0b71 84            	pop	a
+2723  0b72 4b08          	push	#8
+2724  0b74 ae500f        	ldw	x,#20495
+2725  0b77 cd0000        	call	_GPIO_WriteLow
+2727  0b7a 84            	pop	a
+2730  0b7b 4b02          	push	#2
+2731  0b7d ae500f        	ldw	x,#20495
+2732  0b80 cd0000        	call	_GPIO_WriteLow
+2734  0b83 84            	pop	a
+2737  0b84 4b02          	push	#2
+2738  0b86 ae5000        	ldw	x,#20480
+2739  0b89 cd0000        	call	_GPIO_WriteLow
+2741  0b8c 84            	pop	a
+2744  0b8d 4b40          	push	#64
+2745  0b8f ae500a        	ldw	x,#20490
+2746  0b92 cd0000        	call	_GPIO_WriteLow
+2748  0b95 84            	pop	a
+2751  0b96 4b04          	push	#4
+2752  0b98 ae500f        	ldw	x,#20495
+2753  0b9b cd0000        	call	_GPIO_WriteLow
+2755  0b9e 84            	pop	a
+2756                     ; 231     delay(DELAY_DISPLAY_TEST);
+2759  0b9f ae01f4        	ldw	x,#500
+2760  0ba2 89            	pushw	x
+2761  0ba3 ae0000        	ldw	x,#0
+2762  0ba6 89            	pushw	x
+2763  0ba7 cd0000        	call	_delay
+2765  0baa 5b04          	addw	sp,#4
+2766                     ; 232     display_all();
+2768  0bac 4b20          	push	#32
+2769  0bae ae500f        	ldw	x,#20495
+2770  0bb1 cd0000        	call	_GPIO_WriteHigh
+2772  0bb4 84            	pop	a
+2775  0bb5 4b04          	push	#4
+2776  0bb7 ae5000        	ldw	x,#20480
+2777  0bba cd0000        	call	_GPIO_WriteHigh
+2779  0bbd 84            	pop	a
+2782  0bbe 4b80          	push	#128
+2783  0bc0 ae500a        	ldw	x,#20490
+2784  0bc3 cd0000        	call	_GPIO_WriteHigh
+2786  0bc6 84            	pop	a
+2789  0bc7 4b08          	push	#8
+2790  0bc9 ae500f        	ldw	x,#20495
+2791  0bcc cd0000        	call	_GPIO_WriteHigh
+2793  0bcf 84            	pop	a
+2796  0bd0 4b02          	push	#2
+2797  0bd2 ae500f        	ldw	x,#20495
+2798  0bd5 cd0000        	call	_GPIO_WriteHigh
+2800  0bd8 84            	pop	a
+2803  0bd9 4b02          	push	#2
+2804  0bdb ae5000        	ldw	x,#20480
+2805  0bde cd0000        	call	_GPIO_WriteHigh
+2807  0be1 84            	pop	a
+2810  0be2 4b40          	push	#64
+2811  0be4 ae500a        	ldw	x,#20490
+2812  0be7 cd0000        	call	_GPIO_WriteHigh
+2814  0bea 84            	pop	a
+2817  0beb 4b04          	push	#4
+2818  0bed ae500f        	ldw	x,#20495
+2819  0bf0 cd0000        	call	_GPIO_WriteHigh
+2821  0bf3 84            	pop	a
+2822                     ; 233     delay(2*DELAY_DISPLAY_TEST);
+2825  0bf4 ae03e8        	ldw	x,#1000
+2826  0bf7 89            	pushw	x
+2827  0bf8 ae0000        	ldw	x,#0
+2828  0bfb 89            	pushw	x
+2829  0bfc cd0000        	call	_delay
+2831  0bff 5b04          	addw	sp,#4
+2832                     ; 234     display_off();
+2834  0c01 4b20          	push	#32
+2835  0c03 ae500f        	ldw	x,#20495
+2836  0c06 cd0000        	call	_GPIO_WriteLow
+2838  0c09 84            	pop	a
+2841  0c0a 4b04          	push	#4
+2842  0c0c ae5000        	ldw	x,#20480
+2843  0c0f cd0000        	call	_GPIO_WriteLow
+2845  0c12 84            	pop	a
+2848  0c13 4b80          	push	#128
+2849  0c15 ae500a        	ldw	x,#20490
+2850  0c18 cd0000        	call	_GPIO_WriteLow
+2852  0c1b 84            	pop	a
+2855  0c1c 4b08          	push	#8
+2856  0c1e ae500f        	ldw	x,#20495
+2857  0c21 cd0000        	call	_GPIO_WriteLow
+2859  0c24 84            	pop	a
+2862  0c25 4b02          	push	#2
+2863  0c27 ae500f        	ldw	x,#20495
+2864  0c2a cd0000        	call	_GPIO_WriteLow
+2866  0c2d 84            	pop	a
+2869  0c2e 4b02          	push	#2
+2870  0c30 ae5000        	ldw	x,#20480
+2871  0c33 cd0000        	call	_GPIO_WriteLow
+2873  0c36 84            	pop	a
+2876  0c37 4b40          	push	#64
+2877  0c39 ae500a        	ldw	x,#20490
+2878  0c3c cd0000        	call	_GPIO_WriteLow
+2880  0c3f 84            	pop	a
+2883  0c40 4b04          	push	#4
+2884  0c42 ae500f        	ldw	x,#20495
+2885  0c45 cd0000        	call	_GPIO_WriteLow
+2887  0c48 84            	pop	a
+2888                     ; 236     display_test = 0;
+2891  0c49 3f00          	clr	_display_test
+2892                     ; 239     dig1_off();
+2894  0c4b 4b10          	push	#16
+2895  0c4d ae500f        	ldw	x,#20495
+2896  0c50 cd0000        	call	_GPIO_WriteHigh
+2898  0c53 84            	pop	a
+2899                     ; 240     dig2_off();
+2901  0c54 4b20          	push	#32
+2902  0c56 ae5005        	ldw	x,#20485
+2903  0c59 cd0000        	call	_GPIO_WriteHigh
+2905  0c5c 84            	pop	a
+2906                     ; 241     dig3_off();
+2908  0c5d 4b10          	push	#16
+2909  0c5f ae5005        	ldw	x,#20485
+2910  0c62 cd0000        	call	_GPIO_WriteHigh
+2912  0c65 84            	pop	a
+2913                     ; 244 }
+2916  0c66 81            	ret
+2960                     	xdef	_test_display
+2961                     	xdef	_wr_digit
+2962                     	xdef	_dec2bcd
+2963                     	switch	.ubsct
+2964  0000               _dp:
+2965  0000 000000        	ds.b	3
+2966                     	xdef	_dp
+2967                     	xdef	_display_num
+2968                     	xdef	_display_test
+2969                     	xref.b	_tick
+2970                     	xref	_delay
+2971                     	xdef	_set_option_display
+2972                     	xdef	_set_display
+2973                     	xdef	_tmr_display
+2974                     	xdef	_task_display
+2975                     	xdef	_init_display
+2976                     	xref	_GPIO_WriteLow
+2977                     	xref	_GPIO_WriteHigh
+2978                     	xref	_GPIO_Init
+2998                     	end
