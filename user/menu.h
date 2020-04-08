@@ -6,6 +6,10 @@
 #define BTN_PORT GPIOC
 #define BTN_SET_PORT_NUM GPIOC
 #define BTN_SET_PIN_NUM  GPIO_PIN_3
+#define BTN_INC_PORT_NUM GPIOC
+#define BTN_INC_PIN_NUM  GPIO_PIN_4
+#define BTN_DEC_PORT_NUM GPIOC
+#define BTN_DEC_PIN_NUM  GPIO_PIN_5
 
 #undef gpio_read(a,b)
 #undef gpio_dir_in(a,b)
@@ -15,6 +19,12 @@
 
 #define btn_set_dir() gpio_dir_in(BTN_SET_PORT_NUM, BTN_SET_PIN_NUM)
 #define btn_set()     gpio_read  (BTN_SET_PORT_NUM, BTN_SET_PIN_NUM)
+
+#define btn_inc_dir() gpio_dir_in(BTN_INC_PORT_NUM, BTN_INC_PIN_NUM)
+#define btn_inc()     gpio_read  (BTN_INC_PORT_NUM, BTN_INC_PIN_NUM)
+
+#define btn_dec_dir() gpio_dir_in(BTN_DEC_PORT_NUM, BTN_DEC_PIN_NUM)
+#define btn_dec()     gpio_read  (BTN_DEC_PORT_NUM, BTN_DEC_PIN_NUM)
 
 typedef struct
 {

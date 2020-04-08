@@ -1,58 +1,58 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.11.14 - 18 Nov 2019
    3                     ; Generator (Limited) V4.4.11 - 19 Nov 2019
-  57                     ; 3 void init_pwm(uint16_t period)
-  57                     ; 4 {
-  59                     	switch	.text
-  60  0000               _init_pwm:
-  64                     ; 7     TIM2_TimeBaseInit(TIM2_PRESCALER_1, period);
-  66  0000 89            	pushw	x
-  67  0001 4f            	clr	a
-  68  0002 cd0000        	call	_TIM2_TimeBaseInit
-  70  0005 85            	popw	x
-  71                     ; 9     TIM2_ARRPreloadConfig(ENABLE);
-  73  0006 a601          	ld	a,#1
-  74  0008 cd0000        	call	_TIM2_ARRPreloadConfig
-  76                     ; 12     TIM2_Cmd(ENABLE);
-  78  000b a601          	ld	a,#1
-  79  000d cd0000        	call	_TIM2_Cmd
-  81                     ; 14 }
-  84  0010 81            	ret
- 122                     ; 16 void set_pwm(uint16_t ccrx_val)
- 122                     ; 17 {
- 123                     	switch	.text
- 124  0011               _set_pwm:
- 126  0011 89            	pushw	x
- 127       00000000      OFST:	set	0
- 130                     ; 21         TIM2_OC1Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
- 132  0012 4b00          	push	#0
- 133  0014 89            	pushw	x
- 134  0015 ae6011        	ldw	x,#24593
- 135  0018 cd0000        	call	_TIM2_OC1Init
- 137  001b 5b03          	addw	sp,#3
- 138                     ; 22         TIM2_OC1PreloadConfig(ENABLE);
- 140  001d a601          	ld	a,#1
- 141  001f cd0000        	call	_TIM2_OC1PreloadConfig
- 143                     ; 25         TIM2_OC3Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
- 145  0022 4b00          	push	#0
- 146  0024 1e02          	ldw	x,(OFST+2,sp)
- 147  0026 89            	pushw	x
- 148  0027 ae6011        	ldw	x,#24593
- 149  002a cd0000        	call	_TIM2_OC3Init
- 151  002d 5b03          	addw	sp,#3
- 152                     ; 26         TIM2_OC3PreloadConfig(ENABLE);
- 154  002f a601          	ld	a,#1
- 155  0031 cd0000        	call	_TIM2_OC3PreloadConfig
- 157                     ; 30 }
- 160  0034 85            	popw	x
- 161  0035 81            	ret
- 174                     	xdef	_set_pwm
- 175                     	xdef	_init_pwm
- 176                     	xref	_TIM2_OC3PreloadConfig
- 177                     	xref	_TIM2_OC1PreloadConfig
- 178                     	xref	_TIM2_ARRPreloadConfig
- 179                     	xref	_TIM2_Cmd
- 180                     	xref	_TIM2_OC3Init
- 181                     	xref	_TIM2_OC1Init
- 182                     	xref	_TIM2_TimeBaseInit
- 201                     	end
+   4                     ; Optimizer V4.4.11 - 19 Nov 2019
+  61                     ; 3 void init_pwm(uint16_t period)
+  61                     ; 4 {
+  63                     	switch	.text
+  64  0000               _init_pwm:
+  68                     ; 7     TIM2_TimeBaseInit(TIM2_PRESCALER_1, period);
+  70  0000 89            	pushw	x
+  71  0001 4f            	clr	a
+  72  0002 cd0000        	call	_TIM2_TimeBaseInit
+  74  0005 a601          	ld	a,#1
+  75  0007 85            	popw	x
+  76                     ; 9     TIM2_ARRPreloadConfig(ENABLE);
+  78  0008 cd0000        	call	_TIM2_ARRPreloadConfig
+  80                     ; 12     TIM2_Cmd(ENABLE);
+  82  000b a601          	ld	a,#1
+  84                     ; 14 }
+  87  000d cc0000        	jp	_TIM2_Cmd
+ 125                     ; 16 void set_pwm(uint16_t ccrx_val)
+ 125                     ; 17 {
+ 126                     	switch	.text
+ 127  0010               _set_pwm:
+ 129  0010 89            	pushw	x
+ 130       00000000      OFST:	set	0
+ 133                     ; 21         TIM2_OC1Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
+ 135  0011 4b00          	push	#0
+ 136  0013 89            	pushw	x
+ 137  0014 ae6011        	ldw	x,#24593
+ 138  0017 cd0000        	call	_TIM2_OC1Init
+ 140  001a 5b03          	addw	sp,#3
+ 141                     ; 22         TIM2_OC1PreloadConfig(ENABLE);
+ 143  001c a601          	ld	a,#1
+ 144  001e cd0000        	call	_TIM2_OC1PreloadConfig
+ 146                     ; 25         TIM2_OC3Init(TIM2_OCMODE_PWM1, TIM2_OUTPUTSTATE_ENABLE,ccrx_val, TIM2_OCPOLARITY_HIGH);
+ 148  0021 4b00          	push	#0
+ 149  0023 1e02          	ldw	x,(OFST+2,sp)
+ 150  0025 89            	pushw	x
+ 151  0026 ae6011        	ldw	x,#24593
+ 152  0029 cd0000        	call	_TIM2_OC3Init
+ 154  002c 5b03          	addw	sp,#3
+ 155                     ; 26         TIM2_OC3PreloadConfig(ENABLE);
+ 157  002e a601          	ld	a,#1
+ 158  0030 cd0000        	call	_TIM2_OC3PreloadConfig
+ 160                     ; 30 }
+ 163  0033 85            	popw	x
+ 164  0034 81            	ret	
+ 177                     	xdef	_set_pwm
+ 178                     	xdef	_init_pwm
+ 179                     	xref	_TIM2_OC3PreloadConfig
+ 180                     	xref	_TIM2_OC1PreloadConfig
+ 181                     	xref	_TIM2_ARRPreloadConfig
+ 182                     	xref	_TIM2_Cmd
+ 183                     	xref	_TIM2_OC3Init
+ 184                     	xref	_TIM2_OC1Init
+ 185                     	xref	_TIM2_TimeBaseInit
+ 204                     	end

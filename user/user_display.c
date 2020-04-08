@@ -39,11 +39,10 @@ void set_display(uint8_t option, uint8_t value, uint8_t decimal)
 #endif
 }
 
-void set_option_display(uint8_t option, uint8_t en_dp)
+void set_option_display(uint8_t option)
 {
 #ifdef EN_USER_DISPLAY
     display_num[DIG1_POS] = option;
-    dp[DIG1_POS] = en_dp;
 #endif
 }
 

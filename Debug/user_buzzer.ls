@@ -1,29 +1,30 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.11.14 - 18 Nov 2019
    3                     ; Generator (Limited) V4.4.11 - 19 Nov 2019
-  43                     ; 7 void init_buzzer(void)
-  43                     ; 8 {
-  45                     	switch	.text
-  46  0000               _init_buzzer:
-  50                     ; 15 }
-  53  0000 81            	ret
-  87                     ; 23 void set_buzzer(uint8_t nbeep, uint16_t ton, uint16_t toff)
-  87                     ; 24 {
-  88                     	switch	.text
-  89  0001               _set_buzzer:
-  93                     ; 31 }
-  96  0001 81            	ret
- 119                     ; 33 void tmr_buzzer(void)
- 119                     ; 34 {
- 120                     	switch	.text
- 121  0002               _tmr_buzzer:
- 125                     ; 69 }
- 128  0002 81            	ret
- 181                     	xdef	_tmr_buzzer
- 182                     	switch	.ubsct
- 183  0000               _buzzer:
- 184  0000 0000000000    	ds.b	5
- 185                     	xdef	_buzzer
- 186                     	xdef	_set_buzzer
- 187                     	xdef	_init_buzzer
- 207                     	end
+   4                     ; Optimizer V4.4.11 - 19 Nov 2019
+  47                     ; 7 void init_buzzer(void)
+  47                     ; 8 {
+  49                     	switch	.text
+  50  0000               _init_buzzer:
+  54                     ; 15 }
+  57  0000 81            	ret	
+  91                     ; 23 void set_buzzer(uint8_t nbeep, uint16_t ton, uint16_t toff)
+  91                     ; 24 {
+  92                     	switch	.text
+  93  0001               _set_buzzer:
+  97                     ; 31 }
+ 100  0001 81            	ret	
+ 123                     ; 33 void tmr_buzzer(void)
+ 123                     ; 34 {
+ 124                     	switch	.text
+ 125  0002               _tmr_buzzer:
+ 129                     ; 69 }
+ 132  0002 81            	ret	
+ 185                     	xdef	_tmr_buzzer
+ 186                     	switch	.ubsct
+ 187  0000               _buzzer:
+ 188  0000 0000000000    	ds.b	5
+ 189                     	xdef	_buzzer
+ 190                     	xdef	_set_buzzer
+ 191                     	xdef	_init_buzzer
+ 211                     	end

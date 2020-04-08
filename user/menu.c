@@ -6,15 +6,19 @@ extern uint8_t tick;
 uint8_t menu_options[] = {'A', 'b', 'C', 'd', 'E', 'F', 'H', 'L', 'P', 'U'};
 uint8_t num_option = 0;
 uint16_t menu_timer;
+extern uint8_t dp[MAX_DIG_POS];
 
 void init_menu(void)
 {
     btn_set_dir();
+    btn_inc_dir();
+    btn_dec_dir();
     EXTI_DeInit();
+
+    disableInterrupts();
     EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOC, EXTI_SENSITIVITY_FALL_ONLY);
     EXTI_SetTLISensitivity(EXTI_TLISENSITIVITY_FALL_ONLY);
-    //btn_inc_dir();
-    //btn_dec_dir();
+    ITC_SetSoftwarePriority(ITC_IRQ_PORTC , ITC_PRIORITYLEVEL_3);
     enableInterrupts();
 }
 
@@ -26,33 +30,23 @@ void tmr_menu(void)
 
 void handle_buttons(void)
 {
-    if (!btn_set()) {
-        num_option++;
+    if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
+        dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];
     }
-    
-    if (num_option > sizeof(menu_options)-1)
-        num_option = 0;
+    if ((GPIO_ReadInputData(BTN_PORT) & BTN_INC_PIN_NUM) == 0x00) {
+        if (++num_option > sizeof(menu_options)-1)
+            num_option = 0;
+    }
+    if ((GPIO_ReadInputData(BTN_PORT) & BTN_DEC_PIN_NUM) == 0x00) {
+        if (num_option)
+            num_option--;
+    }
 }
 
 void task_menu(void)
 {
-    static uint8_t dp = 0;
-
     if (!tick)
         return;
 
-    set_option_display(menu_options[num_option], dp);
-    
-    //if (menu_timer)
-    //    return;
-    
-    //if (!btn_set())
-    //    num_option++;
-    //if (btn_dec())
-    //    num_option--;
-    //if (!btn_set())
-    //    dp = (uint8_t)!dp;
-        
-    
-    //menu_timer = 1000;
+    set_option_display(menu_options[num_option]);    
 }

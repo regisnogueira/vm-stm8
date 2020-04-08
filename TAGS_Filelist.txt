@@ -1,3 +1,4 @@
+libraries\src\stm8s_itc.c
 libraries\src\stm8s_exti.c
 libraries\src\stm8s_adc1.c
 libraries\src\stm8s_clk.c
@@ -44,6 +45,7 @@ libraries\inc\stm8s_clk.h
 libraries\inc\stm8s_exti.h
 libraries\inc\stm8s_flash.h
 libraries\inc\stm8s_gpio.h
+libraries\inc\stm8s_itc.h
 libraries\inc\stm8s_tim2.h
 libraries\inc\stm8s_tim4.h
 libraries\inc\stm8s_uart1.h
