@@ -30,6 +30,7 @@
 
 extern void task_timer(void);
 extern uint16_t read_adc(void);
+extern void handle_buttons(void);
 
 /* Public functions ----------------------------------------------------------*/
 
@@ -131,6 +132,7 @@ INTERRUPT_HANDLER(EXTI_PORTC_IRQHandler, 5)
   /* In order to detect unexpected events during development,
      it is recommended to set a breakpoint on the following instruction.
   */
+  handle_buttons();
 }
 
 /**

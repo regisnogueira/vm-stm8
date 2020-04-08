@@ -7,8 +7,9 @@
 
 #define LED1_PORT_NUM GPIOA
 #define LED1_PIN_NUM  GPIO_PIN_3
-#define gpio_set(a,b)  GPIO_WriteHigh(a, (GPIO_Pin_TypeDef)b)
-#define gpio_clr(a,b)  GPIO_WriteLow(a, (GPIO_Pin_TypeDef)b)
+
+#define gpio_set(a,b)     GPIO_WriteHigh(a, (GPIO_Pin_TypeDef)b)
+#define gpio_clr(a,b)     GPIO_WriteLow(a, (GPIO_Pin_TypeDef)b)
 #define gpio_dir_out(a,b) GPIO_Init(a, (GPIO_Pin_TypeDef)b, GPIO_MODE_OUT_PP_LOW_FAST);
 
 #define led1_dir()  gpio_dir_out(LED1_PORT_NUM,LED1_PIN_NUM)

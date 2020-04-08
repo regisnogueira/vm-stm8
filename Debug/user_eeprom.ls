@@ -24,31 +24,31 @@
  106                     ; 17 {
  107                     	switch	.text
  108  0011               _set_default:
- 112                     ; 18     eeprom.inspiratory_time = DEFAULT_INSPIRATORY_TIME;
+ 112                     ; 18     eeprom.inspiratory_time  = DEFAULT_INSPIRATORY_TIME;
  114  0011 ae03e8        	ldw	x,#1000
  115  0014 bf00          	ldw	_eeprom,x
  116                     ; 19     eeprom.inspiratory_pause = DEFAULT_INSPIRATORY_PAUSE;
  118  0016 5f            	clrw	x
  119  0017 bf02          	ldw	_eeprom+2,x
- 120                     ; 20     eeprom.expiratory_time = DEFAULT_EXPIRATORY_TIME;
+ 120                     ; 20     eeprom.expiratory_time   = DEFAULT_EXPIRATORY_TIME;
  122  0019 ae03e8        	ldw	x,#1000
  123  001c bf04          	ldw	_eeprom+4,x
- 124                     ; 21     eeprom.expiratory_pause = DEFAULT_EXPIRATORY_PAUSE;
+ 124                     ; 21     eeprom.expiratory_pause  = DEFAULT_EXPIRATORY_PAUSE;
  126  001e 5f            	clrw	x
  127  001f bf06          	ldw	_eeprom+6,x
- 128                     ; 22     eeprom.peak_pressure = DEFAULT_PEAK_PRESSURE;
+ 128                     ; 22     eeprom.peak_pressure     = DEFAULT_PEAK_PRESSURE;
  130  0021 ae01f4        	ldw	x,#500
  131  0024 bf08          	ldw	_eeprom+8,x
- 132                     ; 23     eeprom.max_volume = DEFAULT_MAX_VOLUME;
+ 132                     ; 23     eeprom.max_volume        = DEFAULT_MAX_VOLUME;
  134  0026 ae01f4        	ldw	x,#500
  135  0029 bf0a          	ldw	_eeprom+10,x
- 136                     ; 24     eeprom.max_position = DEFAULT_MAX_POSITION;
+ 136                     ; 24     eeprom.max_position      = DEFAULT_MAX_POSITION;
  138  002b ae03e8        	ldw	x,#1000
  139  002e bf0c          	ldw	_eeprom+12,x
- 140                     ; 25     eeprom.min_position = DEFAULT_MIN_POSITION;
+ 140                     ; 25     eeprom.min_position      = DEFAULT_MIN_POSITION;
  142  0030 ae0032        	ldw	x,#50
  143  0033 bf0e          	ldw	_eeprom+14,x
- 144                     ; 26     eeprom.operation_mode = DEFAULT_OPERATION_MODE;
+ 144                     ; 26     eeprom.operation_mode    = DEFAULT_OPERATION_MODE;
  146  0035 ae0001        	ldw	x,#1
  147  0038 bf10          	ldw	_eeprom+16,x
  148                     ; 27 }
@@ -153,21 +153,21 @@
  453  00c6               _calc_checksum:
  455  00c6 5204          	subw	sp,#4
  456       00000004      OFST:	set	4
- 459                     ; 58     uint8_t i = 0;
+ 459                     ; 59     uint8_t i = 0;
  461  00c8 0f02          	clr	(OFST-2,sp)
- 463                     ; 59     uint8_t *p = (uint8_t *)&eeprom;
+ 463                     ; 60     uint8_t *p = (uint8_t *)&eeprom;
  465  00ca ae0000        	ldw	x,#_eeprom
  466  00cd 1f03          	ldw	(OFST-1,sp),x
- 468                     ; 60     uint8_t checksum = 0;
+ 468                     ; 61     uint8_t checksum = 0;
  470  00cf 0f01          	clr	(OFST-3,sp)
  473  00d1 2010          	jra	L161
  474  00d3               L551:
- 475                     ; 63         checksum ^= *p;
+ 475                     ; 64         checksum ^= *p;
  477  00d3 1e03          	ldw	x,(OFST-1,sp)
  478  00d5 7b01          	ld	a,(OFST-3,sp)
  479  00d7 f8            	xor	a,(x)
  480  00d8 6b01          	ld	(OFST-3,sp),a
- 482                     ; 62     for (; i < sizeof(eeprom); i++, p++) {
+ 482                     ; 63     for (; i < sizeof(eeprom); i++, p++) {
  484  00da 0c02          	inc	(OFST-2,sp)
  486  00dc 1e03          	ldw	x,(OFST-1,sp)
  487  00de 1c0001        	addw	x,#1
@@ -176,27 +176,27 @@
  493  00e3 7b02          	ld	a,(OFST-2,sp)
  494  00e5 a113          	cp	a,#19
  495  00e7 25ea          	jrult	L551
- 496                     ; 65     return checksum;
+ 496                     ; 66     return checksum;
  498  00e9 7b01          	ld	a,(OFST-3,sp)
  501  00eb 5b04          	addw	sp,#4
  502  00ed 81            	ret
- 528                     ; 68 void flash_config(void)
- 528                     ; 69 {
+ 528                     ; 72 void flash_config(void)
+ 528                     ; 73 {
  529                     	switch	.text
  530  00ee               _flash_config:
- 534                     ; 70     FLASH_SetProgrammingTime(FLASH_PROGRAMTIME_STANDARD);
+ 534                     ; 75     FLASH_SetProgrammingTime(FLASH_PROGRAMTIME_STANDARD);
  536  00ee 4f            	clr	a
  537  00ef cd0000        	call	_FLASH_SetProgrammingTime
- 539                     ; 71     FLASH_Unlock(FLASH_MEMTYPE_DATA);
+ 539                     ; 76     FLASH_Unlock(FLASH_MEMTYPE_DATA);
  541  00f2 a6f7          	ld	a,#247
  542  00f4 cd0000        	call	_FLASH_Unlock
  545  00f7               L771:
- 546                     ; 73     while (FLASH_GetFlagStatus(FLASH_FLAG_DUL) == RESET);
+ 546                     ; 77     while (FLASH_GetFlagStatus(FLASH_FLAG_DUL) == RESET);
  548  00f7 a608          	ld	a,#8
  549  00f9 cd0000        	call	_FLASH_GetFlagStatus
  551  00fc 4d            	tnz	a
  552  00fd 27f8          	jreq	L771
- 553                     ; 74 }
+ 553                     ; 79 }
  556  00ff 81            	ret
  658                     	switch	.ubsct
  659  0000               _eeprom:

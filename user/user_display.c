@@ -2,7 +2,7 @@
 #include "user_timer.h"
 
 #define DELAY_DISPLAY_TEST 500
-#define EN_DISPLAY_TEST
+//#define EN_DISPLAY_TEST
 
 /* user_timer.c */
 extern uint8_t tick;
@@ -16,7 +16,7 @@ uint8_t display_test = 1;
 
 /* A b C d E F H L P U */
 uint8_t display_num[MAX_DIG_POS] = {'A', 0, 0};
-uint8_t dp[MAX_DIG_POS];
+uint8_t dp[MAX_DIG_POS] = {0, 0 ,0};
 
 uint8_t dec2bcd(uint8_t val)
 {
@@ -30,8 +30,6 @@ void set_display(uint8_t option, uint8_t value, uint8_t decimal)
 
     bcd = (uint8_t)dec2bcd(value);
 
-    //if (option > MAX_DISPLAY_OPTION)
-    //    option = MAX_DISPLAY_OPTION;
     if (value > MAX_DISPLAY_VALUE)
         value = MAX_DISPLAY_VALUE;
 
@@ -48,7 +46,6 @@ void set_option_display(uint8_t option, uint8_t en_dp)
     dp[DIG1_POS] = en_dp;
 #endif
 }
-
 
 void wr_digit(uint8_t dig_pos)
 {
@@ -144,21 +141,23 @@ void tmr_display(void)
         return;
 #endif
 
-    if (dig_pos > MAX_DIG_POS)
+    if (dig_pos >= MAX_DIG_POS)
         dig_pos = DIG1_POS;
-
-    dig1_off();
-    dig2_off();
-    dig3_off();
 
     switch (dig_pos) {
     case DIG1_POS:
         dig1_on();
+        dig2_off();
+        dig3_off();
         break;
     case DIG2_POS:
+        dig1_off();
         dig2_on();
+        dig3_off();
         break;
     case DIG3_POS:
+        dig1_off();
+        dig2_off();
         dig3_on();
         break;
     }
@@ -201,8 +200,6 @@ void test_display(void)
 
 void init_display(void)
 {
-    uint8_t i;
-
 #ifdef EN_USER_DISPLAY
     seg_a_dir();
     seg_b_dir();
