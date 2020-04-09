@@ -1,8 +1,8 @@
 #include "user_display.h"
 #include "user_timer.h"
 
-#define DELAY_DISPLAY_TEST 500
-//#define EN_DISPLAY_TEST
+#define DELAY_DISPLAY_TEST 250
+#define EN_DISPLAY_TEST
 
 /* user_timer.c */
 extern uint8_t tick;

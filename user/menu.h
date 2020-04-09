@@ -7,9 +7,9 @@
 #define BTN_SET_PORT_NUM GPIOC
 #define BTN_SET_PIN_NUM  GPIO_PIN_3
 #define BTN_INC_PORT_NUM GPIOC
-#define BTN_INC_PIN_NUM  GPIO_PIN_4
+#define BTN_INC_PIN_NUM  GPIO_PIN_5
 #define BTN_DEC_PORT_NUM GPIOC
-#define BTN_DEC_PIN_NUM  GPIO_PIN_5
+#define BTN_DEC_PIN_NUM  GPIO_PIN_4
 
 #undef gpio_read(a,b)
 #undef gpio_dir_in(a,b)
@@ -26,10 +26,27 @@
 #define btn_dec_dir() gpio_dir_in(BTN_DEC_PORT_NUM, BTN_DEC_PIN_NUM)
 #define btn_dec()     gpio_read  (BTN_DEC_PORT_NUM, BTN_DEC_PIN_NUM)
 
+#define BTN_DEBOUNCE 250 /* ms */
+
+#define BTN_LEN 3
+#define BTN_SET_IDX 0
+#define BTN_DEC_IDX 1
+#define BTN_INC_IDX 2
+
+#define BTN_STAT_PRESSED 1
+#define BTN_STAT_FREE 0
+
 typedef struct
 {
-    uint8_t pos;
-    uint8_t max;
+    uint8_t status;
+    uint16_t tmr;
+    uint16_t debounce;
+} BUTTON;
+
+typedef struct
+{
+    uint8_t idx;
+    uint8_t tmr;
 } MENU;
 
 void init_menu(void);

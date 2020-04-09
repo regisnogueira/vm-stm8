@@ -1,51 +1,50 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.11.14 - 18 Nov 2019
    3                     ; Generator (Limited) V4.4.11 - 19 Nov 2019
-   4                     ; Optimizer V4.4.11 - 19 Nov 2019
-  47                     ; 13 void init_motor(void)
-  47                     ; 14 {
-  49                     	switch	.text
-  50  0000               _init_motor:
-  54                     ; 25 }
-  57  0000 81            	ret	
-  91                     ; 27 void speed_up(uint8_t value)
-  91                     ; 28 {
-  92                     	switch	.text
-  93  0001               _speed_up:
-  97                     ; 34 }
- 100  0001 81            	ret	
- 134                     ; 36 void speed_down(uint8_t value)
- 134                     ; 37 {
- 135                     	switch	.text
- 136  0002               _speed_down:
- 140                     ; 44 }
- 143  0002 81            	ret	
- 166                     ; 46 void set_position(void) 
- 166                     ; 47 {
- 167                     	switch	.text
- 168  0003               _set_position:
- 172                     ; 51 }
- 175  0003 81            	ret	
- 198                     ; 53 void tmr_motor(void) 
- 198                     ; 54 {
- 199                     	switch	.text
- 200  0004               _tmr_motor:
- 204                     ; 65 }
- 207  0004 81            	ret	
- 230                     ; 67 void task_motor(void)
- 230                     ; 68 {
- 231                     	switch	.text
- 232  0005               _task_motor:
- 236                     ; 88 }
- 239  0005 81            	ret	
- 320                     	xdef	_tmr_motor
- 321                     	switch	.ubsct
- 322  0000               _motor:
- 323  0000 000000000000  	ds.b	12
- 324                     	xdef	_motor
- 325                     	xdef	_speed_down
- 326                     	xdef	_speed_up
- 327                     	xdef	_set_position
- 328                     	xdef	_task_motor
- 329                     	xdef	_init_motor
- 349                     	end
+  42                     ; 13 void init_motor(void)
+  42                     ; 14 {
+  44                     	switch	.text
+  45  0000               _init_motor:
+  49                     ; 25 }
+  52  0000 81            	ret
+  86                     ; 27 void speed_up(uint8_t value)
+  86                     ; 28 {
+  87                     	switch	.text
+  88  0001               _speed_up:
+  92                     ; 34 }
+  95  0001 81            	ret
+ 129                     ; 36 void speed_down(uint8_t value)
+ 129                     ; 37 {
+ 130                     	switch	.text
+ 131  0002               _speed_down:
+ 135                     ; 44 }
+ 138  0002 81            	ret
+ 161                     ; 46 void set_position(void) 
+ 161                     ; 47 {
+ 162                     	switch	.text
+ 163  0003               _set_position:
+ 167                     ; 51 }
+ 170  0003 81            	ret
+ 193                     ; 53 void tmr_motor(void) 
+ 193                     ; 54 {
+ 194                     	switch	.text
+ 195  0004               _tmr_motor:
+ 199                     ; 65 }
+ 202  0004 81            	ret
+ 225                     ; 67 void task_motor(void)
+ 225                     ; 68 {
+ 226                     	switch	.text
+ 227  0005               _task_motor:
+ 231                     ; 88 }
+ 234  0005 81            	ret
+ 315                     	xdef	_tmr_motor
+ 316                     	switch	.ubsct
+ 317  0000               _motor:
+ 318  0000 000000000000  	ds.b	12
+ 319                     	xdef	_motor
+ 320                     	xdef	_speed_down
+ 321                     	xdef	_speed_up
+ 322                     	xdef	_set_position
+ 323                     	xdef	_task_motor
+ 324                     	xdef	_init_motor
+ 344                     	end

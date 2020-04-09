@@ -1,45 +1,44 @@
    1                     ; C Compiler for STM8 (COSMIC Software)
    2                     ; Parser V4.11.14 - 18 Nov 2019
    3                     ; Generator (Limited) V4.4.11 - 19 Nov 2019
-   4                     ; Optimizer V4.4.11 - 19 Nov 2019
-  58                     ; 12 void main(void)
-  58                     ; 13 {
-  60                     	switch	.text
-  61  0000               _main:
-  65                     ; 14     init_timer();
-  67  0000 cd0000        	call	_init_timer
-  69                     ; 15     init_buzzer();
-  71  0003 cd0000        	call	_init_buzzer
-  73                     ; 16     init_uart();
-  75  0006 cd0000        	call	_init_uart
-  77                     ; 17     init_adc();
-  79  0009 cd0000        	call	_init_adc
-  81                     ; 18     init_menu();
-  83  000c cd0000        	call	_init_menu
-  85                     ; 20     init_display();
-  87  000f cd0000        	call	_init_display
-  89                     ; 21     init_eeprom();
-  91  0012 cd0000        	call	_init_eeprom
-  93  0015               L12:
-  94                     ; 24         pool_tick();
-  96  0015 cd0000        	call	_pool_tick
-  98                     ; 25         task_display();
- 100  0018 cd0000        	call	_task_display
- 102                     ; 26         task_motor();
- 104  001b cd0000        	call	_task_motor
- 106                     ; 27         task_menu();
- 108  001e cd0000        	call	_task_menu
- 111  0021 20f2          	jra	L12
- 124                     	xdef	_main
- 125                     	xref	_task_menu
- 126                     	xref	_init_menu
- 127                     	xref	_task_motor
- 128                     	xref	_init_eeprom
- 129                     	xref	_task_display
- 130                     	xref	_init_display
- 131                     	xref	_init_adc
- 132                     	xref	_init_uart
- 133                     	xref	_init_buzzer
- 134                     	xref	_pool_tick
- 135                     	xref	_init_timer
- 154                     	end
+  53                     ; 12 void main(void)
+  53                     ; 13 {
+  55                     	switch	.text
+  56  0000               _main:
+  60                     ; 14     init_timer();
+  62  0000 cd0000        	call	_init_timer
+  64                     ; 15     init_buzzer();
+  66  0003 cd0000        	call	_init_buzzer
+  68                     ; 16     init_uart();
+  70  0006 cd0000        	call	_init_uart
+  72                     ; 17     init_adc();
+  74  0009 cd0000        	call	_init_adc
+  76                     ; 18     init_menu();
+  78  000c cd0000        	call	_init_menu
+  80                     ; 20     init_display();
+  82  000f cd0000        	call	_init_display
+  84                     ; 21     init_eeprom();
+  86  0012 cd0000        	call	_init_eeprom
+  88  0015               L12:
+  89                     ; 24         pool_tick();
+  91  0015 cd0000        	call	_pool_tick
+  93                     ; 25         task_display();
+  95  0018 cd0000        	call	_task_display
+  97                     ; 26         task_motor();
+  99  001b cd0000        	call	_task_motor
+ 101                     ; 27         task_menu();
+ 103  001e cd0000        	call	_task_menu
+ 106  0021 20f2          	jra	L12
+ 119                     	xdef	_main
+ 120                     	xref	_task_menu
+ 121                     	xref	_init_menu
+ 122                     	xref	_task_motor
+ 123                     	xref	_init_eeprom
+ 124                     	xref	_task_display
+ 125                     	xref	_init_display
+ 126                     	xref	_init_adc
+ 127                     	xref	_init_uart
+ 128                     	xref	_init_buzzer
+ 129                     	xref	_pool_tick
+ 130                     	xref	_init_timer
+ 149                     	end
