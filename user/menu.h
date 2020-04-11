@@ -3,6 +3,8 @@
 
 #include "stm8s.h"
 
+#define EN_MENU
+
 #define BTN_PORT GPIOC
 #define BTN_SET_PORT_NUM GPIOC
 #define BTN_SET_PIN_NUM  GPIO_PIN_3
@@ -36,8 +38,8 @@
 #define BTN_STAT_PRESSED 1
 #define BTN_STAT_FREE 0
 
-#define TIME_HOLD_BUTTON 1500
-#define TIME_CHANGE_VALUE 100
+#define TIME_HOLD_BUTTON 1500 /* ms */
+#define TIME_CHANGE_VALUE 100 /* ms */
 
 #define MAX_VALUE 99 /* ou 9.9 */
 
@@ -60,15 +62,14 @@ typedef struct
 } BUTTON;
 
 typedef struct {
-  uint8_t option;
-  uint8_t dp;
+    uint8_t option;
+    uint8_t dp;
 } PARAMETER;
 
 typedef struct
 {
     uint8_t idx;
-    uint8_t value;
-    uint8_t dp;    
+    uint8_t value;   
     uint8_t edit;
     uint8_t write;
     uint16_t tmr;

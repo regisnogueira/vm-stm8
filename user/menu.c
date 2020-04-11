@@ -19,6 +19,7 @@ BUTTON btn[BTN_LEN];
 
 void init_menu(void)
 {
+#ifdef EN_MENU
     btn_set_dir();
     btn_inc_dir();
     btn_dec_dir();
@@ -33,62 +34,80 @@ void init_menu(void)
 
     menu.idx = 0;
     menu.value = get_menu_value(menu.idx);
+#endif
 }
 
 uint8_t get_menu_value(uint8_t idx)
 {
+#ifdef EN_MENU
     return (uint8_t)get_eeprom_data(idx);
+#else
+    return 0;
+#endif
 }
 
 void set_menu_value(void)
 {
+#ifdef EN_MENU
     set_eeprom_data(menu.value, menu.idx);
     menu.write = 0;
     _beep(3);
+#endif
 }
 
 void tmr_menu(void)
 {
+#ifdef EN_MENU
     _decrement(menu.tmr);
     _decrement(btn[BTN_SET_IDX].debounce);
     _decrement(btn[BTN_INC_IDX].debounce);
     _decrement(btn[BTN_DEC_IDX].debounce);
+#endif
 }
 
 static void inc_option(void)
 {
+#ifdef EN_MENU
     if (++menu.idx > PAR_COUNT)
         menu.idx = 0;
     menu.value = get_menu_value(menu.idx);
+#endif
 }
 
 static void dec_option(void)
 {
+#ifdef EN_MENU
     if (menu.idx) {
         menu.idx--;
     } else {
         menu.idx = PAR_COUNT;
     }
     menu.value = get_menu_value(menu.idx);
+#endif
 }
 
 static void inc_value(void)
 {
+#ifdef EN_MENU
     if (++menu.value > MAX_VALUE)
         menu.value = 0;
+#endif
 }
 
 static void dec_value(void)
 {
+#ifdef EN_MENU
     if (menu.value) {
         menu.value--;
     } else {
         menu.value = MAX_VALUE;
     }
+#endif
 }
 
 void interrupt_buttons(void)
 {
+#ifdef EN_MENU
     _beep(1);
     if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
         if (!btn[BTN_SET_IDX].debounce) {
@@ -110,10 +129,12 @@ void interrupt_buttons(void)
             menu.tmr = TIME_HOLD_BUTTON;
         }
     }
+#endif
 }
 
 void process_button(void)
 {
+#ifdef EN_MENU
     if (btn[BTN_SET_IDX].status == BTN_STAT_PRESSED) {
         btn[BTN_SET_IDX].status = BTN_STAT_FREE;
         if (menu.edit)
@@ -151,10 +172,14 @@ void process_button(void)
             menu.tmr = TIME_CHANGE_VALUE;
         }
     }
+#endif
 }
 
 void task_menu(void)
 {
+#ifdef EN_MENU
+    static uint8_t dp = 0;
+
     process_button();
 
     if (!tick)
@@ -163,12 +188,9 @@ void task_menu(void)
     if (menu.write)
         set_menu_value();
 
-    if (menu.edit) {
-        dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];    
-    } else {
-        dp[DIG1_POS] = 0;
-    }
+    dp = (menu.edit) ? (uint8_t)(dp^1u) : 0u;
 
-    set_display_option(par[menu.idx].option);
+    set_display_option(par[menu.idx].option, dp);
     set_display_value(menu.value, par[menu.idx].dp);
+#endif
 }

@@ -280,7 +280,7 @@ enum {
 void init_display(void);
 void task_display(void);
 void tmr_display(void);
-void set_display_value(uint8_t value, uint8_t decimal);
-void set_display_option(uint8_t option);
+void set_display_value(uint8_t value, uint8_t _dp);
+void set_display_option(uint8_t option, uint8_t _dp);
 
 #endif

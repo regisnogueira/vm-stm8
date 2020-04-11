@@ -37,10 +37,11 @@ void set_display_value(uint8_t value, uint8_t _dp)
 #endif
 }
 
-void set_display_option(uint8_t option)
+void set_display_option(uint8_t option, uint8_t _dp)
 {
 #ifdef EN_USER_DISPLAY
     display_num[DIG1_POS] = option;
+    dp[DIG1_POS] = _dp;
 #endif
 }
 
