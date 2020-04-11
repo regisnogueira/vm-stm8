@@ -6,7 +6,10 @@
 extern uint8_t tick;
 extern uint8_t dp[MAX_DIG_POS];
 
-const uint8_t menu_options[] = {'A', 'b', 'C', 'd', 'E', 'F', 'H', 'L', 'P', 'U'};
+static const PARAMETER par[] = {MENU_PARAMETERS};
+
+#define PAR_COUNT (sizeof(par) / sizeof(par[0])) - 1
+
 MENU menu;
 BUTTON btn[BTN_LEN];
 
@@ -25,9 +28,14 @@ void init_menu(void)
     enableInterrupts();
 }
 
+uint8_t get_menu_value(uint8_t idx)
+{
+    return 0;
+}
+
 void tmr_menu(void)
 {
-    //_decrement(menu.tmr);
+    _decrement(menu.tmr);
     _decrement(btn[BTN_SET_IDX].debounce);
     _decrement(btn[BTN_INC_IDX].debounce);
     _decrement(btn[BTN_DEC_IDX].debounce);
@@ -35,8 +43,9 @@ void tmr_menu(void)
 
 static void inc_option(void)
 {
-    if (++menu.idx > sizeof(menu_options)-1)
+    if (++menu.idx > PAR_COUNT)
         menu.idx = 0;
+    menu.value = get_menu_value(menu.idx);
 }
 
 static void dec_option(void)
@@ -44,7 +53,21 @@ static void dec_option(void)
     if (menu.idx) {
         menu.idx--;
     } else {
-        menu.idx = sizeof(menu_options) - 1;
+        menu.idx = PAR_COUNT;
+    }
+    menu.value = get_menu_value(menu.idx);
+}
+
+static void inc_value(void)
+{
+    if (++menu.value > MAX_VALUE)
+        menu.value = 0;
+}
+
+static void dec_value(void)
+{
+    if (menu.value) {
+        menu.value--;
     }
 }
 
@@ -74,15 +97,21 @@ void process_button(void)
 {
     if (btn[BTN_SET_IDX].status == BTN_STAT_PRESSED) {
         btn[BTN_SET_IDX].status = BTN_STAT_FREE;
-        dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];
+        menu.edit = (uint8_t)!menu.edit;
     }
     if (btn[BTN_INC_IDX].status == BTN_STAT_PRESSED) {
         btn[BTN_INC_IDX].status = BTN_STAT_FREE;
-        inc_option();
+        if (!menu.edit)
+            inc_option();
+        else
+            inc_value();
     }
     if (btn[BTN_DEC_IDX].status == BTN_STAT_PRESSED) {
         btn[BTN_DEC_IDX].status = BTN_STAT_FREE;
-        dec_option();
+        if (!menu.edit)
+            dec_option();
+        else
+            dec_value();
     }
     if (!btn_set()) {
         btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
@@ -98,7 +127,16 @@ void process_button(void)
 void task_menu(void)
 {
     process_button();
+
     if (!tick)
         return;
-    set_option_display(menu_options[menu.idx]);
+
+    if (menu.edit) {
+        dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];    
+    } else {
+        dp[DIG1_POS] = 0;
+    }
+
+    set_display_option(par[menu.idx].option);
+    set_display_value(menu.value, par[menu.idx].dp);
 }

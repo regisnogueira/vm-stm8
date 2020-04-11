@@ -23,23 +23,21 @@ uint8_t dec2bcd(uint8_t val)
     return (uint8_t)((val/10*16) + (val%10));
 }
 
-void set_display(uint8_t option, uint8_t value, uint8_t decimal)
+void set_display_value(uint8_t value, uint8_t _dp)
 {
 #ifdef EN_USER_DISPLAY
     uint8_t bcd;
 
     bcd = (uint8_t)dec2bcd(value);
 
-    if (value > MAX_DISPLAY_VALUE)
-        value = MAX_DISPLAY_VALUE;
-
-    display_num[DIG1_POS] = option;
     display_num[DIG2_POS] = (uint8_t)(bcd >> 4);
     display_num[DIG3_POS] = (uint8_t)(bcd & 0x0F);
+    
+    dp[DIG2_POS] = _dp;
 #endif
 }
 
-void set_option_display(uint8_t option)
+void set_display_option(uint8_t option)
 {
 #ifdef EN_USER_DISPLAY
     display_num[DIG1_POS] = option;

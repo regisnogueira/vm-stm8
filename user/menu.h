@@ -26,7 +26,7 @@
 #define btn_dec_dir() gpio_dir_in(BTN_DEC_PORT_NUM, BTN_DEC_PIN_NUM)
 #define btn_dec()     gpio_read  (BTN_DEC_PORT_NUM, BTN_DEC_PIN_NUM)
 
-#define BTN_DEBOUNCE 250 /* ms */
+#define BTN_DEBOUNCE 50 /* ms */
 
 #define BTN_LEN 3
 #define BTN_SET_IDX 0
@@ -36,6 +36,17 @@
 #define BTN_STAT_PRESSED 1
 #define BTN_STAT_FREE 0
 
+#define MAX_VALUE 99
+
+#define MENU_PARAMETERS {'P', 0}, \
+                        {'A', 1}, \
+                        {'C', 1}, \
+                        {'F', 0}, \
+                        {'H', 1}, \
+                        {'L', 0}, \
+                        {'U', 1}, \
+                        {'E', 0}
+
 typedef struct
 {
     uint8_t status;
@@ -43,10 +54,19 @@ typedef struct
     uint16_t debounce;
 } BUTTON;
 
+typedef struct {
+  uint8_t option;
+  uint8_t dp;
+} PARAMETER;
+
 typedef struct
 {
     uint8_t idx;
+    uint8_t value;
+    uint8_t dp;
     uint8_t tmr;
+    uint8_t edit;
+    uint8_t write;
 } MENU;
 
 void init_menu(void);
