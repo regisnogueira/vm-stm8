@@ -68,6 +68,8 @@ static void dec_value(void)
 {
     if (menu.value) {
         menu.value--;
+    } else {
+        menu.value = MAX_VALUE;
     }
 }
 
@@ -83,12 +85,14 @@ void interrupt_buttons(void)
         if (!btn[BTN_INC_IDX].debounce) {
             btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
             btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
+            menu.tmr = TIME_HOLD_BUTTON;
         }
     } else
     if ((GPIO_ReadInputData(BTN_PORT) & BTN_DEC_PIN_NUM) == 0x00) {
         if (!btn[BTN_DEC_IDX].debounce) {
             btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
             btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
+            menu.tmr = TIME_HOLD_BUTTON;
         }
     }
 }
@@ -118,9 +122,17 @@ void process_button(void)
     }
     if (!btn_inc()) {
         btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
+        if (!menu.tmr) {
+            btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
+            menu.tmr = TIME_CHANGE_VALUE;
+        }
     }
     if (!btn_dec()) {
         btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
+        if (!menu.tmr) {
+            btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
+            menu.tmr = TIME_CHANGE_VALUE;
+        }
     }
 }
 

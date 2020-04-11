@@ -36,6 +36,9 @@
 #define BTN_STAT_PRESSED 1
 #define BTN_STAT_FREE 0
 
+#define TIME_HOLD_BUTTON 1500
+#define TIME_CHANGE_VALUE 100
+
 #define MAX_VALUE 99
 
 #define MENU_PARAMETERS {'P', 0}, \
@@ -63,10 +66,10 @@ typedef struct
 {
     uint8_t idx;
     uint8_t value;
-    uint8_t dp;
-    uint8_t tmr;
+    uint8_t dp;    
     uint8_t edit;
     uint8_t write;
+    uint16_t tmr;
 } MENU;
 
 void init_menu(void);

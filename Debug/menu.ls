@@ -58,304 +58,344 @@
  126  0035 9a            rim
  128                     ; 29 }
  132  0036 81            	ret
- 157                     ; 31 void tmr_menu(void)
- 157                     ; 32 {
- 158                     	switch	.text
- 159  0037               _tmr_menu:
- 163                     ; 33     _decrement(menu.tmr);
- 165  0037 3d12          	tnz	_menu+3
- 166  0039 2702          	jreq	L33
- 169  003b 3a12          	dec	_menu+3
- 170  003d               L33:
- 171                     ; 34     _decrement(btn[BTN_SET_IDX].debounce);
- 173  003d be03          	ldw	x,_btn+3
- 174  003f 2707          	jreq	L53
- 177  0041 be03          	ldw	x,_btn+3
- 178  0043 1d0001        	subw	x,#1
- 179  0046 bf03          	ldw	_btn+3,x
- 180  0048               L53:
- 181                     ; 35     _decrement(btn[BTN_INC_IDX].debounce);
- 183  0048 be0d          	ldw	x,_btn+13
- 184  004a 2707          	jreq	L73
- 187  004c be0d          	ldw	x,_btn+13
- 188  004e 1d0001        	subw	x,#1
- 189  0051 bf0d          	ldw	_btn+13,x
- 190  0053               L73:
- 191                     ; 36     _decrement(btn[BTN_DEC_IDX].debounce);
- 193  0053 be08          	ldw	x,_btn+8
- 194  0055 2707          	jreq	L14
- 197  0057 be08          	ldw	x,_btn+8
- 198  0059 1d0001        	subw	x,#1
- 199  005c bf08          	ldw	_btn+8,x
- 200  005e               L14:
- 201                     ; 37 }
- 204  005e 81            	ret
- 229                     ; 39 static void inc_option(void)
- 229                     ; 40 {
- 230                     	switch	.text
- 231  005f               L34_inc_option:
- 235                     ; 41     if (++menu.idx > PAR_COUNT)
- 237  005f 3c0f          	inc	_menu
- 238  0061 b60f          	ld	a,_menu
- 239  0063 a108          	cp	a,#8
- 240  0065 2502          	jrult	L55
- 241                     ; 42         menu.idx = 0;
- 243  0067 3f0f          	clr	_menu
- 244  0069               L55:
- 245                     ; 43     menu.value = 0;
- 247  0069 3f10          	clr	_menu+1
- 248                     ; 44 }
- 251  006b 81            	ret
- 276                     ; 46 static void dec_option(void)
- 276                     ; 47 {
- 277                     	switch	.text
- 278  006c               L75_dec_option:
- 282                     ; 48     if (menu.idx) {
- 284  006c 3d0f          	tnz	_menu
- 285  006e 2704          	jreq	L17
- 286                     ; 49         menu.idx--;
- 288  0070 3a0f          	dec	_menu
- 290  0072 2004          	jra	L37
- 291  0074               L17:
- 292                     ; 51         menu.idx = PAR_COUNT;
- 294  0074 3507000f      	mov	_menu,#7
- 295  0078               L37:
- 296                     ; 53     menu.value = 0;
- 298  0078 3f10          	clr	_menu+1
- 299                     ; 54 }
- 302  007a 81            	ret
- 326                     ; 56 static void inc_value(void)
- 326                     ; 57 {
- 327                     	switch	.text
- 328  007b               L57_inc_value:
- 332                     ; 58     if (++menu.value > MAX_VALUE)
- 334  007b 3c10          	inc	_menu+1
- 335  007d b610          	ld	a,_menu+1
- 336  007f a164          	cp	a,#100
- 337  0081 2502          	jrult	L701
- 338                     ; 59         menu.value = 0;
- 340  0083 3f10          	clr	_menu+1
- 341  0085               L701:
- 342                     ; 60 }
- 345  0085 81            	ret
- 369                     ; 62 static void dec_value(void)
- 369                     ; 63 {
- 370                     	switch	.text
- 371  0086               L111_dec_value:
- 375                     ; 64     if (menu.value) {
- 377  0086 3d10          	tnz	_menu+1
- 378  0088 2702          	jreq	L321
- 379                     ; 65         menu.value--;
- 381  008a 3a10          	dec	_menu+1
- 382  008c               L321:
- 383                     ; 67 }
- 386  008c 81            	ret
- 411                     ; 69 void interrupt_buttons(void)
- 411                     ; 70 {
- 412                     	switch	.text
- 413  008d               _interrupt_buttons:
- 417                     ; 71     if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
- 419  008d ae500a        	ldw	x,#20490
- 420  0090 cd0000        	call	_GPIO_ReadInputData
- 422  0093 a508          	bcp	a,#8
- 423  0095 260f          	jrne	L531
- 424                     ; 72         if (!btn[BTN_SET_IDX].debounce) {
- 426  0097 be03          	ldw	x,_btn+3
- 427  0099 263b          	jrne	L141
- 428                     ; 73             btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
- 430  009b ae0032        	ldw	x,#50
- 431  009e bf03          	ldw	_btn+3,x
- 432                     ; 74             btn[BTN_SET_IDX].status = BTN_STAT_PRESSED;
- 434  00a0 35010000      	mov	_btn,#1
- 435  00a4 2030          	jra	L141
- 436  00a6               L531:
- 437                     ; 77     if ((GPIO_ReadInputData(BTN_PORT) & BTN_INC_PIN_NUM) == 0x00) {
- 439  00a6 ae500a        	ldw	x,#20490
- 440  00a9 cd0000        	call	_GPIO_ReadInputData
- 442  00ac a520          	bcp	a,#32
- 443  00ae 260f          	jrne	L341
- 444                     ; 78         if (!btn[BTN_INC_IDX].debounce) {
- 446  00b0 be0d          	ldw	x,_btn+13
- 447  00b2 2622          	jrne	L141
- 448                     ; 79             btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
- 450  00b4 ae0032        	ldw	x,#50
- 451  00b7 bf0d          	ldw	_btn+13,x
- 452                     ; 80             btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
- 454  00b9 3501000a      	mov	_btn+10,#1
- 455  00bd 2017          	jra	L141
- 456  00bf               L341:
- 457                     ; 83     if ((GPIO_ReadInputData(BTN_PORT) & BTN_DEC_PIN_NUM) == 0x00) {
- 459  00bf ae500a        	ldw	x,#20490
- 460  00c2 cd0000        	call	_GPIO_ReadInputData
- 462  00c5 a510          	bcp	a,#16
- 463  00c7 260d          	jrne	L141
- 464                     ; 84         if (!btn[BTN_DEC_IDX].debounce) {
- 466  00c9 be08          	ldw	x,_btn+8
- 467  00cb 2609          	jrne	L141
- 468                     ; 85             btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
- 470  00cd ae0032        	ldw	x,#50
- 471  00d0 bf08          	ldw	_btn+8,x
- 472                     ; 86             btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
- 474  00d2 35010005      	mov	_btn+5,#1
- 475  00d6               L141:
- 476                     ; 89 }
- 479  00d6 81            	ret
- 509                     ; 91 void process_button(void)
- 509                     ; 92 {
- 510                     	switch	.text
- 511  00d7               _process_button:
- 515                     ; 93     if (btn[BTN_SET_IDX].status == BTN_STAT_PRESSED) {
- 517  00d7 b600          	ld	a,_btn
- 518  00d9 a101          	cp	a,#1
- 519  00db 260d          	jrne	L561
- 520                     ; 94         btn[BTN_SET_IDX].status = BTN_STAT_FREE;
- 522  00dd 3f00          	clr	_btn
- 523                     ; 95         menu.edit = (uint8_t)!menu.edit;
- 525  00df 3d13          	tnz	_menu+4
- 526  00e1 2604          	jrne	L42
- 527  00e3 a601          	ld	a,#1
- 528  00e5 2001          	jra	L62
- 529  00e7               L42:
- 530  00e7 4f            	clr	a
- 531  00e8               L62:
- 532  00e8 b713          	ld	_menu+4,a
- 533  00ea               L561:
- 534                     ; 97     if (btn[BTN_INC_IDX].status == BTN_STAT_PRESSED) {
- 536  00ea b60a          	ld	a,_btn+10
- 537  00ec a101          	cp	a,#1
- 538  00ee 260e          	jrne	L761
- 539                     ; 98         btn[BTN_INC_IDX].status = BTN_STAT_FREE;
- 541  00f0 3f0a          	clr	_btn+10
- 542                     ; 99         if (!menu.edit)
- 544  00f2 3d13          	tnz	_menu+4
- 545  00f4 2605          	jrne	L171
- 546                     ; 100             inc_option();
- 548  00f6 cd005f        	call	L34_inc_option
- 551  00f9 2003          	jra	L761
- 552  00fb               L171:
- 553                     ; 102             inc_value();
- 555  00fb cd007b        	call	L57_inc_value
- 557  00fe               L761:
- 558                     ; 104     if (btn[BTN_DEC_IDX].status == BTN_STAT_PRESSED) {
- 560  00fe b605          	ld	a,_btn+5
- 561  0100 a101          	cp	a,#1
- 562  0102 260e          	jrne	L571
- 563                     ; 105         btn[BTN_DEC_IDX].status = BTN_STAT_FREE;
- 565  0104 3f05          	clr	_btn+5
- 566                     ; 106         if (!menu.edit)
- 568  0106 3d13          	tnz	_menu+4
- 569  0108 2605          	jrne	L771
- 570                     ; 107             dec_option();
- 572  010a cd006c        	call	L75_dec_option
- 575  010d 2003          	jra	L571
- 576  010f               L771:
- 577                     ; 109             dec_value();
- 579  010f cd0086        	call	L111_dec_value
- 581  0112               L571:
- 582                     ; 111     if (!btn_set()) {
- 584  0112 4b08          	push	#8
- 585  0114 ae500a        	ldw	x,#20490
- 586  0117 cd0000        	call	_GPIO_ReadInputPin
- 588  011a 5b01          	addw	sp,#1
- 589  011c 4d            	tnz	a
- 590  011d 2605          	jrne	L302
- 591                     ; 112         btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
- 593  011f ae0032        	ldw	x,#50
- 594  0122 bf03          	ldw	_btn+3,x
- 595  0124               L302:
- 596                     ; 114     if (!btn_inc()) {
- 598  0124 4b20          	push	#32
- 599  0126 ae500a        	ldw	x,#20490
- 600  0129 cd0000        	call	_GPIO_ReadInputPin
- 602  012c 5b01          	addw	sp,#1
- 603  012e 4d            	tnz	a
- 604  012f 2605          	jrne	L502
- 605                     ; 115         btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
- 607  0131 ae0032        	ldw	x,#50
- 608  0134 bf0d          	ldw	_btn+13,x
- 609  0136               L502:
- 610                     ; 117     if (!btn_dec()) {
- 612  0136 4b10          	push	#16
- 613  0138 ae500a        	ldw	x,#20490
- 614  013b cd0000        	call	_GPIO_ReadInputPin
- 616  013e 5b01          	addw	sp,#1
- 617  0140 4d            	tnz	a
- 618  0141 2605          	jrne	L702
- 619                     ; 118         btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
- 621  0143 ae0032        	ldw	x,#50
- 622  0146 bf08          	ldw	_btn+8,x
- 623  0148               L702:
- 624                     ; 120 }
- 627  0148 81            	ret
- 657                     ; 122 void task_menu(void)
- 657                     ; 123 {
- 658                     	switch	.text
- 659  0149               _task_menu:
- 663                     ; 124     process_button();
- 665  0149 ad8c          	call	_process_button
- 667                     ; 126     if (!tick)
- 669  014b 3d00          	tnz	_tick
- 670  014d 2601          	jrne	L122
- 671                     ; 127         return;
- 674  014f 81            	ret
- 675  0150               L122:
- 676                     ; 129     if (menu.edit) {
- 678  0150 3d13          	tnz	_menu+4
- 679  0152 270d          	jreq	L322
- 680                     ; 130         dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];    
- 682  0154 3d00          	tnz	_dp
- 683  0156 2604          	jrne	L23
- 684  0158 a601          	ld	a,#1
- 685  015a 2001          	jra	L43
- 686  015c               L23:
- 687  015c 4f            	clr	a
- 688  015d               L43:
- 689  015d b700          	ld	_dp,a
- 691  015f 2002          	jra	L522
- 692  0161               L322:
- 693                     ; 132         dp[DIG1_POS] = 0;
- 695  0161 3f00          	clr	_dp
- 696  0163               L522:
- 697                     ; 136     set_display_option(par[menu.idx].option);
- 699  0163 b60f          	ld	a,_menu
- 700  0165 5f            	clrw	x
- 701  0166 97            	ld	xl,a
- 702  0167 58            	sllw	x
- 703  0168 d60000        	ld	a,(L3_par,x)
- 704  016b cd0000        	call	_set_display_option
- 706                     ; 137     set_display_value(menu.value, par[menu.idx].dp);
- 708  016e b60f          	ld	a,_menu
- 709  0170 5f            	clrw	x
- 710  0171 97            	ld	xl,a
- 711  0172 58            	sllw	x
- 712  0173 d60001        	ld	a,(L3_par+1,x)
- 713  0176 97            	ld	xl,a
- 714  0177 b610          	ld	a,_menu+1
- 715  0179 95            	ld	xh,a
- 716  017a cd0000        	call	_set_display_value
- 718                     ; 138 }
- 721  017d 81            	ret
- 868                     	xdef	_process_button
- 869                     	xdef	_interrupt_buttons
- 870                     	switch	.ubsct
- 871  0000               _btn:
- 872  0000 000000000000  	ds.b	15
- 873                     	xdef	_btn
- 874  000f               _menu:
- 875  000f 000000000000  	ds.b	6
- 876                     	xdef	_menu
- 877                     	xref.b	_dp
- 878                     	xref.b	_tick
- 879                     	xref	_set_display_option
- 880                     	xref	_set_display_value
- 881                     	xdef	_task_menu
- 882                     	xdef	_tmr_menu
- 883                     	xdef	_init_menu
- 884                     	xref	_ITC_SetSoftwarePriority
- 885                     	xref	_GPIO_ReadInputPin
- 886                     	xref	_GPIO_ReadInputData
- 887                     	xref	_GPIO_Init
- 888                     	xref	_EXTI_SetTLISensitivity
- 889                     	xref	_EXTI_SetExtIntSensitivity
- 890                     	xref	_EXTI_DeInit
- 910                     	end
+ 166                     ; 31 uint8_t get_menu_value(uint8_t idx)
+ 166                     ; 32 {
+ 167                     	switch	.text
+ 168  0037               _get_menu_value:
+ 172                     ; 33     return 0;
+ 174  0037 4f            	clr	a
+ 177  0038 81            	ret
+ 202                     ; 36 void tmr_menu(void)
+ 202                     ; 37 {
+ 203                     	switch	.text
+ 204  0039               _tmr_menu:
+ 208                     ; 38     _decrement(menu.tmr);
+ 210  0039 be14          	ldw	x,_menu+5
+ 211  003b 2707          	jreq	L15
+ 214  003d be14          	ldw	x,_menu+5
+ 215  003f 1d0001        	subw	x,#1
+ 216  0042 bf14          	ldw	_menu+5,x
+ 217  0044               L15:
+ 218                     ; 39     _decrement(btn[BTN_SET_IDX].debounce);
+ 220  0044 be03          	ldw	x,_btn+3
+ 221  0046 2707          	jreq	L35
+ 224  0048 be03          	ldw	x,_btn+3
+ 225  004a 1d0001        	subw	x,#1
+ 226  004d bf03          	ldw	_btn+3,x
+ 227  004f               L35:
+ 228                     ; 40     _decrement(btn[BTN_INC_IDX].debounce);
+ 230  004f be0d          	ldw	x,_btn+13
+ 231  0051 2707          	jreq	L55
+ 234  0053 be0d          	ldw	x,_btn+13
+ 235  0055 1d0001        	subw	x,#1
+ 236  0058 bf0d          	ldw	_btn+13,x
+ 237  005a               L55:
+ 238                     ; 41     _decrement(btn[BTN_DEC_IDX].debounce);
+ 240  005a be08          	ldw	x,_btn+8
+ 241  005c 2707          	jreq	L75
+ 244  005e be08          	ldw	x,_btn+8
+ 245  0060 1d0001        	subw	x,#1
+ 246  0063 bf08          	ldw	_btn+8,x
+ 247  0065               L75:
+ 248                     ; 42 }
+ 251  0065 81            	ret
+ 277                     ; 44 static void inc_option(void)
+ 277                     ; 45 {
+ 278                     	switch	.text
+ 279  0066               L16_inc_option:
+ 283                     ; 46     if (++menu.idx > PAR_COUNT)
+ 285  0066 3c0f          	inc	_menu
+ 286  0068 b60f          	ld	a,_menu
+ 287  006a a108          	cp	a,#8
+ 288  006c 2502          	jrult	L37
+ 289                     ; 47         menu.idx = 0;
+ 291  006e 3f0f          	clr	_menu
+ 292  0070               L37:
+ 293                     ; 48     menu.value = get_menu_value(menu.idx);
+ 295  0070 b60f          	ld	a,_menu
+ 296  0072 adc3          	call	_get_menu_value
+ 298  0074 b710          	ld	_menu+1,a
+ 299                     ; 49 }
+ 302  0076 81            	ret
+ 328                     ; 51 static void dec_option(void)
+ 328                     ; 52 {
+ 329                     	switch	.text
+ 330  0077               L57_dec_option:
+ 334                     ; 53     if (menu.idx) {
+ 336  0077 3d0f          	tnz	_menu
+ 337  0079 2704          	jreq	L701
+ 338                     ; 54         menu.idx--;
+ 340  007b 3a0f          	dec	_menu
+ 342  007d 2004          	jra	L111
+ 343  007f               L701:
+ 344                     ; 56         menu.idx = PAR_COUNT;
+ 346  007f 3507000f      	mov	_menu,#7
+ 347  0083               L111:
+ 348                     ; 58     menu.value = get_menu_value(menu.idx);
+ 350  0083 b60f          	ld	a,_menu
+ 351  0085 adb0          	call	_get_menu_value
+ 353  0087 b710          	ld	_menu+1,a
+ 354                     ; 59 }
+ 357  0089 81            	ret
+ 381                     ; 61 static void inc_value(void)
+ 381                     ; 62 {
+ 382                     	switch	.text
+ 383  008a               L311_inc_value:
+ 387                     ; 63     if (++menu.value > MAX_VALUE)
+ 389  008a 3c10          	inc	_menu+1
+ 390  008c b610          	ld	a,_menu+1
+ 391  008e a164          	cp	a,#100
+ 392  0090 2502          	jrult	L521
+ 393                     ; 64         menu.value = 0;
+ 395  0092 3f10          	clr	_menu+1
+ 396  0094               L521:
+ 397                     ; 65 }
+ 400  0094 81            	ret
+ 424                     ; 67 static void dec_value(void)
+ 424                     ; 68 {
+ 425                     	switch	.text
+ 426  0095               L721_dec_value:
+ 430                     ; 69     if (menu.value) {
+ 432  0095 3d10          	tnz	_menu+1
+ 433  0097 2704          	jreq	L141
+ 434                     ; 70         menu.value--;
+ 436  0099 3a10          	dec	_menu+1
+ 438  009b 2004          	jra	L341
+ 439  009d               L141:
+ 440                     ; 72         menu.value = MAX_VALUE;
+ 442  009d 35630010      	mov	_menu+1,#99
+ 443  00a1               L341:
+ 444                     ; 74 }
+ 447  00a1 81            	ret
+ 473                     ; 76 void interrupt_buttons(void)
+ 473                     ; 77 {
+ 474                     	switch	.text
+ 475  00a2               _interrupt_buttons:
+ 479                     ; 78     if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
+ 481  00a2 ae500a        	ldw	x,#20490
+ 482  00a5 cd0000        	call	_GPIO_ReadInputData
+ 484  00a8 a508          	bcp	a,#8
+ 485  00aa 260f          	jrne	L551
+ 486                     ; 79         if (!btn[BTN_SET_IDX].debounce) {
+ 488  00ac be03          	ldw	x,_btn+3
+ 489  00ae 2645          	jrne	L161
+ 490                     ; 80             btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
+ 492  00b0 ae0032        	ldw	x,#50
+ 493  00b3 bf03          	ldw	_btn+3,x
+ 494                     ; 81             btn[BTN_SET_IDX].status = BTN_STAT_PRESSED;
+ 496  00b5 35010000      	mov	_btn,#1
+ 497  00b9 203a          	jra	L161
+ 498  00bb               L551:
+ 499                     ; 84     if ((GPIO_ReadInputData(BTN_PORT) & BTN_INC_PIN_NUM) == 0x00) {
+ 501  00bb ae500a        	ldw	x,#20490
+ 502  00be cd0000        	call	_GPIO_ReadInputData
+ 504  00c1 a520          	bcp	a,#32
+ 505  00c3 2614          	jrne	L361
+ 506                     ; 85         if (!btn[BTN_INC_IDX].debounce) {
+ 508  00c5 be0d          	ldw	x,_btn+13
+ 509  00c7 262c          	jrne	L161
+ 510                     ; 86             btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
+ 512  00c9 ae0032        	ldw	x,#50
+ 513  00cc bf0d          	ldw	_btn+13,x
+ 514                     ; 87             btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
+ 516  00ce 3501000a      	mov	_btn+10,#1
+ 517                     ; 88             menu.tmr = TIME_HOLD_BUTTON;
+ 519  00d2 ae05dc        	ldw	x,#1500
+ 520  00d5 bf14          	ldw	_menu+5,x
+ 521  00d7 201c          	jra	L161
+ 522  00d9               L361:
+ 523                     ; 91     if ((GPIO_ReadInputData(BTN_PORT) & BTN_DEC_PIN_NUM) == 0x00) {
+ 525  00d9 ae500a        	ldw	x,#20490
+ 526  00dc cd0000        	call	_GPIO_ReadInputData
+ 528  00df a510          	bcp	a,#16
+ 529  00e1 2612          	jrne	L161
+ 530                     ; 92         if (!btn[BTN_DEC_IDX].debounce) {
+ 532  00e3 be08          	ldw	x,_btn+8
+ 533  00e5 260e          	jrne	L161
+ 534                     ; 93             btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
+ 536  00e7 ae0032        	ldw	x,#50
+ 537  00ea bf08          	ldw	_btn+8,x
+ 538                     ; 94             btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
+ 540  00ec 35010005      	mov	_btn+5,#1
+ 541                     ; 95             menu.tmr = TIME_HOLD_BUTTON;
+ 543  00f0 ae05dc        	ldw	x,#1500
+ 544  00f3 bf14          	ldw	_menu+5,x
+ 545  00f5               L161:
+ 546                     ; 98 }
+ 549  00f5 81            	ret
+ 579                     ; 100 void process_button(void)
+ 579                     ; 101 {
+ 580                     	switch	.text
+ 581  00f6               _process_button:
+ 585                     ; 102     if (btn[BTN_SET_IDX].status == BTN_STAT_PRESSED) {
+ 587  00f6 b600          	ld	a,_btn
+ 588  00f8 a101          	cp	a,#1
+ 589  00fa 260d          	jrne	L502
+ 590                     ; 103         btn[BTN_SET_IDX].status = BTN_STAT_FREE;
+ 592  00fc 3f00          	clr	_btn
+ 593                     ; 104         menu.edit = (uint8_t)!menu.edit;
+ 595  00fe 3d12          	tnz	_menu+3
+ 596  0100 2604          	jrne	L62
+ 597  0102 a601          	ld	a,#1
+ 598  0104 2001          	jra	L03
+ 599  0106               L62:
+ 600  0106 4f            	clr	a
+ 601  0107               L03:
+ 602  0107 b712          	ld	_menu+3,a
+ 603  0109               L502:
+ 604                     ; 106     if (btn[BTN_INC_IDX].status == BTN_STAT_PRESSED) {
+ 606  0109 b60a          	ld	a,_btn+10
+ 607  010b a101          	cp	a,#1
+ 608  010d 260e          	jrne	L702
+ 609                     ; 107         btn[BTN_INC_IDX].status = BTN_STAT_FREE;
+ 611  010f 3f0a          	clr	_btn+10
+ 612                     ; 108         if (!menu.edit)
+ 614  0111 3d12          	tnz	_menu+3
+ 615  0113 2605          	jrne	L112
+ 616                     ; 109             inc_option();
+ 618  0115 cd0066        	call	L16_inc_option
+ 621  0118 2003          	jra	L702
+ 622  011a               L112:
+ 623                     ; 111             inc_value();
+ 625  011a cd008a        	call	L311_inc_value
+ 627  011d               L702:
+ 628                     ; 113     if (btn[BTN_DEC_IDX].status == BTN_STAT_PRESSED) {
+ 630  011d b605          	ld	a,_btn+5
+ 631  011f a101          	cp	a,#1
+ 632  0121 260e          	jrne	L512
+ 633                     ; 114         btn[BTN_DEC_IDX].status = BTN_STAT_FREE;
+ 635  0123 3f05          	clr	_btn+5
+ 636                     ; 115         if (!menu.edit)
+ 638  0125 3d12          	tnz	_menu+3
+ 639  0127 2605          	jrne	L712
+ 640                     ; 116             dec_option();
+ 642  0129 cd0077        	call	L57_dec_option
+ 645  012c 2003          	jra	L512
+ 646  012e               L712:
+ 647                     ; 118             dec_value();
+ 649  012e cd0095        	call	L721_dec_value
+ 651  0131               L512:
+ 652                     ; 120     if (!btn_set()) {
+ 654  0131 4b08          	push	#8
+ 655  0133 ae500a        	ldw	x,#20490
+ 656  0136 cd0000        	call	_GPIO_ReadInputPin
+ 658  0139 5b01          	addw	sp,#1
+ 659  013b 4d            	tnz	a
+ 660  013c 2605          	jrne	L322
+ 661                     ; 121         btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
+ 663  013e ae0032        	ldw	x,#50
+ 664  0141 bf03          	ldw	_btn+3,x
+ 665  0143               L322:
+ 666                     ; 123     if (!btn_inc()) {
+ 668  0143 4b20          	push	#32
+ 669  0145 ae500a        	ldw	x,#20490
+ 670  0148 cd0000        	call	_GPIO_ReadInputPin
+ 672  014b 5b01          	addw	sp,#1
+ 673  014d 4d            	tnz	a
+ 674  014e 2612          	jrne	L522
+ 675                     ; 124         btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
+ 677  0150 ae0032        	ldw	x,#50
+ 678  0153 bf0d          	ldw	_btn+13,x
+ 679                     ; 125         if (!menu.tmr) {
+ 681  0155 be14          	ldw	x,_menu+5
+ 682  0157 2609          	jrne	L522
+ 683                     ; 126             btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
+ 685  0159 3501000a      	mov	_btn+10,#1
+ 686                     ; 127             menu.tmr = TIME_CHANGE_VALUE;
+ 688  015d ae0064        	ldw	x,#100
+ 689  0160 bf14          	ldw	_menu+5,x
+ 690  0162               L522:
+ 691                     ; 130     if (!btn_dec()) {
+ 693  0162 4b10          	push	#16
+ 694  0164 ae500a        	ldw	x,#20490
+ 695  0167 cd0000        	call	_GPIO_ReadInputPin
+ 697  016a 5b01          	addw	sp,#1
+ 698  016c 4d            	tnz	a
+ 699  016d 2612          	jrne	L132
+ 700                     ; 131         btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
+ 702  016f ae0032        	ldw	x,#50
+ 703  0172 bf08          	ldw	_btn+8,x
+ 704                     ; 132         if (!menu.tmr) {
+ 706  0174 be14          	ldw	x,_menu+5
+ 707  0176 2609          	jrne	L132
+ 708                     ; 133             btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
+ 710  0178 35010005      	mov	_btn+5,#1
+ 711                     ; 134             menu.tmr = TIME_CHANGE_VALUE;
+ 713  017c ae0064        	ldw	x,#100
+ 714  017f bf14          	ldw	_menu+5,x
+ 715  0181               L132:
+ 716                     ; 137 }
+ 719  0181 81            	ret
+ 749                     ; 139 void task_menu(void)
+ 749                     ; 140 {
+ 750                     	switch	.text
+ 751  0182               _task_menu:
+ 755                     ; 141     process_button();
+ 757  0182 cd00f6        	call	_process_button
+ 759                     ; 143     if (!tick)
+ 761  0185 3d00          	tnz	_tick
+ 762  0187 2601          	jrne	L542
+ 763                     ; 144         return;
+ 766  0189 81            	ret
+ 767  018a               L542:
+ 768                     ; 146     if (menu.edit) {
+ 770  018a 3d12          	tnz	_menu+3
+ 771  018c 270d          	jreq	L742
+ 772                     ; 147         dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];    
+ 774  018e 3d00          	tnz	_dp
+ 775  0190 2604          	jrne	L43
+ 776  0192 a601          	ld	a,#1
+ 777  0194 2001          	jra	L63
+ 778  0196               L43:
+ 779  0196 4f            	clr	a
+ 780  0197               L63:
+ 781  0197 b700          	ld	_dp,a
+ 783  0199 2002          	jra	L152
+ 784  019b               L742:
+ 785                     ; 149         dp[DIG1_POS] = 0;
+ 787  019b 3f00          	clr	_dp
+ 788  019d               L152:
+ 789                     ; 152     set_display_option(par[menu.idx].option);
+ 791  019d b60f          	ld	a,_menu
+ 792  019f 5f            	clrw	x
+ 793  01a0 97            	ld	xl,a
+ 794  01a1 58            	sllw	x
+ 795  01a2 d60000        	ld	a,(L3_par,x)
+ 796  01a5 cd0000        	call	_set_display_option
+ 798                     ; 153     set_display_value(menu.value, par[menu.idx].dp);
+ 800  01a8 b60f          	ld	a,_menu
+ 801  01aa 5f            	clrw	x
+ 802  01ab 97            	ld	xl,a
+ 803  01ac 58            	sllw	x
+ 804  01ad d60001        	ld	a,(L3_par+1,x)
+ 805  01b0 97            	ld	xl,a
+ 806  01b1 b610          	ld	a,_menu+1
+ 807  01b3 95            	ld	xh,a
+ 808  01b4 cd0000        	call	_set_display_value
+ 810                     ; 154 }
+ 813  01b7 81            	ret
+ 960                     	xdef	_process_button
+ 961                     	xdef	_interrupt_buttons
+ 962                     	xdef	_get_menu_value
+ 963                     	switch	.ubsct
+ 964  0000               _btn:
+ 965  0000 000000000000  	ds.b	15
+ 966                     	xdef	_btn
+ 967  000f               _menu:
+ 968  000f 000000000000  	ds.b	7
+ 969                     	xdef	_menu
+ 970                     	xref.b	_dp
+ 971                     	xref.b	_tick
+ 972                     	xref	_set_display_option
+ 973                     	xref	_set_display_value
+ 974                     	xdef	_task_menu
+ 975                     	xdef	_tmr_menu
+ 976                     	xdef	_init_menu
+ 977                     	xref	_ITC_SetSoftwarePriority
+ 978                     	xref	_GPIO_ReadInputPin
+ 979                     	xref	_GPIO_ReadInputData
+ 980                     	xref	_GPIO_Init
+ 981                     	xref	_EXTI_SetTLISensitivity
+ 982                     	xref	_EXTI_SetExtIntSensitivity
+ 983                     	xref	_EXTI_DeInit
+1003                     	end
