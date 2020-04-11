@@ -15,10 +15,9 @@ void main(void)
     init_buzzer();
     init_uart();
     init_adc();
-    init_menu();
-
     init_display();
     init_eeprom();
+    init_menu();
 
     for (;;) {
         pool_tick();

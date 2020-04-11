@@ -17,6 +17,8 @@
 #define buz_on()  gpio_clr(BUZ_PORT_NUM,BUZ_PIN_NUM)
 #define buz_off() gpio_set(BUZ_PORT_NUM,BUZ_PIN_NUM)
 
+#define _beep(a) set_buzzer((a),100,50)
+
 typedef struct _BUZZER
 {
     uint8_t nbeep; /**< quantidade de beeps */

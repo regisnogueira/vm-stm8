@@ -2712,8 +2712,8 @@ calc_checksum	user\user_eeprom.h	42;"	prototype	signature:(void)
 checksum	user\user_eeprom.h	32;"	member	struct:__anon10
 debounce	user\menu.h	59;"	member	struct:__anon5
 dec2bcd	user\user_display.c	21;"	function	signature:(uint8_t val)
-dec_option	user\menu.c	63;"	function	file:	signature:(void)
-dec_value	user\menu.c	79;"	function	file:	signature:(void)
+dec_option	user\menu.c	59;"	function	file:	signature:(void)
+dec_value	user\menu.c	75;"	function	file:	signature:(void)
 delay	..\corona\user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
 delay	user\user_timer.c	50;"	function	signature:(__IO uint32_t nTime)
 delay	user\user_timer.h	8;"	prototype	signature:(__IO uint32_t nTime)
@@ -2804,8 +2804,8 @@ halt	libraries\inc\stm8s.h	2723;"	macro
 halt	libraries\inc\stm8s.h	2732;"	macro
 halt	libraries\inc\stm8s.h	2742;"	macro
 idx	user\menu.h	69;"	member	struct:__anon7
-inc_option	user\menu.c	56;"	function	file:	signature:(void)
-inc_value	user\menu.c	73;"	function	file:	signature:(void)
+inc_option	user\menu.c	52;"	function	file:	signature:(void)
+inc_value	user\menu.c	69;"	function	file:	signature:(void)
 init_adc	user\user_adc.c	9;"	function	signature:(void)
 init_adc	user\user_adc.h	10;"	prototype	signature:(void)
 init_application	user\application.c	3;"	function	signature:(void)
@@ -2838,7 +2838,7 @@ int16_t	libraries\inc\stm8s.h	212;"	typedef
 int32_t	libraries\inc\stm8s.h	213;"	typedef
 int8_t	libraries\inc\stm8s.h	211;"	typedef
 interrupt_buttons	stm8s_it.c	33;"	prototype	file:	signature:(void)
-interrupt_buttons	user\menu.c	88;"	function	signature:(void)
+interrupt_buttons	user\menu.c	84;"	function	signature:(void)
 interrupt_handler	stm8_interrupt_vector.c	9;"	member	struct:interrupt_vector	file:
 interrupt_handler_t	stm8_interrupt_vector.c	5;"	typedef	file:
 interrupt_instruction	stm8_interrupt_vector.c	8;"	member	struct:interrupt_vector	file:
@@ -2879,7 +2879,7 @@ pool_tick	..\corona\user\user_timer.h	7;"	prototype	signature:(void)
 pool_tick	user\user_timer.c	21;"	function	signature:(void)
 pool_tick	user\user_timer.h	7;"	prototype	signature:(void)
 position	user\motor.h	37;"	member	struct:__anon8
-process_button	user\menu.c	112;"	function	signature:(void)
+process_button	user\menu.c	108;"	function	signature:(void)
 raw	user\pressure_sensor.h	10;"	member	struct:__anon1
 read_adc	stm8s_it.c	32;"	prototype	file:	signature:(void)
 read_adc	user\user_adc.c	29;"	function	signature:(void)
@@ -2933,7 +2933,7 @@ set_eeprom_data	user\user_eeprom.h	37;"	prototype	signature:(uint16_t value, uin
 set_led	..\corona\user\user_led.h	41;"	prototype	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.c	31;"	function	signature:(uint8_t ledx, uint16_t speed)
 set_led	user\user_led.h	39;"	prototype	signature:(uint8_t ledx, uint16_t speed)
-set_menu_value	user\menu.c	42;"	function	signature:(void)
+set_menu_value	user\menu.c	38;"	function	signature:(void)
 set_position	user\motor.c	46;"	function	signature:(void)
 set_position	user\motor.h	48;"	prototype	signature:(void)
 set_pwm	user\user_adc.c	3;"	prototype	file:	signature:(uint16_t ccrx_val)
@@ -2956,7 +2956,7 @@ task_buzzer	user\user_buzzer.h	29;"	prototype	signature:(void)
 task_display	user\user_display.c	122;"	function	signature:(void)
 task_display	user\user_display.h	281;"	prototype	signature:(void)
 task_led	..\corona\user\user_led.h	40;"	prototype	signature:(void)
-task_menu	user\menu.c	153;"	function	signature:(void)
+task_menu	user\menu.c	149;"	function	signature:(void)
 task_menu	user\menu.h	79;"	prototype	signature:(void)
 task_motor	user\motor.c	67;"	function	signature:(void)
 task_motor	user\motor.h	47;"	prototype	signature:(void)
@@ -2980,7 +2980,7 @@ tmr_display	user\user_timer.c	7;"	prototype	file:	signature:(void)
 tmr_led	user\user_led.c	17;"	function	signature:(void)
 tmr_led	user\user_led.h	38;"	prototype	signature:(void)
 tmr_led	user\user_timer.c	5;"	prototype	file:	signature:(void)
-tmr_menu	user\menu.c	48;"	function	signature:(void)
+tmr_menu	user\menu.c	44;"	function	signature:(void)
 tmr_menu	user\menu.h	78;"	prototype	signature:(void)
 tmr_menu	user\user_timer.c	8;"	prototype	file:	signature:(void)
 tmr_motor	user\motor.c	53;"	function	signature:(void)

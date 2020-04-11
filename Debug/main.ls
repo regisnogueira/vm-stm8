@@ -13,20 +13,20 @@
   70  0006 cd0000        	call	_init_uart
   72                     ; 17     init_adc();
   74  0009 cd0000        	call	_init_adc
-  76                     ; 18     init_menu();
-  78  000c cd0000        	call	_init_menu
-  80                     ; 20     init_display();
-  82  000f cd0000        	call	_init_display
-  84                     ; 21     init_eeprom();
-  86  0012 cd0000        	call	_init_eeprom
+  76                     ; 18     init_display();
+  78  000c cd0000        	call	_init_display
+  80                     ; 19     init_eeprom();
+  82  000f cd0000        	call	_init_eeprom
+  84                     ; 20     init_menu();
+  86  0012 cd0000        	call	_init_menu
   88  0015               L12:
-  89                     ; 24         pool_tick();
+  89                     ; 23         pool_tick();
   91  0015 cd0000        	call	_pool_tick
-  93                     ; 25         task_display();
+  93                     ; 24         task_display();
   95  0018 cd0000        	call	_task_display
-  97                     ; 26         task_motor();
+  97                     ; 25         task_motor();
   99  001b cd0000        	call	_task_motor
- 101                     ; 27         task_menu();
+ 101                     ; 26         task_menu();
  103  001e cd0000        	call	_task_menu
  106  0021 20f2          	jra	L12
  119                     	xdef	_main

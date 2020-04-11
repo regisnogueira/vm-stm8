@@ -75,6 +75,8 @@ typedef struct
 } MENU;
 
 void init_menu(void);
+uint8_t get_menu_value(uint8_t idx);
+void set_menu_value(void);
 void tmr_menu(void);
 void task_menu(void);
 

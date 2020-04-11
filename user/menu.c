@@ -1,9 +1,11 @@
 #include "menu.h"
 #include "application.h"
+#include "user_buzzer.h"
 #include "user_eeprom.h"
 #include "user_display.h"
 
 #define _decrement(a) if(a) a--
+#define _beep(a) set_buzzer(a,100,50)
 
 extern uint8_t tick;
 extern uint8_t dp[MAX_DIG_POS];
@@ -28,21 +30,21 @@ void init_menu(void)
     EXTI_SetTLISensitivity(EXTI_TLISENSITIVITY_FALL_ONLY);
     ITC_SetSoftwarePriority(ITC_IRQ_PORTC , ITC_PRIORITYLEVEL_3);
     enableInterrupts();
+
+    menu.idx = 0;
+    menu.value = get_menu_value(menu.idx);
 }
 
 uint8_t get_menu_value(uint8_t idx)
 {
-    uint8_t value;
-
-    value = (uint8_t)get_eeprom_data(idx);
-
-    return value;
+    return (uint8_t)get_eeprom_data(idx);
 }
 
 void set_menu_value(void)
 {
     set_eeprom_data(menu.value, menu.idx);
     menu.write = 0;
+    _beep(3);
 }
 
 void tmr_menu(void)
@@ -87,6 +89,7 @@ static void dec_value(void)
 
 void interrupt_buttons(void)
 {
+    _beep(1);
     if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
         if (!btn[BTN_SET_IDX].debounce) {
             btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
