@@ -1,5 +1,5 @@
 
-Map of Debug\vm.sm8 from link file Debug\vm.lkf - Sat Apr 11 19:24:51 2020
+Map of Debug\vm.sm8 from link file Debug\vm.lkf - Sat Apr 11 19:31:33 2020
 
 
                                --------
@@ -17,7 +17,7 @@ start 0000003c end 0000003c length     0 segment .share
 start 00000100 end 00000100 length     0 segment .data
 start 00000100 end 00000100 length     0 segment .bss
 start 00000000 end 00000ef1 length  3825 segment .info.
-start 00000000 end 0000b56a length 46442 segment .debug
+start 00000000 end 0000b571 length 46449 segment .debug
 start 00008000 end 00008080 length   128 segment .const
 start 00008114 end 0000811c length     8 segment .init
 
@@ -104,60 +104,60 @@ Debug\menu.o:
 start 00008bc7 end 00008dc6 length   511 section .text
 start 00000000 end 00000001 length     1 section .bsct
 start 0000000e end 0000001d length    15 section .ubsct
-start 00009a7b end 00009f27 length  1196 section .debug
+start 00009a7b end 00009f2e length  1203 section .debug
 start 000005fc end 00000668 length   108 section .info.
 start 000080f0 end 00008100 length    16 section .const
 
 Debug\motor.o:
 start 00008dc6 end 00008dcc length     6 section .text
 start ******** end ******** length     0 section .ubsct *** removed ***
-start 00009f27 end 0000a21f length   760 section .debug
+start 00009f2e end 0000a226 length   760 section .debug
 start 00000668 end 000006d5 length   109 section .info.
 
 Debug\user_adc.o:
 start 00008dcc end 00008dce length     2 section .text
-start 0000a21f end 0000a30f length   240 section .debug
+start 0000a226 end 0000a316 length   240 section .debug
 start 000006d5 end 00000745 length   112 section .info.
 
 Debug\user_buzzer.o:
 start 00008dce end 00008dd1 length     3 section .text
 start ******** end ******** length     0 section .ubsct *** removed ***
-start 0000a30f end 0000a4dd length   462 section .debug
+start 0000a316 end 0000a4e4 length   462 section .debug
 start 00000745 end 000007b8 length   115 section .info.
 
 Debug\user_display.o:
 start 00008dd1 end 00009a49 length  3192 section .text
 start 00000001 end 00000009 length     8 section .bsct
-start 0000a4dd end 0000a89e length   961 section .debug
+start 0000a4e4 end 0000a8a5 length   961 section .debug
 start 000007b8 end 0000082c length   116 section .info.
 start 00008100 end 00008114 length    20 section .const
 
 Debug\user_eeprom.o:
 start 00009a49 end 00009b69 length   288 section .text
 start 0000001d end 00000030 length    19 section .ubsct
-start 0000a89e end 0000adfa length  1372 section .debug
+start 0000a8a5 end 0000ae01 length  1372 section .debug
 start 0000082c end 0000089f length   115 section .info.
 
 Debug\user_led.o:
 start 00009b69 end 00009b6c length     3 section .text
-start 0000adfa end 0000af40 length   326 section .debug
+start 0000ae01 end 0000af47 length   326 section .debug
 start 0000089f end 0000090f length   112 section .info.
 
 Debug\user_pwm.o:
 start ******** end ******** length     0 section .text *** removed ***
-start 0000af40 end 0000b071 length   305 section .debug
+start 0000af47 end 0000b078 length   305 section .debug
 start 0000090f end 0000097f length   112 section .info.
 
 Debug\user_timer.o:
 start 00009b6c end 00009bd6 length   106 section .text
 start 00000009 end 0000000e length     5 section .bsct
 start 00000030 end 00000032 length     2 section .ubsct
-start 0000b071 end 0000b2ed length   636 section .debug
+start 0000b078 end 0000b2f4 length   636 section .debug
 start 0000097f end 000009f1 length   114 section .info.
 
 Debug\user_uart.o:
 start 00009bd6 end 00009bd8 length     2 section .text
-start 0000b2ed end 0000b3ff length   274 section .debug
+start 0000b2f4 end 0000b406 length   274 section .debug
 start 000009f1 end 00000a62 length   113 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)cmulx.o:
@@ -246,7 +246,7 @@ start 00000e15 end 00000e44 length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
 start 00009dec end 00009ded length     1 section .text
-start 0000b3ff end 0000b56a length   363 section .debug
+start 0000b406 end 0000b571 length   363 section .debug
 start 00000e44 end 00000ec1 length   125 section .info.
 start 00008000 end 00008080 length   128 section .const
 

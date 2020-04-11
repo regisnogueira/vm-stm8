@@ -8,10 +8,8 @@
 #define _beep(a) set_buzzer(a,100,50)
 
 extern uint8_t tick;
-extern uint8_t dp[MAX_DIG_POS];
 
 static const PARAMETER par[] = {MENU_PARAMETERS};
-
 #define PAR_COUNT (sizeof(par) / sizeof(par[0])) - 1
 
 MENU menu;
@@ -178,7 +176,7 @@ void process_button(void)
 void task_menu(void)
 {
 #ifdef EN_MENU
-    static uint8_t dp = 0;
+    static uint8_t option_dp = 0;
 
     process_button();
 
@@ -188,9 +186,9 @@ void task_menu(void)
     if (menu.write)
         set_menu_value();
 
-    dp = (menu.edit) ? (uint8_t)(dp^1u) : 0u;
+    option_dp = (menu.edit) ? (option_dp^1u) : 0u;
 
-    set_display_option(par[menu.idx].option, dp);
+    set_display_option(par[menu.idx].option, option_dp);
     set_display_value(menu.value, par[menu.idx].dp);
 #endif
 }
