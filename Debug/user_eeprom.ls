@@ -200,14 +200,14 @@
  622  00f5 7b01          	ld	a,(OFST-3,sp)
  623  00f7 f8            	xor	a,(x)
  624  00f8 6b01          	ld	(OFST-3,sp),a
- 626                     ; 77     for (; i < sizeof(eeprom); i++, p++) {
+ 626                     ; 77     for (; i < sizeof(eeprom)-1; i++, p++) {
  628  00fa 0c02          	inc	(OFST-2,sp)
  630  00fc 1e03          	ldw	x,(OFST-1,sp)
  631  00fe 1c0001        	addw	x,#1
  632  0101 1f03          	ldw	(OFST-1,sp),x
  634  0103               L132:
  637  0103 7b02          	ld	a,(OFST-2,sp)
- 638  0105 a113          	cp	a,#19
+ 638  0105 a112          	cp	a,#18
  639  0107 25ea          	jrult	L522
  640                     ; 80     return checksum;
  642  0109 7b01          	ld	a,(OFST-3,sp)

@@ -12,13 +12,13 @@
   22  0006 46            	dc.b	70
   23  0007 00            	dc.b	0
   24  0008 48            	dc.b	72
-  25  0009 01            	dc.b	1
+  25  0009 00            	dc.b	0
   26  000a 4c            	dc.b	76
-  27  000b 00            	dc.b	0
+  27  000b 01            	dc.b	1
   28  000c 55            	dc.b	85
-  29  000d 01            	dc.b	1
+  29  000d 00            	dc.b	0
   30  000e 45            	dc.b	69
-  31  000f 00            	dc.b	0
+  31  000f 01            	dc.b	1
   67                     ; 18 void init_menu(void)
   67                     ; 19 {
   69                     	switch	.text

@@ -74,7 +74,7 @@ uint8_t calc_checksum(void)
     uint8_t *p = (uint8_t *)&eeprom;
     uint8_t checksum = 0;
 
-    for (; i < sizeof(eeprom); i++, p++) {
+    for (; i < sizeof(eeprom)-1; i++, p++) {
         checksum ^= *p;
     }
     return checksum;

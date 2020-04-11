@@ -39,16 +39,19 @@
 #define TIME_HOLD_BUTTON 1500
 #define TIME_CHANGE_VALUE 100
 
-#define MAX_VALUE 99
+#define MAX_VALUE 99 /* ou 9.9 */
 
-#define MENU_PARAMETERS {'P', 0}, \
-                        {'A', 1}, \
-                        {'C', 1}, \
-                        {'F', 0}, \
-                        {'H', 1}, \
-                        {'L', 0}, \
-                        {'U', 1}, \
-                        {'E', 0}
+#define DP 1 /* com ponto decimal */
+#define NO_DP 0 /* sem ponto decimal */
+
+#define MENU_PARAMETERS {'P', NO_DP}, \
+                        {'A', DP}, \
+                        {'C', DP}, \
+                        {'F', NO_DP}, \
+                        {'H', NO_DP}, \
+                        {'L', DP}, \
+                        {'U', NO_DP}, \
+                        {'E', DP}
 
 typedef struct
 {
