@@ -13,6 +13,20 @@ void init_eeprom(void)
     }
 }
 
+uint16_t get_eeprom_data(uint8_t idx)
+{
+    uint16_t *p = (uint16_t *)&eeprom;
+
+    return *(p + idx);
+}
+
+void set_eeprom_data(uint16_t value, uint8_t idx)
+{
+    uint16_t *p = (uint16_t *)&eeprom;
+    *(p + idx) = value;
+    save_eeprom();
+}
+
 void set_default(void)
 {
     eeprom.inspiratory_time  = DEFAULT_INSPIRATORY_TIME;

@@ -1,4 +1,6 @@
 #include "menu.h"
+#include "application.h"
+#include "user_eeprom.h"
 #include "user_display.h"
 
 #define _decrement(a) if(a) a--
@@ -30,7 +32,17 @@ void init_menu(void)
 
 uint8_t get_menu_value(uint8_t idx)
 {
-    return 0;
+    uint8_t value;
+
+    value = (uint8_t)get_eeprom_data(idx);
+
+    return value;
+}
+
+void set_menu_value(void)
+{
+    set_eeprom_data(menu.value, menu.idx);
+    menu.write = 0;
 }
 
 void tmr_menu(void)
@@ -101,6 +113,8 @@ void process_button(void)
 {
     if (btn[BTN_SET_IDX].status == BTN_STAT_PRESSED) {
         btn[BTN_SET_IDX].status = BTN_STAT_FREE;
+        if (menu.edit)
+            menu.write = 1; 
         menu.edit = (uint8_t)!menu.edit;
     }
     if (btn[BTN_INC_IDX].status == BTN_STAT_PRESSED) {
@@ -142,6 +156,9 @@ void task_menu(void)
 
     if (!tick)
         return;
+
+    if (menu.write)
+        set_menu_value();
 
     if (menu.edit) {
         dp[DIG1_POS] = (uint8_t)!dp[DIG1_POS];    

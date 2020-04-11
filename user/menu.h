@@ -53,7 +53,6 @@
 typedef struct
 {
     uint8_t status;
-    uint16_t tmr;
     uint16_t debounce;
 } BUTTON;
 
@@ -75,7 +74,5 @@ typedef struct
 void init_menu(void);
 void tmr_menu(void);
 void task_menu(void);
-uint16_t get_register(uint8_t position);
-int8_t set_register(uint8_t position);
 
 #endif

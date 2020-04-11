@@ -8,14 +8,14 @@
 #define _MSB(a) (a >> 8)
 #define _LSB(a) (a & 0xFF)
 
-#define DEFAULT_INSPIRATORY_TIME  1000
-#define DEFAULT_INSPIRATORY_PAUSE 0
-#define DEFAULT_EXPIRATORY_TIME   1000
-#define DEFAULT_EXPIRATORY_PAUSE  0
-#define DEFAULT_PEAK_PRESSURE     500
-#define DEFAULT_MAX_VOLUME        500
-#define DEFAULT_MAX_POSITION      1000
-#define DEFAULT_MIN_POSITION      50
+#define DEFAULT_INSPIRATORY_TIME  1
+#define DEFAULT_INSPIRATORY_PAUSE 2
+#define DEFAULT_EXPIRATORY_TIME   3
+#define DEFAULT_EXPIRATORY_PAUSE  4
+#define DEFAULT_PEAK_PRESSURE     5
+#define DEFAULT_MAX_VOLUME        6
+#define DEFAULT_MAX_POSITION      7
+#define DEFAULT_MIN_POSITION      8
 #define DEFAULT_OPERATION_MODE    0x01
 
 typedef struct
@@ -33,6 +33,8 @@ typedef struct
 } EEPROM_DATA;
 
 void init_eeprom(void);
+uint16_t get_eeprom_data(uint8_t idx);
+void set_eeprom_data(uint16_t value, uint8_t idx);
 void set_default(void);
 void flash_config(void);
 void read_eeprom(void);
