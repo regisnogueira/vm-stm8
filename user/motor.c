@@ -67,6 +67,7 @@ void tmr_motor(void)
 void task_motor(void)
 {
 #ifdef EN_MOTOR
+    static uint16_t prev_speed = 0;
     motor.position = adc_val;
 
     /* checamos os limites de posicao do motor para inverter a rotacao 
@@ -77,12 +78,10 @@ void task_motor(void)
         motor.flags |= INVERT_ROTATION;
         motor.timer = INVERT_MOTOR_TIME;
         motor.speed = 0;
-        set_pwm(motor.speed);
     }
 
-    if (!tick)
-        return;
-
-    set_pwm(motor.speed);
+    if (motor.speed != prev_speed)
+        set_pwm(motor.speed);
+    prev_speed = motor.speed;
 #endif
 }

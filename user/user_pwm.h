@@ -3,14 +3,9 @@
 
 #include "stm8s.h"
 
-//#define EN_USER_PWM
+#define EN_USER_PWM
 
 #define MAX_PWM 30000
-
-enum {
-    PWM_CH1 = 0,
-    PWM_CH2
-};
 
 void init_pwm(uint16_t period);
 void set_pwm(uint16_t val);

@@ -3,7 +3,7 @@
 
 #include "stm8s.h"
 
-#define EN_MENU
+//#define EN_MENU
 
 #define BTN_PORT GPIOC
 #define BTN_SET_PORT_NUM GPIOC
