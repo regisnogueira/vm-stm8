@@ -14,161 +14,177 @@
   62                     ; 18     motor.max_pos = eeprom.max_position;
   65  000b be0c          	ldw	x,_eeprom+12
   66  000d bf02          	ldw	_motor+2,x
-  67                     ; 19     motor.max_pos = eeprom.min_position;
+  67                     ; 19     motor.min_pos = eeprom.min_position;
   69  000f be0e          	ldw	x,_eeprom+14
-  70  0011 bf02          	ldw	_motor+2,x
+  70  0011 bf04          	ldw	_motor+4,x
   71                     ; 20     motor.speed = 0;
   73  0013 5f            	clrw	x
   74  0014 bf07          	ldw	_motor+7,x
-  75                     ; 22     init_pwm(PWM_PERIOD);
-  77  0016 aeea60        	ldw	x,#60000
-  78  0019 cd0000        	call	_init_pwm
-  80                     ; 23     set_pwm(motor.speed);
-  82  001c be07          	ldw	x,_motor+7
-  83  001e cd0000        	call	_set_pwm
-  85                     ; 25 }
-  88  0021 81            	ret
- 123                     .const:	section	.text
- 124  0000               L21:
- 125  0000 0000ea61      	dc.l	60001
- 126                     ; 27 void speed_up(uint8_t value)
- 126                     ; 28 {
- 127                     	switch	.text
- 128  0022               _speed_up:
- 132                     ; 30     motor.speed += value;
- 134  0022 bb08          	add	a,_motor+8
- 135  0024 b708          	ld	_motor+8,a
- 136  0026 2402          	jrnc	L01
- 137  0028 3c07          	inc	_motor+7
- 138  002a               L01:
- 139                     ; 31     if (motor.speed > PWM_PERIOD)
- 141  002a 9c            	rvf
- 142  002b be07          	ldw	x,_motor+7
- 143  002d cd0000        	call	c_uitolx
- 145  0030 ae0000        	ldw	x,#L21
- 146  0033 cd0000        	call	c_lcmp
- 148  0036 2f05          	jrslt	L73
- 149                     ; 32         motor.speed = PWM_PERIOD;
- 151  0038 aeea60        	ldw	x,#60000
- 152  003b bf07          	ldw	_motor+7,x
- 153  003d               L73:
- 154                     ; 34 }
- 157  003d 81            	ret
- 192                     ; 36 void speed_down(uint8_t value)
- 192                     ; 37 {
- 193                     	switch	.text
- 194  003e               _speed_down:
- 198                     ; 39     if (motor.speed >= value)
- 200  003e 5f            	clrw	x
- 201  003f 97            	ld	xl,a
- 202  0040 b307          	cpw	x,_motor+7
- 203  0042 220b          	jrugt	L75
- 204                     ; 40         motor.speed -= value;
- 206  0044 5f            	clrw	x
- 207  0045 97            	ld	xl,a
- 208  0046 72b00007      	subw	x,_motor+7
- 209  004a 50            	negw	x
- 210  004b bf07          	ldw	_motor+7,x
- 212  004d 2003          	jra	L16
- 213  004f               L75:
- 214                     ; 42         motor.speed = 0;
- 216  004f 5f            	clrw	x
- 217  0050 bf07          	ldw	_motor+7,x
- 218  0052               L16:
- 219                     ; 44 }
- 222  0052 81            	ret
- 247                     ; 46 void set_position(void) 
- 247                     ; 47 {
- 248                     	switch	.text
- 249  0053               _set_position:
- 253                     ; 49     motor.position = adc_val;
- 255  0053 be00          	ldw	x,_adc_val
- 256  0055 bf00          	ldw	_motor,x
- 257                     ; 51 }
- 260  0057 81            	ret
- 285                     ; 53 void tmr_motor(void) 
- 285                     ; 54 {
- 286                     	switch	.text
- 287  0058               _tmr_motor:
- 291                     ; 57     if (motor.flags & INVERT_ROTATION) {
- 293  0058 b60b          	ld	a,_motor+11
- 294  005a a501          	bcp	a,#1
- 295  005c 2713          	jreq	L301
- 296                     ; 58         motor.timer--;
- 298  005e 3a09          	dec	_motor+9
- 299                     ; 59         if (!motor.timer) {
- 301  0060 3d09          	tnz	_motor+9
- 302  0062 260d          	jrne	L301
- 303                     ; 60             motor_invert();
- 305  0064 4b08          	push	#8
- 306  0066 ae5000        	ldw	x,#20480
- 307  0069 cd0000        	call	_GPIO_WriteReverse
- 309  006c 84            	pop	a
- 310                     ; 61             motor.flags &= ~INVERT_ROTATION;
- 312  006d 7211000b      	bres	_motor+11,#0
- 313  0071               L301:
- 314                     ; 65 }
- 317  0071 81            	ret
- 320                     	bsct
- 321  0000               L701_prev_speed:
- 322  0000 0000          	dc.w	0
- 357                     ; 67 void task_motor(void)
- 357                     ; 68 {
- 358                     	switch	.text
- 359  0072               _task_motor:
- 363                     ; 71     motor.position = adc_val;
- 365  0072 be00          	ldw	x,_adc_val
- 366  0074 bf00          	ldw	_motor,x
- 367                     ; 75     if (((motor.position > motor.max_pos) || 
- 367                     ; 76          (motor.position < motor.min_pos)) &&
- 367                     ; 77         !(motor.flags & INVERT_ROTATION)) {
- 369  0076 be00          	ldw	x,_motor
- 370  0078 b302          	cpw	x,_motor+2
- 371  007a 2206          	jrugt	L131
- 373  007c be00          	ldw	x,_motor
- 374  007e b304          	cpw	x,_motor+4
- 375  0080 2411          	jruge	L721
- 376  0082               L131:
- 378  0082 b60b          	ld	a,_motor+11
- 379  0084 a501          	bcp	a,#1
- 380  0086 260b          	jrne	L721
- 381                     ; 78         motor.flags |= INVERT_ROTATION;
- 383  0088 7210000b      	bset	_motor+11,#0
- 384                     ; 79         motor.timer = INVERT_MOTOR_TIME;
- 386  008c 35640009      	mov	_motor+9,#100
- 387                     ; 80         motor.speed = 0;
- 389  0090 5f            	clrw	x
- 390  0091 bf07          	ldw	_motor+7,x
- 391  0093               L721:
- 392                     ; 83     if (motor.speed != prev_speed)
- 394  0093 be07          	ldw	x,_motor+7
- 395  0095 b300          	cpw	x,L701_prev_speed
- 396  0097 2705          	jreq	L331
- 397                     ; 84         set_pwm(motor.speed);
- 399  0099 be07          	ldw	x,_motor+7
- 400  009b cd0000        	call	_set_pwm
- 402  009e               L331:
- 403                     ; 85     prev_speed = motor.speed;
- 405  009e be07          	ldw	x,_motor+7
- 406  00a0 bf00          	ldw	L701_prev_speed,x
- 407                     ; 87 }
- 410  00a2 81            	ret
- 491                     	xdef	_tmr_motor
- 492                     	switch	.ubsct
- 493  0000               _motor:
- 494  0000 000000000000  	ds.b	12
- 495                     	xdef	_motor
- 496                     	xref.b	_eeprom
- 497                     	xref.b	_adc_val
- 498                     	xdef	_speed_down
- 499                     	xdef	_speed_up
- 500                     	xdef	_set_position
- 501                     	xdef	_task_motor
- 502                     	xdef	_init_motor
- 503                     	xref	_set_pwm
- 504                     	xref	_init_pwm
- 505                     	xref	_GPIO_WriteReverse
- 506                     	xref	_GPIO_Init
- 526                     	xref	c_lcmp
- 527                     	xref	c_uitolx
- 528                     	end
+  75                     ; 22     if (motor.max_pos > MAX_POSITION)
+  77  0016 be02          	ldw	x,_motor+2
+  78  0018 a303f3        	cpw	x,#1011
+  79  001b 2505          	jrult	L12
+  80                     ; 23         motor.max_pos = MAX_POSITION;
+  82  001d ae03f2        	ldw	x,#1010
+  83  0020 bf02          	ldw	_motor+2,x
+  84  0022               L12:
+  85                     ; 25     if (motor.min_pos < MIN_POSITION)
+  87  0022 be04          	ldw	x,_motor+4
+  88  0024 a3000a        	cpw	x,#10
+  89  0027 2405          	jruge	L32
+  90                     ; 26         motor.min_pos = MIN_POSITION;
+  92  0029 ae000a        	ldw	x,#10
+  93  002c bf04          	ldw	_motor+4,x
+  94  002e               L32:
+  95                     ; 28     init_pwm(PWM_PERIOD);
+  97  002e aeea60        	ldw	x,#60000
+  98  0031 cd0000        	call	_init_pwm
+ 100                     ; 29     set_pwm(motor.speed);
+ 102  0034 be07          	ldw	x,_motor+7
+ 103  0036 cd0000        	call	_set_pwm
+ 105                     ; 31 }
+ 108  0039 81            	ret
+ 143                     .const:	section	.text
+ 144  0000               L21:
+ 145  0000 0000ea61      	dc.l	60001
+ 146                     ; 33 void speed_up(uint8_t value)
+ 146                     ; 34 {
+ 147                     	switch	.text
+ 148  003a               _speed_up:
+ 152                     ; 36     motor.speed += value;
+ 154  003a bb08          	add	a,_motor+8
+ 155  003c b708          	ld	_motor+8,a
+ 156  003e 2402          	jrnc	L01
+ 157  0040 3c07          	inc	_motor+7
+ 158  0042               L01:
+ 159                     ; 37     if (motor.speed > PWM_PERIOD)
+ 161  0042 9c            	rvf
+ 162  0043 be07          	ldw	x,_motor+7
+ 163  0045 cd0000        	call	c_uitolx
+ 165  0048 ae0000        	ldw	x,#L21
+ 166  004b cd0000        	call	c_lcmp
+ 168  004e 2f05          	jrslt	L34
+ 169                     ; 38         motor.speed = PWM_PERIOD;
+ 171  0050 aeea60        	ldw	x,#60000
+ 172  0053 bf07          	ldw	_motor+7,x
+ 173  0055               L34:
+ 174                     ; 40 }
+ 177  0055 81            	ret
+ 212                     ; 42 void speed_down(uint8_t value)
+ 212                     ; 43 {
+ 213                     	switch	.text
+ 214  0056               _speed_down:
+ 218                     ; 45     if (motor.speed >= value)
+ 220  0056 5f            	clrw	x
+ 221  0057 97            	ld	xl,a
+ 222  0058 b307          	cpw	x,_motor+7
+ 223  005a 220b          	jrugt	L36
+ 224                     ; 46         motor.speed -= value;
+ 226  005c 5f            	clrw	x
+ 227  005d 97            	ld	xl,a
+ 228  005e 72b00007      	subw	x,_motor+7
+ 229  0062 50            	negw	x
+ 230  0063 bf07          	ldw	_motor+7,x
+ 232  0065 2003          	jra	L56
+ 233  0067               L36:
+ 234                     ; 48         motor.speed = 0;
+ 236  0067 5f            	clrw	x
+ 237  0068 bf07          	ldw	_motor+7,x
+ 238  006a               L56:
+ 239                     ; 50 }
+ 242  006a 81            	ret
+ 267                     ; 52 void set_position(void) 
+ 267                     ; 53 {
+ 268                     	switch	.text
+ 269  006b               _set_position:
+ 273                     ; 55     motor.position = adc_val;
+ 275  006b be00          	ldw	x,_adc_val
+ 276  006d bf00          	ldw	_motor,x
+ 277                     ; 57 }
+ 280  006f 81            	ret
+ 305                     ; 59 void tmr_motor(void) 
+ 305                     ; 60 {
+ 306                     	switch	.text
+ 307  0070               _tmr_motor:
+ 311                     ; 63     if (motor.flags & INVERT_ROTATION) {
+ 313  0070 b60b          	ld	a,_motor+11
+ 314  0072 a501          	bcp	a,#1
+ 315  0074 2713          	jreq	L701
+ 316                     ; 64         motor.timer--;
+ 318  0076 3a09          	dec	_motor+9
+ 319                     ; 65         if (!motor.timer) {
+ 321  0078 3d09          	tnz	_motor+9
+ 322  007a 260d          	jrne	L701
+ 323                     ; 66             motor_invert();
+ 325  007c 4b08          	push	#8
+ 326  007e ae5000        	ldw	x,#20480
+ 327  0081 cd0000        	call	_GPIO_WriteReverse
+ 329  0084 84            	pop	a
+ 330                     ; 67             motor.flags &= ~INVERT_ROTATION;
+ 332  0085 7211000b      	bres	_motor+11,#0
+ 333  0089               L701:
+ 334                     ; 71 }
+ 337  0089 81            	ret
+ 340                     	bsct
+ 341  0000               L311_prev_speed:
+ 342  0000 0000          	dc.w	0
+ 377                     ; 73 void task_motor(void)
+ 377                     ; 74 {
+ 378                     	switch	.text
+ 379  008a               _task_motor:
+ 383                     ; 77     motor.position = adc_val;
+ 385  008a be00          	ldw	x,_adc_val
+ 386  008c bf00          	ldw	_motor,x
+ 387                     ; 81     if (((motor.position > motor.max_pos) || 
+ 387                     ; 82          (motor.position < motor.min_pos)) &&
+ 387                     ; 83         !(motor.flags & INVERT_ROTATION)) {
+ 389  008e be00          	ldw	x,_motor
+ 390  0090 b302          	cpw	x,_motor+2
+ 391  0092 2206          	jrugt	L531
+ 393  0094 be00          	ldw	x,_motor
+ 394  0096 b304          	cpw	x,_motor+4
+ 395  0098 2411          	jruge	L331
+ 396  009a               L531:
+ 398  009a b60b          	ld	a,_motor+11
+ 399  009c a501          	bcp	a,#1
+ 400  009e 260b          	jrne	L331
+ 401                     ; 84         motor.flags |= INVERT_ROTATION;
+ 403  00a0 7210000b      	bset	_motor+11,#0
+ 404                     ; 85         motor.timer = INVERT_MOTOR_TIME;
+ 406  00a4 35140009      	mov	_motor+9,#20
+ 407                     ; 86         motor.speed = 0;
+ 409  00a8 5f            	clrw	x
+ 410  00a9 bf07          	ldw	_motor+7,x
+ 411  00ab               L331:
+ 412                     ; 89     if (motor.speed != prev_speed)
+ 414  00ab be07          	ldw	x,_motor+7
+ 415  00ad b300          	cpw	x,L311_prev_speed
+ 416  00af 2705          	jreq	L731
+ 417                     ; 90         set_pwm(motor.speed);
+ 419  00b1 be07          	ldw	x,_motor+7
+ 420  00b3 cd0000        	call	_set_pwm
+ 422  00b6               L731:
+ 423                     ; 91     prev_speed = motor.speed;
+ 425  00b6 be07          	ldw	x,_motor+7
+ 426  00b8 bf00          	ldw	L311_prev_speed,x
+ 427                     ; 93 }
+ 430  00ba 81            	ret
+ 511                     	xdef	_tmr_motor
+ 512                     	switch	.ubsct
+ 513  0000               _motor:
+ 514  0000 000000000000  	ds.b	12
+ 515                     	xdef	_motor
+ 516                     	xref.b	_eeprom
+ 517                     	xref.b	_adc_val
+ 518                     	xdef	_speed_down
+ 519                     	xdef	_speed_up
+ 520                     	xdef	_set_position
+ 521                     	xdef	_task_motor
+ 522                     	xdef	_init_motor
+ 523                     	xref	_set_pwm
+ 524                     	xref	_init_pwm
+ 525                     	xref	_GPIO_WriteReverse
+ 526                     	xref	_GPIO_Init
+ 546                     	xref	c_lcmp
+ 547                     	xref	c_uitolx
+ 548                     	end

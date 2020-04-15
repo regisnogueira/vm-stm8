@@ -26,7 +26,7 @@
 #define motor_invert()    gpio_toggle (MOTOR_RELAY_PORT_NUM,MOTOR_RELAY_PIN_NUM)
 
 #define PWM_PERIOD 60000 /* ? */
-#define INVERT_MOTOR_TIME 100 /* ms */
+#define INVERT_MOTOR_TIME 20 /* ms */
 
 #define MAX_POSITION 1010 /* adc */
 #define MIN_POSITION 10 /* adc */
