@@ -1,5 +1,5 @@
 
-Map of Debug\vm.sm8 from link file Debug\vm.lkf - Tue Apr 14 21:55:30 2020
+Map of Debug\vm.sm8 from link file Debug\vm.lkf - Tue Apr 14 21:59:18 2020
 
 
                                --------
@@ -7,7 +7,7 @@ Map of Debug\vm.sm8 from link file Debug\vm.lkf - Tue Apr 14 21:55:30 2020
                                --------
 
 start 00008080 end 00008090 length    16 segment .const
-start 000080a1 end 00009abb length  6682 segment .text
+start 000080a1 end 00009abd length  6684 segment .text
 start 00004000 end 00004000 length     0 segment .eeprom
 start 00000000 end 00000009 length     9 segment .bsct, initialized
 start 00008098 end 000080a1 length     9 segment .bsct, from
@@ -108,7 +108,7 @@ start 000005fc end 00000668 length   108 section .info.
 start ******** end ******** length     0 section .const *** removed ***
 
 Debug\motor.o:
-start 00009218 end 000092d3 length   187 section .text
+start 00009218 end 000092d5 length   189 section .text
 start 00000000 end 00000002 length     2 section .bsct
 start 00000009 end 00000015 length    12 section .ubsct
 start 00009f0b end 0000a227 length   796 section .debug
@@ -116,77 +116,77 @@ start 00000668 end 000006d5 length   109 section .info.
 start 0000808c end 00008090 length     4 section .const
 
 Debug\user_adc.o:
-start 000092d3 end 0000933c length   105 section .text
+start 000092d5 end 0000933e length   105 section .text
 start 00000002 end 00000004 length     2 section .bsct
 start 0000a227 end 0000a338 length   273 section .debug
 start 000006d5 end 00000745 length   112 section .info.
 
 Debug\user_buzzer.o:
-start 0000933c end 0000933f length     3 section .text
+start 0000933e end 00009341 length     3 section .text
 start ******** end ******** length     0 section .ubsct *** removed ***
 start 0000a338 end 0000a506 length   462 section .debug
 start 00000745 end 000007b8 length   115 section .info.
 
 Debug\user_display.o:
-start 0000933f end 000096ce length   911 section .text
+start 00009341 end 000096d0 length   911 section .text
 start ******** end ******** length     0 section .bsct *** removed ***
 start 0000a506 end 0000a81d length   791 section .debug
 start 000007b8 end 0000082c length   116 section .info.
 
 Debug\user_eeprom.o:
-start 000096ce end 000097ee length   288 section .text
+start 000096d0 end 000097f0 length   288 section .text
 start 00000015 end 00000028 length    19 section .ubsct
 start 0000a81d end 0000ad79 length  1372 section .debug
 start 0000082c end 0000089f length   115 section .info.
 
 Debug\user_led.o:
-start 000097ee end 000097f1 length     3 section .text
+start 000097f0 end 000097f3 length     3 section .text
 start 0000ad79 end 0000aebf length   326 section .debug
 start 0000089f end 0000090f length   112 section .info.
 
 Debug\user_pwm.o:
-start 000097f1 end 00009813 length    34 section .text
+start 000097f3 end 00009815 length    34 section .text
 start 0000aebf end 0000aff0 length   305 section .debug
 start 0000090f end 0000097f length   112 section .info.
 
 Debug\user_timer.o:
-start 00009813 end 0000987d length   106 section .text
+start 00009815 end 0000987f length   106 section .text
 start 00000004 end 00000009 length     5 section .bsct
 start 00000028 end 0000002a length     2 section .ubsct
 start 0000aff0 end 0000b26c length   636 section .debug
 start 0000097f end 000009f1 length   114 section .info.
 
 Debug\user_uart.o:
-start 0000987d end 0000987f length     2 section .text
+start 0000987f end 00009881 length     2 section .text
 start 0000b26c end 0000b37e length   274 section .debug
 start 000009f1 end 00000a62 length   113 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)cmulx.o:
-start 0000987f end 00009893 length    20 section .text
+start 00009881 end 00009895 length    20 section .text
 start 00000a62 end 00000a92 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ladc.o:
-start 00009893 end 000098a4 length    17 section .text
+start 00009895 end 000098a6 length    17 section .text
 start 00000a92 end 00000ac1 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ladd.o:
-start 000098a4 end 000098bc length    24 section .text
+start 000098a6 end 000098be length    24 section .text
 start 00000ac1 end 00000af0 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lcmp.o:
-start 000098bc end 000098dc length    32 section .text
+start 000098be end 000098de length    32 section .text
 start 00000af0 end 00000b1f length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgadc.o:
-start 000098dc end 000098ec length    16 section .text
+start 000098de end 000098ee length    16 section .text
 start 00000b1f end 00000b4f length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgadd.o:
-start 000098ec end 00009903 length    23 section .text
+start 000098ee end 00009905 length    23 section .text
 start 00000b4f end 00000b7f length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgsbc.o:
-start 00009903 end 00009919 length    22 section .text
+start 00009905 end 0000991b length    22 section .text
 start 00000b7f end 00000baf length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)llsh.o:
@@ -202,23 +202,23 @@ start ******** end ******** length     0 section .text *** removed ***
 start 00000c0d end 00000c3c length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ltor.o:
-start 00009919 end 0000992b length    18 section .text
+start 0000991b end 0000992d length    18 section .text
 start 00000c3c end 00000c6b length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o:
-start 0000992b end 0000993f length    20 section .text
+start 0000992d end 00009941 length    20 section .text
 start 00000c6b end 00000c9b length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o:
-start 0000993f end 00009a2a length   235 section .text
+start 00009941 end 00009a2c length   235 section .text
 start 00000c9b end 00000cca length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o:
-start 00009a2a end 00009a3d length    19 section .text
+start 00009a2c end 00009a3f length    19 section .text
 start 00000cca end 00000cfa length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lneg.o:
-start 00009a3d end 00009a52 length    21 section .text
+start 00009a3f end 00009a54 length    21 section .text
 start 00000cfa end 00000d29 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lursh.o:
@@ -226,11 +226,11 @@ start ******** end ******** length     0 section .text *** removed ***
 start 00000d29 end 00000d59 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lzmp.o:
-start 00009a52 end 00009a65 length    19 section .text
+start 00009a54 end 00009a67 length    19 section .text
 start 00000d59 end 00000d88 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o:
-start 00009a65 end 00009a77 length    18 section .text
+start 00009a67 end 00009a79 length    18 section .text
 start 00000d88 end 00000db7 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)smul.o:
@@ -238,11 +238,11 @@ start ******** end ******** length     0 section .text *** removed ***
 start 00000db7 end 00000de6 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utolx.o:
-start 00009a77 end 00009a7e length     7 section .text
+start 00009a79 end 00009a80 length     7 section .text
 start 00000de6 end 00000e16 length    48 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)umul.o:
-start 00009a7e end 00009aba length    60 section .text
+start 00009a80 end 00009abc length    60 section .text
 start 00000e16 end 00000e45 length    47 section .info.
 
 (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)xreg.o:
@@ -254,7 +254,7 @@ start 00000031 end 00000034 length     3 section .ubsct
 start 00000e74 end 00000ea3 length    47 section .info.
 
 Debug\stm8_interrupt_vector.o:
-start 00009aba end 00009abb length     1 section .text
+start 00009abc end 00009abd length     1 section .text
 start 0000b37e end 0000b4e9 length   363 section .debug
 start 00000ea3 end 00000f20 length   125 section .info.
 start 00008000 end 00008080 length   128 section .const
@@ -1088,7 +1088,7 @@ _CLK_ClearITPendingBit              00008899   defined in Debug\stm8s_clk.o sect
 _CLK_ClockSecuritySystemEnable      00008781   defined in Debug\stm8s_clk.o section .text
 _CLK_ClockSwitchCmd                 000085a2   defined in Debug\stm8s_clk.o section .text
 _CLK_ClockSwitchConfig              0000862a   defined in Debug\stm8s_clk.o section .text
-_CLK_Config                         0000981e   defined in Debug\user_timer.o section .text
+_CLK_Config                         00009820   defined in Debug\user_timer.o section .text
 _CLK_DeInit                         00008524   defined in Debug\stm8s_clk.o section .text
 _CLK_FastHaltWakeUpCmd              0000855c   defined in Debug\stm8s_clk.o section .text
 _CLK_GetClockFreq                   0000878a   defined in Debug\stm8s_clk.o section .text
@@ -1213,7 +1213,7 @@ _TIM4_ClearITPendingBit             00009168   defined in Debug\stm8s_tim4.o sec
                                                used in Debug\stm8s_it.o
 _TIM4_Cmd                           000090b1   defined in Debug\stm8s_tim4.o section .text
                                                used in Debug\user_timer.o
-_TIM4_Config                        00009834   defined in Debug\user_timer.o section .text
+_TIM4_Config                        00009836   defined in Debug\user_timer.o section .text
 _TIM4_DeInit                        0000908f   defined in Debug\stm8s_tim4.o section .text
 _TIM4_GenerateEvent                 00009119   defined in Debug\stm8s_tim4.o section .text
 _TIM4_GetCounter                    00009125   defined in Debug\stm8s_tim4.o section .text
@@ -1274,9 +1274,9 @@ _adc_val                            00000002   defined in Debug\user_adc.o secti
                                                used in Debug\motor.o
 _btn                                ********   *** removed from Debug\menu.o ***
 _buzzer                             ********   *** removed from Debug\user_buzzer.o ***
-_calc_checksum                      000097b4   defined in Debug\user_eeprom.o section .text
-_dec2bcd                            0000933f   defined in Debug\user_display.o section .text
-_delay                              00009823   defined in Debug\user_timer.o section .text
+_calc_checksum                      000097b6   defined in Debug\user_eeprom.o section .text
+_dec2bcd                            00009341   defined in Debug\user_display.o section .text
+_delay                              00009825   defined in Debug\user_timer.o section .text
                                                used in Debug\user_display.o
 _display_num                        ********   *** removed from Debug\user_display.o ***
 _display_test                       ********   *** removed from Debug\user_display.o ***
@@ -1284,28 +1284,28 @@ _dp                                 ********   *** removed from Debug\user_displ
 _eeprom                             00000015   defined in Debug\user_eeprom.o section .ubsct
                                                used in Debug\motor.o
 _exit                               000080ef   defined in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8 section .text
-_flash_config                       000097dc   defined in Debug\user_eeprom.o section .text
-_get_eeprom_data                    000096e0   defined in Debug\user_eeprom.o section .text
+_flash_config                       000097de   defined in Debug\user_eeprom.o section .text
+_get_eeprom_data                    000096e2   defined in Debug\user_eeprom.o section .text
 _get_menu_value                     0000920d   defined in Debug\menu.o section .text
-_init_adc                           000092d3   defined in Debug\user_adc.o section .text
+_init_adc                           000092d5   defined in Debug\user_adc.o section .text
                                                used in Debug\main.o
 _init_application                   ********   *** removed from Debug\application.o ***
-_init_buzzer                        0000933c   defined in Debug\user_buzzer.o section .text
+_init_buzzer                        0000933e   defined in Debug\user_buzzer.o section .text
                                                used in Debug\main.o
-_init_display                       000096cd   defined in Debug\user_display.o section .text
+_init_display                       000096cf   defined in Debug\user_display.o section .text
                                                used in Debug\main.o
-_init_eeprom                        000096ce   defined in Debug\user_eeprom.o section .text
+_init_eeprom                        000096d0   defined in Debug\user_eeprom.o section .text
                                                used in Debug\main.o
-_init_led                           000097ee   defined in Debug\user_led.o section .text
+_init_led                           000097f0   defined in Debug\user_led.o section .text
 _init_menu                          0000920c   defined in Debug\menu.o section .text
                                                used in Debug\main.o
 _init_motor                         00009218   defined in Debug\motor.o section .text
 _init_pressure_sensor               00009209   defined in Debug\pressure_sensor.o section .text
-_init_pwm                           000097f1   defined in Debug\user_pwm.o section .text
+_init_pwm                           000097f3   defined in Debug\user_pwm.o section .text
                                                used in Debug\motor.o
-_init_timer                         00009819   defined in Debug\user_timer.o section .text
+_init_timer                         0000981b   defined in Debug\user_timer.o section .text
                                                used in Debug\main.o
-_init_uart                          0000987d   defined in Debug\user_uart.o section .text
+_init_uart                          0000987f   defined in Debug\user_uart.o section .text
                                                used in Debug\main.o
 _interrupt_buttons                  00009215   defined in Debug\menu.o section .text
                                                used in Debug\stm8s_it.o
@@ -1313,73 +1313,73 @@ _main                               0000916d   defined in Debug\main.o section .
                                                used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
 _menu                               ********   *** removed from Debug\menu.o ***
 _motor                              00000009   defined in Debug\motor.o section .ubsct
-_pool_tick                          00009813   defined in Debug\user_timer.o section .text
+_pool_tick                          00009815   defined in Debug\user_timer.o section .text
                                                used in Debug\main.o
 _process_button                     00009216   defined in Debug\menu.o section .text
-_read_adc                           0000931c   defined in Debug\user_adc.o section .text
+_read_adc                           0000931e   defined in Debug\user_adc.o section .text
                                                used in Debug\stm8s_it.o
-_read_eeprom                        00009729   defined in Debug\user_eeprom.o section .text
-_save_eeprom                        0000976e   defined in Debug\user_eeprom.o section .text
+_read_eeprom                        0000972b   defined in Debug\user_eeprom.o section .text
+_save_eeprom                        00009770   defined in Debug\user_eeprom.o section .text
 _self_test                          ********   *** removed from Debug\application.o ***
-_send_uart                          0000987e   defined in Debug\user_uart.o section .text
-_set_buzzer                         0000933d   defined in Debug\user_buzzer.o section .text
-_set_default                        000096fb   defined in Debug\user_eeprom.o section .text
-_set_display_option                 0000935d   defined in Debug\user_display.o section .text
-_set_display_value                  0000935c   defined in Debug\user_display.o section .text
-_set_eeprom_data                    000096e9   defined in Debug\user_eeprom.o section .text
-_set_led                            000097f0   defined in Debug\user_led.o section .text
+_send_uart                          00009880   defined in Debug\user_uart.o section .text
+_set_buzzer                         0000933f   defined in Debug\user_buzzer.o section .text
+_set_default                        000096fd   defined in Debug\user_eeprom.o section .text
+_set_display_option                 0000935f   defined in Debug\user_display.o section .text
+_set_display_value                  0000935e   defined in Debug\user_display.o section .text
+_set_eeprom_data                    000096eb   defined in Debug\user_eeprom.o section .text
+_set_led                            000097f2   defined in Debug\user_led.o section .text
 _set_menu_value                     0000920f   defined in Debug\menu.o section .text
-_set_position                       00009283   defined in Debug\motor.o section .text
-_set_pwm                            00009802   defined in Debug\user_pwm.o section .text
+_set_position                       00009285   defined in Debug\motor.o section .text
+_set_pwm                            00009804   defined in Debug\user_pwm.o section .text
                                                used in Debug\motor.o
-_speed_down                         0000926e   defined in Debug\motor.o section .text
-_speed_up                           00009252   defined in Debug\motor.o section .text
+_speed_down                         00009270   defined in Debug\motor.o section .text
+_speed_up                           00009254   defined in Debug\motor.o section .text
 _task_menu                          00009217   defined in Debug\menu.o section .text
                                                used in Debug\main.o
-_task_motor                         000092a2   defined in Debug\motor.o section .text
+_task_motor                         000092a4   defined in Debug\motor.o section .text
                                                used in Debug\main.o
-_task_timer                         0000984c   defined in Debug\user_timer.o section .text
+_task_timer                         0000984e   defined in Debug\user_timer.o section .text
                                                used in Debug\stm8s_it.o
-_test_display                       00009360   defined in Debug\user_display.o section .text
+_test_display                       00009362   defined in Debug\user_display.o section .text
 _test_pressure_sensor               0000920a   defined in Debug\pressure_sensor.o section .text
 _tick                               00000029   defined in Debug\user_timer.o section .ubsct
 _timer_tick                         00000008   defined in Debug\user_timer.o section .bsct, initialized
-_tmr_buzzer                         0000933e   defined in Debug\user_buzzer.o section .text
+_tmr_buzzer                         00009340   defined in Debug\user_buzzer.o section .text
                                                used in Debug\user_timer.o
 _tmr_delay                          00000004   defined in Debug\user_timer.o section .bsct, initialized
-_tmr_display                        0000935f   defined in Debug\user_display.o section .text
+_tmr_display                        00009361   defined in Debug\user_display.o section .text
                                                used in Debug\user_timer.o
-_tmr_led                            000097ef   defined in Debug\user_led.o section .text
+_tmr_led                            000097f1   defined in Debug\user_led.o section .text
                                                used in Debug\user_timer.o
 _tmr_menu                           00009210   defined in Debug\menu.o section .text
                                                used in Debug\user_timer.o
-_tmr_motor                          00009288   defined in Debug\motor.o section .text
+_tmr_motor                          0000928a   defined in Debug\motor.o section .text
                                                used in Debug\user_timer.o
 _tmr_pressure_sensor                0000920b   defined in Debug\pressure_sensor.o section .text
                                                used in Debug\user_timer.o
-_wr_digit                           0000935e   defined in Debug\user_display.o section .text
-c_cmulx                             0000987f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)cmulx.o section .text
+_wr_digit                           00009360   defined in Debug\user_display.o section .text
+c_cmulx                             00009881   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)cmulx.o section .text
                                                used in Debug\stm8s_flash.o
-c_divsl                             0000993f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
+c_divsl                             00009941   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
                                                *** not used ***
-c_divul                             00009956   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
+c_divul                             00009958   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o section .text
                                                used in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o
-c_ladc                              00009893   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ladc.o section .text
+c_ladc                              00009895   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ladc.o section .text
                                                used in Debug\user_eeprom.o
-c_ladd                              000098a4   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ladd.o section .text
+c_ladd                              000098a6   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ladd.o section .text
                                                used in Debug\stm8s_flash.o
-c_lcmp                              000098bc   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lcmp.o section .text
+c_lcmp                              000098be   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lcmp.o section .text
                                                used in Debug\motor.o
-c_lgadc                             000098dc   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgadc.o section .text
+c_lgadc                             000098de   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgadc.o section .text
                                                used in Debug\user_eeprom.o
-c_lgadd                             000098ec   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgadd.o section .text
+c_lgadd                             000098ee   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgadd.o section .text
                                                used in Debug\stm8s_flash.o
-c_lgneg                             00009a2a   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o section .text
+c_lgneg                             00009a2c   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgneg.o section .text
                                                used in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o
-c_lgsbc                             00009903   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgsbc.o section .text
+c_lgsbc                             00009905   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lgsbc.o section .text
                                                used in Debug\user_timer.o
 c_llsh                              ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)llsh.o ***
-c_lneg                              00009a3d   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lneg.o section .text
+c_lneg                              00009a3f   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lneg.o section .text
                                                used in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ldiv.o
 c_lreg                              0000002a   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lreg.o section .ubsct
                                                used in Debug\stm8s_clk.o
@@ -1402,25 +1402,25 @@ c_lreg                              0000002a   defined in (C:\Program Files (x86
                                                        (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utolx.o
                                                        (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)umul.o
 c_lsub                              ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lsub.o ***
-c_ltor                              00009919   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ltor.o section .text
+c_ltor                              0000991b   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ltor.o section .text
                                                used in Debug\stm8s_clk.o
                                                        Debug\stm8s_flash.o
                                                        Debug\stm8s_uart1.o
                                                        Debug\user_eeprom.o
-c_ludv                              0000992b   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o section .text
+c_ludv                              0000992d   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)ludiv.o section .text
                                                used in Debug\stm8s_clk.o
                                                        Debug\stm8s_uart1.o
 c_lursh                             ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lursh.o ***
-c_lzmp                              00009a52   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lzmp.o section .text
+c_lzmp                              00009a54   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)lzmp.o section .text
                                                used in Debug\user_timer.o
-c_rtol                              00009a65   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o section .text
+c_rtol                              00009a67   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)rtol.o section .text
                                                used in Debug\stm8s_clk.o
                                                        Debug\stm8s_flash.o
                                                        Debug\stm8s_uart1.o
 c_smul                              ********   *** removed from (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)smul.o ***
-c_uitolx                            00009a77   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utolx.o section .text
+c_uitolx                            00009a79   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)utolx.o section .text
                                                used in Debug\motor.o
-c_umul                              00009a7e   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)umul.o section .text
+c_umul                              00009a80   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)umul.o section .text
                                                used in Debug\stm8s_flash.o
 c_x                                 0000002e   defined in (C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\libm0.sm8)xreg.o section .ubsct
                                                used in C:\Program Files (x86)\COSMIC\FSE_Compilers\CXSTM8\Lib\crtsi0.sm8
@@ -1451,7 +1451,7 @@ f_EXTI_PORTE_IRQHandler             000091b6   defined in Debug\stm8s_it.o secti
                                                *** not used ***
 f_I2C_IRQHandler                    000091be   defined in Debug\stm8s_it.o section .text
                                                *** not used ***
-f_NonHandledInterrupt               00009aba   defined in Debug\stm8_interrupt_vector.o section .text
+f_NonHandledInterrupt               00009abc   defined in Debug\stm8_interrupt_vector.o section .text
 f_SPI_IRQHandler                    000091b7   defined in Debug\stm8s_it.o section .text
                                                *** not used ***
 f_TIM1_CAP_COM_IRQHandler           000091b9   defined in Debug\stm8s_it.o section .text

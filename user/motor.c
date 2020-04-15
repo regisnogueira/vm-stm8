@@ -17,7 +17,7 @@ void init_motor(void)
 
     motor.max_pos = eeprom.max_position;
     motor.min_pos = eeprom.min_position;
-    motor.speed = 0;
+    motor.speed = PWM_PERIOD/2;
 
     if (motor.max_pos > MAX_POSITION)
         motor.max_pos = MAX_POSITION;
@@ -59,6 +59,8 @@ void set_position(void)
 void tmr_motor(void) 
 {
 #ifdef EN_MOTOR
+    motor.tm_to_max++;
+    //motor.tm_to_min++;
     /* damos um delay INVERT_MOTOR_TIME antes de inverter a rotacao do motor */
     if (motor.flags & INVERT_ROTATION) {
         motor.timer--;
@@ -84,6 +86,7 @@ void task_motor(void)
         motor.flags |= INVERT_ROTATION;
         motor.timer = INVERT_MOTOR_TIME;
         motor.speed = 0;
+        motor.tm_to_max = 0;
     }
 
     if (motor.speed != prev_speed)

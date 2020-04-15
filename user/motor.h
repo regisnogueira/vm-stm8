@@ -38,6 +38,8 @@ typedef struct
     uint16_t position;
     uint16_t max_pos;
     uint16_t min_pos;
+    uint16_t tm_to_max;
+    uint16_t tm_to_min;
     uint8_t rotate;
     uint16_t speed;
     uint8_t timer;
