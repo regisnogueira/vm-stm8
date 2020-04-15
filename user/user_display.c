@@ -120,15 +120,6 @@ void wr_digit(uint8_t dig_pos)
 #endif
 }
 
-void task_display(void)
-{
-#ifdef EN_USER_DISPLAY
-    if (!tick)
-        return;
-    //set_display(0, (uint8_t)((float)adc_val*3/100), 0);
-#endif
-}
-
 void tmr_display(void)
 {
 #ifdef EN_USER_DISPLAY

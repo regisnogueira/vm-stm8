@@ -21,8 +21,7 @@ void main(void)
 
     for (;;) {
         pool_tick();
-        task_display();
-        task_motor();
         task_menu();
+        task_motor();
     }
 }

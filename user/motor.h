@@ -5,6 +5,7 @@
 #include "user_adc.h"
 
 #define EN_MOTOR
+#define TEST_MOTOR
 
 #define MOTOR_RELAY_PORT_NUM GPIOA
 #define MOTOR_RELAY_PIN_NUM  GPIO_PIN_3
@@ -12,9 +13,9 @@
 #undef gpio_set(a,b)
 #undef gpio_clr(a,b)
 
-#define gpio_set(a,b)     GPIO_WriteHigh   (a, (GPIO_Pin_TypeDef)b)
-#define gpio_clr(a,b)     GPIO_WriteLow    (a, (GPIO_Pin_TypeDef)b)
-#define gpio_toggle(a,b)  GPIO_WriteReverse(a, (GPIO_Pin_TypeDef)b)
+#define gpio_set(a,b)    GPIO_WriteHigh   (a, (GPIO_Pin_TypeDef)b)
+#define gpio_clr(a,b)    GPIO_WriteLow    (a, (GPIO_Pin_TypeDef)b)
+#define gpio_toggle(a,b) GPIO_WriteReverse(a, (GPIO_Pin_TypeDef)b)
 
 #define gpio_dir_out(a,b) GPIO_Init(a, (GPIO_Pin_TypeDef)b, \
                                         GPIO_MODE_OUT_PP_LOW_FAST);
