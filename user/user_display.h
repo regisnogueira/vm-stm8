@@ -37,13 +37,13 @@
 #define DIG3_PORT_NUM GPIOB
 #define DIG3_PIN_NUM  GPIO_PIN_4
 
-#undef gpio_set(a,b)
-#undef gpio_clr(a,b)
-#undef gpio_dir_out(a,b)
+//#undef gpio_set(a,b)
+//#undef gpio_clr(a,b)
+//#undef gpio_dir_out(a,b)
 
-#define gpio_set(a,b)  GPIO_WriteHigh(a, (GPIO_Pin_TypeDef)b)
-#define gpio_clr(a,b)  GPIO_WriteLow(a, (GPIO_Pin_TypeDef)b)
-#define gpio_dir_out(a,b) GPIO_Init(a, (GPIO_Pin_TypeDef)b, GPIO_MODE_OUT_PP_LOW_FAST);
+//#define gpio_set(a,b)  GPIO_WriteHigh(a, (GPIO_Pin_TypeDef)b)
+//#define gpio_clr(a,b)  GPIO_WriteLow(a, (GPIO_Pin_TypeDef)b)
+//#define gpio_dir_out(a,b) GPIO_Init(a, (GPIO_Pin_TypeDef)b, GPIO_MODE_OUT_PP_LOW_FAST);
 
 #define seg_a_dir()  gpio_dir_out(SEG_A_PORT_NUM,SEG_A_PIN_NUM)
 #define seg_a_on()   gpio_set    (SEG_A_PORT_NUM,SEG_A_PIN_NUM)
@@ -284,3 +284,4 @@ void set_display_value(uint16_t value, uint8_t _dp);
 void set_display_option(uint8_t option, uint8_t _dp);
 
 #endif
+

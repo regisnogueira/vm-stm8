@@ -1,0 +1,2839 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.0.2 #11645 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module menu
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _process_button
+                                     12 	.globl _interrupt_buttons
+                                     13 	.globl _set_led_period
+                                     14 	.globl _set_display_value
+                                     15 	.globl _set_eeprom_data
+                                     16 	.globl _get_eeprom_data
+                                     17 	.globl _ITC_SetSoftwarePriority
+                                     18 	.globl _GPIO_ReadInputPin
+                                     19 	.globl _GPIO_ReadInputData
+                                     20 	.globl _GPIO_Init
+                                     21 	.globl _EXTI_SetTLISensitivity
+                                     22 	.globl _EXTI_SetExtIntSensitivity
+                                     23 	.globl _EXTI_DeInit
+                                     24 	.globl _btn
+                                     25 	.globl _menu
+                                     26 	.globl _init_menu
+                                     27 	.globl _get_menu_value
+                                     28 	.globl _set_menu_value
+                                     29 	.globl _tmr_menu
+                                     30 	.globl _task_menu
+                                     31 ;--------------------------------------------------------
+                                     32 ; ram data
+                                     33 ;--------------------------------------------------------
+                                     34 	.area DATA
+                           000000    35 G$menu$0_0$0==.
+      000000                         36 _menu::
+      000000                         37 	.ds 7
+                           000007    38 G$btn$0_0$0==.
+      000007                         39 _btn::
+      000007                         40 	.ds 9
+                           000010    41 Lmenu.task_menu$option_dp$1_0$364==.
+      000010                         42 _task_menu_option_dp_65536_364:
+      000010                         43 	.ds 1
+                                     44 ;--------------------------------------------------------
+                                     45 ; ram data
+                                     46 ;--------------------------------------------------------
+                                     47 	.area INITIALIZED
+                                     48 ;--------------------------------------------------------
+                                     49 ; absolute external ram data
+                                     50 ;--------------------------------------------------------
+                                     51 	.area DABS (ABS)
+                                     52 
+                                     53 ; default segment ordering for linker
+                                     54 	.area HOME
+                                     55 	.area GSINIT
+                                     56 	.area GSFINAL
+                                     57 	.area CONST
+                                     58 	.area INITIALIZER
+                                     59 	.area CODE
+                                     60 
+                                     61 ;--------------------------------------------------------
+                                     62 ; global & static initialisations
+                                     63 ;--------------------------------------------------------
+                                     64 	.area HOME
+                                     65 	.area GSINIT
+                                     66 	.area GSFINAL
+                                     67 	.area GSINIT
+                           000000    68 	Smenu$task_menu$230 ==.
+                                     69 ;	./user/menu.c: 171: static uint8_t option_dp = 0;
+                                     70 ; genAssign
+      000000 72 5Fu00u10      [ 1]   71 	clr	_task_menu_option_dp_65536_364+0
+                                     72 ;--------------------------------------------------------
+                                     73 ; Home
+                                     74 ;--------------------------------------------------------
+                                     75 	.area HOME
+                                     76 	.area HOME
+                                     77 ;--------------------------------------------------------
+                                     78 ; code
+                                     79 ;--------------------------------------------------------
+                                     80 	.area CODE
+                           000000    81 	Smenu$init_menu$0 ==.
+                                     82 ;	./user/menu.c: 17: void init_menu(void)
+                                     83 ; genLabel
+                                     84 ;	-----------------------------------------
+                                     85 ;	 function init_menu
+                                     86 ;	-----------------------------------------
+                                     87 ;	Register assignment might be sub-optimal.
+                                     88 ;	Stack space usage: 0 bytes.
+      000000                         89 _init_menu:
+                           000000    90 	Smenu$init_menu$1 ==.
+                           000000    91 	Smenu$init_menu$2 ==.
+                                     92 ;	./user/menu.c: 20: btn_set_dir();
+                                     93 ; genIPush
+      000000 4B 60            [ 1]   94 	push	#0x60
+                           000002    95 	Smenu$init_menu$3 ==.
+                                     96 ; genIPush
+      000002 4B 08            [ 1]   97 	push	#0x08
+                           000004    98 	Smenu$init_menu$4 ==.
+                                     99 ; genIPush
+      000004 4B 0A            [ 1]  100 	push	#0x0a
+                           000006   101 	Smenu$init_menu$5 ==.
+      000006 4B 50            [ 1]  102 	push	#0x50
+                           000008   103 	Smenu$init_menu$6 ==.
+                                    104 ; genCall
+      000008 CDr00r00         [ 4]  105 	call	_GPIO_Init
+      00000B 5B 04            [ 2]  106 	addw	sp, #4
+                           00000D   107 	Smenu$init_menu$7 ==.
+                           00000D   108 	Smenu$init_menu$8 ==.
+                                    109 ;	./user/menu.c: 21: btn_inc_dir();
+                                    110 ; genIPush
+      00000D 4B 60            [ 1]  111 	push	#0x60
+                           00000F   112 	Smenu$init_menu$9 ==.
+                                    113 ; genIPush
+      00000F 4B 10            [ 1]  114 	push	#0x10
+                           000011   115 	Smenu$init_menu$10 ==.
+                                    116 ; genIPush
+      000011 4B 0A            [ 1]  117 	push	#0x0a
+                           000013   118 	Smenu$init_menu$11 ==.
+      000013 4B 50            [ 1]  119 	push	#0x50
+                           000015   120 	Smenu$init_menu$12 ==.
+                                    121 ; genCall
+      000015 CDr00r00         [ 4]  122 	call	_GPIO_Init
+      000018 5B 04            [ 2]  123 	addw	sp, #4
+                           00001A   124 	Smenu$init_menu$13 ==.
+                           00001A   125 	Smenu$init_menu$14 ==.
+                                    126 ;	./user/menu.c: 22: btn_dec_dir();
+                                    127 ; genIPush
+      00001A 4B 60            [ 1]  128 	push	#0x60
+                           00001C   129 	Smenu$init_menu$15 ==.
+                                    130 ; genIPush
+      00001C 4B 20            [ 1]  131 	push	#0x20
+                           00001E   132 	Smenu$init_menu$16 ==.
+                                    133 ; genIPush
+      00001E 4B 0A            [ 1]  134 	push	#0x0a
+                           000020   135 	Smenu$init_menu$17 ==.
+      000020 4B 50            [ 1]  136 	push	#0x50
+                           000022   137 	Smenu$init_menu$18 ==.
+                                    138 ; genCall
+      000022 CDr00r00         [ 4]  139 	call	_GPIO_Init
+      000025 5B 04            [ 2]  140 	addw	sp, #4
+                           000027   141 	Smenu$init_menu$19 ==.
+                           000027   142 	Smenu$init_menu$20 ==.
+                                    143 ;	./user/menu.c: 24: EXTI_DeInit();
+                                    144 ; genCall
+      000027 CDr00r00         [ 4]  145 	call	_EXTI_DeInit
+                           00002A   146 	Smenu$init_menu$21 ==.
+                                    147 ;	./user/menu.c: 26: disableInterrupts();
+                                    148 ;	genInline
+      00002A 9B               [ 1]  149 	sim
+                           00002B   150 	Smenu$init_menu$22 ==.
+                                    151 ;	./user/menu.c: 27: EXTI_SetExtIntSensitivity(EXTI_PORT_GPIOC, EXTI_SENSITIVITY_FALL_ONLY);
+                                    152 ; genIPush
+      00002B 4B 02            [ 1]  153 	push	#0x02
+                           00002D   154 	Smenu$init_menu$23 ==.
+                                    155 ; genIPush
+      00002D 4B 02            [ 1]  156 	push	#0x02
+                           00002F   157 	Smenu$init_menu$24 ==.
+                                    158 ; genCall
+      00002F CDr00r00         [ 4]  159 	call	_EXTI_SetExtIntSensitivity
+      000032 5B 02            [ 2]  160 	addw	sp, #2
+                           000034   161 	Smenu$init_menu$25 ==.
+                           000034   162 	Smenu$init_menu$26 ==.
+                                    163 ;	./user/menu.c: 28: EXTI_SetTLISensitivity(EXTI_TLISENSITIVITY_FALL_ONLY);
+                                    164 ; genIPush
+      000034 4B 00            [ 1]  165 	push	#0x00
+                           000036   166 	Smenu$init_menu$27 ==.
+                                    167 ; genCall
+      000036 CDr00r00         [ 4]  168 	call	_EXTI_SetTLISensitivity
+      000039 84               [ 1]  169 	pop	a
+                           00003A   170 	Smenu$init_menu$28 ==.
+                           00003A   171 	Smenu$init_menu$29 ==.
+                                    172 ;	./user/menu.c: 29: ITC_SetSoftwarePriority(ITC_IRQ_PORTC , ITC_PRIORITYLEVEL_3);
+                                    173 ; genIPush
+      00003A 4B 03            [ 1]  174 	push	#0x03
+                           00003C   175 	Smenu$init_menu$30 ==.
+                                    176 ; genIPush
+      00003C 4B 05            [ 1]  177 	push	#0x05
+                           00003E   178 	Smenu$init_menu$31 ==.
+                                    179 ; genCall
+      00003E CDr00r00         [ 4]  180 	call	_ITC_SetSoftwarePriority
+      000041 5B 02            [ 2]  181 	addw	sp, #2
+                           000043   182 	Smenu$init_menu$32 ==.
+                           000043   183 	Smenu$init_menu$33 ==.
+                                    184 ;	./user/menu.c: 30: enableInterrupts();
+                                    185 ;	genInline
+      000043 9A               [ 1]  186 	rim
+                           000044   187 	Smenu$init_menu$34 ==.
+                                    188 ;	./user/menu.c: 32: menu.idx = 0;
+                                    189 ; skipping iCode since result will be rematerialized
+                                    190 ; genPointerSet
+      000044 35 00u00u00      [ 1]  191 	mov	_menu+0, #0x00
+                           000048   192 	Smenu$init_menu$35 ==.
+                                    193 ;	./user/menu.c: 33: menu.value = get_menu_value(menu.idx);
+                                    194 ; skipping iCode since result will be rematerialized
+                                    195 ; genPlus
+      000048 AEr00r03         [ 2]  196 	ldw	x, #(_menu + 0)+3
+                                    197 ; genPointerGet
+      00004B C6u00u00         [ 1]  198 	ld	a, _menu+0
+                                    199 ; genIPush
+      00004E 89               [ 2]  200 	pushw	x
+                           00004F   201 	Smenu$init_menu$36 ==.
+      00004F 88               [ 1]  202 	push	a
+                           000050   203 	Smenu$init_menu$37 ==.
+                                    204 ; genCall
+      000050 CDr00r5C         [ 4]  205 	call	_get_menu_value
+      000053 5B 01            [ 2]  206 	addw	sp, #1
+                           000055   207 	Smenu$init_menu$38 ==.
+      000055 85               [ 2]  208 	popw	x
+                           000056   209 	Smenu$init_menu$39 ==.
+                                    210 ; genCast
+                                    211 ; genAssign
+      000056 90 5F            [ 1]  212 	clrw	y
+      000058 90 97            [ 1]  213 	ld	yl, a
+                                    214 ; genPointerSet
+      00005A FF               [ 2]  215 	ldw	(x), y
+                                    216 ; genLabel
+      00005B                        217 00101$:
+                           00005B   218 	Smenu$init_menu$40 ==.
+                                    219 ;	./user/menu.c: 35: }
+                                    220 ; genEndFunction
+                           00005B   221 	Smenu$init_menu$41 ==.
+                           00005B   222 	XG$init_menu$0$0 ==.
+      00005B 81               [ 4]  223 	ret
+                           00005C   224 	Smenu$init_menu$42 ==.
+                           00005C   225 	Smenu$get_menu_value$43 ==.
+                                    226 ;	./user/menu.c: 37: uint8_t get_menu_value(uint8_t idx)
+                                    227 ; genLabel
+                                    228 ;	-----------------------------------------
+                                    229 ;	 function get_menu_value
+                                    230 ;	-----------------------------------------
+                                    231 ;	Register assignment is optimal.
+                                    232 ;	Stack space usage: 0 bytes.
+      00005C                        233 _get_menu_value:
+                           00005C   234 	Smenu$get_menu_value$44 ==.
+                           00005C   235 	Smenu$get_menu_value$45 ==.
+                                    236 ;	./user/menu.c: 40: return (uint8_t)get_eeprom_data(idx);
+                                    237 ; genIPush
+      00005C 7B 03            [ 1]  238 	ld	a, (0x03, sp)
+      00005E 88               [ 1]  239 	push	a
+                           00005F   240 	Smenu$get_menu_value$46 ==.
+                                    241 ; genCall
+      00005F CDr00r00         [ 4]  242 	call	_get_eeprom_data
+      000062 84               [ 1]  243 	pop	a
+                           000063   244 	Smenu$get_menu_value$47 ==.
+      000063 9F               [ 1]  245 	ld	a, xl
+                                    246 ; genCast
+                                    247 ; genAssign
+                                    248 ; genReturn
+                                    249 ; genLabel
+      000064                        250 00101$:
+                           000064   251 	Smenu$get_menu_value$48 ==.
+                                    252 ;	./user/menu.c: 44: }
+                                    253 ; genEndFunction
+                           000064   254 	Smenu$get_menu_value$49 ==.
+                           000064   255 	XG$get_menu_value$0$0 ==.
+      000064 81               [ 4]  256 	ret
+                           000065   257 	Smenu$get_menu_value$50 ==.
+                           000065   258 	Smenu$set_menu_value$51 ==.
+                                    259 ;	./user/menu.c: 46: void set_menu_value(void)
+                                    260 ; genLabel
+                                    261 ;	-----------------------------------------
+                                    262 ;	 function set_menu_value
+                                    263 ;	-----------------------------------------
+                                    264 ;	Register assignment might be sub-optimal.
+                                    265 ;	Stack space usage: 0 bytes.
+      000065                        266 _set_menu_value:
+                           000065   267 	Smenu$set_menu_value$52 ==.
+                           000065   268 	Smenu$set_menu_value$53 ==.
+                                    269 ;	./user/menu.c: 49: set_eeprom_data(menu.value, menu.idx);
+                                    270 ; skipping iCode since result will be rematerialized
+                                    271 ; genPointerGet
+      000065 C6u00u00         [ 1]  272 	ld	a, _menu+0
+                                    273 ; skipping iCode since result will be rematerialized
+                                    274 ; skipping iCode since result will be rematerialized
+                                    275 ; genPointerGet
+      000068 CEu00u03         [ 2]  276 	ldw	x, _menu+3
+                                    277 ; genIPush
+      00006B 88               [ 1]  278 	push	a
+                           00006C   279 	Smenu$set_menu_value$54 ==.
+                                    280 ; genIPush
+      00006C 89               [ 2]  281 	pushw	x
+                           00006D   282 	Smenu$set_menu_value$55 ==.
+                                    283 ; genCall
+      00006D CDr00r00         [ 4]  284 	call	_set_eeprom_data
+      000070 5B 03            [ 2]  285 	addw	sp, #3
+                           000072   286 	Smenu$set_menu_value$56 ==.
+                           000072   287 	Smenu$set_menu_value$57 ==.
+                                    288 ;	./user/menu.c: 50: menu.write = 0;
+                                    289 ; genPlus
+      000072 AEr00r02         [ 2]  290 	ldw	x, #(_menu + 0)+2
+                                    291 ; genPointerSet
+      000075 7F               [ 1]  292 	clr	(x)
+                                    293 ; genLabel
+      000076                        294 00101$:
+                           000076   295 	Smenu$set_menu_value$58 ==.
+                                    296 ;	./user/menu.c: 53: }
+                                    297 ; genEndFunction
+                           000076   298 	Smenu$set_menu_value$59 ==.
+                           000076   299 	XG$set_menu_value$0$0 ==.
+      000076 81               [ 4]  300 	ret
+                           000077   301 	Smenu$set_menu_value$60 ==.
+                           000077   302 	Smenu$tmr_menu$61 ==.
+                                    303 ;	./user/menu.c: 55: void tmr_menu(void)
+                                    304 ; genLabel
+                                    305 ;	-----------------------------------------
+                                    306 ;	 function tmr_menu
+                                    307 ;	-----------------------------------------
+                                    308 ;	Register assignment might be sub-optimal.
+                                    309 ;	Stack space usage: 0 bytes.
+      000077                        310 _tmr_menu:
+                           000077   311 	Smenu$tmr_menu$62 ==.
+                           000077   312 	Smenu$tmr_menu$63 ==.
+                                    313 ;	./user/menu.c: 58: _decrement(menu.tmr);
+                                    314 ; skipping iCode since result will be rematerialized
+                                    315 ; genPointerGet
+      000077 CEu00u05         [ 2]  316 	ldw	x, _menu+5
+                                    317 ; genIfx
+      00007A 5D               [ 2]  318 	tnzw	x
+      00007B 26 03            [ 1]  319 	jrne	00131$
+      00007D CCr00r84         [ 2]  320 	jp	00102$
+      000080                        321 00131$:
+                                    322 ; genMinus
+      000080 5A               [ 2]  323 	decw	x
+                                    324 ; genPointerSet
+      000081 CFu00u05         [ 2]  325 	ldw	_menu+5, x
+                                    326 ; genLabel
+      000084                        327 00102$:
+                           000084   328 	Smenu$tmr_menu$64 ==.
+                                    329 ;	./user/menu.c: 59: _decrement(btn[BTN_SET_IDX].debounce);
+                                    330 ; skipping iCode since result will be rematerialized
+                                    331 ; genPlus
+      000084 90 AEr00r08      [ 2]  332 	ldw	y, #(_btn + 0)+1
+                                    333 ; genPointerGet
+      000088 93               [ 1]  334 	ldw	x, y
+      000089 FE               [ 2]  335 	ldw	x, (x)
+                                    336 ; genIfx
+      00008A 5D               [ 2]  337 	tnzw	x
+      00008B 26 03            [ 1]  338 	jrne	00132$
+      00008D CCr00r93         [ 2]  339 	jp	00104$
+      000090                        340 00132$:
+                                    341 ; genMinus
+      000090 5A               [ 2]  342 	decw	x
+                                    343 ; genPointerSet
+      000091 90 FF            [ 2]  344 	ldw	(y), x
+                                    345 ; genLabel
+      000093                        346 00104$:
+                           000093   347 	Smenu$tmr_menu$65 ==.
+                                    348 ;	./user/menu.c: 60: _decrement(btn[BTN_INC_IDX].debounce);
+                                    349 ; genPlus
+      000093 90 AEr00r0E      [ 2]  350 	ldw	y, #(_btn + 0)+7
+                                    351 ; genPointerGet
+      000097 93               [ 1]  352 	ldw	x, y
+      000098 FE               [ 2]  353 	ldw	x, (x)
+                                    354 ; genIfx
+      000099 5D               [ 2]  355 	tnzw	x
+      00009A 26 03            [ 1]  356 	jrne	00133$
+      00009C CCr00rA2         [ 2]  357 	jp	00106$
+      00009F                        358 00133$:
+                                    359 ; genMinus
+      00009F 5A               [ 2]  360 	decw	x
+                                    361 ; genPointerSet
+      0000A0 90 FF            [ 2]  362 	ldw	(y), x
+                                    363 ; genLabel
+      0000A2                        364 00106$:
+                           0000A2   365 	Smenu$tmr_menu$66 ==.
+                                    366 ;	./user/menu.c: 61: _decrement(btn[BTN_DEC_IDX].debounce);
+                                    367 ; genPlus
+      0000A2 90 AEr00r0B      [ 2]  368 	ldw	y, #(_btn + 0)+4
+                                    369 ; genPointerGet
+      0000A6 93               [ 1]  370 	ldw	x, y
+      0000A7 FE               [ 2]  371 	ldw	x, (x)
+                                    372 ; genIfx
+      0000A8 5D               [ 2]  373 	tnzw	x
+      0000A9 26 03            [ 1]  374 	jrne	00134$
+      0000AB CCr00rB1         [ 2]  375 	jp	00109$
+      0000AE                        376 00134$:
+                                    377 ; genMinus
+      0000AE 5A               [ 2]  378 	decw	x
+                                    379 ; genPointerSet
+      0000AF 90 FF            [ 2]  380 	ldw	(y), x
+                                    381 ; genLabel
+      0000B1                        382 00109$:
+                           0000B1   383 	Smenu$tmr_menu$67 ==.
+                                    384 ;	./user/menu.c: 63: }
+                                    385 ; genEndFunction
+                           0000B1   386 	Smenu$tmr_menu$68 ==.
+                           0000B1   387 	XG$tmr_menu$0$0 ==.
+      0000B1 81               [ 4]  388 	ret
+                           0000B2   389 	Smenu$tmr_menu$69 ==.
+                           0000B2   390 	Smenu$inc_option$70 ==.
+                                    391 ;	./user/menu.c: 65: static void inc_option(void)
+                                    392 ; genLabel
+                                    393 ;	-----------------------------------------
+                                    394 ;	 function inc_option
+                                    395 ;	-----------------------------------------
+                                    396 ;	Register assignment might be sub-optimal.
+                                    397 ;	Stack space usage: 0 bytes.
+      0000B2                        398 _inc_option:
+                           0000B2   399 	Smenu$inc_option$71 ==.
+                           0000B2   400 	Smenu$inc_option$72 ==.
+                                    401 ;	./user/menu.c: 68: menu.value = get_menu_value(menu.idx);
+                                    402 ; skipping iCode since result will be rematerialized
+                                    403 ; genPlus
+      0000B2 AEr00r03         [ 2]  404 	ldw	x, #(_menu + 0)+3
+                                    405 ; genPointerGet
+      0000B5 C6u00u00         [ 1]  406 	ld	a, _menu+0
+                                    407 ; genIPush
+      0000B8 89               [ 2]  408 	pushw	x
+                           0000B9   409 	Smenu$inc_option$73 ==.
+      0000B9 88               [ 1]  410 	push	a
+                           0000BA   411 	Smenu$inc_option$74 ==.
+                                    412 ; genCall
+      0000BA CDr00r5C         [ 4]  413 	call	_get_menu_value
+      0000BD 5B 01            [ 2]  414 	addw	sp, #1
+                           0000BF   415 	Smenu$inc_option$75 ==.
+      0000BF 85               [ 2]  416 	popw	x
+                           0000C0   417 	Smenu$inc_option$76 ==.
+                                    418 ; genCast
+                                    419 ; genAssign
+      0000C0 90 5F            [ 1]  420 	clrw	y
+      0000C2 90 97            [ 1]  421 	ld	yl, a
+                                    422 ; genPointerSet
+      0000C4 FF               [ 2]  423 	ldw	(x), y
+                                    424 ; genLabel
+      0000C5                        425 00101$:
+                           0000C5   426 	Smenu$inc_option$77 ==.
+                                    427 ;	./user/menu.c: 70: }
+                                    428 ; genEndFunction
+                           0000C5   429 	Smenu$inc_option$78 ==.
+                           0000C5   430 	XFmenu$inc_option$0$0 ==.
+      0000C5 81               [ 4]  431 	ret
+                           0000C6   432 	Smenu$inc_option$79 ==.
+                           0000C6   433 	Smenu$dec_option$80 ==.
+                                    434 ;	./user/menu.c: 72: static void dec_option(void)
+                                    435 ; genLabel
+                                    436 ;	-----------------------------------------
+                                    437 ;	 function dec_option
+                                    438 ;	-----------------------------------------
+                                    439 ;	Register assignment might be sub-optimal.
+                                    440 ;	Stack space usage: 0 bytes.
+      0000C6                        441 _dec_option:
+                           0000C6   442 	Smenu$dec_option$81 ==.
+                           0000C6   443 	Smenu$dec_option$82 ==.
+                                    444 ;	./user/menu.c: 75: menu.value = get_menu_value(menu.idx);
+                                    445 ; skipping iCode since result will be rematerialized
+                                    446 ; genPlus
+      0000C6 AEr00r03         [ 2]  447 	ldw	x, #(_menu + 0)+3
+                                    448 ; genPointerGet
+      0000C9 C6u00u00         [ 1]  449 	ld	a, _menu+0
+                                    450 ; genIPush
+      0000CC 89               [ 2]  451 	pushw	x
+                           0000CD   452 	Smenu$dec_option$83 ==.
+      0000CD 88               [ 1]  453 	push	a
+                           0000CE   454 	Smenu$dec_option$84 ==.
+                                    455 ; genCall
+      0000CE CDr00r5C         [ 4]  456 	call	_get_menu_value
+      0000D1 5B 01            [ 2]  457 	addw	sp, #1
+                           0000D3   458 	Smenu$dec_option$85 ==.
+      0000D3 85               [ 2]  459 	popw	x
+                           0000D4   460 	Smenu$dec_option$86 ==.
+                                    461 ; genCast
+                                    462 ; genAssign
+      0000D4 90 5F            [ 1]  463 	clrw	y
+      0000D6 90 97            [ 1]  464 	ld	yl, a
+                                    465 ; genPointerSet
+      0000D8 FF               [ 2]  466 	ldw	(x), y
+                                    467 ; genLabel
+      0000D9                        468 00101$:
+                           0000D9   469 	Smenu$dec_option$87 ==.
+                                    470 ;	./user/menu.c: 77: }
+                                    471 ; genEndFunction
+                           0000D9   472 	Smenu$dec_option$88 ==.
+                           0000D9   473 	XFmenu$dec_option$0$0 ==.
+      0000D9 81               [ 4]  474 	ret
+                           0000DA   475 	Smenu$dec_option$89 ==.
+                           0000DA   476 	Smenu$inc_value$90 ==.
+                                    477 ;	./user/menu.c: 79: static void inc_value(void)
+                                    478 ; genLabel
+                                    479 ;	-----------------------------------------
+                                    480 ;	 function inc_value
+                                    481 ;	-----------------------------------------
+                                    482 ;	Register assignment might be sub-optimal.
+                                    483 ;	Stack space usage: 0 bytes.
+      0000DA                        484 _inc_value:
+                           0000DA   485 	Smenu$inc_value$91 ==.
+                           0000DA   486 	Smenu$inc_value$92 ==.
+                                    487 ;	./user/menu.c: 82: if (++menu.value > MAX_VALUE)
+                                    488 ; skipping iCode since result will be rematerialized
+                                    489 ; genPointerGet
+      0000DA CEu00u03         [ 2]  490 	ldw	x, _menu+3
+                                    491 ; genPlus
+      0000DD 5C               [ 1]  492 	incw	x
+                                    493 ; genPointerSet
+      0000DE CFu00u03         [ 2]  494 	ldw	_menu+3, x
+                                    495 ; genCast
+                                    496 ; genAssign
+                                    497 ; genCmp
+                                    498 ; genCmpTop
+      0000E1 A3 02 58         [ 2]  499 	cpw	x, #0x0258
+      0000E4 22 03            [ 1]  500 	jrugt	00110$
+      0000E6 CCr00rEF         [ 2]  501 	jp	00103$
+      0000E9                        502 00110$:
+                                    503 ; skipping generated iCode
+                           0000E9   504 	Smenu$inc_value$93 ==.
+                                    505 ;	./user/menu.c: 83: menu.value = 0;
+                                    506 ; genPointerSet
+      0000E9 AEr00r03         [ 2]  507 	ldw	x, #(_menu + 3)
+      0000EC 6F 01            [ 1]  508 	clr	(0x1, x)
+      0000EE 7F               [ 1]  509 	clr	(x)
+                                    510 ; genLabel
+      0000EF                        511 00103$:
+                           0000EF   512 	Smenu$inc_value$94 ==.
+                                    513 ;	./user/menu.c: 85: }
+                                    514 ; genEndFunction
+                           0000EF   515 	Smenu$inc_value$95 ==.
+                           0000EF   516 	XFmenu$inc_value$0$0 ==.
+      0000EF 81               [ 4]  517 	ret
+                           0000F0   518 	Smenu$inc_value$96 ==.
+                           0000F0   519 	Smenu$dec_value$97 ==.
+                                    520 ;	./user/menu.c: 87: static void dec_value(void)
+                                    521 ; genLabel
+                                    522 ;	-----------------------------------------
+                                    523 ;	 function dec_value
+                                    524 ;	-----------------------------------------
+                                    525 ;	Register assignment might be sub-optimal.
+                                    526 ;	Stack space usage: 0 bytes.
+      0000F0                        527 _dec_value:
+                           0000F0   528 	Smenu$dec_value$98 ==.
+                           0000F0   529 	Smenu$dec_value$99 ==.
+                                    530 ;	./user/menu.c: 90: if (menu.value) {
+                                    531 ; skipping iCode since result will be rematerialized
+                                    532 ; genPointerGet
+      0000F0 CEu00u03         [ 2]  533 	ldw	x, _menu+3
+                                    534 ; genIfx
+      0000F3 5D               [ 2]  535 	tnzw	x
+      0000F4 26 03            [ 1]  536 	jrne	00111$
+      0000F6 CCr01r00         [ 2]  537 	jp	00102$
+      0000F9                        538 00111$:
+                           0000F9   539 	Smenu$dec_value$100 ==.
+                           0000F9   540 	Smenu$dec_value$101 ==.
+                                    541 ;	./user/menu.c: 91: menu.value--;
+                                    542 ; genMinus
+      0000F9 5A               [ 2]  543 	decw	x
+                                    544 ; genPointerSet
+      0000FA CFu00u03         [ 2]  545 	ldw	_menu+3, x
+                           0000FD   546 	Smenu$dec_value$102 ==.
+                                    547 ; genGoto
+      0000FD CCr01r08         [ 2]  548 	jp	00104$
+                                    549 ; genLabel
+      000100                        550 00102$:
+                           000100   551 	Smenu$dec_value$103 ==.
+                           000100   552 	Smenu$dec_value$104 ==.
+                                    553 ;	./user/menu.c: 93: menu.value = MAX_VALUE;
+                                    554 ; genPointerSet
+      000100 35 58u00u04      [ 1]  555 	mov	_menu+4, #0x58
+      000104 35 02u00u03      [ 1]  556 	mov	_menu+3, #0x02
+                           000108   557 	Smenu$dec_value$105 ==.
+                                    558 ; genLabel
+      000108                        559 00104$:
+                           000108   560 	Smenu$dec_value$106 ==.
+                                    561 ;	./user/menu.c: 96: }
+                                    562 ; genEndFunction
+                           000108   563 	Smenu$dec_value$107 ==.
+                           000108   564 	XFmenu$dec_value$0$0 ==.
+      000108 81               [ 4]  565 	ret
+                           000109   566 	Smenu$dec_value$108 ==.
+                           000109   567 	Smenu$interrupt_buttons$109 ==.
+                                    568 ;	./user/menu.c: 98: void interrupt_buttons(void)
+                                    569 ; genLabel
+                                    570 ;	-----------------------------------------
+                                    571 ;	 function interrupt_buttons
+                                    572 ;	-----------------------------------------
+                                    573 ;	Register assignment might be sub-optimal.
+                                    574 ;	Stack space usage: 2 bytes.
+      000109                        575 _interrupt_buttons:
+                           000109   576 	Smenu$interrupt_buttons$110 ==.
+      000109 52 02            [ 2]  577 	sub	sp, #2
+                           00010B   578 	Smenu$interrupt_buttons$111 ==.
+                           00010B   579 	Smenu$interrupt_buttons$112 ==.
+                                    580 ;	./user/menu.c: 102: if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
+                                    581 ; genIPush
+      00010B 4B 0A            [ 1]  582 	push	#0x0a
+                           00010D   583 	Smenu$interrupt_buttons$113 ==.
+      00010D 4B 50            [ 1]  584 	push	#0x50
+                           00010F   585 	Smenu$interrupt_buttons$114 ==.
+                                    586 ; genCall
+      00010F CDr00r00         [ 4]  587 	call	_GPIO_ReadInputData
+      000112 5B 02            [ 2]  588 	addw	sp, #2
+                           000114   589 	Smenu$interrupt_buttons$115 ==.
+                                    590 ; genAnd
+      000114 A5 08            [ 1]  591 	bcp	a, #0x08
+      000116 27 03            [ 1]  592 	jreq	00147$
+      000118 CCr01r34         [ 2]  593 	jp	00113$
+      00011B                        594 00147$:
+                                    595 ; skipping generated iCode
+                           00011B   596 	Smenu$interrupt_buttons$116 ==.
+                           00011B   597 	Smenu$interrupt_buttons$117 ==.
+                                    598 ;	./user/menu.c: 103: if (!btn[BTN_SET_IDX].debounce) {
+                                    599 ; skipping iCode since result will be rematerialized
+                                    600 ; genPlus
+      00011B 90 AEr00r08      [ 2]  601 	ldw	y, #(_btn + 0)+1
+                                    602 ; genPointerGet
+      00011F 93               [ 1]  603 	ldw	x, y
+      000120 FE               [ 2]  604 	ldw	x, (x)
+                                    605 ; genIfx
+      000121 5D               [ 2]  606 	tnzw	x
+      000122 27 03            [ 1]  607 	jreq	00148$
+      000124 CCr01r9F         [ 2]  608 	jp	00115$
+      000127                        609 00148$:
+                           000127   610 	Smenu$interrupt_buttons$118 ==.
+                           000127   611 	Smenu$interrupt_buttons$119 ==.
+                                    612 ;	./user/menu.c: 104: btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
+                                    613 ; genPointerSet
+      000127 93               [ 1]  614 	ldw	x, y
+      000128 90 AE 00 32      [ 2]  615 	ldw	y, #0x0032
+      00012C FF               [ 2]  616 	ldw	(x), y
+                           00012D   617 	Smenu$interrupt_buttons$120 ==.
+                                    618 ;	./user/menu.c: 105: btn[BTN_SET_IDX].status = BTN_STAT_PRESSED;
+                                    619 ; genPointerSet
+      00012D 35 01u00u07      [ 1]  620 	mov	_btn+0, #0x01
+                           000131   621 	Smenu$interrupt_buttons$121 ==.
+                                    622 ; genGoto
+      000131 CCr01r9F         [ 2]  623 	jp	00115$
+                                    624 ; genLabel
+      000134                        625 00113$:
+                           000134   626 	Smenu$interrupt_buttons$122 ==.
+                                    627 ;	./user/menu.c: 108: if ((GPIO_ReadInputData(BTN_PORT) & BTN_INC_PIN_NUM) == 0x00) {
+                                    628 ; genIPush
+      000134 4B 0A            [ 1]  629 	push	#0x0a
+                           000136   630 	Smenu$interrupt_buttons$123 ==.
+      000136 4B 50            [ 1]  631 	push	#0x50
+                           000138   632 	Smenu$interrupt_buttons$124 ==.
+                                    633 ; genCall
+      000138 CDr00r00         [ 4]  634 	call	_GPIO_ReadInputData
+      00013B 5B 02            [ 2]  635 	addw	sp, #2
+                           00013D   636 	Smenu$interrupt_buttons$125 ==.
+                                    637 ; genAnd
+      00013D A5 10            [ 1]  638 	bcp	a, #0x10
+      00013F 27 03            [ 1]  639 	jreq	00149$
+      000141 CCr01r6B         [ 2]  640 	jp	00110$
+      000144                        641 00149$:
+                                    642 ; skipping generated iCode
+                           000144   643 	Smenu$interrupt_buttons$126 ==.
+                           000144   644 	Smenu$interrupt_buttons$127 ==.
+                                    645 ;	./user/menu.c: 109: if (!btn[BTN_INC_IDX].debounce) {
+                                    646 ; skipping iCode since result will be rematerialized
+                                    647 ; genPlus
+      000144 AEr00r0D         [ 2]  648 	ldw	x, #(_btn + 0)+6
+      000147 1F 01            [ 2]  649 	ldw	(0x01, sp), x
+                                    650 ; genPlus
+      000149 90 AEr00r0E      [ 2]  651 	ldw	y, #(_btn + 0)+7
+                                    652 ; genPointerGet
+      00014D 93               [ 1]  653 	ldw	x, y
+      00014E FE               [ 2]  654 	ldw	x, (x)
+                                    655 ; genIfx
+      00014F 5D               [ 2]  656 	tnzw	x
+      000150 27 03            [ 1]  657 	jreq	00150$
+      000152 CCr01r9F         [ 2]  658 	jp	00115$
+      000155                        659 00150$:
+                           000155   660 	Smenu$interrupt_buttons$128 ==.
+                           000155   661 	Smenu$interrupt_buttons$129 ==.
+                                    662 ;	./user/menu.c: 110: btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
+                                    663 ; genPointerSet
+      000155 93               [ 1]  664 	ldw	x, y
+      000156 90 AE 00 32      [ 2]  665 	ldw	y, #0x0032
+      00015A FF               [ 2]  666 	ldw	(x), y
+                           00015B   667 	Smenu$interrupt_buttons$130 ==.
+                                    668 ;	./user/menu.c: 111: btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
+                                    669 ; genPointerSet
+      00015B 1E 01            [ 2]  670 	ldw	x, (0x01, sp)
+      00015D A6 01            [ 1]  671 	ld	a, #0x01
+      00015F F7               [ 1]  672 	ld	(x), a
+                           000160   673 	Smenu$interrupt_buttons$131 ==.
+                                    674 ;	./user/menu.c: 112: menu.tmr = TIME_HOLD_BUTTON;
+                                    675 ; skipping iCode since result will be rematerialized
+                                    676 ; genPointerSet
+      000160 35 DCu00u06      [ 1]  677 	mov	_menu+6, #0xdc
+      000164 35 05u00u05      [ 1]  678 	mov	_menu+5, #0x05
+                           000168   679 	Smenu$interrupt_buttons$132 ==.
+                                    680 ; genGoto
+      000168 CCr01r9F         [ 2]  681 	jp	00115$
+                                    682 ; genLabel
+      00016B                        683 00110$:
+                           00016B   684 	Smenu$interrupt_buttons$133 ==.
+                                    685 ;	./user/menu.c: 115: if ((GPIO_ReadInputData(BTN_PORT) & BTN_DEC_PIN_NUM) == 0x00) {
+                                    686 ; genIPush
+      00016B 4B 0A            [ 1]  687 	push	#0x0a
+                           00016D   688 	Smenu$interrupt_buttons$134 ==.
+      00016D 4B 50            [ 1]  689 	push	#0x50
+                           00016F   690 	Smenu$interrupt_buttons$135 ==.
+                                    691 ; genCall
+      00016F CDr00r00         [ 4]  692 	call	_GPIO_ReadInputData
+      000172 5B 02            [ 2]  693 	addw	sp, #2
+                           000174   694 	Smenu$interrupt_buttons$136 ==.
+                                    695 ; genAnd
+      000174 A5 20            [ 1]  696 	bcp	a, #0x20
+      000176 27 03            [ 1]  697 	jreq	00151$
+      000178 CCr01r9F         [ 2]  698 	jp	00115$
+      00017B                        699 00151$:
+                                    700 ; skipping generated iCode
+                           00017B   701 	Smenu$interrupt_buttons$137 ==.
+                           00017B   702 	Smenu$interrupt_buttons$138 ==.
+                                    703 ;	./user/menu.c: 116: if (!btn[BTN_DEC_IDX].debounce) {
+                                    704 ; skipping iCode since result will be rematerialized
+                                    705 ; genPlus
+      00017B AEr00r0A         [ 2]  706 	ldw	x, #(_btn + 0)+3
+      00017E 1F 01            [ 2]  707 	ldw	(0x01, sp), x
+                                    708 ; genPlus
+      000180 90 AEr00r0B      [ 2]  709 	ldw	y, #(_btn + 0)+4
+                                    710 ; genPointerGet
+      000184 93               [ 1]  711 	ldw	x, y
+      000185 FE               [ 2]  712 	ldw	x, (x)
+                                    713 ; genIfx
+      000186 5D               [ 2]  714 	tnzw	x
+      000187 27 03            [ 1]  715 	jreq	00152$
+      000189 CCr01r9F         [ 2]  716 	jp	00115$
+      00018C                        717 00152$:
+                           00018C   718 	Smenu$interrupt_buttons$139 ==.
+                           00018C   719 	Smenu$interrupt_buttons$140 ==.
+                                    720 ;	./user/menu.c: 117: btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
+                                    721 ; genPointerSet
+      00018C 93               [ 1]  722 	ldw	x, y
+      00018D 90 AE 00 32      [ 2]  723 	ldw	y, #0x0032
+      000191 FF               [ 2]  724 	ldw	(x), y
+                           000192   725 	Smenu$interrupt_buttons$141 ==.
+                                    726 ;	./user/menu.c: 118: btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
+                                    727 ; genPointerSet
+      000192 1E 01            [ 2]  728 	ldw	x, (0x01, sp)
+      000194 A6 01            [ 1]  729 	ld	a, #0x01
+      000196 F7               [ 1]  730 	ld	(x), a
+                           000197   731 	Smenu$interrupt_buttons$142 ==.
+                                    732 ;	./user/menu.c: 119: menu.tmr = TIME_HOLD_BUTTON;
+                                    733 ; skipping iCode since result will be rematerialized
+                                    734 ; genPointerSet
+      000197 35 DCu00u06      [ 1]  735 	mov	_menu+6, #0xdc
+      00019B 35 05u00u05      [ 1]  736 	mov	_menu+5, #0x05
+                           00019F   737 	Smenu$interrupt_buttons$143 ==.
+                                    738 ; genLabel
+      00019F                        739 00115$:
+                           00019F   740 	Smenu$interrupt_buttons$144 ==.
+                                    741 ;	./user/menu.c: 123: }
+                                    742 ; genEndFunction
+      00019F 5B 02            [ 2]  743 	addw	sp, #2
+                           0001A1   744 	Smenu$interrupt_buttons$145 ==.
+                           0001A1   745 	Smenu$interrupt_buttons$146 ==.
+                           0001A1   746 	XG$interrupt_buttons$0$0 ==.
+      0001A1 81               [ 4]  747 	ret
+                           0001A2   748 	Smenu$interrupt_buttons$147 ==.
+                           0001A2   749 	Smenu$process_button$148 ==.
+                                    750 ;	./user/menu.c: 125: void process_button(void)
+                                    751 ; genLabel
+                                    752 ;	-----------------------------------------
+                                    753 ;	 function process_button
+                                    754 ;	-----------------------------------------
+                                    755 ;	Register assignment might be sub-optimal.
+                                    756 ;	Stack space usage: 4 bytes.
+      0001A2                        757 _process_button:
+                           0001A2   758 	Smenu$process_button$149 ==.
+      0001A2 52 04            [ 2]  759 	sub	sp, #4
+                           0001A4   760 	Smenu$process_button$150 ==.
+                           0001A4   761 	Smenu$process_button$151 ==.
+                                    762 ;	./user/menu.c: 128: if (btn[BTN_SET_IDX].status == BTN_STAT_PRESSED) {
+                                    763 ; genAddrOf
+      0001A4 AEr00r07         [ 2]  764 	ldw	x, #_btn+0
+                                    765 ; genPointerGet
+      0001A7 F6               [ 1]  766 	ld	a, (x)
+                                    767 ; genCmpEQorNE
+      0001A8 4A               [ 1]  768 	dec	a
+      0001A9 26 03            [ 1]  769 	jrne	00183$
+      0001AB CCr01rB1         [ 2]  770 	jp	00184$
+      0001AE                        771 00183$:
+      0001AE CCr01rC1         [ 2]  772 	jp	00104$
+      0001B1                        773 00184$:
+                           0001B1   774 	Smenu$process_button$152 ==.
+                                    775 ; skipping generated iCode
+                           0001B1   776 	Smenu$process_button$153 ==.
+                           0001B1   777 	Smenu$process_button$154 ==.
+                                    778 ;	./user/menu.c: 129: btn[BTN_SET_IDX].status = BTN_STAT_FREE;
+                                    779 ; genPointerSet
+      0001B1 7F               [ 1]  780 	clr	(x)
+                           0001B2   781 	Smenu$process_button$155 ==.
+                                    782 ;	./user/menu.c: 130: if (menu.edit)
+                                    783 ; skipping iCode since result will be rematerialized
+                                    784 ; skipping iCode since result will be rematerialized
+                                    785 ; genPointerGet
+      0001B2 C6u00u01         [ 1]  786 	ld	a, _menu+1
+                                    787 ; genIfx
+      0001B5 4D               [ 1]  788 	tnz	a
+      0001B6 26 03            [ 1]  789 	jrne	00185$
+      0001B8 CCr01rC1         [ 2]  790 	jp	00104$
+      0001BB                        791 00185$:
+                           0001BB   792 	Smenu$process_button$156 ==.
+                                    793 ;	./user/menu.c: 131: menu.write = 1; 
+                                    794 ; genPlus
+      0001BB AEr00r02         [ 2]  795 	ldw	x, #(_menu + 0)+2
+                                    796 ; genPointerSet
+      0001BE A6 01            [ 1]  797 	ld	a, #0x01
+      0001C0 F7               [ 1]  798 	ld	(x), a
+                           0001C1   799 	Smenu$process_button$157 ==.
+                                    800 ; genLabel
+      0001C1                        801 00104$:
+                           0001C1   802 	Smenu$process_button$158 ==.
+                                    803 ;	./user/menu.c: 134: if (btn[BTN_INC_IDX].status == BTN_STAT_PRESSED) {
+                                    804 ; skipping iCode since result will be rematerialized
+                                    805 ; genPlus
+      0001C1 AEr00r0D         [ 2]  806 	ldw	x, #(_btn + 0)+6
+      0001C4 1F 01            [ 2]  807 	ldw	(0x01, sp), x
+                                    808 ; genPointerGet
+      0001C6 1E 01            [ 2]  809 	ldw	x, (0x01, sp)
+      0001C8 F6               [ 1]  810 	ld	a, (x)
+                                    811 ; genCmpEQorNE
+      0001C9 4A               [ 1]  812 	dec	a
+      0001CA 26 03            [ 1]  813 	jrne	00187$
+      0001CC CCr01rD2         [ 2]  814 	jp	00188$
+      0001CF                        815 00187$:
+      0001CF CCr01rE7         [ 2]  816 	jp	00109$
+      0001D2                        817 00188$:
+                           0001D2   818 	Smenu$process_button$159 ==.
+                                    819 ; skipping generated iCode
+                           0001D2   820 	Smenu$process_button$160 ==.
+                           0001D2   821 	Smenu$process_button$161 ==.
+                                    822 ;	./user/menu.c: 135: btn[BTN_INC_IDX].status = BTN_STAT_FREE;
+                                    823 ; genPointerSet
+      0001D2 1E 01            [ 2]  824 	ldw	x, (0x01, sp)
+      0001D4 7F               [ 1]  825 	clr	(x)
+                           0001D5   826 	Smenu$process_button$162 ==.
+                                    827 ;	./user/menu.c: 136: if (!menu.edit)
+                                    828 ; skipping iCode since result will be rematerialized
+                                    829 ; genPointerGet
+      0001D5 C6u00u01         [ 1]  830 	ld	a, _menu+1
+                                    831 ; genIfx
+      0001D8 4D               [ 1]  832 	tnz	a
+      0001D9 27 03            [ 1]  833 	jreq	00189$
+      0001DB CCr01rE4         [ 2]  834 	jp	00106$
+      0001DE                        835 00189$:
+                           0001DE   836 	Smenu$process_button$163 ==.
+                                    837 ;	./user/menu.c: 137: inc_option();
+                                    838 ; genCall
+      0001DE CDr00rB2         [ 4]  839 	call	_inc_option
+                                    840 ; genGoto
+      0001E1 CCr01rE7         [ 2]  841 	jp	00109$
+                                    842 ; genLabel
+      0001E4                        843 00106$:
+                           0001E4   844 	Smenu$process_button$164 ==.
+                                    845 ;	./user/menu.c: 139: inc_value();
+                                    846 ; genCall
+      0001E4 CDr00rDA         [ 4]  847 	call	_inc_value
+                           0001E7   848 	Smenu$process_button$165 ==.
+                                    849 ; genLabel
+      0001E7                        850 00109$:
+                           0001E7   851 	Smenu$process_button$166 ==.
+                                    852 ;	./user/menu.c: 141: if (btn[BTN_DEC_IDX].status == BTN_STAT_PRESSED) {
+                                    853 ; genPlus
+      0001E7 AEr00r0A         [ 2]  854 	ldw	x, #(_btn + 0)+3
+      0001EA 1F 03            [ 2]  855 	ldw	(0x03, sp), x
+                                    856 ; genPointerGet
+      0001EC 1E 03            [ 2]  857 	ldw	x, (0x03, sp)
+      0001EE F6               [ 1]  858 	ld	a, (x)
+                                    859 ; genCmpEQorNE
+      0001EF 4A               [ 1]  860 	dec	a
+      0001F0 26 03            [ 1]  861 	jrne	00191$
+      0001F2 CCr01rF8         [ 2]  862 	jp	00192$
+      0001F5                        863 00191$:
+      0001F5 CCr02r0D         [ 2]  864 	jp	00114$
+      0001F8                        865 00192$:
+                           0001F8   866 	Smenu$process_button$167 ==.
+                                    867 ; skipping generated iCode
+                           0001F8   868 	Smenu$process_button$168 ==.
+                           0001F8   869 	Smenu$process_button$169 ==.
+                                    870 ;	./user/menu.c: 142: btn[BTN_DEC_IDX].status = BTN_STAT_FREE;
+                                    871 ; genPointerSet
+      0001F8 1E 03            [ 2]  872 	ldw	x, (0x03, sp)
+      0001FA 7F               [ 1]  873 	clr	(x)
+                           0001FB   874 	Smenu$process_button$170 ==.
+                                    875 ;	./user/menu.c: 143: if (!menu.edit)
+                                    876 ; skipping iCode since result will be rematerialized
+                                    877 ; genPointerGet
+      0001FB C6u00u01         [ 1]  878 	ld	a, _menu+1
+                                    879 ; genIfx
+      0001FE 4D               [ 1]  880 	tnz	a
+      0001FF 27 03            [ 1]  881 	jreq	00193$
+      000201 CCr02r0A         [ 2]  882 	jp	00111$
+      000204                        883 00193$:
+                           000204   884 	Smenu$process_button$171 ==.
+                                    885 ;	./user/menu.c: 144: dec_option();
+                                    886 ; genCall
+      000204 CDr00rC6         [ 4]  887 	call	_dec_option
+                                    888 ; genGoto
+      000207 CCr02r0D         [ 2]  889 	jp	00114$
+                                    890 ; genLabel
+      00020A                        891 00111$:
+                           00020A   892 	Smenu$process_button$172 ==.
+                                    893 ;	./user/menu.c: 146: dec_value();
+                                    894 ; genCall
+      00020A CDr00rF0         [ 4]  895 	call	_dec_value
+                           00020D   896 	Smenu$process_button$173 ==.
+                                    897 ; genLabel
+      00020D                        898 00114$:
+                           00020D   899 	Smenu$process_button$174 ==.
+                                    900 ;	./user/menu.c: 148: if (!btn_set()) {
+                                    901 ; genIPush
+      00020D 4B 08            [ 1]  902 	push	#0x08
+                           00020F   903 	Smenu$process_button$175 ==.
+                                    904 ; genIPush
+      00020F 4B 0A            [ 1]  905 	push	#0x0a
+                           000211   906 	Smenu$process_button$176 ==.
+      000211 4B 50            [ 1]  907 	push	#0x50
+                           000213   908 	Smenu$process_button$177 ==.
+                                    909 ; genCall
+      000213 CDr00r00         [ 4]  910 	call	_GPIO_ReadInputPin
+      000216 5B 03            [ 2]  911 	addw	sp, #3
+                           000218   912 	Smenu$process_button$178 ==.
+                                    913 ; genIfx
+      000218 4D               [ 1]  914 	tnz	a
+      000219 27 03            [ 1]  915 	jreq	00194$
+      00021B CCr02r26         [ 2]  916 	jp	00116$
+      00021E                        917 00194$:
+                           00021E   918 	Smenu$process_button$179 ==.
+                           00021E   919 	Smenu$process_button$180 ==.
+                                    920 ;	./user/menu.c: 149: btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
+                                    921 ; genPlus
+      00021E AEr00r08         [ 2]  922 	ldw	x, #(_btn + 0)+1
+                                    923 ; genPointerSet
+      000221 90 AE 00 32      [ 2]  924 	ldw	y, #0x0032
+      000225 FF               [ 2]  925 	ldw	(x), y
+                           000226   926 	Smenu$process_button$181 ==.
+                                    927 ; genLabel
+      000226                        928 00116$:
+                           000226   929 	Smenu$process_button$182 ==.
+                                    930 ;	./user/menu.c: 151: if (!btn_inc()) {
+                                    931 ; genIPush
+      000226 4B 10            [ 1]  932 	push	#0x10
+                           000228   933 	Smenu$process_button$183 ==.
+                                    934 ; genIPush
+      000228 4B 0A            [ 1]  935 	push	#0x0a
+                           00022A   936 	Smenu$process_button$184 ==.
+      00022A 4B 50            [ 1]  937 	push	#0x50
+                           00022C   938 	Smenu$process_button$185 ==.
+                                    939 ; genCall
+      00022C CDr00r00         [ 4]  940 	call	_GPIO_ReadInputPin
+      00022F 5B 03            [ 2]  941 	addw	sp, #3
+                           000231   942 	Smenu$process_button$186 ==.
+                                    943 ; genIfx
+      000231 4D               [ 1]  944 	tnz	a
+      000232 27 03            [ 1]  945 	jreq	00195$
+      000234 CCr02r55         [ 2]  946 	jp	00120$
+      000237                        947 00195$:
+                           000237   948 	Smenu$process_button$187 ==.
+                           000237   949 	Smenu$process_button$188 ==.
+                                    950 ;	./user/menu.c: 152: btn[BTN_INC_IDX].debounce = BTN_DEBOUNCE;
+                                    951 ; genPlus
+      000237 AEr00r0E         [ 2]  952 	ldw	x, #(_btn + 0)+7
+                                    953 ; genPointerSet
+      00023A 90 AE 00 32      [ 2]  954 	ldw	y, #0x0032
+      00023E FF               [ 2]  955 	ldw	(x), y
+                           00023F   956 	Smenu$process_button$189 ==.
+                                    957 ;	./user/menu.c: 153: if (!menu.tmr) {
+                                    958 ; skipping iCode since result will be rematerialized
+                                    959 ; genPointerGet
+      00023F CEu00u05         [ 2]  960 	ldw	x, _menu+5
+                                    961 ; genIfx
+      000242 5D               [ 2]  962 	tnzw	x
+      000243 27 03            [ 1]  963 	jreq	00196$
+      000245 CCr02r55         [ 2]  964 	jp	00120$
+      000248                        965 00196$:
+                           000248   966 	Smenu$process_button$190 ==.
+                           000248   967 	Smenu$process_button$191 ==.
+                                    968 ;	./user/menu.c: 154: btn[BTN_INC_IDX].status = BTN_STAT_PRESSED;
+                                    969 ; genPointerSet
+      000248 1E 01            [ 2]  970 	ldw	x, (0x01, sp)
+      00024A A6 01            [ 1]  971 	ld	a, #0x01
+      00024C F7               [ 1]  972 	ld	(x), a
+                           00024D   973 	Smenu$process_button$192 ==.
+                                    974 ;	./user/menu.c: 155: menu.tmr = TIME_CHANGE_VALUE;
+                                    975 ; genPointerSet
+      00024D 35 64u00u06      [ 1]  976 	mov	_menu+6, #0x64
+      000251 35 00u00u05      [ 1]  977 	mov	_menu+5, #0x00
+                           000255   978 	Smenu$process_button$193 ==.
+                                    979 ; genLabel
+      000255                        980 00120$:
+                           000255   981 	Smenu$process_button$194 ==.
+                                    982 ;	./user/menu.c: 158: if (!btn_dec()) {
+                                    983 ; genIPush
+      000255 4B 20            [ 1]  984 	push	#0x20
+                           000257   985 	Smenu$process_button$195 ==.
+                                    986 ; genIPush
+      000257 4B 0A            [ 1]  987 	push	#0x0a
+                           000259   988 	Smenu$process_button$196 ==.
+      000259 4B 50            [ 1]  989 	push	#0x50
+                           00025B   990 	Smenu$process_button$197 ==.
+                                    991 ; genCall
+      00025B CDr00r00         [ 4]  992 	call	_GPIO_ReadInputPin
+      00025E 5B 03            [ 2]  993 	addw	sp, #3
+                           000260   994 	Smenu$process_button$198 ==.
+                                    995 ; genIfx
+      000260 4D               [ 1]  996 	tnz	a
+      000261 27 03            [ 1]  997 	jreq	00197$
+      000263 CCr02r84         [ 2]  998 	jp	00125$
+      000266                        999 00197$:
+                           000266  1000 	Smenu$process_button$199 ==.
+                           000266  1001 	Smenu$process_button$200 ==.
+                                   1002 ;	./user/menu.c: 159: btn[BTN_DEC_IDX].debounce = BTN_DEBOUNCE;
+                                   1003 ; genPlus
+      000266 AEr00r0B         [ 2] 1004 	ldw	x, #(_btn + 0)+4
+                                   1005 ; genPointerSet
+      000269 90 AE 00 32      [ 2] 1006 	ldw	y, #0x0032
+      00026D FF               [ 2] 1007 	ldw	(x), y
+                           00026E  1008 	Smenu$process_button$201 ==.
+                                   1009 ;	./user/menu.c: 160: if (!menu.tmr) {
+                                   1010 ; skipping iCode since result will be rematerialized
+                                   1011 ; genPointerGet
+      00026E CEu00u05         [ 2] 1012 	ldw	x, _menu+5
+                                   1013 ; genIfx
+      000271 5D               [ 2] 1014 	tnzw	x
+      000272 27 03            [ 1] 1015 	jreq	00198$
+      000274 CCr02r84         [ 2] 1016 	jp	00125$
+      000277                       1017 00198$:
+                           000277  1018 	Smenu$process_button$202 ==.
+                           000277  1019 	Smenu$process_button$203 ==.
+                                   1020 ;	./user/menu.c: 161: btn[BTN_DEC_IDX].status = BTN_STAT_PRESSED;
+                                   1021 ; genPointerSet
+      000277 1E 03            [ 2] 1022 	ldw	x, (0x03, sp)
+      000279 A6 01            [ 1] 1023 	ld	a, #0x01
+      00027B F7               [ 1] 1024 	ld	(x), a
+                           00027C  1025 	Smenu$process_button$204 ==.
+                                   1026 ;	./user/menu.c: 162: menu.tmr = TIME_CHANGE_VALUE;
+                                   1027 ; genPointerSet
+      00027C 35 64u00u06      [ 1] 1028 	mov	_menu+6, #0x64
+      000280 35 00u00u05      [ 1] 1029 	mov	_menu+5, #0x00
+                           000284  1030 	Smenu$process_button$205 ==.
+                                   1031 ; genLabel
+      000284                       1032 00125$:
+                           000284  1033 	Smenu$process_button$206 ==.
+                                   1034 ;	./user/menu.c: 166: }
+                                   1035 ; genEndFunction
+      000284 5B 04            [ 2] 1036 	addw	sp, #4
+                           000286  1037 	Smenu$process_button$207 ==.
+                           000286  1038 	Smenu$process_button$208 ==.
+                           000286  1039 	XG$process_button$0$0 ==.
+      000286 81               [ 4] 1040 	ret
+                           000287  1041 	Smenu$process_button$209 ==.
+                           000287  1042 	Smenu$task_menu$210 ==.
+                                   1043 ;	./user/menu.c: 168: void task_menu(void)
+                                   1044 ; genLabel
+                                   1045 ;	-----------------------------------------
+                                   1046 ;	 function task_menu
+                                   1047 ;	-----------------------------------------
+                                   1048 ;	Register assignment might be sub-optimal.
+                                   1049 ;	Stack space usage: 0 bytes.
+      000287                       1050 _task_menu:
+                           000287  1051 	Smenu$task_menu$211 ==.
+                           000287  1052 	Smenu$task_menu$212 ==.
+                                   1053 ;	./user/menu.c: 173: process_button();
+                                   1054 ; genCall
+      000287 CDr01rA2         [ 4] 1055 	call	_process_button
+                           00028A  1056 	Smenu$task_menu$213 ==.
+                                   1057 ;	./user/menu.c: 175: if (!tick)
+                                   1058 ; genIfx
+      00028A 72 5Du00u00      [ 1] 1059 	tnz	_tick+0
+      00028E 27 03            [ 1] 1060 	jreq	00117$
+      000290 CCr02r96         [ 2] 1061 	jp	00102$
+      000293                       1062 00117$:
+                           000293  1063 	Smenu$task_menu$214 ==.
+                                   1064 ;	./user/menu.c: 176: return;
+                                   1065 ; genReturn
+      000293 CCr02rC1         [ 2] 1066 	jp	00105$
+                                   1067 ; genLabel
+      000296                       1068 00102$:
+                           000296  1069 	Smenu$task_menu$215 ==.
+                                   1070 ;	./user/menu.c: 178: if (menu.write)
+                                   1071 ; skipping iCode since result will be rematerialized
+                                   1072 ; skipping iCode since result will be rematerialized
+                                   1073 ; genPointerGet
+      000296 C6u00u02         [ 1] 1074 	ld	a, _menu+2
+                                   1075 ; genIfx
+      000299 4D               [ 1] 1076 	tnz	a
+      00029A 26 03            [ 1] 1077 	jrne	00118$
+      00029C CCr02rA2         [ 2] 1078 	jp	00104$
+      00029F                       1079 00118$:
+                           00029F  1080 	Smenu$task_menu$216 ==.
+                                   1081 ;	./user/menu.c: 179: set_menu_value();
+                                   1082 ; genCall
+      00029F CDr00r65         [ 4] 1083 	call	_set_menu_value
+                                   1084 ; genLabel
+      0002A2                       1085 00104$:
+                           0002A2  1086 	Smenu$task_menu$217 ==.
+                                   1087 ;	./user/menu.c: 182: menu.edit = 1;
+                                   1088 ; genPlus
+      0002A2 AEr00r01         [ 2] 1089 	ldw	x, #(_menu + 0)+1
+                                   1090 ; genPointerSet
+      0002A5 A6 01            [ 1] 1091 	ld	a, #0x01
+      0002A7 F7               [ 1] 1092 	ld	(x), a
+                           0002A8  1093 	Smenu$task_menu$218 ==.
+                                   1094 ;	./user/menu.c: 184: set_display_value(menu.value, 1);//par[menu.idx].dp);
+                                   1095 ; genPlus
+      0002A8 AEr00r03         [ 2] 1096 	ldw	x, #(_menu + 0)+3
+                                   1097 ; genPointerGet
+      0002AB 90 93            [ 1] 1098 	ldw	y, x
+      0002AD 90 FE            [ 2] 1099 	ldw	y, (y)
+                                   1100 ; genIPush
+      0002AF 89               [ 2] 1101 	pushw	x
+                           0002B0  1102 	Smenu$task_menu$219 ==.
+      0002B0 4B 01            [ 1] 1103 	push	#0x01
+                           0002B2  1104 	Smenu$task_menu$220 ==.
+                                   1105 ; genIPush
+      0002B2 90 89            [ 2] 1106 	pushw	y
+                           0002B4  1107 	Smenu$task_menu$221 ==.
+                                   1108 ; genCall
+      0002B4 CDr00r00         [ 4] 1109 	call	_set_display_value
+      0002B7 5B 03            [ 2] 1110 	addw	sp, #3
+                           0002B9  1111 	Smenu$task_menu$222 ==.
+      0002B9 85               [ 2] 1112 	popw	x
+                           0002BA  1113 	Smenu$task_menu$223 ==.
+                           0002BA  1114 	Smenu$task_menu$224 ==.
+                                   1115 ;	./user/menu.c: 185: set_led_period(menu.value);
+                                   1116 ; genPointerGet
+      0002BA FE               [ 2] 1117 	ldw	x, (x)
+                                   1118 ; genIPush
+      0002BB 89               [ 2] 1119 	pushw	x
+                           0002BC  1120 	Smenu$task_menu$225 ==.
+                                   1121 ; genCall
+      0002BC CDr00r00         [ 4] 1122 	call	_set_led_period
+      0002BF 5B 02            [ 2] 1123 	addw	sp, #2
+                           0002C1  1124 	Smenu$task_menu$226 ==.
+                                   1125 ; genLabel
+      0002C1                       1126 00105$:
+                           0002C1  1127 	Smenu$task_menu$227 ==.
+                                   1128 ;	./user/menu.c: 187: }
+                                   1129 ; genEndFunction
+                           0002C1  1130 	Smenu$task_menu$228 ==.
+                           0002C1  1131 	XG$task_menu$0$0 ==.
+      0002C1 81               [ 4] 1132 	ret
+                           0002C2  1133 	Smenu$task_menu$229 ==.
+                                   1134 	.area CODE
+                                   1135 	.area CONST
+                           000000  1136 Fmenu$par$0_0$0 == .
+      000000                       1137 _par:
+      000000 50                    1138 	.db #0x50	; 80	'P'
+      000001 00                    1139 	.db #0x00	; 0
+      000002 41                    1140 	.db #0x41	; 65	'A'
+      000003 01                    1141 	.db #0x01	; 1
+      000004 43                    1142 	.db #0x43	; 67	'C'
+      000005 01                    1143 	.db #0x01	; 1
+      000006 46                    1144 	.db #0x46	; 70	'F'
+      000007 00                    1145 	.db #0x00	; 0
+      000008 48                    1146 	.db #0x48	; 72	'H'
+      000009 00                    1147 	.db #0x00	; 0
+      00000A 4C                    1148 	.db #0x4c	; 76	'L'
+      00000B 01                    1149 	.db #0x01	; 1
+      00000C 55                    1150 	.db #0x55	; 85	'U'
+      00000D 00                    1151 	.db #0x00	; 0
+      00000E 45                    1152 	.db #0x45	; 69	'E'
+      00000F 01                    1153 	.db #0x01	; 1
+                                   1154 	.area INITIALIZER
+                                   1155 	.area CABS (ABS)
+                                   1156 
+                                   1157 	.area .debug_line (NOLOAD)
+      000000 00 00 03 71           1158 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                       1159 Ldebug_line_start:
+      000004 00 02                 1160 	.dw	2
+      000006 00 00 00 B1           1161 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                    1162 	.db	1
+      00000B 01                    1163 	.db	1
+      00000C FB                    1164 	.db	-5
+      00000D 0F                    1165 	.db	15
+      00000E 0A                    1166 	.db	10
+      00000F 00                    1167 	.db	0
+      000010 01                    1168 	.db	1
+      000011 01                    1169 	.db	1
+      000012 01                    1170 	.db	1
+      000013 01                    1171 	.db	1
+      000014 00                    1172 	.db	0
+      000015 00                    1173 	.db	0
+      000016 00                    1174 	.db	0
+      000017 01                    1175 	.db	1
+      000018 2F 75 73 72 2F 6C 6F  1176 	.ascii "/usr/local/bin/../share/sdcc/include/stm8"
+             63 61 6C 2F 62 69 6E
+             2F 2E 2E 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65 2F 73 74 6D 38
+      000041 00                    1177 	.db	0
+      000042 2F 75 73 72 2F 6C 6F  1178 	.ascii "/usr/local/share/sdcc/include/stm8"
+             63 61 6C 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65 2F 73 74 6D 38
+      000064 00                    1179 	.db	0
+      000065 2F 75 73 72 2F 6C 6F  1180 	.ascii "/usr/local/bin/../share/sdcc/include"
+             63 61 6C 2F 62 69 6E
+             2F 2E 2E 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65
+      000089 00                    1181 	.db	0
+      00008A 2F 75 73 72 2F 6C 6F  1182 	.ascii "/usr/local/share/sdcc/include"
+             63 61 6C 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65
+      0000A7 00                    1183 	.db	0
+      0000A8 00                    1184 	.db	0
+      0000A9 2E 2F 75 73 65 72 2F  1185 	.ascii "./user/menu.c"
+             6D 65 6E 75 2E 63
+      0000B6 00                    1186 	.db	0
+      0000B7 00                    1187 	.uleb128	0
+      0000B8 00                    1188 	.uleb128	0
+      0000B9 00                    1189 	.uleb128	0
+      0000BA 00                    1190 	.db	0
+      0000BB                       1191 Ldebug_line_stmt:
+      0000BB 00                    1192 	.db	0
+      0000BC 05                    1193 	.uleb128	5
+      0000BD 02                    1194 	.db	2
+      0000BE 00 00r00r00           1195 	.dw	0,(Smenu$init_menu$0)
+      0000C2 03                    1196 	.db	3
+      0000C3 10                    1197 	.sleb128	16
+      0000C4 01                    1198 	.db	1
+      0000C5 09                    1199 	.db	9
+      0000C6 00 00                 1200 	.dw	Smenu$init_menu$2-Smenu$init_menu$0
+      0000C8 03                    1201 	.db	3
+      0000C9 03                    1202 	.sleb128	3
+      0000CA 01                    1203 	.db	1
+      0000CB 09                    1204 	.db	9
+      0000CC 00 0D                 1205 	.dw	Smenu$init_menu$8-Smenu$init_menu$2
+      0000CE 03                    1206 	.db	3
+      0000CF 01                    1207 	.sleb128	1
+      0000D0 01                    1208 	.db	1
+      0000D1 09                    1209 	.db	9
+      0000D2 00 0D                 1210 	.dw	Smenu$init_menu$14-Smenu$init_menu$8
+      0000D4 03                    1211 	.db	3
+      0000D5 01                    1212 	.sleb128	1
+      0000D6 01                    1213 	.db	1
+      0000D7 09                    1214 	.db	9
+      0000D8 00 0D                 1215 	.dw	Smenu$init_menu$20-Smenu$init_menu$14
+      0000DA 03                    1216 	.db	3
+      0000DB 02                    1217 	.sleb128	2
+      0000DC 01                    1218 	.db	1
+      0000DD 09                    1219 	.db	9
+      0000DE 00 03                 1220 	.dw	Smenu$init_menu$21-Smenu$init_menu$20
+      0000E0 03                    1221 	.db	3
+      0000E1 02                    1222 	.sleb128	2
+      0000E2 01                    1223 	.db	1
+      0000E3 09                    1224 	.db	9
+      0000E4 00 01                 1225 	.dw	Smenu$init_menu$22-Smenu$init_menu$21
+      0000E6 03                    1226 	.db	3
+      0000E7 01                    1227 	.sleb128	1
+      0000E8 01                    1228 	.db	1
+      0000E9 09                    1229 	.db	9
+      0000EA 00 09                 1230 	.dw	Smenu$init_menu$26-Smenu$init_menu$22
+      0000EC 03                    1231 	.db	3
+      0000ED 01                    1232 	.sleb128	1
+      0000EE 01                    1233 	.db	1
+      0000EF 09                    1234 	.db	9
+      0000F0 00 06                 1235 	.dw	Smenu$init_menu$29-Smenu$init_menu$26
+      0000F2 03                    1236 	.db	3
+      0000F3 01                    1237 	.sleb128	1
+      0000F4 01                    1238 	.db	1
+      0000F5 09                    1239 	.db	9
+      0000F6 00 09                 1240 	.dw	Smenu$init_menu$33-Smenu$init_menu$29
+      0000F8 03                    1241 	.db	3
+      0000F9 01                    1242 	.sleb128	1
+      0000FA 01                    1243 	.db	1
+      0000FB 09                    1244 	.db	9
+      0000FC 00 01                 1245 	.dw	Smenu$init_menu$34-Smenu$init_menu$33
+      0000FE 03                    1246 	.db	3
+      0000FF 02                    1247 	.sleb128	2
+      000100 01                    1248 	.db	1
+      000101 09                    1249 	.db	9
+      000102 00 04                 1250 	.dw	Smenu$init_menu$35-Smenu$init_menu$34
+      000104 03                    1251 	.db	3
+      000105 01                    1252 	.sleb128	1
+      000106 01                    1253 	.db	1
+      000107 09                    1254 	.db	9
+      000108 00 13                 1255 	.dw	Smenu$init_menu$40-Smenu$init_menu$35
+      00010A 03                    1256 	.db	3
+      00010B 02                    1257 	.sleb128	2
+      00010C 01                    1258 	.db	1
+      00010D 09                    1259 	.db	9
+      00010E 00 01                 1260 	.dw	1+Smenu$init_menu$41-Smenu$init_menu$40
+      000110 00                    1261 	.db	0
+      000111 01                    1262 	.uleb128	1
+      000112 01                    1263 	.db	1
+      000113 00                    1264 	.db	0
+      000114 05                    1265 	.uleb128	5
+      000115 02                    1266 	.db	2
+      000116 00 00r00r5C           1267 	.dw	0,(Smenu$get_menu_value$43)
+      00011A 03                    1268 	.db	3
+      00011B 24                    1269 	.sleb128	36
+      00011C 01                    1270 	.db	1
+      00011D 09                    1271 	.db	9
+      00011E 00 00                 1272 	.dw	Smenu$get_menu_value$45-Smenu$get_menu_value$43
+      000120 03                    1273 	.db	3
+      000121 03                    1274 	.sleb128	3
+      000122 01                    1275 	.db	1
+      000123 09                    1276 	.db	9
+      000124 00 08                 1277 	.dw	Smenu$get_menu_value$48-Smenu$get_menu_value$45
+      000126 03                    1278 	.db	3
+      000127 04                    1279 	.sleb128	4
+      000128 01                    1280 	.db	1
+      000129 09                    1281 	.db	9
+      00012A 00 01                 1282 	.dw	1+Smenu$get_menu_value$49-Smenu$get_menu_value$48
+      00012C 00                    1283 	.db	0
+      00012D 01                    1284 	.uleb128	1
+      00012E 01                    1285 	.db	1
+      00012F 00                    1286 	.db	0
+      000130 05                    1287 	.uleb128	5
+      000131 02                    1288 	.db	2
+      000132 00 00r00r65           1289 	.dw	0,(Smenu$set_menu_value$51)
+      000136 03                    1290 	.db	3
+      000137 2D                    1291 	.sleb128	45
+      000138 01                    1292 	.db	1
+      000139 09                    1293 	.db	9
+      00013A 00 00                 1294 	.dw	Smenu$set_menu_value$53-Smenu$set_menu_value$51
+      00013C 03                    1295 	.db	3
+      00013D 03                    1296 	.sleb128	3
+      00013E 01                    1297 	.db	1
+      00013F 09                    1298 	.db	9
+      000140 00 0D                 1299 	.dw	Smenu$set_menu_value$57-Smenu$set_menu_value$53
+      000142 03                    1300 	.db	3
+      000143 01                    1301 	.sleb128	1
+      000144 01                    1302 	.db	1
+      000145 09                    1303 	.db	9
+      000146 00 04                 1304 	.dw	Smenu$set_menu_value$58-Smenu$set_menu_value$57
+      000148 03                    1305 	.db	3
+      000149 03                    1306 	.sleb128	3
+      00014A 01                    1307 	.db	1
+      00014B 09                    1308 	.db	9
+      00014C 00 01                 1309 	.dw	1+Smenu$set_menu_value$59-Smenu$set_menu_value$58
+      00014E 00                    1310 	.db	0
+      00014F 01                    1311 	.uleb128	1
+      000150 01                    1312 	.db	1
+      000151 00                    1313 	.db	0
+      000152 05                    1314 	.uleb128	5
+      000153 02                    1315 	.db	2
+      000154 00 00r00r77           1316 	.dw	0,(Smenu$tmr_menu$61)
+      000158 03                    1317 	.db	3
+      000159 36                    1318 	.sleb128	54
+      00015A 01                    1319 	.db	1
+      00015B 09                    1320 	.db	9
+      00015C 00 00                 1321 	.dw	Smenu$tmr_menu$63-Smenu$tmr_menu$61
+      00015E 03                    1322 	.db	3
+      00015F 03                    1323 	.sleb128	3
+      000160 01                    1324 	.db	1
+      000161 09                    1325 	.db	9
+      000162 00 0D                 1326 	.dw	Smenu$tmr_menu$64-Smenu$tmr_menu$63
+      000164 03                    1327 	.db	3
+      000165 01                    1328 	.sleb128	1
+      000166 01                    1329 	.db	1
+      000167 09                    1330 	.db	9
+      000168 00 0F                 1331 	.dw	Smenu$tmr_menu$65-Smenu$tmr_menu$64
+      00016A 03                    1332 	.db	3
+      00016B 01                    1333 	.sleb128	1
+      00016C 01                    1334 	.db	1
+      00016D 09                    1335 	.db	9
+      00016E 00 0F                 1336 	.dw	Smenu$tmr_menu$66-Smenu$tmr_menu$65
+      000170 03                    1337 	.db	3
+      000171 01                    1338 	.sleb128	1
+      000172 01                    1339 	.db	1
+      000173 09                    1340 	.db	9
+      000174 00 0F                 1341 	.dw	Smenu$tmr_menu$67-Smenu$tmr_menu$66
+      000176 03                    1342 	.db	3
+      000177 02                    1343 	.sleb128	2
+      000178 01                    1344 	.db	1
+      000179 09                    1345 	.db	9
+      00017A 00 01                 1346 	.dw	1+Smenu$tmr_menu$68-Smenu$tmr_menu$67
+      00017C 00                    1347 	.db	0
+      00017D 01                    1348 	.uleb128	1
+      00017E 01                    1349 	.db	1
+      00017F 00                    1350 	.db	0
+      000180 05                    1351 	.uleb128	5
+      000181 02                    1352 	.db	2
+      000182 00 00r00rB2           1353 	.dw	0,(Smenu$inc_option$70)
+      000186 03                    1354 	.db	3
+      000187 C0 00                 1355 	.sleb128	64
+      000189 01                    1356 	.db	1
+      00018A 09                    1357 	.db	9
+      00018B 00 00                 1358 	.dw	Smenu$inc_option$72-Smenu$inc_option$70
+      00018D 03                    1359 	.db	3
+      00018E 03                    1360 	.sleb128	3
+      00018F 01                    1361 	.db	1
+      000190 09                    1362 	.db	9
+      000191 00 13                 1363 	.dw	Smenu$inc_option$77-Smenu$inc_option$72
+      000193 03                    1364 	.db	3
+      000194 02                    1365 	.sleb128	2
+      000195 01                    1366 	.db	1
+      000196 09                    1367 	.db	9
+      000197 00 01                 1368 	.dw	1+Smenu$inc_option$78-Smenu$inc_option$77
+      000199 00                    1369 	.db	0
+      00019A 01                    1370 	.uleb128	1
+      00019B 01                    1371 	.db	1
+      00019C 00                    1372 	.db	0
+      00019D 05                    1373 	.uleb128	5
+      00019E 02                    1374 	.db	2
+      00019F 00 00r00rC6           1375 	.dw	0,(Smenu$dec_option$80)
+      0001A3 03                    1376 	.db	3
+      0001A4 C7 00                 1377 	.sleb128	71
+      0001A6 01                    1378 	.db	1
+      0001A7 09                    1379 	.db	9
+      0001A8 00 00                 1380 	.dw	Smenu$dec_option$82-Smenu$dec_option$80
+      0001AA 03                    1381 	.db	3
+      0001AB 03                    1382 	.sleb128	3
+      0001AC 01                    1383 	.db	1
+      0001AD 09                    1384 	.db	9
+      0001AE 00 13                 1385 	.dw	Smenu$dec_option$87-Smenu$dec_option$82
+      0001B0 03                    1386 	.db	3
+      0001B1 02                    1387 	.sleb128	2
+      0001B2 01                    1388 	.db	1
+      0001B3 09                    1389 	.db	9
+      0001B4 00 01                 1390 	.dw	1+Smenu$dec_option$88-Smenu$dec_option$87
+      0001B6 00                    1391 	.db	0
+      0001B7 01                    1392 	.uleb128	1
+      0001B8 01                    1393 	.db	1
+      0001B9 00                    1394 	.db	0
+      0001BA 05                    1395 	.uleb128	5
+      0001BB 02                    1396 	.db	2
+      0001BC 00 00r00rDA           1397 	.dw	0,(Smenu$inc_value$90)
+      0001C0 03                    1398 	.db	3
+      0001C1 CE 00                 1399 	.sleb128	78
+      0001C3 01                    1400 	.db	1
+      0001C4 09                    1401 	.db	9
+      0001C5 00 00                 1402 	.dw	Smenu$inc_value$92-Smenu$inc_value$90
+      0001C7 03                    1403 	.db	3
+      0001C8 03                    1404 	.sleb128	3
+      0001C9 01                    1405 	.db	1
+      0001CA 09                    1406 	.db	9
+      0001CB 00 0F                 1407 	.dw	Smenu$inc_value$93-Smenu$inc_value$92
+      0001CD 03                    1408 	.db	3
+      0001CE 01                    1409 	.sleb128	1
+      0001CF 01                    1410 	.db	1
+      0001D0 09                    1411 	.db	9
+      0001D1 00 06                 1412 	.dw	Smenu$inc_value$94-Smenu$inc_value$93
+      0001D3 03                    1413 	.db	3
+      0001D4 02                    1414 	.sleb128	2
+      0001D5 01                    1415 	.db	1
+      0001D6 09                    1416 	.db	9
+      0001D7 00 01                 1417 	.dw	1+Smenu$inc_value$95-Smenu$inc_value$94
+      0001D9 00                    1418 	.db	0
+      0001DA 01                    1419 	.uleb128	1
+      0001DB 01                    1420 	.db	1
+      0001DC 00                    1421 	.db	0
+      0001DD 05                    1422 	.uleb128	5
+      0001DE 02                    1423 	.db	2
+      0001DF 00 00r00rF0           1424 	.dw	0,(Smenu$dec_value$97)
+      0001E3 03                    1425 	.db	3
+      0001E4 D6 00                 1426 	.sleb128	86
+      0001E6 01                    1427 	.db	1
+      0001E7 09                    1428 	.db	9
+      0001E8 00 00                 1429 	.dw	Smenu$dec_value$99-Smenu$dec_value$97
+      0001EA 03                    1430 	.db	3
+      0001EB 03                    1431 	.sleb128	3
+      0001EC 01                    1432 	.db	1
+      0001ED 09                    1433 	.db	9
+      0001EE 00 09                 1434 	.dw	Smenu$dec_value$101-Smenu$dec_value$99
+      0001F0 03                    1435 	.db	3
+      0001F1 01                    1436 	.sleb128	1
+      0001F2 01                    1437 	.db	1
+      0001F3 09                    1438 	.db	9
+      0001F4 00 07                 1439 	.dw	Smenu$dec_value$104-Smenu$dec_value$101
+      0001F6 03                    1440 	.db	3
+      0001F7 02                    1441 	.sleb128	2
+      0001F8 01                    1442 	.db	1
+      0001F9 09                    1443 	.db	9
+      0001FA 00 08                 1444 	.dw	Smenu$dec_value$106-Smenu$dec_value$104
+      0001FC 03                    1445 	.db	3
+      0001FD 03                    1446 	.sleb128	3
+      0001FE 01                    1447 	.db	1
+      0001FF 09                    1448 	.db	9
+      000200 00 01                 1449 	.dw	1+Smenu$dec_value$107-Smenu$dec_value$106
+      000202 00                    1450 	.db	0
+      000203 01                    1451 	.uleb128	1
+      000204 01                    1452 	.db	1
+      000205 00                    1453 	.db	0
+      000206 05                    1454 	.uleb128	5
+      000207 02                    1455 	.db	2
+      000208 00 00r01r09           1456 	.dw	0,(Smenu$interrupt_buttons$109)
+      00020C 03                    1457 	.db	3
+      00020D E1 00                 1458 	.sleb128	97
+      00020F 01                    1459 	.db	1
+      000210 09                    1460 	.db	9
+      000211 00 02                 1461 	.dw	Smenu$interrupt_buttons$112-Smenu$interrupt_buttons$109
+      000213 03                    1462 	.db	3
+      000214 04                    1463 	.sleb128	4
+      000215 01                    1464 	.db	1
+      000216 09                    1465 	.db	9
+      000217 00 10                 1466 	.dw	Smenu$interrupt_buttons$117-Smenu$interrupt_buttons$112
+      000219 03                    1467 	.db	3
+      00021A 01                    1468 	.sleb128	1
+      00021B 01                    1469 	.db	1
+      00021C 09                    1470 	.db	9
+      00021D 00 0C                 1471 	.dw	Smenu$interrupt_buttons$119-Smenu$interrupt_buttons$117
+      00021F 03                    1472 	.db	3
+      000220 01                    1473 	.sleb128	1
+      000221 01                    1474 	.db	1
+      000222 09                    1475 	.db	9
+      000223 00 06                 1476 	.dw	Smenu$interrupt_buttons$120-Smenu$interrupt_buttons$119
+      000225 03                    1477 	.db	3
+      000226 01                    1478 	.sleb128	1
+      000227 01                    1479 	.db	1
+      000228 09                    1480 	.db	9
+      000229 00 07                 1481 	.dw	Smenu$interrupt_buttons$122-Smenu$interrupt_buttons$120
+      00022B 03                    1482 	.db	3
+      00022C 03                    1483 	.sleb128	3
+      00022D 01                    1484 	.db	1
+      00022E 09                    1485 	.db	9
+      00022F 00 10                 1486 	.dw	Smenu$interrupt_buttons$127-Smenu$interrupt_buttons$122
+      000231 03                    1487 	.db	3
+      000232 01                    1488 	.sleb128	1
+      000233 01                    1489 	.db	1
+      000234 09                    1490 	.db	9
+      000235 00 11                 1491 	.dw	Smenu$interrupt_buttons$129-Smenu$interrupt_buttons$127
+      000237 03                    1492 	.db	3
+      000238 01                    1493 	.sleb128	1
+      000239 01                    1494 	.db	1
+      00023A 09                    1495 	.db	9
+      00023B 00 06                 1496 	.dw	Smenu$interrupt_buttons$130-Smenu$interrupt_buttons$129
+      00023D 03                    1497 	.db	3
+      00023E 01                    1498 	.sleb128	1
+      00023F 01                    1499 	.db	1
+      000240 09                    1500 	.db	9
+      000241 00 05                 1501 	.dw	Smenu$interrupt_buttons$131-Smenu$interrupt_buttons$130
+      000243 03                    1502 	.db	3
+      000244 01                    1503 	.sleb128	1
+      000245 01                    1504 	.db	1
+      000246 09                    1505 	.db	9
+      000247 00 0B                 1506 	.dw	Smenu$interrupt_buttons$133-Smenu$interrupt_buttons$131
+      000249 03                    1507 	.db	3
+      00024A 03                    1508 	.sleb128	3
+      00024B 01                    1509 	.db	1
+      00024C 09                    1510 	.db	9
+      00024D 00 10                 1511 	.dw	Smenu$interrupt_buttons$138-Smenu$interrupt_buttons$133
+      00024F 03                    1512 	.db	3
+      000250 01                    1513 	.sleb128	1
+      000251 01                    1514 	.db	1
+      000252 09                    1515 	.db	9
+      000253 00 11                 1516 	.dw	Smenu$interrupt_buttons$140-Smenu$interrupt_buttons$138
+      000255 03                    1517 	.db	3
+      000256 01                    1518 	.sleb128	1
+      000257 01                    1519 	.db	1
+      000258 09                    1520 	.db	9
+      000259 00 06                 1521 	.dw	Smenu$interrupt_buttons$141-Smenu$interrupt_buttons$140
+      00025B 03                    1522 	.db	3
+      00025C 01                    1523 	.sleb128	1
+      00025D 01                    1524 	.db	1
+      00025E 09                    1525 	.db	9
+      00025F 00 05                 1526 	.dw	Smenu$interrupt_buttons$142-Smenu$interrupt_buttons$141
+      000261 03                    1527 	.db	3
+      000262 01                    1528 	.sleb128	1
+      000263 01                    1529 	.db	1
+      000264 09                    1530 	.db	9
+      000265 00 08                 1531 	.dw	Smenu$interrupt_buttons$144-Smenu$interrupt_buttons$142
+      000267 03                    1532 	.db	3
+      000268 04                    1533 	.sleb128	4
+      000269 01                    1534 	.db	1
+      00026A 09                    1535 	.db	9
+      00026B 00 03                 1536 	.dw	1+Smenu$interrupt_buttons$146-Smenu$interrupt_buttons$144
+      00026D 00                    1537 	.db	0
+      00026E 01                    1538 	.uleb128	1
+      00026F 01                    1539 	.db	1
+      000270 00                    1540 	.db	0
+      000271 05                    1541 	.uleb128	5
+      000272 02                    1542 	.db	2
+      000273 00 00r01rA2           1543 	.dw	0,(Smenu$process_button$148)
+      000277 03                    1544 	.db	3
+      000278 FC 00                 1545 	.sleb128	124
+      00027A 01                    1546 	.db	1
+      00027B 09                    1547 	.db	9
+      00027C 00 02                 1548 	.dw	Smenu$process_button$151-Smenu$process_button$148
+      00027E 03                    1549 	.db	3
+      00027F 03                    1550 	.sleb128	3
+      000280 01                    1551 	.db	1
+      000281 09                    1552 	.db	9
+      000282 00 0D                 1553 	.dw	Smenu$process_button$154-Smenu$process_button$151
+      000284 03                    1554 	.db	3
+      000285 01                    1555 	.sleb128	1
+      000286 01                    1556 	.db	1
+      000287 09                    1557 	.db	9
+      000288 00 01                 1558 	.dw	Smenu$process_button$155-Smenu$process_button$154
+      00028A 03                    1559 	.db	3
+      00028B 01                    1560 	.sleb128	1
+      00028C 01                    1561 	.db	1
+      00028D 09                    1562 	.db	9
+      00028E 00 09                 1563 	.dw	Smenu$process_button$156-Smenu$process_button$155
+      000290 03                    1564 	.db	3
+      000291 01                    1565 	.sleb128	1
+      000292 01                    1566 	.db	1
+      000293 09                    1567 	.db	9
+      000294 00 06                 1568 	.dw	Smenu$process_button$158-Smenu$process_button$156
+      000296 03                    1569 	.db	3
+      000297 03                    1570 	.sleb128	3
+      000298 01                    1571 	.db	1
+      000299 09                    1572 	.db	9
+      00029A 00 11                 1573 	.dw	Smenu$process_button$161-Smenu$process_button$158
+      00029C 03                    1574 	.db	3
+      00029D 01                    1575 	.sleb128	1
+      00029E 01                    1576 	.db	1
+      00029F 09                    1577 	.db	9
+      0002A0 00 03                 1578 	.dw	Smenu$process_button$162-Smenu$process_button$161
+      0002A2 03                    1579 	.db	3
+      0002A3 01                    1580 	.sleb128	1
+      0002A4 01                    1581 	.db	1
+      0002A5 09                    1582 	.db	9
+      0002A6 00 09                 1583 	.dw	Smenu$process_button$163-Smenu$process_button$162
+      0002A8 03                    1584 	.db	3
+      0002A9 01                    1585 	.sleb128	1
+      0002AA 01                    1586 	.db	1
+      0002AB 09                    1587 	.db	9
+      0002AC 00 06                 1588 	.dw	Smenu$process_button$164-Smenu$process_button$163
+      0002AE 03                    1589 	.db	3
+      0002AF 02                    1590 	.sleb128	2
+      0002B0 01                    1591 	.db	1
+      0002B1 09                    1592 	.db	9
+      0002B2 00 03                 1593 	.dw	Smenu$process_button$166-Smenu$process_button$164
+      0002B4 03                    1594 	.db	3
+      0002B5 02                    1595 	.sleb128	2
+      0002B6 01                    1596 	.db	1
+      0002B7 09                    1597 	.db	9
+      0002B8 00 11                 1598 	.dw	Smenu$process_button$169-Smenu$process_button$166
+      0002BA 03                    1599 	.db	3
+      0002BB 01                    1600 	.sleb128	1
+      0002BC 01                    1601 	.db	1
+      0002BD 09                    1602 	.db	9
+      0002BE 00 03                 1603 	.dw	Smenu$process_button$170-Smenu$process_button$169
+      0002C0 03                    1604 	.db	3
+      0002C1 01                    1605 	.sleb128	1
+      0002C2 01                    1606 	.db	1
+      0002C3 09                    1607 	.db	9
+      0002C4 00 09                 1608 	.dw	Smenu$process_button$171-Smenu$process_button$170
+      0002C6 03                    1609 	.db	3
+      0002C7 01                    1610 	.sleb128	1
+      0002C8 01                    1611 	.db	1
+      0002C9 09                    1612 	.db	9
+      0002CA 00 06                 1613 	.dw	Smenu$process_button$172-Smenu$process_button$171
+      0002CC 03                    1614 	.db	3
+      0002CD 02                    1615 	.sleb128	2
+      0002CE 01                    1616 	.db	1
+      0002CF 09                    1617 	.db	9
+      0002D0 00 03                 1618 	.dw	Smenu$process_button$174-Smenu$process_button$172
+      0002D2 03                    1619 	.db	3
+      0002D3 02                    1620 	.sleb128	2
+      0002D4 01                    1621 	.db	1
+      0002D5 09                    1622 	.db	9
+      0002D6 00 11                 1623 	.dw	Smenu$process_button$180-Smenu$process_button$174
+      0002D8 03                    1624 	.db	3
+      0002D9 01                    1625 	.sleb128	1
+      0002DA 01                    1626 	.db	1
+      0002DB 09                    1627 	.db	9
+      0002DC 00 08                 1628 	.dw	Smenu$process_button$182-Smenu$process_button$180
+      0002DE 03                    1629 	.db	3
+      0002DF 02                    1630 	.sleb128	2
+      0002E0 01                    1631 	.db	1
+      0002E1 09                    1632 	.db	9
+      0002E2 00 11                 1633 	.dw	Smenu$process_button$188-Smenu$process_button$182
+      0002E4 03                    1634 	.db	3
+      0002E5 01                    1635 	.sleb128	1
+      0002E6 01                    1636 	.db	1
+      0002E7 09                    1637 	.db	9
+      0002E8 00 08                 1638 	.dw	Smenu$process_button$189-Smenu$process_button$188
+      0002EA 03                    1639 	.db	3
+      0002EB 01                    1640 	.sleb128	1
+      0002EC 01                    1641 	.db	1
+      0002ED 09                    1642 	.db	9
+      0002EE 00 09                 1643 	.dw	Smenu$process_button$191-Smenu$process_button$189
+      0002F0 03                    1644 	.db	3
+      0002F1 01                    1645 	.sleb128	1
+      0002F2 01                    1646 	.db	1
+      0002F3 09                    1647 	.db	9
+      0002F4 00 05                 1648 	.dw	Smenu$process_button$192-Smenu$process_button$191
+      0002F6 03                    1649 	.db	3
+      0002F7 01                    1650 	.sleb128	1
+      0002F8 01                    1651 	.db	1
+      0002F9 09                    1652 	.db	9
+      0002FA 00 08                 1653 	.dw	Smenu$process_button$194-Smenu$process_button$192
+      0002FC 03                    1654 	.db	3
+      0002FD 03                    1655 	.sleb128	3
+      0002FE 01                    1656 	.db	1
+      0002FF 09                    1657 	.db	9
+      000300 00 11                 1658 	.dw	Smenu$process_button$200-Smenu$process_button$194
+      000302 03                    1659 	.db	3
+      000303 01                    1660 	.sleb128	1
+      000304 01                    1661 	.db	1
+      000305 09                    1662 	.db	9
+      000306 00 08                 1663 	.dw	Smenu$process_button$201-Smenu$process_button$200
+      000308 03                    1664 	.db	3
+      000309 01                    1665 	.sleb128	1
+      00030A 01                    1666 	.db	1
+      00030B 09                    1667 	.db	9
+      00030C 00 09                 1668 	.dw	Smenu$process_button$203-Smenu$process_button$201
+      00030E 03                    1669 	.db	3
+      00030F 01                    1670 	.sleb128	1
+      000310 01                    1671 	.db	1
+      000311 09                    1672 	.db	9
+      000312 00 05                 1673 	.dw	Smenu$process_button$204-Smenu$process_button$203
+      000314 03                    1674 	.db	3
+      000315 01                    1675 	.sleb128	1
+      000316 01                    1676 	.db	1
+      000317 09                    1677 	.db	9
+      000318 00 08                 1678 	.dw	Smenu$process_button$206-Smenu$process_button$204
+      00031A 03                    1679 	.db	3
+      00031B 04                    1680 	.sleb128	4
+      00031C 01                    1681 	.db	1
+      00031D 09                    1682 	.db	9
+      00031E 00 03                 1683 	.dw	1+Smenu$process_button$208-Smenu$process_button$206
+      000320 00                    1684 	.db	0
+      000321 01                    1685 	.uleb128	1
+      000322 01                    1686 	.db	1
+      000323 00                    1687 	.db	0
+      000324 05                    1688 	.uleb128	5
+      000325 02                    1689 	.db	2
+      000326 00 00r02r87           1690 	.dw	0,(Smenu$task_menu$210)
+      00032A 03                    1691 	.db	3
+      00032B A7 01                 1692 	.sleb128	167
+      00032D 01                    1693 	.db	1
+      00032E 09                    1694 	.db	9
+      00032F 00 00                 1695 	.dw	Smenu$task_menu$212-Smenu$task_menu$210
+      000331 03                    1696 	.db	3
+      000332 05                    1697 	.sleb128	5
+      000333 01                    1698 	.db	1
+      000334 09                    1699 	.db	9
+      000335 00 03                 1700 	.dw	Smenu$task_menu$213-Smenu$task_menu$212
+      000337 03                    1701 	.db	3
+      000338 02                    1702 	.sleb128	2
+      000339 01                    1703 	.db	1
+      00033A 09                    1704 	.db	9
+      00033B 00 09                 1705 	.dw	Smenu$task_menu$214-Smenu$task_menu$213
+      00033D 03                    1706 	.db	3
+      00033E 01                    1707 	.sleb128	1
+      00033F 01                    1708 	.db	1
+      000340 09                    1709 	.db	9
+      000341 00 03                 1710 	.dw	Smenu$task_menu$215-Smenu$task_menu$214
+      000343 03                    1711 	.db	3
+      000344 02                    1712 	.sleb128	2
+      000345 01                    1713 	.db	1
+      000346 09                    1714 	.db	9
+      000347 00 09                 1715 	.dw	Smenu$task_menu$216-Smenu$task_menu$215
+      000349 03                    1716 	.db	3
+      00034A 01                    1717 	.sleb128	1
+      00034B 01                    1718 	.db	1
+      00034C 09                    1719 	.db	9
+      00034D 00 03                 1720 	.dw	Smenu$task_menu$217-Smenu$task_menu$216
+      00034F 03                    1721 	.db	3
+      000350 03                    1722 	.sleb128	3
+      000351 01                    1723 	.db	1
+      000352 09                    1724 	.db	9
+      000353 00 06                 1725 	.dw	Smenu$task_menu$218-Smenu$task_menu$217
+      000355 03                    1726 	.db	3
+      000356 02                    1727 	.sleb128	2
+      000357 01                    1728 	.db	1
+      000358 09                    1729 	.db	9
+      000359 00 12                 1730 	.dw	Smenu$task_menu$224-Smenu$task_menu$218
+      00035B 03                    1731 	.db	3
+      00035C 01                    1732 	.sleb128	1
+      00035D 01                    1733 	.db	1
+      00035E 09                    1734 	.db	9
+      00035F 00 07                 1735 	.dw	Smenu$task_menu$227-Smenu$task_menu$224
+      000361 03                    1736 	.db	3
+      000362 02                    1737 	.sleb128	2
+      000363 01                    1738 	.db	1
+      000364 09                    1739 	.db	9
+      000365 00 01                 1740 	.dw	1+Smenu$task_menu$228-Smenu$task_menu$227
+      000367 00                    1741 	.db	0
+      000368 01                    1742 	.uleb128	1
+      000369 01                    1743 	.db	1
+      00036A 00                    1744 	.db	0
+      00036B 05                    1745 	.uleb128	5
+      00036C 02                    1746 	.db	2
+      00036D 00 00r00r00           1747 	.dw	0,(Smenu$task_menu$230)
+      000371 03                    1748 	.db	3
+      000372 AA 01                 1749 	.sleb128	170
+      000374 01                    1750 	.db	1
+      000375                       1751 Ldebug_line_end:
+                                   1752 
+                                   1753 	.area .debug_loc (NOLOAD)
+      000000                       1754 Ldebug_loc_start:
+      000000 00 00r02rC1           1755 	.dw	0,(Smenu$task_menu$226)
+      000004 00 00r02rC2           1756 	.dw	0,(Smenu$task_menu$229)
+      000008 00 02                 1757 	.dw	2
+      00000A 78                    1758 	.db	120
+      00000B 01                    1759 	.sleb128	1
+      00000C 00 00r02rBC           1760 	.dw	0,(Smenu$task_menu$225)
+      000010 00 00r02rC1           1761 	.dw	0,(Smenu$task_menu$226)
+      000014 00 02                 1762 	.dw	2
+      000016 78                    1763 	.db	120
+      000017 03                    1764 	.sleb128	3
+      000018 00 00r02rBA           1765 	.dw	0,(Smenu$task_menu$223)
+      00001C 00 00r02rBC           1766 	.dw	0,(Smenu$task_menu$225)
+      000020 00 02                 1767 	.dw	2
+      000022 78                    1768 	.db	120
+      000023 01                    1769 	.sleb128	1
+      000024 00 00r02rB9           1770 	.dw	0,(Smenu$task_menu$222)
+      000028 00 00r02rBA           1771 	.dw	0,(Smenu$task_menu$223)
+      00002C 00 02                 1772 	.dw	2
+      00002E 78                    1773 	.db	120
+      00002F 03                    1774 	.sleb128	3
+      000030 00 00r02rB4           1775 	.dw	0,(Smenu$task_menu$221)
+      000034 00 00r02rB9           1776 	.dw	0,(Smenu$task_menu$222)
+      000038 00 02                 1777 	.dw	2
+      00003A 78                    1778 	.db	120
+      00003B 06                    1779 	.sleb128	6
+      00003C 00 00r02rB2           1780 	.dw	0,(Smenu$task_menu$220)
+      000040 00 00r02rB4           1781 	.dw	0,(Smenu$task_menu$221)
+      000044 00 02                 1782 	.dw	2
+      000046 78                    1783 	.db	120
+      000047 04                    1784 	.sleb128	4
+      000048 00 00r02rB0           1785 	.dw	0,(Smenu$task_menu$219)
+      00004C 00 00r02rB2           1786 	.dw	0,(Smenu$task_menu$220)
+      000050 00 02                 1787 	.dw	2
+      000052 78                    1788 	.db	120
+      000053 03                    1789 	.sleb128	3
+      000054 00 00r02r87           1790 	.dw	0,(Smenu$task_menu$211)
+      000058 00 00r02rB0           1791 	.dw	0,(Smenu$task_menu$219)
+      00005C 00 02                 1792 	.dw	2
+      00005E 78                    1793 	.db	120
+      00005F 01                    1794 	.sleb128	1
+      000060 00 00 00 00           1795 	.dw	0,0
+      000064 00 00 00 00           1796 	.dw	0,0
+      000068 00 00r02r86           1797 	.dw	0,(Smenu$process_button$207)
+      00006C 00 00r02r87           1798 	.dw	0,(Smenu$process_button$209)
+      000070 00 02                 1799 	.dw	2
+      000072 78                    1800 	.db	120
+      000073 01                    1801 	.sleb128	1
+      000074 00 00r02r60           1802 	.dw	0,(Smenu$process_button$198)
+      000078 00 00r02r86           1803 	.dw	0,(Smenu$process_button$207)
+      00007C 00 02                 1804 	.dw	2
+      00007E 78                    1805 	.db	120
+      00007F 05                    1806 	.sleb128	5
+      000080 00 00r02r5B           1807 	.dw	0,(Smenu$process_button$197)
+      000084 00 00r02r60           1808 	.dw	0,(Smenu$process_button$198)
+      000088 00 02                 1809 	.dw	2
+      00008A 78                    1810 	.db	120
+      00008B 08                    1811 	.sleb128	8
+      00008C 00 00r02r59           1812 	.dw	0,(Smenu$process_button$196)
+      000090 00 00r02r5B           1813 	.dw	0,(Smenu$process_button$197)
+      000094 00 02                 1814 	.dw	2
+      000096 78                    1815 	.db	120
+      000097 07                    1816 	.sleb128	7
+      000098 00 00r02r57           1817 	.dw	0,(Smenu$process_button$195)
+      00009C 00 00r02r59           1818 	.dw	0,(Smenu$process_button$196)
+      0000A0 00 02                 1819 	.dw	2
+      0000A2 78                    1820 	.db	120
+      0000A3 06                    1821 	.sleb128	6
+      0000A4 00 00r02r31           1822 	.dw	0,(Smenu$process_button$186)
+      0000A8 00 00r02r57           1823 	.dw	0,(Smenu$process_button$195)
+      0000AC 00 02                 1824 	.dw	2
+      0000AE 78                    1825 	.db	120
+      0000AF 05                    1826 	.sleb128	5
+      0000B0 00 00r02r2C           1827 	.dw	0,(Smenu$process_button$185)
+      0000B4 00 00r02r31           1828 	.dw	0,(Smenu$process_button$186)
+      0000B8 00 02                 1829 	.dw	2
+      0000BA 78                    1830 	.db	120
+      0000BB 08                    1831 	.sleb128	8
+      0000BC 00 00r02r2A           1832 	.dw	0,(Smenu$process_button$184)
+      0000C0 00 00r02r2C           1833 	.dw	0,(Smenu$process_button$185)
+      0000C4 00 02                 1834 	.dw	2
+      0000C6 78                    1835 	.db	120
+      0000C7 07                    1836 	.sleb128	7
+      0000C8 00 00r02r28           1837 	.dw	0,(Smenu$process_button$183)
+      0000CC 00 00r02r2A           1838 	.dw	0,(Smenu$process_button$184)
+      0000D0 00 02                 1839 	.dw	2
+      0000D2 78                    1840 	.db	120
+      0000D3 06                    1841 	.sleb128	6
+      0000D4 00 00r02r18           1842 	.dw	0,(Smenu$process_button$178)
+      0000D8 00 00r02r28           1843 	.dw	0,(Smenu$process_button$183)
+      0000DC 00 02                 1844 	.dw	2
+      0000DE 78                    1845 	.db	120
+      0000DF 05                    1846 	.sleb128	5
+      0000E0 00 00r02r13           1847 	.dw	0,(Smenu$process_button$177)
+      0000E4 00 00r02r18           1848 	.dw	0,(Smenu$process_button$178)
+      0000E8 00 02                 1849 	.dw	2
+      0000EA 78                    1850 	.db	120
+      0000EB 08                    1851 	.sleb128	8
+      0000EC 00 00r02r11           1852 	.dw	0,(Smenu$process_button$176)
+      0000F0 00 00r02r13           1853 	.dw	0,(Smenu$process_button$177)
+      0000F4 00 02                 1854 	.dw	2
+      0000F6 78                    1855 	.db	120
+      0000F7 07                    1856 	.sleb128	7
+      0000F8 00 00r02r0F           1857 	.dw	0,(Smenu$process_button$175)
+      0000FC 00 00r02r11           1858 	.dw	0,(Smenu$process_button$176)
+      000100 00 02                 1859 	.dw	2
+      000102 78                    1860 	.db	120
+      000103 06                    1861 	.sleb128	6
+      000104 00 00r01rF8           1862 	.dw	0,(Smenu$process_button$167)
+      000108 00 00r02r0F           1863 	.dw	0,(Smenu$process_button$175)
+      00010C 00 02                 1864 	.dw	2
+      00010E 78                    1865 	.db	120
+      00010F 05                    1866 	.sleb128	5
+      000110 00 00r01rD2           1867 	.dw	0,(Smenu$process_button$159)
+      000114 00 00r01rF8           1868 	.dw	0,(Smenu$process_button$167)
+      000118 00 02                 1869 	.dw	2
+      00011A 78                    1870 	.db	120
+      00011B 05                    1871 	.sleb128	5
+      00011C 00 00r01rB1           1872 	.dw	0,(Smenu$process_button$152)
+      000120 00 00r01rD2           1873 	.dw	0,(Smenu$process_button$159)
+      000124 00 02                 1874 	.dw	2
+      000126 78                    1875 	.db	120
+      000127 05                    1876 	.sleb128	5
+      000128 00 00r01rA4           1877 	.dw	0,(Smenu$process_button$150)
+      00012C 00 00r01rB1           1878 	.dw	0,(Smenu$process_button$152)
+      000130 00 02                 1879 	.dw	2
+      000132 78                    1880 	.db	120
+      000133 05                    1881 	.sleb128	5
+      000134 00 00r01rA2           1882 	.dw	0,(Smenu$process_button$149)
+      000138 00 00r01rA4           1883 	.dw	0,(Smenu$process_button$150)
+      00013C 00 02                 1884 	.dw	2
+      00013E 78                    1885 	.db	120
+      00013F 01                    1886 	.sleb128	1
+      000140 00 00 00 00           1887 	.dw	0,0
+      000144 00 00 00 00           1888 	.dw	0,0
+      000148 00 00r01rA1           1889 	.dw	0,(Smenu$interrupt_buttons$145)
+      00014C 00 00r01rA2           1890 	.dw	0,(Smenu$interrupt_buttons$147)
+      000150 00 02                 1891 	.dw	2
+      000152 78                    1892 	.db	120
+      000153 01                    1893 	.sleb128	1
+      000154 00 00r01r74           1894 	.dw	0,(Smenu$interrupt_buttons$136)
+      000158 00 00r01rA1           1895 	.dw	0,(Smenu$interrupt_buttons$145)
+      00015C 00 02                 1896 	.dw	2
+      00015E 78                    1897 	.db	120
+      00015F 03                    1898 	.sleb128	3
+      000160 00 00r01r6F           1899 	.dw	0,(Smenu$interrupt_buttons$135)
+      000164 00 00r01r74           1900 	.dw	0,(Smenu$interrupt_buttons$136)
+      000168 00 02                 1901 	.dw	2
+      00016A 78                    1902 	.db	120
+      00016B 05                    1903 	.sleb128	5
+      00016C 00 00r01r6D           1904 	.dw	0,(Smenu$interrupt_buttons$134)
+      000170 00 00r01r6F           1905 	.dw	0,(Smenu$interrupt_buttons$135)
+      000174 00 02                 1906 	.dw	2
+      000176 78                    1907 	.db	120
+      000177 04                    1908 	.sleb128	4
+      000178 00 00r01r3D           1909 	.dw	0,(Smenu$interrupt_buttons$125)
+      00017C 00 00r01r6D           1910 	.dw	0,(Smenu$interrupt_buttons$134)
+      000180 00 02                 1911 	.dw	2
+      000182 78                    1912 	.db	120
+      000183 03                    1913 	.sleb128	3
+      000184 00 00r01r38           1914 	.dw	0,(Smenu$interrupt_buttons$124)
+      000188 00 00r01r3D           1915 	.dw	0,(Smenu$interrupt_buttons$125)
+      00018C 00 02                 1916 	.dw	2
+      00018E 78                    1917 	.db	120
+      00018F 05                    1918 	.sleb128	5
+      000190 00 00r01r36           1919 	.dw	0,(Smenu$interrupt_buttons$123)
+      000194 00 00r01r38           1920 	.dw	0,(Smenu$interrupt_buttons$124)
+      000198 00 02                 1921 	.dw	2
+      00019A 78                    1922 	.db	120
+      00019B 04                    1923 	.sleb128	4
+      00019C 00 00r01r14           1924 	.dw	0,(Smenu$interrupt_buttons$115)
+      0001A0 00 00r01r36           1925 	.dw	0,(Smenu$interrupt_buttons$123)
+      0001A4 00 02                 1926 	.dw	2
+      0001A6 78                    1927 	.db	120
+      0001A7 03                    1928 	.sleb128	3
+      0001A8 00 00r01r0F           1929 	.dw	0,(Smenu$interrupt_buttons$114)
+      0001AC 00 00r01r14           1930 	.dw	0,(Smenu$interrupt_buttons$115)
+      0001B0 00 02                 1931 	.dw	2
+      0001B2 78                    1932 	.db	120
+      0001B3 05                    1933 	.sleb128	5
+      0001B4 00 00r01r0D           1934 	.dw	0,(Smenu$interrupt_buttons$113)
+      0001B8 00 00r01r0F           1935 	.dw	0,(Smenu$interrupt_buttons$114)
+      0001BC 00 02                 1936 	.dw	2
+      0001BE 78                    1937 	.db	120
+      0001BF 04                    1938 	.sleb128	4
+      0001C0 00 00r01r0B           1939 	.dw	0,(Smenu$interrupt_buttons$111)
+      0001C4 00 00r01r0D           1940 	.dw	0,(Smenu$interrupt_buttons$113)
+      0001C8 00 02                 1941 	.dw	2
+      0001CA 78                    1942 	.db	120
+      0001CB 03                    1943 	.sleb128	3
+      0001CC 00 00r01r09           1944 	.dw	0,(Smenu$interrupt_buttons$110)
+      0001D0 00 00r01r0B           1945 	.dw	0,(Smenu$interrupt_buttons$111)
+      0001D4 00 02                 1946 	.dw	2
+      0001D6 78                    1947 	.db	120
+      0001D7 01                    1948 	.sleb128	1
+      0001D8 00 00 00 00           1949 	.dw	0,0
+      0001DC 00 00 00 00           1950 	.dw	0,0
+      0001E0 00 00r00rF0           1951 	.dw	0,(Smenu$dec_value$98)
+      0001E4 00 00r01r09           1952 	.dw	0,(Smenu$dec_value$108)
+      0001E8 00 02                 1953 	.dw	2
+      0001EA 78                    1954 	.db	120
+      0001EB 01                    1955 	.sleb128	1
+      0001EC 00 00 00 00           1956 	.dw	0,0
+      0001F0 00 00 00 00           1957 	.dw	0,0
+      0001F4 00 00r00rDA           1958 	.dw	0,(Smenu$inc_value$91)
+      0001F8 00 00r00rF0           1959 	.dw	0,(Smenu$inc_value$96)
+      0001FC 00 02                 1960 	.dw	2
+      0001FE 78                    1961 	.db	120
+      0001FF 01                    1962 	.sleb128	1
+      000200 00 00 00 00           1963 	.dw	0,0
+      000204 00 00 00 00           1964 	.dw	0,0
+      000208 00 00r00rD4           1965 	.dw	0,(Smenu$dec_option$86)
+      00020C 00 00r00rDA           1966 	.dw	0,(Smenu$dec_option$89)
+      000210 00 02                 1967 	.dw	2
+      000212 78                    1968 	.db	120
+      000213 01                    1969 	.sleb128	1
+      000214 00 00r00rD3           1970 	.dw	0,(Smenu$dec_option$85)
+      000218 00 00r00rD4           1971 	.dw	0,(Smenu$dec_option$86)
+      00021C 00 02                 1972 	.dw	2
+      00021E 78                    1973 	.db	120
+      00021F 03                    1974 	.sleb128	3
+      000220 00 00r00rCE           1975 	.dw	0,(Smenu$dec_option$84)
+      000224 00 00r00rD3           1976 	.dw	0,(Smenu$dec_option$85)
+      000228 00 02                 1977 	.dw	2
+      00022A 78                    1978 	.db	120
+      00022B 04                    1979 	.sleb128	4
+      00022C 00 00r00rCD           1980 	.dw	0,(Smenu$dec_option$83)
+      000230 00 00r00rCE           1981 	.dw	0,(Smenu$dec_option$84)
+      000234 00 02                 1982 	.dw	2
+      000236 78                    1983 	.db	120
+      000237 03                    1984 	.sleb128	3
+      000238 00 00r00rC6           1985 	.dw	0,(Smenu$dec_option$81)
+      00023C 00 00r00rCD           1986 	.dw	0,(Smenu$dec_option$83)
+      000240 00 02                 1987 	.dw	2
+      000242 78                    1988 	.db	120
+      000243 01                    1989 	.sleb128	1
+      000244 00 00 00 00           1990 	.dw	0,0
+      000248 00 00 00 00           1991 	.dw	0,0
+      00024C 00 00r00rC0           1992 	.dw	0,(Smenu$inc_option$76)
+      000250 00 00r00rC6           1993 	.dw	0,(Smenu$inc_option$79)
+      000254 00 02                 1994 	.dw	2
+      000256 78                    1995 	.db	120
+      000257 01                    1996 	.sleb128	1
+      000258 00 00r00rBF           1997 	.dw	0,(Smenu$inc_option$75)
+      00025C 00 00r00rC0           1998 	.dw	0,(Smenu$inc_option$76)
+      000260 00 02                 1999 	.dw	2
+      000262 78                    2000 	.db	120
+      000263 03                    2001 	.sleb128	3
+      000264 00 00r00rBA           2002 	.dw	0,(Smenu$inc_option$74)
+      000268 00 00r00rBF           2003 	.dw	0,(Smenu$inc_option$75)
+      00026C 00 02                 2004 	.dw	2
+      00026E 78                    2005 	.db	120
+      00026F 04                    2006 	.sleb128	4
+      000270 00 00r00rB9           2007 	.dw	0,(Smenu$inc_option$73)
+      000274 00 00r00rBA           2008 	.dw	0,(Smenu$inc_option$74)
+      000278 00 02                 2009 	.dw	2
+      00027A 78                    2010 	.db	120
+      00027B 03                    2011 	.sleb128	3
+      00027C 00 00r00rB2           2012 	.dw	0,(Smenu$inc_option$71)
+      000280 00 00r00rB9           2013 	.dw	0,(Smenu$inc_option$73)
+      000284 00 02                 2014 	.dw	2
+      000286 78                    2015 	.db	120
+      000287 01                    2016 	.sleb128	1
+      000288 00 00 00 00           2017 	.dw	0,0
+      00028C 00 00 00 00           2018 	.dw	0,0
+      000290 00 00r00r77           2019 	.dw	0,(Smenu$tmr_menu$62)
+      000294 00 00r00rB2           2020 	.dw	0,(Smenu$tmr_menu$69)
+      000298 00 02                 2021 	.dw	2
+      00029A 78                    2022 	.db	120
+      00029B 01                    2023 	.sleb128	1
+      00029C 00 00 00 00           2024 	.dw	0,0
+      0002A0 00 00 00 00           2025 	.dw	0,0
+      0002A4 00 00r00r72           2026 	.dw	0,(Smenu$set_menu_value$56)
+      0002A8 00 00r00r77           2027 	.dw	0,(Smenu$set_menu_value$60)
+      0002AC 00 02                 2028 	.dw	2
+      0002AE 78                    2029 	.db	120
+      0002AF 01                    2030 	.sleb128	1
+      0002B0 00 00r00r6D           2031 	.dw	0,(Smenu$set_menu_value$55)
+      0002B4 00 00r00r72           2032 	.dw	0,(Smenu$set_menu_value$56)
+      0002B8 00 02                 2033 	.dw	2
+      0002BA 78                    2034 	.db	120
+      0002BB 04                    2035 	.sleb128	4
+      0002BC 00 00r00r6C           2036 	.dw	0,(Smenu$set_menu_value$54)
+      0002C0 00 00r00r6D           2037 	.dw	0,(Smenu$set_menu_value$55)
+      0002C4 00 02                 2038 	.dw	2
+      0002C6 78                    2039 	.db	120
+      0002C7 02                    2040 	.sleb128	2
+      0002C8 00 00r00r65           2041 	.dw	0,(Smenu$set_menu_value$52)
+      0002CC 00 00r00r6C           2042 	.dw	0,(Smenu$set_menu_value$54)
+      0002D0 00 02                 2043 	.dw	2
+      0002D2 78                    2044 	.db	120
+      0002D3 01                    2045 	.sleb128	1
+      0002D4 00 00 00 00           2046 	.dw	0,0
+      0002D8 00 00 00 00           2047 	.dw	0,0
+      0002DC 00 00r00r63           2048 	.dw	0,(Smenu$get_menu_value$47)
+      0002E0 00 00r00r65           2049 	.dw	0,(Smenu$get_menu_value$50)
+      0002E4 00 02                 2050 	.dw	2
+      0002E6 78                    2051 	.db	120
+      0002E7 01                    2052 	.sleb128	1
+      0002E8 00 00r00r5F           2053 	.dw	0,(Smenu$get_menu_value$46)
+      0002EC 00 00r00r63           2054 	.dw	0,(Smenu$get_menu_value$47)
+      0002F0 00 02                 2055 	.dw	2
+      0002F2 78                    2056 	.db	120
+      0002F3 02                    2057 	.sleb128	2
+      0002F4 00 00r00r5C           2058 	.dw	0,(Smenu$get_menu_value$44)
+      0002F8 00 00r00r5F           2059 	.dw	0,(Smenu$get_menu_value$46)
+      0002FC 00 02                 2060 	.dw	2
+      0002FE 78                    2061 	.db	120
+      0002FF 01                    2062 	.sleb128	1
+      000300 00 00 00 00           2063 	.dw	0,0
+      000304 00 00 00 00           2064 	.dw	0,0
+      000308 00 00r00r56           2065 	.dw	0,(Smenu$init_menu$39)
+      00030C 00 00r00r5C           2066 	.dw	0,(Smenu$init_menu$42)
+      000310 00 02                 2067 	.dw	2
+      000312 78                    2068 	.db	120
+      000313 01                    2069 	.sleb128	1
+      000314 00 00r00r55           2070 	.dw	0,(Smenu$init_menu$38)
+      000318 00 00r00r56           2071 	.dw	0,(Smenu$init_menu$39)
+      00031C 00 02                 2072 	.dw	2
+      00031E 78                    2073 	.db	120
+      00031F 03                    2074 	.sleb128	3
+      000320 00 00r00r50           2075 	.dw	0,(Smenu$init_menu$37)
+      000324 00 00r00r55           2076 	.dw	0,(Smenu$init_menu$38)
+      000328 00 02                 2077 	.dw	2
+      00032A 78                    2078 	.db	120
+      00032B 04                    2079 	.sleb128	4
+      00032C 00 00r00r4F           2080 	.dw	0,(Smenu$init_menu$36)
+      000330 00 00r00r50           2081 	.dw	0,(Smenu$init_menu$37)
+      000334 00 02                 2082 	.dw	2
+      000336 78                    2083 	.db	120
+      000337 03                    2084 	.sleb128	3
+      000338 00 00r00r43           2085 	.dw	0,(Smenu$init_menu$32)
+      00033C 00 00r00r4F           2086 	.dw	0,(Smenu$init_menu$36)
+      000340 00 02                 2087 	.dw	2
+      000342 78                    2088 	.db	120
+      000343 01                    2089 	.sleb128	1
+      000344 00 00r00r3E           2090 	.dw	0,(Smenu$init_menu$31)
+      000348 00 00r00r43           2091 	.dw	0,(Smenu$init_menu$32)
+      00034C 00 02                 2092 	.dw	2
+      00034E 78                    2093 	.db	120
+      00034F 03                    2094 	.sleb128	3
+      000350 00 00r00r3C           2095 	.dw	0,(Smenu$init_menu$30)
+      000354 00 00r00r3E           2096 	.dw	0,(Smenu$init_menu$31)
+      000358 00 02                 2097 	.dw	2
+      00035A 78                    2098 	.db	120
+      00035B 02                    2099 	.sleb128	2
+      00035C 00 00r00r3A           2100 	.dw	0,(Smenu$init_menu$28)
+      000360 00 00r00r3C           2101 	.dw	0,(Smenu$init_menu$30)
+      000364 00 02                 2102 	.dw	2
+      000366 78                    2103 	.db	120
+      000367 01                    2104 	.sleb128	1
+      000368 00 00r00r36           2105 	.dw	0,(Smenu$init_menu$27)
+      00036C 00 00r00r3A           2106 	.dw	0,(Smenu$init_menu$28)
+      000370 00 02                 2107 	.dw	2
+      000372 78                    2108 	.db	120
+      000373 02                    2109 	.sleb128	2
+      000374 00 00r00r34           2110 	.dw	0,(Smenu$init_menu$25)
+      000378 00 00r00r36           2111 	.dw	0,(Smenu$init_menu$27)
+      00037C 00 02                 2112 	.dw	2
+      00037E 78                    2113 	.db	120
+      00037F 01                    2114 	.sleb128	1
+      000380 00 00r00r2F           2115 	.dw	0,(Smenu$init_menu$24)
+      000384 00 00r00r34           2116 	.dw	0,(Smenu$init_menu$25)
+      000388 00 02                 2117 	.dw	2
+      00038A 78                    2118 	.db	120
+      00038B 03                    2119 	.sleb128	3
+      00038C 00 00r00r2D           2120 	.dw	0,(Smenu$init_menu$23)
+      000390 00 00r00r2F           2121 	.dw	0,(Smenu$init_menu$24)
+      000394 00 02                 2122 	.dw	2
+      000396 78                    2123 	.db	120
+      000397 02                    2124 	.sleb128	2
+      000398 00 00r00r27           2125 	.dw	0,(Smenu$init_menu$19)
+      00039C 00 00r00r2D           2126 	.dw	0,(Smenu$init_menu$23)
+      0003A0 00 02                 2127 	.dw	2
+      0003A2 78                    2128 	.db	120
+      0003A3 01                    2129 	.sleb128	1
+      0003A4 00 00r00r22           2130 	.dw	0,(Smenu$init_menu$18)
+      0003A8 00 00r00r27           2131 	.dw	0,(Smenu$init_menu$19)
+      0003AC 00 02                 2132 	.dw	2
+      0003AE 78                    2133 	.db	120
+      0003AF 05                    2134 	.sleb128	5
+      0003B0 00 00r00r20           2135 	.dw	0,(Smenu$init_menu$17)
+      0003B4 00 00r00r22           2136 	.dw	0,(Smenu$init_menu$18)
+      0003B8 00 02                 2137 	.dw	2
+      0003BA 78                    2138 	.db	120
+      0003BB 04                    2139 	.sleb128	4
+      0003BC 00 00r00r1E           2140 	.dw	0,(Smenu$init_menu$16)
+      0003C0 00 00r00r20           2141 	.dw	0,(Smenu$init_menu$17)
+      0003C4 00 02                 2142 	.dw	2
+      0003C6 78                    2143 	.db	120
+      0003C7 03                    2144 	.sleb128	3
+      0003C8 00 00r00r1C           2145 	.dw	0,(Smenu$init_menu$15)
+      0003CC 00 00r00r1E           2146 	.dw	0,(Smenu$init_menu$16)
+      0003D0 00 02                 2147 	.dw	2
+      0003D2 78                    2148 	.db	120
+      0003D3 02                    2149 	.sleb128	2
+      0003D4 00 00r00r1A           2150 	.dw	0,(Smenu$init_menu$13)
+      0003D8 00 00r00r1C           2151 	.dw	0,(Smenu$init_menu$15)
+      0003DC 00 02                 2152 	.dw	2
+      0003DE 78                    2153 	.db	120
+      0003DF 01                    2154 	.sleb128	1
+      0003E0 00 00r00r15           2155 	.dw	0,(Smenu$init_menu$12)
+      0003E4 00 00r00r1A           2156 	.dw	0,(Smenu$init_menu$13)
+      0003E8 00 02                 2157 	.dw	2
+      0003EA 78                    2158 	.db	120
+      0003EB 05                    2159 	.sleb128	5
+      0003EC 00 00r00r13           2160 	.dw	0,(Smenu$init_menu$11)
+      0003F0 00 00r00r15           2161 	.dw	0,(Smenu$init_menu$12)
+      0003F4 00 02                 2162 	.dw	2
+      0003F6 78                    2163 	.db	120
+      0003F7 04                    2164 	.sleb128	4
+      0003F8 00 00r00r11           2165 	.dw	0,(Smenu$init_menu$10)
+      0003FC 00 00r00r13           2166 	.dw	0,(Smenu$init_menu$11)
+      000400 00 02                 2167 	.dw	2
+      000402 78                    2168 	.db	120
+      000403 03                    2169 	.sleb128	3
+      000404 00 00r00r0F           2170 	.dw	0,(Smenu$init_menu$9)
+      000408 00 00r00r11           2171 	.dw	0,(Smenu$init_menu$10)
+      00040C 00 02                 2172 	.dw	2
+      00040E 78                    2173 	.db	120
+      00040F 02                    2174 	.sleb128	2
+      000410 00 00r00r0D           2175 	.dw	0,(Smenu$init_menu$7)
+      000414 00 00r00r0F           2176 	.dw	0,(Smenu$init_menu$9)
+      000418 00 02                 2177 	.dw	2
+      00041A 78                    2178 	.db	120
+      00041B 01                    2179 	.sleb128	1
+      00041C 00 00r00r08           2180 	.dw	0,(Smenu$init_menu$6)
+      000420 00 00r00r0D           2181 	.dw	0,(Smenu$init_menu$7)
+      000424 00 02                 2182 	.dw	2
+      000426 78                    2183 	.db	120
+      000427 05                    2184 	.sleb128	5
+      000428 00 00r00r06           2185 	.dw	0,(Smenu$init_menu$5)
+      00042C 00 00r00r08           2186 	.dw	0,(Smenu$init_menu$6)
+      000430 00 02                 2187 	.dw	2
+      000432 78                    2188 	.db	120
+      000433 04                    2189 	.sleb128	4
+      000434 00 00r00r04           2190 	.dw	0,(Smenu$init_menu$4)
+      000438 00 00r00r06           2191 	.dw	0,(Smenu$init_menu$5)
+      00043C 00 02                 2192 	.dw	2
+      00043E 78                    2193 	.db	120
+      00043F 03                    2194 	.sleb128	3
+      000440 00 00r00r02           2195 	.dw	0,(Smenu$init_menu$3)
+      000444 00 00r00r04           2196 	.dw	0,(Smenu$init_menu$4)
+      000448 00 02                 2197 	.dw	2
+      00044A 78                    2198 	.db	120
+      00044B 02                    2199 	.sleb128	2
+      00044C 00 00r00r00           2200 	.dw	0,(Smenu$init_menu$1)
+      000450 00 00r00r02           2201 	.dw	0,(Smenu$init_menu$3)
+      000454 00 02                 2202 	.dw	2
+      000456 78                    2203 	.db	120
+      000457 01                    2204 	.sleb128	1
+      000458 00 00 00 00           2205 	.dw	0,0
+      00045C 00 00 00 00           2206 	.dw	0,0
+                                   2207 
+                                   2208 	.area .debug_abbrev (NOLOAD)
+      000000                       2209 Ldebug_abbrev:
+      000000 0F                    2210 	.uleb128	15
+      000001 34                    2211 	.uleb128	52
+      000002 00                    2212 	.db	0
+      000003 02                    2213 	.uleb128	2
+      000004 0A                    2214 	.uleb128	10
+      000005 03                    2215 	.uleb128	3
+      000006 08                    2216 	.uleb128	8
+      000007 3F                    2217 	.uleb128	63
+      000008 0C                    2218 	.uleb128	12
+      000009 49                    2219 	.uleb128	73
+      00000A 13                    2220 	.uleb128	19
+      00000B 00                    2221 	.uleb128	0
+      00000C 00                    2222 	.uleb128	0
+      00000D 05                    2223 	.uleb128	5
+      00000E 05                    2224 	.uleb128	5
+      00000F 00                    2225 	.db	0
+      000010 02                    2226 	.uleb128	2
+      000011 0A                    2227 	.uleb128	10
+      000012 03                    2228 	.uleb128	3
+      000013 08                    2229 	.uleb128	8
+      000014 49                    2230 	.uleb128	73
+      000015 13                    2231 	.uleb128	19
+      000016 00                    2232 	.uleb128	0
+      000017 00                    2233 	.uleb128	0
+      000018 10                    2234 	.uleb128	16
+      000019 01                    2235 	.uleb128	1
+      00001A 01                    2236 	.db	1
+      00001B 01                    2237 	.uleb128	1
+      00001C 13                    2238 	.uleb128	19
+      00001D 0B                    2239 	.uleb128	11
+      00001E 0B                    2240 	.uleb128	11
+      00001F 49                    2241 	.uleb128	73
+      000020 13                    2242 	.uleb128	19
+      000021 00                    2243 	.uleb128	0
+      000022 00                    2244 	.uleb128	0
+      000023 06                    2245 	.uleb128	6
+      000024 2E                    2246 	.uleb128	46
+      000025 01                    2247 	.db	1
+      000026 01                    2248 	.uleb128	1
+      000027 13                    2249 	.uleb128	19
+      000028 03                    2250 	.uleb128	3
+      000029 08                    2251 	.uleb128	8
+      00002A 11                    2252 	.uleb128	17
+      00002B 01                    2253 	.uleb128	1
+      00002C 12                    2254 	.uleb128	18
+      00002D 01                    2255 	.uleb128	1
+      00002E 3F                    2256 	.uleb128	63
+      00002F 0C                    2257 	.uleb128	12
+      000030 40                    2258 	.uleb128	64
+      000031 06                    2259 	.uleb128	6
+      000032 00                    2260 	.uleb128	0
+      000033 00                    2261 	.uleb128	0
+      000034 0C                    2262 	.uleb128	12
+      000035 34                    2263 	.uleb128	52
+      000036 00                    2264 	.db	0
+      000037 02                    2265 	.uleb128	2
+      000038 0A                    2266 	.uleb128	10
+      000039 03                    2267 	.uleb128	3
+      00003A 08                    2268 	.uleb128	8
+      00003B 3C                    2269 	.uleb128	60
+      00003C 0C                    2270 	.uleb128	12
+      00003D 3F                    2271 	.uleb128	63
+      00003E 0C                    2272 	.uleb128	12
+      00003F 49                    2273 	.uleb128	73
+      000040 13                    2274 	.uleb128	19
+      000041 00                    2275 	.uleb128	0
+      000042 00                    2276 	.uleb128	0
+      000043 0A                    2277 	.uleb128	10
+      000044 34                    2278 	.uleb128	52
+      000045 00                    2279 	.db	0
+      000046 02                    2280 	.uleb128	2
+      000047 0A                    2281 	.uleb128	10
+      000048 03                    2282 	.uleb128	3
+      000049 08                    2283 	.uleb128	8
+      00004A 49                    2284 	.uleb128	73
+      00004B 13                    2285 	.uleb128	19
+      00004C 00                    2286 	.uleb128	0
+      00004D 00                    2287 	.uleb128	0
+      00004E 04                    2288 	.uleb128	4
+      00004F 2E                    2289 	.uleb128	46
+      000050 01                    2290 	.db	1
+      000051 01                    2291 	.uleb128	1
+      000052 13                    2292 	.uleb128	19
+      000053 03                    2293 	.uleb128	3
+      000054 08                    2294 	.uleb128	8
+      000055 11                    2295 	.uleb128	17
+      000056 01                    2296 	.uleb128	1
+      000057 12                    2297 	.uleb128	18
+      000058 01                    2298 	.uleb128	1
+      000059 3F                    2299 	.uleb128	63
+      00005A 0C                    2300 	.uleb128	12
+      00005B 40                    2301 	.uleb128	64
+      00005C 06                    2302 	.uleb128	6
+      00005D 49                    2303 	.uleb128	73
+      00005E 13                    2304 	.uleb128	19
+      00005F 00                    2305 	.uleb128	0
+      000060 00                    2306 	.uleb128	0
+      000061 09                    2307 	.uleb128	9
+      000062 0B                    2308 	.uleb128	11
+      000063 01                    2309 	.db	1
+      000064 11                    2310 	.uleb128	17
+      000065 01                    2311 	.uleb128	1
+      000066 00                    2312 	.uleb128	0
+      000067 00                    2313 	.uleb128	0
+      000068 01                    2314 	.uleb128	1
+      000069 11                    2315 	.uleb128	17
+      00006A 01                    2316 	.db	1
+      00006B 03                    2317 	.uleb128	3
+      00006C 08                    2318 	.uleb128	8
+      00006D 10                    2319 	.uleb128	16
+      00006E 06                    2320 	.uleb128	6
+      00006F 13                    2321 	.uleb128	19
+      000070 0B                    2322 	.uleb128	11
+      000071 25                    2323 	.uleb128	37
+      000072 08                    2324 	.uleb128	8
+      000073 00                    2325 	.uleb128	0
+      000074 00                    2326 	.uleb128	0
+      000075 07                    2327 	.uleb128	7
+      000076 0B                    2328 	.uleb128	11
+      000077 00                    2329 	.db	0
+      000078 11                    2330 	.uleb128	17
+      000079 01                    2331 	.uleb128	1
+      00007A 12                    2332 	.uleb128	18
+      00007B 01                    2333 	.uleb128	1
+      00007C 00                    2334 	.uleb128	0
+      00007D 00                    2335 	.uleb128	0
+      00007E 0E                    2336 	.uleb128	14
+      00007F 0D                    2337 	.uleb128	13
+      000080 00                    2338 	.db	0
+      000081 03                    2339 	.uleb128	3
+      000082 08                    2340 	.uleb128	8
+      000083 38                    2341 	.uleb128	56
+      000084 0A                    2342 	.uleb128	10
+      000085 49                    2343 	.uleb128	73
+      000086 13                    2344 	.uleb128	19
+      000087 00                    2345 	.uleb128	0
+      000088 00                    2346 	.uleb128	0
+      000089 08                    2347 	.uleb128	8
+      00008A 0B                    2348 	.uleb128	11
+      00008B 01                    2349 	.db	1
+      00008C 01                    2350 	.uleb128	1
+      00008D 13                    2351 	.uleb128	19
+      00008E 11                    2352 	.uleb128	17
+      00008F 01                    2353 	.uleb128	1
+      000090 00                    2354 	.uleb128	0
+      000091 00                    2355 	.uleb128	0
+      000092 02                    2356 	.uleb128	2
+      000093 2E                    2357 	.uleb128	46
+      000094 00                    2358 	.db	0
+      000095 03                    2359 	.uleb128	3
+      000096 08                    2360 	.uleb128	8
+      000097 11                    2361 	.uleb128	17
+      000098 01                    2362 	.uleb128	1
+      000099 12                    2363 	.uleb128	18
+      00009A 01                    2364 	.uleb128	1
+      00009B 3F                    2365 	.uleb128	63
+      00009C 0C                    2366 	.uleb128	12
+      00009D 40                    2367 	.uleb128	64
+      00009E 06                    2368 	.uleb128	6
+      00009F 00                    2369 	.uleb128	0
+      0000A0 00                    2370 	.uleb128	0
+      0000A1 0B                    2371 	.uleb128	11
+      0000A2 2E                    2372 	.uleb128	46
+      0000A3 00                    2373 	.db	0
+      0000A4 03                    2374 	.uleb128	3
+      0000A5 08                    2375 	.uleb128	8
+      0000A6 11                    2376 	.uleb128	17
+      0000A7 01                    2377 	.uleb128	1
+      0000A8 3F                    2378 	.uleb128	63
+      0000A9 0C                    2379 	.uleb128	12
+      0000AA 00                    2380 	.uleb128	0
+      0000AB 00                    2381 	.uleb128	0
+      0000AC 11                    2382 	.uleb128	17
+      0000AD 21                    2383 	.uleb128	33
+      0000AE 00                    2384 	.db	0
+      0000AF 2F                    2385 	.uleb128	47
+      0000B0 0B                    2386 	.uleb128	11
+      0000B1 00                    2387 	.uleb128	0
+      0000B2 00                    2388 	.uleb128	0
+      0000B3 0D                    2389 	.uleb128	13
+      0000B4 13                    2390 	.uleb128	19
+      0000B5 01                    2391 	.db	1
+      0000B6 01                    2392 	.uleb128	1
+      0000B7 13                    2393 	.uleb128	19
+      0000B8 03                    2394 	.uleb128	3
+      0000B9 08                    2395 	.uleb128	8
+      0000BA 0B                    2396 	.uleb128	11
+      0000BB 0B                    2397 	.uleb128	11
+      0000BC 00                    2398 	.uleb128	0
+      0000BD 00                    2399 	.uleb128	0
+      0000BE 03                    2400 	.uleb128	3
+      0000BF 24                    2401 	.uleb128	36
+      0000C0 00                    2402 	.db	0
+      0000C1 03                    2403 	.uleb128	3
+      0000C2 08                    2404 	.uleb128	8
+      0000C3 0B                    2405 	.uleb128	11
+      0000C4 0B                    2406 	.uleb128	11
+      0000C5 3E                    2407 	.uleb128	62
+      0000C6 0B                    2408 	.uleb128	11
+      0000C7 00                    2409 	.uleb128	0
+      0000C8 00                    2410 	.uleb128	0
+      0000C9 00                    2411 	.uleb128	0
+                                   2412 
+                                   2413 	.area .debug_info (NOLOAD)
+      000000 00 00 03 61           2414 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                       2415 Ldebug_info_start:
+      000004 00 02                 2416 	.dw	2
+      000006 00 00r00r00           2417 	.dw	0,(Ldebug_abbrev)
+      00000A 04                    2418 	.db	4
+      00000B 01                    2419 	.uleb128	1
+      00000C 2E 2F 75 73 65 72 2F  2420 	.ascii "./user/menu.c"
+             6D 65 6E 75 2E 63
+      000019 00                    2421 	.db	0
+      00001A 00 00r00r00           2422 	.dw	0,(Ldebug_line_start+-4)
+      00001E 01                    2423 	.db	1
+      00001F 53 44 43 43 20 76 65  2424 	.ascii "SDCC version 4.0.2 #11645"
+             72 73 69 6F 6E 20 34
+             2E 30 2E 32 20 23 31
+             31 36 34 35
+      000038 00                    2425 	.db	0
+      000039 02                    2426 	.uleb128	2
+      00003A 69 6E 69 74 5F 6D 65  2427 	.ascii "init_menu"
+             6E 75
+      000043 00                    2428 	.db	0
+      000044 00 00r00r00           2429 	.dw	0,(_init_menu)
+      000048 00 00r00r5C           2430 	.dw	0,(XG$init_menu$0$0+1)
+      00004C 01                    2431 	.db	1
+      00004D 00 00r03r08           2432 	.dw	0,(Ldebug_loc_start+776)
+      000051 03                    2433 	.uleb128	3
+      000052 75 6E 73 69 67 6E 65  2434 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      00005F 00                    2435 	.db	0
+      000060 01                    2436 	.db	1
+      000061 08                    2437 	.db	8
+      000062 04                    2438 	.uleb128	4
+      000063 00 00 00 94           2439 	.dw	0,148
+      000067 67 65 74 5F 6D 65 6E  2440 	.ascii "get_menu_value"
+             75 5F 76 61 6C 75 65
+      000075 00                    2441 	.db	0
+      000076 00 00r00r5C           2442 	.dw	0,(_get_menu_value)
+      00007A 00 00r00r65           2443 	.dw	0,(XG$get_menu_value$0$0+1)
+      00007E 01                    2444 	.db	1
+      00007F 00 00r02rDC           2445 	.dw	0,(Ldebug_loc_start+732)
+      000083 00 00 00 51           2446 	.dw	0,81
+      000087 05                    2447 	.uleb128	5
+      000088 02                    2448 	.db	2
+      000089 91                    2449 	.db	145
+      00008A 02                    2450 	.sleb128	2
+      00008B 69 64 78              2451 	.ascii "idx"
+      00008E 00                    2452 	.db	0
+      00008F 00 00 00 51           2453 	.dw	0,81
+      000093 00                    2454 	.uleb128	0
+      000094 02                    2455 	.uleb128	2
+      000095 73 65 74 5F 6D 65 6E  2456 	.ascii "set_menu_value"
+             75 5F 76 61 6C 75 65
+      0000A3 00                    2457 	.db	0
+      0000A4 00 00r00r65           2458 	.dw	0,(_set_menu_value)
+      0000A8 00 00r00r77           2459 	.dw	0,(XG$set_menu_value$0$0+1)
+      0000AC 01                    2460 	.db	1
+      0000AD 00 00r02rA4           2461 	.dw	0,(Ldebug_loc_start+676)
+      0000B1 02                    2462 	.uleb128	2
+      0000B2 74 6D 72 5F 6D 65 6E  2463 	.ascii "tmr_menu"
+             75
+      0000BA 00                    2464 	.db	0
+      0000BB 00 00r00r77           2465 	.dw	0,(_tmr_menu)
+      0000BF 00 00r00rB2           2466 	.dw	0,(XG$tmr_menu$0$0+1)
+      0000C3 01                    2467 	.db	1
+      0000C4 00 00r02r90           2468 	.dw	0,(Ldebug_loc_start+656)
+      0000C8 02                    2469 	.uleb128	2
+      0000C9 69 6E 63 5F 6F 70 74  2470 	.ascii "inc_option"
+             69 6F 6E
+      0000D3 00                    2471 	.db	0
+      0000D4 00 00r00rB2           2472 	.dw	0,(_inc_option)
+      0000D8 00 00r00rC6           2473 	.dw	0,(XFmenu$inc_option$0$0+1)
+      0000DC 00                    2474 	.db	0
+      0000DD 00 00r02r4C           2475 	.dw	0,(Ldebug_loc_start+588)
+      0000E1 02                    2476 	.uleb128	2
+      0000E2 64 65 63 5F 6F 70 74  2477 	.ascii "dec_option"
+             69 6F 6E
+      0000EC 00                    2478 	.db	0
+      0000ED 00 00r00rC6           2479 	.dw	0,(_dec_option)
+      0000F1 00 00r00rDA           2480 	.dw	0,(XFmenu$dec_option$0$0+1)
+      0000F5 00                    2481 	.db	0
+      0000F6 00 00r02r08           2482 	.dw	0,(Ldebug_loc_start+520)
+      0000FA 02                    2483 	.uleb128	2
+      0000FB 69 6E 63 5F 76 61 6C  2484 	.ascii "inc_value"
+             75 65
+      000104 00                    2485 	.db	0
+      000105 00 00r00rDA           2486 	.dw	0,(_inc_value)
+      000109 00 00r00rF0           2487 	.dw	0,(XFmenu$inc_value$0$0+1)
+      00010D 00                    2488 	.db	0
+      00010E 00 00r01rF4           2489 	.dw	0,(Ldebug_loc_start+500)
+      000112 06                    2490 	.uleb128	6
+      000113 00 00 01 41           2491 	.dw	0,321
+      000117 64 65 63 5F 76 61 6C  2492 	.ascii "dec_value"
+             75 65
+      000120 00                    2493 	.db	0
+      000121 00 00r00rF0           2494 	.dw	0,(_dec_value)
+      000125 00 00r01r09           2495 	.dw	0,(XFmenu$dec_value$0$0+1)
+      000129 00                    2496 	.db	0
+      00012A 00 00r01rE0           2497 	.dw	0,(Ldebug_loc_start+480)
+      00012E 07                    2498 	.uleb128	7
+      00012F 00 00r00rF9           2499 	.dw	0,(Smenu$dec_value$100)
+      000133 00 00r00rFD           2500 	.dw	0,(Smenu$dec_value$102)
+      000137 07                    2501 	.uleb128	7
+      000138 00 00r01r00           2502 	.dw	0,(Smenu$dec_value$103)
+      00013C 00 00r01r08           2503 	.dw	0,(Smenu$dec_value$105)
+      000140 00                    2504 	.uleb128	0
+      000141 06                    2505 	.uleb128	6
+      000142 00 00 01 9B           2506 	.dw	0,411
+      000146 69 6E 74 65 72 72 75  2507 	.ascii "interrupt_buttons"
+             70 74 5F 62 75 74 74
+             6F 6E 73
+      000157 00                    2508 	.db	0
+      000158 00 00r01r09           2509 	.dw	0,(_interrupt_buttons)
+      00015C 00 00r01rA2           2510 	.dw	0,(XG$interrupt_buttons$0$0+1)
+      000160 01                    2511 	.db	1
+      000161 00 00r01r48           2512 	.dw	0,(Ldebug_loc_start+328)
+      000165 08                    2513 	.uleb128	8
+      000166 00 00 01 78           2514 	.dw	0,376
+      00016A 00 00r01r1B           2515 	.dw	0,(Smenu$interrupt_buttons$116)
+      00016E 07                    2516 	.uleb128	7
+      00016F 00 00r01r27           2517 	.dw	0,(Smenu$interrupt_buttons$118)
+      000173 00 00r01r31           2518 	.dw	0,(Smenu$interrupt_buttons$121)
+      000177 00                    2519 	.uleb128	0
+      000178 08                    2520 	.uleb128	8
+      000179 00 00 01 8B           2521 	.dw	0,395
+      00017D 00 00r01r44           2522 	.dw	0,(Smenu$interrupt_buttons$126)
+      000181 07                    2523 	.uleb128	7
+      000182 00 00r01r55           2524 	.dw	0,(Smenu$interrupt_buttons$128)
+      000186 00 00r01r68           2525 	.dw	0,(Smenu$interrupt_buttons$132)
+      00018A 00                    2526 	.uleb128	0
+      00018B 09                    2527 	.uleb128	9
+      00018C 00 00r01r7B           2528 	.dw	0,(Smenu$interrupt_buttons$137)
+      000190 07                    2529 	.uleb128	7
+      000191 00 00r01r8C           2530 	.dw	0,(Smenu$interrupt_buttons$139)
+      000195 00 00r01r9F           2531 	.dw	0,(Smenu$interrupt_buttons$143)
+      000199 00                    2532 	.uleb128	0
+      00019A 00                    2533 	.uleb128	0
+      00019B 06                    2534 	.uleb128	6
+      00019C 00 00 02 03           2535 	.dw	0,515
+      0001A0 70 72 6F 63 65 73 73  2536 	.ascii "process_button"
+             5F 62 75 74 74 6F 6E
+      0001AE 00                    2537 	.db	0
+      0001AF 00 00r01rA2           2538 	.dw	0,(_process_button)
+      0001B3 00 00r02r87           2539 	.dw	0,(XG$process_button$0$0+1)
+      0001B7 01                    2540 	.db	1
+      0001B8 00 00r00r68           2541 	.dw	0,(Ldebug_loc_start+104)
+      0001BC 07                    2542 	.uleb128	7
+      0001BD 00 00r01rB1           2543 	.dw	0,(Smenu$process_button$153)
+      0001C1 00 00r01rC1           2544 	.dw	0,(Smenu$process_button$157)
+      0001C5 07                    2545 	.uleb128	7
+      0001C6 00 00r01rD2           2546 	.dw	0,(Smenu$process_button$160)
+      0001CA 00 00r01rE7           2547 	.dw	0,(Smenu$process_button$165)
+      0001CE 07                    2548 	.uleb128	7
+      0001CF 00 00r01rF8           2549 	.dw	0,(Smenu$process_button$168)
+      0001D3 00 00r02r0D           2550 	.dw	0,(Smenu$process_button$173)
+      0001D7 07                    2551 	.uleb128	7
+      0001D8 00 00r02r1E           2552 	.dw	0,(Smenu$process_button$179)
+      0001DC 00 00r02r26           2553 	.dw	0,(Smenu$process_button$181)
+      0001E0 08                    2554 	.uleb128	8
+      0001E1 00 00 01 F3           2555 	.dw	0,499
+      0001E5 00 00r02r37           2556 	.dw	0,(Smenu$process_button$187)
+      0001E9 07                    2557 	.uleb128	7
+      0001EA 00 00r02r48           2558 	.dw	0,(Smenu$process_button$190)
+      0001EE 00 00r02r55           2559 	.dw	0,(Smenu$process_button$193)
+      0001F2 00                    2560 	.uleb128	0
+      0001F3 09                    2561 	.uleb128	9
+      0001F4 00 00r02r66           2562 	.dw	0,(Smenu$process_button$199)
+      0001F8 07                    2563 	.uleb128	7
+      0001F9 00 00r02r77           2564 	.dw	0,(Smenu$process_button$202)
+      0001FD 00 00r02r84           2565 	.dw	0,(Smenu$process_button$205)
+      000201 00                    2566 	.uleb128	0
+      000202 00                    2567 	.uleb128	0
+      000203 06                    2568 	.uleb128	6
+      000204 00 00 02 35           2569 	.dw	0,565
+      000208 74 61 73 6B 5F 6D 65  2570 	.ascii "task_menu"
+             6E 75
+      000211 00                    2571 	.db	0
+      000212 00 00r02r87           2572 	.dw	0,(_task_menu)
+      000216 00 00r02rC2           2573 	.dw	0,(XG$task_menu$0$0+1)
+      00021A 01                    2574 	.db	1
+      00021B 00 00r00r00           2575 	.dw	0,(Ldebug_loc_start)
+      00021F 0A                    2576 	.uleb128	10
+      000220 05                    2577 	.db	5
+      000221 03                    2578 	.db	3
+      000222 00 00r00r10           2579 	.dw	0,(_task_menu_option_dp_65536_364)
+      000226 6F 70 74 69 6F 6E 5F  2580 	.ascii "option_dp"
+             64 70
+      00022F 00                    2581 	.db	0
+      000230 00 00 00 51           2582 	.dw	0,81
+      000234 00                    2583 	.uleb128	0
+      000235 0B                    2584 	.uleb128	11
+      000236 74 61 73 6B 5F 6D 65  2585 	.ascii "task_menu"
+             6E 75
+      00023F 00                    2586 	.db	0
+      000240 00 00r02r87           2587 	.dw	0,(_task_menu)
+      000244 01                    2588 	.db	1
+      000245 0C                    2589 	.uleb128	12
+      000246 05                    2590 	.db	5
+      000247 03                    2591 	.db	3
+      000248 00 00r00r00           2592 	.dw	0,(_tick)
+      00024C 74 69 63 6B           2593 	.ascii "tick"
+      000250 00                    2594 	.db	0
+      000251 01                    2595 	.db	1
+      000252 01                    2596 	.db	1
+      000253 00 00 00 51           2597 	.dw	0,81
+      000257 03                    2598 	.uleb128	3
+      000258 75 6E 73 69 67 6E 65  2599 	.ascii "unsigned int"
+             64 20 69 6E 74
+      000264 00                    2600 	.db	0
+      000265 02                    2601 	.db	2
+      000266 07                    2602 	.db	7
+      000267 0D                    2603 	.uleb128	13
+      000268 00 00 02 BA           2604 	.dw	0,698
+      00026C 5F 5F 30 30 30 30 30  2605 	.ascii "__00000011"
+             30 31 31
+      000276 00                    2606 	.db	0
+      000277 07                    2607 	.db	7
+      000278 0E                    2608 	.uleb128	14
+      000279 69 64 78              2609 	.ascii "idx"
+      00027C 00                    2610 	.db	0
+      00027D 02                    2611 	.db	2
+      00027E 23                    2612 	.db	35
+      00027F 00                    2613 	.uleb128	0
+      000280 00 00 00 51           2614 	.dw	0,81
+      000284 0E                    2615 	.uleb128	14
+      000285 65 64 69 74           2616 	.ascii "edit"
+      000289 00                    2617 	.db	0
+      00028A 02                    2618 	.db	2
+      00028B 23                    2619 	.db	35
+      00028C 01                    2620 	.uleb128	1
+      00028D 00 00 00 51           2621 	.dw	0,81
+      000291 0E                    2622 	.uleb128	14
+      000292 77 72 69 74 65        2623 	.ascii "write"
+      000297 00                    2624 	.db	0
+      000298 02                    2625 	.db	2
+      000299 23                    2626 	.db	35
+      00029A 02                    2627 	.uleb128	2
+      00029B 00 00 00 51           2628 	.dw	0,81
+      00029F 0E                    2629 	.uleb128	14
+      0002A0 76 61 6C 75 65        2630 	.ascii "value"
+      0002A5 00                    2631 	.db	0
+      0002A6 02                    2632 	.db	2
+      0002A7 23                    2633 	.db	35
+      0002A8 03                    2634 	.uleb128	3
+      0002A9 00 00 02 57           2635 	.dw	0,599
+      0002AD 0E                    2636 	.uleb128	14
+      0002AE 74 6D 72              2637 	.ascii "tmr"
+      0002B1 00                    2638 	.db	0
+      0002B2 02                    2639 	.db	2
+      0002B3 23                    2640 	.db	35
+      0002B4 05                    2641 	.uleb128	5
+      0002B5 00 00 02 57           2642 	.dw	0,599
+      0002B9 00                    2643 	.uleb128	0
+      0002BA 0F                    2644 	.uleb128	15
+      0002BB 05                    2645 	.db	5
+      0002BC 03                    2646 	.db	3
+      0002BD 00 00r00r00           2647 	.dw	0,(_menu)
+      0002C1 6D 65 6E 75           2648 	.ascii "menu"
+      0002C5 00                    2649 	.db	0
+      0002C6 01                    2650 	.db	1
+      0002C7 00 00 02 67           2651 	.dw	0,615
+      0002CB 0D                    2652 	.uleb128	13
+      0002CC 00 00 02 FD           2653 	.dw	0,765
+      0002D0 5F 5F 30 30 30 30 30  2654 	.ascii "__00000009"
+             30 30 39
+      0002DA 00                    2655 	.db	0
+      0002DB 03                    2656 	.db	3
+      0002DC 0E                    2657 	.uleb128	14
+      0002DD 73 74 61 74 75 73     2658 	.ascii "status"
+      0002E3 00                    2659 	.db	0
+      0002E4 02                    2660 	.db	2
+      0002E5 23                    2661 	.db	35
+      0002E6 00                    2662 	.uleb128	0
+      0002E7 00 00 00 51           2663 	.dw	0,81
+      0002EB 0E                    2664 	.uleb128	14
+      0002EC 64 65 62 6F 75 6E 63  2665 	.ascii "debounce"
+             65
+      0002F4 00                    2666 	.db	0
+      0002F5 02                    2667 	.db	2
+      0002F6 23                    2668 	.db	35
+      0002F7 01                    2669 	.uleb128	1
+      0002F8 00 00 02 57           2670 	.dw	0,599
+      0002FC 00                    2671 	.uleb128	0
+      0002FD 10                    2672 	.uleb128	16
+      0002FE 00 00 03 0A           2673 	.dw	0,778
+      000302 09                    2674 	.db	9
+      000303 00 00 02 CB           2675 	.dw	0,715
+      000307 11                    2676 	.uleb128	17
+      000308 02                    2677 	.db	2
+      000309 00                    2678 	.uleb128	0
+      00030A 0F                    2679 	.uleb128	15
+      00030B 05                    2680 	.db	5
+      00030C 03                    2681 	.db	3
+      00030D 00 00r00r07           2682 	.dw	0,(_btn)
+      000311 62 74 6E              2683 	.ascii "btn"
+      000314 00                    2684 	.db	0
+      000315 01                    2685 	.db	1
+      000316 00 00 02 FD           2686 	.dw	0,765
+      00031A 0D                    2687 	.uleb128	13
+      00031B 00 00 03 46           2688 	.dw	0,838
+      00031F 5F 5F 30 30 30 30 30  2689 	.ascii "__00000010"
+             30 31 30
+      000329 00                    2690 	.db	0
+      00032A 02                    2691 	.db	2
+      00032B 0E                    2692 	.uleb128	14
+      00032C 6F 70 74 69 6F 6E     2693 	.ascii "option"
+      000332 00                    2694 	.db	0
+      000333 02                    2695 	.db	2
+      000334 23                    2696 	.db	35
+      000335 00                    2697 	.uleb128	0
+      000336 00 00 00 51           2698 	.dw	0,81
+      00033A 0E                    2699 	.uleb128	14
+      00033B 64 70                 2700 	.ascii "dp"
+      00033D 00                    2701 	.db	0
+      00033E 02                    2702 	.db	2
+      00033F 23                    2703 	.db	35
+      000340 01                    2704 	.uleb128	1
+      000341 00 00 00 51           2705 	.dw	0,81
+      000345 00                    2706 	.uleb128	0
+      000346 10                    2707 	.uleb128	16
+      000347 00 00 03 53           2708 	.dw	0,851
+      00034B 10                    2709 	.db	16
+      00034C 00 00 03 1A           2710 	.dw	0,794
+      000350 11                    2711 	.uleb128	17
+      000351 07                    2712 	.db	7
+      000352 00                    2713 	.uleb128	0
+      000353 0A                    2714 	.uleb128	10
+      000354 05                    2715 	.db	5
+      000355 03                    2716 	.db	3
+      000356 00 00r00r00           2717 	.dw	0,(_par)
+      00035A 70 61 72              2718 	.ascii "par"
+      00035D 00                    2719 	.db	0
+      00035E 00 00 03 46           2720 	.dw	0,838
+      000362 00                    2721 	.uleb128	0
+      000363 00                    2722 	.uleb128	0
+      000364 00                    2723 	.uleb128	0
+      000365                       2724 Ldebug_info_end:
+                                   2725 
+                                   2726 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 00 AE           2727 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                       2728 Ldebug_pubnames_start:
+      000004 00 02                 2729 	.dw	2
+      000006 00 00r00r00           2730 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 03 65           2731 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 39           2732 	.dw	0,57
+      000012 69 6E 69 74 5F 6D 65  2733 	.ascii "init_menu"
+             6E 75
+      00001B 00                    2734 	.db	0
+      00001C 00 00 00 62           2735 	.dw	0,98
+      000020 67 65 74 5F 6D 65 6E  2736 	.ascii "get_menu_value"
+             75 5F 76 61 6C 75 65
+      00002E 00                    2737 	.db	0
+      00002F 00 00 00 94           2738 	.dw	0,148
+      000033 73 65 74 5F 6D 65 6E  2739 	.ascii "set_menu_value"
+             75 5F 76 61 6C 75 65
+      000041 00                    2740 	.db	0
+      000042 00 00 00 B1           2741 	.dw	0,177
+      000046 74 6D 72 5F 6D 65 6E  2742 	.ascii "tmr_menu"
+             75
+      00004E 00                    2743 	.db	0
+      00004F 00 00 01 41           2744 	.dw	0,321
+      000053 69 6E 74 65 72 72 75  2745 	.ascii "interrupt_buttons"
+             70 74 5F 62 75 74 74
+             6F 6E 73
+      000064 00                    2746 	.db	0
+      000065 00 00 01 9B           2747 	.dw	0,411
+      000069 70 72 6F 63 65 73 73  2748 	.ascii "process_button"
+             5F 62 75 74 74 6F 6E
+      000077 00                    2749 	.db	0
+      000078 00 00 02 03           2750 	.dw	0,515
+      00007C 74 61 73 6B 5F 6D 65  2751 	.ascii "task_menu"
+             6E 75
+      000085 00                    2752 	.db	0
+      000086 00 00 02 35           2753 	.dw	0,565
+      00008A 74 61 73 6B 5F 6D 65  2754 	.ascii "task_menu"
+             6E 75
+      000093 00                    2755 	.db	0
+      000094 00 00 02 45           2756 	.dw	0,581
+      000098 74 69 63 6B           2757 	.ascii "tick"
+      00009C 00                    2758 	.db	0
+      00009D 00 00 02 BA           2759 	.dw	0,698
+      0000A1 6D 65 6E 75           2760 	.ascii "menu"
+      0000A5 00                    2761 	.db	0
+      0000A6 00 00 03 0A           2762 	.dw	0,778
+      0000AA 62 74 6E              2763 	.ascii "btn"
+      0000AD 00                    2764 	.db	0
+      0000AE 00 00 00 00           2765 	.dw	0,0
+      0000B2                       2766 Ldebug_pubnames_end:
+                                   2767 
+                                   2768 	.area .debug_frame (NOLOAD)
+      000000 00 00                 2769 	.dw	0
+      000002 00 0E                 2770 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                       2771 Ldebug_CIE0_start:
+      000004 FF FF                 2772 	.dw	0xffff
+      000006 FF FF                 2773 	.dw	0xffff
+      000008 01                    2774 	.db	1
+      000009 00                    2775 	.db	0
+      00000A 01                    2776 	.uleb128	1
+      00000B 7F                    2777 	.sleb128	-1
+      00000C 09                    2778 	.db	9
+      00000D 0C                    2779 	.db	12
+      00000E 08                    2780 	.uleb128	8
+      00000F 02                    2781 	.uleb128	2
+      000010 89                    2782 	.db	137
+      000011 01                    2783 	.uleb128	1
+      000012                       2784 Ldebug_CIE0_end:
+      000012 00 00 00 0C           2785 	.dw	0,12
+      000016 00 00r00r00           2786 	.dw	0,(Ldebug_CIE0_start-4)
+     

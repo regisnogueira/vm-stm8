@@ -1,0 +1,2739 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.0.2 #11645 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_tim4
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _TIM4_DeInit
+                                     12 	.globl _TIM4_TimeBaseInit
+                                     13 	.globl _TIM4_Cmd
+                                     14 	.globl _TIM4_ITConfig
+                                     15 	.globl _TIM4_UpdateDisableConfig
+                                     16 	.globl _TIM4_UpdateRequestConfig
+                                     17 	.globl _TIM4_SelectOnePulseMode
+                                     18 	.globl _TIM4_PrescalerConfig
+                                     19 	.globl _TIM4_ARRPreloadConfig
+                                     20 	.globl _TIM4_GenerateEvent
+                                     21 	.globl _TIM4_SetCounter
+                                     22 	.globl _TIM4_SetAutoreload
+                                     23 	.globl _TIM4_GetCounter
+                                     24 	.globl _TIM4_GetPrescaler
+                                     25 	.globl _TIM4_GetFlagStatus
+                                     26 	.globl _TIM4_ClearFlag
+                                     27 	.globl _TIM4_GetITStatus
+                                     28 	.globl _TIM4_ClearITPendingBit
+                                     29 ;--------------------------------------------------------
+                                     30 ; ram data
+                                     31 ;--------------------------------------------------------
+                                     32 	.area DATA
+                                     33 ;--------------------------------------------------------
+                                     34 ; ram data
+                                     35 ;--------------------------------------------------------
+                                     36 	.area INITIALIZED
+                                     37 ;--------------------------------------------------------
+                                     38 ; absolute external ram data
+                                     39 ;--------------------------------------------------------
+                                     40 	.area DABS (ABS)
+                                     41 
+                                     42 ; default segment ordering for linker
+                                     43 	.area HOME
+                                     44 	.area GSINIT
+                                     45 	.area GSFINAL
+                                     46 	.area CONST
+                                     47 	.area INITIALIZER
+                                     48 	.area CODE
+                                     49 
+                                     50 ;--------------------------------------------------------
+                                     51 ; global & static initialisations
+                                     52 ;--------------------------------------------------------
+                                     53 	.area HOME
+                                     54 	.area GSINIT
+                                     55 	.area GSFINAL
+                                     56 	.area GSINIT
+                                     57 ;--------------------------------------------------------
+                                     58 ; Home
+                                     59 ;--------------------------------------------------------
+                                     60 	.area HOME
+                                     61 	.area HOME
+                                     62 ;--------------------------------------------------------
+                                     63 ; code
+                                     64 ;--------------------------------------------------------
+                                     65 	.area CODE
+                           000000    66 	Sstm8s_tim4$TIM4_DeInit$0 ==.
+                                     67 ;	./libraries/src/stm8s_tim4.c: 49: void TIM4_DeInit(void)
+                                     68 ; genLabel
+                                     69 ;	-----------------------------------------
+                                     70 ;	 function TIM4_DeInit
+                                     71 ;	-----------------------------------------
+                                     72 ;	Register assignment is optimal.
+                                     73 ;	Stack space usage: 0 bytes.
+      000000                         74 _TIM4_DeInit:
+                           000000    75 	Sstm8s_tim4$TIM4_DeInit$1 ==.
+                           000000    76 	Sstm8s_tim4$TIM4_DeInit$2 ==.
+                                     77 ;	./libraries/src/stm8s_tim4.c: 51: TIM4->CR1 = TIM4_CR1_RESET_VALUE;
+                                     78 ; genPointerSet
+      000000 35 00 53 40      [ 1]   79 	mov	0x5340+0, #0x00
+                           000004    80 	Sstm8s_tim4$TIM4_DeInit$3 ==.
+                                     81 ;	./libraries/src/stm8s_tim4.c: 52: TIM4->IER = TIM4_IER_RESET_VALUE;
+                                     82 ; genPointerSet
+      000004 35 00 53 43      [ 1]   83 	mov	0x5343+0, #0x00
+                           000008    84 	Sstm8s_tim4$TIM4_DeInit$4 ==.
+                                     85 ;	./libraries/src/stm8s_tim4.c: 53: TIM4->CNTR = TIM4_CNTR_RESET_VALUE;
+                                     86 ; genPointerSet
+      000008 35 00 53 46      [ 1]   87 	mov	0x5346+0, #0x00
+                           00000C    88 	Sstm8s_tim4$TIM4_DeInit$5 ==.
+                                     89 ;	./libraries/src/stm8s_tim4.c: 54: TIM4->PSCR = TIM4_PSCR_RESET_VALUE;
+                                     90 ; genPointerSet
+      00000C 35 00 53 47      [ 1]   91 	mov	0x5347+0, #0x00
+                           000010    92 	Sstm8s_tim4$TIM4_DeInit$6 ==.
+                                     93 ;	./libraries/src/stm8s_tim4.c: 55: TIM4->ARR = TIM4_ARR_RESET_VALUE;
+                                     94 ; genPointerSet
+      000010 35 FF 53 48      [ 1]   95 	mov	0x5348+0, #0xff
+                           000014    96 	Sstm8s_tim4$TIM4_DeInit$7 ==.
+                                     97 ;	./libraries/src/stm8s_tim4.c: 56: TIM4->SR1 = TIM4_SR1_RESET_VALUE;
+                                     98 ; genPointerSet
+      000014 35 00 53 44      [ 1]   99 	mov	0x5344+0, #0x00
+                                    100 ; genLabel
+      000018                        101 00101$:
+                           000018   102 	Sstm8s_tim4$TIM4_DeInit$8 ==.
+                                    103 ;	./libraries/src/stm8s_tim4.c: 57: }
+                                    104 ; genEndFunction
+                           000018   105 	Sstm8s_tim4$TIM4_DeInit$9 ==.
+                           000018   106 	XG$TIM4_DeInit$0$0 ==.
+      000018 81               [ 4]  107 	ret
+                           000019   108 	Sstm8s_tim4$TIM4_DeInit$10 ==.
+                           000019   109 	Sstm8s_tim4$TIM4_TimeBaseInit$11 ==.
+                                    110 ;	./libraries/src/stm8s_tim4.c: 65: void TIM4_TimeBaseInit(TIM4_Prescaler_TypeDef TIM4_Prescaler, uint8_t TIM4_Period)
+                                    111 ; genLabel
+                                    112 ;	-----------------------------------------
+                                    113 ;	 function TIM4_TimeBaseInit
+                                    114 ;	-----------------------------------------
+                                    115 ;	Register assignment is optimal.
+                                    116 ;	Stack space usage: 0 bytes.
+      000019                        117 _TIM4_TimeBaseInit:
+                           000019   118 	Sstm8s_tim4$TIM4_TimeBaseInit$12 ==.
+                           000019   119 	Sstm8s_tim4$TIM4_TimeBaseInit$13 ==.
+                                    120 ;	./libraries/src/stm8s_tim4.c: 70: TIM4->PSCR = (uint8_t)(TIM4_Prescaler);
+                                    121 ; genPointerSet
+      000019 AE 53 47         [ 2]  122 	ldw	x, #0x5347
+      00001C 7B 03            [ 1]  123 	ld	a, (0x03, sp)
+      00001E F7               [ 1]  124 	ld	(x), a
+                           00001F   125 	Sstm8s_tim4$TIM4_TimeBaseInit$14 ==.
+                                    126 ;	./libraries/src/stm8s_tim4.c: 72: TIM4->ARR = (uint8_t)(TIM4_Period);
+                                    127 ; genPointerSet
+      00001F AE 53 48         [ 2]  128 	ldw	x, #0x5348
+      000022 7B 04            [ 1]  129 	ld	a, (0x04, sp)
+      000024 F7               [ 1]  130 	ld	(x), a
+                                    131 ; genLabel
+      000025                        132 00101$:
+                           000025   133 	Sstm8s_tim4$TIM4_TimeBaseInit$15 ==.
+                                    134 ;	./libraries/src/stm8s_tim4.c: 73: }
+                                    135 ; genEndFunction
+                           000025   136 	Sstm8s_tim4$TIM4_TimeBaseInit$16 ==.
+                           000025   137 	XG$TIM4_TimeBaseInit$0$0 ==.
+      000025 81               [ 4]  138 	ret
+                           000026   139 	Sstm8s_tim4$TIM4_TimeBaseInit$17 ==.
+                           000026   140 	Sstm8s_tim4$TIM4_Cmd$18 ==.
+                                    141 ;	./libraries/src/stm8s_tim4.c: 81: void TIM4_Cmd(FunctionalState NewState)
+                                    142 ; genLabel
+                                    143 ;	-----------------------------------------
+                                    144 ;	 function TIM4_Cmd
+                                    145 ;	-----------------------------------------
+                                    146 ;	Register assignment is optimal.
+                                    147 ;	Stack space usage: 0 bytes.
+      000026                        148 _TIM4_Cmd:
+                           000026   149 	Sstm8s_tim4$TIM4_Cmd$19 ==.
+                           000026   150 	Sstm8s_tim4$TIM4_Cmd$20 ==.
+                                    151 ;	./libraries/src/stm8s_tim4.c: 89: TIM4->CR1 |= TIM4_CR1_CEN;
+                                    152 ; genPointerGet
+      000026 C6 53 40         [ 1]  153 	ld	a, 0x5340
+                           000029   154 	Sstm8s_tim4$TIM4_Cmd$21 ==.
+                                    155 ;	./libraries/src/stm8s_tim4.c: 87: if (NewState != DISABLE)
+                                    156 ; genIfx
+      000029 0D 03            [ 1]  157 	tnz	(0x03, sp)
+      00002B 26 03            [ 1]  158 	jrne	00111$
+      00002D CCr00r38         [ 2]  159 	jp	00102$
+      000030                        160 00111$:
+                           000030   161 	Sstm8s_tim4$TIM4_Cmd$22 ==.
+                           000030   162 	Sstm8s_tim4$TIM4_Cmd$23 ==.
+                                    163 ;	./libraries/src/stm8s_tim4.c: 89: TIM4->CR1 |= TIM4_CR1_CEN;
+                                    164 ; genOr
+      000030 AA 01            [ 1]  165 	or	a, #0x01
+                                    166 ; genPointerSet
+      000032 C7 53 40         [ 1]  167 	ld	0x5340, a
+                           000035   168 	Sstm8s_tim4$TIM4_Cmd$24 ==.
+                                    169 ; genGoto
+      000035 CCr00r3D         [ 2]  170 	jp	00104$
+                                    171 ; genLabel
+      000038                        172 00102$:
+                           000038   173 	Sstm8s_tim4$TIM4_Cmd$25 ==.
+                           000038   174 	Sstm8s_tim4$TIM4_Cmd$26 ==.
+                                    175 ;	./libraries/src/stm8s_tim4.c: 93: TIM4->CR1 &= (uint8_t)(~TIM4_CR1_CEN);
+                                    176 ; genAnd
+      000038 A4 FE            [ 1]  177 	and	a, #0xfe
+                                    178 ; genPointerSet
+      00003A C7 53 40         [ 1]  179 	ld	0x5340, a
+                           00003D   180 	Sstm8s_tim4$TIM4_Cmd$27 ==.
+                                    181 ; genLabel
+      00003D                        182 00104$:
+                           00003D   183 	Sstm8s_tim4$TIM4_Cmd$28 ==.
+                                    184 ;	./libraries/src/stm8s_tim4.c: 95: }
+                                    185 ; genEndFunction
+                           00003D   186 	Sstm8s_tim4$TIM4_Cmd$29 ==.
+                           00003D   187 	XG$TIM4_Cmd$0$0 ==.
+      00003D 81               [ 4]  188 	ret
+                           00003E   189 	Sstm8s_tim4$TIM4_Cmd$30 ==.
+                           00003E   190 	Sstm8s_tim4$TIM4_ITConfig$31 ==.
+                                    191 ;	./libraries/src/stm8s_tim4.c: 107: void TIM4_ITConfig(TIM4_IT_TypeDef TIM4_IT, FunctionalState NewState)
+                                    192 ; genLabel
+                                    193 ;	-----------------------------------------
+                                    194 ;	 function TIM4_ITConfig
+                                    195 ;	-----------------------------------------
+                                    196 ;	Register assignment is optimal.
+                                    197 ;	Stack space usage: 1 bytes.
+      00003E                        198 _TIM4_ITConfig:
+                           00003E   199 	Sstm8s_tim4$TIM4_ITConfig$32 ==.
+      00003E 88               [ 1]  200 	push	a
+                           00003F   201 	Sstm8s_tim4$TIM4_ITConfig$33 ==.
+                           00003F   202 	Sstm8s_tim4$TIM4_ITConfig$34 ==.
+                                    203 ;	./libraries/src/stm8s_tim4.c: 116: TIM4->IER |= (uint8_t)TIM4_IT;
+                                    204 ; genPointerGet
+      00003F C6 53 43         [ 1]  205 	ld	a, 0x5343
+                           000042   206 	Sstm8s_tim4$TIM4_ITConfig$35 ==.
+                                    207 ;	./libraries/src/stm8s_tim4.c: 113: if (NewState != DISABLE)
+                                    208 ; genIfx
+      000042 0D 05            [ 1]  209 	tnz	(0x05, sp)
+      000044 26 03            [ 1]  210 	jrne	00111$
+      000046 CCr00r51         [ 2]  211 	jp	00102$
+      000049                        212 00111$:
+                           000049   213 	Sstm8s_tim4$TIM4_ITConfig$36 ==.
+                           000049   214 	Sstm8s_tim4$TIM4_ITConfig$37 ==.
+                                    215 ;	./libraries/src/stm8s_tim4.c: 116: TIM4->IER |= (uint8_t)TIM4_IT;
+                                    216 ; genOr
+      000049 1A 04            [ 1]  217 	or	a, (0x04, sp)
+                                    218 ; genPointerSet
+      00004B C7 53 43         [ 1]  219 	ld	0x5343, a
+                           00004E   220 	Sstm8s_tim4$TIM4_ITConfig$38 ==.
+                                    221 ; genGoto
+      00004E CCr00r5D         [ 2]  222 	jp	00104$
+                                    223 ; genLabel
+      000051                        224 00102$:
+                           000051   225 	Sstm8s_tim4$TIM4_ITConfig$39 ==.
+                           000051   226 	Sstm8s_tim4$TIM4_ITConfig$40 ==.
+                                    227 ;	./libraries/src/stm8s_tim4.c: 121: TIM4->IER &= (uint8_t)(~TIM4_IT);
+                                    228 ; genCpl
+      000051 88               [ 1]  229 	push	a
+                           000052   230 	Sstm8s_tim4$TIM4_ITConfig$41 ==.
+      000052 7B 05            [ 1]  231 	ld	a, (0x05, sp)
+      000054 43               [ 1]  232 	cpl	a
+      000055 6B 02            [ 1]  233 	ld	(0x02, sp), a
+      000057 84               [ 1]  234 	pop	a
+                           000058   235 	Sstm8s_tim4$TIM4_ITConfig$42 ==.
+                                    236 ; genAnd
+      000058 14 01            [ 1]  237 	and	a, (0x01, sp)
+                                    238 ; genPointerSet
+      00005A C7 53 43         [ 1]  239 	ld	0x5343, a
+                           00005D   240 	Sstm8s_tim4$TIM4_ITConfig$43 ==.
+                                    241 ; genLabel
+      00005D                        242 00104$:
+                           00005D   243 	Sstm8s_tim4$TIM4_ITConfig$44 ==.
+                                    244 ;	./libraries/src/stm8s_tim4.c: 123: }
+                                    245 ; genEndFunction
+      00005D 84               [ 1]  246 	pop	a
+                           00005E   247 	Sstm8s_tim4$TIM4_ITConfig$45 ==.
+                           00005E   248 	Sstm8s_tim4$TIM4_ITConfig$46 ==.
+                           00005E   249 	XG$TIM4_ITConfig$0$0 ==.
+      00005E 81               [ 4]  250 	ret
+                           00005F   251 	Sstm8s_tim4$TIM4_ITConfig$47 ==.
+                           00005F   252 	Sstm8s_tim4$TIM4_UpdateDisableConfig$48 ==.
+                                    253 ;	./libraries/src/stm8s_tim4.c: 131: void TIM4_UpdateDisableConfig(FunctionalState NewState)
+                                    254 ; genLabel
+                                    255 ;	-----------------------------------------
+                                    256 ;	 function TIM4_UpdateDisableConfig
+                                    257 ;	-----------------------------------------
+                                    258 ;	Register assignment is optimal.
+                                    259 ;	Stack space usage: 0 bytes.
+      00005F                        260 _TIM4_UpdateDisableConfig:
+                           00005F   261 	Sstm8s_tim4$TIM4_UpdateDisableConfig$49 ==.
+                           00005F   262 	Sstm8s_tim4$TIM4_UpdateDisableConfig$50 ==.
+                                    263 ;	./libraries/src/stm8s_tim4.c: 139: TIM4->CR1 |= TIM4_CR1_UDIS;
+                                    264 ; genPointerGet
+      00005F C6 53 40         [ 1]  265 	ld	a, 0x5340
+                           000062   266 	Sstm8s_tim4$TIM4_UpdateDisableConfig$51 ==.
+                                    267 ;	./libraries/src/stm8s_tim4.c: 137: if (NewState != DISABLE)
+                                    268 ; genIfx
+      000062 0D 03            [ 1]  269 	tnz	(0x03, sp)
+      000064 26 03            [ 1]  270 	jrne	00111$
+      000066 CCr00r71         [ 2]  271 	jp	00102$
+      000069                        272 00111$:
+                           000069   273 	Sstm8s_tim4$TIM4_UpdateDisableConfig$52 ==.
+                           000069   274 	Sstm8s_tim4$TIM4_UpdateDisableConfig$53 ==.
+                                    275 ;	./libraries/src/stm8s_tim4.c: 139: TIM4->CR1 |= TIM4_CR1_UDIS;
+                                    276 ; genOr
+      000069 AA 02            [ 1]  277 	or	a, #0x02
+                                    278 ; genPointerSet
+      00006B C7 53 40         [ 1]  279 	ld	0x5340, a
+                           00006E   280 	Sstm8s_tim4$TIM4_UpdateDisableConfig$54 ==.
+                                    281 ; genGoto
+      00006E CCr00r76         [ 2]  282 	jp	00104$
+                                    283 ; genLabel
+      000071                        284 00102$:
+                           000071   285 	Sstm8s_tim4$TIM4_UpdateDisableConfig$55 ==.
+                           000071   286 	Sstm8s_tim4$TIM4_UpdateDisableConfig$56 ==.
+                                    287 ;	./libraries/src/stm8s_tim4.c: 143: TIM4->CR1 &= (uint8_t)(~TIM4_CR1_UDIS);
+                                    288 ; genAnd
+      000071 A4 FD            [ 1]  289 	and	a, #0xfd
+                                    290 ; genPointerSet
+      000073 C7 53 40         [ 1]  291 	ld	0x5340, a
+                           000076   292 	Sstm8s_tim4$TIM4_UpdateDisableConfig$57 ==.
+                                    293 ; genLabel
+      000076                        294 00104$:
+                           000076   295 	Sstm8s_tim4$TIM4_UpdateDisableConfig$58 ==.
+                                    296 ;	./libraries/src/stm8s_tim4.c: 145: }
+                                    297 ; genEndFunction
+                           000076   298 	Sstm8s_tim4$TIM4_UpdateDisableConfig$59 ==.
+                           000076   299 	XG$TIM4_UpdateDisableConfig$0$0 ==.
+      000076 81               [ 4]  300 	ret
+                           000077   301 	Sstm8s_tim4$TIM4_UpdateDisableConfig$60 ==.
+                           000077   302 	Sstm8s_tim4$TIM4_UpdateRequestConfig$61 ==.
+                                    303 ;	./libraries/src/stm8s_tim4.c: 155: void TIM4_UpdateRequestConfig(TIM4_UpdateSource_TypeDef TIM4_UpdateSource)
+                                    304 ; genLabel
+                                    305 ;	-----------------------------------------
+                                    306 ;	 function TIM4_UpdateRequestConfig
+                                    307 ;	-----------------------------------------
+                                    308 ;	Register assignment is optimal.
+                                    309 ;	Stack space usage: 0 bytes.
+      000077                        310 _TIM4_UpdateRequestConfig:
+                           000077   311 	Sstm8s_tim4$TIM4_UpdateRequestConfig$62 ==.
+                           000077   312 	Sstm8s_tim4$TIM4_UpdateRequestConfig$63 ==.
+                                    313 ;	./libraries/src/stm8s_tim4.c: 163: TIM4->CR1 |= TIM4_CR1_URS;
+                                    314 ; genPointerGet
+      000077 C6 53 40         [ 1]  315 	ld	a, 0x5340
+                           00007A   316 	Sstm8s_tim4$TIM4_UpdateRequestConfig$64 ==.
+                                    317 ;	./libraries/src/stm8s_tim4.c: 161: if (TIM4_UpdateSource != TIM4_UPDATESOURCE_GLOBAL)
+                                    318 ; genIfx
+      00007A 0D 03            [ 1]  319 	tnz	(0x03, sp)
+      00007C 26 03            [ 1]  320 	jrne	00111$
+      00007E CCr00r89         [ 2]  321 	jp	00102$
+      000081                        322 00111$:
+                           000081   323 	Sstm8s_tim4$TIM4_UpdateRequestConfig$65 ==.
+                           000081   324 	Sstm8s_tim4$TIM4_UpdateRequestConfig$66 ==.
+                                    325 ;	./libraries/src/stm8s_tim4.c: 163: TIM4->CR1 |= TIM4_CR1_URS;
+                                    326 ; genOr
+      000081 AA 04            [ 1]  327 	or	a, #0x04
+                                    328 ; genPointerSet
+      000083 C7 53 40         [ 1]  329 	ld	0x5340, a
+                           000086   330 	Sstm8s_tim4$TIM4_UpdateRequestConfig$67 ==.
+                                    331 ; genGoto
+      000086 CCr00r8E         [ 2]  332 	jp	00104$
+                                    333 ; genLabel
+      000089                        334 00102$:
+                           000089   335 	Sstm8s_tim4$TIM4_UpdateRequestConfig$68 ==.
+                           000089   336 	Sstm8s_tim4$TIM4_UpdateRequestConfig$69 ==.
+                                    337 ;	./libraries/src/stm8s_tim4.c: 167: TIM4->CR1 &= (uint8_t)(~TIM4_CR1_URS);
+                                    338 ; genAnd
+      000089 A4 FB            [ 1]  339 	and	a, #0xfb
+                                    340 ; genPointerSet
+      00008B C7 53 40         [ 1]  341 	ld	0x5340, a
+                           00008E   342 	Sstm8s_tim4$TIM4_UpdateRequestConfig$70 ==.
+                                    343 ; genLabel
+      00008E                        344 00104$:
+                           00008E   345 	Sstm8s_tim4$TIM4_UpdateRequestConfig$71 ==.
+                                    346 ;	./libraries/src/stm8s_tim4.c: 169: }
+                                    347 ; genEndFunction
+                           00008E   348 	Sstm8s_tim4$TIM4_UpdateRequestConfig$72 ==.
+                           00008E   349 	XG$TIM4_UpdateRequestConfig$0$0 ==.
+      00008E 81               [ 4]  350 	ret
+                           00008F   351 	Sstm8s_tim4$TIM4_UpdateRequestConfig$73 ==.
+                           00008F   352 	Sstm8s_tim4$TIM4_SelectOnePulseMode$74 ==.
+                                    353 ;	./libraries/src/stm8s_tim4.c: 179: void TIM4_SelectOnePulseMode(TIM4_OPMode_TypeDef TIM4_OPMode)
+                                    354 ; genLabel
+                                    355 ;	-----------------------------------------
+                                    356 ;	 function TIM4_SelectOnePulseMode
+                                    357 ;	-----------------------------------------
+                                    358 ;	Register assignment is optimal.
+                                    359 ;	Stack space usage: 0 bytes.
+      00008F                        360 _TIM4_SelectOnePulseMode:
+                           00008F   361 	Sstm8s_tim4$TIM4_SelectOnePulseMode$75 ==.
+                           00008F   362 	Sstm8s_tim4$TIM4_SelectOnePulseMode$76 ==.
+                                    363 ;	./libraries/src/stm8s_tim4.c: 187: TIM4->CR1 |= TIM4_CR1_OPM;
+                                    364 ; genPointerGet
+      00008F C6 53 40         [ 1]  365 	ld	a, 0x5340
+                           000092   366 	Sstm8s_tim4$TIM4_SelectOnePulseMode$77 ==.
+                                    367 ;	./libraries/src/stm8s_tim4.c: 185: if (TIM4_OPMode != TIM4_OPMODE_REPETITIVE)
+                                    368 ; genIfx
+      000092 0D 03            [ 1]  369 	tnz	(0x03, sp)
+      000094 26 03            [ 1]  370 	jrne	00111$
+      000096 CCr00rA1         [ 2]  371 	jp	00102$
+      000099                        372 00111$:
+                           000099   373 	Sstm8s_tim4$TIM4_SelectOnePulseMode$78 ==.
+                           000099   374 	Sstm8s_tim4$TIM4_SelectOnePulseMode$79 ==.
+                                    375 ;	./libraries/src/stm8s_tim4.c: 187: TIM4->CR1 |= TIM4_CR1_OPM;
+                                    376 ; genOr
+      000099 AA 08            [ 1]  377 	or	a, #0x08
+                                    378 ; genPointerSet
+      00009B C7 53 40         [ 1]  379 	ld	0x5340, a
+                           00009E   380 	Sstm8s_tim4$TIM4_SelectOnePulseMode$80 ==.
+                                    381 ; genGoto
+      00009E CCr00rA6         [ 2]  382 	jp	00104$
+                                    383 ; genLabel
+      0000A1                        384 00102$:
+                           0000A1   385 	Sstm8s_tim4$TIM4_SelectOnePulseMode$81 ==.
+                           0000A1   386 	Sstm8s_tim4$TIM4_SelectOnePulseMode$82 ==.
+                                    387 ;	./libraries/src/stm8s_tim4.c: 191: TIM4->CR1 &= (uint8_t)(~TIM4_CR1_OPM);
+                                    388 ; genAnd
+      0000A1 A4 F7            [ 1]  389 	and	a, #0xf7
+                                    390 ; genPointerSet
+      0000A3 C7 53 40         [ 1]  391 	ld	0x5340, a
+                           0000A6   392 	Sstm8s_tim4$TIM4_SelectOnePulseMode$83 ==.
+                                    393 ; genLabel
+      0000A6                        394 00104$:
+                           0000A6   395 	Sstm8s_tim4$TIM4_SelectOnePulseMode$84 ==.
+                                    396 ;	./libraries/src/stm8s_tim4.c: 193: }
+                                    397 ; genEndFunction
+                           0000A6   398 	Sstm8s_tim4$TIM4_SelectOnePulseMode$85 ==.
+                           0000A6   399 	XG$TIM4_SelectOnePulseMode$0$0 ==.
+      0000A6 81               [ 4]  400 	ret
+                           0000A7   401 	Sstm8s_tim4$TIM4_SelectOnePulseMode$86 ==.
+                           0000A7   402 	Sstm8s_tim4$TIM4_PrescalerConfig$87 ==.
+                                    403 ;	./libraries/src/stm8s_tim4.c: 215: void TIM4_PrescalerConfig(TIM4_Prescaler_TypeDef Prescaler, TIM4_PSCReloadMode_TypeDef TIM4_PSCReloadMode)
+                                    404 ; genLabel
+                                    405 ;	-----------------------------------------
+                                    406 ;	 function TIM4_PrescalerConfig
+                                    407 ;	-----------------------------------------
+                                    408 ;	Register assignment is optimal.
+                                    409 ;	Stack space usage: 0 bytes.
+      0000A7                        410 _TIM4_PrescalerConfig:
+                           0000A7   411 	Sstm8s_tim4$TIM4_PrescalerConfig$88 ==.
+                           0000A7   412 	Sstm8s_tim4$TIM4_PrescalerConfig$89 ==.
+                                    413 ;	./libraries/src/stm8s_tim4.c: 222: TIM4->PSCR = (uint8_t)Prescaler;
+                                    414 ; genPointerSet
+      0000A7 AE 53 47         [ 2]  415 	ldw	x, #0x5347
+      0000AA 7B 03            [ 1]  416 	ld	a, (0x03, sp)
+      0000AC F7               [ 1]  417 	ld	(x), a
+                           0000AD   418 	Sstm8s_tim4$TIM4_PrescalerConfig$90 ==.
+                                    419 ;	./libraries/src/stm8s_tim4.c: 225: TIM4->EGR = (uint8_t)TIM4_PSCReloadMode;
+                                    420 ; genPointerSet
+      0000AD AE 53 45         [ 2]  421 	ldw	x, #0x5345
+      0000B0 7B 04            [ 1]  422 	ld	a, (0x04, sp)
+      0000B2 F7               [ 1]  423 	ld	(x), a
+                                    424 ; genLabel
+      0000B3                        425 00101$:
+                           0000B3   426 	Sstm8s_tim4$TIM4_PrescalerConfig$91 ==.
+                                    427 ;	./libraries/src/stm8s_tim4.c: 226: }
+                                    428 ; genEndFunction
+                           0000B3   429 	Sstm8s_tim4$TIM4_PrescalerConfig$92 ==.
+                           0000B3   430 	XG$TIM4_PrescalerConfig$0$0 ==.
+      0000B3 81               [ 4]  431 	ret
+                           0000B4   432 	Sstm8s_tim4$TIM4_PrescalerConfig$93 ==.
+                           0000B4   433 	Sstm8s_tim4$TIM4_ARRPreloadConfig$94 ==.
+                                    434 ;	./libraries/src/stm8s_tim4.c: 234: void TIM4_ARRPreloadConfig(FunctionalState NewState)
+                                    435 ; genLabel
+                                    436 ;	-----------------------------------------
+                                    437 ;	 function TIM4_ARRPreloadConfig
+                                    438 ;	-----------------------------------------
+                                    439 ;	Register assignment is optimal.
+                                    440 ;	Stack space usage: 0 bytes.
+      0000B4                        441 _TIM4_ARRPreloadConfig:
+                           0000B4   442 	Sstm8s_tim4$TIM4_ARRPreloadConfig$95 ==.
+                           0000B4   443 	Sstm8s_tim4$TIM4_ARRPreloadConfig$96 ==.
+                                    444 ;	./libraries/src/stm8s_tim4.c: 242: TIM4->CR1 |= TIM4_CR1_ARPE;
+                                    445 ; genPointerGet
+      0000B4 C6 53 40         [ 1]  446 	ld	a, 0x5340
+                           0000B7   447 	Sstm8s_tim4$TIM4_ARRPreloadConfig$97 ==.
+                                    448 ;	./libraries/src/stm8s_tim4.c: 240: if (NewState != DISABLE)
+                                    449 ; genIfx
+      0000B7 0D 03            [ 1]  450 	tnz	(0x03, sp)
+      0000B9 26 03            [ 1]  451 	jrne	00111$
+      0000BB CCr00rC6         [ 2]  452 	jp	00102$
+      0000BE                        453 00111$:
+                           0000BE   454 	Sstm8s_tim4$TIM4_ARRPreloadConfig$98 ==.
+                           0000BE   455 	Sstm8s_tim4$TIM4_ARRPreloadConfig$99 ==.
+                                    456 ;	./libraries/src/stm8s_tim4.c: 242: TIM4->CR1 |= TIM4_CR1_ARPE;
+                                    457 ; genOr
+      0000BE AA 80            [ 1]  458 	or	a, #0x80
+                                    459 ; genPointerSet
+      0000C0 C7 53 40         [ 1]  460 	ld	0x5340, a
+                           0000C3   461 	Sstm8s_tim4$TIM4_ARRPreloadConfig$100 ==.
+                                    462 ; genGoto
+      0000C3 CCr00rCB         [ 2]  463 	jp	00104$
+                                    464 ; genLabel
+      0000C6                        465 00102$:
+                           0000C6   466 	Sstm8s_tim4$TIM4_ARRPreloadConfig$101 ==.
+                           0000C6   467 	Sstm8s_tim4$TIM4_ARRPreloadConfig$102 ==.
+                                    468 ;	./libraries/src/stm8s_tim4.c: 246: TIM4->CR1 &= (uint8_t)(~TIM4_CR1_ARPE);
+                                    469 ; genAnd
+      0000C6 A4 7F            [ 1]  470 	and	a, #0x7f
+                                    471 ; genPointerSet
+      0000C8 C7 53 40         [ 1]  472 	ld	0x5340, a
+                           0000CB   473 	Sstm8s_tim4$TIM4_ARRPreloadConfig$103 ==.
+                                    474 ; genLabel
+      0000CB                        475 00104$:
+                           0000CB   476 	Sstm8s_tim4$TIM4_ARRPreloadConfig$104 ==.
+                                    477 ;	./libraries/src/stm8s_tim4.c: 248: }
+                                    478 ; genEndFunction
+                           0000CB   479 	Sstm8s_tim4$TIM4_ARRPreloadConfig$105 ==.
+                           0000CB   480 	XG$TIM4_ARRPreloadConfig$0$0 ==.
+      0000CB 81               [ 4]  481 	ret
+                           0000CC   482 	Sstm8s_tim4$TIM4_ARRPreloadConfig$106 ==.
+                           0000CC   483 	Sstm8s_tim4$TIM4_GenerateEvent$107 ==.
+                                    484 ;	./libraries/src/stm8s_tim4.c: 257: void TIM4_GenerateEvent(TIM4_EventSource_TypeDef TIM4_EventSource)
+                                    485 ; genLabel
+                                    486 ;	-----------------------------------------
+                                    487 ;	 function TIM4_GenerateEvent
+                                    488 ;	-----------------------------------------
+                                    489 ;	Register assignment is optimal.
+                                    490 ;	Stack space usage: 0 bytes.
+      0000CC                        491 _TIM4_GenerateEvent:
+                           0000CC   492 	Sstm8s_tim4$TIM4_GenerateEvent$108 ==.
+                           0000CC   493 	Sstm8s_tim4$TIM4_GenerateEvent$109 ==.
+                                    494 ;	./libraries/src/stm8s_tim4.c: 263: TIM4->EGR = (uint8_t)(TIM4_EventSource);
+                                    495 ; genPointerSet
+      0000CC AE 53 45         [ 2]  496 	ldw	x, #0x5345
+      0000CF 7B 03            [ 1]  497 	ld	a, (0x03, sp)
+      0000D1 F7               [ 1]  498 	ld	(x), a
+                                    499 ; genLabel
+      0000D2                        500 00101$:
+                           0000D2   501 	Sstm8s_tim4$TIM4_GenerateEvent$110 ==.
+                                    502 ;	./libraries/src/stm8s_tim4.c: 264: }
+                                    503 ; genEndFunction
+                           0000D2   504 	Sstm8s_tim4$TIM4_GenerateEvent$111 ==.
+                           0000D2   505 	XG$TIM4_GenerateEvent$0$0 ==.
+      0000D2 81               [ 4]  506 	ret
+                           0000D3   507 	Sstm8s_tim4$TIM4_GenerateEvent$112 ==.
+                           0000D3   508 	Sstm8s_tim4$TIM4_SetCounter$113 ==.
+                                    509 ;	./libraries/src/stm8s_tim4.c: 272: void TIM4_SetCounter(uint8_t Counter)
+                                    510 ; genLabel
+                                    511 ;	-----------------------------------------
+                                    512 ;	 function TIM4_SetCounter
+                                    513 ;	-----------------------------------------
+                                    514 ;	Register assignment is optimal.
+                                    515 ;	Stack space usage: 0 bytes.
+      0000D3                        516 _TIM4_SetCounter:
+                           0000D3   517 	Sstm8s_tim4$TIM4_SetCounter$114 ==.
+                           0000D3   518 	Sstm8s_tim4$TIM4_SetCounter$115 ==.
+                                    519 ;	./libraries/src/stm8s_tim4.c: 275: TIM4->CNTR = (uint8_t)(Counter);
+                                    520 ; genPointerSet
+      0000D3 AE 53 46         [ 2]  521 	ldw	x, #0x5346
+      0000D6 7B 03            [ 1]  522 	ld	a, (0x03, sp)
+      0000D8 F7               [ 1]  523 	ld	(x), a
+                                    524 ; genLabel
+      0000D9                        525 00101$:
+                           0000D9   526 	Sstm8s_tim4$TIM4_SetCounter$116 ==.
+                                    527 ;	./libraries/src/stm8s_tim4.c: 276: }
+                                    528 ; genEndFunction
+                           0000D9   529 	Sstm8s_tim4$TIM4_SetCounter$117 ==.
+                           0000D9   530 	XG$TIM4_SetCounter$0$0 ==.
+      0000D9 81               [ 4]  531 	ret
+                           0000DA   532 	Sstm8s_tim4$TIM4_SetCounter$118 ==.
+                           0000DA   533 	Sstm8s_tim4$TIM4_SetAutoreload$119 ==.
+                                    534 ;	./libraries/src/stm8s_tim4.c: 284: void TIM4_SetAutoreload(uint8_t Autoreload)
+                                    535 ; genLabel
+                                    536 ;	-----------------------------------------
+                                    537 ;	 function TIM4_SetAutoreload
+                                    538 ;	-----------------------------------------
+                                    539 ;	Register assignment is optimal.
+                                    540 ;	Stack space usage: 0 bytes.
+      0000DA                        541 _TIM4_SetAutoreload:
+                           0000DA   542 	Sstm8s_tim4$TIM4_SetAutoreload$120 ==.
+                           0000DA   543 	Sstm8s_tim4$TIM4_SetAutoreload$121 ==.
+                                    544 ;	./libraries/src/stm8s_tim4.c: 287: TIM4->ARR = (uint8_t)(Autoreload);
+                                    545 ; genPointerSet
+      0000DA AE 53 48         [ 2]  546 	ldw	x, #0x5348
+      0000DD 7B 03            [ 1]  547 	ld	a, (0x03, sp)
+      0000DF F7               [ 1]  548 	ld	(x), a
+                                    549 ; genLabel
+      0000E0                        550 00101$:
+                           0000E0   551 	Sstm8s_tim4$TIM4_SetAutoreload$122 ==.
+                                    552 ;	./libraries/src/stm8s_tim4.c: 288: }
+                                    553 ; genEndFunction
+                           0000E0   554 	Sstm8s_tim4$TIM4_SetAutoreload$123 ==.
+                           0000E0   555 	XG$TIM4_SetAutoreload$0$0 ==.
+      0000E0 81               [ 4]  556 	ret
+                           0000E1   557 	Sstm8s_tim4$TIM4_SetAutoreload$124 ==.
+                           0000E1   558 	Sstm8s_tim4$TIM4_GetCounter$125 ==.
+                                    559 ;	./libraries/src/stm8s_tim4.c: 295: uint8_t TIM4_GetCounter(void)
+                                    560 ; genLabel
+                                    561 ;	-----------------------------------------
+                                    562 ;	 function TIM4_GetCounter
+                                    563 ;	-----------------------------------------
+                                    564 ;	Register assignment is optimal.
+                                    565 ;	Stack space usage: 0 bytes.
+      0000E1                        566 _TIM4_GetCounter:
+                           0000E1   567 	Sstm8s_tim4$TIM4_GetCounter$126 ==.
+                           0000E1   568 	Sstm8s_tim4$TIM4_GetCounter$127 ==.
+                                    569 ;	./libraries/src/stm8s_tim4.c: 298: return (uint8_t)(TIM4->CNTR);
+                                    570 ; genPointerGet
+      0000E1 C6 53 46         [ 1]  571 	ld	a, 0x5346
+                                    572 ; genReturn
+                                    573 ; genLabel
+      0000E4                        574 00101$:
+                           0000E4   575 	Sstm8s_tim4$TIM4_GetCounter$128 ==.
+                                    576 ;	./libraries/src/stm8s_tim4.c: 299: }
+                                    577 ; genEndFunction
+                           0000E4   578 	Sstm8s_tim4$TIM4_GetCounter$129 ==.
+                           0000E4   579 	XG$TIM4_GetCounter$0$0 ==.
+      0000E4 81               [ 4]  580 	ret
+                           0000E5   581 	Sstm8s_tim4$TIM4_GetCounter$130 ==.
+                           0000E5   582 	Sstm8s_tim4$TIM4_GetPrescaler$131 ==.
+                                    583 ;	./libraries/src/stm8s_tim4.c: 306: TIM4_Prescaler_TypeDef TIM4_GetPrescaler(void)
+                                    584 ; genLabel
+                                    585 ;	-----------------------------------------
+                                    586 ;	 function TIM4_GetPrescaler
+                                    587 ;	-----------------------------------------
+                                    588 ;	Register assignment is optimal.
+                                    589 ;	Stack space usage: 0 bytes.
+      0000E5                        590 _TIM4_GetPrescaler:
+                           0000E5   591 	Sstm8s_tim4$TIM4_GetPrescaler$132 ==.
+                           0000E5   592 	Sstm8s_tim4$TIM4_GetPrescaler$133 ==.
+                                    593 ;	./libraries/src/stm8s_tim4.c: 309: return (TIM4_Prescaler_TypeDef)(TIM4->PSCR);
+                                    594 ; genPointerGet
+      0000E5 C6 53 47         [ 1]  595 	ld	a, 0x5347
+                                    596 ; genReturn
+                                    597 ; genLabel
+      0000E8                        598 00101$:
+                           0000E8   599 	Sstm8s_tim4$TIM4_GetPrescaler$134 ==.
+                                    600 ;	./libraries/src/stm8s_tim4.c: 310: }
+                                    601 ; genEndFunction
+                           0000E8   602 	Sstm8s_tim4$TIM4_GetPrescaler$135 ==.
+                           0000E8   603 	XG$TIM4_GetPrescaler$0$0 ==.
+      0000E8 81               [ 4]  604 	ret
+                           0000E9   605 	Sstm8s_tim4$TIM4_GetPrescaler$136 ==.
+                           0000E9   606 	Sstm8s_tim4$TIM4_GetFlagStatus$137 ==.
+                                    607 ;	./libraries/src/stm8s_tim4.c: 319: FlagStatus TIM4_GetFlagStatus(TIM4_FLAG_TypeDef TIM4_FLAG)
+                                    608 ; genLabel
+                                    609 ;	-----------------------------------------
+                                    610 ;	 function TIM4_GetFlagStatus
+                                    611 ;	-----------------------------------------
+                                    612 ;	Register assignment is optimal.
+                                    613 ;	Stack space usage: 0 bytes.
+      0000E9                        614 _TIM4_GetFlagStatus:
+                           0000E9   615 	Sstm8s_tim4$TIM4_GetFlagStatus$138 ==.
+                           0000E9   616 	Sstm8s_tim4$TIM4_GetFlagStatus$139 ==.
+                                    617 ;	./libraries/src/stm8s_tim4.c: 326: if ((TIM4->SR1 & (uint8_t)TIM4_FLAG)  != 0)
+                                    618 ; genPointerGet
+      0000E9 C6 53 44         [ 1]  619 	ld	a, 0x5344
+                                    620 ; genAnd
+      0000EC 14 03            [ 1]  621 	and	a, (0x03, sp)
+                                    622 ; genIfx
+      0000EE 4D               [ 1]  623 	tnz	a
+      0000EF 26 03            [ 1]  624 	jrne	00111$
+      0000F1 CCr00rF9         [ 2]  625 	jp	00102$
+      0000F4                        626 00111$:
+                           0000F4   627 	Sstm8s_tim4$TIM4_GetFlagStatus$140 ==.
+                           0000F4   628 	Sstm8s_tim4$TIM4_GetFlagStatus$141 ==.
+                                    629 ;	./libraries/src/stm8s_tim4.c: 328: bitstatus = SET;
+                                    630 ; genAssign
+      0000F4 A6 01            [ 1]  631 	ld	a, #0x01
+                           0000F6   632 	Sstm8s_tim4$TIM4_GetFlagStatus$142 ==.
+                                    633 ; genGoto
+      0000F6 CCr00rFA         [ 2]  634 	jp	00103$
+                                    635 ; genLabel
+      0000F9                        636 00102$:
+                           0000F9   637 	Sstm8s_tim4$TIM4_GetFlagStatus$143 ==.
+                           0000F9   638 	Sstm8s_tim4$TIM4_GetFlagStatus$144 ==.
+                                    639 ;	./libraries/src/stm8s_tim4.c: 332: bitstatus = RESET;
+                                    640 ; genAssign
+      0000F9 4F               [ 1]  641 	clr	a
+                           0000FA   642 	Sstm8s_tim4$TIM4_GetFlagStatus$145 ==.
+                                    643 ; genLabel
+      0000FA                        644 00103$:
+                           0000FA   645 	Sstm8s_tim4$TIM4_GetFlagStatus$146 ==.
+                                    646 ;	./libraries/src/stm8s_tim4.c: 334: return ((FlagStatus)bitstatus);
+                                    647 ; genReturn
+                                    648 ; genLabel
+      0000FA                        649 00104$:
+                           0000FA   650 	Sstm8s_tim4$TIM4_GetFlagStatus$147 ==.
+                                    651 ;	./libraries/src/stm8s_tim4.c: 335: }
+                                    652 ; genEndFunction
+                           0000FA   653 	Sstm8s_tim4$TIM4_GetFlagStatus$148 ==.
+                           0000FA   654 	XG$TIM4_GetFlagStatus$0$0 ==.
+      0000FA 81               [ 4]  655 	ret
+                           0000FB   656 	Sstm8s_tim4$TIM4_GetFlagStatus$149 ==.
+                           0000FB   657 	Sstm8s_tim4$TIM4_ClearFlag$150 ==.
+                                    658 ;	./libraries/src/stm8s_tim4.c: 344: void TIM4_ClearFlag(TIM4_FLAG_TypeDef TIM4_FLAG)
+                                    659 ; genLabel
+                                    660 ;	-----------------------------------------
+                                    661 ;	 function TIM4_ClearFlag
+                                    662 ;	-----------------------------------------
+                                    663 ;	Register assignment is optimal.
+                                    664 ;	Stack space usage: 0 bytes.
+      0000FB                        665 _TIM4_ClearFlag:
+                           0000FB   666 	Sstm8s_tim4$TIM4_ClearFlag$151 ==.
+                           0000FB   667 	Sstm8s_tim4$TIM4_ClearFlag$152 ==.
+                                    668 ;	./libraries/src/stm8s_tim4.c: 350: TIM4->SR1 = (uint8_t)(~TIM4_FLAG);
+                                    669 ; genCpl
+      0000FB 7B 03            [ 1]  670 	ld	a, (0x03, sp)
+      0000FD 43               [ 1]  671 	cpl	a
+                                    672 ; genPointerSet
+      0000FE C7 53 44         [ 1]  673 	ld	0x5344, a
+                                    674 ; genLabel
+      000101                        675 00101$:
+                           000101   676 	Sstm8s_tim4$TIM4_ClearFlag$153 ==.
+                                    677 ;	./libraries/src/stm8s_tim4.c: 351: }
+                                    678 ; genEndFunction
+                           000101   679 	Sstm8s_tim4$TIM4_ClearFlag$154 ==.
+                           000101   680 	XG$TIM4_ClearFlag$0$0 ==.
+      000101 81               [ 4]  681 	ret
+                           000102   682 	Sstm8s_tim4$TIM4_ClearFlag$155 ==.
+                           000102   683 	Sstm8s_tim4$TIM4_GetITStatus$156 ==.
+                                    684 ;	./libraries/src/stm8s_tim4.c: 360: ITStatus TIM4_GetITStatus(TIM4_IT_TypeDef TIM4_IT)
+                                    685 ; genLabel
+                                    686 ;	-----------------------------------------
+                                    687 ;	 function TIM4_GetITStatus
+                                    688 ;	-----------------------------------------
+                                    689 ;	Register assignment is optimal.
+                                    690 ;	Stack space usage: 1 bytes.
+      000102                        691 _TIM4_GetITStatus:
+                           000102   692 	Sstm8s_tim4$TIM4_GetITStatus$157 ==.
+      000102 88               [ 1]  693 	push	a
+                           000103   694 	Sstm8s_tim4$TIM4_GetITStatus$158 ==.
+                           000103   695 	Sstm8s_tim4$TIM4_GetITStatus$159 ==.
+                                    696 ;	./libraries/src/stm8s_tim4.c: 369: itstatus = (uint8_t)(TIM4->SR1 & (uint8_t)TIM4_IT);
+                                    697 ; genPointerGet
+      000103 C6 53 44         [ 1]  698 	ld	a, 0x5344
+                                    699 ; genAnd
+      000106 14 04            [ 1]  700 	and	a, (0x04, sp)
+                                    701 ; genAssign
+      000108 6B 01            [ 1]  702 	ld	(0x01, sp), a
+                           00010A   703 	Sstm8s_tim4$TIM4_GetITStatus$160 ==.
+                                    704 ;	./libraries/src/stm8s_tim4.c: 371: itenable = (uint8_t)(TIM4->IER & (uint8_t)TIM4_IT);
+                                    705 ; genPointerGet
+      00010A C6 53 43         [ 1]  706 	ld	a, 0x5343
+                                    707 ; genAnd
+      00010D 14 04            [ 1]  708 	and	a, (0x04, sp)
+                                    709 ; genAssign
+                           00010F   710 	Sstm8s_tim4$TIM4_GetITStatus$161 ==.
+                                    711 ;	./libraries/src/stm8s_tim4.c: 373: if ((itstatus != (uint8_t)RESET ) && (itenable != (uint8_t)RESET ))
+                                    712 ; genIfx
+      00010F 0D 01            [ 1]  713 	tnz	(0x01, sp)
+      000111 26 03            [ 1]  714 	jrne	00117$
+      000113 CCr01r21         [ 2]  715 	jp	00102$
+      000116                        716 00117$:
+                                    717 ; genIfx
+      000116 4D               [ 1]  718 	tnz	a
+      000117 26 03            [ 1]  719 	jrne	00118$
+      000119 CCr01r21         [ 2]  720 	jp	00102$
+      00011C                        721 00118$:
+                           00011C   722 	Sstm8s_tim4$TIM4_GetITStatus$162 ==.
+                           00011C   723 	Sstm8s_tim4$TIM4_GetITStatus$163 ==.
+                                    724 ;	./libraries/src/stm8s_tim4.c: 375: bitstatus = (ITStatus)SET;
+                                    725 ; genAssign
+      00011C A6 01            [ 1]  726 	ld	a, #0x01
+                           00011E   727 	Sstm8s_tim4$TIM4_GetITStatus$164 ==.
+                                    728 ; genGoto
+      00011E CCr01r22         [ 2]  729 	jp	00103$
+                                    730 ; genLabel
+      000121                        731 00102$:
+                           000121   732 	Sstm8s_tim4$TIM4_GetITStatus$165 ==.
+                           000121   733 	Sstm8s_tim4$TIM4_GetITStatus$166 ==.
+                                    734 ;	./libraries/src/stm8s_tim4.c: 379: bitstatus = (ITStatus)RESET;
+                                    735 ; genAssign
+      000121 4F               [ 1]  736 	clr	a
+                           000122   737 	Sstm8s_tim4$TIM4_GetITStatus$167 ==.
+                                    738 ; genLabel
+      000122                        739 00103$:
+                           000122   740 	Sstm8s_tim4$TIM4_GetITStatus$168 ==.
+                                    741 ;	./libraries/src/stm8s_tim4.c: 381: return ((ITStatus)bitstatus);
+                                    742 ; genReturn
+                                    743 ; genLabel
+      000122                        744 00105$:
+                           000122   745 	Sstm8s_tim4$TIM4_GetITStatus$169 ==.
+                                    746 ;	./libraries/src/stm8s_tim4.c: 382: }
+                                    747 ; genEndFunction
+      000122 5B 01            [ 2]  748 	addw	sp, #1
+                           000124   749 	Sstm8s_tim4$TIM4_GetITStatus$170 ==.
+                           000124   750 	Sstm8s_tim4$TIM4_GetITStatus$171 ==.
+                           000124   751 	XG$TIM4_GetITStatus$0$0 ==.
+      000124 81               [ 4]  752 	ret
+                           000125   753 	Sstm8s_tim4$TIM4_GetITStatus$172 ==.
+                           000125   754 	Sstm8s_tim4$TIM4_ClearITPendingBit$173 ==.
+                                    755 ;	./libraries/src/stm8s_tim4.c: 391: void TIM4_ClearITPendingBit(TIM4_IT_TypeDef TIM4_IT)
+                                    756 ; genLabel
+                                    757 ;	-----------------------------------------
+                                    758 ;	 function TIM4_ClearITPendingBit
+                                    759 ;	-----------------------------------------
+                                    760 ;	Register assignment is optimal.
+                                    761 ;	Stack space usage: 0 bytes.
+      000125                        762 _TIM4_ClearITPendingBit:
+                           000125   763 	Sstm8s_tim4$TIM4_ClearITPendingBit$174 ==.
+                           000125   764 	Sstm8s_tim4$TIM4_ClearITPendingBit$175 ==.
+                                    765 ;	./libraries/src/stm8s_tim4.c: 397: TIM4->SR1 = (uint8_t)(~TIM4_IT);
+                                    766 ; genCpl
+      000125 7B 03            [ 1]  767 	ld	a, (0x03, sp)
+      000127 43               [ 1]  768 	cpl	a
+                                    769 ; genPointerSet
+      000128 C7 53 44         [ 1]  770 	ld	0x5344, a
+                                    771 ; genLabel
+      00012B                        772 00101$:
+                           00012B   773 	Sstm8s_tim4$TIM4_ClearITPendingBit$176 ==.
+                                    774 ;	./libraries/src/stm8s_tim4.c: 398: }
+                                    775 ; genEndFunction
+                           00012B   776 	Sstm8s_tim4$TIM4_ClearITPendingBit$177 ==.
+                           00012B   777 	XG$TIM4_ClearITPendingBit$0$0 ==.
+      00012B 81               [ 4]  778 	ret
+                           00012C   779 	Sstm8s_tim4$TIM4_ClearITPendingBit$178 ==.
+                                    780 	.area CODE
+                                    781 	.area CONST
+                                    782 	.area INITIALIZER
+                                    783 	.area CABS (ABS)
+                                    784 
+                                    785 	.area .debug_line (NOLOAD)
+      000000 00 00 03 95            786 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        787 Ldebug_line_start:
+      000004 00 02                  788 	.dw	2
+      000006 00 00 00 C0            789 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     790 	.db	1
+      00000B 01                     791 	.db	1
+      00000C FB                     792 	.db	-5
+      00000D 0F                     793 	.db	15
+      00000E 0A                     794 	.db	10
+      00000F 00                     795 	.db	0
+      000010 01                     796 	.db	1
+      000011 01                     797 	.db	1
+      000012 01                     798 	.db	1
+      000013 01                     799 	.db	1
+      000014 00                     800 	.db	0
+      000015 00                     801 	.db	0
+      000016 00                     802 	.db	0
+      000017 01                     803 	.db	1
+      000018 2F 75 73 72 2F 6C 6F   804 	.ascii "/usr/local/bin/../share/sdcc/include/stm8"
+             63 61 6C 2F 62 69 6E
+             2F 2E 2E 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65 2F 73 74 6D 38
+      000041 00                     805 	.db	0
+      000042 2F 75 73 72 2F 6C 6F   806 	.ascii "/usr/local/share/sdcc/include/stm8"
+             63 61 6C 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65 2F 73 74 6D 38
+      000064 00                     807 	.db	0
+      000065 2F 75 73 72 2F 6C 6F   808 	.ascii "/usr/local/bin/../share/sdcc/include"
+             63 61 6C 2F 62 69 6E
+             2F 2E 2E 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65
+      000089 00                     809 	.db	0
+      00008A 2F 75 73 72 2F 6C 6F   810 	.ascii "/usr/local/share/sdcc/include"
+             63 61 6C 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65
+      0000A7 00                     811 	.db	0
+      0000A8 00                     812 	.db	0
+      0000A9 2E 2F 6C 69 62 72 61   813 	.ascii "./libraries/src/stm8s_tim4.c"
+             72 69 65 73 2F 73 72
+             63 2F 73 74 6D 38 73
+             5F 74 69 6D 34 2E 63
+      0000C5 00                     814 	.db	0
+      0000C6 00                     815 	.uleb128	0
+      0000C7 00                     816 	.uleb128	0
+      0000C8 00                     817 	.uleb128	0
+      0000C9 00                     818 	.db	0
+      0000CA                        819 Ldebug_line_stmt:
+      0000CA 00                     820 	.db	0
+      0000CB 05                     821 	.uleb128	5
+      0000CC 02                     822 	.db	2
+      0000CD 00 00r00r00            823 	.dw	0,(Sstm8s_tim4$TIM4_DeInit$0)
+      0000D1 03                     824 	.db	3
+      0000D2 30                     825 	.sleb128	48
+      0000D3 01                     826 	.db	1
+      0000D4 09                     827 	.db	9
+      0000D5 00 00                  828 	.dw	Sstm8s_tim4$TIM4_DeInit$2-Sstm8s_tim4$TIM4_DeInit$0
+      0000D7 03                     829 	.db	3
+      0000D8 02                     830 	.sleb128	2
+      0000D9 01                     831 	.db	1
+      0000DA 09                     832 	.db	9
+      0000DB 00 04                  833 	.dw	Sstm8s_tim4$TIM4_DeInit$3-Sstm8s_tim4$TIM4_DeInit$2
+      0000DD 03                     834 	.db	3
+      0000DE 01                     835 	.sleb128	1
+      0000DF 01                     836 	.db	1
+      0000E0 09                     837 	.db	9
+      0000E1 00 04                  838 	.dw	Sstm8s_tim4$TIM4_DeInit$4-Sstm8s_tim4$TIM4_DeInit$3
+      0000E3 03                     839 	.db	3
+      0000E4 01                     840 	.sleb128	1
+      0000E5 01                     841 	.db	1
+      0000E6 09                     842 	.db	9
+      0000E7 00 04                  843 	.dw	Sstm8s_tim4$TIM4_DeInit$5-Sstm8s_tim4$TIM4_DeInit$4
+      0000E9 03                     844 	.db	3
+      0000EA 01                     845 	.sleb128	1
+      0000EB 01                     846 	.db	1
+      0000EC 09                     847 	.db	9
+      0000ED 00 04                  848 	.dw	Sstm8s_tim4$TIM4_DeInit$6-Sstm8s_tim4$TIM4_DeInit$5
+      0000EF 03                     849 	.db	3
+      0000F0 01                     850 	.sleb128	1
+      0000F1 01                     851 	.db	1
+      0000F2 09                     852 	.db	9
+      0000F3 00 04                  853 	.dw	Sstm8s_tim4$TIM4_DeInit$7-Sstm8s_tim4$TIM4_DeInit$6
+      0000F5 03                     854 	.db	3
+      0000F6 01                     855 	.sleb128	1
+      0000F7 01                     856 	.db	1
+      0000F8 09                     857 	.db	9
+      0000F9 00 04                  858 	.dw	Sstm8s_tim4$TIM4_DeInit$8-Sstm8s_tim4$TIM4_DeInit$7
+      0000FB 03                     859 	.db	3
+      0000FC 01                     860 	.sleb128	1
+      0000FD 01                     861 	.db	1
+      0000FE 09                     862 	.db	9
+      0000FF 00 01                  863 	.dw	1+Sstm8s_tim4$TIM4_DeInit$9-Sstm8s_tim4$TIM4_DeInit$8
+      000101 00                     864 	.db	0
+      000102 01                     865 	.uleb128	1
+      000103 01                     866 	.db	1
+      000104 00                     867 	.db	0
+      000105 05                     868 	.uleb128	5
+      000106 02                     869 	.db	2
+      000107 00 00r00r19            870 	.dw	0,(Sstm8s_tim4$TIM4_TimeBaseInit$11)
+      00010B 03                     871 	.db	3
+      00010C C0 00                  872 	.sleb128	64
+      00010E 01                     873 	.db	1
+      00010F 09                     874 	.db	9
+      000110 00 00                  875 	.dw	Sstm8s_tim4$TIM4_TimeBaseInit$13-Sstm8s_tim4$TIM4_TimeBaseInit$11
+      000112 03                     876 	.db	3
+      000113 05                     877 	.sleb128	5
+      000114 01                     878 	.db	1
+      000115 09                     879 	.db	9
+      000116 00 06                  880 	.dw	Sstm8s_tim4$TIM4_TimeBaseInit$14-Sstm8s_tim4$TIM4_TimeBaseInit$13
+      000118 03                     881 	.db	3
+      000119 02                     882 	.sleb128	2
+      00011A 01                     883 	.db	1
+      00011B 09                     884 	.db	9
+      00011C 00 06                  885 	.dw	Sstm8s_tim4$TIM4_TimeBaseInit$15-Sstm8s_tim4$TIM4_TimeBaseInit$14
+      00011E 03                     886 	.db	3
+      00011F 01                     887 	.sleb128	1
+      000120 01                     888 	.db	1
+      000121 09                     889 	.db	9
+      000122 00 01                  890 	.dw	1+Sstm8s_tim4$TIM4_TimeBaseInit$16-Sstm8s_tim4$TIM4_TimeBaseInit$15
+      000124 00                     891 	.db	0
+      000125 01                     892 	.uleb128	1
+      000126 01                     893 	.db	1
+      000127 00                     894 	.db	0
+      000128 05                     895 	.uleb128	5
+      000129 02                     896 	.db	2
+      00012A 00 00r00r26            897 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$18)
+      00012E 03                     898 	.db	3
+      00012F D0 00                  899 	.sleb128	80
+      000131 01                     900 	.db	1
+      000132 09                     901 	.db	9
+      000133 00 00                  902 	.dw	Sstm8s_tim4$TIM4_Cmd$20-Sstm8s_tim4$TIM4_Cmd$18
+      000135 03                     903 	.db	3
+      000136 08                     904 	.sleb128	8
+      000137 01                     905 	.db	1
+      000138 09                     906 	.db	9
+      000139 00 03                  907 	.dw	Sstm8s_tim4$TIM4_Cmd$21-Sstm8s_tim4$TIM4_Cmd$20
+      00013B 03                     908 	.db	3
+      00013C 7E                     909 	.sleb128	-2
+      00013D 01                     910 	.db	1
+      00013E 09                     911 	.db	9
+      00013F 00 07                  912 	.dw	Sstm8s_tim4$TIM4_Cmd$23-Sstm8s_tim4$TIM4_Cmd$21
+      000141 03                     913 	.db	3
+      000142 02                     914 	.sleb128	2
+      000143 01                     915 	.db	1
+      000144 09                     916 	.db	9
+      000145 00 08                  917 	.dw	Sstm8s_tim4$TIM4_Cmd$26-Sstm8s_tim4$TIM4_Cmd$23
+      000147 03                     918 	.db	3
+      000148 04                     919 	.sleb128	4
+      000149 01                     920 	.db	1
+      00014A 09                     921 	.db	9
+      00014B 00 05                  922 	.dw	Sstm8s_tim4$TIM4_Cmd$28-Sstm8s_tim4$TIM4_Cmd$26
+      00014D 03                     923 	.db	3
+      00014E 02                     924 	.sleb128	2
+      00014F 01                     925 	.db	1
+      000150 09                     926 	.db	9
+      000151 00 01                  927 	.dw	1+Sstm8s_tim4$TIM4_Cmd$29-Sstm8s_tim4$TIM4_Cmd$28
+      000153 00                     928 	.db	0
+      000154 01                     929 	.uleb128	1
+      000155 01                     930 	.db	1
+      000156 00                     931 	.db	0
+      000157 05                     932 	.uleb128	5
+      000158 02                     933 	.db	2
+      000159 00 00r00r3E            934 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$31)
+      00015D 03                     935 	.db	3
+      00015E EA 00                  936 	.sleb128	106
+      000160 01                     937 	.db	1
+      000161 09                     938 	.db	9
+      000162 00 01                  939 	.dw	Sstm8s_tim4$TIM4_ITConfig$34-Sstm8s_tim4$TIM4_ITConfig$31
+      000164 03                     940 	.db	3
+      000165 09                     941 	.sleb128	9
+      000166 01                     942 	.db	1
+      000167 09                     943 	.db	9
+      000168 00 03                  944 	.dw	Sstm8s_tim4$TIM4_ITConfig$35-Sstm8s_tim4$TIM4_ITConfig$34
+      00016A 03                     945 	.db	3
+      00016B 7D                     946 	.sleb128	-3
+      00016C 01                     947 	.db	1
+      00016D 09                     948 	.db	9
+      00016E 00 07                  949 	.dw	Sstm8s_tim4$TIM4_ITConfig$37-Sstm8s_tim4$TIM4_ITConfig$35
+      000170 03                     950 	.db	3
+      000171 03                     951 	.sleb128	3
+      000172 01                     952 	.db	1
+      000173 09                     953 	.db	9
+      000174 00 08                  954 	.dw	Sstm8s_tim4$TIM4_ITConfig$40-Sstm8s_tim4$TIM4_ITConfig$37
+      000176 03                     955 	.db	3
+      000177 05                     956 	.sleb128	5
+      000178 01                     957 	.db	1
+      000179 09                     958 	.db	9
+      00017A 00 0C                  959 	.dw	Sstm8s_tim4$TIM4_ITConfig$44-Sstm8s_tim4$TIM4_ITConfig$40
+      00017C 03                     960 	.db	3
+      00017D 02                     961 	.sleb128	2
+      00017E 01                     962 	.db	1
+      00017F 09                     963 	.db	9
+      000180 00 02                  964 	.dw	1+Sstm8s_tim4$TIM4_ITConfig$46-Sstm8s_tim4$TIM4_ITConfig$44
+      000182 00                     965 	.db	0
+      000183 01                     966 	.uleb128	1
+      000184 01                     967 	.db	1
+      000185 00                     968 	.db	0
+      000186 05                     969 	.uleb128	5
+      000187 02                     970 	.db	2
+      000188 00 00r00r5F            971 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$48)
+      00018C 03                     972 	.db	3
+      00018D 82 01                  973 	.sleb128	130
+      00018F 01                     974 	.db	1
+      000190 09                     975 	.db	9
+      000191 00 00                  976 	.dw	Sstm8s_tim4$TIM4_UpdateDisableConfig$50-Sstm8s_tim4$TIM4_UpdateDisableConfig$48
+      000193 03                     977 	.db	3
+      000194 08                     978 	.sleb128	8
+      000195 01                     979 	.db	1
+      000196 09                     980 	.db	9
+      000197 00 03                  981 	.dw	Sstm8s_tim4$TIM4_UpdateDisableConfig$51-Sstm8s_tim4$TIM4_UpdateDisableConfig$50
+      000199 03                     982 	.db	3
+      00019A 7E                     983 	.sleb128	-2
+      00019B 01                     984 	.db	1
+      00019C 09                     985 	.db	9
+      00019D 00 07                  986 	.dw	Sstm8s_tim4$TIM4_UpdateDisableConfig$53-Sstm8s_tim4$TIM4_UpdateDisableConfig$51
+      00019F 03                     987 	.db	3
+      0001A0 02                     988 	.sleb128	2
+      0001A1 01                     989 	.db	1
+      0001A2 09                     990 	.db	9
+      0001A3 00 08                  991 	.dw	Sstm8s_tim4$TIM4_UpdateDisableConfig$56-Sstm8s_tim4$TIM4_UpdateDisableConfig$53
+      0001A5 03                     992 	.db	3
+      0001A6 04                     993 	.sleb128	4
+      0001A7 01                     994 	.db	1
+      0001A8 09                     995 	.db	9
+      0001A9 00 05                  996 	.dw	Sstm8s_tim4$TIM4_UpdateDisableConfig$58-Sstm8s_tim4$TIM4_UpdateDisableConfig$56
+      0001AB 03                     997 	.db	3
+      0001AC 02                     998 	.sleb128	2
+      0001AD 01                     999 	.db	1
+      0001AE 09                    1000 	.db	9
+      0001AF 00 01                 1001 	.dw	1+Sstm8s_tim4$TIM4_UpdateDisableConfig$59-Sstm8s_tim4$TIM4_UpdateDisableConfig$58
+      0001B1 00                    1002 	.db	0
+      0001B2 01                    1003 	.uleb128	1
+      0001B3 01                    1004 	.db	1
+      0001B4 00                    1005 	.db	0
+      0001B5 05                    1006 	.uleb128	5
+      0001B6 02                    1007 	.db	2
+      0001B7 00 00r00r77           1008 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$61)
+      0001BB 03                    1009 	.db	3
+      0001BC 9A 01                 1010 	.sleb128	154
+      0001BE 01                    1011 	.db	1
+      0001BF 09                    1012 	.db	9
+      0001C0 00 00                 1013 	.dw	Sstm8s_tim4$TIM4_UpdateRequestConfig$63-Sstm8s_tim4$TIM4_UpdateRequestConfig$61
+      0001C2 03                    1014 	.db	3
+      0001C3 08                    1015 	.sleb128	8
+      0001C4 01                    1016 	.db	1
+      0001C5 09                    1017 	.db	9
+      0001C6 00 03                 1018 	.dw	Sstm8s_tim4$TIM4_UpdateRequestConfig$64-Sstm8s_tim4$TIM4_UpdateRequestConfig$63
+      0001C8 03                    1019 	.db	3
+      0001C9 7E                    1020 	.sleb128	-2
+      0001CA 01                    1021 	.db	1
+      0001CB 09                    1022 	.db	9
+      0001CC 00 07                 1023 	.dw	Sstm8s_tim4$TIM4_UpdateRequestConfig$66-Sstm8s_tim4$TIM4_UpdateRequestConfig$64
+      0001CE 03                    1024 	.db	3
+      0001CF 02                    1025 	.sleb128	2
+      0001D0 01                    1026 	.db	1
+      0001D1 09                    1027 	.db	9
+      0001D2 00 08                 1028 	.dw	Sstm8s_tim4$TIM4_UpdateRequestConfig$69-Sstm8s_tim4$TIM4_UpdateRequestConfig$66
+      0001D4 03                    1029 	.db	3
+      0001D5 04                    1030 	.sleb128	4
+      0001D6 01                    1031 	.db	1
+      0001D7 09                    1032 	.db	9
+      0001D8 00 05                 1033 	.dw	Sstm8s_tim4$TIM4_UpdateRequestConfig$71-Sstm8s_tim4$TIM4_UpdateRequestConfig$69
+      0001DA 03                    1034 	.db	3
+      0001DB 02                    1035 	.sleb128	2
+      0001DC 01                    1036 	.db	1
+      0001DD 09                    1037 	.db	9
+      0001DE 00 01                 1038 	.dw	1+Sstm8s_tim4$TIM4_UpdateRequestConfig$72-Sstm8s_tim4$TIM4_UpdateRequestConfig$71
+      0001E0 00                    1039 	.db	0
+      0001E1 01                    1040 	.uleb128	1
+      0001E2 01                    1041 	.db	1
+      0001E3 00                    1042 	.db	0
+      0001E4 05                    1043 	.uleb128	5
+      0001E5 02                    1044 	.db	2
+      0001E6 00 00r00r8F           1045 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$74)
+      0001EA 03                    1046 	.db	3
+      0001EB B2 01                 1047 	.sleb128	178
+      0001ED 01                    1048 	.db	1
+      0001EE 09                    1049 	.db	9
+      0001EF 00 00                 1050 	.dw	Sstm8s_tim4$TIM4_SelectOnePulseMode$76-Sstm8s_tim4$TIM4_SelectOnePulseMode$74
+      0001F1 03                    1051 	.db	3
+      0001F2 08                    1052 	.sleb128	8
+      0001F3 01                    1053 	.db	1
+      0001F4 09                    1054 	.db	9
+      0001F5 00 03                 1055 	.dw	Sstm8s_tim4$TIM4_SelectOnePulseMode$77-Sstm8s_tim4$TIM4_SelectOnePulseMode$76
+      0001F7 03                    1056 	.db	3
+      0001F8 7E                    1057 	.sleb128	-2
+      0001F9 01                    1058 	.db	1
+      0001FA 09                    1059 	.db	9
+      0001FB 00 07                 1060 	.dw	Sstm8s_tim4$TIM4_SelectOnePulseMode$79-Sstm8s_tim4$TIM4_SelectOnePulseMode$77
+      0001FD 03                    1061 	.db	3
+      0001FE 02                    1062 	.sleb128	2
+      0001FF 01                    1063 	.db	1
+      000200 09                    1064 	.db	9
+      000201 00 08                 1065 	.dw	Sstm8s_tim4$TIM4_SelectOnePulseMode$82-Sstm8s_tim4$TIM4_SelectOnePulseMode$79
+      000203 03                    1066 	.db	3
+      000204 04                    1067 	.sleb128	4
+      000205 01                    1068 	.db	1
+      000206 09                    1069 	.db	9
+      000207 00 05                 1070 	.dw	Sstm8s_tim4$TIM4_SelectOnePulseMode$84-Sstm8s_tim4$TIM4_SelectOnePulseMode$82
+      000209 03                    1071 	.db	3
+      00020A 02                    1072 	.sleb128	2
+      00020B 01                    1073 	.db	1
+      00020C 09                    1074 	.db	9
+      00020D 00 01                 1075 	.dw	1+Sstm8s_tim4$TIM4_SelectOnePulseMode$85-Sstm8s_tim4$TIM4_SelectOnePulseMode$84
+      00020F 00                    1076 	.db	0
+      000210 01                    1077 	.uleb128	1
+      000211 01                    1078 	.db	1
+      000212 00                    1079 	.db	0
+      000213 05                    1080 	.uleb128	5
+      000214 02                    1081 	.db	2
+      000215 00 00r00rA7           1082 	.dw	0,(Sstm8s_tim4$TIM4_PrescalerConfig$87)
+      000219 03                    1083 	.db	3
+      00021A D6 01                 1084 	.sleb128	214
+      00021C 01                    1085 	.db	1
+      00021D 09                    1086 	.db	9
+      00021E 00 00                 1087 	.dw	Sstm8s_tim4$TIM4_PrescalerConfig$89-Sstm8s_tim4$TIM4_PrescalerConfig$87
+      000220 03                    1088 	.db	3
+      000221 07                    1089 	.sleb128	7
+      000222 01                    1090 	.db	1
+      000223 09                    1091 	.db	9
+      000224 00 06                 1092 	.dw	Sstm8s_tim4$TIM4_PrescalerConfig$90-Sstm8s_tim4$TIM4_PrescalerConfig$89
+      000226 03                    1093 	.db	3
+      000227 03                    1094 	.sleb128	3
+      000228 01                    1095 	.db	1
+      000229 09                    1096 	.db	9
+      00022A 00 06                 1097 	.dw	Sstm8s_tim4$TIM4_PrescalerConfig$91-Sstm8s_tim4$TIM4_PrescalerConfig$90
+      00022C 03                    1098 	.db	3
+      00022D 01                    1099 	.sleb128	1
+      00022E 01                    1100 	.db	1
+      00022F 09                    1101 	.db	9
+      000230 00 01                 1102 	.dw	1+Sstm8s_tim4$TIM4_PrescalerConfig$92-Sstm8s_tim4$TIM4_PrescalerConfig$91
+      000232 00                    1103 	.db	0
+      000233 01                    1104 	.uleb128	1
+      000234 01                    1105 	.db	1
+      000235 00                    1106 	.db	0
+      000236 05                    1107 	.uleb128	5
+      000237 02                    1108 	.db	2
+      000238 00 00r00rB4           1109 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$94)
+      00023C 03                    1110 	.db	3
+      00023D E9 01                 1111 	.sleb128	233
+      00023F 01                    1112 	.db	1
+      000240 09                    1113 	.db	9
+      000241 00 00                 1114 	.dw	Sstm8s_tim4$TIM4_ARRPreloadConfig$96-Sstm8s_tim4$TIM4_ARRPreloadConfig$94
+      000243 03                    1115 	.db	3
+      000244 08                    1116 	.sleb128	8
+      000245 01                    1117 	.db	1
+      000246 09                    1118 	.db	9
+      000247 00 03                 1119 	.dw	Sstm8s_tim4$TIM4_ARRPreloadConfig$97-Sstm8s_tim4$TIM4_ARRPreloadConfig$96
+      000249 03                    1120 	.db	3
+      00024A 7E                    1121 	.sleb128	-2
+      00024B 01                    1122 	.db	1
+      00024C 09                    1123 	.db	9
+      00024D 00 07                 1124 	.dw	Sstm8s_tim4$TIM4_ARRPreloadConfig$99-Sstm8s_tim4$TIM4_ARRPreloadConfig$97
+      00024F 03                    1125 	.db	3
+      000250 02                    1126 	.sleb128	2
+      000251 01                    1127 	.db	1
+      000252 09                    1128 	.db	9
+      000253 00 08                 1129 	.dw	Sstm8s_tim4$TIM4_ARRPreloadConfig$102-Sstm8s_tim4$TIM4_ARRPreloadConfig$99
+      000255 03                    1130 	.db	3
+      000256 04                    1131 	.sleb128	4
+      000257 01                    1132 	.db	1
+      000258 09                    1133 	.db	9
+      000259 00 05                 1134 	.dw	Sstm8s_tim4$TIM4_ARRPreloadConfig$104-Sstm8s_tim4$TIM4_ARRPreloadConfig$102
+      00025B 03                    1135 	.db	3
+      00025C 02                    1136 	.sleb128	2
+      00025D 01                    1137 	.db	1
+      00025E 09                    1138 	.db	9
+      00025F 00 01                 1139 	.dw	1+Sstm8s_tim4$TIM4_ARRPreloadConfig$105-Sstm8s_tim4$TIM4_ARRPreloadConfig$104
+      000261 00                    1140 	.db	0
+      000262 01                    1141 	.uleb128	1
+      000263 01                    1142 	.db	1
+      000264 00                    1143 	.db	0
+      000265 05                    1144 	.uleb128	5
+      000266 02                    1145 	.db	2
+      000267 00 00r00rCC           1146 	.dw	0,(Sstm8s_tim4$TIM4_GenerateEvent$107)
+      00026B 03                    1147 	.db	3
+      00026C 80 02                 1148 	.sleb128	256
+      00026E 01                    1149 	.db	1
+      00026F 09                    1150 	.db	9
+      000270 00 00                 1151 	.dw	Sstm8s_tim4$TIM4_GenerateEvent$109-Sstm8s_tim4$TIM4_GenerateEvent$107
+      000272 03                    1152 	.db	3
+      000273 06                    1153 	.sleb128	6
+      000274 01                    1154 	.db	1
+      000275 09                    1155 	.db	9
+      000276 00 06                 1156 	.dw	Sstm8s_tim4$TIM4_GenerateEvent$110-Sstm8s_tim4$TIM4_GenerateEvent$109
+      000278 03                    1157 	.db	3
+      000279 01                    1158 	.sleb128	1
+      00027A 01                    1159 	.db	1
+      00027B 09                    1160 	.db	9
+      00027C 00 01                 1161 	.dw	1+Sstm8s_tim4$TIM4_GenerateEvent$111-Sstm8s_tim4$TIM4_GenerateEvent$110
+      00027E 00                    1162 	.db	0
+      00027F 01                    1163 	.uleb128	1
+      000280 01                    1164 	.db	1
+      000281 00                    1165 	.db	0
+      000282 05                    1166 	.uleb128	5
+      000283 02                    1167 	.db	2
+      000284 00 00r00rD3           1168 	.dw	0,(Sstm8s_tim4$TIM4_SetCounter$113)
+      000288 03                    1169 	.db	3
+      000289 8F 02                 1170 	.sleb128	271
+      00028B 01                    1171 	.db	1
+      00028C 09                    1172 	.db	9
+      00028D 00 00                 1173 	.dw	Sstm8s_tim4$TIM4_SetCounter$115-Sstm8s_tim4$TIM4_SetCounter$113
+      00028F 03                    1174 	.db	3
+      000290 03                    1175 	.sleb128	3
+      000291 01                    1176 	.db	1
+      000292 09                    1177 	.db	9
+      000293 00 06                 1178 	.dw	Sstm8s_tim4$TIM4_SetCounter$116-Sstm8s_tim4$TIM4_SetCounter$115
+      000295 03                    1179 	.db	3
+      000296 01                    1180 	.sleb128	1
+      000297 01                    1181 	.db	1
+      000298 09                    1182 	.db	9
+      000299 00 01                 1183 	.dw	1+Sstm8s_tim4$TIM4_SetCounter$117-Sstm8s_tim4$TIM4_SetCounter$116
+      00029B 00                    1184 	.db	0
+      00029C 01                    1185 	.uleb128	1
+      00029D 01                    1186 	.db	1
+      00029E 00                    1187 	.db	0
+      00029F 05                    1188 	.uleb128	5
+      0002A0 02                    1189 	.db	2
+      0002A1 00 00r00rDA           1190 	.dw	0,(Sstm8s_tim4$TIM4_SetAutoreload$119)
+      0002A5 03                    1191 	.db	3
+      0002A6 9B 02                 1192 	.sleb128	283
+      0002A8 01                    1193 	.db	1
+      0002A9 09                    1194 	.db	9
+      0002AA 00 00                 1195 	.dw	Sstm8s_tim4$TIM4_SetAutoreload$121-Sstm8s_tim4$TIM4_SetAutoreload$119
+      0002AC 03                    1196 	.db	3
+      0002AD 03                    1197 	.sleb128	3
+      0002AE 01                    1198 	.db	1
+      0002AF 09                    1199 	.db	9
+      0002B0 00 06                 1200 	.dw	Sstm8s_tim4$TIM4_SetAutoreload$122-Sstm8s_tim4$TIM4_SetAutoreload$121
+      0002B2 03                    1201 	.db	3
+      0002B3 01                    1202 	.sleb128	1
+      0002B4 01                    1203 	.db	1
+      0002B5 09                    1204 	.db	9
+      0002B6 00 01                 1205 	.dw	1+Sstm8s_tim4$TIM4_SetAutoreload$123-Sstm8s_tim4$TIM4_SetAutoreload$122
+      0002B8 00                    1206 	.db	0
+      0002B9 01                    1207 	.uleb128	1
+      0002BA 01                    1208 	.db	1
+      0002BB 00                    1209 	.db	0
+      0002BC 05                    1210 	.uleb128	5
+      0002BD 02                    1211 	.db	2
+      0002BE 00 00r00rE1           1212 	.dw	0,(Sstm8s_tim4$TIM4_GetCounter$125)
+      0002C2 03                    1213 	.db	3
+      0002C3 A6 02                 1214 	.sleb128	294
+      0002C5 01                    1215 	.db	1
+      0002C6 09                    1216 	.db	9
+      0002C7 00 00                 1217 	.dw	Sstm8s_tim4$TIM4_GetCounter$127-Sstm8s_tim4$TIM4_GetCounter$125
+      0002C9 03                    1218 	.db	3
+      0002CA 03                    1219 	.sleb128	3
+      0002CB 01                    1220 	.db	1
+      0002CC 09                    1221 	.db	9
+      0002CD 00 03                 1222 	.dw	Sstm8s_tim4$TIM4_GetCounter$128-Sstm8s_tim4$TIM4_GetCounter$127
+      0002CF 03                    1223 	.db	3
+      0002D0 01                    1224 	.sleb128	1
+      0002D1 01                    1225 	.db	1
+      0002D2 09                    1226 	.db	9
+      0002D3 00 01                 1227 	.dw	1+Sstm8s_tim4$TIM4_GetCounter$129-Sstm8s_tim4$TIM4_GetCounter$128
+      0002D5 00                    1228 	.db	0
+      0002D6 01                    1229 	.uleb128	1
+      0002D7 01                    1230 	.db	1
+      0002D8 00                    1231 	.db	0
+      0002D9 05                    1232 	.uleb128	5
+      0002DA 02                    1233 	.db	2
+      0002DB 00 00r00rE5           1234 	.dw	0,(Sstm8s_tim4$TIM4_GetPrescaler$131)
+      0002DF 03                    1235 	.db	3
+      0002E0 B1 02                 1236 	.sleb128	305
+      0002E2 01                    1237 	.db	1
+      0002E3 09                    1238 	.db	9
+      0002E4 00 00                 1239 	.dw	Sstm8s_tim4$TIM4_GetPrescaler$133-Sstm8s_tim4$TIM4_GetPrescaler$131
+      0002E6 03                    1240 	.db	3
+      0002E7 03                    1241 	.sleb128	3
+      0002E8 01                    1242 	.db	1
+      0002E9 09                    1243 	.db	9
+      0002EA 00 03                 1244 	.dw	Sstm8s_tim4$TIM4_GetPrescaler$134-Sstm8s_tim4$TIM4_GetPrescaler$133
+      0002EC 03                    1245 	.db	3
+      0002ED 01                    1246 	.sleb128	1
+      0002EE 01                    1247 	.db	1
+      0002EF 09                    1248 	.db	9
+      0002F0 00 01                 1249 	.dw	1+Sstm8s_tim4$TIM4_GetPrescaler$135-Sstm8s_tim4$TIM4_GetPrescaler$134
+      0002F2 00                    1250 	.db	0
+      0002F3 01                    1251 	.uleb128	1
+      0002F4 01                    1252 	.db	1
+      0002F5 00                    1253 	.db	0
+      0002F6 05                    1254 	.uleb128	5
+      0002F7 02                    1255 	.db	2
+      0002F8 00 00r00rE9           1256 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$137)
+      0002FC 03                    1257 	.db	3
+      0002FD BE 02                 1258 	.sleb128	318
+      0002FF 01                    1259 	.db	1
+      000300 09                    1260 	.db	9
+      000301 00 00                 1261 	.dw	Sstm8s_tim4$TIM4_GetFlagStatus$139-Sstm8s_tim4$TIM4_GetFlagStatus$137
+      000303 03                    1262 	.db	3
+      000304 07                    1263 	.sleb128	7
+      000305 01                    1264 	.db	1
+      000306 09                    1265 	.db	9
+      000307 00 0B                 1266 	.dw	Sstm8s_tim4$TIM4_GetFlagStatus$141-Sstm8s_tim4$TIM4_GetFlagStatus$139
+      000309 03                    1267 	.db	3
+      00030A 02                    1268 	.sleb128	2
+      00030B 01                    1269 	.db	1
+      00030C 09                    1270 	.db	9
+      00030D 00 05                 1271 	.dw	Sstm8s_tim4$TIM4_GetFlagStatus$144-Sstm8s_tim4$TIM4_GetFlagStatus$141
+      00030F 03                    1272 	.db	3
+      000310 04                    1273 	.sleb128	4
+      000311 01                    1274 	.db	1
+      000312 09                    1275 	.db	9
+      000313 00 01                 1276 	.dw	Sstm8s_tim4$TIM4_GetFlagStatus$146-Sstm8s_tim4$TIM4_GetFlagStatus$144
+      000315 03                    1277 	.db	3
+      000316 02                    1278 	.sleb128	2
+      000317 01                    1279 	.db	1
+      000318 09                    1280 	.db	9
+      000319 00 00                 1281 	.dw	Sstm8s_tim4$TIM4_GetFlagStatus$147-Sstm8s_tim4$TIM4_GetFlagStatus$146
+      00031B 03                    1282 	.db	3
+      00031C 01                    1283 	.sleb128	1
+      00031D 01                    1284 	.db	1
+      00031E 09                    1285 	.db	9
+      00031F 00 01                 1286 	.dw	1+Sstm8s_tim4$TIM4_GetFlagStatus$148-Sstm8s_tim4$TIM4_GetFlagStatus$147
+      000321 00                    1287 	.db	0
+      000322 01                    1288 	.uleb128	1
+      000323 01                    1289 	.db	1
+      000324 00                    1290 	.db	0
+      000325 05                    1291 	.uleb128	5
+      000326 02                    1292 	.db	2
+      000327 00 00r00rFB           1293 	.dw	0,(Sstm8s_tim4$TIM4_ClearFlag$150)
+      00032B 03                    1294 	.db	3
+      00032C D7 02                 1295 	.sleb128	343
+      00032E 01                    1296 	.db	1
+      00032F 09                    1297 	.db	9
+      000330 00 00                 1298 	.dw	Sstm8s_tim4$TIM4_ClearFlag$152-Sstm8s_tim4$TIM4_ClearFlag$150
+      000332 03                    1299 	.db	3
+      000333 06                    1300 	.sleb128	6
+      000334 01                    1301 	.db	1
+      000335 09                    1302 	.db	9
+      000336 00 06                 1303 	.dw	Sstm8s_tim4$TIM4_ClearFlag$153-Sstm8s_tim4$TIM4_ClearFlag$152
+      000338 03                    1304 	.db	3
+      000339 01                    1305 	.sleb128	1
+      00033A 01                    1306 	.db	1
+      00033B 09                    1307 	.db	9
+      00033C 00 01                 1308 	.dw	1+Sstm8s_tim4$TIM4_ClearFlag$154-Sstm8s_tim4$TIM4_ClearFlag$153
+      00033E 00                    1309 	.db	0
+      00033F 01                    1310 	.uleb128	1
+      000340 01                    1311 	.db	1
+      000341 00                    1312 	.db	0
+      000342 05                    1313 	.uleb128	5
+      000343 02                    1314 	.db	2
+      000344 00 00r01r02           1315 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$156)
+      000348 03                    1316 	.db	3
+      000349 E7 02                 1317 	.sleb128	359
+      00034B 01                    1318 	.db	1
+      00034C 09                    1319 	.db	9
+      00034D 00 01                 1320 	.dw	Sstm8s_tim4$TIM4_GetITStatus$159-Sstm8s_tim4$TIM4_GetITStatus$156
+      00034F 03                    1321 	.db	3
+      000350 09                    1322 	.sleb128	9
+      000351 01                    1323 	.db	1
+      000352 09                    1324 	.db	9
+      000353 00 07                 1325 	.dw	Sstm8s_tim4$TIM4_GetITStatus$160-Sstm8s_tim4$TIM4_GetITStatus$159
+      000355 03                    1326 	.db	3
+      000356 02                    1327 	.sleb128	2
+      000357 01                    1328 	.db	1
+      000358 09                    1329 	.db	9
+      000359 00 05                 1330 	.dw	Sstm8s_tim4$TIM4_GetITStatus$161-Sstm8s_tim4$TIM4_GetITStatus$160
+      00035B 03                    1331 	.db	3
+      00035C 02                    1332 	.sleb128	2
+      00035D 01                    1333 	.db	1
+      00035E 09                    1334 	.db	9
+      00035F 00 0D                 1335 	.dw	Sstm8s_tim4$TIM4_GetITStatus$163-Sstm8s_tim4$TIM4_GetITStatus$161
+      000361 03                    1336 	.db	3
+      000362 02                    1337 	.sleb128	2
+      000363 01                    1338 	.db	1
+      000364 09                    1339 	.db	9
+      000365 00 05                 1340 	.dw	Sstm8s_tim4$TIM4_GetITStatus$166-Sstm8s_tim4$TIM4_GetITStatus$163
+      000367 03                    1341 	.db	3
+      000368 04                    1342 	.sleb128	4
+      000369 01                    1343 	.db	1
+      00036A 09                    1344 	.db	9
+      00036B 00 01                 1345 	.dw	Sstm8s_tim4$TIM4_GetITStatus$168-Sstm8s_tim4$TIM4_GetITStatus$166
+      00036D 03                    1346 	.db	3
+      00036E 02                    1347 	.sleb128	2
+      00036F 01                    1348 	.db	1
+      000370 09                    1349 	.db	9
+      000371 00 00                 1350 	.dw	Sstm8s_tim4$TIM4_GetITStatus$169-Sstm8s_tim4$TIM4_GetITStatus$168
+      000373 03                    1351 	.db	3
+      000374 01                    1352 	.sleb128	1
+      000375 01                    1353 	.db	1
+      000376 09                    1354 	.db	9
+      000377 00 03                 1355 	.dw	1+Sstm8s_tim4$TIM4_GetITStatus$171-Sstm8s_tim4$TIM4_GetITStatus$169
+      000379 00                    1356 	.db	0
+      00037A 01                    1357 	.uleb128	1
+      00037B 01                    1358 	.db	1
+      00037C 00                    1359 	.db	0
+      00037D 05                    1360 	.uleb128	5
+      00037E 02                    1361 	.db	2
+      00037F 00 00r01r25           1362 	.dw	0,(Sstm8s_tim4$TIM4_ClearITPendingBit$173)
+      000383 03                    1363 	.db	3
+      000384 86 03                 1364 	.sleb128	390
+      000386 01                    1365 	.db	1
+      000387 09                    1366 	.db	9
+      000388 00 00                 1367 	.dw	Sstm8s_tim4$TIM4_ClearITPendingBit$175-Sstm8s_tim4$TIM4_ClearITPendingBit$173
+      00038A 03                    1368 	.db	3
+      00038B 06                    1369 	.sleb128	6
+      00038C 01                    1370 	.db	1
+      00038D 09                    1371 	.db	9
+      00038E 00 06                 1372 	.dw	Sstm8s_tim4$TIM4_ClearITPendingBit$176-Sstm8s_tim4$TIM4_ClearITPendingBit$175
+      000390 03                    1373 	.db	3
+      000391 01                    1374 	.sleb128	1
+      000392 01                    1375 	.db	1
+      000393 09                    1376 	.db	9
+      000394 00 01                 1377 	.dw	1+Sstm8s_tim4$TIM4_ClearITPendingBit$177-Sstm8s_tim4$TIM4_ClearITPendingBit$176
+      000396 00                    1378 	.db	0
+      000397 01                    1379 	.uleb128	1
+      000398 01                    1380 	.db	1
+      000399                       1381 Ldebug_line_end:
+                                   1382 
+                                   1383 	.area .debug_loc (NOLOAD)
+      000000                       1384 Ldebug_loc_start:
+      000000 00 00r01r25           1385 	.dw	0,(Sstm8s_tim4$TIM4_ClearITPendingBit$174)
+      000004 00 00r01r2C           1386 	.dw	0,(Sstm8s_tim4$TIM4_ClearITPendingBit$178)
+      000008 00 02                 1387 	.dw	2
+      00000A 78                    1388 	.db	120
+      00000B 01                    1389 	.sleb128	1
+      00000C 00 00 00 00           1390 	.dw	0,0
+      000010 00 00 00 00           1391 	.dw	0,0
+      000014 00 00r01r24           1392 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$170)
+      000018 00 00r01r25           1393 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$172)
+      00001C 00 02                 1394 	.dw	2
+      00001E 78                    1395 	.db	120
+      00001F 01                    1396 	.sleb128	1
+      000020 00 00r01r03           1397 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$158)
+      000024 00 00r01r24           1398 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$170)
+      000028 00 02                 1399 	.dw	2
+      00002A 78                    1400 	.db	120
+      00002B 02                    1401 	.sleb128	2
+      00002C 00 00r01r02           1402 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$157)
+      000030 00 00r01r03           1403 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$158)
+      000034 00 02                 1404 	.dw	2
+      000036 78                    1405 	.db	120
+      000037 01                    1406 	.sleb128	1
+      000038 00 00 00 00           1407 	.dw	0,0
+      00003C 00 00 00 00           1408 	.dw	0,0
+      000040 00 00r00rFB           1409 	.dw	0,(Sstm8s_tim4$TIM4_ClearFlag$151)
+      000044 00 00r01r02           1410 	.dw	0,(Sstm8s_tim4$TIM4_ClearFlag$155)
+      000048 00 02                 1411 	.dw	2
+      00004A 78                    1412 	.db	120
+      00004B 01                    1413 	.sleb128	1
+      00004C 00 00 00 00           1414 	.dw	0,0
+      000050 00 00 00 00           1415 	.dw	0,0
+      000054 00 00r00rE9           1416 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$138)
+      000058 00 00r00rFB           1417 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$149)
+      00005C 00 02                 1418 	.dw	2
+      00005E 78                    1419 	.db	120
+      00005F 01                    1420 	.sleb128	1
+      000060 00 00 00 00           1421 	.dw	0,0
+      000064 00 00 00 00           1422 	.dw	0,0
+      000068 00 00r00rE5           1423 	.dw	0,(Sstm8s_tim4$TIM4_GetPrescaler$132)
+      00006C 00 00r00rE9           1424 	.dw	0,(Sstm8s_tim4$TIM4_GetPrescaler$136)
+      000070 00 02                 1425 	.dw	2
+      000072 78                    1426 	.db	120
+      000073 01                    1427 	.sleb128	1
+      000074 00 00 00 00           1428 	.dw	0,0
+      000078 00 00 00 00           1429 	.dw	0,0
+      00007C 00 00r00rE1           1430 	.dw	0,(Sstm8s_tim4$TIM4_GetCounter$126)
+      000080 00 00r00rE5           1431 	.dw	0,(Sstm8s_tim4$TIM4_GetCounter$130)
+      000084 00 02                 1432 	.dw	2
+      000086 78                    1433 	.db	120
+      000087 01                    1434 	.sleb128	1
+      000088 00 00 00 00           1435 	.dw	0,0
+      00008C 00 00 00 00           1436 	.dw	0,0
+      000090 00 00r00rDA           1437 	.dw	0,(Sstm8s_tim4$TIM4_SetAutoreload$120)
+      000094 00 00r00rE1           1438 	.dw	0,(Sstm8s_tim4$TIM4_SetAutoreload$124)
+      000098 00 02                 1439 	.dw	2
+      00009A 78                    1440 	.db	120
+      00009B 01                    1441 	.sleb128	1
+      00009C 00 00 00 00           1442 	.dw	0,0
+      0000A0 00 00 00 00           1443 	.dw	0,0
+      0000A4 00 00r00rD3           1444 	.dw	0,(Sstm8s_tim4$TIM4_SetCounter$114)
+      0000A8 00 00r00rDA           1445 	.dw	0,(Sstm8s_tim4$TIM4_SetCounter$118)
+      0000AC 00 02                 1446 	.dw	2
+      0000AE 78                    1447 	.db	120
+      0000AF 01                    1448 	.sleb128	1
+      0000B0 00 00 00 00           1449 	.dw	0,0
+      0000B4 00 00 00 00           1450 	.dw	0,0
+      0000B8 00 00r00rCC           1451 	.dw	0,(Sstm8s_tim4$TIM4_GenerateEvent$108)
+      0000BC 00 00r00rD3           1452 	.dw	0,(Sstm8s_tim4$TIM4_GenerateEvent$112)
+      0000C0 00 02                 1453 	.dw	2
+      0000C2 78                    1454 	.db	120
+      0000C3 01                    1455 	.sleb128	1
+      0000C4 00 00 00 00           1456 	.dw	0,0
+      0000C8 00 00 00 00           1457 	.dw	0,0
+      0000CC 00 00r00rB4           1458 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$95)
+      0000D0 00 00r00rCC           1459 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$106)
+      0000D4 00 02                 1460 	.dw	2
+      0000D6 78                    1461 	.db	120
+      0000D7 01                    1462 	.sleb128	1
+      0000D8 00 00 00 00           1463 	.dw	0,0
+      0000DC 00 00 00 00           1464 	.dw	0,0
+      0000E0 00 00r00rA7           1465 	.dw	0,(Sstm8s_tim4$TIM4_PrescalerConfig$88)
+      0000E4 00 00r00rB4           1466 	.dw	0,(Sstm8s_tim4$TIM4_PrescalerConfig$93)
+      0000E8 00 02                 1467 	.dw	2
+      0000EA 78                    1468 	.db	120
+      0000EB 01                    1469 	.sleb128	1
+      0000EC 00 00 00 00           1470 	.dw	0,0
+      0000F0 00 00 00 00           1471 	.dw	0,0
+      0000F4 00 00r00r8F           1472 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$75)
+      0000F8 00 00r00rA7           1473 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$86)
+      0000FC 00 02                 1474 	.dw	2
+      0000FE 78                    1475 	.db	120
+      0000FF 01                    1476 	.sleb128	1
+      000100 00 00 00 00           1477 	.dw	0,0
+      000104 00 00 00 00           1478 	.dw	0,0
+      000108 00 00r00r77           1479 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$62)
+      00010C 00 00r00r8F           1480 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$73)
+      000110 00 02                 1481 	.dw	2
+      000112 78                    1482 	.db	120
+      000113 01                    1483 	.sleb128	1
+      000114 00 00 00 00           1484 	.dw	0,0
+      000118 00 00 00 00           1485 	.dw	0,0
+      00011C 00 00r00r5F           1486 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$49)
+      000120 00 00r00r77           1487 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$60)
+      000124 00 02                 1488 	.dw	2
+      000126 78                    1489 	.db	120
+      000127 01                    1490 	.sleb128	1
+      000128 00 00 00 00           1491 	.dw	0,0
+      00012C 00 00 00 00           1492 	.dw	0,0
+      000130 00 00r00r5E           1493 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$45)
+      000134 00 00r00r5F           1494 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$47)
+      000138 00 02                 1495 	.dw	2
+      00013A 78                    1496 	.db	120
+      00013B 01                    1497 	.sleb128	1
+      00013C 00 00r00r58           1498 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$42)
+      000140 00 00r00r5E           1499 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$45)
+      000144 00 02                 1500 	.dw	2
+      000146 78                    1501 	.db	120
+      000147 02                    1502 	.sleb128	2
+      000148 00 00r00r52           1503 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$41)
+      00014C 00 00r00r58           1504 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$42)
+      000150 00 02                 1505 	.dw	2
+      000152 78                    1506 	.db	120
+      000153 03                    1507 	.sleb128	3
+      000154 00 00r00r3F           1508 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$33)
+      000158 00 00r00r52           1509 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$41)
+      00015C 00 02                 1510 	.dw	2
+      00015E 78                    1511 	.db	120
+      00015F 02                    1512 	.sleb128	2
+      000160 00 00r00r3E           1513 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$32)
+      000164 00 00r00r3F           1514 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$33)
+      000168 00 02                 1515 	.dw	2
+      00016A 78                    1516 	.db	120
+      00016B 01                    1517 	.sleb128	1
+      00016C 00 00 00 00           1518 	.dw	0,0
+      000170 00 00 00 00           1519 	.dw	0,0
+      000174 00 00r00r26           1520 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$19)
+      000178 00 00r00r3E           1521 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$30)
+      00017C 00 02                 1522 	.dw	2
+      00017E 78                    1523 	.db	120
+      00017F 01                    1524 	.sleb128	1
+      000180 00 00 00 00           1525 	.dw	0,0
+      000184 00 00 00 00           1526 	.dw	0,0
+      000188 00 00r00r19           1527 	.dw	0,(Sstm8s_tim4$TIM4_TimeBaseInit$12)
+      00018C 00 00r00r26           1528 	.dw	0,(Sstm8s_tim4$TIM4_TimeBaseInit$17)
+      000190 00 02                 1529 	.dw	2
+      000192 78                    1530 	.db	120
+      000193 01                    1531 	.sleb128	1
+      000194 00 00 00 00           1532 	.dw	0,0
+      000198 00 00 00 00           1533 	.dw	0,0
+      00019C 00 00r00r00           1534 	.dw	0,(Sstm8s_tim4$TIM4_DeInit$1)
+      0001A0 00 00r00r19           1535 	.dw	0,(Sstm8s_tim4$TIM4_DeInit$10)
+      0001A4 00 02                 1536 	.dw	2
+      0001A6 78                    1537 	.db	120
+      0001A7 01                    1538 	.sleb128	1
+      0001A8 00 00 00 00           1539 	.dw	0,0
+      0001AC 00 00 00 00           1540 	.dw	0,0
+                                   1541 
+                                   1542 	.area .debug_abbrev (NOLOAD)
+      000000                       1543 Ldebug_abbrev:
+      000000 07                    1544 	.uleb128	7
+      000001 2E                    1545 	.uleb128	46
+      000002 00                    1546 	.db	0
+      000003 03                    1547 	.uleb128	3
+      000004 08                    1548 	.uleb128	8
+      000005 11                    1549 	.uleb128	17
+      000006 01                    1550 	.uleb128	1
+      000007 12                    1551 	.uleb128	18
+      000008 01                    1552 	.uleb128	1
+      000009 3F                    1553 	.uleb128	63
+      00000A 0C                    1554 	.uleb128	12
+      00000B 40                    1555 	.uleb128	64
+      00000C 06                    1556 	.uleb128	6
+      00000D 49                    1557 	.uleb128	73
+      00000E 13                    1558 	.uleb128	19
+      00000F 00                    1559 	.uleb128	0
+      000010 00                    1560 	.uleb128	0
+      000011 04                    1561 	.uleb128	4
+      000012 05                    1562 	.uleb128	5
+      000013 00                    1563 	.db	0
+      000014 02                    1564 	.uleb128	2
+      000015 0A                    1565 	.uleb128	10
+      000016 03                    1566 	.uleb128	3
+      000017 08                    1567 	.uleb128	8
+      000018 49                    1568 	.uleb128	73
+      000019 13                    1569 	.uleb128	19
+      00001A 00                    1570 	.uleb128	0
+      00001B 00                    1571 	.uleb128	0
+      00001C 03                    1572 	.uleb128	3
+      00001D 2E                    1573 	.uleb128	46
+      00001E 01                    1574 	.db	1
+      00001F 01                    1575 	.uleb128	1
+      000020 13                    1576 	.uleb128	19
+      000021 03                    1577 	.uleb128	3
+      000022 08                    1578 	.uleb128	8
+      000023 11                    1579 	.uleb128	17
+      000024 01                    1580 	.uleb128	1
+      000025 12                    1581 	.uleb128	18
+      000026 01                    1582 	.uleb128	1
+      000027 3F                    1583 	.uleb128	63
+      000028 0C                    1584 	.uleb128	12
+      000029 40                    1585 	.uleb128	64
+      00002A 06                    1586 	.uleb128	6
+      00002B 00                    1587 	.uleb128	0
+      00002C 00                    1588 	.uleb128	0
+      00002D 09                    1589 	.uleb128	9
+      00002E 34                    1590 	.uleb128	52
+      00002F 00                    1591 	.db	0
+      000030 02                    1592 	.uleb128	2
+      000031 0A                    1593 	.uleb128	10
+      000032 03                    1594 	.uleb128	3
+      000033 08                    1595 	.uleb128	8
+      000034 49                    1596 	.uleb128	73
+      000035 13                    1597 	.uleb128	19
+      000036 00                    1598 	.uleb128	0
+      000037 00                    1599 	.uleb128	0
+      000038 08                    1600 	.uleb128	8
+      000039 2E                    1601 	.uleb128	46
+      00003A 01                    1602 	.db	1
+      00003B 01                    1603 	.uleb128	1
+      00003C 13                    1604 	.uleb128	19
+      00003D 03                    1605 	.uleb128	3
+      00003E 08                    1606 	.uleb128	8
+      00003F 11                    1607 	.uleb128	17
+      000040 01                    1608 	.uleb128	1
+      000041 12                    1609 	.uleb128	18
+      000042 01                    1610 	.uleb128	1
+      000043 3F                    1611 	.uleb128	63
+      000044 0C                    1612 	.uleb128	12
+      000045 40                    1613 	.uleb128	64
+      000046 06                    1614 	.uleb128	6
+      000047 49                    1615 	.uleb128	73
+      000048 13                    1616 	.uleb128	19
+      000049 00                    1617 	.uleb128	0
+      00004A 00                    1618 	.uleb128	0
+      00004B 01                    1619 	.uleb128	1
+      00004C 11                    1620 	.uleb128	17
+      00004D 01                    1621 	.db	1
+      00004E 03                    1622 	.uleb128	3
+      00004F 08                    1623 	.uleb128	8
+      000050 10                    1624 	.uleb128	16
+      000051 06                    1625 	.uleb128	6
+      000052 13                    1626 	.uleb128	19
+      000053 0B                    1627 	.uleb128	11
+      000054 25                    1628 	.uleb128	37
+      000055 08                    1629 	.uleb128	8
+      000056 00                    1630 	.uleb128	0
+      000057 00                    1631 	.uleb128	0
+      000058 06                    1632 	.uleb128	6
+      000059 0B                    1633 	.uleb128	11
+      00005A 00                    1634 	.db	0
+      00005B 11                    1635 	.uleb128	17
+      00005C 01                    1636 	.uleb128	1
+      00005D 12                    1637 	.uleb128	18
+      00005E 01                    1638 	.uleb128	1
+      00005F 00                    1639 	.uleb128	0
+      000060 00                    1640 	.uleb128	0
+      000061 02                    1641 	.uleb128	2
+      000062 2E                    1642 	.uleb128	46
+      000063 00                    1643 	.db	0
+      000064 03                    1644 	.uleb128	3
+      000065 08                    1645 	.uleb128	8
+      000066 11                    1646 	.uleb128	17
+      000067 01                    1647 	.uleb128	1
+      000068 12                    1648 	.uleb128	18
+      000069 01                    1649 	.uleb128	1
+      00006A 3F                    1650 	.uleb128	63
+      00006B 0C                    1651 	.uleb128	12
+      00006C 40                    1652 	.uleb128	64
+      00006D 06                    1653 	.uleb128	6
+      00006E 00                    1654 	.uleb128	0
+      00006F 00                    1655 	.uleb128	0
+      000070 0A                    1656 	.uleb128	10
+      000071 2E                    1657 	.uleb128	46
+      000072 01                    1658 	.db	1
+      000073 03                    1659 	.uleb128	3
+      000074 08                    1660 	.uleb128	8
+      000075 11                    1661 	.uleb128	17
+      000076 01                    1662 	.uleb128	1
+      000077 12                    1663 	.uleb128	18
+      000078 01                    1664 	.uleb128	1
+      000079 3F                    1665 	.uleb128	63
+      00007A 0C                    1666 	.uleb128	12
+      00007B 40                    1667 	.uleb128	64
+      00007C 06                    1668 	.uleb128	6
+      00007D 00                    1669 	.uleb128	0
+      00007E 00                    1670 	.uleb128	0
+      00007F 05                    1671 	.uleb128	5
+      000080 24                    1672 	.uleb128	36
+      000081 00                    1673 	.db	0
+      000082 03                    1674 	.uleb128	3
+      000083 08                    1675 	.uleb128	8
+      000084 0B                    1676 	.uleb128	11
+      000085 0B                    1677 	.uleb128	11
+      000086 3E                    1678 	.uleb128	62
+      000087 0B                    1679 	.uleb128	11
+      000088 00                    1680 	.uleb128	0
+      000089 00                    1681 	.uleb128	0
+      00008A 00                    1682 	.uleb128	0
+                                   1683 
+                                   1684 	.area .debug_info (NOLOAD)
+      000000 00 00 05 24           1685 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                       1686 Ldebug_info_start:
+      000004 00 02                 1687 	.dw	2
+      000006 00 00r00r00           1688 	.dw	0,(Ldebug_abbrev)
+      00000A 04                    1689 	.db	4
+      00000B 01                    1690 	.uleb128	1
+      00000C 2E 2F 6C 69 62 72 61  1691 	.ascii "./libraries/src/stm8s_tim4.c"
+             72 69 65 73 2F 73 72
+             63 2F 73 74 6D 38 73
+             5F 74 69 6D 34 2E 63
+      000028 00                    1692 	.db	0
+      000029 00 00r00r00           1693 	.dw	0,(Ldebug_line_start+-4)
+      00002D 01                    1694 	.db	1
+      00002E 53 44 43 43 20 76 65  1695 	.ascii "SDCC version 4.0.2 #11645"
+             72 73 69 6F 6E 20 34
+             2E 30 2E 32 20 23 31
+             31 36 34 35
+      000047 00                    1696 	.db	0
+      000048 02                    1697 	.uleb128	2
+      000049 54 49 4D 34 5F 44 65  1698 	.ascii "TIM4_DeInit"
+             49 6E 69 74
+      000054 00                    1699 	.db	0
+      000055 00 00r00r00           1700 	.dw	0,(_TIM4_DeInit)
+      000059 00 00r00r19           1701 	.dw	0,(XG$TIM4_DeInit$0$0+1)
+      00005D 01                    1702 	.db	1
+      00005E 00 00r01r9C           1703 	.dw	0,(Ldebug_loc_start+412)
+      000062 03                    1704 	.uleb128	3
+      000063 00 00 00 B2           1705 	.dw	0,178
+      000067 54 49 4D 34 5F 54 69  1706 	.ascii "TIM4_TimeBaseInit"
+             6D 65 42 61 73 65 49
+             6E 69 74
+      000078 00                    1707 	.db	0
+      000079 00 00r00r19           1708 	.dw	0,(_TIM4_TimeBaseInit)
+      00007D 00 00r00r26           1709 	.dw	0,(XG$TIM4_TimeBaseInit$0$0+1)
+      000081 01                    1710 	.db	1
+      000082 00 00r01r88           1711 	.dw	0,(Ldebug_loc_start+392)
+      000086 04                    1712 	.uleb128	4
+      000087 02                    1713 	.db	2
+      000088 91                    1714 	.db	145
+      000089 02                    1715 	.sleb128	2
+      00008A 54 49 4D 34 5F 50 72  1716 	.ascii "TIM4_Prescaler"
+             65 73 63 61 6C 65 72
+      000098 00                    1717 	.db	0
+      000099 00 00 00 B2           1718 	.dw	0,178
+      00009D 04                    1719 	.uleb128	4
+      00009E 02                    1720 	.db	2
+      00009F 91                    1721 	.db	145
+      0000A0 03                    1722 	.sleb128	3
+      0000A1 54 49 4D 34 5F 50 65  1723 	.ascii "TIM4_Period"
+             72 69 6F 64
+      0000AC 00                    1724 	.db	0
+      0000AD 00 00 00 B2           1725 	.dw	0,178
+      0000B1 00                    1726 	.uleb128	0
+      0000B2 05                    1727 	.uleb128	5
+      0000B3 75 6E 73 69 67 6E 65  1728 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      0000C0 00                    1729 	.db	0
+      0000C1 01                    1730 	.db	1
+      0000C2 08                    1731 	.db	8
+      0000C3 03                    1732 	.uleb128	3
+      0000C4 00 00 01 02           1733 	.dw	0,258
+      0000C8 54 49 4D 34 5F 43 6D  1734 	.ascii "TIM4_Cmd"
+             64
+      0000D0 00                    1735 	.db	0
+      0000D1 00 00r00r26           1736 	.dw	0,(_TIM4_Cmd)
+      0000D5 00 00r00r3E           1737 	.dw	0,(XG$TIM4_Cmd$0$0+1)
+      0000D9 01                    1738 	.db	1
+      0000DA 00 00r01r74           1739 	.dw	0,(Ldebug_loc_start+372)
+      0000DE 04                    1740 	.uleb128	4
+      0000DF 02                    1741 	.db	2
+      0000E0 91                    1742 	.db	145
+      0000E1 02                    1743 	.sleb128	2
+      0000E2 4E 65 77 53 74 61 74  1744 	.ascii "NewState"
+             65
+      0000EA 00                    1745 	.db	0
+      0000EB 00 00 00 B2           1746 	.dw	0,178
+      0000EF 06                    1747 	.uleb128	6
+      0000F0 00 00r00r30           1748 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$22)
+      0000F4 00 00r00r35           1749 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$24)
+      0000F8 06                    1750 	.uleb128	6
+      0000F9 00 00r00r38           1751 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$25)
+      0000FD 00 00r00r3D           1752 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$27)
+      000101 00                    1753 	.uleb128	0
+      000102 03                    1754 	.uleb128	3
+      000103 00 00 01 56           1755 	.dw	0,342
+      000107 54 49 4D 34 5F 49 54  1756 	.ascii "TIM4_ITConfig"
+             43 6F 6E 66 69 67
+      000114 00                    1757 	.db	0
+      000115 00 00r00r3E           1758 	.dw	0,(_TIM4_ITConfig)
+      000119 00 00r00r5F           1759 	.dw	0,(XG$TIM4_ITConfig$0$0+1)
+      00011D 01                    1760 	.db	1
+      00011E 00 00r01r30           1761 	.dw	0,(Ldebug_loc_start+304)
+      000122 04                    1762 	.uleb128	4
+      000123 02                    1763 	.db	2
+      000124 91                    1764 	.db	145
+      000125 02                    1765 	.sleb128	2
+      000126 54 49 4D 34 5F 49 54  1766 	.ascii "TIM4_IT"
+      00012D 00                    1767 	.db	0
+      00012E 00 00 00 B2           1768 	.dw	0,178
+      000132 04                    1769 	.uleb128	4
+      000133 02                    1770 	.db	2
+      000134 91                    1771 	.db	145
+      000135 03                    1772 	.sleb128	3
+      000136 4E 65 77 53 74 61 74  1773 	.ascii "NewState"
+             65
+      00013E 00                    1774 	.db	0
+      00013F 00 00 00 B2           1775 	.dw	0,178
+      000143 06                    1776 	.uleb128	6
+      000144 00 00r00r49           1777 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$36)
+      000148 00 00r00r4E           1778 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$38)
+      00014C 06                    1779 	.uleb128	6
+      00014D 00 00r00r51           1780 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$39)
+      000151 00 00r00r5D           1781 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$43)
+      000155 00                    1782 	.uleb128	0
+      000156 03                    1783 	.uleb128	3
+      000157 00 00 01 A5           1784 	.dw	0,421
+      00015B 54 49 4D 34 5F 55 70  1785 	.ascii "TIM4_UpdateDisableConfig"
+             64 61 74 65 44 69 73
+             61 62 6C 65 43 6F 6E
+             66 69 67
+      000173 00                    1786 	.db	0
+      000174 00 00r00r5F           1787 	.dw	0,(_TIM4_UpdateDisableConfig)
+      000178 00 00r00r77           1788 	.dw	0,(XG$TIM4_UpdateDisableConfig$0$0+1)
+      00017C 01                    1789 	.db	1
+      00017D 00 00r01r1C           1790 	.dw	0,(Ldebug_loc_start+284)
+      000181 04                    1791 	.uleb128	4
+      000182 02                    1792 	.db	2
+      000183 91                    1793 	.db	145
+      000184 02                    1794 	.sleb128	2
+      000185 4E 65 77 53 74 61 74  1795 	.ascii "NewState"
+             65
+      00018D 00                    1796 	.db	0
+      00018E 00 00 00 B2           1797 	.dw	0,178
+      000192 06                    1798 	.uleb128	6
+      000193 00 00r00r69           1799 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$52)
+      000197 00 00r00r6E           1800 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$54)
+      00019B 06                    1801 	.uleb128	6
+      00019C 00 00r00r71           1802 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$55)
+      0001A0 00 00r00r76           1803 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$57)
+      0001A4 00                    1804 	.uleb128	0
+      0001A5 03                    1805 	.uleb128	3
+      0001A6 00 00 01 FD           1806 	.dw	0,509
+      0001AA 54 49 4D 34 5F 55 70  1807 	.ascii "TIM4_UpdateRequestConfig"
+             64 61 74 65 52 65 71
+             75 65 73 74 43 6F 6E
+             66 69 67
+      0001C2 00                    1808 	.db	0
+      0001C3 00 00r00r77           1809 	.dw	0,(_TIM4_UpdateRequestConfig)
+      0001C7 00 00r00r8F           1810 	.dw	0,(XG$TIM4_UpdateRequestConfig$0$0+1)
+      0001CB 01                    1811 	.db	1
+      0001CC 00 00r01r08           1812 	.dw	0,(Ldebug_loc_start+264)
+      0001D0 04                    1813 	.uleb128	4
+      0001D1 02                    1814 	.db	2
+      0001D2 91                    1815 	.db	145
+      0001D3 02                    1816 	.sleb128	2
+      0001D4 54 49 4D 34 5F 55 70  1817 	.ascii "TIM4_UpdateSource"
+             64 61 74 65 53 6F 75
+             72 63 65
+      0001E5 00                    1818 	.db	0
+      0001E6 00 00 00 B2           1819 	.dw	0,178
+      0001EA 06                    1820 	.uleb128	6
+      0001EB 00 00r00r81           1821 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$65)
+      0001EF 00 00r00r86           1822 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$67)
+      0001F3 06                    1823 	.uleb128	6
+      0001F4 00 00r00r89           1824 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$68)
+      0001F8 00 00r00r8E           1825 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$70)
+      0001FC 00                    1826 	.uleb128	0
+      0001FD 03                    1827 	.uleb128	3
+      0001FE 00 00 02 4E           1828 	.dw	0,590
+      000202 54 49 4D 34 5F 53 65  1829 	.ascii "TIM4_SelectOnePulseMode"
+             6C 65 63 74 4F 6E 65
+             50 75 6C 73 65 4D 6F
+             64 65
+      000219 00                    1830 	.db	0
+      00021A 00 00r00r8F           1831 	.dw	0,(_TIM4_SelectOnePulseMode)
+      00021E 00 00r00rA7           1832 	.dw	0,(XG$TIM4_SelectOnePulseMode$0$0+1)
+      000222 01                    1833 	.db	1
+      000223 00 00r00rF4           1834 	.dw	0,(Ldebug_loc_start+244)
+      000227 04                    1835 	.uleb128	4
+      000228 02                    1836 	.db	2
+      000229 91                    1837 	.db	145
+      00022A 02                    1838 	.sleb128	2
+      00022B 54 49 4D 34 5F 4F 50  1839 	.ascii "TIM4_OPMode"
+             4D 6F 64 65
+      000236 00                    1840 	.db	0
+      000237 00 00 00 B2           1841 	.dw	0,178
+      00023B 06                    1842 	.uleb128	6
+      00023C 00 00r00r99           1843 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$78)
+      000240 00 00r00r9E           1844 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$80)
+      000244 06                    1845 	.uleb128	6
+      000245 00 00r00rA1           1846 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$81)
+      000249 00 00r00rA6           1847 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$83)
+      00024D 00                    1848 	.uleb128	0
+      00024E 03                    1849 	.uleb128	3
+      00024F 00 00 02 A3           1850 	.dw	0,675
+      000253 54 49 4D 34 5F 50 72  1851 	.ascii "TIM4_PrescalerConfig"
+             65 73 63 61 6C 65 72
+             43 6F 6E 66 69 67
+      000267 00                    1852 	.db	0
+      000268 00 00r00rA7           1853 	.dw	0,(_TIM4_PrescalerConfig)
+      00026C 00 00r00rB4           1854 	.dw	0,(XG$TIM4_PrescalerConfig$0$0+1)
+      000270 01                    1855 	.db	1
+      000271 00 00r00rE0           1856 	.dw	0,(Ldebug_loc_start+224)
+      000275 04                    1857 	.uleb128	4
+      000276 02                    1858 	.db	2
+      000277 91                    1859 	.db	145
+      000278 02                    1860 	.sleb128	2
+      000279 50 72 65 73 63 61 6C  1861 	.ascii "Prescaler"
+             65 72
+      000282 00                    1862 	.db	0
+      000283 00 00 00 B2           1863 	.dw	0,178
+      000287 04                    1864 	.uleb128	4
+      000288 02                    1865 	.db	2
+      000289 91                    1866 	.db	145
+      00028A 03                    1867 	.sleb128	3
+      00028B 54 49 4D 34 5F 50 53  1868 	.ascii "TIM4_PSCReloadMode"
+             43 52 65 6C 6F 61 64
+             4D 6F 64 65
+      00029D 00                    1869 	.db	0
+      00029E 00 00 00 B2           1870 	.dw	0,178
+      0002A2 00                    1871 	.uleb128	0
+      0002A3 03                    1872 	.uleb128	3
+      0002A4 00 00 02 EF           1873 	.dw	0,751
+      0002A8 54 49 4D 34 5F 41 52  1874 	.ascii "TIM4_ARRPreloadConfig"
+             52 50 72 65 6C 6F 61
+             64 43 6F 6E 66 69 67
+      0002BD 00                    1875 	.db	0
+      0002BE 00 00r00rB4           1876 	.dw	0,(_TIM4_ARRPreloadConfig)
+      0002C2 00 00r00rCC           1877 	.dw	0,(XG$TIM4_ARRPreloadConfig$0$0+1)
+      0002C6 01                    1878 	.db	1
+      0002C7 00 00r00rCC           1879 	.dw	0,(Ldebug_loc_start+204)
+      0002CB 04                    1880 	.uleb128	4
+      0002CC 02                    1881 	.db	2
+      0002CD 91                    1882 	.db	145
+      0002CE 02                    1883 	.sleb128	2
+      0002CF 4E 65 77 53 74 61 74  1884 	.ascii "NewState"
+             65
+      0002D7 00                    1885 	.db	0
+      0002D8 00 00 00 B2           1886 	.dw	0,178
+      0002DC 06                    1887 	.uleb128	6
+      0002DD 00 00r00rBE           1888 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$98)
+      0002E1 00 00r00rC3           1889 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$100)
+      0002E5 06                    1890 	.uleb128	6
+      0002E6 00 00r00rC6           1891 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$101)
+      0002EA 00 00r00rCB           1892 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$103)
+      0002EE 00                    1893 	.uleb128	0
+      0002EF 03                    1894 	.uleb128	3
+      0002F0 00 00 03 2E           1895 	.dw	0,814
+      0002F4 54 49 4D 34 5F 47 65  1896 	.ascii "TIM4_GenerateEvent"
+             6E 65 72 61 74 65 45
+             76 65 6E 74
+      000306 00                    1897 	.db	0
+      000307 00 00r00rCC           1898 	.dw	0,(_TIM4_GenerateEvent)
+      00030B 00 00r00rD3           1899 	.dw	0,(XG$TIM4_GenerateEvent$0$0+1)
+      00030F 01                    1900 	.db	1
+      000310 00 00r00rB8           1901 	.dw	0,(Ldebug_loc_start+184)
+      000314 04                    1902 	.uleb128	4
+      000315 02                    1903 	.db	2
+      000316 91                    1904 	.db	145
+      000317 02                    1905 	.sleb128	2
+      000318 54 49 4D 34 5F 45 76  1906 	.ascii "TIM4_EventSource"
+             65 6E 74 53 6F 75 72
+             63 65
+      000328 00                    1907 	.db	0
+      000329 00 00 00 B2           1908 	.dw	0,178
+      00032D 00                    1909 	.uleb128	0
+      00032E 03                    1910 	.uleb128	3
+      00032F 00 00 03 61           1911 	.dw	0,865
+      000333 54 49 4D 34 5F 53 65  1912 	.ascii "TIM4_SetCounter"
+             74 43 6F 75 6E 74 65
+             72
+      000342 00                    1913 	.db	0
+      000343 00 00r00rD3           1914 	.dw	0,(_TIM4_SetCounter)
+      000347 00 00r00rDA           1915 	.dw	0,(XG$TIM4_SetCounter$0$0+1)
+      00034B 01                    1916 	.db	1
+      00034C 00 00r00rA4           1917 	.dw	0,(Ldebug_loc_start+164)
+      000350 04                    1918 	.uleb128	4
+      000351 02                    1919 	.db	2
+      000352 91                    1920 	.db	145
+      000353 02                    1921 	.sleb128	2
+      000354 43 6F 75 6E 74 65 72  1922 	.ascii "Counter"
+      00035B 00                    1923 	.db	0
+      00035C 00 00 00 B2           1924 	.dw	0,178
+      000360 00                    1925 	.uleb128	0
+      000361 03                    1926 	.uleb128	3
+      000362 00 00 03 9A           1927 	.dw	0,922
+      000366 54 49 4D 34 5F 53 65  1928 	.ascii "TIM4_SetAutoreload"
+             74 41 75 74 6F 72 65
+             6C 6F 61 64
+      000378 00                    1929 	.db	0
+      000379 00 00r00rDA           1930 	.dw	0,(_TIM4_SetAutoreload)
+      00037D 00 00r00rE1           1931 	.dw	0,(XG$TIM4_SetAutoreload$0$0+1)
+      000381 01                    1932 	.db	1
+      000382 00 00r00r90           1933 	.dw	0,(Ldebug_loc_start+144)
+      000386 04                    1934 	.uleb128	4
+      000387 02                    1935 	.db	2
+      000388 91                    1936 	.db	145
+      000389 02                    1937 	.sleb128	2
+      00038A 41 75 74 6F 72 65 6C  1938 	.ascii "Autoreload"
+             6F 61 64
+      000394 00                    1939 	.db	0
+      000395 00 00 00 B2           1940 	.dw	0,178
+      000399 00                    1941 	.uleb128	0
+      00039A 07                    1942 	.uleb128	7
+      00039B 54 49 4D 34 5F 47 65  1943 	.ascii "TIM4_GetCounter"
+             74 43 6F 75 6E 74 65
+             72
+      0003AA 00                    1944 	.db	0
+      0003AB 00 00r00rE1           1945 	.dw	0,(_TIM4_GetCounter)
+      0003AF 00 00r00rE5           1946 	.dw	0,(XG$TIM4_GetCounter$0$0+1)
+      0003B3 01                    1947 	.db	1
+      0003B4 00 00r00r7C           1948 	.dw	0,(Ldebug_loc_start+124)
+      0003B8 00 00 00 B2           1949 	.dw	0,178
+      0003BC 07                    1950 	.uleb128	7
+      0003BD 54 49 4D 34 5F 47 65  1951 	.ascii "TIM4_GetPrescaler"
+             74 50 72 65 73 63 61
+             6C 65 72
+      0003CE 00                    1952 	.db	0
+      0003CF 00 00r00rE5           1953 	.dw	0,(_TIM4_GetPrescaler)
+      0003D3 00 00r00rE9           1954 	.dw	0,(XG$TIM4_GetPrescaler$0$0+1)
+      0003D7 01                    1955 	.db	1
+      0003D8 00 00r00r68           1956 	.dw	0,(Ldebug_loc_start+104)
+      0003DC 00 00 00 B2           1957 	.dw	0,178
+      0003E0 08                    1958 	.uleb128	8
+      0003E1 00 00 04 3F           1959 	.dw	0,1087
+      0003E5 54 49 4D 34 5F 47 65  1960 	.ascii "TIM4_GetFlagStatus"
+             74 46 6C 61 67 53 74
+             61 74 75 73
+      0003F7 00                    1961 	.db	0
+      0003F8 00 00r00rE9           1962 	.dw	0,(_TIM4_GetFlagStatus)
+      0003FC 00 00r00rFB           1963 	.dw	0,(XG$TIM4_GetFlagStatus$0$0+1)
+      000400 01                    1964 	.db	1
+      000401 00 00r00r54           1965 	.dw	0,(Ldebug_loc_start+84)
+      000405 00 00 00 B2           1966 	.dw	0,178
+      000409 04                    1967 	.uleb128	4
+      00040A 02                    1968 	.db	2
+      00040B 91                    1969 	.db	145
+      00040C 02                    1970 	.sleb128	2
+      00040D 54 49 4D 34 5F 46 4C  1971 	.ascii "TIM4_FLAG"
+             41 47
+      000416 00                    1972 	.db	0
+      000417 00 00 00 B2           1973 	.dw	0,178
+      00041B 06                    1974 	.uleb128	6
+      00041C 00 00r00rF4           1975 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$140)
+      000420 00 00r00rF6           1976 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$142)
+      000424 06                    1977 	.uleb128	6
+      000425 00 00r00rF9           1978 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$143)
+      000429 00 00r00rFA           1979 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$145)
+      00042D 09                    1980 	.uleb128	9
+      00042E 01                    1981 	.db	1
+      00042F 50                    1982 	.db	80
+      000430 62 69 74 73 74 61 74  1983 	.ascii "bitstatus"
+             75 73
+      000439 00                    1984 	.db	0
+      00043A 00 00 00 B2           1985 	.dw	0,178
+      00043E 00                    1986 	.uleb128	0
+      00043F 03                    1987 	.uleb128	3
+      000440 00 00 04 73           1988 	.dw	0,1139
+      000444 54 49 4D 34 5F 43 6C  1989 	.ascii "TIM4_ClearFlag"
+             65 61 72 46 6C 61 67
+      000452 00                    1990 	.db	0
+      000453 00 00r00rFB           1991 	.dw	0,(_TIM4_ClearFlag)
+      000457 00 00r01r02           1992 	.dw	0,(XG$TIM4_ClearFlag$0$0+1)
+      00045B 01                    1993 	.db	1
+      00045C 00 00r00r40           1994 	.dw	0,(Ldebug_loc_start+64)
+      000460 04                    1995 	.uleb128	4
+      000461 02                    1996 	.db	2
+      000462 91                    1997 	.db	145
+      000463 02                    1998 	.sleb128	2
+      000464 54 49 4D 34 5F 46 4C  1999 	.ascii "TIM4_FLAG"
+             41 47
+      00046D 00                    2000 	.db	0
+      00046E 00 00 00 B2           2001 	.dw	0,178
+      000472 00                    2002 	.uleb128	0
+      000473 08                    2003 	.uleb128	8
+      000474 00 00 04 EF           2004 	.dw	0,1263
+      000478 54 49 4D 34 5F 47 65  2005 	.ascii "TIM4_GetITStatus"
+             74 49 54 53 74 61 74
+             75 73
+      000488 00                    2006 	.db	0
+      000489 00 00r01r02           2007 	.dw	0,(_TIM4_GetITStatus)
+      00048D 00 00r01r25           2008 	.dw	0,(XG$TIM4_GetITStatus$0$0+1)
+      000491 01                    2009 	.db	1
+      000492 00 00r00r14           2010 	.dw	0,(Ldebug_loc_start+20)
+      000496 00 00 00 B2           2011 	.dw	0,178
+      00049A 04                    2012 	.uleb128	4
+      00049B 02                    2013 	.db	2
+      00049C 91                    2014 	.db	145
+      00049D 02                    2015 	.sleb128	2
+      00049E 54 49 4D 34 5F 49 54  2016 	.ascii "TIM4_IT"
+      0004A5 00                    2017 	.db	0
+      0004A6 00 00 00 B2           2018 	.dw	0,178
+      0004AA 06                    2019 	.uleb128	6
+      0004AB 00 00r01r1C           2020 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$162)
+      0004AF 00 00r01r1E           2021 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$164)
+      0004B3 06                    2022 	.uleb128	6
+      0004B4 00 00r01r21           2023 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$165)
+      0004B8 00 00r01r22           2024 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$167)
+      0004BC 09                    2025 	.uleb128	9
+      0004BD 01                    2026 	.db	1
+      0004BE 50                    2027 	.db	80
+      0004BF 62 69 74 73 74 61 74  2028 	.ascii "bitstatus"
+             75 73
+      0004C8 00                    2029 	.db	0
+      0004C9 00 00 00 B2           2030 	.dw	0,178
+      0004CD 09                    2031 	.uleb128	9
+      0004CE 02                    2032 	.db	2
+      0004CF 91                    2033 	.db	145
+      0004D0 7F                    2034 	.sleb128	-1
+      0004D1 69 74 73 74 61 74 75  2035 	.ascii "itstatus"
+             73
+      0004D9 00                    2036 	.db	0
+      0004DA 00 00 00 B2           2037 	.dw	0,178
+      0004DE 09                    2038 	.uleb128	9
+      0004DF 01                    2039 	.db	1
+      0004E0 50                    2040 	.db	80
+      0004E1 69 74 65 6E 61 62 6C  2041 	.ascii "itenable"
+             65
+      0004E9 00                    2042 	.db	0
+      0004EA 00 00 00 B2           2043 	.dw	0,178
+      0004EE 00                    2044 	.uleb128	0
+      0004EF 0A                    2045 	.uleb128	10
+      0004F0 54 49 4D 34 5F 43 6C  2046 	.ascii "TIM4_ClearITPendingBit"
+             65 61 72 49 54 50 65
+             6E 64 69 6E 67 42 69
+             74
+      000506 00                    2047 	.db	0
+      000507 00 00r01r25           2048 	.dw	0,(_TIM4_ClearITPendingBit)
+      00050B 00 00r01r2C           2049 	.dw	0,(XG$TIM4_ClearITPendingBit$0$0+1)
+      00050F 01                    2050 	.db	1
+      000510 00 00r00r00           2051 	.dw	0,(Ldebug_loc_start)
+      000514 04                    2052 	.uleb128	4
+      000515 02                    2053 	.db	2
+      000516 91                    2054 	.db	145
+      000517 02                    2055 	.sleb128	2
+      000518 54 49 4D 34 5F 49 54  2056 	.ascii "TIM4_IT"
+      00051F 00                    2057 	.db	0
+      000520 00 00 00 B2           2058 	.dw	0,178
+      000524 00                    2059 	.uleb128	0
+      000525 00                    2060 	.uleb128	0
+      000526 00                    2061 	.uleb128	0
+      000527 00                    2062 	.uleb128	0
+      000528                       2063 Ldebug_info_end:
+                                   2064 
+                                   2065 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 01 A2           2066 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                       2067 Ldebug_pubnames_start:
+      000004 00 02                 2068 	.dw	2
+      000006 00 00r00r00           2069 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 05 28           2070 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 48           2071 	.dw	0,72
+      000012 54 49 4D 34 5F 44 65  2072 	.ascii "TIM4_DeInit"
+             49 6E 69 74
+      00001D 00                    2073 	.db	0
+      00001E 00 00 00 62           2074 	.dw	0,98
+      000022 54 49 4D 34 5F 54 69  2075 	.ascii "TIM4_TimeBaseInit"
+             6D 65 42 61 73 65 49
+             6E 69 74
+      000033 00                    2076 	.db	0
+      000034 00 00 00 C3           2077 	.dw	0,195
+      000038 54 49 4D 34 5F 43 6D  2078 	.ascii "TIM4_Cmd"
+             64
+      000040 00                    2079 	.db	0
+      000041 00 00 01 02           2080 	.dw	0,258
+      000045 54 49 4D 34 5F 49 54  2081 	.ascii "TIM4_ITConfig"
+             43 6F 6E 66 69 67
+      000052 00                    2082 	.db	0
+      000053 00 00 01 56           2083 	.dw	0,342
+      000057 54 49 4D 34 5F 55 70  2084 	.ascii "TIM4_UpdateDisableConfig"
+             64 61 74 65 44 69 73
+             61 62 6C 65 43 6F 6E
+             66 69 67
+      00006F 00                    2085 	.db	0
+      000070 00 00 01 A5           2086 	.dw	0,421
+      000074 54 49 4D 34 5F 55 70  2087 	.ascii "TIM4_UpdateRequestConfig"
+             64 61 74 65 52 65 71
+             75 65 73 74 43 6F 6E
+             66 69 67
+      00008C 00                    2088 	.db	0
+      00008D 00 00 01 FD           2089 	.dw	0,509
+      000091 54 49 4D 34 5F 53 65  2090 	.ascii "TIM4_SelectOnePulseMode"
+             6C 65 63 74 4F 6E 65
+             50 75 6C 73 65 4D 6F
+             64 65
+      0000A8 00                    2091 	.db	0
+      0000A9 00 00 02 4E           2092 	.dw	0,590
+      0000AD 54 49 4D 34 5F 50 72  2093 	.ascii "TIM4_PrescalerConfig"
+             65 73 63 61 6C 65 72
+             43 6F 6E 66 69 67
+      0000C1 00                    2094 	.db	0
+      0000C2 00 00 02 A3           2095 	.dw	0,675
+      0000C6 54 49 4D 34 5F 41 52  2096 	.ascii "TIM4_ARRPreloadConfig"
+             52 50 72 65 6C 6F 61
+             64 43 6F 6E 66 69 67
+      0000DB 00                    2097 	.db	0
+      0000DC 00 00 02 EF           2098 	.dw	0,751
+      0000E0 54 49 4D 34 5F 47 65  2099 	.ascii "TIM4_GenerateEvent"
+             6E 65 72 61 74 65 45
+             76 65 6E 74
+      0000F2 00                    2100 	.db	0
+      0000F3 00 00 03 2E           2101 	.dw	0,814
+      0000F7 54 49 4D 34 5F 53 65  2102 	.ascii "TIM4_SetCounter"
+             74 43 6F 75 6E 74 65
+             72
+      000106 00                    2103 	.db	0
+      000107 00 00 03 61           2104 	.dw	0,865
+      00010B 54 49 4D 34 5F 53 65  2105 	.ascii "TIM4_SetAutoreload"
+             74 41 75 74 6F 72 65
+             6C 6F 61 64
+      00011D 00                    2106 	.db	0
+      00011E 00 00 03 9A           2107 	.dw	0,922
+      000122 54 49 4D 34 5F 47 65  2108 	.ascii "TIM4_GetCounter"
+             74 43 6F 75 6E 74 65
+             72
+      000131 00                    2109 	.db	0
+      000132 00 00 03 BC           2110 	.dw	0,956
+      000136 54 49 4D 34 5F 47 65  2111 	.ascii "TIM4_GetPrescaler"
+             74 50 72 65 73 63 61
+             6C 65 72
+      000147 00                    2112 	.db	0
+      000148 00 00 03 E0           2113 	.dw	0,992
+      00014C 54 49 4D 34 5F 47 65  2114 	.ascii "TIM4_GetFlagStatus"
+             74 46 6C 61 67 53 74
+             61 74 75 73
+      00015E 00                    2115 	.db	0
+      00015F 00 00 04 3F           2116 	.dw	0,1087
+      000163 54 49 4D 34 5F 43 6C  2117 	.ascii "TIM4_ClearFlag"
+             65 61 72 46 6C 61 67
+      000171 00                    2118 	.db	0
+      000172 00 00 04 73           2119 	.dw	0,1139
+      000176 54 49 4D 34 5F 47 65  2120 	.ascii "TIM4_GetITStatus"
+             74 49 54 53 74 61 74
+             75 73
+      000186 00                    2121 	.db	0
+      000187 00 00 04 EF           2122 	.dw	0,1263
+      00018B 54 49 4D 34 5F 43 6C  2123 	.ascii "TIM4_ClearITPendingBit"
+             65 61 72 49 54 50 65
+             6E 64 69 6E 67 42 69
+             74
+      0001A1 00                    2124 	.db	0
+      0001A2 00 00 00 00           2125 	.dw	0,0
+      0001A6                       2126 Ldebug_pubnames_end:
+                                   2127 
+                                   2128 	.area .debug_frame (NOLOAD)
+      000000 00 00                 2129 	.dw	0
+      000002 00 0E                 2130 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                       2131 Ldebug_CIE0_start:
+      000004 FF FF                 2132 	.dw	0xffff
+      000006 FF FF                 2133 	.dw	0xffff
+      000008 01                    2134 	.db	1
+      000009 00                    2135 	.db	0
+      00000A 01                    2136 	.uleb128	1
+      00000B 7F                    2137 	.sleb128	-1
+      00000C 09                    2138 	.db	9
+      00000D 0C                    2139 	.db	12
+      00000E 08                    2140 	.uleb128	8
+      00000F 02                    2141 	.uleb128	2
+      000010 89                    2142 	.db	137
+      000011 01                    2143 	.uleb128	1
+      000012                       2144 Ldebug_CIE0_end:
+      000012 00 00 00 13           2145 	.dw	0,19
+      000016 00 00r00r00           2146 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r01r25           2147 	.dw	0,(Sstm8s_tim4$TIM4_ClearITPendingBit$174)	;initial loc
+      00001E 00 00 00 07           2148 	.dw	0,Sstm8s_tim4$TIM4_ClearITPendingBit$178-Sstm8s_tim4$TIM4_ClearITPendingBit$174
+      000022 01                    2149 	.db	1
+      000023 00 00r01r25           2150 	.dw	0,(Sstm8s_tim4$TIM4_ClearITPendingBit$174)
+      000027 0E                    2151 	.db	14
+      000028 02                    2152 	.uleb128	2
+                                   2153 
+                                   2154 	.area .debug_frame (NOLOAD)
+      000029 00 00                 2155 	.dw	0
+      00002B 00 0E                 2156 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      00002D                       2157 Ldebug_CIE1_start:
+      00002D FF FF                 2158 	.dw	0xffff
+      00002F FF FF                 2159 	.dw	0xffff
+      000031 01                    2160 	.db	1
+      000032 00                    2161 	.db	0
+      000033 01                    2162 	.uleb128	1
+      000034 7F                    2163 	.sleb128	-1
+      000035 09                    2164 	.db	9
+      000036 0C                    2165 	.db	12
+      000037 08                    2166 	.uleb128	8
+      000038 02                    2167 	.uleb128	2
+      000039 89                    2168 	.db	137
+      00003A 01                    2169 	.uleb128	1
+      00003B                       2170 Ldebug_CIE1_end:
+      00003B 00 00 00 21           2171 	.dw	0,33
+      00003F 00 00r00r29           2172 	.dw	0,(Ldebug_CIE1_start-4)
+      000043 00 00r01r02           2173 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$157)	;initial loc
+      000047 00 00 00 23           2174 	.dw	0,Sstm8s_tim4$TIM4_GetITStatus$172-Sstm8s_tim4$TIM4_GetITStatus$157
+      00004B 01                    2175 	.db	1
+      00004C 00 00r01r02           2176 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$157)
+      000050 0E                    2177 	.db	14
+      000051 02                    2178 	.uleb128	2
+      000052 01                    2179 	.db	1
+      000053 00 00r01r03           2180 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$158)
+      000057 0E                    2181 	.db	14
+      000058 03                    2182 	.uleb128	3
+      000059 01                    2183 	.db	1
+      00005A 00 00r01r24           2184 	.dw	0,(Sstm8s_tim4$TIM4_GetITStatus$170)
+      00005E 0E                    2185 	.db	14
+      00005F 02                    2186 	.uleb128	2
+                                   2187 
+                                   2188 	.area .debug_frame (NOLOAD)
+      000060 00 00                 2189 	.dw	0
+      000062 00 0E                 2190 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      000064                       2191 Ldebug_CIE2_start:
+      000064 FF FF                 2192 	.dw	0xffff
+      000066 FF FF                 2193 	.dw	0xffff
+      000068 01                    2194 	.db	1
+      000069 00                    2195 	.db	0
+      00006A 01                    2196 	.uleb128	1
+      00006B 7F                    2197 	.sleb128	-1
+      00006C 09                    2198 	.db	9
+      00006D 0C                    2199 	.db	12
+      00006E 08                    2200 	.uleb128	8
+      00006F 02                    2201 	.uleb128	2
+      000070 89                    2202 	.db	137
+      000071 01                    2203 	.uleb128	1
+      000072                       2204 Ldebug_CIE2_end:
+      000072 00 00 00 13           2205 	.dw	0,19
+      000076 00 00r00r60           2206 	.dw	0,(Ldebug_CIE2_start-4)
+      00007A 00 00r00rFB           2207 	.dw	0,(Sstm8s_tim4$TIM4_ClearFlag$151)	;initial loc
+      00007E 00 00 00 07           2208 	.dw	0,Sstm8s_tim4$TIM4_ClearFlag$155-Sstm8s_tim4$TIM4_ClearFlag$151
+      000082 01                    2209 	.db	1
+      000083 00 00r00rFB           2210 	.dw	0,(Sstm8s_tim4$TIM4_ClearFlag$151)
+      000087 0E                    2211 	.db	14
+      000088 02                    2212 	.uleb128	2
+                                   2213 
+                                   2214 	.area .debug_frame (NOLOAD)
+      000089 00 00                 2215 	.dw	0
+      00008B 00 0E                 2216 	.dw	Ldebug_CIE3_end-Ldebug_CIE3_start
+      00008D                       2217 Ldebug_CIE3_start:
+      00008D FF FF                 2218 	.dw	0xffff
+      00008F FF FF                 2219 	.dw	0xffff
+      000091 01                    2220 	.db	1
+      000092 00                    2221 	.db	0
+      000093 01                    2222 	.uleb128	1
+      000094 7F                    2223 	.sleb128	-1
+      000095 09                    2224 	.db	9
+      000096 0C                    2225 	.db	12
+      000097 08                    2226 	.uleb128	8
+      000098 02                    2227 	.uleb128	2
+      000099 89                    2228 	.db	137
+      00009A 01                    2229 	.uleb128	1
+      00009B                       2230 Ldebug_CIE3_end:
+      00009B 00 00 00 13           2231 	.dw	0,19
+      00009F 00 00r00r89           2232 	.dw	0,(Ldebug_CIE3_start-4)
+      0000A3 00 00r00rE9           2233 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$138)	;initial loc
+      0000A7 00 00 00 12           2234 	.dw	0,Sstm8s_tim4$TIM4_GetFlagStatus$149-Sstm8s_tim4$TIM4_GetFlagStatus$138
+      0000AB 01                    2235 	.db	1
+      0000AC 00 00r00rE9           2236 	.dw	0,(Sstm8s_tim4$TIM4_GetFlagStatus$138)
+      0000B0 0E                    2237 	.db	14
+      0000B1 02                    2238 	.uleb128	2
+                                   2239 
+                                   2240 	.area .debug_frame (NOLOAD)
+      0000B2 00 00                 2241 	.dw	0
+      0000B4 00 0E                 2242 	.dw	Ldebug_CIE4_end-Ldebug_CIE4_start
+      0000B6                       2243 Ldebug_CIE4_start:
+      0000B6 FF FF                 2244 	.dw	0xffff
+      0000B8 FF FF                 2245 	.dw	0xffff
+      0000BA 01                    2246 	.db	1
+      0000BB 00                    2247 	.db	0
+      0000BC 01                    2248 	.uleb128	1
+      0000BD 7F                    2249 	.sleb128	-1
+      0000BE 09                    2250 	.db	9
+      0000BF 0C                    2251 	.db	12
+      0000C0 08                    2252 	.uleb128	8
+      0000C1 02                    2253 	.uleb128	2
+      0000C2 89                    2254 	.db	137
+      0000C3 01                    2255 	.uleb128	1
+      0000C4                       2256 Ldebug_CIE4_end:
+      0000C4 00 00 00 13           2257 	.dw	0,19
+      0000C8 00 00r00rB2           2258 	.dw	0,(Ldebug_CIE4_start-4)
+      0000CC 00 00r00rE5           2259 	.dw	0,(Sstm8s_tim4$TIM4_GetPrescaler$132)	;initial loc
+      0000D0 00 00 00 04           2260 	.dw	0,Sstm8s_tim4$TIM4_GetPrescaler$136-Sstm8s_tim4$TIM4_GetPrescaler$132
+      0000D4 01                    2261 	.db	1
+      0000D5 00 00r00rE5           2262 	.dw	0,(Sstm8s_tim4$TIM4_GetPrescaler$132)
+      0000D9 0E                    2263 	.db	14
+      0000DA 02                    2264 	.uleb128	2
+                                   2265 
+                                   2266 	.area .debug_frame (NOLOAD)
+      0000DB 00 00                 2267 	.dw	0
+      0000DD 00 0E                 2268 	.dw	Ldebug_CIE5_end-Ldebug_CIE5_start
+      0000DF                       2269 Ldebug_CIE5_start:
+      0000DF FF FF                 2270 	.dw	0xffff
+      0000E1 FF FF                 2271 	.dw	0xffff
+      0000E3 01                    2272 	.db	1
+      0000E4 00                    2273 	.db	0
+      0000E5 01                    2274 	.uleb128	1
+      0000E6 7F                    2275 	.sleb128	-1
+      0000E7 09                    2276 	.db	9
+      0000E8 0C                    2277 	.db	12
+      0000E9 08                    2278 	.uleb128	8
+      0000EA 02                    2279 	.uleb128	2
+      0000EB 89                    2280 	.db	137
+      0000EC 01                    2281 	.uleb128	1
+      0000ED                       2282 Ldebug_CIE5_end:
+      0000ED 00 00 00 13           2283 	.dw	0,19
+      0000F1 00 00r00rDB           2284 	.dw	0,(Ldebug_CIE5_start-4)
+      0000F5 00 00r00rE1           2285 	.dw	0,(Sstm8s_tim4$TIM4_GetCounter$126)	;initial loc
+      0000F9 00 00 00 04           2286 	.dw	0,Sstm8s_tim4$TIM4_GetCounter$130-Sstm8s_tim4$TIM4_GetCounter$126
+      0000FD 01                    2287 	.db	1
+      0000FE 00 00r00rE1           2288 	.dw	0,(Sstm8s_tim4$TIM4_GetCounter$126)
+      000102 0E                    2289 	.db	14
+      000103 02                    2290 	.uleb128	2
+                                   2291 
+                                   2292 	.area .debug_frame (NOLOAD)
+      000104 00 00                 2293 	.dw	0
+      000106 00 0E                 2294 	.dw	Ldebug_CIE6_end-Ldebug_CIE6_start
+      000108                       2295 Ldebug_CIE6_start:
+      000108 FF FF                 2296 	.dw	0xffff
+      00010A FF FF                 2297 	.dw	0xffff
+      00010C 01                    2298 	.db	1
+      00010D 00                    2299 	.db	0
+      00010E 01                    2300 	.uleb128	1
+      00010F 7F                    2301 	.sleb128	-1
+      000110 09                    2302 	.db	9
+      000111 0C                    2303 	.db	12
+      000112 08                    2304 	.uleb128	8
+      000113 02                    2305 	.uleb128	2
+      000114 89                    2306 	.db	137
+      000115 01                    2307 	.uleb128	1
+      000116                       2308 Ldebug_CIE6_end:
+      000116 00 00 00 13           2309 	.dw	0,19
+      00011A 00 00r01r04           2310 	.dw	0,(Ldebug_CIE6_start-4)
+      00011E 00 00r00rDA           2311 	.dw	0,(Sstm8s_tim4$TIM4_SetAutoreload$120)	;initial loc
+      000122 00 00 00 07           2312 	.dw	0,Sstm8s_tim4$TIM4_SetAutoreload$124-Sstm8s_tim4$TIM4_SetAutoreload$120
+      000126 01                    2313 	.db	1
+      000127 00 00r00rDA           2314 	.dw	0,(Sstm8s_tim4$TIM4_SetAutoreload$120)
+      00012B 0E                    2315 	.db	14
+      00012C 02                    2316 	.uleb128	2
+                                   2317 
+                                   2318 	.area .debug_frame (NOLOAD)
+      00012D 00 00                 2319 	.dw	0
+      00012F 00 0E                 2320 	.dw	Ldebug_CIE7_end-Ldebug_CIE7_start
+      000131                       2321 Ldebug_CIE7_start:
+      000131 FF FF                 2322 	.dw	0xffff
+      000133 FF FF                 2323 	.dw	0xffff
+      000135 01                    2324 	.db	1
+      000136 00                    2325 	.db	0
+      000137 01                    2326 	.uleb128	1
+      000138 7F                    2327 	.sleb128	-1
+      000139 09                    2328 	.db	9
+      00013A 0C                    2329 	.db	12
+      00013B 08                    2330 	.uleb128	8
+      00013C 02                    2331 	.uleb128	2
+      00013D 89                    2332 	.db	137
+      00013E 01                    2333 	.uleb128	1
+      00013F                       2334 Ldebug_CIE7_end:
+      00013F 00 00 00 13           2335 	.dw	0,19
+      000143 00 00r01r2D           2336 	.dw	0,(Ldebug_CIE7_start-4)
+      000147 00 00r00rD3           2337 	.dw	0,(Sstm8s_tim4$TIM4_SetCounter$114)	;initial loc
+      00014B 00 00 00 07           2338 	.dw	0,Sstm8s_tim4$TIM4_SetCounter$118-Sstm8s_tim4$TIM4_SetCounter$114
+      00014F 01                    2339 	.db	1
+      000150 00 00r00rD3           2340 	.dw	0,(Sstm8s_tim4$TIM4_SetCounter$114)
+      000154 0E                    2341 	.db	14
+      000155 02                    2342 	.uleb128	2
+                                   2343 
+                                   2344 	.area .debug_frame (NOLOAD)
+      000156 00 00                 2345 	.dw	0
+      000158 00 0E                 2346 	.dw	Ldebug_CIE8_end-Ldebug_CIE8_start
+      00015A                       2347 Ldebug_CIE8_start:
+      00015A FF FF                 2348 	.dw	0xffff
+      00015C FF FF                 2349 	.dw	0xffff
+      00015E 01                    2350 	.db	1
+      00015F 00                    2351 	.db	0
+      000160 01                    2352 	.uleb128	1
+      000161 7F                    2353 	.sleb128	-1
+      000162 09                    2354 	.db	9
+      000163 0C                    2355 	.db	12
+      000164 08                    2356 	.uleb128	8
+      000165 02                    2357 	.uleb128	2
+      000166 89                    2358 	.db	137
+      000167 01                    2359 	.uleb128	1
+      000168                       2360 Ldebug_CIE8_end:
+      000168 00 00 00 13           2361 	.dw	0,19
+      00016C 00 00r01r56           2362 	.dw	0,(Ldebug_CIE8_start-4)
+      000170 00 00r00rCC           2363 	.dw	0,(Sstm8s_tim4$TIM4_GenerateEvent$108)	;initial loc
+      000174 00 00 00 07           2364 	.dw	0,Sstm8s_tim4$TIM4_GenerateEvent$112-Sstm8s_tim4$TIM4_GenerateEvent$108
+      000178 01                    2365 	.db	1
+      000179 00 00r00rCC           2366 	.dw	0,(Sstm8s_tim4$TIM4_GenerateEvent$108)
+      00017D 0E                    2367 	.db	14
+      00017E 02                    2368 	.uleb128	2
+                                   2369 
+                                   2370 	.area .debug_frame (NOLOAD)
+      00017F 00 00                 2371 	.dw	0
+      000181 00 0E                 2372 	.dw	Ldebug_CIE9_end-Ldebug_CIE9_start
+      000183                       2373 Ldebug_CIE9_start:
+      000183 FF FF                 2374 	.dw	0xffff
+      000185 FF FF                 2375 	.dw	0xffff
+      000187 01                    2376 	.db	1
+      000188 00                    2377 	.db	0
+      000189 01                    2378 	.uleb128	1
+      00018A 7F                    2379 	.sleb128	-1
+      00018B 09                    2380 	.db	9
+      00018C 0C                    2381 	.db	12
+      00018D 08                    2382 	.uleb128	8
+      00018E 02                    2383 	.uleb128	2
+      00018F 89                    2384 	.db	137
+      000190 01                    2385 	.uleb128	1
+      000191                       2386 Ldebug_CIE9_end:
+      000191 00 00 00 13           2387 	.dw	0,19
+      000195 00 00r01r7F           2388 	.dw	0,(Ldebug_CIE9_start-4)
+      000199 00 00r00rB4           2389 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$95)	;initial loc
+      00019D 00 00 00 18           2390 	.dw	0,Sstm8s_tim4$TIM4_ARRPreloadConfig$106-Sstm8s_tim4$TIM4_ARRPreloadConfig$95
+      0001A1 01                    2391 	.db	1
+      0001A2 00 00r00rB4           2392 	.dw	0,(Sstm8s_tim4$TIM4_ARRPreloadConfig$95)
+      0001A6 0E                    2393 	.db	14
+      0001A7 02                    2394 	.uleb128	2
+                                   2395 
+                                   2396 	.area .debug_frame (NOLOAD)
+      0001A8 00 00                 2397 	.dw	0
+      0001AA 00 0E                 2398 	.dw	Ldebug_CIE10_end-Ldebug_CIE10_start
+      0001AC                       2399 Ldebug_CIE10_start:
+      0001AC FF FF                 2400 	.dw	0xffff
+      0001AE FF FF                 2401 	.dw	0xffff
+      0001B0 01                    2402 	.db	1
+      0001B1 00                    2403 	.db	0
+      0001B2 01                    2404 	.uleb128	1
+      0001B3 7F                    2405 	.sleb128	-1
+      0001B4 09                    2406 	.db	9
+      0001B5 0C                    2407 	.db	12
+      0001B6 08                    2408 	.uleb128	8
+      0001B7 02                    2409 	.uleb128	2
+      0001B8 89                    2410 	.db	137
+      0001B9 01                    2411 	.uleb128	1
+      0001BA                       2412 Ldebug_CIE10_end:
+      0001BA 00 00 00 13           2413 	.dw	0,19
+      0001BE 00 00r01rA8           2414 	.dw	0,(Ldebug_CIE10_start-4)
+      0001C2 00 00r00rA7           2415 	.dw	0,(Sstm8s_tim4$TIM4_PrescalerConfig$88)	;initial loc
+      0001C6 00 00 00 0D           2416 	.dw	0,Sstm8s_tim4$TIM4_PrescalerConfig$93-Sstm8s_tim4$TIM4_PrescalerConfig$88
+      0001CA 01                    2417 	.db	1
+      0001CB 00 00r00rA7           2418 	.dw	0,(Sstm8s_tim4$TIM4_PrescalerConfig$88)
+      0001CF 0E                    2419 	.db	14
+      0001D0 02                    2420 	.uleb128	2
+                                   2421 
+                                   2422 	.area .debug_frame (NOLOAD)
+      0001D1 00 00                 2423 	.dw	0
+      0001D3 00 0E                 2424 	.dw	Ldebug_CIE11_end-Ldebug_CIE11_start
+      0001D5                       2425 Ldebug_CIE11_start:
+      0001D5 FF FF                 2426 	.dw	0xffff
+      0001D7 FF FF                 2427 	.dw	0xffff
+      0001D9 01                    2428 	.db	1
+      0001DA 00                    2429 	.db	0
+      0001DB 01                    2430 	.uleb128	1
+      0001DC 7F                    2431 	.sleb128	-1
+      0001DD 09                    2432 	.db	9
+      0001DE 0C                    2433 	.db	12
+      0001DF 08                    2434 	.uleb128	8
+      0001E0 02                    2435 	.uleb128	2
+      0001E1 89                    2436 	.db	137
+      0001E2 01                    2437 	.uleb128	1
+      0001E3                       2438 Ldebug_CIE11_end:
+      0001E3 00 00 00 13           2439 	.dw	0,19
+      0001E7 00 00r01rD1           2440 	.dw	0,(Ldebug_CIE11_start-4)
+      0001EB 00 00r00r8F           2441 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$75)	;initial loc
+      0001EF 00 00 00 18           2442 	.dw	0,Sstm8s_tim4$TIM4_SelectOnePulseMode$86-Sstm8s_tim4$TIM4_SelectOnePulseMode$75
+      0001F3 01                    2443 	.db	1
+      0001F4 00 00r00r8F           2444 	.dw	0,(Sstm8s_tim4$TIM4_SelectOnePulseMode$75)
+      0001F8 0E                    2445 	.db	14
+      0001F9 02                    2446 	.uleb128	2
+                                   2447 
+                                   2448 	.area .debug_frame (NOLOAD)
+      0001FA 00 00                 2449 	.dw	0
+      0001FC 00 0E                 2450 	.dw	Ldebug_CIE12_end-Ldebug_CIE12_start
+      0001FE                       2451 Ldebug_CIE12_start:
+      0001FE FF FF                 2452 	.dw	0xffff
+      000200 FF FF                 2453 	.dw	0xffff
+      000202 01                    2454 	.db	1
+      000203 00                    2455 	.db	0
+      000204 01                    2456 	.uleb128	1
+      000205 7F                    2457 	.sleb128	-1
+      000206 09                    2458 	.db	9
+      000207 0C                    2459 	.db	12
+      000208 08                    2460 	.uleb128	8
+      000209 02                    2461 	.uleb128	2
+      00020A 89                    2462 	.db	137
+      00020B 01                    2463 	.uleb128	1
+      00020C                       2464 Ldebug_CIE12_end:
+      00020C 00 00 00 13           2465 	.dw	0,19
+      000210 00 00r01rFA           2466 	.dw	0,(Ldebug_CIE12_start-4)
+      000214 00 00r00r77           2467 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$62)	;initial loc
+      000218 00 00 00 18           2468 	.dw	0,Sstm8s_tim4$TIM4_UpdateRequestConfig$73-Sstm8s_tim4$TIM4_UpdateRequestConfig$62
+      00021C 01                    2469 	.db	1
+      00021D 00 00r00r77           2470 	.dw	0,(Sstm8s_tim4$TIM4_UpdateRequestConfig$62)
+      000221 0E                    2471 	.db	14
+      000222 02                    2472 	.uleb128	2
+                                   2473 
+                                   2474 	.area .debug_frame (NOLOAD)
+      000223 00 00                 2475 	.dw	0
+      000225 00 0E                 2476 	.dw	Ldebug_CIE13_end-Ldebug_CIE13_start
+      000227                       2477 Ldebug_CIE13_start:
+      000227 FF FF                 2478 	.dw	0xffff
+      000229 FF FF                 2479 	.dw	0xffff
+      00022B 01                    2480 	.db	1
+      00022C 00                    2481 	.db	0
+      00022D 01                    2482 	.uleb128	1
+      00022E 7F                    2483 	.sleb128	-1
+      00022F 09                    2484 	.db	9
+      000230 0C                    2485 	.db	12
+      000231 08                    2486 	.uleb128	8
+      000232 02                    2487 	.uleb128	2
+      000233 89                    2488 	.db	137
+      000234 01                    2489 	.uleb128	1
+      000235                       2490 Ldebug_CIE13_end:
+      000235 00 00 00 13           2491 	.dw	0,19
+      000239 00 00r02r23           2492 	.dw	0,(Ldebug_CIE13_start-4)
+      00023D 00 00r00r5F           2493 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$49)	;initial loc
+      000241 00 00 00 18           2494 	.dw	0,Sstm8s_tim4$TIM4_UpdateDisableConfig$60-Sstm8s_tim4$TIM4_UpdateDisableConfig$49
+      000245 01                    2495 	.db	1
+      000246 00 00r00r5F           2496 	.dw	0,(Sstm8s_tim4$TIM4_UpdateDisableConfig$49)
+      00024A 0E                    2497 	.db	14
+      00024B 02                    2498 	.uleb128	2
+                                   2499 
+                                   2500 	.area .debug_frame (NOLOAD)
+      00024C 00 00                 2501 	.dw	0
+      00024E 00 0E                 2502 	.dw	Ldebug_CIE14_end-Ldebug_CIE14_start
+      000250                       2503 Ldebug_CIE14_start:
+      000250 FF FF                 2504 	.dw	0xffff
+      000252 FF FF                 2505 	.dw	0xffff
+      000254 01                    2506 	.db	1
+      000255 00                    2507 	.db	0
+      000256 01                    2508 	.uleb128	1
+      000257 7F                    2509 	.sleb128	-1
+      000258 09                    2510 	.db	9
+      000259 0C                    2511 	.db	12
+      00025A 08                    2512 	.uleb128	8
+      00025B 02                    2513 	.uleb128	2
+      00025C 89                    2514 	.db	137
+      00025D 01                    2515 	.uleb128	1
+      00025E                       2516 Ldebug_CIE14_end:
+      00025E 00 00 00 2F           2517 	.dw	0,47
+      000262 00 00r02r4C           2518 	.dw	0,(Ldebug_CIE14_start-4)
+      000266 00 00r00r3E           2519 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$32)	;initial loc
+      00026A 00 00 00 21           2520 	.dw	0,Sstm8s_tim4$TIM4_ITConfig$47-Sstm8s_tim4$TIM4_ITConfig$32
+      00026E 01                    2521 	.db	1
+      00026F 00 00r00r3E           2522 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$32)
+      000273 0E                    2523 	.db	14
+      000274 02                    2524 	.uleb128	2
+      000275 01                    2525 	.db	1
+      000276 00 00r00r3F           2526 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$33)
+      00027A 0E                    2527 	.db	14
+      00027B 03                    2528 	.uleb128	3
+      00027C 01                    2529 	.db	1
+      00027D 00 00r00r52           2530 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$41)
+      000281 0E                    2531 	.db	14
+      000282 04                    2532 	.uleb128	4
+      000283 01                    2533 	.db	1
+      000284 00 00r00r58           2534 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$42)
+      000288 0E                    2535 	.db	14
+      000289 03                    2536 	.uleb128	3
+      00028A 01                    2537 	.db	1
+      00028B 00 00r00r5E           2538 	.dw	0,(Sstm8s_tim4$TIM4_ITConfig$45)
+      00028F 0E                    2539 	.db	14
+      000290 02                    2540 	.uleb128	2
+                                   2541 
+                                   2542 	.area .debug_frame (NOLOAD)
+      000291 00 00                 2543 	.dw	0
+      000293 00 0E                 2544 	.dw	Ldebug_CIE15_end-Ldebug_CIE15_start
+      000295                       2545 Ldebug_CIE15_start:
+      000295 FF FF                 2546 	.dw	0xffff
+      000297 FF FF                 2547 	.dw	0xffff
+      000299 01                    2548 	.db	1
+      00029A 00                    2549 	.db	0
+      00029B 01                    2550 	.uleb128	1
+      00029C 7F                    2551 	.sleb128	-1
+      00029D 09                    2552 	.db	9
+      00029E 0C                    2553 	.db	12
+      00029F 08                    2554 	.uleb128	8
+      0002A0 02                    2555 	.uleb128	2
+      0002A1 89                    2556 	.db	137
+      0002A2 01                    2557 	.uleb128	1
+      0002A3                       2558 Ldebug_CIE15_end:
+      0002A3 00 00 00 13           2559 	.dw	0,19
+      0002A7 00 00r02r91           2560 	.dw	0,(Ldebug_CIE15_start-4)
+      0002AB 00 00r00r26           2561 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$19)	;initial loc
+      0002AF 00 00 00 18           2562 	.dw	0,Sstm8s_tim4$TIM4_Cmd$30-Sstm8s_tim4$TIM4_Cmd$19
+      0002B3 01                    2563 	.db	1
+      0002B4 00 00r00r26           2564 	.dw	0,(Sstm8s_tim4$TIM4_Cmd$19)
+      0002B8 0E                    2565 	.db	14
+      0002B9 02                    2566 	.uleb128	2
+                                   2567 
+                                   2568 	.area .debug_frame (NOLOAD)
+      0002BA 00 00                 2569 	.dw	0
+      0002BC 00 0E                 2570 	.dw	Ldebug_CIE16_end-Ldebug_CIE16_start
+      0002BE                       2571 Ldebug_CIE16_start:
+      0002BE FF FF                 2572 	.dw	0xffff
+      0002C0 FF FF                 2573 	.dw	0xffff
+      0002C2 01                    2574 	.db	1
+      0002C3 00                    2575 	.db	0
+      0002C4 01                    2576 	.uleb128	1
+      0002C5 7F                    2577 	.sleb128	-1
+      0002C6 09                    2578 	.db	9
+      0002C7 0C                    2579 	.db	12
+      0002C8 08                    2580 	.uleb128	8
+      0002C9 02                    2581 	.uleb128	2
+      0002CA 89                    2582 	.db	137
+      0002CB 01                    2583 	.uleb128	1
+      0002CC                       2584 Ldebug_CIE16_end:
+      0002CC 00 00 00 13           2585 	.dw	0,19
+      0002D0 00 00r02rBA           2586 	.dw	0,(Ldebug_CIE16_start-4)
+      0002D4 00 00r00r19           2587 	.dw	0,(Sstm8s_tim4$TIM4_TimeBaseInit$12)	;initial loc
+      0002D8 00 00 00 0D           2588 	.dw	0,Sstm8s_tim4$TIM4_TimeBaseInit$17-Sstm8s_tim4$TIM4_TimeBaseInit$12
+      0002DC 01                    2589 	.db	1
+      0002DD 00 00r00r19           2590 	.dw	0,(Sstm8s_tim4$TIM4_TimeBaseInit$12)
+      0002E1 0E                    2591 	.db	14
+      0002E2 02                    2592 	.uleb128	2
+                                   2593 
+                                   2594 	.area .debug_frame (NOLOAD)
+      0002E3 00 00                 2595 	.dw	0
+      0002E5 00 0E                 2596 	.dw	Ldebug_CIE17_end-Ldebug_CIE17_start
+      0002E7                       2597 Ldebug_CIE17_start:
+      0002E7 FF FF                 2598 	.dw	0xffff
+      0002E9 FF FF                 2599 	.dw	0xffff
+      0002EB 01                    2600 	.db	1
+      0002EC 00                    2601 	.db	0
+      0002ED 01                    2602 	.uleb128	1
+      0002EE 7F                    2603 	.sleb128	-1
+      0002EF 09                    2604 	.db	9
+      0002F0 0C                    2605 	.db	12
+      0002F1 08                    2606 	.uleb128	8
+      0002F2 02                    2607 	.uleb128	2
+      0002F3 89                    2608 	.db	137
+      0002F4 01                    2609 	.uleb128	1
+      0002F5                       2610 Ldebug_CIE17_end:
+      0002F5 00 00 00 13           2611 	.dw	0,19
+      0002F9 00 00r02rE3           2612 	.dw	0,(Ldebug_CIE17_start-4)
+      0002FD 00 00r00r00           2613 	.dw	0,(Sstm8s_tim4$TIM4_DeInit$1)	;initial loc
+      000301 00 00 00 19           2614 	.dw	0,Sstm8s_tim4$TIM4_DeInit$10-Sstm8s_tim4$TIM4_DeInit$1
+      000305 01                    2615 	.db	1
+      000306 00 00r00r00           2616 	.dw	0,(Sstm8s_tim4$TIM4_DeInit$1)
+      00030A 0E                    2617 	.db	14
+      00030B 02                    2618 	.uleb128	2

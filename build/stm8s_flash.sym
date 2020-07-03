@@ -1,0 +1,817 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$stm8s_flash8s_flash$1002                                     0001EB GR
+  9 A$stm8s_flash8s_flash$1004                                     0001EE GR
+  9 A$stm8s_flash8s_flash$1006                                     0001F0 GR
+  9 A$stm8s_flash8s_flash$1007                                     0001F1 GR
+  9 A$stm8s_flash8s_flash$1008                                     0001F3 GR
+  9 A$stm8s_flash8s_flash$101                                      000014 GR
+  9 A$stm8s_flash8s_flash$1014                                     0001F6 GR
+  9 A$stm8s_flash8s_flash$1017                                     0001F8 GR
+  9 A$stm8s_flash8s_flash$1024                                     0001FB GR
+  9 A$stm8s_flash8s_flash$1038                                     0001FC GR
+  9 A$stm8s_flash8s_flash$1053                                     0001FD GR
+  9 A$stm8s_flash8s_flash$1057                                     0001FE GR
+  9 A$stm8s_flash8s_flash$1058                                     0001FF GR
+  9 A$stm8s_flash8s_flash$1062                                     000200 GR
+  9 A$stm8s_flash8s_flash$1063                                     000201 GR
+  9 A$stm8s_flash8s_flash$1064                                     000203 GR
+  9 A$stm8s_flash8s_flash$1067                                     000206 GR
+  9 A$stm8s_flash8s_flash$1068                                     000207 GR
+  9 A$stm8s_flash8s_flash$1069                                     000209 GR
+  9 A$stm8s_flash8s_flash$1075                                     00020C GR
+  9 A$stm8s_flash8s_flash$1077                                     00020F GR
+  9 A$stm8s_flash8s_flash$108                                      000017 GR
+  9 A$stm8s_flash8s_flash$1081                                     000211 GR
+  9 A$stm8s_flash8s_flash$1084                                     000212 GR
+  9 A$stm8s_flash8s_flash$1090                                     000215 GR
+  9 A$stm8s_flash8s_flash$1091                                     000216 GR
+  9 A$stm8s_flash8s_flash$1092                                     000218 GR
+  9 A$stm8s_flash8s_flash$1098                                     00021B GR
+  9 A$stm8s_flash8s_flash$1112                                     00021D GR
+  9 A$stm8s_flash8s_flash$112                                      00001B GR
+  9 A$stm8s_flash8s_flash$1124                                     00021E GR
+  9 A$stm8s_flash8s_flash$1129                                     000220 GR
+  9 A$stm8s_flash8s_flash$1130                                     000222 GR
+  9 A$stm8s_flash8s_flash$1131                                     000224 GR
+  9 A$stm8s_flash8s_flash$1132                                     000226 GR
+  9 A$stm8s_flash8s_flash$1134                                     000229 GR
+  9 A$stm8s_flash8s_flash$1142                                     00022C GR
+  9 A$stm8s_flash8s_flash$1143                                     00022F GR
+  9 A$stm8s_flash8s_flash$1144                                     000231 GR
+  9 A$stm8s_flash8s_flash$1145                                     000232 GR
+  9 A$stm8s_flash8s_flash$1148                                     000234 GR
+  9 A$stm8s_flash8s_flash$1155                                     000237 GR
+  9 A$stm8s_flash8s_flash$1156                                     00023A GR
+  9 A$stm8s_flash8s_flash$1157                                     00023C GR
+  9 A$stm8s_flash8s_flash$1158                                     00023D GR
+  9 A$stm8s_flash8s_flash$1165                                     00023F GR
+  9 A$stm8s_flash8s_flash$1167                                     000241 GR
+  9 A$stm8s_flash8s_flash$1168                                     000242 GR
+  9 A$stm8s_flash8s_flash$1169                                     000243 GR
+  9 A$stm8s_flash8s_flash$1170                                     000244 GR
+  9 A$stm8s_flash8s_flash$1171                                     000245 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_flash8s_flash$1172                                     000246 GR
+  9 A$stm8s_flash8s_flash$1173                                     000247 GR
+  9 A$stm8s_flash8s_flash$1176                                     000249 GR
+  9 A$stm8s_flash8s_flash$1178                                     00024B GR
+  9 A$stm8s_flash8s_flash$1185                                     00024E GR
+  9 A$stm8s_flash8s_flash$1187                                     000251 GR
+  9 A$stm8s_flash8s_flash$1189                                     000253 GR
+  9 A$stm8s_flash8s_flash$1193                                     000256 GR
+  9 A$stm8s_flash8s_flash$1195                                     000259 GR
+  9 A$stm8s_flash8s_flash$1197                                     00025B GR
+  9 A$stm8s_flash8s_flash$1201                                     00025E GR
+  9 A$stm8s_flash8s_flash$1202                                     000260 GR
+  9 A$stm8s_flash8s_flash$1203                                     000262 GR
+  9 A$stm8s_flash8s_flash$1204                                     000264 GR
+  9 A$stm8s_flash8s_flash$121                                      00001F GR
+  9 A$stm8s_flash8s_flash$1210                                     000265 GR
+  9 A$stm8s_flash8s_flash$1214                                     000267 GR
+  9 A$stm8s_flash8s_flash$1226                                     000268 GR
+  9 A$stm8s_flash8s_flash$1231                                     00026A GR
+  9 A$stm8s_flash8s_flash$1232                                     00026C GR
+  9 A$stm8s_flash8s_flash$1233                                     00026E GR
+  9 A$stm8s_flash8s_flash$1234                                     000270 GR
+  9 A$stm8s_flash8s_flash$1236                                     000273 GR
+  9 A$stm8s_flash8s_flash$1244                                     000276 GR
+  9 A$stm8s_flash8s_flash$1245                                     000279 GR
+  9 A$stm8s_flash8s_flash$1246                                     00027B GR
+  9 A$stm8s_flash8s_flash$1249                                     00027C GR
+  9 A$stm8s_flash8s_flash$1256                                     00027F GR
+  9 A$stm8s_flash8s_flash$1257                                     000282 GR
+  9 A$stm8s_flash8s_flash$1258                                     000284 GR
+  9 A$stm8s_flash8s_flash$1266                                     000285 GR
+  9 A$stm8s_flash8s_flash$1267                                     000287 GR
+  9 A$stm8s_flash8s_flash$1268                                     000289 GR
+  9 A$stm8s_flash8s_flash$1270                                     00028B GR
+  9 A$stm8s_flash8s_flash$1271                                     00028D GR
+  9 A$stm8s_flash8s_flash$1272                                     00028F GR
+  9 A$stm8s_flash8s_flash$1274                                     000291 GR
+  9 A$stm8s_flash8s_flash$1275                                     000293 GR
+  9 A$stm8s_flash8s_flash$1276                                     000295 GR
+  9 A$stm8s_flash8s_flash$1277                                     000297 GR
+  9 A$stm8s_flash8s_flash$1278                                     000298 GR
+  9 A$stm8s_flash8s_flash$1281                                     00029A GR
+  9 A$stm8s_flash8s_flash$1282                                     00029D GR
+  9 A$stm8s_flash8s_flash$1283                                     00029E GR
+  9 A$stm8s_flash8s_flash$1284                                     0002A0 GR
+  9 A$stm8s_flash8s_flash$1285                                     0002A1 GR
+  9 A$stm8s_flash8s_flash$1286                                     0002A2 GR
+  9 A$stm8s_flash8s_flash$1287                                     0002A4 GR
+  9 A$stm8s_flash8s_flash$1289                                     0002A5 GR
+  9 A$stm8s_flash8s_flash$1290                                     0002A7 GR
+  9 A$stm8s_flash8s_flash$1294                                     0002A9 GR
+  9 A$stm8s_flash8s_flash$1298                                     0002AC GR
+  9 A$stm8s_flash8s_flash$1299                                     0002AE GR
+  9 A$stm8s_flash8s_flash$1300                                     0002B0 GR
+  9 A$stm8s_flash8s_flash$1306                                     0002B3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_flash8s_flash$1308                                     0002B5 GR
+  9 A$stm8s_flash8s_flash$1312                                     0002B8 GR
+  9 A$stm8s_flash8s_flash$1314                                     0002BB GR
+  9 A$stm8s_flash8s_flash$1316                                     0002BD GR
+  9 A$stm8s_flash8s_flash$1319                                     0002C0 GR
+  9 A$stm8s_flash8s_flash$1326                                     0002C3 GR
+  9 A$stm8s_flash8s_flash$1328                                     0002C5 GR
+  9 A$stm8s_flash8s_flash$1332                                     0002C8 GR
+  9 A$stm8s_flash8s_flash$1334                                     0002CB GR
+  9 A$stm8s_flash8s_flash$1336                                     0002CD GR
+  9 A$stm8s_flash8s_flash$1343                                     0002D0 GR
+  9 A$stm8s_flash8s_flash$1351                                     0002D2 GR
+  9 A$stm8s_flash8s_flash$1354                                     0002D4 GR
+  9 A$stm8s_flash8s_flash$1356                                     0002D6 GR
+  9 A$stm8s_flash8s_flash$1357                                     0002D7 GR
+  9 A$stm8s_flash8s_flash$1358                                     0002DA GR
+  9 A$stm8s_flash8s_flash$136                                      000020 GR
+  9 A$stm8s_flash8s_flash$1360                                     0002DC GR
+  9 A$stm8s_flash8s_flash$1361                                     0002DD GR
+  9 A$stm8s_flash8s_flash$1363                                     0002E0 GR
+  9 A$stm8s_flash8s_flash$1365                                     0002E1 GR
+  9 A$stm8s_flash8s_flash$1366                                     0002E3 GR
+  9 A$stm8s_flash8s_flash$1371                                     0002E4 GR
+  9 A$stm8s_flash8s_flash$1374                                     0002E6 GR
+  9 A$stm8s_flash8s_flash$1375                                     0002EA GR
+  9 A$stm8s_flash8s_flash$1376                                     0002EC GR
+  9 A$stm8s_flash8s_flash$138                                      000023 GR
+  9 A$stm8s_flash8s_flash$1384                                     0002EF GR
+  9 A$stm8s_flash8s_flash$1388                                     0002F1 GR
+  9 A$stm8s_flash8s_flash$140                                      000025 GR
+  9 A$stm8s_flash8s_flash$148                                      000028 GR
+  9 A$stm8s_flash8s_flash$163                                      000029 GR
+  9 A$stm8s_flash8s_flash$167                                      00002D GR
+  9 A$stm8s_flash8s_flash$171                                      000031 GR
+  9 A$stm8s_flash8s_flash$175                                      000035 GR
+  9 A$stm8s_flash8s_flash$177                                      000038 GR
+  9 A$stm8s_flash8s_flash$179                                      00003A GR
+  9 A$stm8s_flash8s_flash$183                                      00003D GR
+  9 A$stm8s_flash8s_flash$185                                      000040 GR
+  9 A$stm8s_flash8s_flash$187                                      000042 GR
+  9 A$stm8s_flash8s_flash$192                                      000045 GR
+  9 A$stm8s_flash8s_flash$200                                      000048 GR
+  9 A$stm8s_flash8s_flash$215                                      000049 GR
+  9 A$stm8s_flash8s_flash$219                                      00004C GR
+  9 A$stm8s_flash8s_flash$220                                      00004E GR
+  9 A$stm8s_flash8s_flash$221                                      000050 GR
+  9 A$stm8s_flash8s_flash$227                                      000053 GR
+  9 A$stm8s_flash8s_flash$229                                      000055 GR
+  9 A$stm8s_flash8s_flash$232                                      000058 GR
+  9 A$stm8s_flash8s_flash$239                                      00005B GR
+  9 A$stm8s_flash8s_flash$241                                      00005D GR
+  9 A$stm8s_flash8s_flash$250                                      000060 GR
+  9 A$stm8s_flash8s_flash$266                                      000061 GR
+  9 A$stm8s_flash8s_flash$270                                      000063 GR
+  9 A$stm8s_flash8s_flash$278                                      000064 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_flash8s_flash$294                                      000065 GR
+  9 A$stm8s_flash8s_flash$298                                      000067 GR
+  9 A$stm8s_flash8s_flash$299                                      000069 GR
+  9 A$stm8s_flash8s_flash$307                                      00006A GR
+  9 A$stm8s_flash8s_flash$323                                      00006B GR
+  9 A$stm8s_flash8s_flash$327                                      00006D GR
+  9 A$stm8s_flash8s_flash$336                                      00006E GR
+  9 A$stm8s_flash8s_flash$348                                      00006F GR
+  9 A$stm8s_flash8s_flash$353                                      000071 GR
+  9 A$stm8s_flash8s_flash$355                                      000074 GR
+  9 A$stm8s_flash8s_flash$357                                      000076 GR
+  9 A$stm8s_flash8s_flash$361                                      000079 GR
+  9 A$stm8s_flash8s_flash$363                                      00007C GR
+  9 A$stm8s_flash8s_flash$365                                      00007E GR
+  9 A$stm8s_flash8s_flash$370                                      000081 GR
+  9 A$stm8s_flash8s_flash$376                                      000083 GR
+  9 A$stm8s_flash8s_flash$377                                      000084 GR
+  9 A$stm8s_flash8s_flash$379                                      000087 GR
+  9 A$stm8s_flash8s_flash$381                                      000088 GR
+  9 A$stm8s_flash8s_flash$385                                      00008A GR
+  9 A$stm8s_flash8s_flash$386                                      00008B GR
+  9 A$stm8s_flash8s_flash$387                                      00008C GR
+  9 A$stm8s_flash8s_flash$389                                      00008E GR
+  9 A$stm8s_flash8s_flash$390                                      00008F GR
+  9 A$stm8s_flash8s_flash$395                                      000092 GR
+  9 A$stm8s_flash8s_flash$397                                      000094 GR
+  9 A$stm8s_flash8s_flash$398                                      000096 GR
+  9 A$stm8s_flash8s_flash$402                                      000097 GR
+  9 A$stm8s_flash8s_flash$403                                      000098 GR
+  9 A$stm8s_flash8s_flash$404                                      000099 GR
+  9 A$stm8s_flash8s_flash$405                                      00009A GR
+  9 A$stm8s_flash8s_flash$407                                      00009C GR
+  9 A$stm8s_flash8s_flash$408                                      00009D GR
+  9 A$stm8s_flash8s_flash$413                                      0000A0 GR
+  9 A$stm8s_flash8s_flash$415                                      0000A2 GR
+  9 A$stm8s_flash8s_flash$416                                      0000A4 GR
+  9 A$stm8s_flash8s_flash$420                                      0000A5 GR
+  9 A$stm8s_flash8s_flash$422                                      0000A9 GR
+  9 A$stm8s_flash8s_flash$423                                      0000AA GR
+  9 A$stm8s_flash8s_flash$428                                      0000AD GR
+  9 A$stm8s_flash8s_flash$430                                      0000AF GR
+  9 A$stm8s_flash8s_flash$436                                      0000B1 GR
+  9 A$stm8s_flash8s_flash$440                                      0000B3 GR
+  9 A$stm8s_flash8s_flash$452                                      0000B4 GR
+  9 A$stm8s_flash8s_flash$457                                      0000B6 GR
+  9 A$stm8s_flash8s_flash$459                                      0000B9 GR
+  9 A$stm8s_flash8s_flash$461                                      0000BB GR
+  9 A$stm8s_flash8s_flash$465                                      0000BE GR
+  9 A$stm8s_flash8s_flash$467                                      0000C1 GR
+  9 A$stm8s_flash8s_flash$469                                      0000C3 GR
+  9 A$stm8s_flash8s_flash$474                                      0000C6 GR
+  9 A$stm8s_flash8s_flash$479                                      0000C8 GR
+  9 A$stm8s_flash8s_flash$480                                      0000CA GR
+  9 A$stm8s_flash8s_flash$484                                      0000CC GR
+  9 A$stm8s_flash8s_flash$485                                      0000CF GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_flash8s_flash$486                                      0000D1 GR
+  9 A$stm8s_flash8s_flash$488                                      0000D4 GR
+  9 A$stm8s_flash8s_flash$496                                      0000D7 GR
+  9 A$stm8s_flash8s_flash$497                                      0000D9 GR
+  9 A$stm8s_flash8s_flash$498                                      0000DB GR
+  9 A$stm8s_flash8s_flash$501                                      0000DC GR
+  9 A$stm8s_flash8s_flash$508                                      0000DF GR
+  9 A$stm8s_flash8s_flash$509                                      0000E1 GR
+  9 A$stm8s_flash8s_flash$510                                      0000E3 GR
+  9 A$stm8s_flash8s_flash$514                                      0000E5 GR
+  9 A$stm8s_flash8s_flash$519                                      0000E6 GR
+  9 A$stm8s_flash8s_flash$521                                      0000E8 GR
+  9 A$stm8s_flash8s_flash$522                                      0000EA GR
+  9 A$stm8s_flash8s_flash$524                                      0000EB GR
+  9 A$stm8s_flash8s_flash$525                                      0000ED GR
+  9 A$stm8s_flash8s_flash$532                                      0000EE GR
+  9 A$stm8s_flash8s_flash$535                                      0000F0 GR
+  9 A$stm8s_flash8s_flash$536                                      0000F3 GR
+  9 A$stm8s_flash8s_flash$541                                      0000F4 GR
+  9 A$stm8s_flash8s_flash$543                                      0000F7 GR
+  9 A$stm8s_flash8s_flash$545                                      0000F9 GR
+  9 A$stm8s_flash8s_flash$549                                      0000FC GR
+  9 A$stm8s_flash8s_flash$551                                      0000FF GR
+  9 A$stm8s_flash8s_flash$553                                      000101 GR
+  9 A$stm8s_flash8s_flash$559                                      000104 GR
+  9 A$stm8s_flash8s_flash$563                                      000106 GR
+  9 A$stm8s_flash8s_flash$578                                      000107 GR
+  9 A$stm8s_flash8s_flash$580                                      00010A GR
+  9 A$stm8s_flash8s_flash$582                                      00010C GR
+  9 A$stm8s_flash8s_flash$586                                      00010F GR
+  9 A$stm8s_flash8s_flash$588                                      000112 GR
+  9 A$stm8s_flash8s_flash$590                                      000114 GR
+  9 A$stm8s_flash8s_flash$595                                      000117 GR
+  9 A$stm8s_flash8s_flash$600                                      000119 GR
+  9 A$stm8s_flash8s_flash$604                                      00011B GR
+  9 A$stm8s_flash8s_flash$605                                      00011F GR
+  9 A$stm8s_flash8s_flash$606                                      000121 GR
+  9 A$stm8s_flash8s_flash$608                                      000124 GR
+  9 A$stm8s_flash8s_flash$616                                      000127 GR
+  9 A$stm8s_flash8s_flash$619                                      000128 GR
+  9 A$stm8s_flash8s_flash$626                                      00012B GR
+  9 A$stm8s_flash8s_flash$630                                      00012C GR
+  9 A$stm8s_flash8s_flash$631                                      00012E GR
+  9 A$stm8s_flash8s_flash$635                                      00012F GR
+  9 A$stm8s_flash8s_flash$636                                      000131 GR
+  9 A$stm8s_flash8s_flash$643                                      000132 GR
+  9 A$stm8s_flash8s_flash$646                                      000134 GR
+  9 A$stm8s_flash8s_flash$647                                      000137 GR
+  9 A$stm8s_flash8s_flash$652                                      000138 GR
+  9 A$stm8s_flash8s_flash$654                                      00013B GR
+  9 A$stm8s_flash8s_flash$656                                      00013D GR
+  9 A$stm8s_flash8s_flash$660                                      000140 GR
+  9 A$stm8s_flash8s_flash$662                                      000143 GR
+  9 A$stm8s_flash8s_flash$664                                      000145 GR
+  9 A$stm8s_flash8s_flash$672                                      000148 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_flash8s_flash$684                                      000149 GR
+  9 A$stm8s_flash8s_flash$690                                      00014B GR
+  9 A$stm8s_flash8s_flash$692                                      00014D GR
+  9 A$stm8s_flash8s_flash$693                                      00014E GR
+  9 A$stm8s_flash8s_flash$698                                      000150 GR
+  9 A$stm8s_flash8s_flash$699                                      000152 GR
+  9 A$stm8s_flash8s_flash$704                                      000154 GR
+  9 A$stm8s_flash8s_flash$709                                      000156 GR
+  9 A$stm8s_flash8s_flash$710                                      000157 GR
+  9 A$stm8s_flash8s_flash$711                                      000159 GR
+  9 A$stm8s_flash8s_flash$715                                      00015A GR
+  9 A$stm8s_flash8s_flash$716                                      00015E GR
+  9 A$stm8s_flash8s_flash$717                                      000160 GR
+  9 A$stm8s_flash8s_flash$719                                      000163 GR
+  9 A$stm8s_flash8s_flash$729                                      000166 GR
+  9 A$stm8s_flash8s_flash$736                                      000169 GR
+  9 A$stm8s_flash8s_flash$737                                      00016B GR
+  9 A$stm8s_flash8s_flash$739                                      00016C GR
+  9 A$stm8s_flash8s_flash$740                                      00016E GR
+  9 A$stm8s_flash8s_flash$741                                      000170 GR
+  9 A$stm8s_flash8s_flash$743                                      000173 GR
+  9 A$stm8s_flash8s_flash$751                                      000176 GR
+  9 A$stm8s_flash8s_flash$752                                      000177 GR
+  9 A$stm8s_flash8s_flash$754                                      000178 GR
+  9 A$stm8s_flash8s_flash$759                                      00017A GR
+  9 A$stm8s_flash8s_flash$760                                      00017C GR
+  9 A$stm8s_flash8s_flash$762                                      00017D GR
+  9 A$stm8s_flash8s_flash$763                                      00017F GR
+  9 A$stm8s_flash8s_flash$764                                      000180 GR
+  9 A$stm8s_flash8s_flash$765                                      000181 GR
+  9 A$stm8s_flash8s_flash$766                                      000183 GR
+  9 A$stm8s_flash8s_flash$770                                      000184 GR
+  9 A$stm8s_flash8s_flash$777                                      000187 GR
+  9 A$stm8s_flash8s_flash$789                                      00018A GR
+  9 A$stm8s_flash8s_flash$793                                      00018C GR
+  9 A$stm8s_flash8s_flash$808                                      00018D GR
+  9 A$stm8s_flash8s_flash$81                                       000000 GR
+  9 A$stm8s_flash8s_flash$810                                      000190 GR
+  9 A$stm8s_flash8s_flash$812                                      000192 GR
+  9 A$stm8s_flash8s_flash$816                                      000195 GR
+  9 A$stm8s_flash8s_flash$818                                      000198 GR
+  9 A$stm8s_flash8s_flash$82                                       000002 GR
+  9 A$stm8s_flash8s_flash$820                                      00019A GR
+  9 A$stm8s_flash8s_flash$828                                      00019D GR
+  9 A$stm8s_flash8s_flash$83                                       000004 GR
+  9 A$stm8s_flash8s_flash$84                                       000006 GR
+  9 A$stm8s_flash8s_flash$843                                      00019E GR
+  9 A$stm8s_flash8s_flash$845                                      0001A1 GR
+  9 A$stm8s_flash8s_flash$847                                      0001A3 GR
+  9 A$stm8s_flash8s_flash$851                                      0001A6 GR
+  9 A$stm8s_flash8s_flash$853                                      0001A9 GR
+  9 A$stm8s_flash8s_flash$855                                      0001AB GR
+  9 A$stm8s_flash8s_flash$86                                       000009 GR
+  9 A$stm8s_flash8s_flash$863                                      0001AE GR
+  9 A$stm8s_flash8s_flash$878                                      0001AF GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_flash8s_flash$880                                      0001B2 GR
+  9 A$stm8s_flash8s_flash$889                                      0001B4 GR
+  9 A$stm8s_flash8s_flash$904                                      0001B5 GR
+  9 A$stm8s_flash8s_flash$906                                      0001B8 GR
+  9 A$stm8s_flash8s_flash$915                                      0001BA GR
+  9 A$stm8s_flash8s_flash$927                                      0001BB GR
+  9 A$stm8s_flash8s_flash$932                                      0001BD GR
+  9 A$stm8s_flash8s_flash$935                                      0001C0 GR
+  9 A$stm8s_flash8s_flash$936                                      0001C1 GR
+  9 A$stm8s_flash8s_flash$938                                      0001C3 GR
+  9 A$stm8s_flash8s_flash$939                                      0001C5 GR
+  9 A$stm8s_flash8s_flash$94                                       00000C GR
+  9 A$stm8s_flash8s_flash$940                                      0001C7 GR
+  9 A$stm8s_flash8s_flash$941                                      0001C8 GR
+  9 A$stm8s_flash8s_flash$943                                      0001C9 GR
+  9 A$stm8s_flash8s_flash$944                                      0001CB GR
+  9 A$stm8s_flash8s_flash$945                                      0001CD GR
+  9 A$stm8s_flash8s_flash$949                                      0001CF GR
+  9 A$stm8s_flash8s_flash$951                                      0001D2 GR
+  9 A$stm8s_flash8s_flash$952                                      0001D3 GR
+  9 A$stm8s_flash8s_flash$953                                      0001D5 GR
+  9 A$stm8s_flash8s_flash$955                                      0001D8 GR
+  9 A$stm8s_flash8s_flash$963                                      0001DB GR
+  9 A$stm8s_flash8s_flash$964                                      0001DF GR
+  9 A$stm8s_flash8s_flash$965                                      0001E0 GR
+  9 A$stm8s_flash8s_flash$966                                      0001E2 GR
+  9 A$stm8s_flash8s_flash$967                                      0001E3 GR
+  9 A$stm8s_flash8s_flash$968                                      0001E4 GR
+  9 A$stm8s_flash8s_flash$970                                      0001E6 GR
+  9 A$stm8s_flash8s_flash$977                                      0001E7 GR
+  9 A$stm8s_flash8s_flash$98                                       000010 GR
+  9 A$stm8s_flash8s_flash$983                                      0001E8 GR
+  9 A$stm8s_flash8s_flash$987                                      0001EA GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE10_end                                               000207 R
+ 10 Ldebug_CIE10_start                                             0001F9 R
+ 10 Ldebug_CIE11_end                                               000245 R
+ 10 Ldebug_CIE11_start                                             000237 R
+ 10 Ldebug_CIE12_end                                               000291 R
+ 10 Ldebug_CIE12_start                                             000283 R
+ 10 Ldebug_CIE13_end                                               0002C8 R
+ 10 Ldebug_CIE13_start                                             0002BA R
+ 10 Ldebug_CIE14_end                                               0002F1 R
+ 10 Ldebug_CIE14_start                                             0002E3 R
+ 10 Ldebug_CIE15_end                                               00031A R
+ 10 Ldebug_CIE15_start                                             00030C R
+ 10 Ldebug_CIE16_end                                               000343 R
+ 10 Ldebug_CIE16_start                                             000335 R
+ 10 Ldebug_CIE17_end                                               00036C R
+ 10 Ldebug_CIE17_start                                             00035E R
+ 10 Ldebug_CIE18_end                                               000395 R
+ 10 Ldebug_CIE18_start                                             000387 R
+ 10 Ldebug_CIE19_end                                               0003BE R
+ 10 Ldebug_CIE19_start                                             0003B0 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 10 Ldebug_CIE1_end                                                000050 R
+ 10 Ldebug_CIE1_start                                              000042 R
+ 10 Ldebug_CIE2_end                                                00008E R
+ 10 Ldebug_CIE2_start                                              000080 R
+ 10 Ldebug_CIE3_end                                                0000B7 R
+ 10 Ldebug_CIE3_start                                              0000A9 R
+ 10 Ldebug_CIE4_end                                                0000E0 R
+ 10 Ldebug_CIE4_start                                              0000D2 R
+ 10 Ldebug_CIE5_end                                                00011E R
+ 10 Ldebug_CIE5_start                                              000110 R
+ 10 Ldebug_CIE6_end                                                000147 R
+ 10 Ldebug_CIE6_start                                              000139 R
+ 10 Ldebug_CIE7_end                                                000170 R
+ 10 Ldebug_CIE7_start                                              000162 R
+ 10 Ldebug_CIE8_end                                                000199 R
+ 10 Ldebug_CIE8_start                                              00018B R
+ 10 Ldebug_CIE9_end                                                0001C2 R
+ 10 Ldebug_CIE9_start                                              0001B4 R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                0006E6 R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                0004E9 R
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               0000CB R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            0001DF R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Sstm8s_flash$FLASH_DeInit$21                                =  000029 GR
+  9 Sstm8s_flash$FLASH_DeInit$22                                =  000029 GR
+  9 Sstm8s_flash$FLASH_DeInit$23                                =  000029 GR
+  9 Sstm8s_flash$FLASH_DeInit$24                                =  00002D GR
+  9 Sstm8s_flash$FLASH_DeInit$25                                =  000031 GR
+  9 Sstm8s_flash$FLASH_DeInit$26                                =  000035 GR
+  9 Sstm8s_flash$FLASH_DeInit$27                                =  00003D GR
+  9 Sstm8s_flash$FLASH_DeInit$28                                =  000045 GR
+  9 Sstm8s_flash$FLASH_DeInit$29                                =  000048 GR
+  9 Sstm8s_flash$FLASH_DeInit$30                                =  000048 GR
+  9 Sstm8s_flash$FLASH_DeInit$31                                =  000049 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$220                           =  00021E GR
+  9 Sstm8s_flash$FLASH_EraseBlock$221                           =  00021E GR
+  9 Sstm8s_flash$FLASH_EraseBlock$222                           =  000220 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$223                           =  000220 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$224                           =  00022C GR
+  9 Sstm8s_flash$FLASH_EraseBlock$225                           =  00022C GR
+  9 Sstm8s_flash$FLASH_EraseBlock$226                           =  00022C GR
+  9 Sstm8s_flash$FLASH_EraseBlock$227                           =  000234 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$228                           =  000237 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$229                           =  000237 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$230                           =  00023F GR
+  9 Sstm8s_flash$FLASH_EraseBlock$231                           =  00023F GR
+  9 Sstm8s_flash$FLASH_EraseBlock$232                           =  00024E GR
+  9 Sstm8s_flash$FLASH_EraseBlock$233                           =  000256 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$234                           =  00025E GR
+  9 Sstm8s_flash$FLASH_EraseBlock$235                           =  000265 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$236                           =  000267 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 9.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_flash$FLASH_EraseBlock$237                           =  000267 GR
+  9 Sstm8s_flash$FLASH_EraseBlock$238                           =  000268 GR
+  9 Sstm8s_flash$FLASH_EraseByte$45                             =  000061 GR
+  9 Sstm8s_flash$FLASH_EraseByte$46                             =  000061 GR
+  9 Sstm8s_flash$FLASH_EraseByte$47                             =  000061 GR
+  9 Sstm8s_flash$FLASH_EraseByte$48                             =  000064 GR
+  9 Sstm8s_flash$FLASH_EraseByte$49                             =  000064 GR
+  9 Sstm8s_flash$FLASH_EraseByte$50                             =  000065 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$101                      =  000107 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$102                      =  000107 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$103                      =  000107 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$104                      =  00010F GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$105                      =  000117 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$106                      =  000119 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$107                      =  00011B GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$108                      =  000127 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$109                      =  000127 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$110                      =  000127 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$111                      =  000128 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$112                      =  00012B GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$113                      =  00012B GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$114                      =  00012C GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$115                      =  000132 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$116                      =  000132 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$117                      =  000134 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$118                      =  000138 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$119                      =  000138 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$120                      =  000140 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$121                      =  000148 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$122                      =  000148 GR
+  9 Sstm8s_flash$FLASH_EraseOptionByte$123                      =  000149 GR
+  9 Sstm8s_flash$FLASH_GetBootSize$177                          =  0001BB GR
+  9 Sstm8s_flash$FLASH_GetBootSize$178                          =  0001BB GR
+  9 Sstm8s_flash$FLASH_GetBootSize$179                          =  0001BD GR
+  9 Sstm8s_flash$FLASH_GetBootSize$180                          =  0001BD GR
+  9 Sstm8s_flash$FLASH_GetBootSize$181                          =  0001CF GR
+  9 Sstm8s_flash$FLASH_GetBootSize$182                          =  0001DB GR
+  9 Sstm8s_flash$FLASH_GetBootSize$183                          =  0001DB GR
+  9 Sstm8s_flash$FLASH_GetBootSize$184                          =  0001DB GR
+  9 Sstm8s_flash$FLASH_GetBootSize$185                          =  0001E7 GR
+  9 Sstm8s_flash$FLASH_GetBootSize$186                          =  0001E7 GR
+  9 Sstm8s_flash$FLASH_GetBootSize$187                          =  0001E8 GR
+  9 Sstm8s_flash$FLASH_GetBootSize$188                          =  0001EA GR
+  9 Sstm8s_flash$FLASH_GetBootSize$189                          =  0001EA GR
+  9 Sstm8s_flash$FLASH_GetBootSize$190                          =  0001EB GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$191                        =  0001EB GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$192                        =  0001EB GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$193                        =  0001EB GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$194                        =  0001F6 GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$195                        =  0001F6 GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$196                        =  0001F8 GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$197                        =  0001FB GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$198                        =  0001FB GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$199                        =  0001FC GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$200                        =  0001FC GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 10.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_flash$FLASH_GetFlagStatus$201                        =  0001FC GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$202                        =  0001FC GR
+  9 Sstm8s_flash$FLASH_GetFlagStatus$203                        =  0001FD GR
+  9 Sstm8s_flash$FLASH_GetLowPowerMode$165                      =  0001AF GR
+  9 Sstm8s_flash$FLASH_GetLowPowerMode$166                      =  0001AF GR
+  9 Sstm8s_flash$FLASH_GetLowPowerMode$167                      =  0001AF GR
+  9 Sstm8s_flash$FLASH_GetLowPowerMode$168                      =  0001B4 GR
+  9 Sstm8s_flash$FLASH_GetLowPowerMode$169                      =  0001B4 GR
+  9 Sstm8s_flash$FLASH_GetLowPowerMode$170                      =  0001B5 GR
+  9 Sstm8s_flash$FLASH_GetProgrammingTime$171                   =  0001B5 GR
+  9 Sstm8s_flash$FLASH_GetProgrammingTime$172                   =  0001B5 GR
+  9 Sstm8s_flash$FLASH_GetProgrammingTime$173                   =  0001B5 GR
+  9 Sstm8s_flash$FLASH_GetProgrammingTime$174                   =  0001BA GR
+  9 Sstm8s_flash$FLASH_GetProgrammingTime$175                   =  0001BA GR
+  9 Sstm8s_flash$FLASH_GetProgrammingTime$176                   =  0001BB GR
+  9 Sstm8s_flash$FLASH_ITConfig$32                              =  000049 GR
+  9 Sstm8s_flash$FLASH_ITConfig$33                              =  000049 GR
+  9 Sstm8s_flash$FLASH_ITConfig$34                              =  000049 GR
+  9 Sstm8s_flash$FLASH_ITConfig$35                              =  00004C GR
+  9 Sstm8s_flash$FLASH_ITConfig$36                              =  000053 GR
+  9 Sstm8s_flash$FLASH_ITConfig$37                              =  000053 GR
+  9 Sstm8s_flash$FLASH_ITConfig$38                              =  000058 GR
+  9 Sstm8s_flash$FLASH_ITConfig$39                              =  00005B GR
+  9 Sstm8s_flash$FLASH_ITConfig$40                              =  00005B GR
+  9 Sstm8s_flash$FLASH_ITConfig$41                              =  000060 GR
+  9 Sstm8s_flash$FLASH_ITConfig$42                              =  000060 GR
+  9 Sstm8s_flash$FLASH_ITConfig$43                              =  000060 GR
+  9 Sstm8s_flash$FLASH_ITConfig$44                              =  000061 GR
+  9 Sstm8s_flash$FLASH_Lock$15                                  =  000020 GR
+  9 Sstm8s_flash$FLASH_Lock$16                                  =  000020 GR
+  9 Sstm8s_flash$FLASH_Lock$17                                  =  000020 GR
+  9 Sstm8s_flash$FLASH_Lock$18                                  =  000028 GR
+  9 Sstm8s_flash$FLASH_Lock$19                                  =  000028 GR
+  9 Sstm8s_flash$FLASH_Lock$20                                  =  000029 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$239                         =  000268 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$240                         =  000268 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$241                         =  00026A GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$242                         =  00026A GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$243                         =  000276 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$244                         =  000276 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$245                         =  000276 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$246                         =  00027C GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$247                         =  00027F GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$248                         =  00027F GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$249                         =  000285 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$250                         =  000285 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$251                         =  0002A9 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$252                         =  0002AC GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$253                         =  0002B3 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$254                         =  0002B3 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$255                         =  0002B8 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$256                         =  0002C0 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$257                         =  0002C3 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$258                         =  0002C3 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$259                         =  0002C8 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 11.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_flash$FLASH_ProgramBlock$260                         =  0002D0 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$261                         =  0002D0 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$262                         =  0002D2 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$263                         =  0002D2 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$264                         =  0002E4 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$265                         =  0002E4 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$266                         =  0002EF GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$267                         =  0002F1 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$268                         =  0002F1 GR
+  9 Sstm8s_flash$FLASH_ProgramBlock$269                         =  0002F2 GR
+  9 Sstm8s_flash$FLASH_ProgramByte$51                           =  000065 GR
+  9 Sstm8s_flash$FLASH_ProgramByte$52                           =  000065 GR
+  9 Sstm8s_flash$FLASH_ProgramByte$53                           =  000065 GR
+  9 Sstm8s_flash$FLASH_ProgramByte$54                           =  00006A GR
+  9 Sstm8s_flash$FLASH_ProgramByte$55                           =  00006A GR
+  9 Sstm8s_flash$FLASH_ProgramByte$56                           =  00006B GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$100                    =  000107 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$76                     =  0000B4 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$77                     =  0000B4 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$78                     =  0000B6 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$79                     =  0000B6 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$80                     =  0000BE GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$81                     =  0000C6 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$82                     =  0000C8 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$83                     =  0000CC GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$84                     =  0000D7 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$85                     =  0000D7 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$86                     =  0000D7 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$87                     =  0000DC GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$88                     =  0000DF GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$89                     =  0000DF GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$90                     =  0000E5 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$91                     =  0000EE GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$92                     =  0000EE GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$93                     =  0000F0 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$94                     =  0000F4 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$95                     =  0000F4 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$96                     =  0000FC GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$97                     =  000104 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$98                     =  000106 GR
+  9 Sstm8s_flash$FLASH_ProgramOptionByte$99                     =  000106 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$63                           =  00006F GR
+  9 Sstm8s_flash$FLASH_ProgramWord$64                           =  00006F GR
+  9 Sstm8s_flash$FLASH_ProgramWord$65                           =  000071 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$66                           =  000071 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$67                           =  000079 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$68                           =  000081 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$69                           =  00008A GR
+  9 Sstm8s_flash$FLASH_ProgramWord$70                           =  000097 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$71                           =  0000A5 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$72                           =  0000B1 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$73                           =  0000B3 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$74                           =  0000B3 GR
+  9 Sstm8s_flash$FLASH_ProgramWord$75                           =  0000B4 GR
+  9 Sstm8s_flash$FLASH_ReadByte$57                              =  00006B GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 12.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_flash$FLASH_ReadByte$58                              =  00006B GR
+  9 Sstm8s_flash$FLASH_ReadByte$59                              =  00006B GR
+  9 Sstm8s_flash$FLASH_ReadByte$60                              =  00006E GR
+  9 Sstm8s_flash$FLASH_ReadByte$61                              =  00006E GR
+  9 Sstm8s_flash$FLASH_ReadByte$62                              =  00006F GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$124                       =  000149 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$125                       =  000149 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$126                       =  00014B GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$127                       =  00014B GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$128                       =  000150 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$129                       =  000154 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$130                       =  000156 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$131                       =  00015A GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$132                       =  000166 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$133                       =  000166 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$134                       =  000166 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$135                       =  000166 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$136                       =  000169 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$137                       =  000169 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$138                       =  000176 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$139                       =  000176 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$140                       =  000176 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$141                       =  00017A GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$142                       =  000184 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$143                       =  000187 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$144                       =  000187 GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$145                       =  00018A GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$146                       =  00018A GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$147                       =  00018A GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$148                       =  00018C GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$149                       =  00018C GR
+  9 Sstm8s_flash$FLASH_ReadOptionByte$150                       =  00018D GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$151                      =  00018D GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$152                      =  00018D GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$153                      =  00018D GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$154                      =  000195 GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$155                      =  00019D GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$156                      =  00019D GR
+  9 Sstm8s_flash$FLASH_SetLowPowerMode$157                      =  00019E GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$158                   =  00019E GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$159                   =  00019E GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$160                   =  00019E GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$161                   =  0001A6 GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$162                   =  0001AE GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$163                   =  0001AE GR
+  9 Sstm8s_flash$FLASH_SetProgrammingTime$164                   =  0001AF GR
+  9 Sstm8s_flash$FLASH_Unlock$0                                 =  000000 GR
+  9 Sstm8s_flash$FLASH_Unlock$1                                 =  000000 GR
+  9 Sstm8s_flash$FLASH_Unlock$10                                =  00001B GR
+  9 Sstm8s_flash$FLASH_Unlock$11                                =  00001F GR
+  9 Sstm8s_flash$FLASH_Unlock$12                                =  00001F GR
+  9 Sstm8s_flash$FLASH_Unlock$13                                =  00001F GR
+  9 Sstm8s_flash$FLASH_Unlock$14                                =  000020 GR
+  9 Sstm8s_flash$FLASH_Unlock$2                                 =  000000 GR
+  9 Sstm8s_flash$FLASH_Unlock$3                                 =  00000C GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 13.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_flash$FLASH_Unlock$4                                 =  00000C GR
+  9 Sstm8s_flash$FLASH_Unlock$5                                 =  00000C GR
+  9 Sstm8s_flash$FLASH_Unlock$6                                 =  000010 GR
+  9 Sstm8s_flash$FLASH_Unlock$7                                 =  000014 GR
+  9 Sstm8s_flash$FLASH_Unlock$8                                 =  000017 GR
+  9 Sstm8s_flash$FLASH_Unlock$9                                 =  000017 GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$204                 =  0001FD GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$205                 =  0001FD GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$206                 =  0001FD GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$207                 =  0001FE GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$208                 =  00020C GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$209                 =  00020C GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$210                 =  000211 GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$211                 =  000212 GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$212                 =  000215 GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$213                 =  00021B GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$214                 =  00021B GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$215                 =  00021D GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$216                 =  00021D GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$217                 =  00021D GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$218                 =  00021D GR
+  9 Sstm8s_flash$FLASH_WaitForLastOperation$219                 =  00021E GR
+  9 XG$FLASH_DeInit$0$0                                         =  000048 GR
+  9 XG$FLASH_EraseBlock$0$0                                     =  000267 GR
+  9 XG$FLASH_EraseByte$0$0                                      =  000064 GR
+  9 XG$FLASH_EraseOptionByte$0$0                                =  000148 GR
+  9 XG$FLASH_GetBootSize$0$0                                    =  0001EA GR
+  9 XG$FLASH_GetFlagStatus$0$0                                  =  0001FC GR
+  9 XG$FLASH_GetLowPowerMode$0$0                                =  0001B4 GR
+  9 XG$FLASH_GetProgrammingTime$0$0                             =  0001BA GR
+  9 XG$FLASH_ITConfig$0$0                                       =  000060 GR
+  9 XG$FLASH_Lock$0$0                                           =  000028 GR
+  9 XG$FLASH_ProgramBlock$0$0                                   =  0002F1 GR
+  9 XG$FLASH_ProgramByte$0$0                                    =  00006A GR
+  9 XG$FLASH_ProgramOptionByte$0$0                              =  000106 GR
+  9 XG$FLASH_ProgramWord$0$0                                    =  0000B3 GR
+  9 XG$FLASH_ReadByte$0$0                                       =  00006E GR
+  9 XG$FLASH_ReadOptionByte$0$0                                 =  00018C GR
+  9 XG$FLASH_SetLowPowerMode$0$0                                =  00019D GR
+  9 XG$FLASH_SetProgrammingTime$0$0                             =  0001AE GR
+  9 XG$FLASH_Unlock$0$0                                         =  00001F GR
+  9 XG$FLASH_WaitForLastOperation$0$0                           =  00021D GR
+  9 _FLASH_DeInit                                                  000029 GR
+  9 _FLASH_EraseBlock                                              00021E GR
+  9 _FLASH_EraseByte                                               000061 GR
+  9 _FLASH_EraseOptionByte                                         000107 GR
+  9 _FLASH_GetBootSize                                             0001BB GR
+  9 _FLASH_GetFlagStatus                                           0001EB GR
+  9 _FLASH_GetLowPowerMode                                         0001AF GR
+  9 _FLASH_GetProgrammingTime                                      0001B5 GR
+  9 _FLASH_ITConfig                                                000049 GR
+  9 _FLASH_Lock                                                    000020 GR
+  9 _FLASH_ProgramBlock                                            000268 GR
+  9 _FLASH_ProgramByte                                             000065 GR
+  9 _FLASH_ProgramOptionByte                                       0000B4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 14.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 _FLASH_ProgramWord                                             00006F GR
+  9 _FLASH_ReadByte                                                00006B GR
+  9 _FLASH_ReadOptionByte                                          000149 GR
+  9 _FLASH_SetLowPowerMode                                         00018D GR
+  9 _FLASH_SetProgrammingTime                                      00019E GR
+  9 _FLASH_Unlock                                                  000000 GR
+  9 _FLASH_WaitForLastOperation                                    0001FD GR
+
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 15.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size    2F2   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size    4E9   flags  100
+   C .debug_loc                                 size    2B0   flags  100
+   D .debug_abbrev                              size     9D   flags  100
+   E .debug_info                                size    6E6   flags  100
+   F .debug_pubnames                            size    1DF   flags  100
+  10 .debug_frame                               size    3DC   flags  100
+

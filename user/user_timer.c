@@ -2,12 +2,12 @@
 
 #define TIM4_PERIOD       124
 
-extern void tmr_led(void);
-extern void tmr_buzzer(void);
-extern void tmr_display(void);
-extern void tmr_menu(void);
-extern void tmr_motor(void);
-extern void tmr_pressure_sensor(void);
+//extern void tmr_led(void);
+//extern void tmr_buzzer(void);
+//extern void tmr_display(void);
+//extern void tmr_menu(void);
+//extern void tmr_motor(void);
+//extern void tmr_pressure_sensor(void);
 
 /* Private macro -------------------------------------------------------------*/
 #define TIMER_POOL 100
@@ -90,9 +90,9 @@ void task_timer(void)
     if (tmr_delay)
         tmr_delay--;
 
-    tmr_led();
-    tmr_display();
-    tmr_menu();
+    //tmr_led();
+    //tmr_display();
+    //tmr_menu();
 
     if (++tpool >= TIMER_POOL) {
         tpool = 0;

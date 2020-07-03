@@ -1,0 +1,2022 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 4.0.2 #11645 (Linux)
+                                      4 ;--------------------------------------------------------
+                                      5 	.module stm8s_gpio
+                                      6 	.optsdcc -mstm8
+                                      7 	
+                                      8 ;--------------------------------------------------------
+                                      9 ; Public variables in this module
+                                     10 ;--------------------------------------------------------
+                                     11 	.globl _GPIO_DeInit
+                                     12 	.globl _GPIO_Init
+                                     13 	.globl _GPIO_Write
+                                     14 	.globl _GPIO_WriteHigh
+                                     15 	.globl _GPIO_WriteLow
+                                     16 	.globl _GPIO_WriteReverse
+                                     17 	.globl _GPIO_ReadOutputData
+                                     18 	.globl _GPIO_ReadInputData
+                                     19 	.globl _GPIO_ReadInputPin
+                                     20 	.globl _GPIO_ExternalPullUpConfig
+                                     21 ;--------------------------------------------------------
+                                     22 ; ram data
+                                     23 ;--------------------------------------------------------
+                                     24 	.area DATA
+                                     25 ;--------------------------------------------------------
+                                     26 ; ram data
+                                     27 ;--------------------------------------------------------
+                                     28 	.area INITIALIZED
+                                     29 ;--------------------------------------------------------
+                                     30 ; absolute external ram data
+                                     31 ;--------------------------------------------------------
+                                     32 	.area DABS (ABS)
+                                     33 
+                                     34 ; default segment ordering for linker
+                                     35 	.area HOME
+                                     36 	.area GSINIT
+                                     37 	.area GSFINAL
+                                     38 	.area CONST
+                                     39 	.area INITIALIZER
+                                     40 	.area CODE
+                                     41 
+                                     42 ;--------------------------------------------------------
+                                     43 ; global & static initialisations
+                                     44 ;--------------------------------------------------------
+                                     45 	.area HOME
+                                     46 	.area GSINIT
+                                     47 	.area GSFINAL
+                                     48 	.area GSINIT
+                                     49 ;--------------------------------------------------------
+                                     50 ; Home
+                                     51 ;--------------------------------------------------------
+                                     52 	.area HOME
+                                     53 	.area HOME
+                                     54 ;--------------------------------------------------------
+                                     55 ; code
+                                     56 ;--------------------------------------------------------
+                                     57 	.area CODE
+                           000000    58 	Sstm8s_gpio$GPIO_DeInit$0 ==.
+                                     59 ;	./libraries/src/stm8s_gpio.c: 53: void GPIO_DeInit(GPIO_TypeDef* GPIOx)
+                                     60 ; genLabel
+                                     61 ;	-----------------------------------------
+                                     62 ;	 function GPIO_DeInit
+                                     63 ;	-----------------------------------------
+                                     64 ;	Register assignment might be sub-optimal.
+                                     65 ;	Stack space usage: 0 bytes.
+      000000                         66 _GPIO_DeInit:
+                           000000    67 	Sstm8s_gpio$GPIO_DeInit$1 ==.
+                           000000    68 	Sstm8s_gpio$GPIO_DeInit$2 ==.
+                                     69 ;	./libraries/src/stm8s_gpio.c: 55: GPIOx->ODR = GPIO_ODR_RESET_VALUE; /* Reset Output Data Register */
+                                     70 ; genAssign
+      000000 16 03            [ 2]   71 	ldw	y, (0x03, sp)
+                                     72 ; genPointerSet
+      000002 90 7F            [ 1]   73 	clr	(y)
+                           000004    74 	Sstm8s_gpio$GPIO_DeInit$3 ==.
+                                     75 ;	./libraries/src/stm8s_gpio.c: 56: GPIOx->DDR = GPIO_DDR_RESET_VALUE; /* Reset Data Direction Register */
+                                     76 ; genPlus
+      000004 93               [ 1]   77 	ldw	x, y
+      000005 5C               [ 1]   78 	incw	x
+      000006 5C               [ 1]   79 	incw	x
+                                     80 ; genPointerSet
+      000007 7F               [ 1]   81 	clr	(x)
+                           000008    82 	Sstm8s_gpio$GPIO_DeInit$4 ==.
+                                     83 ;	./libraries/src/stm8s_gpio.c: 57: GPIOx->CR1 = GPIO_CR1_RESET_VALUE; /* Reset Control Register 1 */
+                                     84 ; genPlus
+      000008 93               [ 1]   85 	ldw	x, y
+      000009 1C 00 03         [ 2]   86 	addw	x, #0x0003
+                                     87 ; genPointerSet
+      00000C 7F               [ 1]   88 	clr	(x)
+                           00000D    89 	Sstm8s_gpio$GPIO_DeInit$5 ==.
+                                     90 ;	./libraries/src/stm8s_gpio.c: 58: GPIOx->CR2 = GPIO_CR2_RESET_VALUE; /* Reset Control Register 2 */
+                                     91 ; genPlus
+      00000D 93               [ 1]   92 	ldw	x, y
+      00000E 1C 00 04         [ 2]   93 	addw	x, #0x0004
+                                     94 ; genPointerSet
+      000011 7F               [ 1]   95 	clr	(x)
+                                     96 ; genLabel
+      000012                         97 00101$:
+                           000012    98 	Sstm8s_gpio$GPIO_DeInit$6 ==.
+                                     99 ;	./libraries/src/stm8s_gpio.c: 59: }
+                                    100 ; genEndFunction
+                           000012   101 	Sstm8s_gpio$GPIO_DeInit$7 ==.
+                           000012   102 	XG$GPIO_DeInit$0$0 ==.
+      000012 81               [ 4]  103 	ret
+                           000013   104 	Sstm8s_gpio$GPIO_DeInit$8 ==.
+                           000013   105 	Sstm8s_gpio$GPIO_Init$9 ==.
+                                    106 ;	./libraries/src/stm8s_gpio.c: 71: void GPIO_Init(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, GPIO_Mode_TypeDef GPIO_Mode)
+                                    107 ; genLabel
+                                    108 ;	-----------------------------------------
+                                    109 ;	 function GPIO_Init
+                                    110 ;	-----------------------------------------
+                                    111 ;	Register assignment might be sub-optimal.
+                                    112 ;	Stack space usage: 5 bytes.
+      000013                        113 _GPIO_Init:
+                           000013   114 	Sstm8s_gpio$GPIO_Init$10 ==.
+      000013 52 05            [ 2]  115 	sub	sp, #5
+                           000015   116 	Sstm8s_gpio$GPIO_Init$11 ==.
+                           000015   117 	Sstm8s_gpio$GPIO_Init$12 ==.
+                                    118 ;	./libraries/src/stm8s_gpio.c: 81: GPIOx->CR2 &= (uint8_t)(~(GPIO_Pin));
+                                    119 ; genAssign
+      000015 16 08            [ 2]  120 	ldw	y, (0x08, sp)
+                                    121 ; genPlus
+      000017 93               [ 1]  122 	ldw	x, y
+      000018 1C 00 04         [ 2]  123 	addw	x, #0x0004
+      00001B 1F 01            [ 2]  124 	ldw	(0x01, sp), x
+                                    125 ; genPointerGet
+      00001D 1E 01            [ 2]  126 	ldw	x, (0x01, sp)
+      00001F F6               [ 1]  127 	ld	a, (x)
+                                    128 ; genCpl
+      000020 88               [ 1]  129 	push	a
+                           000021   130 	Sstm8s_gpio$GPIO_Init$13 ==.
+      000021 7B 0B            [ 1]  131 	ld	a, (0x0b, sp)
+      000023 43               [ 1]  132 	cpl	a
+      000024 6B 04            [ 1]  133 	ld	(0x04, sp), a
+      000026 84               [ 1]  134 	pop	a
+                           000027   135 	Sstm8s_gpio$GPIO_Init$14 ==.
+                                    136 ; genAnd
+      000027 14 03            [ 1]  137 	and	a, (0x03, sp)
+                                    138 ; genPointerSet
+      000029 1E 01            [ 2]  139 	ldw	x, (0x01, sp)
+      00002B F7               [ 1]  140 	ld	(x), a
+                           00002C   141 	Sstm8s_gpio$GPIO_Init$15 ==.
+                                    142 ;	./libraries/src/stm8s_gpio.c: 98: GPIOx->DDR |= (uint8_t)GPIO_Pin;
+                                    143 ; genPlus
+      00002C 93               [ 1]  144 	ldw	x, y
+      00002D 5C               [ 1]  145 	incw	x
+      00002E 5C               [ 1]  146 	incw	x
+      00002F 1F 04            [ 2]  147 	ldw	(0x04, sp), x
+                           000031   148 	Sstm8s_gpio$GPIO_Init$16 ==.
+                                    149 ;	./libraries/src/stm8s_gpio.c: 87: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x80) != (uint8_t)0x00) /* Output mode */
+                                    150 ; genAnd
+      000031 0D 0B            [ 1]  151 	tnz	(0x0b, sp)
+      000033 2B 03            [ 1]  152 	jrmi	00135$
+      000035 CCr00r5B         [ 2]  153 	jp	00105$
+      000038                        154 00135$:
+                                    155 ; skipping generated iCode
+                           000038   156 	Sstm8s_gpio$GPIO_Init$17 ==.
+                                    157 ;	./libraries/src/stm8s_gpio.c: 91: GPIOx->ODR |= (uint8_t)GPIO_Pin;
+                                    158 ; genPointerGet
+      000038 90 F6            [ 1]  159 	ld	a, (y)
+                           00003A   160 	Sstm8s_gpio$GPIO_Init$18 ==.
+                           00003A   161 	Sstm8s_gpio$GPIO_Init$19 ==.
+                                    162 ;	./libraries/src/stm8s_gpio.c: 89: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x10) != (uint8_t)0x00) /* High level */
+                                    163 ; genAnd
+      00003A 88               [ 1]  164 	push	a
+                           00003B   165 	Sstm8s_gpio$GPIO_Init$20 ==.
+      00003B 7B 0C            [ 1]  166 	ld	a, (0x0c, sp)
+      00003D A5 10            [ 1]  167 	bcp	a, #0x10
+      00003F 84               [ 1]  168 	pop	a
+                           000040   169 	Sstm8s_gpio$GPIO_Init$21 ==.
+      000040 26 03            [ 1]  170 	jrne	00136$
+      000042 CCr00r4C         [ 2]  171 	jp	00102$
+      000045                        172 00136$:
+                                    173 ; skipping generated iCode
+                           000045   174 	Sstm8s_gpio$GPIO_Init$22 ==.
+                           000045   175 	Sstm8s_gpio$GPIO_Init$23 ==.
+                                    176 ;	./libraries/src/stm8s_gpio.c: 91: GPIOx->ODR |= (uint8_t)GPIO_Pin;
+                                    177 ; genOr
+      000045 1A 0A            [ 1]  178 	or	a, (0x0a, sp)
+                                    179 ; genPointerSet
+      000047 90 F7            [ 1]  180 	ld	(y), a
+                           000049   181 	Sstm8s_gpio$GPIO_Init$24 ==.
+                                    182 ; genGoto
+      000049 CCr00r50         [ 2]  183 	jp	00103$
+                                    184 ; genLabel
+      00004C                        185 00102$:
+                           00004C   186 	Sstm8s_gpio$GPIO_Init$25 ==.
+                           00004C   187 	Sstm8s_gpio$GPIO_Init$26 ==.
+                                    188 ;	./libraries/src/stm8s_gpio.c: 95: GPIOx->ODR &= (uint8_t)(~(GPIO_Pin));
+                                    189 ; genAnd
+      00004C 14 03            [ 1]  190 	and	a, (0x03, sp)
+                                    191 ; genPointerSet
+      00004E 90 F7            [ 1]  192 	ld	(y), a
+                           000050   193 	Sstm8s_gpio$GPIO_Init$27 ==.
+                                    194 ; genLabel
+      000050                        195 00103$:
+                           000050   196 	Sstm8s_gpio$GPIO_Init$28 ==.
+                                    197 ;	./libraries/src/stm8s_gpio.c: 98: GPIOx->DDR |= (uint8_t)GPIO_Pin;
+                                    198 ; genPointerGet
+      000050 1E 04            [ 2]  199 	ldw	x, (0x04, sp)
+      000052 F6               [ 1]  200 	ld	a, (x)
+                                    201 ; genOr
+      000053 1A 0A            [ 1]  202 	or	a, (0x0a, sp)
+                                    203 ; genPointerSet
+      000055 1E 04            [ 2]  204 	ldw	x, (0x04, sp)
+      000057 F7               [ 1]  205 	ld	(x), a
+                           000058   206 	Sstm8s_gpio$GPIO_Init$29 ==.
+                                    207 ; genGoto
+      000058 CCr00r63         [ 2]  208 	jp	00106$
+                                    209 ; genLabel
+      00005B                        210 00105$:
+                           00005B   211 	Sstm8s_gpio$GPIO_Init$30 ==.
+                           00005B   212 	Sstm8s_gpio$GPIO_Init$31 ==.
+                                    213 ;	./libraries/src/stm8s_gpio.c: 103: GPIOx->DDR &= (uint8_t)(~(GPIO_Pin));
+                                    214 ; genPointerGet
+      00005B 1E 04            [ 2]  215 	ldw	x, (0x04, sp)
+      00005D F6               [ 1]  216 	ld	a, (x)
+                                    217 ; genAnd
+      00005E 14 03            [ 1]  218 	and	a, (0x03, sp)
+                                    219 ; genPointerSet
+      000060 1E 04            [ 2]  220 	ldw	x, (0x04, sp)
+      000062 F7               [ 1]  221 	ld	(x), a
+                           000063   222 	Sstm8s_gpio$GPIO_Init$32 ==.
+                                    223 ; genLabel
+      000063                        224 00106$:
+                           000063   225 	Sstm8s_gpio$GPIO_Init$33 ==.
+                                    226 ;	./libraries/src/stm8s_gpio.c: 112: GPIOx->CR1 |= (uint8_t)GPIO_Pin;
+                                    227 ; genPlus
+      000063 93               [ 1]  228 	ldw	x, y
+      000064 1C 00 03         [ 2]  229 	addw	x, #0x0003
+                                    230 ; genPointerGet
+      000067 F6               [ 1]  231 	ld	a, (x)
+                           000068   232 	Sstm8s_gpio$GPIO_Init$34 ==.
+                                    233 ;	./libraries/src/stm8s_gpio.c: 110: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x40) != (uint8_t)0x00) /* Pull-Up or Push-Pull */
+                                    234 ; genAnd
+      000068 88               [ 1]  235 	push	a
+                           000069   236 	Sstm8s_gpio$GPIO_Init$35 ==.
+      000069 7B 0C            [ 1]  237 	ld	a, (0x0c, sp)
+      00006B A5 40            [ 1]  238 	bcp	a, #0x40
+      00006D 84               [ 1]  239 	pop	a
+                           00006E   240 	Sstm8s_gpio$GPIO_Init$36 ==.
+      00006E 26 03            [ 1]  241 	jrne	00137$
+      000070 CCr00r79         [ 2]  242 	jp	00108$
+      000073                        243 00137$:
+                                    244 ; skipping generated iCode
+                           000073   245 	Sstm8s_gpio$GPIO_Init$37 ==.
+                           000073   246 	Sstm8s_gpio$GPIO_Init$38 ==.
+                                    247 ;	./libraries/src/stm8s_gpio.c: 112: GPIOx->CR1 |= (uint8_t)GPIO_Pin;
+                                    248 ; genOr
+      000073 1A 0A            [ 1]  249 	or	a, (0x0a, sp)
+                                    250 ; genPointerSet
+      000075 F7               [ 1]  251 	ld	(x), a
+                           000076   252 	Sstm8s_gpio$GPIO_Init$39 ==.
+                                    253 ; genGoto
+      000076 CCr00r7C         [ 2]  254 	jp	00109$
+                                    255 ; genLabel
+      000079                        256 00108$:
+                           000079   257 	Sstm8s_gpio$GPIO_Init$40 ==.
+                           000079   258 	Sstm8s_gpio$GPIO_Init$41 ==.
+                                    259 ;	./libraries/src/stm8s_gpio.c: 116: GPIOx->CR1 &= (uint8_t)(~(GPIO_Pin));
+                                    260 ; genAnd
+      000079 14 03            [ 1]  261 	and	a, (0x03, sp)
+                                    262 ; genPointerSet
+      00007B F7               [ 1]  263 	ld	(x), a
+                           00007C   264 	Sstm8s_gpio$GPIO_Init$42 ==.
+                                    265 ; genLabel
+      00007C                        266 00109$:
+                           00007C   267 	Sstm8s_gpio$GPIO_Init$43 ==.
+                                    268 ;	./libraries/src/stm8s_gpio.c: 81: GPIOx->CR2 &= (uint8_t)(~(GPIO_Pin));
+                                    269 ; genPointerGet
+      00007C 1E 01            [ 2]  270 	ldw	x, (0x01, sp)
+      00007E F6               [ 1]  271 	ld	a, (x)
+                           00007F   272 	Sstm8s_gpio$GPIO_Init$44 ==.
+                                    273 ;	./libraries/src/stm8s_gpio.c: 123: if ((((uint8_t)(GPIO_Mode)) & (uint8_t)0x20) != (uint8_t)0x00) /* Interrupt or Slow slope */
+                                    274 ; genAnd
+      00007F 88               [ 1]  275 	push	a
+                           000080   276 	Sstm8s_gpio$GPIO_Init$45 ==.
+      000080 7B 0C            [ 1]  277 	ld	a, (0x0c, sp)
+      000082 A5 20            [ 1]  278 	bcp	a, #0x20
+      000084 84               [ 1]  279 	pop	a
+                           000085   280 	Sstm8s_gpio$GPIO_Init$46 ==.
+      000085 26 03            [ 1]  281 	jrne	00138$
+      000087 CCr00r92         [ 2]  282 	jp	00111$
+      00008A                        283 00138$:
+                                    284 ; skipping generated iCode
+                           00008A   285 	Sstm8s_gpio$GPIO_Init$47 ==.
+                           00008A   286 	Sstm8s_gpio$GPIO_Init$48 ==.
+                                    287 ;	./libraries/src/stm8s_gpio.c: 125: GPIOx->CR2 |= (uint8_t)GPIO_Pin;
+                                    288 ; genOr
+      00008A 1A 0A            [ 1]  289 	or	a, (0x0a, sp)
+                                    290 ; genPointerSet
+      00008C 1E 01            [ 2]  291 	ldw	x, (0x01, sp)
+      00008E F7               [ 1]  292 	ld	(x), a
+                           00008F   293 	Sstm8s_gpio$GPIO_Init$49 ==.
+                                    294 ; genGoto
+      00008F CCr00r97         [ 2]  295 	jp	00113$
+                                    296 ; genLabel
+      000092                        297 00111$:
+                           000092   298 	Sstm8s_gpio$GPIO_Init$50 ==.
+                           000092   299 	Sstm8s_gpio$GPIO_Init$51 ==.
+                                    300 ;	./libraries/src/stm8s_gpio.c: 129: GPIOx->CR2 &= (uint8_t)(~(GPIO_Pin));
+                                    301 ; genAnd
+      000092 14 03            [ 1]  302 	and	a, (0x03, sp)
+                                    303 ; genPointerSet
+      000094 1E 01            [ 2]  304 	ldw	x, (0x01, sp)
+      000096 F7               [ 1]  305 	ld	(x), a
+                           000097   306 	Sstm8s_gpio$GPIO_Init$52 ==.
+                                    307 ; genLabel
+      000097                        308 00113$:
+                           000097   309 	Sstm8s_gpio$GPIO_Init$53 ==.
+                                    310 ;	./libraries/src/stm8s_gpio.c: 131: }
+                                    311 ; genEndFunction
+      000097 5B 05            [ 2]  312 	addw	sp, #5
+                           000099   313 	Sstm8s_gpio$GPIO_Init$54 ==.
+                           000099   314 	Sstm8s_gpio$GPIO_Init$55 ==.
+                           000099   315 	XG$GPIO_Init$0$0 ==.
+      000099 81               [ 4]  316 	ret
+                           00009A   317 	Sstm8s_gpio$GPIO_Init$56 ==.
+                           00009A   318 	Sstm8s_gpio$GPIO_Write$57 ==.
+                                    319 ;	./libraries/src/stm8s_gpio.c: 141: void GPIO_Write(GPIO_TypeDef* GPIOx, uint8_t PortVal)
+                                    320 ; genLabel
+                                    321 ;	-----------------------------------------
+                                    322 ;	 function GPIO_Write
+                                    323 ;	-----------------------------------------
+                                    324 ;	Register assignment is optimal.
+                                    325 ;	Stack space usage: 0 bytes.
+      00009A                        326 _GPIO_Write:
+                           00009A   327 	Sstm8s_gpio$GPIO_Write$58 ==.
+                           00009A   328 	Sstm8s_gpio$GPIO_Write$59 ==.
+                                    329 ;	./libraries/src/stm8s_gpio.c: 143: GPIOx->ODR = PortVal;
+                                    330 ; genAssign
+      00009A 1E 03            [ 2]  331 	ldw	x, (0x03, sp)
+                                    332 ; genPointerSet
+      00009C 7B 05            [ 1]  333 	ld	a, (0x05, sp)
+      00009E F7               [ 1]  334 	ld	(x), a
+                                    335 ; genLabel
+      00009F                        336 00101$:
+                           00009F   337 	Sstm8s_gpio$GPIO_Write$60 ==.
+                                    338 ;	./libraries/src/stm8s_gpio.c: 144: }
+                                    339 ; genEndFunction
+                           00009F   340 	Sstm8s_gpio$GPIO_Write$61 ==.
+                           00009F   341 	XG$GPIO_Write$0$0 ==.
+      00009F 81               [ 4]  342 	ret
+                           0000A0   343 	Sstm8s_gpio$GPIO_Write$62 ==.
+                           0000A0   344 	Sstm8s_gpio$GPIO_WriteHigh$63 ==.
+                                    345 ;	./libraries/src/stm8s_gpio.c: 154: void GPIO_WriteHigh(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef PortPins)
+                                    346 ; genLabel
+                                    347 ;	-----------------------------------------
+                                    348 ;	 function GPIO_WriteHigh
+                                    349 ;	-----------------------------------------
+                                    350 ;	Register assignment is optimal.
+                                    351 ;	Stack space usage: 0 bytes.
+      0000A0                        352 _GPIO_WriteHigh:
+                           0000A0   353 	Sstm8s_gpio$GPIO_WriteHigh$64 ==.
+                           0000A0   354 	Sstm8s_gpio$GPIO_WriteHigh$65 ==.
+                                    355 ;	./libraries/src/stm8s_gpio.c: 156: GPIOx->ODR |= (uint8_t)PortPins;
+                                    356 ; genAssign
+      0000A0 1E 03            [ 2]  357 	ldw	x, (0x03, sp)
+                                    358 ; genPointerGet
+      0000A2 F6               [ 1]  359 	ld	a, (x)
+                                    360 ; genOr
+      0000A3 1A 05            [ 1]  361 	or	a, (0x05, sp)
+                                    362 ; genPointerSet
+      0000A5 F7               [ 1]  363 	ld	(x), a
+                                    364 ; genLabel
+      0000A6                        365 00101$:
+                           0000A6   366 	Sstm8s_gpio$GPIO_WriteHigh$66 ==.
+                                    367 ;	./libraries/src/stm8s_gpio.c: 157: }
+                                    368 ; genEndFunction
+                           0000A6   369 	Sstm8s_gpio$GPIO_WriteHigh$67 ==.
+                           0000A6   370 	XG$GPIO_WriteHigh$0$0 ==.
+      0000A6 81               [ 4]  371 	ret
+                           0000A7   372 	Sstm8s_gpio$GPIO_WriteHigh$68 ==.
+                           0000A7   373 	Sstm8s_gpio$GPIO_WriteLow$69 ==.
+                                    374 ;	./libraries/src/stm8s_gpio.c: 167: void GPIO_WriteLow(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef PortPins)
+                                    375 ; genLabel
+                                    376 ;	-----------------------------------------
+                                    377 ;	 function GPIO_WriteLow
+                                    378 ;	-----------------------------------------
+                                    379 ;	Register assignment is optimal.
+                                    380 ;	Stack space usage: 1 bytes.
+      0000A7                        381 _GPIO_WriteLow:
+                           0000A7   382 	Sstm8s_gpio$GPIO_WriteLow$70 ==.
+      0000A7 88               [ 1]  383 	push	a
+                           0000A8   384 	Sstm8s_gpio$GPIO_WriteLow$71 ==.
+                           0000A8   385 	Sstm8s_gpio$GPIO_WriteLow$72 ==.
+                                    386 ;	./libraries/src/stm8s_gpio.c: 169: GPIOx->ODR &= (uint8_t)(~PortPins);
+                                    387 ; genAssign
+      0000A8 1E 04            [ 2]  388 	ldw	x, (0x04, sp)
+                                    389 ; genPointerGet
+      0000AA F6               [ 1]  390 	ld	a, (x)
+      0000AB 6B 01            [ 1]  391 	ld	(0x01, sp), a
+                                    392 ; genCpl
+      0000AD 7B 06            [ 1]  393 	ld	a, (0x06, sp)
+      0000AF 43               [ 1]  394 	cpl	a
+                                    395 ; genAnd
+      0000B0 14 01            [ 1]  396 	and	a, (0x01, sp)
+                                    397 ; genPointerSet
+      0000B2 F7               [ 1]  398 	ld	(x), a
+                                    399 ; genLabel
+      0000B3                        400 00101$:
+                           0000B3   401 	Sstm8s_gpio$GPIO_WriteLow$73 ==.
+                                    402 ;	./libraries/src/stm8s_gpio.c: 170: }
+                                    403 ; genEndFunction
+      0000B3 84               [ 1]  404 	pop	a
+                           0000B4   405 	Sstm8s_gpio$GPIO_WriteLow$74 ==.
+                           0000B4   406 	Sstm8s_gpio$GPIO_WriteLow$75 ==.
+                           0000B4   407 	XG$GPIO_WriteLow$0$0 ==.
+      0000B4 81               [ 4]  408 	ret
+                           0000B5   409 	Sstm8s_gpio$GPIO_WriteLow$76 ==.
+                           0000B5   410 	Sstm8s_gpio$GPIO_WriteReverse$77 ==.
+                                    411 ;	./libraries/src/stm8s_gpio.c: 180: void GPIO_WriteReverse(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef PortPins)
+                                    412 ; genLabel
+                                    413 ;	-----------------------------------------
+                                    414 ;	 function GPIO_WriteReverse
+                                    415 ;	-----------------------------------------
+                                    416 ;	Register assignment is optimal.
+                                    417 ;	Stack space usage: 0 bytes.
+      0000B5                        418 _GPIO_WriteReverse:
+                           0000B5   419 	Sstm8s_gpio$GPIO_WriteReverse$78 ==.
+                           0000B5   420 	Sstm8s_gpio$GPIO_WriteReverse$79 ==.
+                                    421 ;	./libraries/src/stm8s_gpio.c: 182: GPIOx->ODR ^= (uint8_t)PortPins;
+                                    422 ; genAssign
+      0000B5 1E 03            [ 2]  423 	ldw	x, (0x03, sp)
+                                    424 ; genPointerGet
+      0000B7 F6               [ 1]  425 	ld	a, (x)
+                                    426 ; genXor
+      0000B8 18 05            [ 1]  427 	xor	a, (0x05, sp)
+                                    428 ; genPointerSet
+      0000BA F7               [ 1]  429 	ld	(x), a
+                                    430 ; genLabel
+      0000BB                        431 00101$:
+                           0000BB   432 	Sstm8s_gpio$GPIO_WriteReverse$80 ==.
+                                    433 ;	./libraries/src/stm8s_gpio.c: 183: }
+                                    434 ; genEndFunction
+                           0000BB   435 	Sstm8s_gpio$GPIO_WriteReverse$81 ==.
+                           0000BB   436 	XG$GPIO_WriteReverse$0$0 ==.
+      0000BB 81               [ 4]  437 	ret
+                           0000BC   438 	Sstm8s_gpio$GPIO_WriteReverse$82 ==.
+                           0000BC   439 	Sstm8s_gpio$GPIO_ReadOutputData$83 ==.
+                                    440 ;	./libraries/src/stm8s_gpio.c: 191: uint8_t GPIO_ReadOutputData(GPIO_TypeDef* GPIOx)
+                                    441 ; genLabel
+                                    442 ;	-----------------------------------------
+                                    443 ;	 function GPIO_ReadOutputData
+                                    444 ;	-----------------------------------------
+                                    445 ;	Register assignment is optimal.
+                                    446 ;	Stack space usage: 0 bytes.
+      0000BC                        447 _GPIO_ReadOutputData:
+                           0000BC   448 	Sstm8s_gpio$GPIO_ReadOutputData$84 ==.
+                           0000BC   449 	Sstm8s_gpio$GPIO_ReadOutputData$85 ==.
+                                    450 ;	./libraries/src/stm8s_gpio.c: 193: return ((uint8_t)GPIOx->ODR);
+                                    451 ; genAssign
+      0000BC 1E 03            [ 2]  452 	ldw	x, (0x03, sp)
+                                    453 ; genPointerGet
+      0000BE F6               [ 1]  454 	ld	a, (x)
+                                    455 ; genReturn
+                                    456 ; genLabel
+      0000BF                        457 00101$:
+                           0000BF   458 	Sstm8s_gpio$GPIO_ReadOutputData$86 ==.
+                                    459 ;	./libraries/src/stm8s_gpio.c: 194: }
+                                    460 ; genEndFunction
+                           0000BF   461 	Sstm8s_gpio$GPIO_ReadOutputData$87 ==.
+                           0000BF   462 	XG$GPIO_ReadOutputData$0$0 ==.
+      0000BF 81               [ 4]  463 	ret
+                           0000C0   464 	Sstm8s_gpio$GPIO_ReadOutputData$88 ==.
+                           0000C0   465 	Sstm8s_gpio$GPIO_ReadInputData$89 ==.
+                                    466 ;	./libraries/src/stm8s_gpio.c: 202: uint8_t GPIO_ReadInputData(GPIO_TypeDef* GPIOx)
+                                    467 ; genLabel
+                                    468 ;	-----------------------------------------
+                                    469 ;	 function GPIO_ReadInputData
+                                    470 ;	-----------------------------------------
+                                    471 ;	Register assignment might be sub-optimal.
+                                    472 ;	Stack space usage: 0 bytes.
+      0000C0                        473 _GPIO_ReadInputData:
+                           0000C0   474 	Sstm8s_gpio$GPIO_ReadInputData$90 ==.
+                           0000C0   475 	Sstm8s_gpio$GPIO_ReadInputData$91 ==.
+                                    476 ;	./libraries/src/stm8s_gpio.c: 204: return ((uint8_t)GPIOx->IDR);
+                                    477 ; genAssign
+      0000C0 1E 03            [ 2]  478 	ldw	x, (0x03, sp)
+                                    479 ; genAssign
+                                    480 ; genPointerGet
+      0000C2 E6 01            [ 1]  481 	ld	a, (0x1, x)
+                                    482 ; genReturn
+                                    483 ; genLabel
+      0000C4                        484 00101$:
+                           0000C4   485 	Sstm8s_gpio$GPIO_ReadInputData$92 ==.
+                                    486 ;	./libraries/src/stm8s_gpio.c: 205: }
+                                    487 ; genEndFunction
+                           0000C4   488 	Sstm8s_gpio$GPIO_ReadInputData$93 ==.
+                           0000C4   489 	XG$GPIO_ReadInputData$0$0 ==.
+      0000C4 81               [ 4]  490 	ret
+                           0000C5   491 	Sstm8s_gpio$GPIO_ReadInputData$94 ==.
+                           0000C5   492 	Sstm8s_gpio$GPIO_ReadInputPin$95 ==.
+                                    493 ;	./libraries/src/stm8s_gpio.c: 213: BitStatus GPIO_ReadInputPin(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin)
+                                    494 ; genLabel
+                                    495 ;	-----------------------------------------
+                                    496 ;	 function GPIO_ReadInputPin
+                                    497 ;	-----------------------------------------
+                                    498 ;	Register assignment might be sub-optimal.
+                                    499 ;	Stack space usage: 0 bytes.
+      0000C5                        500 _GPIO_ReadInputPin:
+                           0000C5   501 	Sstm8s_gpio$GPIO_ReadInputPin$96 ==.
+                           0000C5   502 	Sstm8s_gpio$GPIO_ReadInputPin$97 ==.
+                                    503 ;	./libraries/src/stm8s_gpio.c: 215: return ((BitStatus)(GPIOx->IDR & (uint8_t)GPIO_Pin));
+                                    504 ; genAssign
+      0000C5 1E 03            [ 2]  505 	ldw	x, (0x03, sp)
+                                    506 ; genAssign
+                                    507 ; genPointerGet
+      0000C7 E6 01            [ 1]  508 	ld	a, (0x1, x)
+                                    509 ; genAnd
+      0000C9 14 05            [ 1]  510 	and	a, (0x05, sp)
+                                    511 ; genReturn
+                                    512 ; genLabel
+      0000CB                        513 00101$:
+                           0000CB   514 	Sstm8s_gpio$GPIO_ReadInputPin$98 ==.
+                                    515 ;	./libraries/src/stm8s_gpio.c: 216: }
+                                    516 ; genEndFunction
+                           0000CB   517 	Sstm8s_gpio$GPIO_ReadInputPin$99 ==.
+                           0000CB   518 	XG$GPIO_ReadInputPin$0$0 ==.
+      0000CB 81               [ 4]  519 	ret
+                           0000CC   520 	Sstm8s_gpio$GPIO_ReadInputPin$100 ==.
+                           0000CC   521 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$101 ==.
+                                    522 ;	./libraries/src/stm8s_gpio.c: 225: void GPIO_ExternalPullUpConfig(GPIO_TypeDef* GPIOx, GPIO_Pin_TypeDef GPIO_Pin, FunctionalState NewState)
+                                    523 ; genLabel
+                                    524 ;	-----------------------------------------
+                                    525 ;	 function GPIO_ExternalPullUpConfig
+                                    526 ;	-----------------------------------------
+                                    527 ;	Register assignment might be sub-optimal.
+                                    528 ;	Stack space usage: 1 bytes.
+      0000CC                        529 _GPIO_ExternalPullUpConfig:
+                           0000CC   530 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$102 ==.
+      0000CC 88               [ 1]  531 	push	a
+                           0000CD   532 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$103 ==.
+                           0000CD   533 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$104 ==.
+                                    534 ;	./libraries/src/stm8s_gpio.c: 233: GPIOx->CR1 |= (uint8_t)GPIO_Pin;
+                                    535 ; genAssign
+      0000CD 1E 04            [ 2]  536 	ldw	x, (0x04, sp)
+                                    537 ; genPlus
+      0000CF 1C 00 03         [ 2]  538 	addw	x, #0x0003
+                                    539 ; genPointerGet
+      0000D2 F6               [ 1]  540 	ld	a, (x)
+                           0000D3   541 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$105 ==.
+                                    542 ;	./libraries/src/stm8s_gpio.c: 231: if (NewState != DISABLE) /* External Pull-Up Set*/
+                                    543 ; genIfx
+      0000D3 0D 07            [ 1]  544 	tnz	(0x07, sp)
+      0000D5 26 03            [ 1]  545 	jrne	00111$
+      0000D7 CCr00rE0         [ 2]  546 	jp	00102$
+      0000DA                        547 00111$:
+                           0000DA   548 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$106 ==.
+                           0000DA   549 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$107 ==.
+                                    550 ;	./libraries/src/stm8s_gpio.c: 233: GPIOx->CR1 |= (uint8_t)GPIO_Pin;
+                                    551 ; genOr
+      0000DA 1A 06            [ 1]  552 	or	a, (0x06, sp)
+                                    553 ; genPointerSet
+      0000DC F7               [ 1]  554 	ld	(x), a
+                           0000DD   555 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$108 ==.
+                                    556 ; genGoto
+      0000DD CCr00rEA         [ 2]  557 	jp	00104$
+                                    558 ; genLabel
+      0000E0                        559 00102$:
+                           0000E0   560 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$109 ==.
+                           0000E0   561 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$110 ==.
+                                    562 ;	./libraries/src/stm8s_gpio.c: 236: GPIOx->CR1 &= (uint8_t)(~(GPIO_Pin));
+                                    563 ; genCpl
+      0000E0 88               [ 1]  564 	push	a
+                           0000E1   565 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$111 ==.
+      0000E1 7B 07            [ 1]  566 	ld	a, (0x07, sp)
+      0000E3 43               [ 1]  567 	cpl	a
+      0000E4 6B 02            [ 1]  568 	ld	(0x02, sp), a
+      0000E6 84               [ 1]  569 	pop	a
+                           0000E7   570 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$112 ==.
+                                    571 ; genAnd
+      0000E7 14 01            [ 1]  572 	and	a, (0x01, sp)
+                                    573 ; genPointerSet
+      0000E9 F7               [ 1]  574 	ld	(x), a
+                           0000EA   575 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$113 ==.
+                                    576 ; genLabel
+      0000EA                        577 00104$:
+                           0000EA   578 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$114 ==.
+                                    579 ;	./libraries/src/stm8s_gpio.c: 238: }
+                                    580 ; genEndFunction
+      0000EA 84               [ 1]  581 	pop	a
+                           0000EB   582 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$115 ==.
+                           0000EB   583 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$116 ==.
+                           0000EB   584 	XG$GPIO_ExternalPullUpConfig$0$0 ==.
+      0000EB 81               [ 4]  585 	ret
+                           0000EC   586 	Sstm8s_gpio$GPIO_ExternalPullUpConfig$117 ==.
+                                    587 	.area CODE
+                                    588 	.area CONST
+                                    589 	.area INITIALIZER
+                                    590 	.area CABS (ABS)
+                                    591 
+                                    592 	.area .debug_line (NOLOAD)
+      000000 00 00 02 6B            593 	.dw	0,Ldebug_line_end-Ldebug_line_start
+      000004                        594 Ldebug_line_start:
+      000004 00 02                  595 	.dw	2
+      000006 00 00 00 C0            596 	.dw	0,Ldebug_line_stmt-6-Ldebug_line_start
+      00000A 01                     597 	.db	1
+      00000B 01                     598 	.db	1
+      00000C FB                     599 	.db	-5
+      00000D 0F                     600 	.db	15
+      00000E 0A                     601 	.db	10
+      00000F 00                     602 	.db	0
+      000010 01                     603 	.db	1
+      000011 01                     604 	.db	1
+      000012 01                     605 	.db	1
+      000013 01                     606 	.db	1
+      000014 00                     607 	.db	0
+      000015 00                     608 	.db	0
+      000016 00                     609 	.db	0
+      000017 01                     610 	.db	1
+      000018 2F 75 73 72 2F 6C 6F   611 	.ascii "/usr/local/bin/../share/sdcc/include/stm8"
+             63 61 6C 2F 62 69 6E
+             2F 2E 2E 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65 2F 73 74 6D 38
+      000041 00                     612 	.db	0
+      000042 2F 75 73 72 2F 6C 6F   613 	.ascii "/usr/local/share/sdcc/include/stm8"
+             63 61 6C 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65 2F 73 74 6D 38
+      000064 00                     614 	.db	0
+      000065 2F 75 73 72 2F 6C 6F   615 	.ascii "/usr/local/bin/../share/sdcc/include"
+             63 61 6C 2F 62 69 6E
+             2F 2E 2E 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65
+      000089 00                     616 	.db	0
+      00008A 2F 75 73 72 2F 6C 6F   617 	.ascii "/usr/local/share/sdcc/include"
+             63 61 6C 2F 73 68 61
+             72 65 2F 73 64 63 63
+             2F 69 6E 63 6C 75 64
+             65
+      0000A7 00                     618 	.db	0
+      0000A8 00                     619 	.db	0
+      0000A9 2E 2F 6C 69 62 72 61   620 	.ascii "./libraries/src/stm8s_gpio.c"
+             72 69 65 73 2F 73 72
+             63 2F 73 74 6D 38 73
+             5F 67 70 69 6F 2E 63
+      0000C5 00                     621 	.db	0
+      0000C6 00                     622 	.uleb128	0
+      0000C7 00                     623 	.uleb128	0
+      0000C8 00                     624 	.uleb128	0
+      0000C9 00                     625 	.db	0
+      0000CA                        626 Ldebug_line_stmt:
+      0000CA 00                     627 	.db	0
+      0000CB 05                     628 	.uleb128	5
+      0000CC 02                     629 	.db	2
+      0000CD 00 00r00r00            630 	.dw	0,(Sstm8s_gpio$GPIO_DeInit$0)
+      0000D1 03                     631 	.db	3
+      0000D2 34                     632 	.sleb128	52
+      0000D3 01                     633 	.db	1
+      0000D4 09                     634 	.db	9
+      0000D5 00 00                  635 	.dw	Sstm8s_gpio$GPIO_DeInit$2-Sstm8s_gpio$GPIO_DeInit$0
+      0000D7 03                     636 	.db	3
+      0000D8 02                     637 	.sleb128	2
+      0000D9 01                     638 	.db	1
+      0000DA 09                     639 	.db	9
+      0000DB 00 04                  640 	.dw	Sstm8s_gpio$GPIO_DeInit$3-Sstm8s_gpio$GPIO_DeInit$2
+      0000DD 03                     641 	.db	3
+      0000DE 01                     642 	.sleb128	1
+      0000DF 01                     643 	.db	1
+      0000E0 09                     644 	.db	9
+      0000E1 00 04                  645 	.dw	Sstm8s_gpio$GPIO_DeInit$4-Sstm8s_gpio$GPIO_DeInit$3
+      0000E3 03                     646 	.db	3
+      0000E4 01                     647 	.sleb128	1
+      0000E5 01                     648 	.db	1
+      0000E6 09                     649 	.db	9
+      0000E7 00 05                  650 	.dw	Sstm8s_gpio$GPIO_DeInit$5-Sstm8s_gpio$GPIO_DeInit$4
+      0000E9 03                     651 	.db	3
+      0000EA 01                     652 	.sleb128	1
+      0000EB 01                     653 	.db	1
+      0000EC 09                     654 	.db	9
+      0000ED 00 05                  655 	.dw	Sstm8s_gpio$GPIO_DeInit$6-Sstm8s_gpio$GPIO_DeInit$5
+      0000EF 03                     656 	.db	3
+      0000F0 01                     657 	.sleb128	1
+      0000F1 01                     658 	.db	1
+      0000F2 09                     659 	.db	9
+      0000F3 00 01                  660 	.dw	1+Sstm8s_gpio$GPIO_DeInit$7-Sstm8s_gpio$GPIO_DeInit$6
+      0000F5 00                     661 	.db	0
+      0000F6 01                     662 	.uleb128	1
+      0000F7 01                     663 	.db	1
+      0000F8 00                     664 	.db	0
+      0000F9 05                     665 	.uleb128	5
+      0000FA 02                     666 	.db	2
+      0000FB 00 00r00r13            667 	.dw	0,(Sstm8s_gpio$GPIO_Init$9)
+      0000FF 03                     668 	.db	3
+      000100 C6 00                  669 	.sleb128	70
+      000102 01                     670 	.db	1
+      000103 09                     671 	.db	9
+      000104 00 02                  672 	.dw	Sstm8s_gpio$GPIO_Init$12-Sstm8s_gpio$GPIO_Init$9
+      000106 03                     673 	.db	3
+      000107 0A                     674 	.sleb128	10
+      000108 01                     675 	.db	1
+      000109 09                     676 	.db	9
+      00010A 00 17                  677 	.dw	Sstm8s_gpio$GPIO_Init$15-Sstm8s_gpio$GPIO_Init$12
+      00010C 03                     678 	.db	3
+      00010D 11                     679 	.sleb128	17
+      00010E 01                     680 	.db	1
+      00010F 09                     681 	.db	9
+      000110 00 05                  682 	.dw	Sstm8s_gpio$GPIO_Init$16-Sstm8s_gpio$GPIO_Init$15
+      000112 03                     683 	.db	3
+      000113 75                     684 	.sleb128	-11
+      000114 01                     685 	.db	1
+      000115 09                     686 	.db	9
+      000116 00 07                  687 	.dw	Sstm8s_gpio$GPIO_Init$17-Sstm8s_gpio$GPIO_Init$16
+      000118 03                     688 	.db	3
+      000119 04                     689 	.sleb128	4
+      00011A 01                     690 	.db	1
+      00011B 09                     691 	.db	9
+      00011C 00 02                  692 	.dw	Sstm8s_gpio$GPIO_Init$19-Sstm8s_gpio$GPIO_Init$17
+      00011E 03                     693 	.db	3
+      00011F 7E                     694 	.sleb128	-2
+      000120 01                     695 	.db	1
+      000121 09                     696 	.db	9
+      000122 00 0B                  697 	.dw	Sstm8s_gpio$GPIO_Init$23-Sstm8s_gpio$GPIO_Init$19
+      000124 03                     698 	.db	3
+      000125 02                     699 	.sleb128	2
+      000126 01                     700 	.db	1
+      000127 09                     701 	.db	9
+      000128 00 07                  702 	.dw	Sstm8s_gpio$GPIO_Init$26-Sstm8s_gpio$GPIO_Init$23
+      00012A 03                     703 	.db	3
+      00012B 04                     704 	.sleb128	4
+      00012C 01                     705 	.db	1
+      00012D 09                     706 	.db	9
+      00012E 00 04                  707 	.dw	Sstm8s_gpio$GPIO_Init$28-Sstm8s_gpio$GPIO_Init$26
+      000130 03                     708 	.db	3
+      000131 03                     709 	.sleb128	3
+      000132 01                     710 	.db	1
+      000133 09                     711 	.db	9
+      000134 00 0B                  712 	.dw	Sstm8s_gpio$GPIO_Init$31-Sstm8s_gpio$GPIO_Init$28
+      000136 03                     713 	.db	3
+      000137 05                     714 	.sleb128	5
+      000138 01                     715 	.db	1
+      000139 09                     716 	.db	9
+      00013A 00 08                  717 	.dw	Sstm8s_gpio$GPIO_Init$33-Sstm8s_gpio$GPIO_Init$31
+      00013C 03                     718 	.db	3
+      00013D 09                     719 	.sleb128	9
+      00013E 01                     720 	.db	1
+      00013F 09                     721 	.db	9
+      000140 00 05                  722 	.dw	Sstm8s_gpio$GPIO_Init$34-Sstm8s_gpio$GPIO_Init$33
+      000142 03                     723 	.db	3
+      000143 7E                     724 	.sleb128	-2
+      000144 01                     725 	.db	1
+      000145 09                     726 	.db	9
+      000146 00 0B                  727 	.dw	Sstm8s_gpio$GPIO_Init$38-Sstm8s_gpio$GPIO_Init$34
+      000148 03                     728 	.db	3
+      000149 02                     729 	.sleb128	2
+      00014A 01                     730 	.db	1
+      00014B 09                     731 	.db	9
+      00014C 00 06                  732 	.dw	Sstm8s_gpio$GPIO_Init$41-Sstm8s_gpio$GPIO_Init$38
+      00014E 03                     733 	.db	3
+      00014F 04                     734 	.sleb128	4
+      000150 01                     735 	.db	1
+      000151 09                     736 	.db	9
+      000152 00 03                  737 	.dw	Sstm8s_gpio$GPIO_Init$43-Sstm8s_gpio$GPIO_Init$41
+      000154 03                     738 	.db	3
+      000155 5D                     739 	.sleb128	-35
+      000156 01                     740 	.db	1
+      000157 09                     741 	.db	9
+      000158 00 03                  742 	.dw	Sstm8s_gpio$GPIO_Init$44-Sstm8s_gpio$GPIO_Init$43
+      00015A 03                     743 	.db	3
+      00015B 2A                     744 	.sleb128	42
+      00015C 01                     745 	.db	1
+      00015D 09                     746 	.db	9
+      00015E 00 0B                  747 	.dw	Sstm8s_gpio$GPIO_Init$48-Sstm8s_gpio$GPIO_Init$44
+      000160 03                     748 	.db	3
+      000161 02                     749 	.sleb128	2
+      000162 01                     750 	.db	1
+      000163 09                     751 	.db	9
+      000164 00 08                  752 	.dw	Sstm8s_gpio$GPIO_Init$51-Sstm8s_gpio$GPIO_Init$48
+      000166 03                     753 	.db	3
+      000167 04                     754 	.sleb128	4
+      000168 01                     755 	.db	1
+      000169 09                     756 	.db	9
+      00016A 00 05                  757 	.dw	Sstm8s_gpio$GPIO_Init$53-Sstm8s_gpio$GPIO_Init$51
+      00016C 03                     758 	.db	3
+      00016D 02                     759 	.sleb128	2
+      00016E 01                     760 	.db	1
+      00016F 09                     761 	.db	9
+      000170 00 03                  762 	.dw	1+Sstm8s_gpio$GPIO_Init$55-Sstm8s_gpio$GPIO_Init$53
+      000172 00                     763 	.db	0
+      000173 01                     764 	.uleb128	1
+      000174 01                     765 	.db	1
+      000175 00                     766 	.db	0
+      000176 05                     767 	.uleb128	5
+      000177 02                     768 	.db	2
+      000178 00 00r00r9A            769 	.dw	0,(Sstm8s_gpio$GPIO_Write$57)
+      00017C 03                     770 	.db	3
+      00017D 8C 01                  771 	.sleb128	140
+      00017F 01                     772 	.db	1
+      000180 09                     773 	.db	9
+      000181 00 00                  774 	.dw	Sstm8s_gpio$GPIO_Write$59-Sstm8s_gpio$GPIO_Write$57
+      000183 03                     775 	.db	3
+      000184 02                     776 	.sleb128	2
+      000185 01                     777 	.db	1
+      000186 09                     778 	.db	9
+      000187 00 05                  779 	.dw	Sstm8s_gpio$GPIO_Write$60-Sstm8s_gpio$GPIO_Write$59
+      000189 03                     780 	.db	3
+      00018A 01                     781 	.sleb128	1
+      00018B 01                     782 	.db	1
+      00018C 09                     783 	.db	9
+      00018D 00 01                  784 	.dw	1+Sstm8s_gpio$GPIO_Write$61-Sstm8s_gpio$GPIO_Write$60
+      00018F 00                     785 	.db	0
+      000190 01                     786 	.uleb128	1
+      000191 01                     787 	.db	1
+      000192 00                     788 	.db	0
+      000193 05                     789 	.uleb128	5
+      000194 02                     790 	.db	2
+      000195 00 00r00rA0            791 	.dw	0,(Sstm8s_gpio$GPIO_WriteHigh$63)
+      000199 03                     792 	.db	3
+      00019A 99 01                  793 	.sleb128	153
+      00019C 01                     794 	.db	1
+      00019D 09                     795 	.db	9
+      00019E 00 00                  796 	.dw	Sstm8s_gpio$GPIO_WriteHigh$65-Sstm8s_gpio$GPIO_WriteHigh$63
+      0001A0 03                     797 	.db	3
+      0001A1 02                     798 	.sleb128	2
+      0001A2 01                     799 	.db	1
+      0001A3 09                     800 	.db	9
+      0001A4 00 06                  801 	.dw	Sstm8s_gpio$GPIO_WriteHigh$66-Sstm8s_gpio$GPIO_WriteHigh$65
+      0001A6 03                     802 	.db	3
+      0001A7 01                     803 	.sleb128	1
+      0001A8 01                     804 	.db	1
+      0001A9 09                     805 	.db	9
+      0001AA 00 01                  806 	.dw	1+Sstm8s_gpio$GPIO_WriteHigh$67-Sstm8s_gpio$GPIO_WriteHigh$66
+      0001AC 00                     807 	.db	0
+      0001AD 01                     808 	.uleb128	1
+      0001AE 01                     809 	.db	1
+      0001AF 00                     810 	.db	0
+      0001B0 05                     811 	.uleb128	5
+      0001B1 02                     812 	.db	2
+      0001B2 00 00r00rA7            813 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$69)
+      0001B6 03                     814 	.db	3
+      0001B7 A6 01                  815 	.sleb128	166
+      0001B9 01                     816 	.db	1
+      0001BA 09                     817 	.db	9
+      0001BB 00 01                  818 	.dw	Sstm8s_gpio$GPIO_WriteLow$72-Sstm8s_gpio$GPIO_WriteLow$69
+      0001BD 03                     819 	.db	3
+      0001BE 02                     820 	.sleb128	2
+      0001BF 01                     821 	.db	1
+      0001C0 09                     822 	.db	9
+      0001C1 00 0B                  823 	.dw	Sstm8s_gpio$GPIO_WriteLow$73-Sstm8s_gpio$GPIO_WriteLow$72
+      0001C3 03                     824 	.db	3
+      0001C4 01                     825 	.sleb128	1
+      0001C5 01                     826 	.db	1
+      0001C6 09                     827 	.db	9
+      0001C7 00 02                  828 	.dw	1+Sstm8s_gpio$GPIO_WriteLow$75-Sstm8s_gpio$GPIO_WriteLow$73
+      0001C9 00                     829 	.db	0
+      0001CA 01                     830 	.uleb128	1
+      0001CB 01                     831 	.db	1
+      0001CC 00                     832 	.db	0
+      0001CD 05                     833 	.uleb128	5
+      0001CE 02                     834 	.db	2
+      0001CF 00 00r00rB5            835 	.dw	0,(Sstm8s_gpio$GPIO_WriteReverse$77)
+      0001D3 03                     836 	.db	3
+      0001D4 B3 01                  837 	.sleb128	179
+      0001D6 01                     838 	.db	1
+      0001D7 09                     839 	.db	9
+      0001D8 00 00                  840 	.dw	Sstm8s_gpio$GPIO_WriteReverse$79-Sstm8s_gpio$GPIO_WriteReverse$77
+      0001DA 03                     841 	.db	3
+      0001DB 02                     842 	.sleb128	2
+      0001DC 01                     843 	.db	1
+      0001DD 09                     844 	.db	9
+      0001DE 00 06                  845 	.dw	Sstm8s_gpio$GPIO_WriteReverse$80-Sstm8s_gpio$GPIO_WriteReverse$79
+      0001E0 03                     846 	.db	3
+      0001E1 01                     847 	.sleb128	1
+      0001E2 01                     848 	.db	1
+      0001E3 09                     849 	.db	9
+      0001E4 00 01                  850 	.dw	1+Sstm8s_gpio$GPIO_WriteReverse$81-Sstm8s_gpio$GPIO_WriteReverse$80
+      0001E6 00                     851 	.db	0
+      0001E7 01                     852 	.uleb128	1
+      0001E8 01                     853 	.db	1
+      0001E9 00                     854 	.db	0
+      0001EA 05                     855 	.uleb128	5
+      0001EB 02                     856 	.db	2
+      0001EC 00 00r00rBC            857 	.dw	0,(Sstm8s_gpio$GPIO_ReadOutputData$83)
+      0001F0 03                     858 	.db	3
+      0001F1 BE 01                  859 	.sleb128	190
+      0001F3 01                     860 	.db	1
+      0001F4 09                     861 	.db	9
+      0001F5 00 00                  862 	.dw	Sstm8s_gpio$GPIO_ReadOutputData$85-Sstm8s_gpio$GPIO_ReadOutputData$83
+      0001F7 03                     863 	.db	3
+      0001F8 02                     864 	.sleb128	2
+      0001F9 01                     865 	.db	1
+      0001FA 09                     866 	.db	9
+      0001FB 00 03                  867 	.dw	Sstm8s_gpio$GPIO_ReadOutputData$86-Sstm8s_gpio$GPIO_ReadOutputData$85
+      0001FD 03                     868 	.db	3
+      0001FE 01                     869 	.sleb128	1
+      0001FF 01                     870 	.db	1
+      000200 09                     871 	.db	9
+      000201 00 01                  872 	.dw	1+Sstm8s_gpio$GPIO_ReadOutputData$87-Sstm8s_gpio$GPIO_ReadOutputData$86
+      000203 00                     873 	.db	0
+      000204 01                     874 	.uleb128	1
+      000205 01                     875 	.db	1
+      000206 00                     876 	.db	0
+      000207 05                     877 	.uleb128	5
+      000208 02                     878 	.db	2
+      000209 00 00r00rC0            879 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputData$89)
+      00020D 03                     880 	.db	3
+      00020E C9 01                  881 	.sleb128	201
+      000210 01                     882 	.db	1
+      000211 09                     883 	.db	9
+      000212 00 00                  884 	.dw	Sstm8s_gpio$GPIO_ReadInputData$91-Sstm8s_gpio$GPIO_ReadInputData$89
+      000214 03                     885 	.db	3
+      000215 02                     886 	.sleb128	2
+      000216 01                     887 	.db	1
+      000217 09                     888 	.db	9
+      000218 00 04                  889 	.dw	Sstm8s_gpio$GPIO_ReadInputData$92-Sstm8s_gpio$GPIO_ReadInputData$91
+      00021A 03                     890 	.db	3
+      00021B 01                     891 	.sleb128	1
+      00021C 01                     892 	.db	1
+      00021D 09                     893 	.db	9
+      00021E 00 01                  894 	.dw	1+Sstm8s_gpio$GPIO_ReadInputData$93-Sstm8s_gpio$GPIO_ReadInputData$92
+      000220 00                     895 	.db	0
+      000221 01                     896 	.uleb128	1
+      000222 01                     897 	.db	1
+      000223 00                     898 	.db	0
+      000224 05                     899 	.uleb128	5
+      000225 02                     900 	.db	2
+      000226 00 00r00rC5            901 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputPin$95)
+      00022A 03                     902 	.db	3
+      00022B D4 01                  903 	.sleb128	212
+      00022D 01                     904 	.db	1
+      00022E 09                     905 	.db	9
+      00022F 00 00                  906 	.dw	Sstm8s_gpio$GPIO_ReadInputPin$97-Sstm8s_gpio$GPIO_ReadInputPin$95
+      000231 03                     907 	.db	3
+      000232 02                     908 	.sleb128	2
+      000233 01                     909 	.db	1
+      000234 09                     910 	.db	9
+      000235 00 06                  911 	.dw	Sstm8s_gpio$GPIO_ReadInputPin$98-Sstm8s_gpio$GPIO_ReadInputPin$97
+      000237 03                     912 	.db	3
+      000238 01                     913 	.sleb128	1
+      000239 01                     914 	.db	1
+      00023A 09                     915 	.db	9
+      00023B 00 01                  916 	.dw	1+Sstm8s_gpio$GPIO_ReadInputPin$99-Sstm8s_gpio$GPIO_ReadInputPin$98
+      00023D 00                     917 	.db	0
+      00023E 01                     918 	.uleb128	1
+      00023F 01                     919 	.db	1
+      000240 00                     920 	.db	0
+      000241 05                     921 	.uleb128	5
+      000242 02                     922 	.db	2
+      000243 00 00r00rCC            923 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$101)
+      000247 03                     924 	.db	3
+      000248 E0 01                  925 	.sleb128	224
+      00024A 01                     926 	.db	1
+      00024B 09                     927 	.db	9
+      00024C 00 01                  928 	.dw	Sstm8s_gpio$GPIO_ExternalPullUpConfig$104-Sstm8s_gpio$GPIO_ExternalPullUpConfig$101
+      00024E 03                     929 	.db	3
+      00024F 08                     930 	.sleb128	8
+      000250 01                     931 	.db	1
+      000251 09                     932 	.db	9
+      000252 00 06                  933 	.dw	Sstm8s_gpio$GPIO_ExternalPullUpConfig$105-Sstm8s_gpio$GPIO_ExternalPullUpConfig$104
+      000254 03                     934 	.db	3
+      000255 7E                     935 	.sleb128	-2
+      000256 01                     936 	.db	1
+      000257 09                     937 	.db	9
+      000258 00 07                  938 	.dw	Sstm8s_gpio$GPIO_ExternalPullUpConfig$107-Sstm8s_gpio$GPIO_ExternalPullUpConfig$105
+      00025A 03                     939 	.db	3
+      00025B 02                     940 	.sleb128	2
+      00025C 01                     941 	.db	1
+      00025D 09                     942 	.db	9
+      00025E 00 06                  943 	.dw	Sstm8s_gpio$GPIO_ExternalPullUpConfig$110-Sstm8s_gpio$GPIO_ExternalPullUpConfig$107
+      000260 03                     944 	.db	3
+      000261 03                     945 	.sleb128	3
+      000262 01                     946 	.db	1
+      000263 09                     947 	.db	9
+      000264 00 0A                  948 	.dw	Sstm8s_gpio$GPIO_ExternalPullUpConfig$114-Sstm8s_gpio$GPIO_ExternalPullUpConfig$110
+      000266 03                     949 	.db	3
+      000267 02                     950 	.sleb128	2
+      000268 01                     951 	.db	1
+      000269 09                     952 	.db	9
+      00026A 00 02                  953 	.dw	1+Sstm8s_gpio$GPIO_ExternalPullUpConfig$116-Sstm8s_gpio$GPIO_ExternalPullUpConfig$114
+      00026C 00                     954 	.db	0
+      00026D 01                     955 	.uleb128	1
+      00026E 01                     956 	.db	1
+      00026F                        957 Ldebug_line_end:
+                                    958 
+                                    959 	.area .debug_loc (NOLOAD)
+      000000                        960 Ldebug_loc_start:
+      000000 00 00r00rEB            961 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$115)
+      000004 00 00r00rEC            962 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$117)
+      000008 00 02                  963 	.dw	2
+      00000A 78                     964 	.db	120
+      00000B 01                     965 	.sleb128	1
+      00000C 00 00r00rE7            966 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$112)
+      000010 00 00r00rEB            967 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$115)
+      000014 00 02                  968 	.dw	2
+      000016 78                     969 	.db	120
+      000017 02                     970 	.sleb128	2
+      000018 00 00r00rE1            971 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$111)
+      00001C 00 00r00rE7            972 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$112)
+      000020 00 02                  973 	.dw	2
+      000022 78                     974 	.db	120
+      000023 03                     975 	.sleb128	3
+      000024 00 00r00rCD            976 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$103)
+      000028 00 00r00rE1            977 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$111)
+      00002C 00 02                  978 	.dw	2
+      00002E 78                     979 	.db	120
+      00002F 02                     980 	.sleb128	2
+      000030 00 00r00rCC            981 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$102)
+      000034 00 00r00rCD            982 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$103)
+      000038 00 02                  983 	.dw	2
+      00003A 78                     984 	.db	120
+      00003B 01                     985 	.sleb128	1
+      00003C 00 00 00 00            986 	.dw	0,0
+      000040 00 00 00 00            987 	.dw	0,0
+      000044 00 00r00rC5            988 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputPin$96)
+      000048 00 00r00rCC            989 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputPin$100)
+      00004C 00 02                  990 	.dw	2
+      00004E 78                     991 	.db	120
+      00004F 01                     992 	.sleb128	1
+      000050 00 00 00 00            993 	.dw	0,0
+      000054 00 00 00 00            994 	.dw	0,0
+      000058 00 00r00rC0            995 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputData$90)
+      00005C 00 00r00rC5            996 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputData$94)
+      000060 00 02                  997 	.dw	2
+      000062 78                     998 	.db	120
+      000063 01                     999 	.sleb128	1
+      000064 00 00 00 00           1000 	.dw	0,0
+      000068 00 00 00 00           1001 	.dw	0,0
+      00006C 00 00r00rBC           1002 	.dw	0,(Sstm8s_gpio$GPIO_ReadOutputData$84)
+      000070 00 00r00rC0           1003 	.dw	0,(Sstm8s_gpio$GPIO_ReadOutputData$88)
+      000074 00 02                 1004 	.dw	2
+      000076 78                    1005 	.db	120
+      000077 01                    1006 	.sleb128	1
+      000078 00 00 00 00           1007 	.dw	0,0
+      00007C 00 00 00 00           1008 	.dw	0,0
+      000080 00 00r00rB5           1009 	.dw	0,(Sstm8s_gpio$GPIO_WriteReverse$78)
+      000084 00 00r00rBC           1010 	.dw	0,(Sstm8s_gpio$GPIO_WriteReverse$82)
+      000088 00 02                 1011 	.dw	2
+      00008A 78                    1012 	.db	120
+      00008B 01                    1013 	.sleb128	1
+      00008C 00 00 00 00           1014 	.dw	0,0
+      000090 00 00 00 00           1015 	.dw	0,0
+      000094 00 00r00rB4           1016 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$74)
+      000098 00 00r00rB5           1017 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$76)
+      00009C 00 02                 1018 	.dw	2
+      00009E 78                    1019 	.db	120
+      00009F 01                    1020 	.sleb128	1
+      0000A0 00 00r00rA8           1021 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$71)
+      0000A4 00 00r00rB4           1022 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$74)
+      0000A8 00 02                 1023 	.dw	2
+      0000AA 78                    1024 	.db	120
+      0000AB 02                    1025 	.sleb128	2
+      0000AC 00 00r00rA7           1026 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$70)
+      0000B0 00 00r00rA8           1027 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$71)
+      0000B4 00 02                 1028 	.dw	2
+      0000B6 78                    1029 	.db	120
+      0000B7 01                    1030 	.sleb128	1
+      0000B8 00 00 00 00           1031 	.dw	0,0
+      0000BC 00 00 00 00           1032 	.dw	0,0
+      0000C0 00 00r00rA0           1033 	.dw	0,(Sstm8s_gpio$GPIO_WriteHigh$64)
+      0000C4 00 00r00rA7           1034 	.dw	0,(Sstm8s_gpio$GPIO_WriteHigh$68)
+      0000C8 00 02                 1035 	.dw	2
+      0000CA 78                    1036 	.db	120
+      0000CB 01                    1037 	.sleb128	1
+      0000CC 00 00 00 00           1038 	.dw	0,0
+      0000D0 00 00 00 00           1039 	.dw	0,0
+      0000D4 00 00r00r9A           1040 	.dw	0,(Sstm8s_gpio$GPIO_Write$58)
+      0000D8 00 00r00rA0           1041 	.dw	0,(Sstm8s_gpio$GPIO_Write$62)
+      0000DC 00 02                 1042 	.dw	2
+      0000DE 78                    1043 	.db	120
+      0000DF 01                    1044 	.sleb128	1
+      0000E0 00 00 00 00           1045 	.dw	0,0
+      0000E4 00 00 00 00           1046 	.dw	0,0
+      0000E8 00 00r00r99           1047 	.dw	0,(Sstm8s_gpio$GPIO_Init$54)
+      0000EC 00 00r00r9A           1048 	.dw	0,(Sstm8s_gpio$GPIO_Init$56)
+      0000F0 00 02                 1049 	.dw	2
+      0000F2 78                    1050 	.db	120
+      0000F3 01                    1051 	.sleb128	1
+      0000F4 00 00r00r85           1052 	.dw	0,(Sstm8s_gpio$GPIO_Init$46)
+      0000F8 00 00r00r99           1053 	.dw	0,(Sstm8s_gpio$GPIO_Init$54)
+      0000FC 00 02                 1054 	.dw	2
+      0000FE 78                    1055 	.db	120
+      0000FF 06                    1056 	.sleb128	6
+      000100 00 00r00r80           1057 	.dw	0,(Sstm8s_gpio$GPIO_Init$45)
+      000104 00 00r00r85           1058 	.dw	0,(Sstm8s_gpio$GPIO_Init$46)
+      000108 00 02                 1059 	.dw	2
+      00010A 78                    1060 	.db	120
+      00010B 07                    1061 	.sleb128	7
+      00010C 00 00r00r6E           1062 	.dw	0,(Sstm8s_gpio$GPIO_Init$36)
+      000110 00 00r00r80           1063 	.dw	0,(Sstm8s_gpio$GPIO_Init$45)
+      000114 00 02                 1064 	.dw	2
+      000116 78                    1065 	.db	120
+      000117 06                    1066 	.sleb128	6
+      000118 00 00r00r69           1067 	.dw	0,(Sstm8s_gpio$GPIO_Init$35)
+      00011C 00 00r00r6E           1068 	.dw	0,(Sstm8s_gpio$GPIO_Init$36)
+      000120 00 02                 1069 	.dw	2
+      000122 78                    1070 	.db	120
+      000123 07                    1071 	.sleb128	7
+      000124 00 00r00r40           1072 	.dw	0,(Sstm8s_gpio$GPIO_Init$21)
+      000128 00 00r00r69           1073 	.dw	0,(Sstm8s_gpio$GPIO_Init$35)
+      00012C 00 02                 1074 	.dw	2
+      00012E 78                    1075 	.db	120
+      00012F 06                    1076 	.sleb128	6
+      000130 00 00r00r3B           1077 	.dw	0,(Sstm8s_gpio$GPIO_Init$20)
+      000134 00 00r00r40           1078 	.dw	0,(Sstm8s_gpio$GPIO_Init$21)
+      000138 00 02                 1079 	.dw	2
+      00013A 78                    1080 	.db	120
+      00013B 07                    1081 	.sleb128	7
+      00013C 00 00r00r27           1082 	.dw	0,(Sstm8s_gpio$GPIO_Init$14)
+      000140 00 00r00r3B           1083 	.dw	0,(Sstm8s_gpio$GPIO_Init$20)
+      000144 00 02                 1084 	.dw	2
+      000146 78                    1085 	.db	120
+      000147 06                    1086 	.sleb128	6
+      000148 00 00r00r21           1087 	.dw	0,(Sstm8s_gpio$GPIO_Init$13)
+      00014C 00 00r00r27           1088 	.dw	0,(Sstm8s_gpio$GPIO_Init$14)
+      000150 00 02                 1089 	.dw	2
+      000152 78                    1090 	.db	120
+      000153 07                    1091 	.sleb128	7
+      000154 00 00r00r15           1092 	.dw	0,(Sstm8s_gpio$GPIO_Init$11)
+      000158 00 00r00r21           1093 	.dw	0,(Sstm8s_gpio$GPIO_Init$13)
+      00015C 00 02                 1094 	.dw	2
+      00015E 78                    1095 	.db	120
+      00015F 06                    1096 	.sleb128	6
+      000160 00 00r00r13           1097 	.dw	0,(Sstm8s_gpio$GPIO_Init$10)
+      000164 00 00r00r15           1098 	.dw	0,(Sstm8s_gpio$GPIO_Init$11)
+      000168 00 02                 1099 	.dw	2
+      00016A 78                    1100 	.db	120
+      00016B 01                    1101 	.sleb128	1
+      00016C 00 00 00 00           1102 	.dw	0,0
+      000170 00 00 00 00           1103 	.dw	0,0
+      000174 00 00r00r00           1104 	.dw	0,(Sstm8s_gpio$GPIO_DeInit$1)
+      000178 00 00r00r13           1105 	.dw	0,(Sstm8s_gpio$GPIO_DeInit$8)
+      00017C 00 02                 1106 	.dw	2
+      00017E 78                    1107 	.db	120
+      00017F 01                    1108 	.sleb128	1
+      000180 00 00 00 00           1109 	.dw	0,0
+      000184 00 00 00 00           1110 	.dw	0,0
+                                   1111 
+                                   1112 	.area .debug_abbrev (NOLOAD)
+      000000                       1113 Ldebug_abbrev:
+      000000 06                    1114 	.uleb128	6
+      000001 0F                    1115 	.uleb128	15
+      000002 00                    1116 	.db	0
+      000003 0B                    1117 	.uleb128	11
+      000004 0B                    1118 	.uleb128	11
+      000005 49                    1119 	.uleb128	73
+      000006 13                    1120 	.uleb128	19
+      000007 00                    1121 	.uleb128	0
+      000008 00                    1122 	.uleb128	0
+      000009 04                    1123 	.uleb128	4
+      00000A 35                    1124 	.uleb128	53
+      00000B 00                    1125 	.db	0
+      00000C 49                    1126 	.uleb128	73
+      00000D 13                    1127 	.uleb128	19
+      00000E 00                    1128 	.uleb128	0
+      00000F 00                    1129 	.uleb128	0
+      000010 07                    1130 	.uleb128	7
+      000011 05                    1131 	.uleb128	5
+      000012 00                    1132 	.db	0
+      000013 02                    1133 	.uleb128	2
+      000014 0A                    1134 	.uleb128	10
+      000015 03                    1135 	.uleb128	3
+      000016 08                    1136 	.uleb128	8
+      000017 49                    1137 	.uleb128	73
+      000018 13                    1138 	.uleb128	19
+      000019 00                    1139 	.uleb128	0
+      00001A 00                    1140 	.uleb128	0
+      00001B 02                    1141 	.uleb128	2
+      00001C 2E                    1142 	.uleb128	46
+      00001D 01                    1143 	.db	1
+      00001E 01                    1144 	.uleb128	1
+      00001F 13                    1145 	.uleb128	19
+      000020 03                    1146 	.uleb128	3
+      000021 08                    1147 	.uleb128	8
+      000022 11                    1148 	.uleb128	17
+      000023 01                    1149 	.uleb128	1
+      000024 12                    1150 	.uleb128	18
+      000025 01                    1151 	.uleb128	1
+      000026 3F                    1152 	.uleb128	63
+      000027 0C                    1153 	.uleb128	12
+      000028 40                    1154 	.uleb128	64
+      000029 06                    1155 	.uleb128	6
+      00002A 00                    1156 	.uleb128	0
+      00002B 00                    1157 	.uleb128	0
+      00002C 0B                    1158 	.uleb128	11
+      00002D 2E                    1159 	.uleb128	46
+      00002E 01                    1160 	.db	1
+      00002F 01                    1161 	.uleb128	1
+      000030 13                    1162 	.uleb128	19
+      000031 03                    1163 	.uleb128	3
+      000032 08                    1164 	.uleb128	8
+      000033 11                    1165 	.uleb128	17
+      000034 01                    1166 	.uleb128	1
+      000035 12                    1167 	.uleb128	18
+      000036 01                    1168 	.uleb128	1
+      000037 3F                    1169 	.uleb128	63
+      000038 0C                    1170 	.uleb128	12
+      000039 40                    1171 	.uleb128	64
+      00003A 06                    1172 	.uleb128	6
+      00003B 49                    1173 	.uleb128	73
+      00003C 13                    1174 	.uleb128	19
+      00003D 00                    1175 	.uleb128	0
+      00003E 00                    1176 	.uleb128	0
+      00003F 01                    1177 	.uleb128	1
+      000040 11                    1178 	.uleb128	17
+      000041 01                    1179 	.db	1
+      000042 03                    1180 	.uleb128	3
+      000043 08                    1181 	.uleb128	8
+      000044 10                    1182 	.uleb128	16
+      000045 06                    1183 	.uleb128	6
+      000046 13                    1184 	.uleb128	19
+      000047 0B                    1185 	.uleb128	11
+      000048 25                    1186 	.uleb128	37
+      000049 08                    1187 	.uleb128	8
+      00004A 00                    1188 	.uleb128	0
+      00004B 00                    1189 	.uleb128	0
+      00004C 05                    1190 	.uleb128	5
+      00004D 0D                    1191 	.uleb128	13
+      00004E 00                    1192 	.db	0
+      00004F 03                    1193 	.uleb128	3
+      000050 08                    1194 	.uleb128	8
+      000051 38                    1195 	.uleb128	56
+      000052 0A                    1196 	.uleb128	10
+      000053 49                    1197 	.uleb128	73
+      000054 13                    1198 	.uleb128	19
+      000055 00                    1199 	.uleb128	0
+      000056 00                    1200 	.uleb128	0
+      000057 0A                    1201 	.uleb128	10
+      000058 0B                    1202 	.uleb128	11
+      000059 00                    1203 	.db	0
+      00005A 11                    1204 	.uleb128	17
+      00005B 01                    1205 	.uleb128	1
+      00005C 12                    1206 	.uleb128	18
+      00005D 01                    1207 	.uleb128	1
+      00005E 00                    1208 	.uleb128	0
+      00005F 00                    1209 	.uleb128	0
+      000060 0C                    1210 	.uleb128	12
+      000061 2E                    1211 	.uleb128	46
+      000062 01                    1212 	.db	1
+      000063 03                    1213 	.uleb128	3
+      000064 08                    1214 	.uleb128	8
+      000065 11                    1215 	.uleb128	17
+      000066 01                    1216 	.uleb128	1
+      000067 12                    1217 	.uleb128	18
+      000068 01                    1218 	.uleb128	1
+      000069 3F                    1219 	.uleb128	63
+      00006A 0C                    1220 	.uleb128	12
+      00006B 40                    1221 	.uleb128	64
+      00006C 06                    1222 	.uleb128	6
+      00006D 00                    1223 	.uleb128	0
+      00006E 00                    1224 	.uleb128	0
+      00006F 09                    1225 	.uleb128	9
+      000070 0B                    1226 	.uleb128	11
+      000071 01                    1227 	.db	1
+      000072 01                    1228 	.uleb128	1
+      000073 13                    1229 	.uleb128	19
+      000074 11                    1230 	.uleb128	17
+      000075 01                    1231 	.uleb128	1
+      000076 12                    1232 	.uleb128	18
+      000077 01                    1233 	.uleb128	1
+      000078 00                    1234 	.uleb128	0
+      000079 00                    1235 	.uleb128	0
+      00007A 03                    1236 	.uleb128	3
+      00007B 13                    1237 	.uleb128	19
+      00007C 01                    1238 	.db	1
+      00007D 01                    1239 	.uleb128	1
+      00007E 13                    1240 	.uleb128	19
+      00007F 03                    1241 	.uleb128	3
+      000080 08                    1242 	.uleb128	8
+      000081 0B                    1243 	.uleb128	11
+      000082 0B                    1244 	.uleb128	11
+      000083 00                    1245 	.uleb128	0
+      000084 00                    1246 	.uleb128	0
+      000085 08                    1247 	.uleb128	8
+      000086 24                    1248 	.uleb128	36
+      000087 00                    1249 	.db	0
+      000088 03                    1250 	.uleb128	3
+      000089 08                    1251 	.uleb128	8
+      00008A 0B                    1252 	.uleb128	11
+      00008B 0B                    1253 	.uleb128	11
+      00008C 3E                    1254 	.uleb128	62
+      00008D 0B                    1255 	.uleb128	11
+      00008E 00                    1256 	.uleb128	0
+      00008F 00                    1257 	.uleb128	0
+      000090 00                    1258 	.uleb128	0
+                                   1259 
+                                   1260 	.area .debug_info (NOLOAD)
+      000000 00 00 03 B0           1261 	.dw	0,Ldebug_info_end-Ldebug_info_start
+      000004                       1262 Ldebug_info_start:
+      000004 00 02                 1263 	.dw	2
+      000006 00 00r00r00           1264 	.dw	0,(Ldebug_abbrev)
+      00000A 04                    1265 	.db	4
+      00000B 01                    1266 	.uleb128	1
+      00000C 2E 2F 6C 69 62 72 61  1267 	.ascii "./libraries/src/stm8s_gpio.c"
+             72 69 65 73 2F 73 72
+             63 2F 73 74 6D 38 73
+             5F 67 70 69 6F 2E 63
+      000028 00                    1268 	.db	0
+      000029 00 00r00r00           1269 	.dw	0,(Ldebug_line_start+-4)
+      00002D 01                    1270 	.db	1
+      00002E 53 44 43 43 20 76 65  1271 	.ascii "SDCC version 4.0.2 #11645"
+             72 73 69 6F 6E 20 34
+             2E 30 2E 32 20 23 31
+             31 36 34 35
+      000047 00                    1272 	.db	0
+      000048 02                    1273 	.uleb128	2
+      000049 00 00 00 CF           1274 	.dw	0,207
+      00004D 47 50 49 4F 5F 44 65  1275 	.ascii "GPIO_DeInit"
+             49 6E 69 74
+      000058 00                    1276 	.db	0
+      000059 00 00r00r00           1277 	.dw	0,(_GPIO_DeInit)
+      00005D 00 00r00r13           1278 	.dw	0,(XG$GPIO_DeInit$0$0+1)
+      000061 01                    1279 	.db	1
+      000062 00 00r01r74           1280 	.dw	0,(Ldebug_loc_start+372)
+      000066 03                    1281 	.uleb128	3
+      000067 00 00 00 BA           1282 	.dw	0,186
+      00006B 47 50 49 4F 5F 73 74  1283 	.ascii "GPIO_struct"
+             72 75 63 74
+      000076 00                    1284 	.db	0
+      000077 05                    1285 	.db	5
+      000078 04                    1286 	.uleb128	4
+      000079 00 00 00 CF           1287 	.dw	0,207
+      00007D 05                    1288 	.uleb128	5
+      00007E 4F 44 52              1289 	.ascii "ODR"
+      000081 00                    1290 	.db	0
+      000082 02                    1291 	.db	2
+      000083 23                    1292 	.db	35
+      000084 00                    1293 	.uleb128	0
+      000085 00 00 00 78           1294 	.dw	0,120
+      000089 05                    1295 	.uleb128	5
+      00008A 49 44 52              1296 	.ascii "IDR"
+      00008D 00                    1297 	.db	0
+      00008E 02                    1298 	.db	2
+      00008F 23                    1299 	.db	35
+      000090 01                    1300 	.uleb128	1
+      000091 00 00 00 78           1301 	.dw	0,120
+      000095 05                    1302 	.uleb128	5
+      000096 44 44 52              1303 	.ascii "DDR"
+      000099 00                    1304 	.db	0
+      00009A 02                    1305 	.db	2
+      00009B 23                    1306 	.db	35
+      00009C 02                    1307 	.uleb128	2
+      00009D 00 00 00 78           1308 	.dw	0,120
+      0000A1 05                    1309 	.uleb128	5
+      0000A2 43 52 31              1310 	.ascii "CR1"
+      0000A5 00                    1311 	.db	0
+      0000A6 02                    1312 	.db	2
+      0000A7 23                    1313 	.db	35
+      0000A8 03                    1314 	.uleb128	3
+      0000A9 00 00 00 78           1315 	.dw	0,120
+      0000AD 05                    1316 	.uleb128	5
+      0000AE 43 52 32              1317 	.ascii "CR2"
+      0000B1 00                    1318 	.db	0
+      0000B2 02                    1319 	.db	2
+      0000B3 23                    1320 	.db	35
+      0000B4 04                    1321 	.uleb128	4
+      0000B5 00 00 00 78           1322 	.dw	0,120
+      0000B9 00                    1323 	.uleb128	0
+      0000BA 06                    1324 	.uleb128	6
+      0000BB 02                    1325 	.db	2
+      0000BC 00 00 00 66           1326 	.dw	0,102
+      0000C0 07                    1327 	.uleb128	7
+      0000C1 02                    1328 	.db	2
+      0000C2 91                    1329 	.db	145
+      0000C3 02                    1330 	.sleb128	2
+      0000C4 47 50 49 4F 78        1331 	.ascii "GPIOx"
+      0000C9 00                    1332 	.db	0
+      0000CA 00 00 00 BA           1333 	.dw	0,186
+      0000CE 00                    1334 	.uleb128	0
+      0000CF 08                    1335 	.uleb128	8
+      0000D0 75 6E 73 69 67 6E 65  1336 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      0000DD 00                    1337 	.db	0
+      0000DE 01                    1338 	.db	1
+      0000DF 08                    1339 	.db	8
+      0000E0 02                    1340 	.uleb128	2
+      0000E1 00 00 01 7B           1341 	.dw	0,379
+      0000E5 47 50 49 4F 5F 49 6E  1342 	.ascii "GPIO_Init"
+             69 74
+      0000EE 00                    1343 	.db	0
+      0000EF 00 00r00r13           1344 	.dw	0,(_GPIO_Init)
+      0000F3 00 00r00r9A           1345 	.dw	0,(XG$GPIO_Init$0$0+1)
+      0000F7 01                    1346 	.db	1
+      0000F8 00 00r00rE8           1347 	.dw	0,(Ldebug_loc_start+232)
+      0000FC 07                    1348 	.uleb128	7
+      0000FD 02                    1349 	.db	2
+      0000FE 91                    1350 	.db	145
+      0000FF 02                    1351 	.sleb128	2
+      000100 47 50 49 4F 78        1352 	.ascii "GPIOx"
+      000105 00                    1353 	.db	0
+      000106 00 00 00 BA           1354 	.dw	0,186
+      00010A 07                    1355 	.uleb128	7
+      00010B 02                    1356 	.db	2
+      00010C 91                    1357 	.db	145
+      00010D 04                    1358 	.sleb128	4
+      00010E 47 50 49 4F 5F 50 69  1359 	.ascii "GPIO_Pin"
+             6E
+      000116 00                    1360 	.db	0
+      000117 00 00 01 7B           1361 	.dw	0,379
+      00011B 07                    1362 	.uleb128	7
+      00011C 02                    1363 	.db	2
+      00011D 91                    1364 	.db	145
+      00011E 05                    1365 	.sleb128	5
+      00011F 47 50 49 4F 5F 4D 6F  1366 	.ascii "GPIO_Mode"
+             64 65
+      000128 00                    1367 	.db	0
+      000129 00 00 01 7B           1368 	.dw	0,379
+      00012D 09                    1369 	.uleb128	9
+      00012E 00 00 01 4D           1370 	.dw	0,333
+      000132 00 00r00r3A           1371 	.dw	0,(Sstm8s_gpio$GPIO_Init$18)
+      000136 00 00r00r58           1372 	.dw	0,(Sstm8s_gpio$GPIO_Init$29)
+      00013A 0A                    1373 	.uleb128	10
+      00013B 00 00r00r45           1374 	.dw	0,(Sstm8s_gpio$GPIO_Init$22)
+      00013F 00 00r00r49           1375 	.dw	0,(Sstm8s_gpio$GPIO_Init$24)
+      000143 0A                    1376 	.uleb128	10
+      000144 00 00r00r4C           1377 	.dw	0,(Sstm8s_gpio$GPIO_Init$25)
+      000148 00 00r00r50           1378 	.dw	0,(Sstm8s_gpio$GPIO_Init$27)
+      00014C 00                    1379 	.uleb128	0
+      00014D 0A                    1380 	.uleb128	10
+      00014E 00 00r00r5B           1381 	.dw	0,(Sstm8s_gpio$GPIO_Init$30)
+      000152 00 00r00r63           1382 	.dw	0,(Sstm8s_gpio$GPIO_Init$32)
+      000156 0A                    1383 	.uleb128	10
+      000157 00 00r00r73           1384 	.dw	0,(Sstm8s_gpio$GPIO_Init$37)
+      00015B 00 00r00r76           1385 	.dw	0,(Sstm8s_gpio$GPIO_Init$39)
+      00015F 0A                    1386 	.uleb128	10
+      000160 00 00r00r79           1387 	.dw	0,(Sstm8s_gpio$GPIO_Init$40)
+      000164 00 00r00r7C           1388 	.dw	0,(Sstm8s_gpio$GPIO_Init$42)
+      000168 0A                    1389 	.uleb128	10
+      000169 00 00r00r8A           1390 	.dw	0,(Sstm8s_gpio$GPIO_Init$47)
+      00016D 00 00r00r8F           1391 	.dw	0,(Sstm8s_gpio$GPIO_Init$49)
+      000171 0A                    1392 	.uleb128	10
+      000172 00 00r00r92           1393 	.dw	0,(Sstm8s_gpio$GPIO_Init$50)
+      000176 00 00r00r97           1394 	.dw	0,(Sstm8s_gpio$GPIO_Init$52)
+      00017A 00                    1395 	.uleb128	0
+      00017B 08                    1396 	.uleb128	8
+      00017C 75 6E 73 69 67 6E 65  1397 	.ascii "unsigned char"
+             64 20 63 68 61 72
+      000189 00                    1398 	.db	0
+      00018A 01                    1399 	.db	1
+      00018B 08                    1400 	.db	8
+      00018C 02                    1401 	.uleb128	2
+      00018D 00 00 01 C8           1402 	.dw	0,456
+      000191 47 50 49 4F 5F 57 72  1403 	.ascii "GPIO_Write"
+             69 74 65
+      00019B 00                    1404 	.db	0
+      00019C 00 00r00r9A           1405 	.dw	0,(_GPIO_Write)
+      0001A0 00 00r00rA0           1406 	.dw	0,(XG$GPIO_Write$0$0+1)
+      0001A4 01                    1407 	.db	1
+      0001A5 00 00r00rD4           1408 	.dw	0,(Ldebug_loc_start+212)
+      0001A9 07                    1409 	.uleb128	7
+      0001AA 02                    1410 	.db	2
+      0001AB 91                    1411 	.db	145
+      0001AC 02                    1412 	.sleb128	2
+      0001AD 47 50 49 4F 78        1413 	.ascii "GPIOx"
+      0001B2 00                    1414 	.db	0
+      0001B3 00 00 00 BA           1415 	.dw	0,186
+      0001B7 07                    1416 	.uleb128	7
+      0001B8 02                    1417 	.db	2
+      0001B9 91                    1418 	.db	145
+      0001BA 04                    1419 	.sleb128	4
+      0001BB 50 6F 72 74 56 61 6C  1420 	.ascii "PortVal"
+      0001C2 00                    1421 	.db	0
+      0001C3 00 00 01 7B           1422 	.dw	0,379
+      0001C7 00                    1423 	.uleb128	0
+      0001C8 02                    1424 	.uleb128	2
+      0001C9 00 00 02 09           1425 	.dw	0,521
+      0001CD 47 50 49 4F 5F 57 72  1426 	.ascii "GPIO_WriteHigh"
+             69 74 65 48 69 67 68
+      0001DB 00                    1427 	.db	0
+      0001DC 00 00r00rA0           1428 	.dw	0,(_GPIO_WriteHigh)
+      0001E0 00 00r00rA7           1429 	.dw	0,(XG$GPIO_WriteHigh$0$0+1)
+      0001E4 01                    1430 	.db	1
+      0001E5 00 00r00rC0           1431 	.dw	0,(Ldebug_loc_start+192)
+      0001E9 07                    1432 	.uleb128	7
+      0001EA 02                    1433 	.db	2
+      0001EB 91                    1434 	.db	145
+      0001EC 02                    1435 	.sleb128	2
+      0001ED 47 50 49 4F 78        1436 	.ascii "GPIOx"
+      0001F2 00                    1437 	.db	0
+      0001F3 00 00 00 BA           1438 	.dw	0,186
+      0001F7 07                    1439 	.uleb128	7
+      0001F8 02                    1440 	.db	2
+      0001F9 91                    1441 	.db	145
+      0001FA 04                    1442 	.sleb128	4
+      0001FB 50 6F 72 74 50 69 6E  1443 	.ascii "PortPins"
+             73
+      000203 00                    1444 	.db	0
+      000204 00 00 01 7B           1445 	.dw	0,379
+      000208 00                    1446 	.uleb128	0
+      000209 02                    1447 	.uleb128	2
+      00020A 00 00 02 49           1448 	.dw	0,585
+      00020E 47 50 49 4F 5F 57 72  1449 	.ascii "GPIO_WriteLow"
+             69 74 65 4C 6F 77
+      00021B 00                    1450 	.db	0
+      00021C 00 00r00rA7           1451 	.dw	0,(_GPIO_WriteLow)
+      000220 00 00r00rB5           1452 	.dw	0,(XG$GPIO_WriteLow$0$0+1)
+      000224 01                    1453 	.db	1
+      000225 00 00r00r94           1454 	.dw	0,(Ldebug_loc_start+148)
+      000229 07                    1455 	.uleb128	7
+      00022A 02                    1456 	.db	2
+      00022B 91                    1457 	.db	145
+      00022C 02                    1458 	.sleb128	2
+      00022D 47 50 49 4F 78        1459 	.ascii "GPIOx"
+      000232 00                    1460 	.db	0
+      000233 00 00 00 BA           1461 	.dw	0,186
+      000237 07                    1462 	.uleb128	7
+      000238 02                    1463 	.db	2
+      000239 91                    1464 	.db	145
+      00023A 04                    1465 	.sleb128	4
+      00023B 50 6F 72 74 50 69 6E  1466 	.ascii "PortPins"
+             73
+      000243 00                    1467 	.db	0
+      000244 00 00 01 7B           1468 	.dw	0,379
+      000248 00                    1469 	.uleb128	0
+      000249 02                    1470 	.uleb128	2
+      00024A 00 00 02 8D           1471 	.dw	0,653
+      00024E 47 50 49 4F 5F 57 72  1472 	.ascii "GPIO_WriteReverse"
+             69 74 65 52 65 76 65
+             72 73 65
+      00025F 00                    1473 	.db	0
+      000260 00 00r00rB5           1474 	.dw	0,(_GPIO_WriteReverse)
+      000264 00 00r00rBC           1475 	.dw	0,(XG$GPIO_WriteReverse$0$0+1)
+      000268 01                    1476 	.db	1
+      000269 00 00r00r80           1477 	.dw	0,(Ldebug_loc_start+128)
+      00026D 07                    1478 	.uleb128	7
+      00026E 02                    1479 	.db	2
+      00026F 91                    1480 	.db	145
+      000270 02                    1481 	.sleb128	2
+      000271 47 50 49 4F 78        1482 	.ascii "GPIOx"
+      000276 00                    1483 	.db	0
+      000277 00 00 00 BA           1484 	.dw	0,186
+      00027B 07                    1485 	.uleb128	7
+      00027C 02                    1486 	.db	2
+      00027D 91                    1487 	.db	145
+      00027E 04                    1488 	.sleb128	4
+      00027F 50 6F 72 74 50 69 6E  1489 	.ascii "PortPins"
+             73
+      000287 00                    1490 	.db	0
+      000288 00 00 01 7B           1491 	.dw	0,379
+      00028C 00                    1492 	.uleb128	0
+      00028D 0B                    1493 	.uleb128	11
+      00028E 00 00 02 C6           1494 	.dw	0,710
+      000292 47 50 49 4F 5F 52 65  1495 	.ascii "GPIO_ReadOutputData"
+             61 64 4F 75 74 70 75
+             74 44 61 74 61
+      0002A5 00                    1496 	.db	0
+      0002A6 00 00r00rBC           1497 	.dw	0,(_GPIO_ReadOutputData)
+      0002AA 00 00r00rC0           1498 	.dw	0,(XG$GPIO_ReadOutputData$0$0+1)
+      0002AE 01                    1499 	.db	1
+      0002AF 00 00r00r6C           1500 	.dw	0,(Ldebug_loc_start+108)
+      0002B3 00 00 01 7B           1501 	.dw	0,379
+      0002B7 07                    1502 	.uleb128	7
+      0002B8 02                    1503 	.db	2
+      0002B9 91                    1504 	.db	145
+      0002BA 02                    1505 	.sleb128	2
+      0002BB 47 50 49 4F 78        1506 	.ascii "GPIOx"
+      0002C0 00                    1507 	.db	0
+      0002C1 00 00 00 BA           1508 	.dw	0,186
+      0002C5 00                    1509 	.uleb128	0
+      0002C6 0B                    1510 	.uleb128	11
+      0002C7 00 00 02 FE           1511 	.dw	0,766
+      0002CB 47 50 49 4F 5F 52 65  1512 	.ascii "GPIO_ReadInputData"
+             61 64 49 6E 70 75 74
+             44 61 74 61
+      0002DD 00                    1513 	.db	0
+      0002DE 00 00r00rC0           1514 	.dw	0,(_GPIO_ReadInputData)
+      0002E2 00 00r00rC5           1515 	.dw	0,(XG$GPIO_ReadInputData$0$0+1)
+      0002E6 01                    1516 	.db	1
+      0002E7 00 00r00r58           1517 	.dw	0,(Ldebug_loc_start+88)
+      0002EB 00 00 01 7B           1518 	.dw	0,379
+      0002EF 07                    1519 	.uleb128	7
+      0002F0 02                    1520 	.db	2
+      0002F1 91                    1521 	.db	145
+      0002F2 02                    1522 	.sleb128	2
+      0002F3 47 50 49 4F 78        1523 	.ascii "GPIOx"
+      0002F8 00                    1524 	.db	0
+      0002F9 00 00 00 BA           1525 	.dw	0,186
+      0002FD 00                    1526 	.uleb128	0
+      0002FE 0B                    1527 	.uleb128	11
+      0002FF 00 00 03 46           1528 	.dw	0,838
+      000303 47 50 49 4F 5F 52 65  1529 	.ascii "GPIO_ReadInputPin"
+             61 64 49 6E 70 75 74
+             50 69 6E
+      000314 00                    1530 	.db	0
+      000315 00 00r00rC5           1531 	.dw	0,(_GPIO_ReadInputPin)
+      000319 00 00r00rCC           1532 	.dw	0,(XG$GPIO_ReadInputPin$0$0+1)
+      00031D 01                    1533 	.db	1
+      00031E 00 00r00r44           1534 	.dw	0,(Ldebug_loc_start+68)
+      000322 00 00 01 7B           1535 	.dw	0,379
+      000326 07                    1536 	.uleb128	7
+      000327 02                    1537 	.db	2
+      000328 91                    1538 	.db	145
+      000329 02                    1539 	.sleb128	2
+      00032A 47 50 49 4F 78        1540 	.ascii "GPIOx"
+      00032F 00                    1541 	.db	0
+      000330 00 00 00 BA           1542 	.dw	0,186
+      000334 07                    1543 	.uleb128	7
+      000335 02                    1544 	.db	2
+      000336 91                    1545 	.db	145
+      000337 04                    1546 	.sleb128	4
+      000338 47 50 49 4F 5F 50 69  1547 	.ascii "GPIO_Pin"
+             6E
+      000340 00                    1548 	.db	0
+      000341 00 00 01 7B           1549 	.dw	0,379
+      000345 00                    1550 	.uleb128	0
+      000346 0C                    1551 	.uleb128	12
+      000347 47 50 49 4F 5F 45 78  1552 	.ascii "GPIO_ExternalPullUpConfig"
+             74 65 72 6E 61 6C 50
+             75 6C 6C 55 70 43 6F
+             6E 66 69 67
+      000360 00                    1553 	.db	0
+      000361 00 00r00rCC           1554 	.dw	0,(_GPIO_ExternalPullUpConfig)
+      000365 00 00r00rEC           1555 	.dw	0,(XG$GPIO_ExternalPullUpConfig$0$0+1)
+      000369 01                    1556 	.db	1
+      00036A 00 00r00r00           1557 	.dw	0,(Ldebug_loc_start)
+      00036E 07                    1558 	.uleb128	7
+      00036F 02                    1559 	.db	2
+      000370 91                    1560 	.db	145
+      000371 02                    1561 	.sleb128	2
+      000372 47 50 49 4F 78        1562 	.ascii "GPIOx"
+      000377 00                    1563 	.db	0
+      000378 00 00 00 BA           1564 	.dw	0,186
+      00037C 07                    1565 	.uleb128	7
+      00037D 02                    1566 	.db	2
+      00037E 91                    1567 	.db	145
+      00037F 04                    1568 	.sleb128	4
+      000380 47 50 49 4F 5F 50 69  1569 	.ascii "GPIO_Pin"
+             6E
+      000388 00                    1570 	.db	0
+      000389 00 00 01 7B           1571 	.dw	0,379
+      00038D 07                    1572 	.uleb128	7
+      00038E 02                    1573 	.db	2
+      00038F 91                    1574 	.db	145
+      000390 05                    1575 	.sleb128	5
+      000391 4E 65 77 53 74 61 74  1576 	.ascii "NewState"
+             65
+      000399 00                    1577 	.db	0
+      00039A 00 00 01 7B           1578 	.dw	0,379
+      00039E 0A                    1579 	.uleb128	10
+      00039F 00 00r00rDA           1580 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$106)
+      0003A3 00 00r00rDD           1581 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$108)
+      0003A7 0A                    1582 	.uleb128	10
+      0003A8 00 00r00rE0           1583 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$109)
+      0003AC 00 00r00rEA           1584 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$113)
+      0003B0 00                    1585 	.uleb128	0
+      0003B1 00                    1586 	.uleb128	0
+      0003B2 00                    1587 	.uleb128	0
+      0003B3 00                    1588 	.uleb128	0
+      0003B4                       1589 Ldebug_info_end:
+                                   1590 
+                                   1591 	.area .debug_pubnames (NOLOAD)
+      000000 00 00 00 D9           1592 	.dw	0,Ldebug_pubnames_end-Ldebug_pubnames_start
+      000004                       1593 Ldebug_pubnames_start:
+      000004 00 02                 1594 	.dw	2
+      000006 00 00r00r00           1595 	.dw	0,(Ldebug_info_start-4)
+      00000A 00 00 03 B4           1596 	.dw	0,4+Ldebug_info_end-Ldebug_info_start
+      00000E 00 00 00 48           1597 	.dw	0,72
+      000012 47 50 49 4F 5F 44 65  1598 	.ascii "GPIO_DeInit"
+             49 6E 69 74
+      00001D 00                    1599 	.db	0
+      00001E 00 00 00 E0           1600 	.dw	0,224
+      000022 47 50 49 4F 5F 49 6E  1601 	.ascii "GPIO_Init"
+             69 74
+      00002B 00                    1602 	.db	0
+      00002C 00 00 01 8C           1603 	.dw	0,396
+      000030 47 50 49 4F 5F 57 72  1604 	.ascii "GPIO_Write"
+             69 74 65
+      00003A 00                    1605 	.db	0
+      00003B 00 00 01 C8           1606 	.dw	0,456
+      00003F 47 50 49 4F 5F 57 72  1607 	.ascii "GPIO_WriteHigh"
+             69 74 65 48 69 67 68
+      00004D 00                    1608 	.db	0
+      00004E 00 00 02 09           1609 	.dw	0,521
+      000052 47 50 49 4F 5F 57 72  1610 	.ascii "GPIO_WriteLow"
+             69 74 65 4C 6F 77
+      00005F 00                    1611 	.db	0
+      000060 00 00 02 49           1612 	.dw	0,585
+      000064 47 50 49 4F 5F 57 72  1613 	.ascii "GPIO_WriteReverse"
+             69 74 65 52 65 76 65
+             72 73 65
+      000075 00                    1614 	.db	0
+      000076 00 00 02 8D           1615 	.dw	0,653
+      00007A 47 50 49 4F 5F 52 65  1616 	.ascii "GPIO_ReadOutputData"
+             61 64 4F 75 74 70 75
+             74 44 61 74 61
+      00008D 00                    1617 	.db	0
+      00008E 00 00 02 C6           1618 	.dw	0,710
+      000092 47 50 49 4F 5F 52 65  1619 	.ascii "GPIO_ReadInputData"
+             61 64 49 6E 70 75 74
+             44 61 74 61
+      0000A4 00                    1620 	.db	0
+      0000A5 00 00 02 FE           1621 	.dw	0,766
+      0000A9 47 50 49 4F 5F 52 65  1622 	.ascii "GPIO_ReadInputPin"
+             61 64 49 6E 70 75 74
+             50 69 6E
+      0000BA 00                    1623 	.db	0
+      0000BB 00 00 03 46           1624 	.dw	0,838
+      0000BF 47 50 49 4F 5F 45 78  1625 	.ascii "GPIO_ExternalPullUpConfig"
+             74 65 72 6E 61 6C 50
+             75 6C 6C 55 70 43 6F
+             6E 66 69 67
+      0000D8 00                    1626 	.db	0
+      0000D9 00 00 00 00           1627 	.dw	0,0
+      0000DD                       1628 Ldebug_pubnames_end:
+                                   1629 
+                                   1630 	.area .debug_frame (NOLOAD)
+      000000 00 00                 1631 	.dw	0
+      000002 00 0E                 1632 	.dw	Ldebug_CIE0_end-Ldebug_CIE0_start
+      000004                       1633 Ldebug_CIE0_start:
+      000004 FF FF                 1634 	.dw	0xffff
+      000006 FF FF                 1635 	.dw	0xffff
+      000008 01                    1636 	.db	1
+      000009 00                    1637 	.db	0
+      00000A 01                    1638 	.uleb128	1
+      00000B 7F                    1639 	.sleb128	-1
+      00000C 09                    1640 	.db	9
+      00000D 0C                    1641 	.db	12
+      00000E 08                    1642 	.uleb128	8
+      00000F 02                    1643 	.uleb128	2
+      000010 89                    1644 	.db	137
+      000011 01                    1645 	.uleb128	1
+      000012                       1646 Ldebug_CIE0_end:
+      000012 00 00 00 2F           1647 	.dw	0,47
+      000016 00 00r00r00           1648 	.dw	0,(Ldebug_CIE0_start-4)
+      00001A 00 00r00rCC           1649 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$102)	;initial loc
+      00001E 00 00 00 20           1650 	.dw	0,Sstm8s_gpio$GPIO_ExternalPullUpConfig$117-Sstm8s_gpio$GPIO_ExternalPullUpConfig$102
+      000022 01                    1651 	.db	1
+      000023 00 00r00rCC           1652 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$102)
+      000027 0E                    1653 	.db	14
+      000028 02                    1654 	.uleb128	2
+      000029 01                    1655 	.db	1
+      00002A 00 00r00rCD           1656 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$103)
+      00002E 0E                    1657 	.db	14
+      00002F 03                    1658 	.uleb128	3
+      000030 01                    1659 	.db	1
+      000031 00 00r00rE1           1660 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$111)
+      000035 0E                    1661 	.db	14
+      000036 04                    1662 	.uleb128	4
+      000037 01                    1663 	.db	1
+      000038 00 00r00rE7           1664 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$112)
+      00003C 0E                    1665 	.db	14
+      00003D 03                    1666 	.uleb128	3
+      00003E 01                    1667 	.db	1
+      00003F 00 00r00rEB           1668 	.dw	0,(Sstm8s_gpio$GPIO_ExternalPullUpConfig$115)
+      000043 0E                    1669 	.db	14
+      000044 02                    1670 	.uleb128	2
+                                   1671 
+                                   1672 	.area .debug_frame (NOLOAD)
+      000045 00 00                 1673 	.dw	0
+      000047 00 0E                 1674 	.dw	Ldebug_CIE1_end-Ldebug_CIE1_start
+      000049                       1675 Ldebug_CIE1_start:
+      000049 FF FF                 1676 	.dw	0xffff
+      00004B FF FF                 1677 	.dw	0xffff
+      00004D 01                    1678 	.db	1
+      00004E 00                    1679 	.db	0
+      00004F 01                    1680 	.uleb128	1
+      000050 7F                    1681 	.sleb128	-1
+      000051 09                    1682 	.db	9
+      000052 0C                    1683 	.db	12
+      000053 08                    1684 	.uleb128	8
+      000054 02                    1685 	.uleb128	2
+      000055 89                    1686 	.db	137
+      000056 01                    1687 	.uleb128	1
+      000057                       1688 Ldebug_CIE1_end:
+      000057 00 00 00 13           1689 	.dw	0,19
+      00005B 00 00r00r45           1690 	.dw	0,(Ldebug_CIE1_start-4)
+      00005F 00 00r00rC5           1691 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputPin$96)	;initial loc
+      000063 00 00 00 07           1692 	.dw	0,Sstm8s_gpio$GPIO_ReadInputPin$100-Sstm8s_gpio$GPIO_ReadInputPin$96
+      000067 01                    1693 	.db	1
+      000068 00 00r00rC5           1694 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputPin$96)
+      00006C 0E                    1695 	.db	14
+      00006D 02                    1696 	.uleb128	2
+                                   1697 
+                                   1698 	.area .debug_frame (NOLOAD)
+      00006E 00 00                 1699 	.dw	0
+      000070 00 0E                 1700 	.dw	Ldebug_CIE2_end-Ldebug_CIE2_start
+      000072                       1701 Ldebug_CIE2_start:
+      000072 FF FF                 1702 	.dw	0xffff
+      000074 FF FF                 1703 	.dw	0xffff
+      000076 01                    1704 	.db	1
+      000077 00                    1705 	.db	0
+      000078 01                    1706 	.uleb128	1
+      000079 7F                    1707 	.sleb128	-1
+      00007A 09                    1708 	.db	9
+      00007B 0C                    1709 	.db	12
+      00007C 08                    1710 	.uleb128	8
+      00007D 02                    1711 	.uleb128	2
+      00007E 89                    1712 	.db	137
+      00007F 01                    1713 	.uleb128	1
+      000080                       1714 Ldebug_CIE2_end:
+      000080 00 00 00 13           1715 	.dw	0,19
+      000084 00 00r00r6E           1716 	.dw	0,(Ldebug_CIE2_start-4)
+      000088 00 00r00rC0           1717 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputData$90)	;initial loc
+      00008C 00 00 00 05           1718 	.dw	0,Sstm8s_gpio$GPIO_ReadInputData$94-Sstm8s_gpio$GPIO_ReadInputData$90
+      000090 01                    1719 	.db	1
+      000091 00 00r00rC0           1720 	.dw	0,(Sstm8s_gpio$GPIO_ReadInputData$90)
+      000095 0E                    1721 	.db	14
+      000096 02                    1722 	.uleb128	2
+                                   1723 
+                                   1724 	.area .debug_frame (NOLOAD)
+      000097 00 00                 1725 	.dw	0
+      000099 00 0E                 1726 	.dw	Ldebug_CIE3_end-Ldebug_CIE3_start
+      00009B                       1727 Ldebug_CIE3_start:
+      00009B FF FF                 1728 	.dw	0xffff
+      00009D FF FF                 1729 	.dw	0xffff
+      00009F 01                    1730 	.db	1
+      0000A0 00                    1731 	.db	0
+      0000A1 01                    1732 	.uleb128	1
+      0000A2 7F                    1733 	.sleb128	-1
+      0000A3 09                    1734 	.db	9
+      0000A4 0C                    1735 	.db	12
+      0000A5 08                    1736 	.uleb128	8
+      0000A6 02                    1737 	.uleb128	2
+      0000A7 89                    1738 	.db	137
+      0000A8 01                    1739 	.uleb128	1
+      0000A9                       1740 Ldebug_CIE3_end:
+      0000A9 00 00 00 13           1741 	.dw	0,19
+      0000AD 00 00r00r97           1742 	.dw	0,(Ldebug_CIE3_start-4)
+      0000B1 00 00r00rBC           1743 	.dw	0,(Sstm8s_gpio$GPIO_ReadOutputData$84)	;initial loc
+      0000B5 00 00 00 04           1744 	.dw	0,Sstm8s_gpio$GPIO_ReadOutputData$88-Sstm8s_gpio$GPIO_ReadOutputData$84
+      0000B9 01                    1745 	.db	1
+      0000BA 00 00r00rBC           1746 	.dw	0,(Sstm8s_gpio$GPIO_ReadOutputData$84)
+      0000BE 0E                    1747 	.db	14
+      0000BF 02                    1748 	.uleb128	2
+                                   1749 
+                                   1750 	.area .debug_frame (NOLOAD)
+      0000C0 00 00                 1751 	.dw	0
+      0000C2 00 0E                 1752 	.dw	Ldebug_CIE4_end-Ldebug_CIE4_start
+      0000C4                       1753 Ldebug_CIE4_start:
+      0000C4 FF FF                 1754 	.dw	0xffff
+      0000C6 FF FF                 1755 	.dw	0xffff
+      0000C8 01                    1756 	.db	1
+      0000C9 00                    1757 	.db	0
+      0000CA 01                    1758 	.uleb128	1
+      0000CB 7F                    1759 	.sleb128	-1
+      0000CC 09                    1760 	.db	9
+      0000CD 0C                    1761 	.db	12
+      0000CE 08                    1762 	.uleb128	8
+      0000CF 02                    1763 	.uleb128	2
+      0000D0 89                    1764 	.db	137
+      0000D1 01                    1765 	.uleb128	1
+      0000D2                       1766 Ldebug_CIE4_end:
+      0000D2 00 00 00 13           1767 	.dw	0,19
+      0000D6 00 00r00rC0           1768 	.dw	0,(Ldebug_CIE4_start-4)
+      0000DA 00 00r00rB5           1769 	.dw	0,(Sstm8s_gpio$GPIO_WriteReverse$78)	;initial loc
+      0000DE 00 00 00 07           1770 	.dw	0,Sstm8s_gpio$GPIO_WriteReverse$82-Sstm8s_gpio$GPIO_WriteReverse$78
+      0000E2 01                    1771 	.db	1
+      0000E3 00 00r00rB5           1772 	.dw	0,(Sstm8s_gpio$GPIO_WriteReverse$78)
+      0000E7 0E                    1773 	.db	14
+      0000E8 02                    1774 	.uleb128	2
+                                   1775 
+                                   1776 	.area .debug_frame (NOLOAD)
+      0000E9 00 00                 1777 	.dw	0
+      0000EB 00 0E                 1778 	.dw	Ldebug_CIE5_end-Ldebug_CIE5_start
+      0000ED                       1779 Ldebug_CIE5_start:
+      0000ED FF FF                 1780 	.dw	0xffff
+      0000EF FF FF                 1781 	.dw	0xffff
+      0000F1 01                    1782 	.db	1
+      0000F2 00                    1783 	.db	0
+      0000F3 01                    1784 	.uleb128	1
+      0000F4 7F                    1785 	.sleb128	-1
+      0000F5 09                    1786 	.db	9
+      0000F6 0C                    1787 	.db	12
+      0000F7 08                    1788 	.uleb128	8
+      0000F8 02                    1789 	.uleb128	2
+      0000F9 89                    1790 	.db	137
+      0000FA 01                    1791 	.uleb128	1
+      0000FB                       1792 Ldebug_CIE5_end:
+      0000FB 00 00 00 21           1793 	.dw	0,33
+      0000FF 00 00r00rE9           1794 	.dw	0,(Ldebug_CIE5_start-4)
+      000103 00 00r00rA7           1795 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$70)	;initial loc
+      000107 00 00 00 0E           1796 	.dw	0,Sstm8s_gpio$GPIO_WriteLow$76-Sstm8s_gpio$GPIO_WriteLow$70
+      00010B 01                    1797 	.db	1
+      00010C 00 00r00rA7           1798 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$70)
+      000110 0E                    1799 	.db	14
+      000111 02                    1800 	.uleb128	2
+      000112 01                    1801 	.db	1
+      000113 00 00r00rA8           1802 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$71)
+      000117 0E                    1803 	.db	14
+      000118 03                    1804 	.uleb128	3
+      000119 01                    1805 	.db	1
+      00011A 00 00r00rB4           1806 	.dw	0,(Sstm8s_gpio$GPIO_WriteLow$74)
+      00011E 0E                    1807 	.db	14
+      00011F 02                    1808 	.uleb128	2
+                                   1809 
+                                   1810 	.area .debug_frame (NOLOAD)
+      000120 00 00                 1811 	.dw	0
+      000122 00 0E                 1812 	.dw	Ldebug_CIE6_end-Ldebug_CIE6_start
+      000124                       1813 Ldebug_CIE6_start:
+      000124 FF FF                 1814 	.dw	0xffff
+      000126 FF FF                 1815 	.dw	0xffff
+      000128 01                    1816 	.db	1
+      000129 00                    1817 	.db	0
+      00012A 01                    1818 	.uleb128	1
+      00012B 7F                    1819 	.sleb128	-1
+      00012C 09                    1820 	.db	9
+      00012D 0C                    1821 	.db	12
+      00012E 08                    1822 	.uleb128	8
+      00012F 02                    1823 	.uleb128	2
+      000130 89                    1824 	.db	137
+      000131 01                    1825 	.uleb128	1
+      000132                       1826 Ldebug_CIE6_end:
+      000132 00 00 00 13           1827 	.dw	0,19
+      000136 00 00r01r20           1828 	.dw	0,(Ldebug_CIE6_start-4)
+      00013A 00 00r00rA0           1829 	.dw	0,(Sstm8s_gpio$GPIO_WriteHigh$64)	;initial loc
+      00013E 00 00 00 07           1830 	.dw	0,Sstm8s_gpio$GPIO_WriteHigh$68-Sstm8s_gpio$GPIO_WriteHigh$64
+      000142 01                    1831 	.db	1
+      000143 00 00r00rA0           1832 	.dw	0,(Sstm8s_gpio$GPIO_WriteHigh$64)
+      000147 0E                    1833 	.db	14
+      000148 02                    1834 	.uleb128	2
+                                   1835 
+                                   1836 	.area .debug_frame (NOLOAD)
+      000149 00 00                 1837 	.dw	0
+      00014B 00 0E                 1838 	.dw	Ldebug_CIE7_end-Ldebug_CIE7_start
+      00014D                       1839 Ldebug_CIE7_start:
+      00014D FF FF                 1840 	.dw	0xffff
+      00014F FF FF                 1841 	.dw	0xffff
+      000151 01                    1842 	.db	1
+      000152 00                    1843 	.db	0
+      000153 01                    1844 	.uleb128	1
+      000154 7F                    1845 	.sleb128	-1
+      000155 09                    1846 	.db	9
+      000156 0C                    1847 	.db	12
+      000157 08                    1848 	.uleb128	8
+      000158 02                    1849 	.uleb128	2
+      000159 89                    1850 	.db	137
+      00015A 01                    1851 	.uleb128	1
+      00015B                       1852 Ldebug_CIE7_end:
+      00015B 00 00 00 13           1853 	.dw	0,19
+      00015F 00 00r01r49           1854 	.dw	0,(Ldebug_CIE7_start-4)
+      000163 00 00r00r9A           1855 	.dw	0,(Sstm8s_gpio$GPIO_Write$58)	;initial loc
+      000167 00 00 00 06           1856 	.dw	0,Sstm8s_gpio$GPIO_Write$62-Sstm8s_gpio$GPIO_Write$58
+      00016B 01                    1857 	.db	1
+      00016C 00 00r00r9A           1858 	.dw	0,(Sstm8s_gpio$GPIO_Write$58)
+      000170 0E                    1859 	.db	14
+      000171 02                    1860 	.uleb128	2
+                                   1861 
+                                   1862 	.area .debug_frame (NOLOAD)
+      000172 00 00                 1863 	.dw	0
+      000174 00 0E                 1864 	.dw	Ldebug_CIE8_end-Ldebug_CIE8_start
+      000176                       1865 Ldebug_CIE8_start:
+      000176 FF FF                 1866 	.dw	0xffff
+      000178 FF FF                 1867 	.dw	0xffff
+      00017A 01                    1868 	.db	1
+      00017B 00                    1869 	.db	0
+      00017C 01                    1870 	.uleb128	1
+      00017D 7F                    1871 	.sleb128	-1
+      00017E 09                    1872 	.db	9
+      00017F 0C                    1873 	.db	12
+      000180 08                    1874 	.uleb128	8
+      000181 02                    1875 	.uleb128	2
+      000182 89                    1876 	.db	137
+      000183 01                    1877 	.uleb128	1
+      000184                       1878 Ldebug_CIE8_end:
+      000184 00 00 00 59           1879 	.dw	0,89
+      000188 00 00r01r72           1880 	.dw	0,(Ldebug_CIE8_start-4)
+      00018C 00 00r00r13           1881 	.dw	0,(Sstm8s_gpio$GPIO_Init$10)	;initial loc
+      000190 00 00 00 87           1882 	.dw	0,Sstm8s_gpio$GPIO_Init$56-Sstm8s_gpio$GPIO_Init$10
+      000194 01                    1883 	.db	1
+      000195 00 00r00r13           1884 	.dw	0,(Sstm8s_gpio$GPIO_Init$10)
+      000199 0E                    1885 	.db	14
+      00019A 02                    1886 	.uleb128	2
+      00019B 01                    1887 	.db	1
+      00019C 00 00r00r15           1888 	.dw	0,(Sstm8s_gpio$GPIO_Init$11)
+      0001A0 0E                    1889 	.db	14
+      0001A1 07                    1890 	.uleb128	7
+      0001A2 01                    1891 	.db	1
+      0001A3 00 00r00r21           1892 	.dw	0,(Sstm8s_gpio$GPIO_Init$13)
+      0001A7 0E                    1893 	.db	14
+      0001A8 08                    1894 	.uleb128	8
+      0001A9 01                    1895 	.db	1
+      0001AA 00 00r00r27           1896 	.dw	0,(Sstm8s_gpio$GPIO_Init$14)
+      0001AE 0E                    1897 	.db	14
+      0001AF 07                    1898 	.uleb128	7
+      0001B0 01                    1899 	.db	1
+      0001B1 00 00r00r3B           1900 	.dw	0,(Sstm8s_gpio$GPIO_Init$20)
+      0001B5 0E                    1901 	.db	14
+      0001B6 08                    1902 	.uleb128	8
+      0001B7 01                    1903 	.db	1
+      0001B8 00 00r00r40           1904 	.dw	0,(Sstm8s_gpio$GPIO_Init$21)
+      0001BC 0E                    1905 	.db	14
+      0001BD 07                    1906 	.uleb128	7
+      0001BE 01                    1907 	.db	1
+      0001BF 00 00r00r69           1908 	.dw	0,(Sstm8s_gpio$GPIO_Init$35)
+      0001C3 0E                    1909 	.db	14
+      0001C4 08                    1910 	.uleb128	8
+      0001C5 01                    1911 	.db	1
+      0001C6 00 00r00r6E           1912 	.dw	0,(Sstm8s_gpio$GPIO_Init$36)
+      0001CA 0E                    1913 	.db	14
+      0001CB 07                    1914 	.uleb128	7
+      0001CC 01                    1915 	.db	1
+      0001CD 00 00r00r80           1916 	.dw	0,(Sstm8s_gpio$GPIO_Init$45)
+      0001D1 0E                    1917 	.db	14
+      0001D2 08                    1918 	.uleb128	8
+      0001D3 01                    1919 	.db	1
+      0001D4 00 00r00r85           1920 	.dw	0,(Sstm8s_gpio$GPIO_Init$46)
+      0001D8 0E                    1921 	.db	14
+      0001D9 07                    1922 	.uleb128	7
+      0001DA 01                    1923 	.db	1
+      0001DB 00 00r00r99           1924 	.dw	0,(Sstm8s_gpio$GPIO_Init$54)
+      0001DF 0E                    1925 	.db	14
+      0001E0 02                    1926 	.uleb128	2
+                                   1927 
+                                   1928 	.area .debug_frame (NOLOAD)
+      0001E1 00 00                 1929 	.dw	0
+      0001E3 00 0E                 1930 	.dw	Ldebug_CIE9_end-Ldebug_CIE9_start
+      0001E5                       1931 Ldebug_CIE9_start:
+      0001E5 FF FF                 1932 	.dw	0xffff
+      0001E7 FF FF                 1933 	.dw	0xffff
+      0001E9 01                    1934 	.db	1
+      0001EA 00                    1935 	.db	0
+      0001EB 01                    1936 	.uleb128	1
+      0001EC 7F                    1937 	.sleb128	-1
+      0001ED 09                    1938 	.db	9
+      0001EE 0C                    1939 	.db	12
+      0001EF 08                    1940 	.uleb128	8
+      0001F0 02                    1941 	.uleb128	2
+      0001F1 89                    1942 	.db	137
+      0001F2 01                    1943 	.uleb128	1
+      0001F3                       1944 Ldebug_CIE9_end:
+      0001F3 00 00 00 13           1945 	.dw	0,19
+      0001F7 00 00r01rE1           1946 	.dw	0,(Ldebug_CIE9_start-4)
+      0001FB 00 00r00r00           1947 	.dw	0,(Sstm8s_gpio$GPIO_DeInit$1)	;initial loc
+      0001FF 00 00 00 13           1948 	.dw	0,Sstm8s_gpio$GPIO_DeInit$8-Sstm8s_gpio$GPIO_DeInit$1
+      000203 01                    1949 	.db	1
+      000204 00 00r00r00           1950 	.dw	0,(Sstm8s_gpio$GPIO_DeInit$1)
+      000208 0E                    1951 	.db	14
+      000209 02                    1952 	.uleb128	2

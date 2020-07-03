@@ -1,0 +1,466 @@
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 1.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+    .__.$$$.                                                    =  002710 L
+    .__.ABS.                                                    =  000000 G
+    .__.CPU.                                                    =  000000 L
+    .__.H$L.                                                    =  000001 L
+  9 A$stm8s_tim4m8s_tim4$107                                       000018 GR
+  9 A$stm8s_tim4m8s_tim4$122                                       000019 GR
+  9 A$stm8s_tim4m8s_tim4$123                                       00001C GR
+  9 A$stm8s_tim4m8s_tim4$124                                       00001E GR
+  9 A$stm8s_tim4m8s_tim4$128                                       00001F GR
+  9 A$stm8s_tim4m8s_tim4$129                                       000022 GR
+  9 A$stm8s_tim4m8s_tim4$130                                       000024 GR
+  9 A$stm8s_tim4m8s_tim4$138                                       000025 GR
+  9 A$stm8s_tim4m8s_tim4$153                                       000026 GR
+  9 A$stm8s_tim4m8s_tim4$157                                       000029 GR
+  9 A$stm8s_tim4m8s_tim4$158                                       00002B GR
+  9 A$stm8s_tim4m8s_tim4$159                                       00002D GR
+  9 A$stm8s_tim4m8s_tim4$165                                       000030 GR
+  9 A$stm8s_tim4m8s_tim4$167                                       000032 GR
+  9 A$stm8s_tim4m8s_tim4$170                                       000035 GR
+  9 A$stm8s_tim4m8s_tim4$177                                       000038 GR
+  9 A$stm8s_tim4m8s_tim4$179                                       00003A GR
+  9 A$stm8s_tim4m8s_tim4$188                                       00003D GR
+  9 A$stm8s_tim4m8s_tim4$200                                       00003E GR
+  9 A$stm8s_tim4m8s_tim4$205                                       00003F GR
+  9 A$stm8s_tim4m8s_tim4$209                                       000042 GR
+  9 A$stm8s_tim4m8s_tim4$210                                       000044 GR
+  9 A$stm8s_tim4m8s_tim4$211                                       000046 GR
+  9 A$stm8s_tim4m8s_tim4$217                                       000049 GR
+  9 A$stm8s_tim4m8s_tim4$219                                       00004B GR
+  9 A$stm8s_tim4m8s_tim4$222                                       00004E GR
+  9 A$stm8s_tim4m8s_tim4$229                                       000051 GR
+  9 A$stm8s_tim4m8s_tim4$231                                       000052 GR
+  9 A$stm8s_tim4m8s_tim4$232                                       000054 GR
+  9 A$stm8s_tim4m8s_tim4$233                                       000055 GR
+  9 A$stm8s_tim4m8s_tim4$234                                       000057 GR
+  9 A$stm8s_tim4m8s_tim4$237                                       000058 GR
+  9 A$stm8s_tim4m8s_tim4$239                                       00005A GR
+  9 A$stm8s_tim4m8s_tim4$246                                       00005D GR
+  9 A$stm8s_tim4m8s_tim4$250                                       00005E GR
+  9 A$stm8s_tim4m8s_tim4$265                                       00005F GR
+  9 A$stm8s_tim4m8s_tim4$269                                       000062 GR
+  9 A$stm8s_tim4m8s_tim4$270                                       000064 GR
+  9 A$stm8s_tim4m8s_tim4$271                                       000066 GR
+  9 A$stm8s_tim4m8s_tim4$277                                       000069 GR
+  9 A$stm8s_tim4m8s_tim4$279                                       00006B GR
+  9 A$stm8s_tim4m8s_tim4$282                                       00006E GR
+  9 A$stm8s_tim4m8s_tim4$289                                       000071 GR
+  9 A$stm8s_tim4m8s_tim4$291                                       000073 GR
+  9 A$stm8s_tim4m8s_tim4$300                                       000076 GR
+  9 A$stm8s_tim4m8s_tim4$315                                       000077 GR
+  9 A$stm8s_tim4m8s_tim4$319                                       00007A GR
+  9 A$stm8s_tim4m8s_tim4$320                                       00007C GR
+  9 A$stm8s_tim4m8s_tim4$321                                       00007E GR
+  9 A$stm8s_tim4m8s_tim4$327                                       000081 GR
+  9 A$stm8s_tim4m8s_tim4$329                                       000083 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 2.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_tim4m8s_tim4$332                                       000086 GR
+  9 A$stm8s_tim4m8s_tim4$339                                       000089 GR
+  9 A$stm8s_tim4m8s_tim4$341                                       00008B GR
+  9 A$stm8s_tim4m8s_tim4$350                                       00008E GR
+  9 A$stm8s_tim4m8s_tim4$365                                       00008F GR
+  9 A$stm8s_tim4m8s_tim4$369                                       000092 GR
+  9 A$stm8s_tim4m8s_tim4$370                                       000094 GR
+  9 A$stm8s_tim4m8s_tim4$371                                       000096 GR
+  9 A$stm8s_tim4m8s_tim4$377                                       000099 GR
+  9 A$stm8s_tim4m8s_tim4$379                                       00009B GR
+  9 A$stm8s_tim4m8s_tim4$382                                       00009E GR
+  9 A$stm8s_tim4m8s_tim4$389                                       0000A1 GR
+  9 A$stm8s_tim4m8s_tim4$391                                       0000A3 GR
+  9 A$stm8s_tim4m8s_tim4$400                                       0000A6 GR
+  9 A$stm8s_tim4m8s_tim4$415                                       0000A7 GR
+  9 A$stm8s_tim4m8s_tim4$416                                       0000AA GR
+  9 A$stm8s_tim4m8s_tim4$417                                       0000AC GR
+  9 A$stm8s_tim4m8s_tim4$421                                       0000AD GR
+  9 A$stm8s_tim4m8s_tim4$422                                       0000B0 GR
+  9 A$stm8s_tim4m8s_tim4$423                                       0000B2 GR
+  9 A$stm8s_tim4m8s_tim4$431                                       0000B3 GR
+  9 A$stm8s_tim4m8s_tim4$446                                       0000B4 GR
+  9 A$stm8s_tim4m8s_tim4$450                                       0000B7 GR
+  9 A$stm8s_tim4m8s_tim4$451                                       0000B9 GR
+  9 A$stm8s_tim4m8s_tim4$452                                       0000BB GR
+  9 A$stm8s_tim4m8s_tim4$458                                       0000BE GR
+  9 A$stm8s_tim4m8s_tim4$460                                       0000C0 GR
+  9 A$stm8s_tim4m8s_tim4$463                                       0000C3 GR
+  9 A$stm8s_tim4m8s_tim4$470                                       0000C6 GR
+  9 A$stm8s_tim4m8s_tim4$472                                       0000C8 GR
+  9 A$stm8s_tim4m8s_tim4$481                                       0000CB GR
+  9 A$stm8s_tim4m8s_tim4$496                                       0000CC GR
+  9 A$stm8s_tim4m8s_tim4$497                                       0000CF GR
+  9 A$stm8s_tim4m8s_tim4$498                                       0000D1 GR
+  9 A$stm8s_tim4m8s_tim4$506                                       0000D2 GR
+  9 A$stm8s_tim4m8s_tim4$521                                       0000D3 GR
+  9 A$stm8s_tim4m8s_tim4$522                                       0000D6 GR
+  9 A$stm8s_tim4m8s_tim4$523                                       0000D8 GR
+  9 A$stm8s_tim4m8s_tim4$531                                       0000D9 GR
+  9 A$stm8s_tim4m8s_tim4$546                                       0000DA GR
+  9 A$stm8s_tim4m8s_tim4$547                                       0000DD GR
+  9 A$stm8s_tim4m8s_tim4$548                                       0000DF GR
+  9 A$stm8s_tim4m8s_tim4$556                                       0000E0 GR
+  9 A$stm8s_tim4m8s_tim4$571                                       0000E1 GR
+  9 A$stm8s_tim4m8s_tim4$580                                       0000E4 GR
+  9 A$stm8s_tim4m8s_tim4$595                                       0000E5 GR
+  9 A$stm8s_tim4m8s_tim4$604                                       0000E8 GR
+  9 A$stm8s_tim4m8s_tim4$619                                       0000E9 GR
+  9 A$stm8s_tim4m8s_tim4$621                                       0000EC GR
+  9 A$stm8s_tim4m8s_tim4$623                                       0000EE GR
+  9 A$stm8s_tim4m8s_tim4$624                                       0000EF GR
+  9 A$stm8s_tim4m8s_tim4$625                                       0000F1 GR
+  9 A$stm8s_tim4m8s_tim4$631                                       0000F4 GR
+  9 A$stm8s_tim4m8s_tim4$634                                       0000F6 GR
+  9 A$stm8s_tim4m8s_tim4$641                                       0000F9 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 3.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 A$stm8s_tim4m8s_tim4$655                                       0000FA GR
+  9 A$stm8s_tim4m8s_tim4$670                                       0000FB GR
+  9 A$stm8s_tim4m8s_tim4$671                                       0000FD GR
+  9 A$stm8s_tim4m8s_tim4$673                                       0000FE GR
+  9 A$stm8s_tim4m8s_tim4$681                                       000101 GR
+  9 A$stm8s_tim4m8s_tim4$693                                       000102 GR
+  9 A$stm8s_tim4m8s_tim4$698                                       000103 GR
+  9 A$stm8s_tim4m8s_tim4$700                                       000106 GR
+  9 A$stm8s_tim4m8s_tim4$702                                       000108 GR
+  9 A$stm8s_tim4m8s_tim4$706                                       00010A GR
+  9 A$stm8s_tim4m8s_tim4$708                                       00010D GR
+  9 A$stm8s_tim4m8s_tim4$713                                       00010F GR
+  9 A$stm8s_tim4m8s_tim4$714                                       000111 GR
+  9 A$stm8s_tim4m8s_tim4$715                                       000113 GR
+  9 A$stm8s_tim4m8s_tim4$718                                       000116 GR
+  9 A$stm8s_tim4m8s_tim4$719                                       000117 GR
+  9 A$stm8s_tim4m8s_tim4$720                                       000119 GR
+  9 A$stm8s_tim4m8s_tim4$726                                       00011C GR
+  9 A$stm8s_tim4m8s_tim4$729                                       00011E GR
+  9 A$stm8s_tim4m8s_tim4$736                                       000121 GR
+  9 A$stm8s_tim4m8s_tim4$748                                       000122 GR
+  9 A$stm8s_tim4m8s_tim4$752                                       000124 GR
+  9 A$stm8s_tim4m8s_tim4$767                                       000125 GR
+  9 A$stm8s_tim4m8s_tim4$768                                       000127 GR
+  9 A$stm8s_tim4m8s_tim4$770                                       000128 GR
+  9 A$stm8s_tim4m8s_tim4$778                                       00012B GR
+  9 A$stm8s_tim4m8s_tim4$79                                        000000 GR
+  9 A$stm8s_tim4m8s_tim4$83                                        000004 GR
+  9 A$stm8s_tim4m8s_tim4$87                                        000008 GR
+  9 A$stm8s_tim4m8s_tim4$91                                        00000C GR
+  9 A$stm8s_tim4m8s_tim4$95                                        000010 GR
+  9 A$stm8s_tim4m8s_tim4$99                                        000014 GR
+ 10 Ldebug_CIE0_end                                                000012 R
+ 10 Ldebug_CIE0_start                                              000004 R
+ 10 Ldebug_CIE10_end                                               0001BA R
+ 10 Ldebug_CIE10_start                                             0001AC R
+ 10 Ldebug_CIE11_end                                               0001E3 R
+ 10 Ldebug_CIE11_start                                             0001D5 R
+ 10 Ldebug_CIE12_end                                               00020C R
+ 10 Ldebug_CIE12_start                                             0001FE R
+ 10 Ldebug_CIE13_end                                               000235 R
+ 10 Ldebug_CIE13_start                                             000227 R
+ 10 Ldebug_CIE14_end                                               00025E R
+ 10 Ldebug_CIE14_start                                             000250 R
+ 10 Ldebug_CIE15_end                                               0002A3 R
+ 10 Ldebug_CIE15_start                                             000295 R
+ 10 Ldebug_CIE16_end                                               0002CC R
+ 10 Ldebug_CIE16_start                                             0002BE R
+ 10 Ldebug_CIE17_end                                               0002F5 R
+ 10 Ldebug_CIE17_start                                             0002E7 R
+ 10 Ldebug_CIE1_end                                                00003B R
+ 10 Ldebug_CIE1_start                                              00002D R
+ 10 Ldebug_CIE2_end                                                000072 R
+ 10 Ldebug_CIE2_start                                              000064 R
+ 10 Ldebug_CIE3_end                                                00009B R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 4.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+ 10 Ldebug_CIE3_start                                              00008D R
+ 10 Ldebug_CIE4_end                                                0000C4 R
+ 10 Ldebug_CIE4_start                                              0000B6 R
+ 10 Ldebug_CIE5_end                                                0000ED R
+ 10 Ldebug_CIE5_start                                              0000DF R
+ 10 Ldebug_CIE6_end                                                000116 R
+ 10 Ldebug_CIE6_start                                              000108 R
+ 10 Ldebug_CIE7_end                                                00013F R
+ 10 Ldebug_CIE7_start                                              000131 R
+ 10 Ldebug_CIE8_end                                                000168 R
+ 10 Ldebug_CIE8_start                                              00015A R
+ 10 Ldebug_CIE9_end                                                000191 R
+ 10 Ldebug_CIE9_start                                              000183 R
+  D Ldebug_abbrev                                                  000000 R
+  E Ldebug_info_end                                                000528 R
+  E Ldebug_info_start                                              000004 R
+  B Ldebug_line_end                                                000399 R
+  B Ldebug_line_start                                              000004 R
+  B Ldebug_line_stmt                                               0000CA R
+  C Ldebug_loc_start                                               000000 R
+  F Ldebug_pubnames_end                                            0001A6 R
+  F Ldebug_pubnames_start                                          000004 R
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$100                       =  0000C3 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$101                       =  0000C6 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$102                       =  0000C6 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$103                       =  0000CB GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$104                       =  0000CB GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$105                       =  0000CB GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$106                       =  0000CC GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$94                        =  0000B4 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$95                        =  0000B4 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$96                        =  0000B4 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$97                        =  0000B7 GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$98                        =  0000BE GR
+  9 Sstm8s_tim4$TIM4_ARRPreloadConfig$99                        =  0000BE GR
+  9 Sstm8s_tim4$TIM4_ClearFlag$150                              =  0000FB GR
+  9 Sstm8s_tim4$TIM4_ClearFlag$151                              =  0000FB GR
+  9 Sstm8s_tim4$TIM4_ClearFlag$152                              =  0000FB GR
+  9 Sstm8s_tim4$TIM4_ClearFlag$153                              =  000101 GR
+  9 Sstm8s_tim4$TIM4_ClearFlag$154                              =  000101 GR
+  9 Sstm8s_tim4$TIM4_ClearFlag$155                              =  000102 GR
+  9 Sstm8s_tim4$TIM4_ClearITPendingBit$173                      =  000125 GR
+  9 Sstm8s_tim4$TIM4_ClearITPendingBit$174                      =  000125 GR
+  9 Sstm8s_tim4$TIM4_ClearITPendingBit$175                      =  000125 GR
+  9 Sstm8s_tim4$TIM4_ClearITPendingBit$176                      =  00012B GR
+  9 Sstm8s_tim4$TIM4_ClearITPendingBit$177                      =  00012B GR
+  9 Sstm8s_tim4$TIM4_ClearITPendingBit$178                      =  00012C GR
+  9 Sstm8s_tim4$TIM4_Cmd$18                                     =  000026 GR
+  9 Sstm8s_tim4$TIM4_Cmd$19                                     =  000026 GR
+  9 Sstm8s_tim4$TIM4_Cmd$20                                     =  000026 GR
+  9 Sstm8s_tim4$TIM4_Cmd$21                                     =  000029 GR
+  9 Sstm8s_tim4$TIM4_Cmd$22                                     =  000030 GR
+  9 Sstm8s_tim4$TIM4_Cmd$23                                     =  000030 GR
+  9 Sstm8s_tim4$TIM4_Cmd$24                                     =  000035 GR
+  9 Sstm8s_tim4$TIM4_Cmd$25                                     =  000038 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 5.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_tim4$TIM4_Cmd$26                                     =  000038 GR
+  9 Sstm8s_tim4$TIM4_Cmd$27                                     =  00003D GR
+  9 Sstm8s_tim4$TIM4_Cmd$28                                     =  00003D GR
+  9 Sstm8s_tim4$TIM4_Cmd$29                                     =  00003D GR
+  9 Sstm8s_tim4$TIM4_Cmd$30                                     =  00003E GR
+  9 Sstm8s_tim4$TIM4_DeInit$0                                   =  000000 GR
+  9 Sstm8s_tim4$TIM4_DeInit$1                                   =  000000 GR
+  9 Sstm8s_tim4$TIM4_DeInit$10                                  =  000019 GR
+  9 Sstm8s_tim4$TIM4_DeInit$2                                   =  000000 GR
+  9 Sstm8s_tim4$TIM4_DeInit$3                                   =  000004 GR
+  9 Sstm8s_tim4$TIM4_DeInit$4                                   =  000008 GR
+  9 Sstm8s_tim4$TIM4_DeInit$5                                   =  00000C GR
+  9 Sstm8s_tim4$TIM4_DeInit$6                                   =  000010 GR
+  9 Sstm8s_tim4$TIM4_DeInit$7                                   =  000014 GR
+  9 Sstm8s_tim4$TIM4_DeInit$8                                   =  000018 GR
+  9 Sstm8s_tim4$TIM4_DeInit$9                                   =  000018 GR
+  9 Sstm8s_tim4$TIM4_GenerateEvent$107                          =  0000CC GR
+  9 Sstm8s_tim4$TIM4_GenerateEvent$108                          =  0000CC GR
+  9 Sstm8s_tim4$TIM4_GenerateEvent$109                          =  0000CC GR
+  9 Sstm8s_tim4$TIM4_GenerateEvent$110                          =  0000D2 GR
+  9 Sstm8s_tim4$TIM4_GenerateEvent$111                          =  0000D2 GR
+  9 Sstm8s_tim4$TIM4_GenerateEvent$112                          =  0000D3 GR
+  9 Sstm8s_tim4$TIM4_GetCounter$125                             =  0000E1 GR
+  9 Sstm8s_tim4$TIM4_GetCounter$126                             =  0000E1 GR
+  9 Sstm8s_tim4$TIM4_GetCounter$127                             =  0000E1 GR
+  9 Sstm8s_tim4$TIM4_GetCounter$128                             =  0000E4 GR
+  9 Sstm8s_tim4$TIM4_GetCounter$129                             =  0000E4 GR
+  9 Sstm8s_tim4$TIM4_GetCounter$130                             =  0000E5 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$137                          =  0000E9 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$138                          =  0000E9 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$139                          =  0000E9 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$140                          =  0000F4 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$141                          =  0000F4 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$142                          =  0000F6 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$143                          =  0000F9 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$144                          =  0000F9 GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$145                          =  0000FA GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$146                          =  0000FA GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$147                          =  0000FA GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$148                          =  0000FA GR
+  9 Sstm8s_tim4$TIM4_GetFlagStatus$149                          =  0000FB GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$156                            =  000102 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$157                            =  000102 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$158                            =  000103 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$159                            =  000103 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$160                            =  00010A GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$161                            =  00010F GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$162                            =  00011C GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$163                            =  00011C GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$164                            =  00011E GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$165                            =  000121 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$166                            =  000121 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$167                            =  000122 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$168                            =  000122 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$169                            =  000122 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 6.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_tim4$TIM4_GetITStatus$170                            =  000124 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$171                            =  000124 GR
+  9 Sstm8s_tim4$TIM4_GetITStatus$172                            =  000125 GR
+  9 Sstm8s_tim4$TIM4_GetPrescaler$131                           =  0000E5 GR
+  9 Sstm8s_tim4$TIM4_GetPrescaler$132                           =  0000E5 GR
+  9 Sstm8s_tim4$TIM4_GetPrescaler$133                           =  0000E5 GR
+  9 Sstm8s_tim4$TIM4_GetPrescaler$134                           =  0000E8 GR
+  9 Sstm8s_tim4$TIM4_GetPrescaler$135                           =  0000E8 GR
+  9 Sstm8s_tim4$TIM4_GetPrescaler$136                           =  0000E9 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$31                                =  00003E GR
+  9 Sstm8s_tim4$TIM4_ITConfig$32                                =  00003E GR
+  9 Sstm8s_tim4$TIM4_ITConfig$33                                =  00003F GR
+  9 Sstm8s_tim4$TIM4_ITConfig$34                                =  00003F GR
+  9 Sstm8s_tim4$TIM4_ITConfig$35                                =  000042 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$36                                =  000049 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$37                                =  000049 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$38                                =  00004E GR
+  9 Sstm8s_tim4$TIM4_ITConfig$39                                =  000051 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$40                                =  000051 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$41                                =  000052 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$42                                =  000058 GR
+  9 Sstm8s_tim4$TIM4_ITConfig$43                                =  00005D GR
+  9 Sstm8s_tim4$TIM4_ITConfig$44                                =  00005D GR
+  9 Sstm8s_tim4$TIM4_ITConfig$45                                =  00005E GR
+  9 Sstm8s_tim4$TIM4_ITConfig$46                                =  00005E GR
+  9 Sstm8s_tim4$TIM4_ITConfig$47                                =  00005F GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$87                         =  0000A7 GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$88                         =  0000A7 GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$89                         =  0000A7 GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$90                         =  0000AD GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$91                         =  0000B3 GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$92                         =  0000B3 GR
+  9 Sstm8s_tim4$TIM4_PrescalerConfig$93                         =  0000B4 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$74                      =  00008F GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$75                      =  00008F GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$76                      =  00008F GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$77                      =  000092 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$78                      =  000099 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$79                      =  000099 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$80                      =  00009E GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$81                      =  0000A1 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$82                      =  0000A1 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$83                      =  0000A6 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$84                      =  0000A6 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$85                      =  0000A6 GR
+  9 Sstm8s_tim4$TIM4_SelectOnePulseMode$86                      =  0000A7 GR
+  9 Sstm8s_tim4$TIM4_SetAutoreload$119                          =  0000DA GR
+  9 Sstm8s_tim4$TIM4_SetAutoreload$120                          =  0000DA GR
+  9 Sstm8s_tim4$TIM4_SetAutoreload$121                          =  0000DA GR
+  9 Sstm8s_tim4$TIM4_SetAutoreload$122                          =  0000E0 GR
+  9 Sstm8s_tim4$TIM4_SetAutoreload$123                          =  0000E0 GR
+  9 Sstm8s_tim4$TIM4_SetAutoreload$124                          =  0000E1 GR
+  9 Sstm8s_tim4$TIM4_SetCounter$113                             =  0000D3 GR
+  9 Sstm8s_tim4$TIM4_SetCounter$114                             =  0000D3 GR
+  9 Sstm8s_tim4$TIM4_SetCounter$115                             =  0000D3 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 7.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 Sstm8s_tim4$TIM4_SetCounter$116                             =  0000D9 GR
+  9 Sstm8s_tim4$TIM4_SetCounter$117                             =  0000D9 GR
+  9 Sstm8s_tim4$TIM4_SetCounter$118                             =  0000DA GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$11                            =  000019 GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$12                            =  000019 GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$13                            =  000019 GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$14                            =  00001F GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$15                            =  000025 GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$16                            =  000025 GR
+  9 Sstm8s_tim4$TIM4_TimeBaseInit$17                            =  000026 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$48                     =  00005F GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$49                     =  00005F GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$50                     =  00005F GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$51                     =  000062 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$52                     =  000069 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$53                     =  000069 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$54                     =  00006E GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$55                     =  000071 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$56                     =  000071 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$57                     =  000076 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$58                     =  000076 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$59                     =  000076 GR
+  9 Sstm8s_tim4$TIM4_UpdateDisableConfig$60                     =  000077 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$61                     =  000077 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$62                     =  000077 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$63                     =  000077 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$64                     =  00007A GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$65                     =  000081 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$66                     =  000081 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$67                     =  000086 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$68                     =  000089 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$69                     =  000089 GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$70                     =  00008E GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$71                     =  00008E GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$72                     =  00008E GR
+  9 Sstm8s_tim4$TIM4_UpdateRequestConfig$73                     =  00008F GR
+  9 XG$TIM4_ARRPreloadConfig$0$0                                =  0000CB GR
+  9 XG$TIM4_ClearFlag$0$0                                       =  000101 GR
+  9 XG$TIM4_ClearITPendingBit$0$0                               =  00012B GR
+  9 XG$TIM4_Cmd$0$0                                             =  00003D GR
+  9 XG$TIM4_DeInit$0$0                                          =  000018 GR
+  9 XG$TIM4_GenerateEvent$0$0                                   =  0000D2 GR
+  9 XG$TIM4_GetCounter$0$0                                      =  0000E4 GR
+  9 XG$TIM4_GetFlagStatus$0$0                                   =  0000FA GR
+  9 XG$TIM4_GetITStatus$0$0                                     =  000124 GR
+  9 XG$TIM4_GetPrescaler$0$0                                    =  0000E8 GR
+  9 XG$TIM4_ITConfig$0$0                                        =  00005E GR
+  9 XG$TIM4_PrescalerConfig$0$0                                 =  0000B3 GR
+  9 XG$TIM4_SelectOnePulseMode$0$0                              =  0000A6 GR
+  9 XG$TIM4_SetAutoreload$0$0                                   =  0000E0 GR
+  9 XG$TIM4_SetCounter$0$0                                      =  0000D9 GR
+  9 XG$TIM4_TimeBaseInit$0$0                                    =  000025 GR
+  9 XG$TIM4_UpdateDisableConfig$0$0                             =  000076 GR
+  9 XG$TIM4_UpdateRequestConfig$0$0                             =  00008E GR
+  9 _TIM4_ARRPreloadConfig                                         0000B4 GR
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 8.
+Hexadecimal [24-Bits]
+
+Symbol Table
+
+  9 _TIM4_ClearFlag                                                0000FB GR
+  9 _TIM4_ClearITPendingBit                                        000125 GR
+  9 _TIM4_Cmd                                                      000026 GR
+  9 _TIM4_DeInit                                                   000000 GR
+  9 _TIM4_GenerateEvent                                            0000CC GR
+  9 _TIM4_GetCounter                                               0000E1 GR
+  9 _TIM4_GetFlagStatus                                            0000E9 GR
+  9 _TIM4_GetITStatus                                              000102 GR
+  9 _TIM4_GetPrescaler                                             0000E5 GR
+  9 _TIM4_ITConfig                                                 00003E GR
+  9 _TIM4_PrescalerConfig                                          0000A7 GR
+  9 _TIM4_SelectOnePulseMode                                       00008F GR
+  9 _TIM4_SetAutoreload                                            0000DA GR
+  9 _TIM4_SetCounter                                               0000D3 GR
+  9 _TIM4_TimeBaseInit                                             000019 GR
+  9 _TIM4_UpdateDisableConfig                                      00005F GR
+  9 _TIM4_UpdateRequestConfig                                      000077 GR
+
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (STMicroelectronics STM8), page 9.
+Hexadecimal [24-Bits]
+
+Area Table
+
+   0 _CODE                                      size      0   flags    0
+   1 DATA                                       size      0   flags    0
+   2 INITIALIZED                                size      0   flags    0
+   3 DABS                                       size      0   flags    8
+   4 HOME                                       size      0   flags    0
+   5 GSINIT                                     size      0   flags    0
+   6 GSFINAL                                    size      0   flags    0
+   7 CONST                                      size      0   flags    0
+   8 INITIALIZER                                size      0   flags    0
+   9 CODE                                       size    12C   flags    0
+   A CABS                                       size      0   flags    8
+   B .debug_line                                size    399   flags  100
+   C .debug_loc                                 size    1B0   flags  100
+   D .debug_abbrev                              size     8B   flags  100
+   E .debug_info                                size    528   flags  100
+   F .debug_pubnames                            size    1A6   flags  100
+  10 .debug_frame                               size    30C   flags  100
+

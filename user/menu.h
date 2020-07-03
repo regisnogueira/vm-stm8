@@ -13,8 +13,8 @@
 #define BTN_DEC_PORT_NUM GPIOC
 #define BTN_DEC_PIN_NUM  GPIO_PIN_5
 
-#undef gpio_read(a,b)
-#undef gpio_dir_in(a,b)
+//#undef gpio_read(a,b)
+//#undef gpio_dir_in(a,b)
 
 #define gpio_read(a,b)   GPIO_ReadInputPin(a, (GPIO_Pin_TypeDef)b)
 #define gpio_dir_in(a,b) GPIO_Init(a, (GPIO_Pin_TypeDef)b, GPIO_MODE_IN_PU_IT)
@@ -82,3 +82,4 @@ void tmr_menu(void);
 void task_menu(void);
 
 #endif
+

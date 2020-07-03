@@ -3,7 +3,7 @@
 #include "user_led.h"
 #include "user_display.h"
 #include "user_eeprom.h"
-#include "motor.h"
+//#include "motor.h"
 #include "menu.h"
 
 void main(void)
@@ -17,6 +17,5 @@ void main(void)
     for (;;) {
         pool_tick();
         task_menu();
-        //task_motor();
     }
 }
