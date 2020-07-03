@@ -1,8 +1,7 @@
 #include "menu.h"
-#include "application.h"
-#include "user_buzzer.h"
 #include "user_eeprom.h"
 #include "user_display.h"
+#include "user_led.h"
 
 #define _decrement(a) if(a) a--
 #define _beep(a) set_buzzer(a,100,50)
@@ -49,7 +48,7 @@ void set_menu_value(void)
 #ifdef EN_MENU
     set_eeprom_data(menu.value, menu.idx);
     menu.write = 0;
-    _beep(3);
+//    _beep(3);
 #endif
 }
 
@@ -66,8 +65,6 @@ void tmr_menu(void)
 static void inc_option(void)
 {
 #ifdef EN_MENU
-    if (++menu.idx > PAR_COUNT)
-        menu.idx = 0;
     menu.value = get_menu_value(menu.idx);
 #endif
 }
@@ -75,11 +72,6 @@ static void inc_option(void)
 static void dec_option(void)
 {
 #ifdef EN_MENU
-    if (menu.idx) {
-        menu.idx--;
-    } else {
-        menu.idx = PAR_COUNT;
-    }
     menu.value = get_menu_value(menu.idx);
 #endif
 }
@@ -106,7 +98,7 @@ static void dec_value(void)
 void interrupt_buttons(void)
 {
 #ifdef EN_MENU
-    _beep(1);
+//    _beep(1);
     if ((GPIO_ReadInputData(BTN_PORT) & BTN_SET_PIN_NUM) == 0x00) {
         if (!btn[BTN_SET_IDX].debounce) {
             btn[BTN_SET_IDX].debounce = BTN_DEBOUNCE;
@@ -137,7 +129,7 @@ void process_button(void)
         btn[BTN_SET_IDX].status = BTN_STAT_FREE;
         if (menu.edit)
             menu.write = 1; 
-        menu.edit = (uint8_t)!menu.edit;
+        //menu.edit = (uint8_t)!menu.edit;
     }
     if (btn[BTN_INC_IDX].status == BTN_STAT_PRESSED) {
         btn[BTN_INC_IDX].status = BTN_STAT_FREE;
@@ -186,9 +178,10 @@ void task_menu(void)
     if (menu.write)
         set_menu_value();
 
-    option_dp = (menu.edit) ? (option_dp^1u) : 0u;
-
-    set_display_option(par[menu.idx].option, option_dp);
-    set_display_value(menu.value, par[menu.idx].dp);
+    //option_dp = (menu.edit) ? (option_dp^1u) : 0u;
+    menu.edit = 1;
+    //set_display_option(par[menu.idx].option, option_dp);
+    set_display_value(menu.value, 1);//par[menu.idx].dp);
+    set_led_period(menu.value);
 #endif
 }

@@ -61,18 +61,11 @@ Release\stm8s_tim4.o
 Release\stm8s_uart1.o
 Release\main.o
 Release\stm8s_it.o
-Release\pressure_sensor.o
-Release\application.o
 Release\menu.o
-Release\motor.o
-Release\user_adc.o
-Release\user_buzzer.o
 Release\user_display.o
 Release\user_eeprom.o
 Release\user_led.o
-Release\user_pwm.o
 Release\user_timer.o
-Release\user_uart.o
 #<END OBJECT_FILES>
 
 

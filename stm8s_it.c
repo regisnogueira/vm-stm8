@@ -29,7 +29,7 @@
 #include "stm8s_it.h"
 
 extern void task_timer(void);
-extern uint16_t read_adc(void);
+//extern uint16_t read_adc(void);
 extern void interrupt_buttons(void);
 
 /* Public functions ----------------------------------------------------------*/
@@ -425,7 +425,7 @@ INTERRUPT_HANDLER(I2C_IRQHandler, 19)
   */
  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
 {    
-    read_adc();
+//    read_adc();
     return;
 }
 #endif /*STM8S208 or STM8S207 or STM8AF52Ax or STM8AF62Ax */

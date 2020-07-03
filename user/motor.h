@@ -4,8 +4,8 @@
 #include "user_pwm.h"
 #include "user_adc.h"
 
-#define EN_MOTOR
-#define TEST_MOTOR
+//#define EN_MOTOR
+//#define TEST_MOTOR
 
 #define MOTOR_RELAY_PORT_NUM GPIOA
 #define MOTOR_RELAY_PIN_NUM  GPIO_PIN_3

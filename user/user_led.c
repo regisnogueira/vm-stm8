@@ -3,34 +3,36 @@
 extern int tick;
 
 #ifdef EN_USER_LED
-LED_STATE led[QTD_LED];
+LED_STATE led;
 #endif
 
 void init_led(void)
 {
 #ifdef EN_USER_LED
     led1_dir();
-    set_led(LED1, BLINK_SLOW);
+    led.time = 0;
+//    set_led(BLINK_SLOW);
 #endif    
 }
 
 void tmr_led(void)
 {
 #ifdef EN_USER_LED
-    if (++led[LED1].time < led[LED1].speed) {
+    if (++led.time < (led.speed - LED_PULSE)) {
         led1_off();
     } else {
         led1_on();
-        if (led[LED1].time > led[LED1].speed + LED_PULSE) {
-            led[LED1].time = 0;
+        if (led.time >= led.speed) {
+            led.time = 0;
+            led1_off();
         }
     }
 #endif
 }
 
-void set_led(uint8_t ledx, uint16_t speed)
+void set_led_period(uint16_t speed)
 {
 #ifdef EN_USER_LED
-    led[ledx].speed = speed;
+    led.speed = speed*100;
 #endif
 }

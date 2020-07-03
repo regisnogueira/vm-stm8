@@ -61,18 +61,11 @@ Debug\stm8s_tim4.o
 Debug\stm8s_uart1.o
 Debug\main.o
 Debug\stm8s_it.o
-Debug\pressure_sensor.o
-Debug\application.o
 Debug\menu.o
-Debug\motor.o
-Debug\user_adc.o
-Debug\user_buzzer.o
 Debug\user_display.o
 Debug\user_eeprom.o
 Debug\user_led.o
-Debug\user_pwm.o
 Debug\user_timer.o
-Debug\user_uart.o
 #<END OBJECT_FILES>
 
 

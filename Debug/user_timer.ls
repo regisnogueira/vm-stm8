@@ -75,66 +75,57 @@
  270                     	switch	.ubsct
  271  0000               L77_tpool:
  272  0000 00            	ds.b	1
- 312                     ; 86 void task_timer(void)
- 312                     ; 87 {
- 313                     	switch	.text
- 314  0039               _task_timer:
- 318                     ; 90     if (tmr_delay)
- 320  0039 ae0000        	ldw	x,#_tmr_delay
- 321  003c cd0000        	call	c_lzmp
- 323  003f 2708          	jreq	L711
- 324                     ; 91         tmr_delay--;
- 326  0041 ae0000        	ldw	x,#_tmr_delay
- 327  0044 a601          	ld	a,#1
- 328  0046 cd0000        	call	c_lgsbc
- 330  0049               L711:
- 331                     ; 93     tmr_led();
- 333  0049 cd0000        	call	_tmr_led
- 335                     ; 94     tmr_buzzer();
- 337  004c cd0000        	call	_tmr_buzzer
- 339                     ; 95     tmr_display();
- 341  004f cd0000        	call	_tmr_display
- 343                     ; 96     tmr_menu();
- 345  0052 cd0000        	call	_tmr_menu
- 347                     ; 97     tmr_pressure_sensor();
- 349  0055 cd0000        	call	_tmr_pressure_sensor
- 351                     ; 98     tmr_motor();
- 353  0058 cd0000        	call	_tmr_motor
- 355                     ; 100     if (++tpool >= TIMER_POOL) {
- 357  005b 3c00          	inc	L77_tpool
- 358  005d b600          	ld	a,L77_tpool
- 359  005f a164          	cp	a,#100
- 360  0061 2506          	jrult	L121
- 361                     ; 101         tpool = 0;
- 363  0063 3f00          	clr	L77_tpool
- 364                     ; 102         timer_tick = 1;
- 366  0065 35010004      	mov	_timer_tick,#1
- 367  0069               L121:
- 368                     ; 104 }
- 371  0069 81            	ret
- 413                     	xdef	_task_timer
- 414                     	xdef	_timer_tick
- 415                     	switch	.ubsct
- 416  0001               _tick:
- 417  0001 00            	ds.b	1
- 418                     	xdef	_tick
- 419                     	xdef	_tmr_delay
- 420                     	xref	_tmr_pressure_sensor
- 421                     	xref	_tmr_motor
- 422                     	xref	_tmr_menu
- 423                     	xref	_tmr_display
- 424                     	xref	_tmr_buzzer
- 425                     	xref	_tmr_led
- 426                     	xdef	_TIM4_Config
- 427                     	xdef	_CLK_Config
- 428                     	xdef	_delay
- 429                     	xdef	_pool_tick
- 430                     	xdef	_init_timer
- 431                     	xref	_TIM4_ClearFlag
- 432                     	xref	_TIM4_ITConfig
- 433                     	xref	_TIM4_Cmd
- 434                     	xref	_TIM4_TimeBaseInit
- 435                     	xref	_CLK_HSIPrescalerConfig
- 455                     	xref	c_lgsbc
- 456                     	xref	c_lzmp
- 457                     	end
+ 309                     ; 86 void task_timer(void)
+ 309                     ; 87 {
+ 310                     	switch	.text
+ 311  0039               _task_timer:
+ 315                     ; 90     if (tmr_delay)
+ 317  0039 ae0000        	ldw	x,#_tmr_delay
+ 318  003c cd0000        	call	c_lzmp
+ 320  003f 2708          	jreq	L711
+ 321                     ; 91         tmr_delay--;
+ 323  0041 ae0000        	ldw	x,#_tmr_delay
+ 324  0044 a601          	ld	a,#1
+ 325  0046 cd0000        	call	c_lgsbc
+ 327  0049               L711:
+ 328                     ; 93     tmr_led();
+ 330  0049 cd0000        	call	_tmr_led
+ 332                     ; 94     tmr_display();
+ 334  004c cd0000        	call	_tmr_display
+ 336                     ; 95     tmr_menu();
+ 338  004f cd0000        	call	_tmr_menu
+ 340                     ; 97     if (++tpool >= TIMER_POOL) {
+ 342  0052 3c00          	inc	L77_tpool
+ 343  0054 b600          	ld	a,L77_tpool
+ 344  0056 a164          	cp	a,#100
+ 345  0058 2506          	jrult	L121
+ 346                     ; 98         tpool = 0;
+ 348  005a 3f00          	clr	L77_tpool
+ 349                     ; 99         timer_tick = 1;
+ 351  005c 35010004      	mov	_timer_tick,#1
+ 352  0060               L121:
+ 353                     ; 101 }
+ 356  0060 81            	ret
+ 398                     	xdef	_task_timer
+ 399                     	xdef	_timer_tick
+ 400                     	switch	.ubsct
+ 401  0001               _tick:
+ 402  0001 00            	ds.b	1
+ 403                     	xdef	_tick
+ 404                     	xdef	_tmr_delay
+ 405                     	xref	_tmr_menu
+ 406                     	xref	_tmr_display
+ 407                     	xref	_tmr_led
+ 408                     	xdef	_TIM4_Config
+ 409                     	xdef	_CLK_Config
+ 410                     	xdef	_delay
+ 411                     	xdef	_pool_tick
+ 412                     	xdef	_init_timer
+ 413                     	xref	_TIM4_ClearFlag
+ 414                     	xref	_TIM4_ITConfig
+ 415                     	xref	_TIM4_Cmd
+ 416                     	xref	_TIM4_TimeBaseInit
+ 417                     	xref	_CLK_HSIPrescalerConfig
+ 437                     	xref	c_lgsbc
+ 438                     	xref	c_lzmp
+ 439                     	end

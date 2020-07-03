@@ -82,8 +82,8 @@
  151  005d 00            	dc.b	page(f_NonHandledInterrupt)
  152  005e 0000          	dc.w	f_NonHandledInterrupt
  153  0060 82            	dc.b	130
- 155  0061 00            	dc.b	page(f_ADC1_IRQHandler)
- 156  0062 0000          	dc.w	f_ADC1_IRQHandler
+ 155  0061 00            	dc.b	page(f_NonHandledInterrupt)
+ 156  0062 0000          	dc.w	f_NonHandledInterrupt
  157  0064 82            	dc.b	130
  159  0065 00            	dc.b	page(f_TIM4_UPD_OVF_IRQHandler)
  160  0066 0000          	dc.w	f_TIM4_UPD_OVF_IRQHandler
@@ -107,8 +107,7 @@
  184  007e 0000          	dc.w	f_NonHandledInterrupt
  235                     	xdef	__vectab
  236                     	xref	f_TIM4_UPD_OVF_IRQHandler
- 237                     	xref	f_ADC1_IRQHandler
- 238                     	xref	f_EXTI_PORTC_IRQHandler
- 239                     	xdef	f_NonHandledInterrupt
- 240                     	xref	__stext
- 259                     	end
+ 237                     	xref	f_EXTI_PORTC_IRQHandler
+ 238                     	xdef	f_NonHandledInterrupt
+ 239                     	xref	__stext
+ 258                     	end

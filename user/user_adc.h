@@ -3,7 +3,7 @@
 
 #include "stm8s.h"
 
-#define EN_USER_ADC
+//#define EN_USER_ADC
 
 #define LEN_ADC_CHANNEL 2
 

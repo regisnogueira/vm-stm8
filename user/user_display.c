@@ -18,19 +18,26 @@ uint8_t display_test = 1;
 uint8_t display_num[MAX_DIG_POS] = {'A', 0, 0};
 uint8_t dp[MAX_DIG_POS] = {0, 0 ,0};
 
-uint8_t dec2bcd(uint8_t val)
+uint16_t dec2bcd(uint16_t val)
 {
-    return (uint8_t)((val/10*16) + (val%10));
+    uint8_t dig[3];
+    
+    dig[0] = (uint8_t)(val/100);
+    dig[1] = (uint8_t)((val-(dig[0]*100))/10);
+    dig[2] = (uint8_t)(val%10);
+
+    return (uint16_t)((dig[0]<<8) | (dig[1]<<4) | (dig[2]));
 }
 
-void set_display_value(uint8_t value, uint8_t _dp)
+void set_display_value(uint16_t value, uint8_t _dp)
 {
 #ifdef EN_USER_DISPLAY
-    uint8_t bcd;
+    uint16_t bcd;
 
-    bcd = (uint8_t)dec2bcd(value);
+    bcd = dec2bcd(value);
 
-    display_num[DIG2_POS] = (uint8_t)(bcd >> 4);
+    display_num[DIG1_POS] = (uint8_t)((bcd >> 8) & 0x0F);
+    display_num[DIG2_POS] = (uint8_t)((bcd >> 4) & 0x0F);
     display_num[DIG3_POS] = (uint8_t)(bcd & 0x0F);
     
     dp[DIG2_POS] = _dp;

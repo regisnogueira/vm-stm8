@@ -2,7 +2,7 @@
 #define __USER_DISPLAY_H__
 #include "stm8s.h"
 
-//#define EN_USER_DISPLAY
+#define EN_USER_DISPLAY
 
 #define SEG_A_PORT_NUM GPIOD
 #define SEG_A_PIN_NUM  GPIO_PIN_5
@@ -280,7 +280,7 @@ enum {
 void init_display(void);
 void task_display(void);
 void tmr_display(void);
-void set_display_value(uint8_t value, uint8_t _dp);
+void set_display_value(uint16_t value, uint8_t _dp);
 void set_display_option(uint8_t option, uint8_t _dp);
 
 #endif

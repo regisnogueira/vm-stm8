@@ -91,11 +91,8 @@ void task_timer(void)
         tmr_delay--;
 
     tmr_led();
-    tmr_buzzer();
     tmr_display();
     tmr_menu();
-    tmr_pressure_sensor();
-    tmr_motor();
 
     if (++tpool >= TIMER_POOL) {
         tpool = 0;

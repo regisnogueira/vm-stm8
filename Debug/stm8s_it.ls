@@ -122,89 +122,69 @@
  573  0031               f_I2C_IRQHandler:
  577                     ; 351 }
  580  0031 80            	iret
- 603                     ; 426  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
- 603                     ; 427 {    
- 604                     	switch	.text
- 605  0032               f_ADC1_IRQHandler:
- 607  0032 8a            	push	cc
- 608  0033 84            	pop	a
- 609  0034 a4bf          	and	a,#191
- 610  0036 88            	push	a
- 611  0037 86            	pop	cc
- 612  0038 3b0002        	push	c_x+2
- 613  003b be00          	ldw	x,c_x
- 614  003d 89            	pushw	x
- 615  003e 3b0002        	push	c_y+2
- 616  0041 be00          	ldw	x,c_y
- 617  0043 89            	pushw	x
- 620                     ; 428     read_adc();
- 622  0044 cd0000        	call	_read_adc
- 624                     ; 429     return;
- 627  0047 85            	popw	x
- 628  0048 bf00          	ldw	c_y,x
- 629  004a 320002        	pop	c_y+2
- 630  004d 85            	popw	x
- 631  004e bf00          	ldw	c_x,x
- 632  0050 320002        	pop	c_x+2
- 633  0053 80            	iret
- 658                     ; 451  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
- 658                     ; 452 {
- 659                     	switch	.text
- 660  0054               f_TIM4_UPD_OVF_IRQHandler:
- 662  0054 8a            	push	cc
- 663  0055 84            	pop	a
- 664  0056 a4bf          	and	a,#191
- 665  0058 88            	push	a
- 666  0059 86            	pop	cc
- 667  005a 3b0002        	push	c_x+2
- 668  005d be00          	ldw	x,c_x
- 669  005f 89            	pushw	x
- 670  0060 3b0002        	push	c_y+2
- 671  0063 be00          	ldw	x,c_y
- 672  0065 89            	pushw	x
- 675                     ; 453   task_timer();
- 677  0066 cd0000        	call	_task_timer
- 679                     ; 455   TIM4_ClearITPendingBit(TIM4_IT_UPDATE);
- 681  0069 a601          	ld	a,#1
- 682  006b cd0000        	call	_TIM4_ClearITPendingBit
- 684                     ; 457 }
- 687  006e 85            	popw	x
- 688  006f bf00          	ldw	c_y,x
- 689  0071 320002        	pop	c_y+2
- 690  0074 85            	popw	x
- 691  0075 bf00          	ldw	c_x,x
- 692  0077 320002        	pop	c_x+2
- 693  007a 80            	iret
- 716                     ; 465 INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
- 716                     ; 466 {
- 717                     	switch	.text
- 718  007b               f_EEPROM_EEC_IRQHandler:
- 722                     ; 470 }
- 725  007b 80            	iret
- 737                     	xref	_interrupt_buttons
- 738                     	xref	_read_adc
- 739                     	xref	_task_timer
- 740                     	xdef	f_EEPROM_EEC_IRQHandler
- 741                     	xdef	f_TIM4_UPD_OVF_IRQHandler
- 742                     	xdef	f_ADC1_IRQHandler
- 743                     	xdef	f_I2C_IRQHandler
- 744                     	xdef	f_UART1_RX_IRQHandler
- 745                     	xdef	f_UART1_TX_IRQHandler
- 746                     	xdef	f_TIM2_CAP_COM_IRQHandler
- 747                     	xdef	f_TIM2_UPD_OVF_BRK_IRQHandler
- 748                     	xdef	f_TIM1_UPD_OVF_TRG_BRK_IRQHandler
- 749                     	xdef	f_TIM1_CAP_COM_IRQHandler
- 750                     	xdef	f_SPI_IRQHandler
- 751                     	xdef	f_EXTI_PORTE_IRQHandler
- 752                     	xdef	f_EXTI_PORTD_IRQHandler
- 753                     	xdef	f_EXTI_PORTC_IRQHandler
- 754                     	xdef	f_EXTI_PORTB_IRQHandler
- 755                     	xdef	f_EXTI_PORTA_IRQHandler
- 756                     	xdef	f_CLK_IRQHandler
- 757                     	xdef	f_AWU_IRQHandler
- 758                     	xdef	f_TLI_IRQHandler
- 759                     	xdef	f_TRAP_IRQHandler
- 760                     	xref	_TIM4_ClearITPendingBit
- 761                     	xref.b	c_x
- 762                     	xref.b	c_y
- 781                     	end
+ 602                     ; 426  INTERRUPT_HANDLER(ADC1_IRQHandler, 22)
+ 602                     ; 427 {    
+ 603                     	switch	.text
+ 604  0032               f_ADC1_IRQHandler:
+ 608                     ; 429     return;
+ 611  0032 80            	iret
+ 636                     ; 451  INTERRUPT_HANDLER(TIM4_UPD_OVF_IRQHandler, 23)
+ 636                     ; 452 {
+ 637                     	switch	.text
+ 638  0033               f_TIM4_UPD_OVF_IRQHandler:
+ 640  0033 8a            	push	cc
+ 641  0034 84            	pop	a
+ 642  0035 a4bf          	and	a,#191
+ 643  0037 88            	push	a
+ 644  0038 86            	pop	cc
+ 645  0039 3b0002        	push	c_x+2
+ 646  003c be00          	ldw	x,c_x
+ 647  003e 89            	pushw	x
+ 648  003f 3b0002        	push	c_y+2
+ 649  0042 be00          	ldw	x,c_y
+ 650  0044 89            	pushw	x
+ 653                     ; 453   task_timer();
+ 655  0045 cd0000        	call	_task_timer
+ 657                     ; 455   TIM4_ClearITPendingBit(TIM4_IT_UPDATE);
+ 659  0048 a601          	ld	a,#1
+ 660  004a cd0000        	call	_TIM4_ClearITPendingBit
+ 662                     ; 457 }
+ 665  004d 85            	popw	x
+ 666  004e bf00          	ldw	c_y,x
+ 667  0050 320002        	pop	c_y+2
+ 668  0053 85            	popw	x
+ 669  0054 bf00          	ldw	c_x,x
+ 670  0056 320002        	pop	c_x+2
+ 671  0059 80            	iret
+ 694                     ; 465 INTERRUPT_HANDLER(EEPROM_EEC_IRQHandler, 24)
+ 694                     ; 466 {
+ 695                     	switch	.text
+ 696  005a               f_EEPROM_EEC_IRQHandler:
+ 700                     ; 470 }
+ 703  005a 80            	iret
+ 715                     	xref	_interrupt_buttons
+ 716                     	xref	_task_timer
+ 717                     	xdef	f_EEPROM_EEC_IRQHandler
+ 718                     	xdef	f_TIM4_UPD_OVF_IRQHandler
+ 719                     	xdef	f_ADC1_IRQHandler
+ 720                     	xdef	f_I2C_IRQHandler
+ 721                     	xdef	f_UART1_RX_IRQHandler
+ 722                     	xdef	f_UART1_TX_IRQHandler
+ 723                     	xdef	f_TIM2_CAP_COM_IRQHandler
+ 724                     	xdef	f_TIM2_UPD_OVF_BRK_IRQHandler
+ 725                     	xdef	f_TIM1_UPD_OVF_TRG_BRK_IRQHandler
+ 726                     	xdef	f_TIM1_CAP_COM_IRQHandler
+ 727                     	xdef	f_SPI_IRQHandler
+ 728                     	xdef	f_EXTI_PORTE_IRQHandler
+ 729                     	xdef	f_EXTI_PORTD_IRQHandler
+ 730                     	xdef	f_EXTI_PORTC_IRQHandler
+ 731                     	xdef	f_EXTI_PORTB_IRQHandler
+ 732                     	xdef	f_EXTI_PORTA_IRQHandler
+ 733                     	xdef	f_CLK_IRQHandler
+ 734                     	xdef	f_AWU_IRQHandler
+ 735                     	xdef	f_TLI_IRQHandler
+ 736                     	xdef	f_TRAP_IRQHandler
+ 737                     	xref	_TIM4_ClearITPendingBit
+ 738                     	xref.b	c_x
+ 739                     	xref.b	c_y
+ 758                     	end
